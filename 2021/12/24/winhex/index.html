@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-12-05
+                    2021-12-24
                 </div>
                 
 
@@ -464,13 +464,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="硬盘基本知识"><a href="#硬盘基本知识" class="headerlink" title="硬盘基本知识"></a>硬盘基本知识</h1><h2 id="硬盘由５部分组成："><a href="#硬盘由５部分组成：" class="headerlink" title="硬盘由５部分组成："></a>硬盘由５部分组成：</h2><ol>
-<li>盘片，磁头，磁道，扇区，柱面</li>
-<li>盘片 片面 和 磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。<br><img src="https://upload-images.jianshu.io/upload_images/2843224-46fb935cd31addbd.png"><br>扇区 和 磁道<br>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）<br><img src="https://upload-images.jianshu.io/upload_images/2843224-56f2056f0b36009f.png"><br>编号是：从下到上依次递增，最下面是０<pre><code> 从外到内依次递增，最外面是０
-</code></pre>
-<h2 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h2></li>
-<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )</li>
-</ol>
+                <p>#文件系统：<br>    NTFS存储较有逻辑性<br>##分配内存大小<br>##创建虚拟磁盘：<br>    １：右键此电脑<br>    ２：管理<br>    ３：右键磁盘管理，点击创建ＶＨＤ<br>    ４：右键新创建的磁盘，初始化１选择MBR（不是GPT）<br>    5：新建简单卷（简单卷大小不用管，NTFS可以选FAT３２）<br>##底层数据MBR：</p>
+<p>——————————————————————————<br>###第二个是启动某一个文件功能，打开后可以查看到底层数据<br>——————————————————————————<br>##<br>查找中含有区分大小写，按照ASCII码（美国信息交换标准代码）和UNICODE两种编码，因为大多数是美国微软公司，所以可以选择ASCII；查找中按f3即可启动查找，当找到一个目标值的时候即会暂停，再次点击f3即可再次启动搜索<br>##注意区分搜索文本和搜索十六进制数值<br>Find hex values:<br>    可以搜索底层数据中十六进制的某一个数值（记住，十六进制每一位数都是偶数位，不会出现奇数的情况）<br>： 扇区：<br>##每512个字节是一个扇区，<br>——————————————————————————————————————<br>##查找时可以选择偏移变量：<br>即到那个字节，从哪个字节，可以提高搜索速度，缩短搜索时间<br>跳转功能：<br>点击左边可以十进制和十六进制互相转换：<br>也可以使用导航——》跳至——》选择文本开始或末尾<br>看最上面的一栏即可判断是十进制还是十六进制：<br>跳转到某一个扇区功能： ，单位如果是sector则为以分区为单位<br>返回上一步或下一步操作：</p>
+<p>———————————————————————————————————————<br>##Datainterpreter:数据解释器，视图（V）——&gt;显示（Show）——数据解释器<br>##另：winhex自带计算器caculator;<br>##注意，这里的粘贴时ctrl+B!!!!!!!!!!!!!!!!!不是ctrl+V<br>    意思和写入相同<br>##MBR：计算机开机访问硬盘时所必须要读取的首个扇区（0柱面，0磁头，1扇区）<br>    硬盘是由多个盘片组成的，每个盘片是由多个扇区组成的，每个盘片上由多个磁道（同心圆<br>##MBR扇区分为1：引导程序，计算机启动后读取，如果磁盘数据不对的话会死机，如果非虚拟磁盘的MBR清除的话会死机<br>            2：磁盘签名：系统在对硬盘初始化时写入的标签，系统依靠标签来识别磁盘（如果磁盘签名丢失会认为硬盘未初始化）<br>            3：分区表：管理硬盘的分区，如果被破坏则分区会丢失<br>            4：55AA：结束标志，执行MBR引导程序时，如果最后是55AA才会继续读取下一个分区</p>
+<p>从后往前看，最后两个字节为结束标志，再往前走64个字节是分区表（往前走三行），再往前走两个是磁盘签名。再往前是引导程序</p>
 
                 
             </div>
@@ -497,7 +494,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/2021/12/05/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">https://dezhoutorizhao.github.io/blog6/blog6/2021/12/05/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/2021/12/24/winhex/">https://dezhoutorizhao.github.io/blog6/blog6/2021/12/24/winhex/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -702,9 +699,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/blog6/2021/12/24/winhex/">
                     <div class="card-image">
@@ -722,9 +720,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -733,6 +731,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -743,7 +742,7 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog6/2021/12/05/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                <a href="/blog6/2021/12/05/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
                     <div class="card-image">
                         
                         
