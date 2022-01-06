@@ -67,7 +67,7 @@
 
     <!-- Custom CSS -->
     
-<link rel="stylesheet" href="/blog6/css/style.css">
+<link rel="stylesheet" href="../../../../css/style.css">
 
 
     <!-- Google Analytics -->
@@ -89,37 +89,37 @@
         <ul>
             
             <li class="menu-item">
-                <a href="/blog6/">
+                <a href="../../../../index.html">
                     Home
                 </a>
             </li>
             
             <li class="menu-item">
-                <a href="/blog6/archives">
+                <a href="../../../../archives">
                     Archives
                 </a>
             </li>
             
             <li class="menu-item">
-                <a href="/blog6/about.html">
+                <a href="../../../../about.html">
                     About
                 </a>
             </li>
             
             <li class="menu-item">
-                <a href="/blog6/tags">
+                <a href="../../../../tags">
                     Tags
                 </a>
             </li>
             
             <li class="menu-item">
-                <a href="/blog6/categories">
+                <a href="../../../../categories">
                     Categories
                 </a>
             </li>
             
             <li class="menu-item">
-                <a href="/blog6/contact.html">
+                <a href="../../../../contact.html">
                     Contact
                 </a>
             </li>
@@ -142,7 +142,7 @@
         <!--Title and Logo-->
         <header>
     <div class="logo">
-        <a href="/blog6/"><i class="logo-icon fa 打靶场啊兄弟们" aria-hidden="true"></i></a>
+        <a href="/blog6/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
     </div>
 </header>
@@ -153,7 +153,7 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/2021/12/24/winhex/">
+            <a href="">
                 Untitled
             </a>
         </h1>
@@ -162,7 +162,7 @@
                 <span class="date">2021-12-24</span>
             
             
-                <a href="#disqus_thread" class="comments">Comments</a>
+                <a href="#disqus_thread" class="comments">留言</a>
             
             
         </div>
@@ -175,9 +175,29 @@
 
         <!-- Post Content -->
         <p>#文件系统：<br>    NTFS存储较有逻辑性<br>##分配内存大小<br>##创建虚拟磁盘：<br>    １：右键此电脑<br>    ２：管理<br>    ３：右键磁盘管理，点击创建ＶＨＤ<br>    ４：右键新创建的磁盘，初始化１选择MBR（不是GPT）<br>    5：新建简单卷（简单卷大小不用管，NTFS可以选FAT３２）<br>##底层数据MBR：</p>
-<p>——————————————————————————<br>###第二个是启动某一个文件功能，打开后可以查看到底层数据<br>——————————————————————————<br>##<br>查找中含有区分大小写，按照ASCII码（美国信息交换标准代码）和UNICODE两种编码，因为大多数是美国微软公司，所以可以选择ASCII；查找中按f3即可启动查找，当找到一个目标值的时候即会暂停，再次点击f3即可再次启动搜索<br>##注意区分搜索文本和搜索十六进制数值<br>Find hex values:<br>    可以搜索底层数据中十六进制的某一个数值（记住，十六进制每一位数都是偶数位，不会出现奇数的情况）<br>： 扇区：<br>##每512个字节是一个扇区，<br>——————————————————————————————————————<br>##查找时可以选择偏移变量：<br>即到那个字节，从哪个字节，可以提高搜索速度，缩短搜索时间<br>跳转功能：<br>点击左边可以十进制和十六进制互相转换：<br>也可以使用导航——》跳至——》选择文本开始或末尾<br>看最上面的一栏即可判断是十进制还是十六进制：<br>跳转到某一个扇区功能： ，单位如果是sector则为以分区为单位<br>返回上一步或下一步操作：</p>
-<p>———————————————————————————————————————<br>##Datainterpreter:数据解释器，视图（V）——&gt;显示（Show）——数据解释器<br>##另：winhex自带计算器caculator;<br>##注意，这里的粘贴时ctrl+B!!!!!!!!!!!!!!!!!不是ctrl+V<br>    意思和写入相同<br>##MBR：计算机开机访问硬盘时所必须要读取的首个扇区（0柱面，0磁头，1扇区）<br>    硬盘是由多个盘片组成的，每个盘片是由多个扇区组成的，每个盘片上由多个磁道（同心圆<br>##MBR扇区分为1：引导程序，计算机启动后读取，如果磁盘数据不对的话会死机，如果非虚拟磁盘的MBR清除的话会死机<br>            2：磁盘签名：系统在对硬盘初始化时写入的标签，系统依靠标签来识别磁盘（如果磁盘签名丢失会认为硬盘未初始化）<br>            3：分区表：管理硬盘的分区，如果被破坏则分区会丢失<br>            4：55AA：结束标志，执行MBR引导程序时，如果最后是55AA才会继续读取下一个分区</p>
-<p>从后往前看，最后两个字节为结束标志，再往前走64个字节是分区表（往前走三行），再往前走两个是磁盘签名。再往前是引导程序</p>
+<p>——————————————————————————<br>###第二个是启动某一个文件功能，打开后可以查看到底层数据<br>——————————————————————————<br>##</p>
+<ol>
+<li>查找中含有区分大小写，按照ASCII码（美国信息交换标准代码）和UNICODE两种编码，因为大多数是美国微软公司，所以可以</li>
+<li>选择ASCII；查找中按f3即可启动查找，当找到一个目标值的时候即会暂停，再次点击f3即可再次启动搜索<br>##注意区分搜索文本和搜索十六进制数值</li>
+<li>Find hex values:<br> 可以搜索底层数据中十六进制的某一个数值（记住，十六进制每一位数都是偶数位，不会出现奇数的情况）</li>
+<li>扇区：<br>##每512个字节是一个扇区，</li>
+<li>——————————————————————————————————————<br>##查找时可以选择偏移变量： </li>
+<li>即到那个字节，从哪个字节，可以提高搜索速度，缩短搜索时间</li>
+<li>跳转功能： </li>
+<li>点击左边可以十进制和十六进制互相转换： </li>
+<li>也可以使用导航——》跳至——》选择文本开始或末尾</li>
+<li>看最上面的一栏即可判断是十进制还是十六进制： </li>
+<li>跳转到某一个扇区功能： ，单位如果是sector则为以分区为单位</li>
+<li>返回上一步或下一步操作：</li>
+</ol>
+<p>———————————————————————————————————————<br>##Datainterpreter:数据解释器，视图（V）——&gt;显示（Show）——数据解释器<br>##另：winhex自带计算器caculator;<br>##注意，这里的粘贴时ctrl+B!!!!!!!!!!!!!!!!!不是ctrl+V<br>    1. 意思和写入相同<br>##MBR：计算机开机访问硬盘时所必须要读取的首个扇区（0柱面，0磁头，1扇区）<br>    2. 硬盘是由多个盘片组成的，每个盘片是由多个扇区组成的，每个盘片上由多个磁道（同心圆<br>##MBR扇区分为</p>
+<ol>
+<li>引导程序，计算机启动后读取，如果磁盘数据不对的话会死机，如果非虚拟磁盘的MBR清除的话会死机</li>
+<li>磁盘签名：系统在对硬盘初始化时写入的标签，系统依靠标签来识别磁盘（如果磁盘签名丢失会认为硬盘未初始化）</li>
+<li>分区表：管理硬盘的分区，如果被破坏则分区会丢失</li>
+<li>55AA：结束标志，执行MBR引导程序时，如果最后是55AA才会继续读取下一个分区</li>
+<li>从后往前看，最后两个字节为结束标志，再往前走64个字节是分区表（往前走三行），再往前走两个是磁盘签名。再往前是引导程序</li>
+</ol>
 
     </div>
 
@@ -225,19 +245,19 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/blog6/2022/01/05/%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4md/">Untitled</a>
+                <a class="footer-post" href="../../../../2022/01/05/%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4md/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/2021/12/24/winhex2/">Untitled</a>
+                <a class="footer-post" href="../winhex2/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/2021/12/24/winhex/">Untitled</a>
+                <a class="footer-post" href="">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/2021/12/05/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">Untitled</a>
+                <a class="footer-post" href="../../05/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">Untitled</a>
             </li>
             
         </ul>
@@ -252,7 +272,7 @@
                 <ul class="list-inline footer-social-icons">
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
                             <span class="footer-icon-container">
                                 <i class="fa fa-github"></i>
                             </span>
@@ -261,7 +281,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
                             <span class="footer-icon-container">
                                 <i class="fa fa-twitter"></i>
                             </span>
@@ -270,7 +290,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
                             <span class="footer-icon-container">
                                 <i class="fa fa-facebook"></i>
                             </span>
@@ -279,7 +299,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
                             <span class="footer-icon-container">
                                 <i class="fa fa-instagram"></i>
                             </span>
@@ -288,7 +308,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
                             <span class="footer-icon-container">
                                 <i class="fa fa-dribbble"></i>
                             </span>
@@ -297,7 +317,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
                             <span class="footer-icon-container">
                                 <i class="fa fa-telegram"></i>
                             </span>
@@ -306,7 +326,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
                             <span class="footer-icon-container">
                                 <i class="fa fa-behance"></i>
                             </span>
@@ -315,7 +335,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
                             <span class="footer-icon-container">
                                 <i class="fa fa-500px"></i>
                             </span>
@@ -324,7 +344,7 @@
                     
                     
                     <li class="list-inline-item">
-                        <a href="mailto:test@example.com">
+                        <a href="mailto:a18888200398@163.com/">
                             <span class="footer-icon-container">
                                 <i class="fa fa-envelope-o"></i>
                             </span>
@@ -366,7 +386,7 @@
 
 <!-- Custom JavaScript -->
 
-<script src="/blog6/js/main.js"></script>
+<script src="../../../../js/main.js"></script>
 
 
 <!-- Disqus Comments -->
