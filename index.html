@@ -173,7 +173,8 @@
 
     
         <div class="content">
-            <h1 id="常用文件文件名"><a href="#常用文件文件名" class="headerlink" title="常用文件文件名"></a>常用文件文件名</h1><h2 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h2><ol>
+            <h1 id="常用文件文件名"><a href="#常用文件文件名" class="headerlink" title="常用文件文件名"></a>常用文件文件名</h1><h2 id=""><a href="#" class="headerlink" title="/"></a>/</h2><ol>
+<li>根目录<h2 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h2></li>
 <li> 用于存放可执行文件命令</li>
 </ol>
 <h2 id="ect"><a href="#ect" class="headerlink" title="ect"></a>ect</h2><ol>
@@ -187,7 +188,46 @@
 <h2 id="home"><a href="#home" class="headerlink" title="home"></a>home</h2><ol>
 <li>所有用户的家目录</li>
 </ol>
+<h2 id="proc"><a href="#proc" class="headerlink" title="proc"></a>proc</h2><ol>
+<li>存放配置文件</li>
+<li>例如Linux系统下存放cpu信息的cpuinfo，win系统可以直接通过我的电脑中的属性来查看</li>
+</ol>
+<p>##注意区分家目录和根目录</p>
+<ol>
+<li>家目录是根目录的一个分支，一个家目录下可以有多个用户分支</li>
+</ol>
 <p><img src="https://img-blog.csdnimg.cn/20200224172609484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0N1aXlhbmJpbmcx,size_16,color_FFFFFF,t_70"></p>
+<h1 id="路径概念"><a href="#路径概念" class="headerlink" title="路径概念"></a>路径概念</h1><h2 id="路径描述："><a href="#路径描述：" class="headerlink" title="路径描述："></a>路径描述：</h2><ol>
+<li>绝对路径：从根目录开始描述（文件后面要带斜杠，不是文件名的开头）pwd为绝对路劲</li>
+<li>相对路径：从当前路径开始描述路径</li>
+<li>二者之间的区别：开头是斜杠是绝对路径，不是斜杠就一定是相对路径<h2 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h2></li>
+<li>一个点表示当前目录，两个点表示上级目录，即”../“,而”./“表示当前目录</li>
+<li>例子：../temp/./temp/main.cpp:意为返回temp的上级目录后切回temp，后保留在temp，后在temp中找到main.cpp文件</li>
+<li>~/波浪号加斜杠表示返回家目录<h1 id="常用文件管理指令"><a href="#常用文件管理指令" class="headerlink" title="常用文件管理指令"></a>常用文件管理指令</h1><h2 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl+c"></a>ctrl+c</h2></li>
+<li>终止杀掉当前进程，传入终止信号，可以直接跟在一个指令后面，2. 此指令可以直接终止，换行并清空<h2 id="CTRL-U"><a href="#CTRL-U" class="headerlink" title="CTRL+U"></a>CTRL+U</h2></li>
+<li>可以直接清空本行，终端中直接显示</li>
+</ol>
+<h2 id="tab键"><a href="#tab键" class="headerlink" title="tab键"></a>tab键</h2><ol>
+<li>补全指令或路径（可以写两个字母就试一个tab）</li>
+<li>条件：系统发现如果有多种选项选择则不会执行，单个选项则执行</li>
+</ol>
+<h2 id="方向键"><a href="#方向键" class="headerlink" title="方向键"></a>方向键</h2><ol>
+<li>上可以直接还原上一条命令</li>
+</ol>
+<h2 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h2><ol>
+<li>展示当前列表（ls可以理解为list）</li>
+<li>ls -l：表示展示当前文件的详细信息</li>
+<li>ls -lh:人性化去输出，即可以不同内存单元大小互相切换</li>
+<li>ls -a:显示所有文件，所有以”.”开头的文件即为隐藏文件？</li>
+<li>ls -A:不显示当前文件的目录，显示其下属的文件的隐藏文件？</li>
+<li>ll:ls -la的简写<h2 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h2></li>
+<li>显示当前绝对路径<h2 id="cd命令"><a href="#cd命令" class="headerlink" title="cd命令"></a>cd命令</h2></li>
+<li>changediractory的简写，意思为切换路径</li>
+<li>后面既可以是相对路径，也可以是绝对路径</li>
+<li>cd -:意思为返回上一个，注意，只能是返回上一级，不是多级<h2 id="cp："><a href="#cp：" class="headerlink" title="cp："></a>cp：</h2></li>
+<li>复制加粘贴加重命名命令</li>
+<li>格式：cp p1 p2，注意空格位置</li>
+</ol>
 
         </div>
     
@@ -371,7 +411,7 @@
             <h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol>
 <li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li>
 <li>删掉C盘用户中的.ssh文件</li>
-<li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#x78;&#x78;&#120;&#64;&#113;&#x71;&#46;&#99;&#111;&#x6d;">&#120;&#x78;&#x78;&#120;&#64;&#113;&#x71;&#46;&#99;&#111;&#x6d;</a> 一定要加上邮箱！！！</li>
+<li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#120;&#x78;&#x78;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#120;&#120;&#x78;&#x78;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li>
 <li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li>
 <li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li>
 <li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li>
