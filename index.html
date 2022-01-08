@@ -156,6 +156,50 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="2022/01/08/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-08</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/2022/01/08/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="tmux和vim工具的使用"><a href="#tmux和vim工具的使用" class="headerlink" title="tmux和vim工具的使用"></a>tmux和vim工具的使用</h1><h2 id="可以脱离本地环境，直接连服务器即可"><a href="#可以脱离本地环境，直接连服务器即可" class="headerlink" title="可以脱离本地环境，直接连服务器即可"></a>可以脱离本地环境，直接连服务器即可</h2><h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><ol>
+<li>分屏</li>
+<li>允许把终端断开之后继续运行（在tmux中写完全不需要担心断网）</li>
+</ol>
+<h4 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h4><ol>
+<li>内部很多个session，每一个session可以开很多Window，每一个Window可以开很多个pane（pane为最小单位，即为shell对话框）</li>
+</ol>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><ol>
+<li>直接输入tmux，就会打开一个session，其中包含一个window</li>
+<li>切分：（有前缀键）ctrl加a/b（acterminal为a,没改的为b）后按%为左右分割；上下均分为ctrl加b后再双引号</li>
+<li>关闭：选中后CTRL加d，当最后一个pane关闭时会关掉没有pane的window，最后一个window关闭时会关闭当前没有window的session</li>
+<li>选中：鼠标光标选中，或者按前缀键后按方向键</li>
+<li>修改分割线的位置：直接鼠标光标拖动分割线；后者按住前缀键的同时按方向键（前缀键必须按住不动，不松手）</li>
+<li>全屏：选中想全屏的窗口后按下前缀键，后按z，进入全屏和退出全屏同理，</li>
+<li>退出tmux：按下前缀键后按下d（不关闭tmux中的每一个pane，但是关闭tmux）</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="2022/01/05/%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4md/">
                 Untitled
             </a>
@@ -226,7 +270,24 @@
 <li>后面既可以是相对路径，也可以是绝对路径</li>
 <li>cd -:意思为返回上一个，注意，只能是返回上一级，不是多级<h2 id="cp："><a href="#cp：" class="headerlink" title="cp："></a>cp：</h2></li>
 <li>复制加粘贴加重命名命令</li>
-<li>格式：cp p1 p2，注意空格位置</li>
+<li>格式：cp p1 p2，注意空格位置<h2 id="mkdir："><a href="#mkdir：" class="headerlink" title="mkdir："></a>mkdir：</h2></li>
+<li>既可以根据相对路径创建，也可以根据绝对路径来创建</li>
+<li>创建a里有b，b里有c的：mkdir a/b/c</li>
+<li>如果存在则跳过不报错，没有则生成</li>
+</ol>
+<h2 id="rm命令"><a href="#rm命令" class="headerlink" title="rm命令"></a>rm命令</h2><ol>
+<li>rm 待删除 -r：递归方式删除</li>
+<li>注意，rm 待删除 -f为强制删除，无论其是否是保护文件，不要轻易使用，可能回产生无法挽回的局面</li>
+<li>rm a/<em>:加上</em>意为删除所有文件，该句意为删除a文件夹下所有文件</li>
+<li>rm a -r 删除文件夹rm a 删除文件rm *.txt,删除当前文件夹下的所有.txt类型的文件，如果加*但是不加文件类型后缀则为删除当前文件夹下所有文件<h2 id="touch创建文件"><a href="#touch创建文件" class="headerlink" title="touch创建文件"></a>touch创建文件</h2></li>
+<li>注意区分mkdir和touch，mkdir是创建文件夹而touch为创建文件</li>
+<li>创建文件时要加上文件类型，例如.txt,.png等<h2 id="mv命令："><a href="#mv命令：" class="headerlink" title="mv命令："></a>mv命令：</h2></li>
+<li>mv p1 p2:将p1中的内容移入p2中</li>
+<li>mv a/tmp.txt b/:将a中的tmp移动至b中，find a结果将只有a，find b的结果将有b，b/tmp.txt(b下有tmp.txt文件)</li>
+<li>注意区分cp和mv，cp是将A复制给B，而mv是将A移动至B</li>
+<li>mv tmp.txt tmp.cpp,可以将tmp.txt中的内容复制到tmp.txt中<h2 id="cat命令："><a href="#cat命令：" class="headerlink" title="cat命令："></a>cat命令：</h2></li>
+<li>看文件中写的内容<h2 id="对文件操作要加-r"><a href="#对文件操作要加-r" class="headerlink" title="对文件操作要加-r"></a>对文件操作要加-r</h2></li>
+<li>例如：rm -r dir_a dir_b dir_c,为删除文件夹dir_a dir_b dir_c三个文件夹</li>
 </ol>
 
         </div>
@@ -411,7 +472,7 @@
             <h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol>
 <li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li>
 <li>删掉C盘用户中的.ssh文件</li>
-<li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#120;&#x78;&#120;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#120;&#120;&#x78;&#120;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a> 一定要加上邮箱！！！</li>
+<li>ssh-keygen -t rsa -C <a href="mailto:&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li>
 <li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li>
 <li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li>
 <li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li>
@@ -503,6 +564,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="2022/01/08/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">Untitled</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="2022/01/05/%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4md/">Untitled</a>
             </li>
             
@@ -512,10 +577,6 @@
             
             <li>
                 <a class="footer-post" href="2021/12/24/winhex/">Untitled</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="2021/12/05/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">Untitled</a>
             </li>
             
         </ul>

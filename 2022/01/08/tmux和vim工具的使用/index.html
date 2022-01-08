@@ -159,7 +159,7 @@
         </h1>
         <div class="post-info">
             
-                <span class="date">2022-01-05</span>
+                <span class="date">2022-01-08</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,77 +174,21 @@
         
 
         <!-- Post Content -->
-        <h1 id="常用文件文件名"><a href="#常用文件文件名" class="headerlink" title="常用文件文件名"></a>常用文件文件名</h1><h2 id=""><a href="#" class="headerlink" title="/"></a>/</h2><ol>
-<li>根目录<h2 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h2></li>
-<li> 用于存放可执行文件命令</li>
+        <h1 id="tmux和vim工具的使用"><a href="#tmux和vim工具的使用" class="headerlink" title="tmux和vim工具的使用"></a>tmux和vim工具的使用</h1><h2 id="可以脱离本地环境，直接连服务器即可"><a href="#可以脱离本地环境，直接连服务器即可" class="headerlink" title="可以脱离本地环境，直接连服务器即可"></a>可以脱离本地环境，直接连服务器即可</h2><h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><ol>
+<li>分屏</li>
+<li>允许把终端断开之后继续运行（在tmux中写完全不需要担心断网）</li>
 </ol>
-<h2 id="ect"><a href="#ect" class="headerlink" title="ect"></a>ect</h2><ol>
-<li>配置文件，类似于config文件</li>
-<li>内部常常有nginx文件夹，存放应用的各种配置<h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2></li>
-<li>log文件夹中存放各种日志</li>
+<h4 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h4><ol>
+<li>内部很多个session，每一个session可以开很多Window，每一个Window可以开很多个pane（pane为最小单位，即为shell对话框）</li>
 </ol>
-<h2 id="lib"><a href="#lib" class="headerlink" title="lib"></a>lib</h2><ol>
-<li>用于存放安装包，类似于py的模块和c的头文件</li>
-</ol>
-<h2 id="home"><a href="#home" class="headerlink" title="home"></a>home</h2><ol>
-<li>所有用户的家目录</li>
-</ol>
-<h2 id="proc"><a href="#proc" class="headerlink" title="proc"></a>proc</h2><ol>
-<li>存放配置文件</li>
-<li>例如Linux系统下存放cpu信息的cpuinfo，win系统可以直接通过我的电脑中的属性来查看</li>
-</ol>
-<p>##注意区分家目录和根目录</p>
-<ol>
-<li>家目录是根目录的一个分支，一个家目录下可以有多个用户分支</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20200224172609484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0N1aXlhbmJpbmcx,size_16,color_FFFFFF,t_70"></p>
-<h1 id="路径概念"><a href="#路径概念" class="headerlink" title="路径概念"></a>路径概念</h1><h2 id="路径描述："><a href="#路径描述：" class="headerlink" title="路径描述："></a>路径描述：</h2><ol>
-<li>绝对路径：从根目录开始描述（文件后面要带斜杠，不是文件名的开头）pwd为绝对路劲</li>
-<li>相对路径：从当前路径开始描述路径</li>
-<li>二者之间的区别：开头是斜杠是绝对路径，不是斜杠就一定是相对路径<h2 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h2></li>
-<li>一个点表示当前目录，两个点表示上级目录，即”../“,而”./“表示当前目录</li>
-<li>例子：../temp/./temp/main.cpp:意为返回temp的上级目录后切回temp，后保留在temp，后在temp中找到main.cpp文件</li>
-<li>~/波浪号加斜杠表示返回家目录<h1 id="常用文件管理指令"><a href="#常用文件管理指令" class="headerlink" title="常用文件管理指令"></a>常用文件管理指令</h1><h2 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl+c"></a>ctrl+c</h2></li>
-<li>终止杀掉当前进程，传入终止信号，可以直接跟在一个指令后面，2. 此指令可以直接终止，换行并清空<h2 id="CTRL-U"><a href="#CTRL-U" class="headerlink" title="CTRL+U"></a>CTRL+U</h2></li>
-<li>可以直接清空本行，终端中直接显示</li>
-</ol>
-<h2 id="tab键"><a href="#tab键" class="headerlink" title="tab键"></a>tab键</h2><ol>
-<li>补全指令或路径（可以写两个字母就试一个tab）</li>
-<li>条件：系统发现如果有多种选项选择则不会执行，单个选项则执行</li>
-</ol>
-<h2 id="方向键"><a href="#方向键" class="headerlink" title="方向键"></a>方向键</h2><ol>
-<li>上可以直接还原上一条命令</li>
-</ol>
-<h2 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h2><ol>
-<li>展示当前列表（ls可以理解为list）</li>
-<li>ls -l：表示展示当前文件的详细信息</li>
-<li>ls -lh:人性化去输出，即可以不同内存单元大小互相切换</li>
-<li>ls -a:显示所有文件，所有以”.”开头的文件即为隐藏文件？</li>
-<li>ls -A:不显示当前文件的目录，显示其下属的文件的隐藏文件？</li>
-<li>ll:ls -la的简写<h2 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h2></li>
-<li>显示当前绝对路径<h2 id="cd命令"><a href="#cd命令" class="headerlink" title="cd命令"></a>cd命令</h2></li>
-<li>changediractory的简写，意思为切换路径</li>
-<li>后面既可以是相对路径，也可以是绝对路径</li>
-<li>cd -:意思为返回上一个，注意，只能是返回上一级，不是多级<h2 id="cp："><a href="#cp：" class="headerlink" title="cp："></a>cp：</h2></li>
-<li>复制加粘贴加重命名命令</li>
-<li>格式：cp p1 p2，注意空格位置<h2 id="mkdir："><a href="#mkdir：" class="headerlink" title="mkdir："></a>mkdir：</h2></li>
-<li>既可以根据相对路径创建，也可以根据绝对路径来创建</li>
-<li>创建a里有b，b里有c的：mkdir a/b/c</li>
-<li>如果存在则跳过不报错，没有则生成</li>
-</ol>
-<h2 id="rm命令"><a href="#rm命令" class="headerlink" title="rm命令"></a>rm命令</h2><ol>
-<li>rm 待删除 -r：递归方式删除</li>
-<li>注意，rm 待删除 -f为强制删除，无论其是否是保护文件，不要轻易使用，可能回产生无法挽回的局面</li>
-<li>rm a/<em>:加上</em>意为删除所有文件，该句意为删除a文件夹下所有文件</li>
-<li>rm a -r 删除文件夹rm a 删除文件rm *.txt,删除当前文件夹下的所有.txt类型的文件，如果加*但是不加文件类型后缀则为删除当前文件夹下所有文件<h2 id="touch创建文件"><a href="#touch创建文件" class="headerlink" title="touch创建文件"></a>touch创建文件</h2></li>
-<li>注意区分mkdir和touch，mkdir是创建文件夹而touch为创建文件</li>
-<li>创建文件时要加上文件类型，例如.txt,.png等<h2 id="mv命令："><a href="#mv命令：" class="headerlink" title="mv命令："></a>mv命令：</h2></li>
-<li>mv p1 p2:将p1中的内容移入p2中</li>
-<li>mv a/tmp.txt b/:将a中的tmp移动至b中，find a结果将只有a，find b的结果将有b，b/tmp.txt(b下有tmp.txt文件)</li>
-<li>注意区分cp和mv，cp是将A复制给B，而mv是将A移动至B</li>
-<li>mv tmp.txt tmp.cpp,可以将tmp.txt中的内容复制到tmp.txt中<h2 id="cat命令："><a href="#cat命令：" class="headerlink" title="cat命令："></a>cat命令：</h2></li>
-<li>看文件中写的内容<h2 id="对文件操作要加-r"><a href="#对文件操作要加-r" class="headerlink" title="对文件操作要加-r"></a>对文件操作要加-r</h2></li>
-<li>例如：rm -r dir_a dir_b dir_c,为删除文件夹dir_a dir_b dir_c三个文件夹</li>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><ol>
+<li>直接输入tmux，就会打开一个session，其中包含一个window</li>
+<li>切分：（有前缀键）ctrl加a/b（acterminal为a,没改的为b）后按%为左右分割；上下均分为ctrl加b后再双引号</li>
+<li>关闭：选中后CTRL加d，当最后一个pane关闭时会关掉没有pane的window，最后一个window关闭时会关闭当前没有window的session</li>
+<li>选中：鼠标光标选中，或者按前缀键后按方向键</li>
+<li>修改分割线的位置：直接鼠标光标拖动分割线；后者按住前缀键的同时按方向键（前缀键必须按住不动，不松手）</li>
+<li>全屏：选中想全屏的窗口后按下前缀键，后按z，进入全屏和退出全屏同理，</li>
+<li>退出tmux：按下前缀键后按下d（不关闭tmux中的每一个pane，但是关闭tmux）</li>
 </ol>
 
     </div>
@@ -293,11 +237,11 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="../../08/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">Untitled</a>
+                <a class="footer-post" href="">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="">Untitled</a>
+                <a class="footer-post" href="../../05/%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4md/">Untitled</a>
             </li>
             
             <li>
