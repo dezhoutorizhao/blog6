@@ -187,7 +187,53 @@
 <li>选中：鼠标光标选中，或者按前缀键后按方向键</li>
 <li>修改分割线的位置：直接鼠标光标拖动分割线；后者按住前缀键的同时按方向键（前缀键必须按住不动，不松手）</li>
 <li>全屏：选中想全屏的窗口后按下前缀键，后按z，进入全屏和退出全屏同理，</li>
-<li>退出tmux：按下前缀键后按下d（不关闭tmux中的每一个pane，但是关闭tmux）</li>
+<li>退出tmux：按下前缀键后按下d（不关闭tmux中的每一个pane，但是关闭tmux），再次打开：tmux+a或tmux+attach</li>
+<li>创建一个window：ctrl加a后松开后按下c</li>
+<li>翻阅：鼠标滚轮；前缀键加pageup或者pagedown</li>
+<li>选中：shift+鼠标选中</li>
+<li>复制：ctrl+insert</li>
+<li>粘贴：shift+insert<h3 id="vim操作"><a href="#vim操作" class="headerlink" title="vim操作"></a>vim操作</h3></li>
+<li>可以在tmux中打开，防止当断网时会丢失数据</li>
+<li>一般命令模式：没有办法编辑，可以输入命令，每一个字母都是一个命令</li>
+<li>编辑模式：在一般命令模式下按下i键，既可以编辑，按下esc键盘即可退出编辑模式(进入编辑模式时底部会有insert提示)</li>
+<li>vim会自动识别代码类型，将会自动显示代码高亮</li>
+<li>命令行模式：在一般命令模式下输入”：/?”(不包括引号)，即可进图命令行模式，命令行在最下面，可以查找，替换，保存，退出，配置编辑器（即配置编辑器的基本配置，例如行号等）等<h4 id="具体操作："><a href="#具体操作：" class="headerlink" title="具体操作："></a>具体操作：</h4></li>
+<li>i进入编辑模式</li>
+<li>esc进入一般命令模式，无论是编辑模式还是命令行模式</li>
+<li>移动光标时不会在行的开头和末尾自动换行，和普通编辑器不同！！！</li>
+<li>移动光标：1：可以直接使用小键盘的方向键盘；2：可以使用hjkl,分别代表左下上右</li>
+<li>n<space> :n为数字，按下数字后按下空格，光标会向右移动一行这样的字符（必须进入一般命令模式下）（到行末会自动换行）</li>
+<li>在一般命令模式下，按下0或home是将光标移动到本行开头，￥或end是移动到本行末尾</li>
+<li>移动到最后一行：shift加g</li>
+<li>移动到某一行：用冒号加数字n或数字n加G，即将光标移动到第n行</li>
+<li>跳过多少行：数字加回车</li>
+<li>gg第一行，G最后一行（当访问日志时，可能数据量很大）</li>
+<li>查找：/word 为查找光标之下的第一个值为word的字符串，？word为查找光标之上的第一个值为word的字符串</li>
+<li>n（小写）会重复上一次的查找操作，N（为反向重复前一次查找操作）</li>
+<li>替换</li>
+<li>&lt;:m,ns/word1/word2/g&gt;:在第m到第n行中查找word1字符串，并且将其替换为word2</li>
+<li>&lt;:1,$s/word1/word2/g&gt;替换全文的word1字串为word2</li>
+<li>&lt;:1,$s/word1/word2/gc&gt;当替换每一个word1时会要求用户确认，输入y或n</li>
+<li>&lt;:noh&gt;关闭查找关键词高亮</li>
+<li><v>选中文本，和Windows系统的shift相同</li>
+<li><d>删除选中的文本，和backspace相同</li>
+<li><dd>删除当前行,和ctrl+d相同</li>
+<li><y>复制选中的文本</li>
+<li><yy>复制当前选中的行</li>
+<li><p>post，当为<y>复制的文本时为在光标的下一个位置粘贴，当为<yy>复制的为一行时为在下一行粘贴</li>
+<li><u>撤销（dev和pycharm都是CTRL加z）</li>
+<li>&lt;ctrl+y&gt;==&lt;ctrl+shift+z&gt;:取消撤销（dev和pycharm也都是ctrl加y）</li>
+<li>&lt;ctrl+z&gt;挂起当前进程，即保留当前的vim条件下关闭！！！</li>
+<li>&lt;shift+&gt;&gt;选中整体后向右移动，如果不是选中整体时为将当前行向右移动</li>
+<li>&lt;shift+&lt;&gt;选中后整体向左移动，如果不是选中整体时为将当前行向右移动</li>
+<li>&lt;:w&gt;保存，只读模式为&lt;:！&gt;来保存</li>
+<li>&lt;:w:&gt;强制保存（有时候未获得超级管理员权限时可以强制保存）</li>
+<li>&lt;:q&gt;退出,quit</li>
+<li>&lt;:q:&gt;强制退出</li>
+<li>&lt;:wq&gt;保存并退出</li>
+<li>&lt;:set nonu&gt;取消行号，当复制时避免连带行号一起复制</li>
+<li>&lt;:set nu&gt;恢复行号</li>
+<li><gg> <d> <G>:删除所有文本（将光标移动到开头，设置为选中模式，再将光标移动到末尾）</li>
 </ol>
 
         </div>
@@ -472,7 +518,7 @@
             <h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol>
 <li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li>
 <li>删掉C盘用户中的.ssh文件</li>
-<li>ssh-keygen -t rsa -C <a href="mailto:&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li>
+<li>ssh-keygen -t rsa -C <a href="mailto:&#x78;&#x78;&#120;&#x78;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#109;">&#x78;&#x78;&#120;&#x78;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li>
 <li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li>
 <li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li>
 <li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li>
