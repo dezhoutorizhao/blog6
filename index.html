@@ -237,7 +237,7 @@
 <li>esc进入一般命令模式，无论是编辑模式还是命令行模式</li>
 <li>移动光标时不会在行的开头和末尾自动换行，和普通编辑器不同！！！</li>
 <li>移动光标：1：可以直接使用小键盘的方向键盘；2：可以使用hjkl,分别代表左下上右</li>
-<li>n<space> :n为数字，按下数字后按下空格，光标会向右移动n个字符（必须进入一般命令模式下）（到行末会自动换行）</li>
+<li>n<space> :n为数字，按下数字后按下空格，光标会向右移动n个字符（必须进入一般命令模式下）（到行末会自动换行），此方法为跳到第n个字符的后面！！！(如果想要删除包括第n个字符的话可以输入n-1<space>)</li>
 <li>在一般命令模式下，按下0或home是将光标移动到本行开头，￥或end是移动到本行末尾</li>
 <li>移动到最后一行：shift加g(即为G)</li>
 <li>移动到某一行：用冒号加数字n或数字n加G，即将光标移动到第n行</li>
@@ -251,7 +251,7 @@
 <li>&lt;:1,$s/word1/word2/gc&gt;当替换每一个word1时会要求用户确认，输入y或n可以一次替换每一次查找</li>
 <li>&lt;:noh&gt;关闭查找关键词高亮</li>
 <li><v>选中文本，和Windows系统的shift相同</li>
-<li><d>删除选中的文本，和backspace相同</li>
+<li><d>删除选中的文本，和backspace相同，当删除的为某一行时，再次按p可以在鼠标光标的下一行粘贴删除的内容（类似剪切复制）</li>
 <li><dd>删除当前行,和ctrl+d相同</li>
 <li><y>复制选中的文本</li>
 <li><yy>复制当前选中的行</li>
@@ -259,8 +259,8 @@
 <li><u>撤销（dev和pycharm都是CTRL加z）</li>
 <li>&lt;ctrl + r&gt;==&lt;ctrl+shift+z&gt;:取消撤销（dev和pycharm也都是ctrl加y）(r可以理解为repeat,即重复)</li>
 <li>&lt;ctrl+z&gt;挂起当前进程，即保留当前的vim条件下关闭！！！</li>
-<li>&lt;shift+&gt;&gt;选中整体后向右移动，如果不是选中整体时为将当前行向右移动</li>
-<li>&lt;shift+&lt;&gt;选中后整体向左移动，如果不是选中整体时为将当前行向右移动</li>
+<li>&lt;shift+&gt;&gt;选中整体后向右移动，如果不是选中整体时为将当前行向右移动;即&lt;shift + &gt;&gt;为向右缩进一次</li>
+<li>&lt;shift+&lt;&gt;选中后整体向左移动，如果不是选中整体时为将当前行向右移动,即&lt;shift + &lt;&gt;为想左缩进一次</li>
 <li>&lt;:w&gt;保存，只读模式为&lt;:！&gt;来保存</li>
 <li>&lt;:w:&gt;强制保存（有时候未获得超级管理员权限时可以强制保存）</li>
 <li>&lt;:q&gt;退出,quit</li>
@@ -272,10 +272,17 @@
 <li><gg> &lt;=&gt; <G>:全文格式化，解决当代码复制的时候出现多重缩进的问题时</li>
 <li>paste模式：带有缩进的模式；&lt;:set paste&gt;为设置为带有自动缩进的模式，但是&lt;:set nopaste&gt;为设置不带有自动缩进的模式(要粘贴的话可以先set paste 后set nopaste)</li>
 <li>&lt;CTRL+q&gt;当vim卡死的时候，取消当前正在执行的命令</li>
-<li>注意区分&lt;shift+insert&gt;和<p>的区别：&lt;shift+insert&gt;可以粘贴vim外面的内容，粘贴的是系统自带的粘贴板;但是<p>只能够粘贴vim内部的内容，粘贴的是vim内部的粘贴板<h3 id="当用vim编辑文件时，会自动创建一个-filename-swp的临时文件"><a href="#当用vim编辑文件时，会自动创建一个-filename-swp的临时文件" class="headerlink" title="当用vim编辑文件时，会自动创建一个.filename.swp的临时文件"></a>当用vim编辑文件时，会自动创建一个.filename.swp的临时文件</h3></li>
+<li>注意区分&lt;shift+insert&gt;和<p>的区别：&lt;shift+insert&gt;可以粘贴vim外面的内容，粘贴的是系统自带的粘贴板;但是<p>只能够粘贴vim内部的内容，粘贴的是vim内部的粘贴板</li>
+<li>&lt;ctrl + insert&gt;会复制行号，但是<p>不会复制行号<h3 id="当用vim编辑文件时，会自动创建一个-filename-swp的临时文件"><a href="#当用vim编辑文件时，会自动创建一个-filename-swp的临时文件" class="headerlink" title="当用vim编辑文件时，会自动创建一个.filename.swp的临时文件"></a>当用vim编辑文件时，会自动创建一个.filename.swp的临时文件</h3></li>
 <li>如果打开某个文件时，如果文件的swp已经存在则会报错</li>
-<li>解决方法：1：找到打开文件的程序并退出，2：直接删除该swp文件即可</li>
-<li></li>
+<li>解决方法：1：找到打开文件的程序并退出，2：直接删除该swp文件即可<h1 id="操作整理"><a href="#操作整理" class="headerlink" title="操作整理"></a>操作整理</h1><h2 id="很重要的翻页操作（当自己没有鼠标时非常实用）"><a href="#很重要的翻页操作（当自己没有鼠标时非常实用）" class="headerlink" title="很重要的翻页操作（当自己没有鼠标时非常实用）"></a>很重要的翻页操作（当自己没有鼠标时非常实用）</h2></li>
+<li>在terminal中&lt;shift+pageup&gt;/&lt;shift+pagedown&gt;实现翻页（记住terminal中用shift）</li>
+<li>在vim中用前缀键加<pageup>/<pagedown>来实现(记住vim中用前缀键) <h2 id="使用的最大化pane窗口操作"><a href="#使用的最大化pane窗口操作" class="headerlink" title="使用的最大化pane窗口操作"></a>使用的最大化pane窗口操作</h2></li>
+<li>&lt;ctrl + z&gt;,最大化与退出最大化同样操作（z可以理解为最）<h2 id="关闭操作："><a href="#关闭操作：" class="headerlink" title="关闭操作："></a>关闭操作：</h2></li>
+<li>vim的关闭为&lt;:wq&gt;(保存并退出)&lt;:q&gt;（直接退出）（详细上面有直接操作）</li>
+<li>pane的关闭：&lt;ctrl + a + x&gt;(前缀键加x)</li>
+<li>window的关闭&lt;ctrl + b + &amp;&gt;(前缀键加&amp;)</li>
+<li>以上两条一般会提示是否关闭，y/n</li>
 </ol>
 
         </div>
@@ -561,7 +568,7 @@
             <h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol>
 <li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li>
 <li>删掉C盘用户中的.ssh文件</li>
-<li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#120;&#120;&#120;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#120;&#120;&#120;&#120;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a> 一定要加上邮箱！！！</li>
+<li>ssh-keygen -t rsa -C <a href="mailto:&#x78;&#x78;&#120;&#120;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x78;&#x78;&#120;&#120;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;</a> 一定要加上邮箱！！！</li>
 <li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li>
 <li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li>
 <li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li>
