@@ -156,6 +156,41 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="2022/01/10/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-10</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/2022/01/10/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="磁盘管理使用"><a href="#磁盘管理使用" class="headerlink" title="磁盘管理使用"></a>磁盘管理使用</h1><h2 id="windows自带的磁盘管理"><a href="#windows自带的磁盘管理" class="headerlink" title="windows自带的磁盘管理"></a>windows自带的磁盘管理</h2><h3 id="新建简单卷"><a href="#新建简单卷" class="headerlink" title="新建简单卷"></a>新建简单卷</h3><ol>
+<li>点击需要被分配的磁盘，右键压缩卷，输入压缩量</li>
+<li>单击被分配出的未分配磁盘，右键新建简单卷，设置简单卷的大小（默认为最大）更改磁盘的盘符，选择按下列格式化这个卷，文件系统选NTFS（我只会恢复NTFS类型的数据，FAT版本过多就没学），点击完成<h3 id="合并磁盘"><a href="#合并磁盘" class="headerlink" title="合并磁盘"></a>合并磁盘</h3></li>
+<li>备份后右键删除卷和拓展卷<h2 id="disk-genius"><a href="#disk-genius" class="headerlink" title="disk genius"></a>disk genius</h2></li>
+<li>注意分区前部和后部</li>
+<li>设置分区前部和后部之后可以从后面的展开栏中选择合并到某一个盘中</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="2022/01/08/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
                 Untitled
             </a>
@@ -182,7 +217,7 @@
 </ol>
 <h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><ol>
 <li>直接输入tmux，就会打开一个session，其中包含一个window</li>
-<li>切分：（有前缀键）ctrl加a/b（acterminal为a,没改的为b）后按%为左右分割；上下均分为ctrl加b后再双引号</li>
+<li>切分：（有前缀键）ctrl加a/b（acterminal为a,没改的为b）后按%为左右分割；上下均分为ctrl加a/b后再双引号</li>
 <li>关闭：选中后CTRL加d，当最后一个pane关闭时会关掉没有pane的window，最后一个window关闭时会关闭当前没有window的session</li>
 <li>选中：鼠标光标选中，或者按前缀键后按方向键</li>
 <li>修改分割线的位置：直接鼠标光标拖动分割线；后者按住前缀键的同时按方向键（前缀键必须按住不动，不松手）</li>
@@ -202,27 +237,27 @@
 <li>esc进入一般命令模式，无论是编辑模式还是命令行模式</li>
 <li>移动光标时不会在行的开头和末尾自动换行，和普通编辑器不同！！！</li>
 <li>移动光标：1：可以直接使用小键盘的方向键盘；2：可以使用hjkl,分别代表左下上右</li>
-<li>n<space> :n为数字，按下数字后按下空格，光标会向右移动一行这样的字符（必须进入一般命令模式下）（到行末会自动换行）</li>
+<li>n<space> :n为数字，按下数字后按下空格，光标会向右移动n个字符（必须进入一般命令模式下）（到行末会自动换行）</li>
 <li>在一般命令模式下，按下0或home是将光标移动到本行开头，￥或end是移动到本行末尾</li>
-<li>移动到最后一行：shift加g</li>
+<li>移动到最后一行：shift加g(即为G)</li>
 <li>移动到某一行：用冒号加数字n或数字n加G，即将光标移动到第n行</li>
 <li>跳过多少行：数字加回车</li>
 <li>gg第一行，G最后一行（当访问日志时，可能数据量很大）</li>
-<li>查找：/word 为查找光标之下的第一个值为word的字符串，？word为查找光标之上的第一个值为word的字符串</li>
+<li>查找是 /word 为查找光标之下的第一个值为word的字符串，？word为查找光标之上的第一个值为word的字符串</li>
 <li>n（小写）会重复上一次的查找操作，N（为反向重复前一次查找操作）</li>
 <li>替换</li>
 <li>&lt;:m,ns/word1/word2/g&gt;:在第m到第n行中查找word1字符串，并且将其替换为word2</li>
 <li>&lt;:1,$s/word1/word2/g&gt;替换全文的word1字串为word2</li>
-<li>&lt;:1,$s/word1/word2/gc&gt;当替换每一个word1时会要求用户确认，输入y或n</li>
+<li>&lt;:1,$s/word1/word2/gc&gt;当替换每一个word1时会要求用户确认，输入y或n可以一次替换每一次查找</li>
 <li>&lt;:noh&gt;关闭查找关键词高亮</li>
 <li><v>选中文本，和Windows系统的shift相同</li>
 <li><d>删除选中的文本，和backspace相同</li>
 <li><dd>删除当前行,和ctrl+d相同</li>
 <li><y>复制选中的文本</li>
 <li><yy>复制当前选中的行</li>
-<li><p>post，当为<y>复制的文本时为在光标的下一个位置粘贴，当为<yy>复制的为一行时为在下一行粘贴</li>
+<li><p>post或者为<ctrl + insert>，当为<y>复制的文本时为在光标的下一个位置粘贴，当为<yy>复制的为一行时(不一定是用yy复制的一行，也可以是用z选中的完整的行)为在下一行粘贴</li>
 <li><u>撤销（dev和pycharm都是CTRL加z）</li>
-<li>&lt;ctrl+y&gt;==&lt;ctrl+shift+z&gt;:取消撤销（dev和pycharm也都是ctrl加y）</li>
+<li>&lt;ctrl + r&gt;==&lt;ctrl+shift+z&gt;:取消撤销（dev和pycharm也都是ctrl加y）(r可以理解为repeat,即重复)</li>
 <li>&lt;ctrl+z&gt;挂起当前进程，即保留当前的vim条件下关闭！！！</li>
 <li>&lt;shift+&gt;&gt;选中整体后向右移动，如果不是选中整体时为将当前行向右移动</li>
 <li>&lt;shift+&lt;&gt;选中后整体向左移动，如果不是选中整体时为将当前行向右移动</li>
@@ -234,6 +269,13 @@
 <li>&lt;:set nonu&gt;取消行号，当复制时避免连带行号一起复制</li>
 <li>&lt;:set nu&gt;恢复行号</li>
 <li><gg> <d> <G>:删除所有文本（将光标移动到开头，设置为选中模式，再将光标移动到末尾）</li>
+<li><gg> &lt;=&gt; <G>:全文格式化，解决当代码复制的时候出现多重缩进的问题时</li>
+<li>paste模式：带有缩进的模式；&lt;:set paste&gt;为设置为带有自动缩进的模式，但是&lt;:set nopaste&gt;为设置不带有自动缩进的模式(要粘贴的话可以先set paste 后set nopaste)</li>
+<li>&lt;CTRL+q&gt;当vim卡死的时候，取消当前正在执行的命令</li>
+<li>注意区分&lt;shift+insert&gt;和<p>的区别：&lt;shift+insert&gt;可以粘贴vim外面的内容，粘贴的是系统自带的粘贴板;但是<p>只能够粘贴vim内部的内容，粘贴的是vim内部的粘贴板<h3 id="当用vim编辑文件时，会自动创建一个-filename-swp的临时文件"><a href="#当用vim编辑文件时，会自动创建一个-filename-swp的临时文件" class="headerlink" title="当用vim编辑文件时，会自动创建一个.filename.swp的临时文件"></a>当用vim编辑文件时，会自动创建一个.filename.swp的临时文件</h3></li>
+<li>如果打开某个文件时，如果文件的swp已经存在则会报错</li>
+<li>解决方法：1：找到打开文件的程序并退出，2：直接删除该swp文件即可</li>
+<li></li>
 </ol>
 
         </div>
@@ -485,7 +527,8 @@
 <li>盘片 片面 和 磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。<br><img src="https://upload-images.jianshu.io/upload_images/2843224-46fb935cd31addbd.png"><br>扇区 和 磁道<br>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）<br><img src="https://upload-images.jianshu.io/upload_images/2843224-56f2056f0b36009f.png"><br>编号是：从下到上依次递增，最下面是０<pre><code> 从外到内依次递增，最外面是０
 </code></pre>
 <h2 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h2></li>
-<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )</li>
+<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )<h2 id="硬盘坏道"><a href="#硬盘坏道" class="headerlink" title="硬盘坏道"></a>硬盘坏道</h2></li>
+<li>硬盘中的部分数据无法使用或者使用出现了异常。更标准的说法为坏扇区而不是坏扇道，因为磁盘的最小寻址单位是扇区而不是磁道</li>
 </ol>
 
         </div>
@@ -518,7 +561,7 @@
             <h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol>
 <li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li>
 <li>删掉C盘用户中的.ssh文件</li>
-<li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#x78;&#120;&#120;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#120;&#x78;&#120;&#120;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li>
+<li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#120;&#120;&#120;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#120;&#120;&#120;&#120;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a> 一定要加上邮箱！！！</li>
 <li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li>
 <li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li>
 <li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li>
@@ -610,6 +653,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="2022/01/10/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/">Untitled</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="2022/01/08/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">Untitled</a>
             </li>
             
@@ -619,10 +666,6 @@
             
             <li>
                 <a class="footer-post" href="2021/12/24/winhex2/">Untitled</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="2021/12/24/winhex/">Untitled</a>
             </li>
             
         </ul>
