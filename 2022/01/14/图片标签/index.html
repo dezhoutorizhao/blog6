@@ -159,7 +159,7 @@
         </h1>
         <div class="post-info">
             
-                <span class="date">2021-12-05</span>
+                <span class="date">2022-01-14</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,13 +174,18 @@
         
 
         <!-- Post Content -->
-        <h1 id="硬盘基本知识"><a href="#硬盘基本知识" class="headerlink" title="硬盘基本知识"></a>硬盘基本知识</h1><h2 id="硬盘由５部分组成："><a href="#硬盘由５部分组成：" class="headerlink" title="硬盘由５部分组成："></a>硬盘由５部分组成：</h2><ol>
-<li>盘片，磁头，磁道，扇区，柱面</li>
-<li>盘片 片面 和 磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。<br><img src="https://upload-images.jianshu.io/upload_images/2843224-46fb935cd31addbd.png"><br>扇区 和 磁道<br>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）<br><img src="https://upload-images.jianshu.io/upload_images/2843224-56f2056f0b36009f.png"><br>编号是：从下到上依次递增，最下面是０<pre><code> 从外到内依次递增，最外面是０
-</code></pre>
-<h2 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h2></li>
-<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )<h2 id="硬盘坏道"><a href="#硬盘坏道" class="headerlink" title="硬盘坏道"></a>硬盘坏道</h2></li>
-<li>硬盘中的部分数据无法使用或者使用出现了异常。更标准的说法为坏扇区而不是坏扇道，因为磁盘的最小寻址单位是扇区而不是磁道</li>
+        <p>#图片标签</p>
+<h2 id="使用img-image-标签来向网页中引入一个外部图片"><a href="#使用img-image-标签来向网页中引入一个外部图片" class="headerlink" title="使用img(image)标签来向网页中引入一个外部图片"></a>使用img(image)标签来向网页中引入一个外部图片</h2><ol>
+<li>img标签也是一个自结束标签<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="src：设置一个外部图片的路径"><a href="#src：设置一个外部图片的路径" class="headerlink" title="src：设置一个外部图片的路径"></a>src：设置一个外部图片的路径</h3><h3 id="alt：可以用来设置图片的描述"><a href="#alt：可以用来设置图片的描述" class="headerlink" title="alt：可以用来设置图片的描述"></a>alt：可以用来设置图片的描述</h3></li>
+<li>（当图片不能显示时，直接显示alt中的内容），搜索引擎可以通过alt属性来识别不同的图片（百度专门搜索图片的时候就是用alt）</li>
+<li>如果不写alt，搜索引擎将不会对img中的图片进行收录<h3 id="width：可以用来修改图片的宽度，一般使用px为单位（像素）"><a href="#width：可以用来修改图片的宽度，一般使用px为单位（像素）" class="headerlink" title="width：可以用来修改图片的宽度，一般使用px为单位（像素）"></a>width：可以用来修改图片的宽度，一般使用px为单位（像素）</h3><h3 id="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"><a href="#height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小" class="headerlink" title="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"></a>height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小</h3><h2 id="如果两个值同时指定，则按照你指定的值来设置"><a href="#如果两个值同时指定，则按照你指定的值来设置" class="headerlink" title="如果两个值同时指定，则按照你指定的值来设置"></a>如果两个值同时指定，则按照你指定的值来设置</h2></li>
+<li>如果两个值同时指定，则按照你指定的值来设置<h2 id="一般开发中除了自适应页面，不建议设置width和height"><a href="#一般开发中除了自适应页面，不建议设置width和height" class="headerlink" title="一般开发中除了自适应页面，不建议设置width和height"></a>一般开发中除了自适应页面，不建议设置width和height</h2></li>
+<li>让美工话自己想要的大小<h2 id=""><a href="#" class="headerlink" title=""></a><img src="路径" alt="图片描述" /></h2><h1 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h1></li>
+<li>JPEG(JPG):支持的颜色比较多，图片可以压缩，但是不支持透明(指的是背景透明)，一般用来保存照片等颜色丰富的图片</li>
+<li>GIF：支持的颜色少，只支持简单的透明（背景透明）（但是边界会有白边），支持动态图，图片颜色单一或者是动态图时可以使用gif</li>
+<li>PNG：支持的颜色多，并且支持复杂的透明（背景透明），可以用来显示颜色复杂的透明的图片<h2 id="图片的使用原则："><a href="#图片的使用原则：" class="headerlink" title="图片的使用原则："></a>图片的使用原则：</h2></li>
+<li>效果不一致用好的</li>
+<li>效果一致用小的（jpg一般小于png）</li>
 </ol>
 
     </div>
@@ -229,19 +234,19 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="../../../../2022/01/10/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/">Untitled</a>
+                <a class="footer-post" href="../../15/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="../../../../2022/01/08/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">Untitled</a>
+                <a class="footer-post" href="../../15/%E5%86%85%E8%81%94%E6%A1%86%E6%9E%B6_%E8%B6%85%E9%93%BE%E6%8E%A5/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="../../../../2022/01/05/%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4md/">Untitled</a>
+                <a class="footer-post" href="../../15/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="../../24/winhex2/">Untitled</a>
+                <a class="footer-post" href="../../15/meta/">Untitled</a>
             </li>
             
         </ul>
