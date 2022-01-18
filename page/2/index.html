@@ -156,90 +156,6 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="../../HTML%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-13</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/HTML%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="HTML用于描述页面的结构"><a href="#HTML用于描述页面的结构" class="headerlink" title="HTML用于描述页面的结构"></a>HTML用于描述页面的结构</h1><h2 id="超文本标记语言"><a href="#超文本标记语言" class="headerlink" title="超文本标记语言"></a>超文本标记语言</h2><h4 id="网页就是使用纯文本编写的"><a href="#网页就是使用纯文本编写的" class="headerlink" title="网页就是使用纯文本编写的"></a>网页就是使用纯文本编写的</h4><ol>
-<li>纯文本中只能保持文本内容，图片，音频视频等格式化的内容，都不能设置<h3 id="网页拓展名：HTML或HTM（早期的操作系统拓展名只支持三位，所以拓展名为三位）"><a href="#网页拓展名：HTML或HTM（早期的操作系统拓展名只支持三位，所以拓展名为三位）" class="headerlink" title="网页拓展名：HTML或HTM（早期的操作系统拓展名只支持三位，所以拓展名为三位）"></a>网页拓展名：HTML或HTM（早期的操作系统拓展名只支持三位，所以拓展名为三位）</h3></li>
-<li>可以直接在记事本中打开，.txt的拓展名改为.html<h3 id="超文本"><a href="#超文本" class="headerlink" title="超文本"></a>超文本</h3></li>
-<li>超指的是超链接<h3 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h3></li>
-<li>&lt;标签名&gt;&lt;/标签名&gt;</li>
-<li><h1></h1></li>
-<li>标签名有始有末，成对出现，结束标签有一个斜杠/<h4 id="所有网页有且只有一对根标签"><a href="#所有网页有且只有一对根标签" class="headerlink" title="所有网页有且只有一对根标签"></a>所有网页有且只有一对根标签</h4></li>
-<li><html> </html>,所有内容都应该放到里面
-#### 子标签（以下为标准模式）
-<html>
- <head>
-     <!--
-         需要告诉浏览器，网页所采用的编码字符集
-         meta标签用来设置网页的一些元数据，例如网页的字符集，关键字，简介
-         meta是自结束标签，编写一个自结束标签时，可以在开始标签中添加一个“/”
-     -->
-     <meta charset="utf-8"/>
-     <!--
-         title网页的标题标签，默认会显示在浏览器的标题栏中
-         搜索引擎在检索页面时，会首先检索title标签中的内容
-         时网页中对于搜索引擎中的最重要的内容，会影响到网页在搜索引擎中的排名
-     -->
-     <title></title>
- </head>
- <body>
-     <!-- 在这个结构中可以编写HTML的注释
-         注释的内容不会在页面中显示，但是可以在源码中显示
-         可以通过编写注释来对代码进行描述
-     -->
-     <!--
-         属性：
-             可以通过属性来设置标签如何处理标签中的内容
-             只能在开始标签中添加
-             属性需要写在开始标签中，实际上是一个名值对的结构
-             属性名 = "属性值"
-     -->
-     <h1>这是我的<font color="blue">这是字体</font>第二个网页</h1>
- </body>
-<html></li>
-<li><head>和<body>都是子标签</li>
-<li><head>:子标签中的内容不会在网页中直接显示，<head>是给浏览器看的，帮助计算机去解析网页。</li>
-<li><body>:表示网页的主体，网页中的可见内容都要写道<body>中</li>
-<li><title>:网页的标题栏（即网页的名字，类似“最好的明天”）</li>
-<li><font>:字体,<font color="red"></font>,font和参数之间要有空格，如果没有空格会认为时一个整体的标签名，属性会忽略<br>###显示文件拓展名</li>
-<li>在我的电脑中点击查看</li>
-<li>勾选文件拓展名，即可在全局中查看到拓展名<h3 id="标签的属性"><a href="#标签的属性" class="headerlink" title="标签的属性"></a><font color="blue" size="9">标签的属性</font></h3></li>
-<li><font>不建议使用，建议使用css来设置<h2 id="文档声明doctype"><a href="#文档声明doctype" class="headerlink" title="文档声明doctype"></a>文档声明doctype</h2></li>
-<li>为了让浏览器知道我们使用的HTML版本，我们还需要在网页的最上面添加一个doctype声明，来告诉浏览器网页的版本</li>
-<li>html4和xhtml都是分为过渡，严格和框架版，每一个的doctype都是很长</li>
-<li>html5是<!DOCTYPE html>,h5的文档声明，编写网页时一定要将h5的文档声明写在网页的最上边，如果不屑文档声明，则有些浏览器会进入一个怪异模式，进入怪异模式后，浏览器解析页面会导致页面无法正常显示<h2 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h2></li>
-<li>几进制就是满几进1</li>
-<li>二进制</li>
-<li>十进制</li>
-<li>十六进制</li>
-<li>八进制</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
             <a href="../../ssh/">
                 Untitled
             </a>
@@ -870,12 +786,62 @@
             <h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol>
 <li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li>
 <li>删掉C盘用户中的.ssh文件</li>
-<li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#x78;&#120;&#120;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#120;&#x78;&#120;&#120;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a> 一定要加上邮箱！！！</li>
+<li>ssh-keygen -t rsa -C <a href="mailto:&#x78;&#120;&#x78;&#x78;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;">&#x78;&#120;&#x78;&#x78;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;</a> 一定要加上邮箱！！！</li>
 <li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li>
 <li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li>
 <li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li>
 <li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li>
 <li>就是这个地方</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="../../%E6%9D%82%E9%A1%B9/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021-12-04</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/%E6%9D%82%E9%A1%B9/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="杂项专题"><a href="#杂项专题" class="headerlink" title="杂项专题"></a>杂项专题</h1><h2 id="第一题签到题目"><a href="#第一题签到题目" class="headerlink" title="第一题签到题目"></a>第一题签到题目</h2><ol>
+<li>直接复制粘贴即可<img src="https://s4.ax1x.com/2021/12/05/oDdWVO.png"><h2 id="第二题金三胖"><a href="#第二题金三胖" class="headerlink" title="第二题金三胖"></a>第二题金三胖</h2></li>
+<li>使用gitsplitter(我使用的是2.0版本)逐帧分解</li>
+<li>这个好像要归到隐写术里</li>
+<li>注意是he110，如果不确定是1还是L可以都试一下</li>
+<li><img src="https://s4.ax1x.com/2021/12/05/oDwEoF.png"></li>
+<li><img src="https://s4.ax1x.com/2021/12/05/oDwmW9.png"></li>
+<li><img src="https://s4.ax1x.com/2021/12/05/oDweJJ.png"><h2 id="第三题二维码"><a href="#第三题二维码" class="headerlink" title="第三题二维码"></a>第三题二维码</h2></li>
+<li>我使用的是闪电二维码识别器，看页面已经比较老了</li>
+<li><img src="https://s4.ax1x.com/2021/12/05/oDdMVS.png"></li>
+<li>扫描后发现是secret is here,报上flag{}后发现不对，欸怎么办呢</li>
+<li>王大佬提醒不要太注意图片本身，欸，</li>
+<li>我用熟悉的winhex试了试，发现非活动区竟然不是00或者80(00是非活动区，80为活动区)发现不对</li>
+<li>我最后爆破发现可以得到答案<img src="https://s4.ax1x.com/2021/12/05/oDwRln.png"><h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2></li>
+<li>尚未解出<h2 id="第五题大白-好像在说我。。。"><a href="#第五题大白-好像在说我。。。" class="headerlink" title="第五题大白(好像在说我。。。)"></a>第五题大白(好像在说我。。。)</h2></li>
+<li>题目有很清楚的提示，一下就可以想到使用winhex来调高列的长度</li>
+<li>注意，不懂的可以以后关注我的博客，我将更新winhex的基础知识，这个地方第二行前四个十六进制位为列的宽度，后四个为列的长度<img src="https://s4.ax1x.com/2021/12/05/oDD7tS.png"></li>
+<li>保存后再打开发现，欸，有了<img src="https://z3.ax1x.com/2021/05/23/gXIsc8.png"><h2 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h2><h2 id="第七题文件中的秘密"><a href="#第七题文件中的秘密" class="headerlink" title="第七题文件中的秘密"></a>第七题文件中的秘密</h2></li>
+<li><img src="https://s1.ax1x.com/2021/12/10/ooaJ0K.png"></li>
+<li>发现是一个图片题，没有像大白之类的题一样是缩放或者隐写术之类的，我试了试用winhex打开后文本查找flag字样，发现flag</li>
+<li>路飞，儿时的信仰<img src="https://s1.ax1x.com/2021/12/10/oodQUS.png"><h2 id="第八题"><a href="#第八题" class="headerlink" title="第八题"></a>第八题</h2><h2 id="第九题"><a href="#第九题" class="headerlink" title="第九题"></a>第九题</h2><h2 id="第十题"><a href="#第十题" class="headerlink" title="第十题"></a>第十题</h2><h2 id="第十一题"><a href="#第十一题" class="headerlink" title="第十一题"></a>第十一题</h2><h2 id="第十二题"><a href="#第十二题" class="headerlink" title="第十二题"></a>第十二题</h2><h2 id="第十三题"><a href="#第十三题" class="headerlink" title="第十三题"></a>第十三题</h2><h2 id="第十四题"><a href="#第十四题" class="headerlink" title="第十四题"></a>第十四题</h2><h2 id="第十五题"><a href="#第十五题" class="headerlink" title="第十五题"></a>第十五题</h2></li>
 </ol>
 
         </div>
@@ -895,7 +861,7 @@
                 <a class="" href="/blog6/">
                     <i class="fa fa-chevron-left" aria-hidden="true"></i>
                 </a>
-                <a class="" href="/blog6/page/3/">
+                <a class="disabled" href="/blog6/">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </a>
             </div>
@@ -929,15 +895,15 @@
             </li>
             
             <li>
-                <a class="footer-post" href="../../%E5%86%85%E8%81%94%E6%A1%86%E6%9E%B6_%E8%B6%85%E9%93%BE%E6%8E%A5/">Untitled</a>
-            </li>
-            
-            <li>
                 <a class="footer-post" href="../../HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">Untitled</a>
             </li>
             
             <li>
                 <a class="footer-post" href="../../meta/">Untitled</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="../../%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/">Untitled</a>
             </li>
             
         </ul>
