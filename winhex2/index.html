@@ -1,40 +1,423 @@
-extends ./_layout.pug
+<!DOCTYPE html>
+<html lang="en">
 
-block content
-  // Just used to judge whether it is an article page
-  div#is-post
-  div.post
-    include ./_mixins/post-header.pug
-    include ./_mixins/gallery.pug
+<!-- Head tag -->
+<head>
 
-    +postHeader(page)
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    div.post-body
-      if page.photos && page.photos.length
-        +gallery(page)
-      != page.content
+    <!--Description-->
+    
+        <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
+    
 
-    footer.post-footer
-      if theme.post_widget.end_text.enable
-        div.post-ending.ending
-          div.ending__text= __('post.end')
+    <!--Author-->
+    
+        <meta name="author" content="syk">
+    
 
-      if page.copyright === true || (isShowCC && theme.creative_commons.post)
-        include ./_partials/widgets/copyright.pug
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="更好的明天"/>
+    
 
-      if theme.post_widget.tags
-        if page.tags && page.tags.length > 0
-          div.post-tags
-            each tag in page.tags.data
-              span.post-tags-item
-                span.post-tags-item__icon
-                  i(class=theme.icon.post_tags)
-                a.post-tags-item__link(href=tag.permalink)= tag.name
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="打ACM和CTF，未来的人上人，嘿嘿" />
+    
 
-      if theme.post_widget.share.enable
-        include ./_partials/widgets/share.pug
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="更好的明天"/>
 
-      if isShowReward
-        include ./_partials/widgets/reward.pug
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
 
-      include ./_partials/widgets/paginator.pug
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>更好的明天</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/blog6/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/blog6/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog6/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog6/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog6/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog6/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog6/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/blog6/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog6/winhex2/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021-12-24</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>#字节偏移：<br>    十六进制表示，0x后面两位是横向表示，后面的是纵向表示<br>0x01BE：01B是横向，E是纵向</p>
+<p>#修复MBR：<br>    正常的磁盘都是初始化的，如果不小心按了初始化则相当于格式化了磁盘，MBR全部清0，<br>##分区总大小 – 分区的起始分区好==分区的大小<br>##修复中最重要的是修复文件系统类型，分区扇区号和分区总大小，注意最后的55AA<br>##最后两位是55AA，固定的<br>##往前走64个字节是分区表，管理磁盘的分区<br>##再往前走4个字节是磁盘签名<br>#＊＊＊＊＊＊＊＊＊＊<br>硬盘分区详解：<br>    硬盘分区表由四项组成，每项共１６个字节，共４＊１６＝＝６４个字节，每项描述一个分区的基本信息(80) (01 01 00) (07) (FE FF FF) (3F 00 00 00) (82 C1 3B 3A)<br>磁头，扇区，柱面<br>#＊＊＊＊＊存贮字节位＊＊＊＊＊＊<br>##第1字节：引导标志。若值为80H表示活动分区，若值为00H表示非活动分区。</p>
+<p>##第2、3、4字节：本分区的起始磁头号、扇区号、柱面号。其中：</p>
+<pre><code>磁头号——第2字节；
+
+扇区号——第3字节的低6位；
+
+柱面号——为第3字节高2位+第4字节8位。
+
+第5字节分区类型符。
+
+00H——表示该分区未用（即没有指定）；
+
+06H——FAT16基本分区；
+
+0BH——FAT32基本分区；
+
+05H——扩展分区；
+
+07H——NTFS分区；
+
+0FH——（LBA模式）扩展分区（83H为Linux分区等）。
+</code></pre>
+<p>##第6、7、8字节</p>
+<p>##本分区的结束磁头号、扇区号、柱面号。其中：</p>
+<pre><code>磁头号——第6字节；
+
+扇区号——第7字节的低6位；
+
+柱面号——第7字节的高2位+第8字节。
+</code></pre>
+<p>##第9、10、11、12字节</p>
+<p>##逻辑起始扇区号 ，本分区之前已用了的扇区数。</p>
+<p>##第13、14、15、16字节</p>
+<p>#本分区的总扇区数。</p>
+<p>#紫色的是分盘区，蓝色的是磁盘签名<br>#磁盘签名可能会每一次打开都不一样，视情况而定<br>#分区表：<br>这里不同的分区我打上了不同的颜色书签，从磁盘签名往后空两个字节开始是磁盘分区的地方，<br>第三个扇区是逻辑扇区：EBR</p>
+<p>#数据解释器： 第一位是数据转为10进制后的大小第二位是扇区位置，第三位是扇区大小<br>#磁盘总大小减去分区的起始扇区号 == 分区大小<br>#概要：<br>    1：创建一个新的磁盘<br>    2：将新建磁盘的MBR赋值到被破坏的磁盘的MBR<br>    3：修改被破坏的磁盘的MBR磁盘签名（只需要和复制的不一样即可）<br>    ４：找到该磁盘第一个分区的起始扇区<br>    ５：从该起始扇区得知文件系统，起始扇区号，分区大小<br>    6:将这些数据填入MBR的分区表中<br>    ７：保存，在磁盘管理出进行刷新</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    拒绝划水，拒绝摸鱼
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/">Untitled</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog6/git/">Untitled</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Untitled</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">Untitled</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:a18888200398@163.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/blog6/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjotest';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
