@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
+            <a href="/blog6/CTF%E6%9D%82%E9%A1%B91/">
                 Untitled
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021-12-05</span>
+                <span class="date">2022-01-22</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,14 +174,89 @@
         
 
         <!-- Post Content -->
-        <h1 id="硬盘基本知识"><a href="#硬盘基本知识" class="headerlink" title="硬盘基本知识"></a>硬盘基本知识</h1><h2 id="硬盘由５部分组成："><a href="#硬盘由５部分组成：" class="headerlink" title="硬盘由５部分组成："></a>硬盘由５部分组成：</h2><ol>
-<li>盘片，磁头，磁道，扇区，柱面</li>
-<li>盘片 片面 和 磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。<br><img src="https://upload-images.jianshu.io/upload_images/2843224-46fb935cd31addbd.png"><br>扇区 和 磁道<br>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）<br><img src="https://upload-images.jianshu.io/upload_images/2843224-56f2056f0b36009f.png"><br>编号是：从下到上依次递增，最下面是０<pre><code> 从外到内依次递增，最外面是０
-</code></pre>
-<h2 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h2></li>
-<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )<h2 id="硬盘坏道"><a href="#硬盘坏道" class="headerlink" title="硬盘坏道"></a>硬盘坏道</h2></li>
-<li>硬盘中的部分数据无法使用或者使用出现了异常。更标准的说法为坏扇区而不是坏扇道，因为磁盘的最小寻址单位是扇区而不是磁道</li>
+        <h1 id="CTF杂项1"><a href="#CTF杂项1" class="headerlink" title="CTF杂项1"></a>CTF杂项1</h1><h2 id="隐写术"><a href="#隐写术" class="headerlink" title="隐写术"></a>隐写术</h2><h3 id="载体"><a href="#载体" class="headerlink" title="载体"></a>载体</h3><ol>
+<li>图片</li>
+<li>音频</li>
+<li>视频</li>
+<li>压缩包<h2 id="图像隐写"><a href="#图像隐写" class="headerlink" title="图像隐写"></a>图像隐写</h2></li>
+<li>颜色差别</li>
+<li>gif多帧隐藏</li>
+<li>exif信息隐藏</li>
+<li>图片修复<h3 id="LSB最低有效位隐写"><a href="#LSB最低有效位隐写" class="headerlink" title="LSB最低有效位隐写"></a>LSB最低有效位隐写</h3></li>
+<li>利用RGB</li>
+<li>红色十进制为255，二进制为1111，1111（8个1）</li>
+<li>通过修改像素最低位的1bit来达到隐藏的效果</li>
+<li>工具：stegsolve</li>
+<li>点击左右查看不同色位的信息<h3 id="图像隐写-1"><a href="#图像隐写-1" class="headerlink" title="图像隐写"></a>图像隐写</h3></li>
+<li>信息隐藏在动态图中</li>
+<li>stegsolve中框架浏览器frame brouser<h3 id="Exif信息隐写"><a href="#Exif信息隐写" class="headerlink" title="Exif信息隐写"></a>Exif信息隐写</h3></li>
+<li>照片中的EXIF属性可以保存大量的信息</li>
+<li>windows右击查看图像属性<h3 id="图像修复"><a href="#图像修复" class="headerlink" title="图像修复"></a>图像修复</h3><h4 id="图像类型"><a href="#图像类型" class="headerlink" title="图像类型"></a>图像类型</h4></li>
+<li>jpeg/jpg 文件头：（2byte）FF D8 文件结束：（2byte）FF D9</li>
+<li>png(8byte):89 50 4E 47 0D 0A 1A 0A</li>
+<li>gif(6byte):47 49 46 38 39(37) 61</li>
+<li>BMP(2byte):42 4D<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3></li>
+<li>winhex修复文件头<h3 id="音频隐写"><a href="#音频隐写" class="headerlink" title="音频隐写"></a>音频隐写</h3></li>
+<li>信息隐藏在声音里（逆序）</li>
+<li>信息隐藏在数据里<h3 id="工具-1"><a href="#工具-1" class="headerlink" title="工具"></a>工具</h3></li>
+<li>Adoube Audition<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4></li>
+<li>将没有隐藏信息的部分删掉</li>
+<li>若有莫斯电码信息，则减弱左声道，加强右声道或倒过来<h3 id="视频隐写"><a href="#视频隐写" class="headerlink" title="视频隐写"></a>视频隐写</h3></li>
+<li>信息一女昂在视频的某个或多个帧中</li>
+<li>Premiere<h3 id="文件隐写"><a href="#文件隐写" class="headerlink" title="文件隐写"></a>文件隐写</h3></li>
+<li>文件拼接<h4 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h4></li>
+<li>binwalk</li>
+<li>dd</li>
+<li>winhex</li>
 </ol>
+<h1 id="密码学及编码"><a href="#密码学及编码" class="headerlink" title="密码学及编码"></a>密码学及编码</h1><h2 id="位移密码"><a href="#位移密码" class="headerlink" title="位移密码"></a>位移密码</h2><ol>
+<li>凯撒密码</li>
+<li>每一个字母顺序移动几个位置<h2 id="解密方法（对key值进行解密）"><a href="#解密方法（对key值进行解密）" class="headerlink" title="解密方法（对key值进行解密）"></a>解密方法（对key值进行解密）</h2></li>
+<li>手动解密</li>
+<li>在线工具</li>
+<li>python中的pycipher模块</li>
+<li>from pycipher import Caesar</li>
+<li>Caesar(key=设置).encipher(“待引入”)<h3 id="特殊形式ROT13"><a href="#特殊形式ROT13" class="headerlink" title="特殊形式ROT13"></a>特殊形式ROT13</h3></li>
+<li>加密和解密是一个循环</li>
+<li>一共26个英文字母，相当于是跑了一边英文字母<h2 id="栅栏密码"><a href="#栅栏密码" class="headerlink" title="栅栏密码"></a>栅栏密码</h2></li>
+<li>一维的加密<h2 id="弗吉尼亚密码"><a href="#弗吉尼亚密码" class="headerlink" title="弗吉尼亚密码"></a>弗吉尼亚密码</h2></li>
+<li>二维的加密<h3 id="工具：在线解密，脚本"><a href="#工具：在线解密，脚本" class="headerlink" title="工具：在线解密，脚本"></a>工具：在线解密，脚本</h3></li>
+<li>输入明文</li>
+<li>输入密钥<h2 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h2></li>
+<li>加密和解密使用相同密钥</li>
+<li>DES，3DES，AES</li>
+<li>使用在线工具进行解密<h2 id="非对称加密算法"><a href="#非对称加密算法" class="headerlink" title="非对称加密算法"></a>非对称加密算法</h2></li>
+<li>如果使用公钥进行加密，则用对应的私钥才能解密</li>
+<li>如果使用私钥，则需要使用公钥</li>
+<li>RSA,Elgamal,背包算法，Rabin,D-H,ECC<h2 id="猪圈密码"><a href="#猪圈密码" class="headerlink" title="猪圈密码"></a>猪圈密码</h2><h2 id="培根密码：由a和b构成的替换密码"><a href="#培根密码：由a和b构成的替换密码" class="headerlink" title="培根密码：由a和b构成的替换密码"></a>培根密码：由a和b构成的替换密码</h2></li>
+<li>可以将a理解为0</li>
+<li>b理解为1<h2 id="键盘密码：电脑键盘位置连线画出图案"><a href="#键盘密码：电脑键盘位置连线画出图案" class="headerlink" title="键盘密码：电脑键盘位置连线画出图案"></a>键盘密码：电脑键盘位置连线画出图案</h2></li>
+<li>连线得到的是字母图案<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="加密通过密钥和密文可以还原原始信息"><a href="#加密通过密钥和密文可以还原原始信息" class="headerlink" title="加密通过密钥和密文可以还原原始信息"></a>加密通过密钥和密文可以还原原始信息</h2><h2 id="编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输"><a href="#编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输" class="headerlink" title="编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输"></a>编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输</h2><h2 id="散列：哈希值，验证完整性，不能解码"><a href="#散列：哈希值，验证完整性，不能解码" class="headerlink" title="散列：哈希值，验证完整性，不能解码"></a>散列：哈希值，验证完整性，不能解码</h2></li>
+</ol>
+<h1 id="隐写术工具"><a href="#隐写术工具" class="headerlink" title="隐写术工具"></a>隐写术工具</h1><h2 id="stegsolve"><a href="#stegsolve" class="headerlink" title="stegsolve"></a>stegsolve</h2><h2 id="winhex-010editor-导出或导入16进制处理txt形式的文件"><a href="#winhex-010editor-导出或导入16进制处理txt形式的文件" class="headerlink" title="winhex/010editor(导出或导入16进制处理txt形式的文件)"></a>winhex/010editor(导出或导入16进制处理txt形式的文件)</h2><h2 id="photoshop（图形拼接）"><a href="#photoshop（图形拼接）" class="headerlink" title="photoshop（图形拼接）"></a>photoshop（图形拼接）</h2><ol>
+<li>矩形选框功能选出条形码</li>
+<li>ctrl+c进行复制</li>
+<li>右下角创建图层</li>
+<li>使用选择工具移动<h2 id="Adobe-Auditon"><a href="#Adobe-Auditon" class="headerlink" title="Adobe Auditon"></a>Adobe Auditon</h2></li>
+<li>右侧的L和R分别代表左右声道，可以打开或关闭左右声道</li>
+<li>上方的hms一栏中可以增大音符<h2 id="搜索加解密工具"><a href="#搜索加解密工具" class="headerlink" title="搜索加解密工具"></a>搜索加解密工具</h2><h2 id="burpsuit"><a href="#burpsuit" class="headerlink" title="burpsuit"></a>burpsuit</h2></li>
+<li>最上方一栏decoder可以实现编码和解码</li>
+<li>encode实现加密（选择编码方式）</li>
+<li>decode实现解密（选择解码方式）</li>
+</ol>
+<h1 id="CTF取证技术"><a href="#CTF取证技术" class="headerlink" title="CTF取证技术"></a>CTF取证技术</h1><h2 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h2><h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3><h4 id="筛选器"><a href="#筛选器" class="headerlink" title="筛选器"></a>筛选器</h4><ol>
+<li>点击右侧表达式，使用wireshark内在表达式进行过滤<h4 id="追踪流"><a href="#追踪流" class="headerlink" title="追踪流"></a>追踪流</h4></li>
+<li>右击追踪流</li>
+<li>选择TCP/UDP/SSL/HTTP</li>
+<li>弹出的窗口中选择查找下一个<h4 id="文件导出"><a href="#文件导出" class="headerlink" title="文件导出"></a>文件导出</h4></li>
+<li>Export Objects,选择不同类型</li>
+</ol>
+<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><ol>
+<li>点击上方筛选</li>
+<li>查看所有upload中hack.php信息</li>
+<li>右击，选择follow，追踪http流</li>
+</ol>
+<h3 id="不同文件类型的文件头"><a href="#不同文件类型的文件头" class="headerlink" title="不同文件类型的文件头"></a>不同文件类型的文件头</h3><h2 id="日志分析"><a href="#日志分析" class="headerlink" title="日志分析"></a>日志分析</h2><h2 id="电子取证"><a href="#电子取证" class="headerlink" title="电子取证"></a>电子取证</h2><h3 id="即日志分析"><a href="#即日志分析" class="headerlink" title="即日志分析"></a>即日志分析</h3><p>访问IP+访问时间+访问方式+访问路径+访问版本+响应</p>
 
     </div>
 

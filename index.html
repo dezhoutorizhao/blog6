@@ -156,6 +156,325 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/blog6/CTF%E6%9D%82%E9%A1%B91/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-22</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/CTF%E6%9D%82%E9%A1%B91/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="CTF杂项1"><a href="#CTF杂项1" class="headerlink" title="CTF杂项1"></a>CTF杂项1</h1><h2 id="隐写术"><a href="#隐写术" class="headerlink" title="隐写术"></a>隐写术</h2><h3 id="载体"><a href="#载体" class="headerlink" title="载体"></a>载体</h3><ol>
+<li>图片</li>
+<li>音频</li>
+<li>视频</li>
+<li>压缩包<h2 id="图像隐写"><a href="#图像隐写" class="headerlink" title="图像隐写"></a>图像隐写</h2></li>
+<li>颜色差别</li>
+<li>gif多帧隐藏</li>
+<li>exif信息隐藏</li>
+<li>图片修复<h3 id="LSB最低有效位隐写"><a href="#LSB最低有效位隐写" class="headerlink" title="LSB最低有效位隐写"></a>LSB最低有效位隐写</h3></li>
+<li>利用RGB</li>
+<li>红色十进制为255，二进制为1111，1111（8个1）</li>
+<li>通过修改像素最低位的1bit来达到隐藏的效果</li>
+<li>工具：stegsolve</li>
+<li>点击左右查看不同色位的信息<h3 id="图像隐写-1"><a href="#图像隐写-1" class="headerlink" title="图像隐写"></a>图像隐写</h3></li>
+<li>信息隐藏在动态图中</li>
+<li>stegsolve中框架浏览器frame brouser<h3 id="Exif信息隐写"><a href="#Exif信息隐写" class="headerlink" title="Exif信息隐写"></a>Exif信息隐写</h3></li>
+<li>照片中的EXIF属性可以保存大量的信息</li>
+<li>windows右击查看图像属性<h3 id="图像修复"><a href="#图像修复" class="headerlink" title="图像修复"></a>图像修复</h3><h4 id="图像类型"><a href="#图像类型" class="headerlink" title="图像类型"></a>图像类型</h4></li>
+<li>jpeg/jpg 文件头：（2byte）FF D8 文件结束：（2byte）FF D9</li>
+<li>png(8byte):89 50 4E 47 0D 0A 1A 0A</li>
+<li>gif(6byte):47 49 46 38 39(37) 61</li>
+<li>BMP(2byte):42 4D<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3></li>
+<li>winhex修复文件头<h3 id="音频隐写"><a href="#音频隐写" class="headerlink" title="音频隐写"></a>音频隐写</h3></li>
+<li>信息隐藏在声音里（逆序）</li>
+<li>信息隐藏在数据里<h3 id="工具-1"><a href="#工具-1" class="headerlink" title="工具"></a>工具</h3></li>
+<li>Adoube Audition<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4></li>
+<li>将没有隐藏信息的部分删掉</li>
+<li>若有莫斯电码信息，则减弱左声道，加强右声道或倒过来<h3 id="视频隐写"><a href="#视频隐写" class="headerlink" title="视频隐写"></a>视频隐写</h3></li>
+<li>信息一女昂在视频的某个或多个帧中</li>
+<li>Premiere<h3 id="文件隐写"><a href="#文件隐写" class="headerlink" title="文件隐写"></a>文件隐写</h3></li>
+<li>文件拼接<h4 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h4></li>
+<li>binwalk</li>
+<li>dd</li>
+<li>winhex</li>
+</ol>
+<h1 id="密码学及编码"><a href="#密码学及编码" class="headerlink" title="密码学及编码"></a>密码学及编码</h1><h2 id="位移密码"><a href="#位移密码" class="headerlink" title="位移密码"></a>位移密码</h2><ol>
+<li>凯撒密码</li>
+<li>每一个字母顺序移动几个位置<h2 id="解密方法（对key值进行解密）"><a href="#解密方法（对key值进行解密）" class="headerlink" title="解密方法（对key值进行解密）"></a>解密方法（对key值进行解密）</h2></li>
+<li>手动解密</li>
+<li>在线工具</li>
+<li>python中的pycipher模块</li>
+<li>from pycipher import Caesar</li>
+<li>Caesar(key=设置).encipher(“待引入”)<h3 id="特殊形式ROT13"><a href="#特殊形式ROT13" class="headerlink" title="特殊形式ROT13"></a>特殊形式ROT13</h3></li>
+<li>加密和解密是一个循环</li>
+<li>一共26个英文字母，相当于是跑了一边英文字母<h2 id="栅栏密码"><a href="#栅栏密码" class="headerlink" title="栅栏密码"></a>栅栏密码</h2></li>
+<li>一维的加密<h2 id="弗吉尼亚密码"><a href="#弗吉尼亚密码" class="headerlink" title="弗吉尼亚密码"></a>弗吉尼亚密码</h2></li>
+<li>二维的加密<h3 id="工具：在线解密，脚本"><a href="#工具：在线解密，脚本" class="headerlink" title="工具：在线解密，脚本"></a>工具：在线解密，脚本</h3></li>
+<li>输入明文</li>
+<li>输入密钥<h2 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h2></li>
+<li>加密和解密使用相同密钥</li>
+<li>DES，3DES，AES</li>
+<li>使用在线工具进行解密<h2 id="非对称加密算法"><a href="#非对称加密算法" class="headerlink" title="非对称加密算法"></a>非对称加密算法</h2></li>
+<li>如果使用公钥进行加密，则用对应的私钥才能解密</li>
+<li>如果使用私钥，则需要使用公钥</li>
+<li>RSA,Elgamal,背包算法，Rabin,D-H,ECC<h2 id="猪圈密码"><a href="#猪圈密码" class="headerlink" title="猪圈密码"></a>猪圈密码</h2><h2 id="培根密码：由a和b构成的替换密码"><a href="#培根密码：由a和b构成的替换密码" class="headerlink" title="培根密码：由a和b构成的替换密码"></a>培根密码：由a和b构成的替换密码</h2></li>
+<li>可以将a理解为0</li>
+<li>b理解为1<h2 id="键盘密码：电脑键盘位置连线画出图案"><a href="#键盘密码：电脑键盘位置连线画出图案" class="headerlink" title="键盘密码：电脑键盘位置连线画出图案"></a>键盘密码：电脑键盘位置连线画出图案</h2></li>
+<li>连线得到的是字母图案<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="加密通过密钥和密文可以还原原始信息"><a href="#加密通过密钥和密文可以还原原始信息" class="headerlink" title="加密通过密钥和密文可以还原原始信息"></a>加密通过密钥和密文可以还原原始信息</h2><h2 id="编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输"><a href="#编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输" class="headerlink" title="编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输"></a>编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输</h2><h2 id="散列：哈希值，验证完整性，不能解码"><a href="#散列：哈希值，验证完整性，不能解码" class="headerlink" title="散列：哈希值，验证完整性，不能解码"></a>散列：哈希值，验证完整性，不能解码</h2></li>
+</ol>
+<h1 id="隐写术工具"><a href="#隐写术工具" class="headerlink" title="隐写术工具"></a>隐写术工具</h1><h2 id="stegsolve"><a href="#stegsolve" class="headerlink" title="stegsolve"></a>stegsolve</h2><h2 id="winhex-010editor-导出或导入16进制处理txt形式的文件"><a href="#winhex-010editor-导出或导入16进制处理txt形式的文件" class="headerlink" title="winhex/010editor(导出或导入16进制处理txt形式的文件)"></a>winhex/010editor(导出或导入16进制处理txt形式的文件)</h2><h2 id="photoshop（图形拼接）"><a href="#photoshop（图形拼接）" class="headerlink" title="photoshop（图形拼接）"></a>photoshop（图形拼接）</h2><ol>
+<li>矩形选框功能选出条形码</li>
+<li>ctrl+c进行复制</li>
+<li>右下角创建图层</li>
+<li>使用选择工具移动<h2 id="Adobe-Auditon"><a href="#Adobe-Auditon" class="headerlink" title="Adobe Auditon"></a>Adobe Auditon</h2></li>
+<li>右侧的L和R分别代表左右声道，可以打开或关闭左右声道</li>
+<li>上方的hms一栏中可以增大音符<h2 id="搜索加解密工具"><a href="#搜索加解密工具" class="headerlink" title="搜索加解密工具"></a>搜索加解密工具</h2><h2 id="burpsuit"><a href="#burpsuit" class="headerlink" title="burpsuit"></a>burpsuit</h2></li>
+<li>最上方一栏decoder可以实现编码和解码</li>
+<li>encode实现加密（选择编码方式）</li>
+<li>decode实现解密（选择解码方式）</li>
+</ol>
+<h1 id="CTF取证技术"><a href="#CTF取证技术" class="headerlink" title="CTF取证技术"></a>CTF取证技术</h1><h2 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h2><h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3><h4 id="筛选器"><a href="#筛选器" class="headerlink" title="筛选器"></a>筛选器</h4><ol>
+<li>点击右侧表达式，使用wireshark内在表达式进行过滤<h4 id="追踪流"><a href="#追踪流" class="headerlink" title="追踪流"></a>追踪流</h4></li>
+<li>右击追踪流</li>
+<li>选择TCP/UDP/SSL/HTTP</li>
+<li>弹出的窗口中选择查找下一个<h4 id="文件导出"><a href="#文件导出" class="headerlink" title="文件导出"></a>文件导出</h4></li>
+<li>Export Objects,选择不同类型</li>
+</ol>
+<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><ol>
+<li>点击上方筛选</li>
+<li>查看所有upload中hack.php信息</li>
+<li>右击，选择follow，追踪http流</li>
+</ol>
+<h3 id="不同文件类型的文件头"><a href="#不同文件类型的文件头" class="headerlink" title="不同文件类型的文件头"></a>不同文件类型的文件头</h3><h2 id="日志分析"><a href="#日志分析" class="headerlink" title="日志分析"></a>日志分析</h2><h2 id="电子取证"><a href="#电子取证" class="headerlink" title="电子取证"></a>电子取证</h2><h3 id="即日志分析"><a href="#即日志分析" class="headerlink" title="即日志分析"></a>即日志分析</h3><p>访问IP+访问时间+访问方式+访问路径+访问版本+响应</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-22</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="服务器系统"><a href="#服务器系统" class="headerlink" title="服务器系统"></a>服务器系统</h1><h2 id="即服务器的操作系统"><a href="#即服务器的操作系统" class="headerlink" title="即服务器的操作系统"></a>即服务器的操作系统</h2><h2 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h2><h3 id="windows-server"><a href="#windows-server" class="headerlink" title="windows server"></a>windows server</h3><ol>
+<li><p>对存储装置管控更安全</p>
+</li>
+<li><p>不提供32位版本</p>
+<h3 id="netware"><a href="#netware" class="headerlink" title="netware"></a>netware</h3></li>
+<li><p>以文件服务器为中心，主要由三部分组成：文件服务器内核，工作站外壳，低层通信协议</p>
+<h3 id="unix"><a href="#unix" class="headerlink" title="unix"></a>unix</h3></li>
+<li><p>多用户，多任务的分时操作系统</p>
+</li>
+<li><p>结构：操作系统内核，系统调用，应用程序</p>
+</li>
+<li><p>功能强大的可编程的Shell语言(外壳语言);</p>
+</li>
+<li><p>采用树状目录结构，具有良好的安全性，保密性和可维护性;</p>
+</li>
+<li><p>采用进程对换(Swapping)的内存管理机制和请求调页的存储方式，实现虚拟内存管理，内存的使用效率大增;</p>
+</li>
+<li><p>多种通信机制，如：管道通信，软中断通信，消息通信，共享存储器通信，信号灯通信。</p>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3></li>
+<li><p>类unix操作系统，多用户，多任务，支持多线程和多CPU的操作系统</p>
+</li>
+<li><p>思想：一切都是文件，每个软件都有确定的用途</p>
+</li>
+<li><p>多用户，多任务：各个用户对于自己的文件设备有自己特殊的权利；多个程序可以同时并独立的运行</p>
+</li>
+<li><p>同时字符界面和图形界面</p>
+</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/%E7%BD%91%E7%AB%99%E6%9A%B4%E5%BA%93%E6%BC%8F%E6%B4%9E/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-22</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/%E7%BD%91%E7%AB%99%E6%9A%B4%E5%BA%93%E6%BC%8F%E6%B4%9E/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="网站暴库漏洞"><a href="#网站暴库漏洞" class="headerlink" title="网站暴库漏洞"></a>网站暴库漏洞</h1><ol>
+<li>利用一些技术手段或程序漏洞得到数据库的地址，并将数据非法下载到本地。</li>
+<li>黑客得到网站数据库后，就能得到网站管理账号，对网站进行破坏和管理</li>
+<li>得到网站用户的隐私信息，甚至得到服务器的最高权限<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="搜索转到父目录"><a href="#搜索转到父目录" class="headerlink" title="搜索转到父目录"></a>搜索转到父目录</h3></li>
+<li>或site.qq.com 转到父目录</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-22</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>#知识点一</p>
+<h2 id="ping扫描"><a href="#ping扫描" class="headerlink" title="ping扫描"></a>ping扫描</h2><ol>
+<li>nslookup<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2></li>
+<li>当禁ping时可以使用端口进行扫描</li>
+<li>禁ping即为禁SIP协议<h3 id="1-65535-TCP-UDP"><a href="#1-65535-TCP-UDP" class="headerlink" title="1-65535 TCP/UDP"></a>1-65535 TCP/UDP</h3><h2 id="OS检测扫描（操作系统）"><a href="#OS检测扫描（操作系统）" class="headerlink" title="OS检测扫描（操作系统）"></a>OS检测扫描（操作系统）</h2><h2 id="弱口令探测"><a href="#弱口令探测" class="headerlink" title="弱口令探测"></a>弱口令探测</h2><h2 id="漏洞评估探测"><a href="#漏洞评估探测" class="headerlink" title="漏洞评估探测"></a>漏洞评估探测</h2><h1 id="知识点二"><a href="#知识点二" class="headerlink" title="知识点二"></a>知识点二</h1><h1 id="扫描技术分类"><a href="#扫描技术分类" class="headerlink" title="扫描技术分类"></a>扫描技术分类</h1></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-20</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="信息收集下"><a href="#信息收集下" class="headerlink" title="信息收集下"></a>信息收集下</h1><h2 id="操作方向"><a href="#操作方向" class="headerlink" title="操作方向"></a>操作方向</h2><ol>
+<li>域名信息</li>
+<li>whois信息</li>
+<li>目录信息</li>
+<li>谷歌hacker</li>
+<li>整站分析</li>
+<li>旁站c端</li>
+<li>后台查找</li>
+<li>cdn绕过</li>
+<li>app</li>
+<li>host.txt<h2 id="自动跑漏洞工具"><a href="#自动跑漏洞工具" class="headerlink" title="自动跑漏洞工具"></a>自动跑漏洞工具</h2><h3 id="Nmap端口扫描王"><a href="#Nmap端口扫描王" class="headerlink" title="Nmap端口扫描王"></a>Nmap端口扫描王</h3><h4 id="主机探测（看哪些主机IP在线）（up-down）"><a href="#主机探测（看哪些主机IP在线）（up-down）" class="headerlink" title="主机探测（看哪些主机IP在线）（up/down）"></a>主机探测（看哪些主机IP在线）（up/down）</h4>（以下步骤的前提是切换到nmap的目录下能够找到nmap.exe）</li>
+<li>扫描单个主机 nmap.exe 192.168.1.2</li>
+<li>扫描整个子网 nmap.exe 192.168.1.1/24</li>
+<li>扫描多个目标 nmap.exe IP1 IP2</li>
+<li>扫描一个范围内的目标 nmap.exe 192.168.1.1-100(扫描1到100的所有主机)<h4 id="查看扫描的所有主机的列表（加参数-sL）"><a href="#查看扫描的所有主机的列表（加参数-sL）" class="headerlink" title="查看扫描的所有主机的列表（加参数-sL）"></a>查看扫描的所有主机的列表（加参数-sL）</h4></li>
+<li>nmap -sL 192.168.1.1/24<h4 id="扫描除过某一个IP外的所有子网主机"><a href="#扫描除过某一个IP外的所有子网主机" class="headerlink" title="扫描除过某一个IP外的所有子网主机"></a>扫描除过某一个IP外的所有子网主机</h4></li>
+<li>nmapxxx-excludexx</li>
+<li>include和exclude<h4 id="扫描除过某一个文件中的IP外的子网主机命令"><a href="#扫描除过某一个文件中的IP外的子网主机命令" class="headerlink" title="扫描除过某一个文件中的IP外的子网主机命令"></a>扫描除过某一个文件中的IP外的子网主机命令</h4></li>
+<li>nmapxxx-excludefilexxx.txt(会先读取xxx.file中的IP，然后排除)<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3></li>
+<li>nmap -F -sT -v IP</li>
+<li>-F:扫描100个最有可能开放的端口</li>
+<li>-v 获取扫描的信息</li>
+<li>-sT:采用的是TCP扫描，不写也可，默认为TCP扫描</li>
+<li>-p指定扫描的端口<h3 id="zenmap是可视化界面"><a href="#zenmap是可视化界面" class="headerlink" title="zenmap是可视化界面"></a>zenmap是可视化界面</h3></li>
+<li>可以直接输入域名进行扫描<h2 id="端口扫描状态"><a href="#端口扫描状态" class="headerlink" title="端口扫描状态"></a>端口扫描状态</h2></li>
+<li>open 端口开启，数据有到达主机，有程序在端口上监控</li>
+<li>closed 端口关闭，数据有到达主机，没有程序在端口上监控</li>
+<li>filtered 数据没有到达主机，返回的结果为空，数据被防火墙或者是IDS过滤</li>
+<li>unfiltered 数据有到达主机，但是不能识别端口的当前状态</li>
+<li><img src="D:\CTF学习工具\QQ截图.png"><h2 id="服务版本扫描"><a href="#服务版本扫描" class="headerlink" title="服务版本扫描"></a>服务版本扫描</h2><h2 id="主机系统的指纹识别"><a href="#主机系统的指纹识别" class="headerlink" title="主机系统的指纹识别"></a>主机系统的指纹识别</h2><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h2><h2 id="创建扫描版本"><a href="#创建扫描版本" class="headerlink" title="创建扫描版本"></a>创建扫描版本</h2><h2 id="burpsuite手工测"><a href="#burpsuite手工测" class="headerlink" title="burpsuite手工测"></a>burpsuite手工测</h2><h2 id="TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP"><a href="#TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP" class="headerlink" title="TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)"></a>TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3></li>
+<li>客户端向服务端发送请求</li>
+<li>服务端向客户端发送响应包</li>
+<li>客户端向服务端发送确认相应包</li>
+<li>如果客户端已知不发送，服务端会等待（看服务端的设置状态，例如：等待n秒）<h3 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h3></li>
+<li>当黑客手里握着的主机同时向服务端发送请求时，如果超过服务器能够承受的量，且黑客一直在第三次握手的时候不发送确认包，则会令服务端一直等待，严重的导致拒绝服务<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3></li>
+<li>扫描速度快，准确性高，对操作者没有权限上的要求</li>
+<li>但是容易被防火墙和IDS防入侵系统发现<h2 id="SYN扫描-sS（s表明扫描方式-S表明SYN扫描）"><a href="#SYN扫描-sS（s表明扫描方式-S表明SYN扫描）" class="headerlink" title="SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）"></a>SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）</h2></li>
+<li>秘密的扫描方式</li>
+<li>Client和Server之间没有形成三次握手，所以没有简历一个正常的TCP链接</li>
+<li>不会被防火墙和日志所记录，一般不会在目标主机上留下任何痕迹，但是这种扫描需要root权限<h2 id="使用UDP-ping探测主机"><a href="#使用UDP-ping探测主机" class="headerlink" title="使用UDP ping探测主机"></a>使用UDP ping探测主机</h2>nmap -PU xxx<h2 id="服务器版本探测"><a href="#服务器版本探测" class="headerlink" title="服务器版本探测"></a>服务器版本探测</h2>nmap -sV xxx</li>
+<li>服务器版本即服务器系统的版本<h2 id="精确地确认端口上运行的服务"><a href="#精确地确认端口上运行的服务" class="headerlink" title="精确地确认端口上运行的服务"></a>精确地确认端口上运行的服务</h2>nmap -sV –script unusual-port xxx<h2 id="探测目标主机的操作系统"><a href="#探测目标主机的操作系统" class="headerlink" title="探测目标主机的操作系统"></a>探测目标主机的操作系统</h2></li>
+<li>nmap -O xxx</li>
+<li>nmap -A xxx</li>
+<li>-oN 导出扫描结果</li>
+<li>-oX 导出扫描结果xml格式  </li>
+<li>nmap -A xxx -oX c:\123.xml<h2 id="防火墙躲避绕过"><a href="#防火墙躲避绕过" class="headerlink" title="防火墙躲避绕过"></a>防火墙躲避绕过</h2></li>
+<li>-f 分片绕过</li>
+<li>-D 使用诱饵隐蔽扫描： nmap -D 1.1.1.1,222.222.222.222 xxx</li>
+<li>–source-port 源端口欺骗<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1></li>
+<li>syn扫描器</li>
+<li>扫描外围主机网段</li>
+<li>对应端口爆破工具</li>
+<li>提供访问木马服务器下载的工具</li>
+<li>一个远控<h1 id="AWVS"><a href="#AWVS" class="headerlink" title="AWVS"></a>AWVS</h1></li>
+<li></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/">
                 Untitled
             </a>
@@ -203,7 +522,44 @@
 <li>输入起止IP</li>
 <li>设置端口</li>
 <li>点击start<h2 id="ntscan"><a href="#ntscan" class="headerlink" title="ntscan"></a>ntscan</h2><h2 id="telnet-是Windows自带的链接端口的工具"><a href="#telnet-是Windows自带的链接端口的工具" class="headerlink" title="telnet(是Windows自带的链接端口的工具)"></a>telnet(是Windows自带的链接端口的工具)</h2></li>
-<li>格式：telnet 域名 端口（telnet <a target="_blank" rel="noopener" href="http://qufutuan.com/">http://qufutuan.com</a> 3306）</li>
+<li>格式：telnet 域名 端口（telnet <a target="_blank" rel="noopener" href="http://qufutuan.com/">http://qufutuan.com</a> 3306）<h1 id="旁站c站"><a href="#旁站c站" class="headerlink" title="旁站c站"></a>旁站c站</h1><h1 id="整站分析"><a href="#整站分析" class="headerlink" title="整站分析"></a>整站分析</h1><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2></li>
+<li>windows/linux<h2 id="脚本格式"><a href="#脚本格式" class="headerlink" title="脚本格式"></a>脚本格式</h2></li>
+<li>asp aspx php jsp<h2 id="数据库类型"><a href="#数据库类型" class="headerlink" title="数据库类型"></a>数据库类型</h2></li>
+<li>access</li>
+<li>sqlserver</li>
+<li>oracle</li>
+<li>db2</li>
+<li>postgresql</li>
+<li>sqlite<h2 id="防护情况waf"><a href="#防护情况waf" class="headerlink" title="防护情况waf"></a>防护情况waf</h2></li>
+<li>web application firewall<h2 id="cms类型"><a href="#cms类型" class="headerlink" title="cms类型"></a>cms类型</h2></li>
+<li>dedecms</li>
+<li>diguo</li>
+<li>meterinfo</li>
+<li>dz<h2 id="获取cms"><a href="#获取cms" class="headerlink" title="获取cms"></a>获取cms</h2></li>
+<li>使用yunsee输入域名后查询：web指纹，语言，数据库，容器，服务器IP，操作系统<h2 id="操作-1"><a href="#操作-1" class="headerlink" title="操作"></a>操作</h2><h3 id="判断是什么脚本"><a href="#判断是什么脚本" class="headerlink" title="判断是什么脚本"></a>判断是什么脚本</h3></li>
+<li>/index.php若正常则为php脚本</li>
+<li>/index.asp若正常则为asp脚本</li>
+<li>/index.asps若正常则为aspx脚本</li>
+<li>/index.jsp若正常则为jsp脚本<h3 id="判断操作系统"><a href="#判断操作系统" class="headerlink" title="判断操作系统"></a>判断操作系统</h3></li>
+<li>windows不区分大小写，Linux区分大小写</li>
+<li>输入/index.phP(即修改一个字母)若正常则为windows，不正常则为linux（当php脚本存在时）</li>
+<li>注意区分脚本类型<h3 id="测waf"><a href="#测waf" class="headerlink" title="测waf"></a>测waf</h3></li>
+<li>输入and 1=1</li>
+<li>waf会拦截and这一类的参数<h1 id="谷歌hacker"><a href="#谷歌hacker" class="headerlink" title="谷歌hacker"></a>谷歌hacker</h1></li>
+<li>intext:查找网页中含有xx关键字的网站（intext: 管理员登录）</li>
+<li>intitle:查找某个标题（intitle: 后台登录）</li>
+<li>Filetype：查找某个文件类型的文件(数据挖掘 filetype: doc)</li>
+<li>inurl:查找url中带有某字段的网站（inurl: php?id=）</li>
+<li>Site:在某域名中查找信息<h1 id="url采集"><a href="#url采集" class="headerlink" title="url采集"></a>url采集</h1><h1 id="后台查找"><a href="#后台查找" class="headerlink" title="后台查找"></a>后台查找</h1><h2 id="弱口令默认后台"><a href="#弱口令默认后台" class="headerlink" title="弱口令默认后台"></a>弱口令默认后台</h2></li>
+<li>admin,admin/login.asp,manage,login.asp<h2 id="查看网页的链接（超链接）"><a href="#查看网页的链接（超链接）" class="headerlink" title="查看网页的链接（超链接）"></a>查看网页的链接（超链接）</h2></li>
+<li>一般来说，网页的主页有管理登录类似的东西，有些可能被管理员删掉</li>
+<li>选择图片等获取链接，从中截取前半部分关于后台的链接，看看是否能访问<h2 id="查看网站使用的管理系统，从而确定后台"><a href="#查看网站使用的管理系统，从而确定后台" class="headerlink" title="查看网站使用的管理系统，从而确定后台"></a>查看网站使用的管理系统，从而确定后台</h2><h2 id="使用工具查找"><a href="#使用工具查找" class="headerlink" title="使用工具查找"></a>使用工具查找</h2></li>
+<li>御剑</li>
+<li>蜘蛛（菜刀）<h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2></li>
+<li>robots.txt文件告诉蜘蛛程序在服务器上什么样的文件可以被查看<h2 id="googlehacker"><a href="#googlehacker" class="headerlink" title="googlehacker"></a>googlehacker</h2><h2 id="短文件利用"><a href="#短文件利用" class="headerlink" title="短文件利用"></a>短文件利用</h2></li>
+<li>如果有administrator121321312.asp,那么可以直接输入/a<del>!.asp(开头char加</del>加！加文件类型)<h1 id="CDN绕过方法（信息收集上最后）"><a href="#CDN绕过方法（信息收集上最后）" class="headerlink" title="CDN绕过方法（信息收集上最后）"></a>CDN绕过方法（信息收集上最后）</h1><h2 id="什么是CDN"><a href="#什么是CDN" class="headerlink" title="什么是CDN"></a>什么是CDN</h2></li>
+<li>内容分发网络（访问加速）</li>
+<li></li>
 </ol>
 
         </div>
@@ -239,7 +595,7 @@
 <li>版本库：存放所有已经提交到本地仓库的代码版本</li>
 <li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li>
 <li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li>
-<li>git config –global user.email <a href="mailto:&#120;&#120;&#x78;&#x40;&#x78;&#120;&#120;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#120;&#x78;&#x40;&#x78;&#120;&#120;&#x2e;&#x63;&#x6f;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li>
+<li>git config –global user.email <a href="mailto:&#120;&#120;&#x78;&#64;&#120;&#120;&#x78;&#x2e;&#99;&#x6f;&#x6d;">&#120;&#120;&#x78;&#64;&#120;&#120;&#x78;&#x2e;&#99;&#x6f;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li>
 <li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li>
 <li>git add xxx:将xxx文件添加到暂存区</li>
 <li>git add .:将所有待加入暂存区的文件加入暂存区</li>
@@ -251,10 +607,10 @@
 <li>git reset –hard HEAD~num:回滚num次</li>
 <li>git reset –hard 版本号：回滚到某一特定版本</li>
 <li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li>
-<li>git remote add origin <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#46;&#x61;&#99;&#119;&#105;&#x6e;&#x67;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#46;&#x61;&#99;&#119;&#105;&#x6e;&#x67;&#46;&#x63;&#x6f;&#109;</a>:…将本地仓库关联到远程仓库</li>
+<li>git remote add origin <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x2e;&#97;&#99;&#x77;&#105;&#110;&#103;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x2e;&#97;&#99;&#x77;&#105;&#110;&#103;&#46;&#x63;&#x6f;&#x6d;</a>:…将本地仓库关联到远程仓库</li>
 <li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li>
 <li>git push origin branch_name:将本地的某个分支推送到远程仓库</li>
-<li>git clone <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x2e;&#x61;&#x63;&#x77;&#105;&#110;&#x67;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x2e;&#x61;&#x63;&#x77;&#105;&#110;&#x67;&#x2e;&#99;&#x6f;&#109;</a>:…将远程仓库xxx下载到当前目录下</li>
+<li>git clone <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#46;&#x61;&#x63;&#119;&#x69;&#110;&#x67;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#46;&#x61;&#x63;&#119;&#x69;&#110;&#x67;&#46;&#x63;&#x6f;&#109;</a>:…将远程仓库xxx下载到当前目录下</li>
 <li></li>
 </ol>
 <h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol>
@@ -391,193 +747,6 @@ date: 2022-1-19
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-15</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h1><h2 id="src属性配置的是图片的路径，目前我们配置的都是相对路径"><a href="#src属性配置的是图片的路径，目前我们配置的都是相对路径" class="headerlink" title="src属性配置的是图片的路径，目前我们配置的都是相对路径"></a>src属性配置的是图片的路径，目前我们配置的都是相对路径</h2><h2 id="相对路劲：相对于当前资源所在目录的位置"><a href="#相对路劲：相对于当前资源所在目录的位置" class="headerlink" title="相对路劲：相对于当前资源所在目录的位置"></a>相对路劲：相对于当前资源所在目录的位置</h2>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>#图片标签</p>
-<h2 id="使用img-image-标签来向网页中引入一个外部图片"><a href="#使用img-image-标签来向网页中引入一个外部图片" class="headerlink" title="使用img(image)标签来向网页中引入一个外部图片"></a>使用img(image)标签来向网页中引入一个外部图片</h2><ol>
-<li>img标签也是一个自结束标签<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="src：设置一个外部图片的路径"><a href="#src：设置一个外部图片的路径" class="headerlink" title="src：设置一个外部图片的路径"></a>src：设置一个外部图片的路径</h3><h3 id="alt：可以用来设置图片的描述"><a href="#alt：可以用来设置图片的描述" class="headerlink" title="alt：可以用来设置图片的描述"></a>alt：可以用来设置图片的描述</h3></li>
-<li>（当图片不能显示时，直接显示alt中的内容），搜索引擎可以通过alt属性来识别不同的图片（百度专门搜索图片的时候就是用alt）</li>
-<li>如果不写alt，搜索引擎将不会对img中的图片进行收录<h3 id="width：可以用来修改图片的宽度，一般使用px为单位（像素）"><a href="#width：可以用来修改图片的宽度，一般使用px为单位（像素）" class="headerlink" title="width：可以用来修改图片的宽度，一般使用px为单位（像素）"></a>width：可以用来修改图片的宽度，一般使用px为单位（像素）</h3><h3 id="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"><a href="#height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小" class="headerlink" title="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"></a>height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小</h3><h2 id="如果两个值同时指定，则按照你指定的值来设置"><a href="#如果两个值同时指定，则按照你指定的值来设置" class="headerlink" title="如果两个值同时指定，则按照你指定的值来设置"></a>如果两个值同时指定，则按照你指定的值来设置</h2></li>
-<li>如果两个值同时指定，则按照你指定的值来设置<h2 id="一般开发中除了自适应页面，不建议设置width和height"><a href="#一般开发中除了自适应页面，不建议设置width和height" class="headerlink" title="一般开发中除了自适应页面，不建议设置width和height"></a>一般开发中除了自适应页面，不建议设置width和height</h2></li>
-<li>让美工话自己想要的大小<h2 id=""><a href="#" class="headerlink" title=""></a><img src="路径" alt="图片描述" /></h2><h1 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h1></li>
-<li>JPEG(JPG):支持的颜色比较多，图片可以压缩，但是不支持透明(指的是背景透明)，一般用来保存照片等颜色丰富的图片</li>
-<li>GIF：支持的颜色少，只支持简单的透明（背景透明）（但是边界会有白边），支持动态图，图片颜色单一或者是动态图时可以使用gif</li>
-<li>PNG：支持的颜色多，并且支持复杂的透明（背景透明），可以用来显示颜色复杂的透明的图片<h2 id="图片的使用原则："><a href="#图片的使用原则：" class="headerlink" title="图片的使用原则："></a>图片的使用原则：</h2></li>
-<li>效果不一致用好的</li>
-<li>效果一致用小的（jpg一般小于png）</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E5%AE%9E%E4%BD%93/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E5%AE%9E%E4%BD%93/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h1><h2 id="在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）"><a href="#在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）" class="headerlink" title="在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）"></a>在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）</h2><ol>
-<li>需要使用一些特殊的符号来表示这些特殊字符，这些特殊符号我们称为实体（转义字符串）</li>
-<li>浏览器解析到实体时，会自动将实体转换为其对应的字符<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
-<li>&amp;实体的名字（将linux系统操作的-换位&amp;）(只能说是一部分)</li>
-<li>小于&lt; -lt</li>
-<li>大于&gt; -gt</li>
-<li>空格&nbsp;(牛逼space)(no break space，即不会换行的空格)</li>
-<li>版权符号 &amp;copy（不让你copy）<h3 id="amp-开头，；结尾"><a href="#amp-开头，；结尾" class="headerlink" title="&amp;开头，；结尾"></a>&amp;开头，；结尾</h3></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E6%A0%87%E7%AD%BE/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E6%A0%87%E7%AD%BE/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="常用的标签："><a href="#常用的标签：" class="headerlink" title="常用的标签："></a>常用的标签：</h1><h2 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h2><ol>
-<li>HTML中一共有六级标签：h1~h6</li>
-<li>h1最大，为一级；h6为最小，为6级</li>
-<li>一般不用，主要是css来修改</li>
-<li>使用HTML标签时，关心的是标签的语义，我们使用的标签都是语义化标签</li>
-<li>6级标签中，h1最重要，表示一个网页中的主要内容，h2~h6的重要性一次降低<h3 id="对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容"><a href="#对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容" class="headerlink" title="对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容"></a>对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容</h3></li>
-<li>h1标签非常重要，会影响页面再搜索引擎中的排名，页面只能写一个h1</li>
-<li>一般页面标题中只使用h1,h2,h3，h3以后的基本不使用<h2 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h2></li>
-<li>用于表示内容中的一个自然段，使用p标签来表示一个段落</li>
-<li><p>中间放段落</p></li>
-<li>p标签中的文字，默认会独占一行，并且段和段之间会有一个间</li>
-<li>但是如果没有p标签则会出现在一行，并且行与行之间没有间距<h3 id="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"><a href="#在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析" class="headerlink" title="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"></a>在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析</h3><h3 id="在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签"><a href="#在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签" class="headerlink" title="在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签"></a>在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签<br /></h3><h3 id="，hr标签也是一个自结束标签，可以在页面中生成一条水平线"><a href="#，hr标签也是一个自结束标签，可以在页面中生成一条水平线" class="headerlink" title="，hr标签也是一个自结束标签，可以在页面中生成一条水平线"></a><hr />，hr标签也是一个自结束标签，可以在页面中生成一条水平线</h3></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E5%92%8C%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E5%92%8C%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="乱码问题"><a href="#乱码问题" class="headerlink" title="乱码问题"></a>乱码问题</h1><p>###乱码出现的原因：编码和解码所采用的字符集不同</p>
-<ol>
-<li>计算机只认识0和1</li>
-<li>在计算机中保存的任何内容，最终都需要用二进制编码保存，包括网页中的内容</li>
-<li>在读取内容时，需要将二进制编码再转换为正确的内容<br>###编码：依据一定的规则，将字符转换为二进制编码的过程<br>###解码：一句一定的规则，将二进制编码转换为字符的过程<br>##字符集：编码和解码所采用的规则</li>
-<li>ASCII：７位０\１,128个</li>
-<li>ISO－８８５９－１,8位0\1，256个</li>
-<li>GBK：国标</li>
-<li>GB２３１２：国标，中文系统的默认编码</li>
-<li>UTF－８：万国码，支持地球上所有的文字(即unicode编码)</li>
-<li>ANSI：自动以系统默认的编码来保存文件<h3 id="在中文系统浏览器中，默认都是使用GB２３１２进行解码"><a href="#在中文系统浏览器中，默认都是使用GB２３１２进行解码" class="headerlink" title="在中文系统浏览器中，默认都是使用GB２３１２进行解码"></a>在中文系统浏览器中，默认都是使用GB２３１２进行解码</h3><h2 id="使用notepad-可以直接将网页拖入，显示网页的源代码"><a href="#使用notepad-可以直接将网页拖入，显示网页的源代码" class="headerlink" title="使用notepad++可以直接将网页拖入，显示网页的源代码"></a>使用notepad++可以直接将网页拖入，显示网页的源代码</h2><h2 id="更改编码：在notepad-中，上方的菜单栏中选编码"><a href="#更改编码：在notepad-中，上方的菜单栏中选编码" class="headerlink" title="更改编码：在notepad++中，上方的菜单栏中选编码"></a>更改编码：在notepad++中，上方的菜单栏中选编码</h2><h2 id="更改浏览器解码方式"><a href="#更改浏览器解码方式" class="headerlink" title="更改浏览器解码方式"></a>更改浏览器解码方式</h2><h2 id="：meta是一个自结束标签，最后加上-表示结束"><a href="#：meta是一个自结束标签，最后加上-表示结束" class="headerlink" title="：meta是一个自结束标签，最后加上/表示结束"></a><meta charset="字符集" />：meta是一个自结束标签，最后加上/表示结束</h2><h2 id="txt中可以在保存的时候选择编码方式"><a href="#txt中可以在保存的时候选择编码方式" class="headerlink" title="txt中可以在保存的时候选择编码方式"></a>txt中可以在保存的时候选择编码方式</h2></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -620,19 +789,19 @@ date: 2022-1-19
         <ul>
             
             <li>
-                <a class="footer-post" href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/">Untitled</a>
+                <a class="footer-post" href="/blog6/CTF%E6%9D%82%E9%A1%B91/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/git/">Untitled</a>
+                <a class="footer-post" href="/blog6/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Untitled</a>
+                <a class="footer-post" href="/blog6/%E7%BD%91%E7%AB%99%E6%9A%B4%E5%BA%93%E6%BC%8F%E6%B4%9E/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">Untitled</a>
+                <a class="footer-post" href="/blog6/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/">Untitled</a>
             </li>
             
         </ul>

@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
+            <a href="/blog6/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/">
                 Untitled
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021-12-05</span>
+                <span class="date">2022-01-22</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,13 +174,11 @@
         
 
         <!-- Post Content -->
-        <h1 id="硬盘基本知识"><a href="#硬盘基本知识" class="headerlink" title="硬盘基本知识"></a>硬盘基本知识</h1><h2 id="硬盘由５部分组成："><a href="#硬盘由５部分组成：" class="headerlink" title="硬盘由５部分组成："></a>硬盘由５部分组成：</h2><ol>
-<li>盘片，磁头，磁道，扇区，柱面</li>
-<li>盘片 片面 和 磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。<br><img src="https://upload-images.jianshu.io/upload_images/2843224-46fb935cd31addbd.png"><br>扇区 和 磁道<br>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）<br><img src="https://upload-images.jianshu.io/upload_images/2843224-56f2056f0b36009f.png"><br>编号是：从下到上依次递增，最下面是０<pre><code> 从外到内依次递增，最外面是０
-</code></pre>
-<h2 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h2></li>
-<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )<h2 id="硬盘坏道"><a href="#硬盘坏道" class="headerlink" title="硬盘坏道"></a>硬盘坏道</h2></li>
-<li>硬盘中的部分数据无法使用或者使用出现了异常。更标准的说法为坏扇区而不是坏扇道，因为磁盘的最小寻址单位是扇区而不是磁道</li>
+        <p>#知识点一</p>
+<h2 id="ping扫描"><a href="#ping扫描" class="headerlink" title="ping扫描"></a>ping扫描</h2><ol>
+<li>nslookup<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2></li>
+<li>当禁ping时可以使用端口进行扫描</li>
+<li>禁ping即为禁SIP协议<h3 id="1-65535-TCP-UDP"><a href="#1-65535-TCP-UDP" class="headerlink" title="1-65535 TCP/UDP"></a>1-65535 TCP/UDP</h3><h2 id="OS检测扫描（操作系统）"><a href="#OS检测扫描（操作系统）" class="headerlink" title="OS检测扫描（操作系统）"></a>OS检测扫描（操作系统）</h2><h2 id="弱口令探测"><a href="#弱口令探测" class="headerlink" title="弱口令探测"></a>弱口令探测</h2><h2 id="漏洞评估探测"><a href="#漏洞评估探测" class="headerlink" title="漏洞评估探测"></a>漏洞评估探测</h2><h1 id="知识点二"><a href="#知识点二" class="headerlink" title="知识点二"></a>知识点二</h1><h1 id="扫描技术分类"><a href="#扫描技术分类" class="headerlink" title="扫描技术分类"></a>扫描技术分类</h1></li>
 </ol>
 
     </div>

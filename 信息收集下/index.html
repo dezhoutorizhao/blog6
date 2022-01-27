@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
+            <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/">
                 Untitled
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021-12-05</span>
+                <span class="date">2022-01-20</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,13 +174,61 @@
         
 
         <!-- Post Content -->
-        <h1 id="硬盘基本知识"><a href="#硬盘基本知识" class="headerlink" title="硬盘基本知识"></a>硬盘基本知识</h1><h2 id="硬盘由５部分组成："><a href="#硬盘由５部分组成：" class="headerlink" title="硬盘由５部分组成："></a>硬盘由５部分组成：</h2><ol>
-<li>盘片，磁头，磁道，扇区，柱面</li>
-<li>盘片 片面 和 磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。<br><img src="https://upload-images.jianshu.io/upload_images/2843224-46fb935cd31addbd.png"><br>扇区 和 磁道<br>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）<br><img src="https://upload-images.jianshu.io/upload_images/2843224-56f2056f0b36009f.png"><br>编号是：从下到上依次递增，最下面是０<pre><code> 从外到内依次递增，最外面是０
-</code></pre>
-<h2 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h2></li>
-<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )<h2 id="硬盘坏道"><a href="#硬盘坏道" class="headerlink" title="硬盘坏道"></a>硬盘坏道</h2></li>
-<li>硬盘中的部分数据无法使用或者使用出现了异常。更标准的说法为坏扇区而不是坏扇道，因为磁盘的最小寻址单位是扇区而不是磁道</li>
+        <h1 id="信息收集下"><a href="#信息收集下" class="headerlink" title="信息收集下"></a>信息收集下</h1><h2 id="操作方向"><a href="#操作方向" class="headerlink" title="操作方向"></a>操作方向</h2><ol>
+<li>域名信息</li>
+<li>whois信息</li>
+<li>目录信息</li>
+<li>谷歌hacker</li>
+<li>整站分析</li>
+<li>旁站c端</li>
+<li>后台查找</li>
+<li>cdn绕过</li>
+<li>app</li>
+<li>host.txt<h2 id="自动跑漏洞工具"><a href="#自动跑漏洞工具" class="headerlink" title="自动跑漏洞工具"></a>自动跑漏洞工具</h2><h3 id="Nmap端口扫描王"><a href="#Nmap端口扫描王" class="headerlink" title="Nmap端口扫描王"></a>Nmap端口扫描王</h3><h4 id="主机探测（看哪些主机IP在线）（up-down）"><a href="#主机探测（看哪些主机IP在线）（up-down）" class="headerlink" title="主机探测（看哪些主机IP在线）（up/down）"></a>主机探测（看哪些主机IP在线）（up/down）</h4>（以下步骤的前提是切换到nmap的目录下能够找到nmap.exe）</li>
+<li>扫描单个主机 nmap.exe 192.168.1.2</li>
+<li>扫描整个子网 nmap.exe 192.168.1.1/24</li>
+<li>扫描多个目标 nmap.exe IP1 IP2</li>
+<li>扫描一个范围内的目标 nmap.exe 192.168.1.1-100(扫描1到100的所有主机)<h4 id="查看扫描的所有主机的列表（加参数-sL）"><a href="#查看扫描的所有主机的列表（加参数-sL）" class="headerlink" title="查看扫描的所有主机的列表（加参数-sL）"></a>查看扫描的所有主机的列表（加参数-sL）</h4></li>
+<li>nmap -sL 192.168.1.1/24<h4 id="扫描除过某一个IP外的所有子网主机"><a href="#扫描除过某一个IP外的所有子网主机" class="headerlink" title="扫描除过某一个IP外的所有子网主机"></a>扫描除过某一个IP外的所有子网主机</h4></li>
+<li>nmapxxx-excludexx</li>
+<li>include和exclude<h4 id="扫描除过某一个文件中的IP外的子网主机命令"><a href="#扫描除过某一个文件中的IP外的子网主机命令" class="headerlink" title="扫描除过某一个文件中的IP外的子网主机命令"></a>扫描除过某一个文件中的IP外的子网主机命令</h4></li>
+<li>nmapxxx-excludefilexxx.txt(会先读取xxx.file中的IP，然后排除)<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3></li>
+<li>nmap -F -sT -v IP</li>
+<li>-F:扫描100个最有可能开放的端口</li>
+<li>-v 获取扫描的信息</li>
+<li>-sT:采用的是TCP扫描，不写也可，默认为TCP扫描</li>
+<li>-p指定扫描的端口<h3 id="zenmap是可视化界面"><a href="#zenmap是可视化界面" class="headerlink" title="zenmap是可视化界面"></a>zenmap是可视化界面</h3></li>
+<li>可以直接输入域名进行扫描<h2 id="端口扫描状态"><a href="#端口扫描状态" class="headerlink" title="端口扫描状态"></a>端口扫描状态</h2></li>
+<li>open 端口开启，数据有到达主机，有程序在端口上监控</li>
+<li>closed 端口关闭，数据有到达主机，没有程序在端口上监控</li>
+<li>filtered 数据没有到达主机，返回的结果为空，数据被防火墙或者是IDS过滤</li>
+<li>unfiltered 数据有到达主机，但是不能识别端口的当前状态</li>
+<li><img src="D:\CTF学习工具\QQ截图.png"><h2 id="服务版本扫描"><a href="#服务版本扫描" class="headerlink" title="服务版本扫描"></a>服务版本扫描</h2><h2 id="主机系统的指纹识别"><a href="#主机系统的指纹识别" class="headerlink" title="主机系统的指纹识别"></a>主机系统的指纹识别</h2><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h2><h2 id="创建扫描版本"><a href="#创建扫描版本" class="headerlink" title="创建扫描版本"></a>创建扫描版本</h2><h2 id="burpsuite手工测"><a href="#burpsuite手工测" class="headerlink" title="burpsuite手工测"></a>burpsuite手工测</h2><h2 id="TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP"><a href="#TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP" class="headerlink" title="TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)"></a>TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3></li>
+<li>客户端向服务端发送请求</li>
+<li>服务端向客户端发送响应包</li>
+<li>客户端向服务端发送确认相应包</li>
+<li>如果客户端已知不发送，服务端会等待（看服务端的设置状态，例如：等待n秒）<h3 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h3></li>
+<li>当黑客手里握着的主机同时向服务端发送请求时，如果超过服务器能够承受的量，且黑客一直在第三次握手的时候不发送确认包，则会令服务端一直等待，严重的导致拒绝服务<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3></li>
+<li>扫描速度快，准确性高，对操作者没有权限上的要求</li>
+<li>但是容易被防火墙和IDS防入侵系统发现<h2 id="SYN扫描-sS（s表明扫描方式-S表明SYN扫描）"><a href="#SYN扫描-sS（s表明扫描方式-S表明SYN扫描）" class="headerlink" title="SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）"></a>SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）</h2></li>
+<li>秘密的扫描方式</li>
+<li>Client和Server之间没有形成三次握手，所以没有简历一个正常的TCP链接</li>
+<li>不会被防火墙和日志所记录，一般不会在目标主机上留下任何痕迹，但是这种扫描需要root权限<h2 id="使用UDP-ping探测主机"><a href="#使用UDP-ping探测主机" class="headerlink" title="使用UDP ping探测主机"></a>使用UDP ping探测主机</h2>nmap -PU xxx<h2 id="服务器版本探测"><a href="#服务器版本探测" class="headerlink" title="服务器版本探测"></a>服务器版本探测</h2>nmap -sV xxx</li>
+<li>服务器版本即服务器系统的版本<h2 id="精确地确认端口上运行的服务"><a href="#精确地确认端口上运行的服务" class="headerlink" title="精确地确认端口上运行的服务"></a>精确地确认端口上运行的服务</h2>nmap -sV –script unusual-port xxx<h2 id="探测目标主机的操作系统"><a href="#探测目标主机的操作系统" class="headerlink" title="探测目标主机的操作系统"></a>探测目标主机的操作系统</h2></li>
+<li>nmap -O xxx</li>
+<li>nmap -A xxx</li>
+<li>-oN 导出扫描结果</li>
+<li>-oX 导出扫描结果xml格式  </li>
+<li>nmap -A xxx -oX c:\123.xml<h2 id="防火墙躲避绕过"><a href="#防火墙躲避绕过" class="headerlink" title="防火墙躲避绕过"></a>防火墙躲避绕过</h2></li>
+<li>-f 分片绕过</li>
+<li>-D 使用诱饵隐蔽扫描： nmap -D 1.1.1.1,222.222.222.222 xxx</li>
+<li>–source-port 源端口欺骗<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1></li>
+<li>syn扫描器</li>
+<li>扫描外围主机网段</li>
+<li>对应端口爆破工具</li>
+<li>提供访问木马服务器下载的工具</li>
+<li>一个远控<h1 id="AWVS"><a href="#AWVS" class="headerlink" title="AWVS"></a>AWVS</h1></li>
+<li></li>
 </ol>
 
     </div>

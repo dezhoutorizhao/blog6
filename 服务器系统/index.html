@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
+            <a href="/blog6/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F/">
                 Untitled
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021-12-05</span>
+                <span class="date">2022-01-22</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,13 +174,33 @@
         
 
         <!-- Post Content -->
-        <h1 id="硬盘基本知识"><a href="#硬盘基本知识" class="headerlink" title="硬盘基本知识"></a>硬盘基本知识</h1><h2 id="硬盘由５部分组成："><a href="#硬盘由５部分组成：" class="headerlink" title="硬盘由５部分组成："></a>硬盘由５部分组成：</h2><ol>
-<li>盘片，磁头，磁道，扇区，柱面</li>
-<li>盘片 片面 和 磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。<br><img src="https://upload-images.jianshu.io/upload_images/2843224-46fb935cd31addbd.png"><br>扇区 和 磁道<br>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）<br><img src="https://upload-images.jianshu.io/upload_images/2843224-56f2056f0b36009f.png"><br>编号是：从下到上依次递增，最下面是０<pre><code> 从外到内依次递增，最外面是０
-</code></pre>
-<h2 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h2></li>
-<li>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>磁头数：硬盘总共有几个磁头，也就是有几面盘片，最大为２５５；２５６－１<br>柱面数：每一面磁片上有几条磁道，最大为１０２３；１０２４－１<br>扇区数：每一条磁道上有几个扇区，最大为６３，每一个扇区的角度就是３６０/扇区数；６４－１<br>综上，欸，我们可以求最大容量了：<br>255 * 1023 * 63 * 512 / 1048576 = 8024 GB ( 1M =1048576 Bytes )<h2 id="硬盘坏道"><a href="#硬盘坏道" class="headerlink" title="硬盘坏道"></a>硬盘坏道</h2></li>
-<li>硬盘中的部分数据无法使用或者使用出现了异常。更标准的说法为坏扇区而不是坏扇道，因为磁盘的最小寻址单位是扇区而不是磁道</li>
+        <h1 id="服务器系统"><a href="#服务器系统" class="headerlink" title="服务器系统"></a>服务器系统</h1><h2 id="即服务器的操作系统"><a href="#即服务器的操作系统" class="headerlink" title="即服务器的操作系统"></a>即服务器的操作系统</h2><h2 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h2><h3 id="windows-server"><a href="#windows-server" class="headerlink" title="windows server"></a>windows server</h3><ol>
+<li><p>对存储装置管控更安全</p>
+</li>
+<li><p>不提供32位版本</p>
+<h3 id="netware"><a href="#netware" class="headerlink" title="netware"></a>netware</h3></li>
+<li><p>以文件服务器为中心，主要由三部分组成：文件服务器内核，工作站外壳，低层通信协议</p>
+<h3 id="unix"><a href="#unix" class="headerlink" title="unix"></a>unix</h3></li>
+<li><p>多用户，多任务的分时操作系统</p>
+</li>
+<li><p>结构：操作系统内核，系统调用，应用程序</p>
+</li>
+<li><p>功能强大的可编程的Shell语言(外壳语言);</p>
+</li>
+<li><p>采用树状目录结构，具有良好的安全性，保密性和可维护性;</p>
+</li>
+<li><p>采用进程对换(Swapping)的内存管理机制和请求调页的存储方式，实现虚拟内存管理，内存的使用效率大增;</p>
+</li>
+<li><p>多种通信机制，如：管道通信，软中断通信，消息通信，共享存储器通信，信号灯通信。</p>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3></li>
+<li><p>类unix操作系统，多用户，多任务，支持多线程和多CPU的操作系统</p>
+</li>
+<li><p>思想：一切都是文件，每个软件都有确定的用途</p>
+</li>
+<li><p>多用户，多任务：各个用户对于自己的文件设备有自己特殊的权利；多个程序可以同时并独立的运行</p>
+</li>
+<li><p>同时字符界面和图形界面</p>
+</li>
 </ol>
 
     </div>
