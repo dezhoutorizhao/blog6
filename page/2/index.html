@@ -156,6 +156,186 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/blog6/git/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-19</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/git/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li>工作区：仓库的目录</li>
+<li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li>
+<li>版本库：存放所有已经提交到本地仓库的代码版本</li>
+<li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li>
+<li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li>
+<li>git config –global user.email <a href="mailto:&#x78;&#x78;&#x78;&#x40;&#120;&#x78;&#x78;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#x78;&#x78;&#x40;&#120;&#x78;&#x78;&#x2e;&#x63;&#x6f;&#109;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li>
+<li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li>
+<li>git add xxx:将xxx文件添加到暂存区</li>
+<li>git add .:将所有待加入暂存区的文件加入暂存区</li>
+<li>git rm –catched xx:将文件从仓库索引目录中删掉</li>
+<li>git log :查看xx当前分支中的所有版本 </li>
+<li>git reflog : 查看HEAD指针的移动历史</li>
+<li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li>
+<li>git reset –hard HEAD^^回滚两次，以此类推</li>
+<li>git reset –hard HEAD~num:回滚num次</li>
+<li>git reset –hard 版本号：回滚到某一特定版本</li>
+<li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li>
+<li>git remote add origin <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x2e;&#97;&#99;&#x77;&#105;&#110;&#103;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x2e;&#97;&#99;&#x77;&#105;&#110;&#103;&#x2e;&#x63;&#x6f;&#109;</a>:…将本地仓库关联到远程仓库</li>
+<li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li>
+<li>git push origin branch_name:将本地的某个分支推送到远程仓库</li>
+<li>git clone <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#116;&#x2e;&#x61;&#x63;&#x77;&#x69;&#x6e;&#x67;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#103;&#x69;&#116;&#x2e;&#x61;&#x63;&#x77;&#x69;&#x6e;&#x67;&#46;&#99;&#x6f;&#x6d;</a>:…将远程仓库xxx下载到当前目录下</li>
+<li></li>
+</ol>
+<h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol>
+<li>git restore xxx:将工作区的文件回滚到暂存区版本</li>
+<li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-15</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="常见术语介绍"><a href="#常见术语介绍" class="headerlink" title="常见术语介绍"></a>常见术语介绍</h1><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><ol>
+<li>asp</li>
+<li>php</li>
+<li>jsp<h2 id="html-静态网站"><a href="#html-静态网站" class="headerlink" title="html(静态网站)"></a>html(静态网站)</h2></li>
+<li>css</li>
+<li>js</li>
+<li>html</li>
+<li>交互性少，漏洞少，非论坛性<h2 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h2><h2 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h2></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-15</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <pre class="line-numbers language-none"><code class="language-none">
+title: XHTML规范
+
+date: 2022-1-19
+
+&#123;% label info info %&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="label label-info">info</span>
+<h2 id="XHTML的出现是为了过渡到xml"><a href="#XHTML的出现是为了过渡到xml" class="headerlink" title="XHTML的出现是为了过渡到xml"></a>XHTML的出现是为了过渡到xml</h2><h2 id="HTML中不区分大小写，但是我们一般都使用小写"><a href="#HTML中不区分大小写，但是我们一般都使用小写" class="headerlink" title="HTML中不区分大小写，但是我们一般都使用小写"></a>HTML中不区分大小写，但是我们一般都使用小写</h2><h2 id="HTML的注释不能嵌套（就和c-中的if-else一样）"><a href="#HTML的注释不能嵌套（就和c-中的if-else一样）" class="headerlink" title="HTML的注释不能嵌套（就和c++中的if-else一样）"></a>HTML的注释不能嵌套（就和c++中的if-else一样）</h2><h2 id="HTML标签必须结构完整，要么成对出现，要么自结束标签"><a href="#HTML标签必须结构完整，要么成对出现，要么自结束标签" class="headerlink" title="HTML标签必须结构完整，要么成对出现，要么自结束标签"></a>HTML标签必须结构完整，要么成对出现，要么自结束标签</h2><ol>
+<li>浏览器会尽最大努力正确解析页面，不符合语法规范的内容，浏览器会自动修正</li>
+<li>但是有些情况会修正错误<h1 id="F12会跳出开发者控制台"><a href="#F12会跳出开发者控制台" class="headerlink" title="F12会跳出开发者控制台"></a>F12会跳出开发者控制台</h1>##自结束标签：</li>
+<li>html5中&lt; br &gt;</li>
+<li>xhtml中&lt; br /&gt;(最后有反斜杠)<h2 id="HTML标签可以嵌套，但是不能交叉嵌套"><a href="#HTML标签可以嵌套，但是不能交叉嵌套" class="headerlink" title="HTML标签可以嵌套，但是不能交叉嵌套"></a>HTML标签可以嵌套，但是不能交叉嵌套</h2><h2 id="HTML标签中的属性必须有值，且值必须加引号"><a href="#HTML标签中的属性必须有值，且值必须加引号" class="headerlink" title="HTML标签中的属性必须有值，且值必须加引号"></a>HTML标签中的属性必须有值，且值必须加引号</h2></li>
+<li>&lt; font color=”red” &gt;</li>
+<li>单双引号均可</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/meta/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-15</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/meta/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h1><h2 id="可以提供页面元信息"><a href="#可以提供页面元信息" class="headerlink" title="可以提供页面元信息"></a>可以提供页面元信息</h2><h2 id="meta标签永远位于head元素内部"><a href="#meta标签永远位于head元素内部" class="headerlink" title="meta标签永远位于head元素内部"></a>meta标签永远位于head元素内部</h2><h2 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h2><h3 id="必须"><a href="#必须" class="headerlink" title="必须"></a>必须</h3><ol>
+<li>content:定义与http-equiv或name属性相关的元信息（使用，进行分割）<h3 id="可选："><a href="#可选：" class="headerlink" title="可选："></a>可选：</h3></li>
+<li>http-equiv:把content属性关联到HTTP头部</li>
+<li>name:把content属性关联到一个名称</li>
+<li>scheme:定义用于翻译content属性值的格式<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4></li>
+<li>keywords:为文档定义了一组关键字，某些搜索引擎在遇到这些关键字时会用这些关键字对文档进行分类。<meta name="keywords" content="HTML,ASP,PHP" />(会将HTML等内容进行转keywords操作，content内容使用,进行分割)<h3 id="http-equiv"><a href="#http-equiv" class="headerlink" title="http-equiv"></a>http-equiv</h3></li>
+<li>为名称/值对提供了名称，并指示服务器在发送实际的文档之前先要传送给浏览器的MIME文档头部包含名称值对。</li>
+<li>当服务器向浏览器发送文档时，会先发送许多名称/值对，但是所有的服务器都至少要发送一个。</li>
+<li>使用带有http-equiv属性的meta标签时，服务器将把名称/值对添加到发送给浏览器的内容头部</li>
+<li><meta http-equiv="charset" content="iso-8859-1">
+### content</li>
+<li>提供了名称/值对中的值，该值可以是任何有效的字符串</li>
+<li>content属性始终要和name属性或http-equiv属性一起使用<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2></li>
+<li><meta http-equiv="Refresh" content="间隔时间；url=跳转页面的url"></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/">
                 Untitled
             </a>
@@ -366,362 +546,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/ssh/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-13</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/ssh/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><h2 id="ssh登录"><a href="#ssh登录" class="headerlink" title="ssh登录"></a>ssh登录</h2><h3 id="远程登录服务器"><a href="#远程登录服务器" class="headerlink" title="远程登录服务器"></a>远程登录服务器</h3><ol>
-<li>ssh user@hostname(user为用户名，hostname为IP地址或域名)</li>
-<li>默认登录端口为22号，如果想要登录某一特定端口：ssh user@hostname -p 22<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3></li>
-<li>创建文件~/.ssh/config</li>
-<li>输入Host myserver1</li>
-<li>\t,HostName IP地址或域名</li>
-<li>\t，User 用户名<h3 id="密钥登录"><a href="#密钥登录" class="headerlink" title="密钥登录"></a>密钥登录</h3></li>
-<li>ssh-keygen(key generation),然后一直回车</li>
-<li>执行结束后~/.ssh/目录下会多两个文件</li>
-<li>id_rsa和(私钥)id_rsa.pub(公钥)</li>
-<li>之后想要免密登录哪个服务器，即可将公钥传给哪个服务器即可</li>
-<li>例如想要免密登录myserver。则将公钥中的内容复制到myserver中的~/.ssh/authorized_keys文件中即可</li>
-<li>也可以使用命令一键添加公钥：ssh-copy-id myserver<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3></li>
-<li>格式：ssh user@hostname command</li>
-<li>ssh user@hostname ls -a</li>
-<li>ssh myserver <code>for ((i = 0; i &lt; 10; i ++ )) do echo $i;done</code><h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/shell%E8%AF%AD%E6%B3%95/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-10</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/shell%E8%AF%AD%E6%B3%95/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="shell语法"><a href="#shell语法" class="headerlink" title="shell语法"></a>shell语法</h1><h2 id="一门新的语言"><a href="#一门新的语言" class="headerlink" title="一门新的语言"></a>一门新的语言</h2><h2 id="Linux中常见的脚本"><a href="#Linux中常见的脚本" class="headerlink" title="Linux中常见的脚本"></a>Linux中常见的脚本</h2><ol>
-<li>sh:/usr/bin/sh或/bin/sh</li>
-<li>bash:/bin/bash</li>
-<li>csh:/usr/bin/csh</li>
-<li>ksh:/usr/bin/ksh</li>
-<li>zsh<h2 id="开头必须使用-bin-bash指名bash为脚本解释器"><a href="#开头必须使用-bin-bash指名bash为脚本解释器" class="headerlink" title="开头必须使用 #! /bin/bash指名bash为脚本解释器"></a>开头必须使用 #! /bin/bash指名bash为脚本解释器</h2><h2 id="运行方式："><a href="#运行方式：" class="headerlink" title="运行方式："></a>运行方式：</h2><h3 id="作为可执行文件："><a href="#作为可执行文件：" class="headerlink" title="作为可执行文件："></a>作为可执行文件：</h3></li>
-<li>chmod +x test.sh使脚本具有可执行权限</li>
-<li>./test.sh当前路径下执行（相对路径）</li>
-<li>/home/acs/test.sh绝对路径下执行</li>
-<li>~/test.sh家目录下执行<h3 id="用解释器执行"><a href="#用解释器执行" class="headerlink" title="用解释器执行"></a>用解释器执行</h3></li>
-<li>bash test.sh<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2></li>
-<li>意思和c++中cout 或 printf相同<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2></li>
-<li>井号后面的都是注释，（与py相同）</li>
-<li>其实脚本解释的时候#! /bin/bash解释的时候也是注释，只是系统识别为脚本解释器</li>
-<li>多行注释：前 :&lt;&lt;EOF后：EOF;其中EOF也可以换成其他字符串，或者符号（必须首位相同）<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h3></li>
-<li>定义变量不需要￥符号</li>
-<li>name1=’yxc’ （单引号定于字符串）</li>
-<li>name2=”yxc” (双引号定义字符串)</li>
-<li>name3=yxc (可以不加引号，同样表示字符串)</li>
-<li>注意等号两边不能有空格！！！否则会报错<h3 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h3></li>
-<li>使用变量需要加上￥（此符号在bash中意为取值），或者$（），花括号是可选的，主要是为了帮助解释器识别边界</li>
-<li>echo $yxc</li>
-<li>echo $(yxc)</li>
-<li>echo会自动换行</li>
-<li>错误：echo $namesacwing，因为没有括号，边界判断不对，不知道是namesacwing还是names<h3 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h3></li>
-<li>readonly 变量(相当于c++中的const,声明了一个只读变量)        </li>
-<li>declare -r 变量<h3 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h3></li>
-<li>unset(类似于c++终端undef),如果一个变量被删除，后面调用的时候会替换为空（NULL）<h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3></li>
-<li>自定义变量（局部变量）：子进程不能访问的变量</li>
-<li>环境变量（全局变量）：子进程可以访问的变量<h3 id="自定义变量转环境变量"><a href="#自定义变量转环境变量" class="headerlink" title="自定义变量转环境变量"></a>自定义变量转环境变量</h3></li>
-<li>export 变量名</li>
-<li>declare -x 变量名</li>
-<li>此时可以在子进程中使用变量              <h3 id="使用bash"><a href="#使用bash" class="headerlink" title="使用bash"></a>使用bash</h3></li>
-<li>使用bash会将原进程bash睡眠掉，进入一个新的bash子进程</li>
-<li>退出：exit或者ctrl+d          <h3 id="环境变量转自定义变量"><a href="#环境变量转自定义变量" class="headerlink" title="环境变量转自定义变量"></a>环境变量转自定义变量</h3></li>
-<li>declare +x 变量名(可以理解为给变量赋予了自定义权限)<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2></li>
-<li>字符串可以使用单引号，也可以使用双引号，也可以不使用引号<h3 id="单引号和双引号的区别（不加引号和双引号相同）"><a href="#单引号和双引号的区别（不加引号和双引号相同）" class="headerlink" title="单引号和双引号的区别（不加引号和双引号相同）"></a>单引号和双引号的区别（不加引号和双引号相同）</h3></li>
-<li>单引号中的内容会原样输出，不会执行，不会取变量（即不会转义），即没有使用&amp;符号取值</li>
-<li>双引号中的内容可以执行，可以取变量，即可以使用&amp;取值<h3 id="取出字符串的长度"><a href="#取出字符串的长度" class="headerlink" title="取出字符串的长度"></a>取出字符串的长度</h3></li>
-<li>￥后面加井号</li>
-<li>echo ${井号name},即可以取出name的长度（注意这个地方是花括号）<h3 id="提取子串"><a href="#提取子串" class="headerlink" title="提取子串"></a>提取子串</h3></li>
-<li>根据下标取值</li>
-<li>echo ${name:m:n}注意这个每一个下标前都有冒号<h2 id="查看自己开了多少进程"><a href="#查看自己开了多少进程" class="headerlink" title="查看自己开了多少进程"></a>查看自己开了多少进程</h2></li>
-<li>top可以查看</li>
-<li>按下<q>退出<h2 id="文件参数变量"><a href="#文件参数变量" class="headerlink" title="文件参数变量"></a>文件参数变量</h2></li>
-<li>在执行shell脚本时可以想脚本传递参数，$1时第一个参数，$2是第二个参数…，特殊的是$0是文件名（包含路径）</li>
-<li>$#:文件传入参数的个数（不包括文件名）</li>
-<li>$*：由所有参数构成的用空格隔开的字符串，整体为字符串用双引号括起来</li>
-<li>$@:每个参数分别用双引号括起来的字符串（@和*都是取所有的意思）</li>
-<li>$$:脚本当前运行的进程ID</li>
-<li>$?:上一条命令的退出状态（注意不是stdout,而是exit code）,0表示正常退出，其他值表示错误</li>
-<li>$(command):返回command这条命令的stdout(注意区分stdout和exit code,输出的数是stdout,例如cout,而退出状态是exit code,例如c++中的return)</li>
-<li><code>command</code> 返回command这条命令的stdout,（~上面的`）（7，8等价）<h3 id="小括号是获取stdout的值，-是取变量的值"><a href="#小括号是获取stdout的值，-是取变量的值" class="headerlink" title="$()小括号是获取stdout的值，${}是取变量的值"></a>$()小括号是获取stdout的值，${}是取变量的值</h3><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2></li>
-<li>数组中可以存放多个不同的值，只支持一位数组，初始化时不需要指定数组大小（和py中的list一样不需要指定数组大小）<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3></li>
-<li>数组用小括号表示，元素之间用空格隔开，如：array=(1 abc “def” yxc)</li>
-<li>也可以直接定义数组中某个元素的值，如：array[0]=1,array[1]=abc,array[2]=”def”<h3 id="读取数组中某个元素的值"><a href="#读取数组中某个元素的值" class="headerlink" title="读取数组中某个元素的值"></a>读取数组中某个元素的值</h3></li>
-<li>格式:${array[index]}</li>
-<li>echo ${array[0]}<h3 id="读取整个数组"><a href="#读取整个数组" class="headerlink" title="读取整个数组"></a>读取整个数组</h3></li>
-<li>格式：（@和*都是取所有的意思）</li>
-<li>$(array[@])</li>
-<li>$(array[*])<h2 id="expr命令"><a href="#expr命令" class="headerlink" title="expr命令"></a>expr命令</h2></li>
-<li>格式：expr 表达式<br>####说明：</li>
-<li>用空格隔开每一项</li>
-<li>用反斜杠放在shell特定的字符前面，发现表达式运行错误时，可以试试转义</li>
-<li>包含空格和其他特殊字符的字符串要用引号括起来  </li>
-<li>expr会在stdout中输出结果，如果结果为真，stdout为1，否则为0</li>
-<li>expr也有exit code返回值，如果为真，exit code为0，否则为1</li>
-<li>stdout 和 exit code 返回值为互反（真时相反，假时也相反）<h3 id="字符串表达式（以下参数都是在expr后面的）"><a href="#字符串表达式（以下参数都是在expr后面的）" class="headerlink" title="字符串表达式（以下参数都是在expr后面的）"></a>字符串表达式（以下参数都是在expr后面的）</h3></li>
-<li>输出长度：length STRING:返回STRING的长度</li>
-<li>index STRING CHARSET:CHARSET中任意单个字符在STRING中最前面的字符位置，下标从１开始。如果子啊STRING中完全不存在CHARSET中的字符，则返回0</li>
-<li>substr STRING POSITION LENGTH 返回STRING字符串中从POSITON开始，长度最大为LENGTH的子串。如果POSITION或LENGTH为负数，0或非数值，则返回空字符串（下标从1开始）          　        <h3 id="整数表达式"><a href="#整数表达式" class="headerlink" title="整数表达式"></a>整数表达式</h3></li>
-<li>expr支持普通算数操作，算数表达式优先级低于字符串表达式，高于逻辑表达式</li>
-<li><ul>
-<li>— 加减运算，两端参数会转化为整数，如果转化失败则会报错</li>
-</ul>
-</li>
-<li>*  / % 乘除取余运算，两端参数会转化为整数（*在shell中有特殊含义，所以需要转义）</li>
-<li>（）可以表示优先级，但是需要用反斜杠转义<h3 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h3></li>
-<li>| 或（c++中是||,少一半）：如果第一个值不是0，则会返回第一个值，第二个值不会计算，如果第一个参数非空并且非0，则会返回第一个参数的值</li>
-<li>&amp; 与 (c++中是&amp;&amp;，少一半)：如果第一个值是0，则不会计算第二个值（短路特性），如果都非空并且非0，则会返回第一个值   </li>
-<li>== 与 = 是同义词，但是还是要按照c++来写逻辑等号==，复制=</li>
-<li>&lt; &lt;= &gt; &gt;= != == = 比较两端的参数，如果为true则返回1，否则返回0，expr首先尝试将两端的参数转换为整数，并做算数比较，如果转换失败，则按字符集排序规则做字符比较（strcmp）</li>
-<li>需要转义的：*、（）、&gt;、&lt;=、|、&amp;</li>
-<li>echo expr a + b加号和数字之间有空格<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                       ### read命令（cin或scanf）
-</code></pre>
-</li>
-<li>用于从标准输入中读入单行数据，当读到文件结束符时，exit code为1，否则为0</li>
-<li>-p 添加提示信息(类似于input（提示信息）)</li>
-<li>-t 后面跟秒数，定义输入字符的等待时间，超过等待时间后会自动忽略此命令<h3 id="echo命令（相当于cout或printf）"><a href="#echo命令（相当于cout或printf）" class="headerlink" title="echo命令（相当于cout或printf）"></a>echo命令（相当于cout或printf）</h3></li>
-<li>输出格式：echo STRING</li>
-<li>显示普通字符串：echo “Hello acterminal”,引号也可以省略</li>
-<li>显示转义字符：echo “&quot;Hello acterminal&quot;“注意只能使用双引号，单引号不能够转义</li>
-<li>也可以省略最外面表示字符串的双引号：echo &quot;Hello acterminal&quot;</li>
-<li>显示变量：注意一定要用双引号，单引号不能够转义：name=yxc echo “My name is $name”</li>
-<li>显示换行：直接\n无法显示换行转义，开启转义需要-e：例如:echo -e “Hi\n”,即可输出转义</li>
-<li>强行不换行：-e后\c，\c可以取消最后的回车（和py中的end = “”相同），因为echo和py中的print相同，最后会自动换行。</li>
-<li>显示结果到echo “Hello world” &gt; output.txt</li>
-<li> 原样输出字符串，不进行转义或取变量：用单引号引起来</li>
-<li> 显示命令的执行结果：用`引起来<h3 id="printf语句-c-中是以-隔开每一项，而shell中是以space隔开每一项"><a href="#printf语句-c-中是以-隔开每一项，而shell中是以space隔开每一项" class="headerlink" title="printf语句(c++中是以,隔开每一项，而shell中是以space隔开每一项)"></a>printf语句(c++中是以,隔开每一项，而shell中是以space隔开每一项)</h3></li>
-<li>格式：printf format-string [arguments…]</li>
-<li>printf “%d\n” yxc</li>
-<li>shell中printf不自带换行,所以需要自己加上\n(此时无需-e进行转义)<h3 id="文件逻辑运算符"><a href="#文件逻辑运算符" class="headerlink" title="文件逻辑运算符"></a>文件逻辑运算符</h3></li>
-<li>|与&amp;单与和单或是expr中的（必须在expr中使用）</li>
-<li>而||与&amp;&amp;双与和双或是bash中自带的，可以直接在bash中使用</li>
-<li>也带有短路特性</li>
-<li>表达式中的exit code为0表示真，非0表示假</li>
-<li>可以根据短路特性来做if表达式<h3 id="test命令"><a href="#test命令" class="headerlink" title="test命令"></a>test命令</h3></li>
-<li>test命令用于判断文件类型，以及对变量做比较</li>
-<li>test命令用exit code来返回结果，而不是使用stdout，0表示真，非0表示假</li>
-<li>test -e test.sh &amp;&amp; echo “exist” || echo “Not exist”这种情况，如果前面test判断为0（真就会执行逻辑与（虽然是0，但是也是真，这种情况下可以不去看是0还是1，直接根据真假判断））<h4 id="文件类型判断"><a href="#文件类型判断" class="headerlink" title="文件类型判断"></a>文件类型判断</h4></li>
-<li>-e文件是否存在（exist）</li>
-<li>-f是否为文件（file）</li>
-<li>-d是否为目录（directory）<h4 id="文件权限判断"><a href="#文件权限判断" class="headerlink" title="文件权限判断"></a>文件权限判断</h4></li>
-<li>-r文件是否可读</li>
-<li>-w文件是否可写</li>
-<li>-x文件是否可执行</li>
-<li>-s文件是否为非空文件，是则返回0（真），否则返回1（假）<h4 id="整数间的比较"><a href="#整数间的比较" class="headerlink" title="整数间的比较"></a>整数间的比较</h4></li>
-<li>-eq a是否等于b（equal）(为什么不是-e，因为-e是转义，已经被使用过，-e也可以是exist中的是否存在)</li>
-<li>-ne a是否不等于b（not equal）</li>
-<li>-gt a是否大于b（great test）</li>
-<li>-lt a是否小于b（less test）</li>
-<li>-ge a是否大于等于b（great or equal）</li>
-<li>-le a是否小于等于b (less or equal) <h3 id="注意区分expr和test"><a href="#注意区分expr和test" class="headerlink" title="注意区分expr和test"></a>注意区分expr和test</h3></li>
-<li>expr是stdout，1表示真，0表示假（就和if一样，if内部是1即为真）</li>
-<li>test是exit code,0表示真，非0表示假（就和return一样，return 0即为真，return 一个非0的值即为假）<h4 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h4></li>
-<li>-z判断STRING是否为空，如果为空则返回ｔｒｕｅ</li>
-<li>-n判断STRING是否为非空，如果为非空则返回true(-n也可以省略)</li>
-<li>== 判断s1和s2是否相等</li>
-<li>！=判断s1和s2是否不相等</li>
-<li>&gt;和&lt;判断（需要用反斜杠转义），结果等于使用strcmp(逐个字符的ascii码进行比较)<h4 id="多重条件判定"><a href="#多重条件判定" class="headerlink" title="多重条件判定"></a>多重条件判定</h4></li>
-<li>命令格式：test -r filename -a -x filename(由2，3条来链接两个test命令，第二个命令不需要test)</li>
-<li>-a:&amp;&amp;，and</li>
-<li>-o:||,or</li>
-<li>!:例如test ! -x filename:当filename不可执行时，返回true<h4 id="判断符号"><a href="#判断符号" class="headerlink" title="判断符号"></a>判断符号</h4></li>
-<li>【】和test用法几乎一样，更常用于if语句中</li>
-<li>[]内的每一项都要用空格隔开</li>
-<li>中括号内的变量，最好用双引号括起来（为了防止当变量中有空格时&amp;取值出现错误（too many arguments））</li>
-<li>中括号内的常熟，最好用单或双引号括起来<h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2></li>
-<li>if then语句，（类似与c++中的if-else语句）if后面跟的是命令，不是值</li>
-<li>if <code>expr 3 \&lt; 3</code>和if 0相同，但是0不是命令，所以无法执行</li>
-<li>需要写if后面跟着命令 if expr 3 &lt; 3</li>
-<li>if then elif then else fi</li>
-<li>case $变量 in 值1）…；；值2）…；；*）…；； esac</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-10</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="磁盘管理使用"><a href="#磁盘管理使用" class="headerlink" title="磁盘管理使用"></a>磁盘管理使用</h1><h2 id="windows自带的磁盘管理"><a href="#windows自带的磁盘管理" class="headerlink" title="windows自带的磁盘管理"></a>windows自带的磁盘管理</h2><h3 id="新建简单卷"><a href="#新建简单卷" class="headerlink" title="新建简单卷"></a>新建简单卷</h3><ol>
-<li>点击需要被分配的磁盘，右键压缩卷，输入压缩量</li>
-<li>单击被分配出的未分配磁盘，右键新建简单卷，设置简单卷的大小（默认为最大）更改磁盘的盘符，选择按下列格式化这个卷，文件系统选NTFS（我只会恢复NTFS类型的数据，FAT版本过多就没学），点击完成<h3 id="合并磁盘"><a href="#合并磁盘" class="headerlink" title="合并磁盘"></a>合并磁盘</h3></li>
-<li>备份后右键删除卷和拓展卷<h2 id="disk-genius"><a href="#disk-genius" class="headerlink" title="disk genius"></a>disk genius</h2></li>
-<li>注意分区前部和后部</li>
-<li>设置分区前部和后部之后可以从后面的展开栏中选择合并到某一个盘中</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-08</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/tmux%E5%92%8Cvim%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="tmux和vim工具的使用"><a href="#tmux和vim工具的使用" class="headerlink" title="tmux和vim工具的使用"></a>tmux和vim工具的使用</h1><h2 id="可以脱离本地环境，直接连服务器即可"><a href="#可以脱离本地环境，直接连服务器即可" class="headerlink" title="可以脱离本地环境，直接连服务器即可"></a>可以脱离本地环境，直接连服务器即可</h2><h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><ol>
-<li>分屏</li>
-<li>允许把终端断开之后继续运行（在tmux中写完全不需要担心断网）</li>
-</ol>
-<h4 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h4><ol>
-<li>内部很多个session，每一个session可以开很多Window，每一个Window可以开很多个pane（pane为最小单位，即为shell对话框）</li>
-</ol>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><ol>
-<li>直接输入tmux，就会打开一个session，其中包含一个window</li>
-<li>切分：（有前缀键）ctrl加a/b（acterminal为a,没改的为b）后按%为左右分割；上下均分为ctrl加a/b后再双引号</li>
-<li>关闭：选中后CTRL加d，当最后一个pane关闭时会关掉没有pane的window，最后一个window关闭时会关闭当前没有window的session</li>
-<li>选中：鼠标光标选中，或者按前缀键后按方向键</li>
-<li>修改分割线的位置：直接鼠标光标拖动分割线；后者按住前缀键的同时按方向键（前缀键必须按住不动，不松手）</li>
-<li>全屏：选中想全屏的窗口后按下前缀键，后按z，进入全屏和退出全屏同理，</li>
-<li>退出tmux：按下前缀键后按下d（不关闭tmux中的每一个pane，但是关闭tmux），再次打开：tmux+a或tmux+attach</li>
-<li>创建一个window：ctrl加a后松开后按下c</li>
-<li>翻阅：鼠标滚轮；前缀键加pageup或者pagedown</li>
-<li>选中：shift+鼠标选中</li>
-<li>复制：ctrl+insert</li>
-<li>粘贴：shift+insert<h3 id="vim操作"><a href="#vim操作" class="headerlink" title="vim操作"></a>vim操作</h3></li>
-<li>可以在tmux中打开，防止当断网时会丢失数据</li>
-<li>一般命令模式：没有办法编辑，可以输入命令，每一个字母都是一个命令</li>
-<li>编辑模式：在一般命令模式下按下i键，既可以编辑，按下esc键盘即可退出编辑模式(进入编辑模式时底部会有insert提示)</li>
-<li>vim会自动识别代码类型，将会自动显示代码高亮</li>
-<li>命令行模式：在一般命令模式下输入”：/?”(不包括引号)，即可进图命令行模式，命令行在最下面，可以查找，替换，保存，退出，配置编辑器（即配置编辑器的基本配置，例如行号等）等<h4 id="具体操作："><a href="#具体操作：" class="headerlink" title="具体操作："></a>具体操作：</h4></li>
-<li>i进入编辑模式</li>
-<li>esc进入一般命令模式，无论是编辑模式还是命令行模式</li>
-<li>移动光标时不会在行的开头和末尾自动换行，和普通编辑器不同！！！</li>
-<li>移动光标：1：可以直接使用小键盘的方向键盘；2：可以使用hjkl,分别代表左下上右</li>
-<li>n<space> :n为数字，按下数字后按下空格，光标会向右移动n个字符（必须进入一般命令模式下）（到行末会自动换行），此方法为跳到第n个字符的后面！！！(如果想要删除包括第n个字符的话可以输入n-1<space>)</li>
-<li>在一般命令模式下，按下0或home是将光标移动到本行开头，￥或end是移动到本行末尾</li>
-<li>移动到最后一行：shift加g(即为G)</li>
-<li>移动到某一行：用冒号加数字n或数字n加G，即将光标移动到第n行</li>
-<li>跳过多少行：数字加回车</li>
-<li>gg第一行，G最后一行（当访问日志时，可能数据量很大）</li>
-<li>查找是 /word 为查找光标之下的第一个值为word的字符串，？word为查找光标之上的第一个值为word的字符串</li>
-<li>n（小写）会重复上一次的查找操作，N（为反向重复前一次查找操作）</li>
-<li>替换</li>
-<li>&lt;:m,ns/word1/word2/g&gt;:在第m到第n行中查找word1字符串，并且将其替换为word2</li>
-<li>&lt;:1,$s/word1/word2/g&gt;替换全文的word1字串为word2</li>
-<li>&lt;:1,$s/word1/word2/gc&gt;当替换每一个word1时会要求用户确认，输入y或n可以一次替换每一次查找</li>
-<li>&lt;:noh&gt;关闭查找关键词高亮</li>
-<li><v>选中文本，和Windows系统的shift相同</li>
-<li><d>删除选中的文本，和backspace相同，当删除的为某一行时，再次按p可以在鼠标光标的下一行粘贴删除的内容（类似剪切复制）</li>
-<li><dd>删除当前行,和ctrl+d相同</li>
-<li><y>复制选中的文本</li>
-<li><yy>复制当前选中的行</li>
-<li><p>post或者为<ctrl + insert>，当为<y>复制的文本时为在光标的下一个位置粘贴，当为<yy>复制的为一行时(不一定是用yy复制的一行，也可以是用z选中的完整的行)为在下一行粘贴</li>
-<li><u>撤销（dev和pycharm都是CTRL加z）</li>
-<li>&lt;ctrl + r&gt;==&lt;ctrl+shift+z&gt;:取消撤销（dev和pycharm也都是ctrl加y）(r可以理解为repeat,即重复)</li>
-<li>&lt;ctrl+z&gt;挂起当前进程，即保留当前的vim条件下关闭！！！</li>
-<li>&lt;shift+&gt;&gt;选中整体后向右移动，如果不是选中整体时为将当前行向右移动;即&lt;shift + &gt;&gt;为向右缩进一次</li>
-<li>&lt;shift+&lt;&gt;选中后整体向左移动，如果不是选中整体时为将当前行向右移动,即&lt;shift + &lt;&gt;为想左缩进一次</li>
-<li>&lt;:w&gt;保存，只读模式为&lt;:！&gt;来保存</li>
-<li>&lt;:w:&gt;强制保存（有时候未获得超级管理员权限时可以强制保存）</li>
-<li>&lt;:q&gt;退出,quit</li>
-<li>&lt;:q:&gt;强制退出</li>
-<li>&lt;:wq&gt;保存并退出</li>
-<li>&lt;:set nonu&gt;取消行号，当复制时避免连带行号一起复制</li>
-<li>&lt;:set nu&gt;恢复行号</li>
-<li><gg> <d> <G>:删除所有文本（将光标移动到开头，设置为选中模式，再将光标移动到末尾）</li>
-<li><gg> &lt;=&gt; <G>:全文格式化，解决当代码复制的时候出现多重缩进的问题时</li>
-<li>paste模式：带有缩进的模式；&lt;:set paste&gt;为设置为带有自动缩进的模式，但是&lt;:set nopaste&gt;为设置不带有自动缩进的模式(要粘贴的话可以先set paste 后set nopaste)</li>
-<li>&lt;CTRL+q&gt;当vim卡死的时候，取消当前正在执行的命令</li>
-<li>注意区分&lt;shift+insert&gt;和<p>的区别：&lt;shift+insert&gt;可以粘贴vim外面的内容，粘贴的是系统自带的粘贴板;但是<p>只能够粘贴vim内部的内容，粘贴的是vim内部的粘贴板</li>
-<li>&lt;ctrl + insert&gt;会复制行号，但是<p>不会复制行号<h3 id="当用vim编辑文件时，会自动创建一个-filename-swp的临时文件"><a href="#当用vim编辑文件时，会自动创建一个-filename-swp的临时文件" class="headerlink" title="当用vim编辑文件时，会自动创建一个.filename.swp的临时文件"></a>当用vim编辑文件时，会自动创建一个.filename.swp的临时文件</h3></li>
-<li>如果打开某个文件时，如果文件的swp已经存在则会报错</li>
-<li>解决方法：1：找到打开文件的程序并退出，2：直接删除该swp文件即可<h1 id="操作整理"><a href="#操作整理" class="headerlink" title="操作整理"></a>操作整理</h1><h2 id="很重要的翻页操作（当自己没有鼠标时非常实用）"><a href="#很重要的翻页操作（当自己没有鼠标时非常实用）" class="headerlink" title="很重要的翻页操作（当自己没有鼠标时非常实用）"></a>很重要的翻页操作（当自己没有鼠标时非常实用）</h2></li>
-<li>在terminal中&lt;shift+pageup&gt;/&lt;shift+pagedown&gt;实现翻页（记住terminal中用shift）</li>
-<li>在vim中用前缀键加<pageup>/<pagedown>来实现(记住vim中用前缀键) <h2 id="使用的最大化pane窗口操作"><a href="#使用的最大化pane窗口操作" class="headerlink" title="使用的最大化pane窗口操作"></a>使用的最大化pane窗口操作</h2></li>
-<li>&lt;ctrl + z&gt;,最大化与退出最大化同样操作（z可以理解为最）<h2 id="关闭操作："><a href="#关闭操作：" class="headerlink" title="关闭操作："></a>关闭操作：</h2></li>
-<li>vim的关闭为&lt;:wq&gt;(保存并退出)&lt;:q&gt;（直接退出）（详细上面有直接操作）</li>
-<li>pane的关闭：&lt;ctrl + a + x&gt;(前缀键加x)</li>
-<li>window的关闭&lt;ctrl + b + &amp;&gt;(前缀键加&amp;)</li>
-<li>以上两条一般会提示是否关闭，y/n</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -764,19 +588,19 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/blog6/CTF%E6%9D%82%E9%A1%B91/">Untitled</a>
+                <a class="footer-post" href="/blog6/sql%E6%B3%A8%E5%85%A5%E9%BB%91%E9%A9%AC%E6%95%99%E7%A8%8B/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F/">Untitled</a>
+                <a class="footer-post" href="/blog6/mysql%E6%93%8D%E4%BD%9C/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/%E7%BD%91%E7%AB%99%E6%9A%B4%E5%BA%93%E6%BC%8F%E6%B4%9E/">Untitled</a>
+                <a class="footer-post" href="/blog6/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%85%E5%AE%B9/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/">Untitled</a>
+                <a class="footer-post" href="/blog6/web%E5%B8%B8%E7%94%A8%E5%A5%97%E8%B7%AF%E8%A7%A3%E6%9E%90/">Untitled</a>
             </li>
             
         </ul>
