@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/">
+            <a href="/blog6/%E6%AF%94%E8%B5%9B%E5%BF%85%E7%9C%8Bsql%E6%B3%A8%E5%85%A5/">
                 Untitled
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2022-01-22</span>
+                <span class="date">2022-02-14</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,11 +174,33 @@
         
 
         <!-- Post Content -->
-        <p>#知识点一</p>
-<h2 id="ping扫描"><a href="#ping扫描" class="headerlink" title="ping扫描"></a>ping扫描</h2><ol>
-<li>nslookup<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2></li>
-<li>当禁ping时可以使用端口进行扫描</li>
-<li>禁ping即为禁SIP协议<h3 id="1-65535-TCP-UDP"><a href="#1-65535-TCP-UDP" class="headerlink" title="1-65535 TCP/UDP"></a>1-65535 TCP/UDP</h3><h2 id="OS检测扫描（操作系统）"><a href="#OS检测扫描（操作系统）" class="headerlink" title="OS检测扫描（操作系统）"></a>OS检测扫描（操作系统）</h2><h2 id="弱口令探测"><a href="#弱口令探测" class="headerlink" title="弱口令探测"></a>弱口令探测</h2><h2 id="漏洞评估探测"><a href="#漏洞评估探测" class="headerlink" title="漏洞评估探测"></a>漏洞评估探测</h2><h1 id="知识点二"><a href="#知识点二" class="headerlink" title="知识点二"></a>知识点二</h1><h1 id="扫描技术分类"><a href="#扫描技术分类" class="headerlink" title="扫描技术分类"></a>扫描技术分类</h1></li>
+        <h1 id="比赛必看sql注入"><a href="#比赛必看sql注入" class="headerlink" title="比赛必看sql注入"></a>比赛必看sql注入</h1><h2 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ol>
+<li>用order by后面拼接数字，确定字段数量，如果大于，则页面错误或无内容，若小于或等于，则页面正常，若错误页和正常页一样，更换报错注入/盲注</li>
+<li>可以使用二分法来判断列的数量<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3></li>
+<li>判断页面回显数据的字段位置，使用union select 1,2,3```定义的数字显示在页面上，即可从中判断页面显示的字段位置<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3></li>
+<li>在显示的字段位置使用子查询来查询数据，或直接查询也可</li>
+</ol>
+<h2 id="单引号闭合问题"><a href="#单引号闭合问题" class="headerlink" title="单引号闭合问题"></a>单引号闭合问题</h2><ol>
+<li>加入执行的语句为select * from admin where ‘$id’</li>
+<li>如果id = 1 and 1 = 2</li>
+<li>则会有select * from admin where ‘1 and 1 = 2’,1=2被当作字符串处理</li>
+<li>如果id = 1’ and 1=2–+</li>
+<li>则会有select * from admin where ‘1’ and 1=2 –+’ 闭合了，然后注释掉后面多余的单引号<h2 id="当id-1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错"><a href="#当id-1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错" class="headerlink" title="当id=1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错"></a>当id=1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错</h2></li>
+</ol>
+<h2 id="判断是否有注入"><a href="#判断是否有注入" class="headerlink" title="判断是否有注入"></a>判断是否有注入</h2><ol>
+<li>可控参数(id)的改变能否影响页面显示结果</li>
+<li>输入的SQL语句是否能报错-能通过数据库的报错，看到数据库的一些语句痕迹</li>
+<li>输入的SQL语句能否不报错-我们的语句能否成功闭合<h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3></li>
+<li>?id=</li>
+</ol>
+<h2 id="判断是什么类型的注入"><a href="#判断是什么类型的注入" class="headerlink" title="判断是什么类型的注入"></a>判断是什么类型的注入</h2><h2 id="判断语句是否能够被恶意修改"><a href="#判断语句是否能够被恶意修改" class="headerlink" title="判断语句是否能够被恶意修改"></a>判断语句是否能够被恶意修改</h2><h2 id="是否能够成功执行"><a href="#是否能够成功执行" class="headerlink" title="是否能够成功执行"></a>是否能够成功执行</h2><h2 id="获取我们想要的数据"><a href="#获取我们想要的数据" class="headerlink" title="获取我们想要的数据"></a>获取我们想要的数据</h2><h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3><p>数据都是保存在数据库中-》表-》字段-》值</p>
+<h2 id="mysql自带的表"><a href="#mysql自带的表" class="headerlink" title="mysql自带的表"></a>mysql自带的表</h2><h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3><h3 id="information-schema"><a href="#information-schema" class="headerlink" title="information schema"></a>information schema</h3><ol>
+<li>information_schema这张数据表保存了所有MYSQL服务器所有数据库的信息，例如数据库名，数据库的表，表栏的数据类型和访问权限。</li>
+<li>schemata：提供了关于数据库的信息</li>
+<li>tables：给出了关于数据库中表的信息</li>
+<li>column：表中列的信息</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhang_jgang/article/details/50819142">https://blog.csdn.net/zhang_jgang/article/details/50819142</a><h4 id="information-schema中的操作"><a href="#information-schema中的操作" class="headerlink" title="information schema中的操作"></a>information schema中的操作</h4></li>
+<li>查看库中所有的表，表名等：select * from information_schema.tables</li>
 </ol>
 
     </div>

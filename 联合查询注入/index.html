@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80/">
+            <a href="/blog6/%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/">
                 Untitled
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2022-01-22</span>
+                <span class="date">2022-02-14</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,11 +174,34 @@
         
 
         <!-- Post Content -->
-        <p>#知识点一</p>
-<h2 id="ping扫描"><a href="#ping扫描" class="headerlink" title="ping扫描"></a>ping扫描</h2><ol>
-<li>nslookup<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2></li>
-<li>当禁ping时可以使用端口进行扫描</li>
-<li>禁ping即为禁SIP协议<h3 id="1-65535-TCP-UDP"><a href="#1-65535-TCP-UDP" class="headerlink" title="1-65535 TCP/UDP"></a>1-65535 TCP/UDP</h3><h2 id="OS检测扫描（操作系统）"><a href="#OS检测扫描（操作系统）" class="headerlink" title="OS检测扫描（操作系统）"></a>OS检测扫描（操作系统）</h2><h2 id="弱口令探测"><a href="#弱口令探测" class="headerlink" title="弱口令探测"></a>弱口令探测</h2><h2 id="漏洞评估探测"><a href="#漏洞评估探测" class="headerlink" title="漏洞评估探测"></a>漏洞评估探测</h2><h1 id="知识点二"><a href="#知识点二" class="headerlink" title="知识点二"></a>知识点二</h1><h1 id="扫描技术分类"><a href="#扫描技术分类" class="headerlink" title="扫描技术分类"></a>扫描技术分类</h1></li>
+        <h1 id="联合查询注入"><a href="#联合查询注入" class="headerlink" title="联合查询注入"></a>联合查询注入</h1><h2 id="通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边"><a href="#通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边" class="headerlink" title="通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边"></a>通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边</h2><ol>
+<li>联合查询必须保证前后的查询列数一致</li>
+<li>可以先使用order by去判断列数</li>
+<li>?id=4 union select 1,2,3,4 #(%23)</li>
+<li>上面的1，2，3是起到占位的作用，数字本身没有意义，有意义的是数字所占到的位数</li>
+</ol>
+<h1 id="post注入"><a href="#post注入" class="headerlink" title="post注入"></a>post注入</h1><ol>
+<li>语句原理：select 1 from users where username=? and password = ?</li>
+<li>如果是单引号字符型的则select 1 from users where username=’’ or 1  %23’ and password = ?</li>
+<li>%23是#表明后面是注释，屏蔽掉后面的单引号</li>
+<li>上面输入的是: ‘ or 1 #<h2 id="右击，查看元素"><a href="#右击，查看元素" class="headerlink" title="右击，查看元素"></a>右击，查看元素</h2></li>
+<li>可以看到values和names的参数</li>
+<li>找names=uname和names=passwd类似的参数</li>
+<li>uname=<em>&amp;passwd=</em></li>
+</ol>
+<h2 id="做此类题目的burpsuit"><a href="#做此类题目的burpsuit" class="headerlink" title="做此类题目的burpsuit"></a>做此类题目的burpsuit</h2><ol>
+<li>Proxy:代理</li>
+<li>intercept:开启或停止抓包</li>
+<li>http history:http历史请求记录</li>
+<li><h3 id="options："><a href="#options：" class="headerlink" title="options："></a>options：</h3></li>
+<li><ol>
+<li>intercept response之类的勾选可以抓相应包和请求包</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Proxy-&gt;intecept-&gt;forward是丢给服务器;drop是丢弃掉</li>
+</ol>
+</li>
 </ol>
 
     </div>
