@@ -277,11 +277,38 @@
             <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="链表和邻接表"><a href="#链表和邻接表" class="headerlink" title="链表和邻接表"></a>链表和邻接表</h2><ol>
 <li>struct Node{<br> int val;<br> Node *next;<br>}<br> new Node()</li>
 <li>数组模拟链表：<h3 id="数组模拟单链表："><a href="#数组模拟单链表：" class="headerlink" title="数组模拟单链表："></a>数组模拟单链表：</h3></li>
-<li>用的最多的是邻接表：存储图和树<h3 id="数组模拟双链表："><a href="#数组模拟双链表：" class="headerlink" title="数组模拟双链表："></a>数组模拟双链表：</h3></li>
+<li>用的最多的是邻接表：存储图和树</li>
+<li>空指针的为-1</li>
 <li>优化某些问题</li>
-<li>e<a href="%E7%94%A8%E6%9D%A5%E5%AD%98%E5%82%A8value">N</a>和ne<a href="%E7%94%A8%E6%9D%A5%E5%AD%98%E5%82%A8%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%BD%8D%E7%BD%AE">N</a><br>3， 空节点的下标用-1来表示<h2 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h2></li>
+<li>e<a href="%E7%94%A8%E6%9D%A5%E5%AD%98%E5%82%A8value">N</a>和ne<a href="%E7%94%A8%E6%9D%A5%E5%AD%98%E5%82%A8%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%BD%8D%E7%BD%AE">N</a><br>3， 空节点的下标用-1来表示</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/b0GXJe"><img src="https://s4.ax1x.com/2022/03/05/b0GXJe.md.png" alt="b0GXJe.md.png"></a><h3 id="数组模拟双链表："><a href="#数组模拟双链表：" class="headerlink" title="数组模拟双链表："></a>数组模拟双链表：</h3></li>
+<li>和单链表的区别在于双链表节点的指针一个指向前，另一个指向后</li>
 </ol>
-<h2 id="kmp"><a href="#kmp" class="headerlink" title="kmp"></a>kmp</h2>
+<h2 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h2><ol>
+<li>栈是先进后出，类似于只有一端开口的羽毛球筒</li>
+<li>队列是先进先出，类似于两端开口的羽毛球筒<h3 id="单调栈："><a href="#单调栈：" class="headerlink" title="单调栈："></a>单调栈：</h3></li>
+<li>遍历</li>
+<li>找到左边离它最近且比它小的数在什么地方（返回的是那个数）</li>
+<li>找到右边离它最近且比它大的数在什么地方（返回的是那个数）</li>
+<li>不存在返回-1</li>
+<li>3   4    2   7   5</li>
+<li>-1  3   -1   2   2</li>
+<li>把所有逆序的点全部删去，就可以得到一个严格按照升序排列的数</li>
+</ol>
+<h2 id="kmp"><a href="#kmp" class="headerlink" title="kmp"></a>kmp</h2><h1 id="节点的插入操作："><a href="#节点的插入操作：" class="headerlink" title="节点的插入操作："></a>节点的插入操作：</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><h3 id="共同点："><a href="#共同点：" class="headerlink" title="共同点："></a>共同点：</h3><ol>
+<li>e[idx] = x; 最先将元素插进去</li>
+<li>ne[idx] = head/ne[k] idx的下一个为head和k</li>
+<li>ne[k]/head = idx</li>
+<li>idx++<h2 id="最后输出"><a href="#最后输出" class="headerlink" title="最后输出"></a>最后输出</h2></li>
+<li>for(int i = head;i != -1;i = ne[i]) cout &lt;&lt; e[i] &lt;&lt; ‘ ‘;</li>
+</ol>
+<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><h3 id="插入操作："><a href="#插入操作：" class="headerlink" title="插入操作："></a>插入操作：</h3><ol>
+<li>e[idx] = x; 给idx为下标的地方赋值</li>
+<li>l[idx] = k; idx的位置在k的右边（k在idx的后面，idx的下一个为k）</li>
+<li>r[idx] = r[k]; 将idx的下一个位置指向原本k的下一个位置</li>
+<li>l[r[k]] = idx; 将k+1的位置的点左指针指向idx位置</li>
+</ol>
+
         </div>
     
 
