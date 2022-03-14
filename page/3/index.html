@@ -1,865 +1,1081 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 
-<!-- Head tag -->
+
 <head>
-
     <meta charset="utf-8">
+    <meta name="keywords" content="更好的明天">
+    <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
-    
-        <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="syk">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="更好的明天"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="打ACM和CTF，未来的人上人，嘿嘿" />
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="更好的明天"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary" />
-    
-    
-    
-
-    <!-- Title -->
-    
-    <title>page - 更好的明天</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/blog6/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <!-- Google Analytics -->
-    
+    <title>更好的明天</title>
+    <link rel="icon" type="image/png" href="/blog6/favicon.png">
 
+    <link rel="stylesheet" type="text/css" href="/blog6/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/blog6/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog6/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/blog6/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog6/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog6/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/blog6/css/my.css">
+
+    <script src="/blog6/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
+
+
 <body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/blog6/" class="waves-effect waves-light">
+                    
+                    <img src="/blog6/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">更好的明天</span>
+                </a>
+            </div>
+            
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog6/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog6/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog6/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog6/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog6/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog6/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog6/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/blog6/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">更好的明天</div>
+        <div class="logo-desc">
             
-            <li class="menu-item">
-                <a href="/blog6/">
-                    Home
-                </a>
-            </li>
+            打ACM和CTF，未来的人上人，嘿嘿
             
-            <li class="menu-item">
-                <a href="/blog6/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/blog6/about.html">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/blog6/tags">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/blog6/categories">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/blog6/contact.html">
-                    Contact
-                </a>
-            </li>
-            
-        </ul>
+        </div>
     </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog6/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog6/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog6/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog6/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog6/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog6/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog6/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
 </div>
 
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
 
-<div class="container">
+        </div>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/blog6/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">更好的明天</h1>
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
         
-    </div>
+    </nav>
+
 </header>
 
-        <section class="main">
-            
+    
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
                 
-<div class="post">
+                we can be what we are willing to be
+                
+            </div>
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-20</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
         </div>
     </div>
-
-    
-        <div class="content">
-            <h1 id="信息收集下"><a href="#信息收集下" class="headerlink" title="信息收集下"></a>信息收集下</h1><h2 id="操作方向"><a href="#操作方向" class="headerlink" title="操作方向"></a>操作方向</h2><ol>
-<li>域名信息</li>
-<li>whois信息</li>
-<li>目录信息</li>
-<li>谷歌hacker</li>
-<li>整站分析</li>
-<li>旁站c端</li>
-<li>后台查找</li>
-<li>cdn绕过</li>
-<li>app</li>
-<li>host.txt<h2 id="自动跑漏洞工具"><a href="#自动跑漏洞工具" class="headerlink" title="自动跑漏洞工具"></a>自动跑漏洞工具</h2><h3 id="Nmap端口扫描王"><a href="#Nmap端口扫描王" class="headerlink" title="Nmap端口扫描王"></a>Nmap端口扫描王</h3><h4 id="主机探测（看哪些主机IP在线）（up-down）"><a href="#主机探测（看哪些主机IP在线）（up-down）" class="headerlink" title="主机探测（看哪些主机IP在线）（up/down）"></a>主机探测（看哪些主机IP在线）（up/down）</h4>（以下步骤的前提是切换到nmap的目录下能够找到nmap.exe）</li>
-<li>扫描单个主机 nmap.exe 192.168.1.2</li>
-<li>扫描整个子网 nmap.exe 192.168.1.1/24</li>
-<li>扫描多个目标 nmap.exe IP1 IP2</li>
-<li>扫描一个范围内的目标 nmap.exe 192.168.1.1-100(扫描1到100的所有主机)<h4 id="查看扫描的所有主机的列表（加参数-sL）"><a href="#查看扫描的所有主机的列表（加参数-sL）" class="headerlink" title="查看扫描的所有主机的列表（加参数-sL）"></a>查看扫描的所有主机的列表（加参数-sL）</h4></li>
-<li>nmap -sL 192.168.1.1/24<h4 id="扫描除过某一个IP外的所有子网主机"><a href="#扫描除过某一个IP外的所有子网主机" class="headerlink" title="扫描除过某一个IP外的所有子网主机"></a>扫描除过某一个IP外的所有子网主机</h4></li>
-<li>nmapxxx-excludexx****</li>
-<li>include和exclude<h4 id="扫描除过某一个文件中的IP外的子网主机命令"><a href="#扫描除过某一个文件中的IP外的子网主机命令" class="headerlink" title="扫描除过某一个文件中的IP外的子网主机命令"></a>扫描除过某一个文件中的IP外的子网主机命令</h4></li>
-<li>nmapxxx-excludefilexxx.txt(会先读取xxx.file中的IP，然后排除)<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3></li>
-<li>nmap -F -sT -v IP</li>
-<li>-F:扫描100个最有可能开放的端口</li>
-<li>-v 获取扫描的信息</li>
-<li>-sT:采用的是TCP扫描，不写也可，默认为TCP扫描</li>
-<li>-p指定扫描的端口<h3 id="zenmap是可视化界面"><a href="#zenmap是可视化界面" class="headerlink" title="zenmap是可视化界面"></a>zenmap是可视化界面</h3></li>
-<li>可以直接输入域名进行扫描<h2 id="端口扫描状态"><a href="#端口扫描状态" class="headerlink" title="端口扫描状态"></a>端口扫描状态</h2></li>
-<li>open 端口开启，数据有到达主机，有程序在端口上监控</li>
-<li>closed 端口关闭，数据有到达主机，没有程序在端口上监控</li>
-<li>filtered 数据没有到达主机，返回的结果为空，数据被防火墙或者是IDS过滤</li>
-<li>unfiltered 数据有到达主机，但是不能识别端口的当前状态</li>
-<li><img src="D:\CTF学习工具\QQ截图.png"><h2 id="服务版本扫描"><a href="#服务版本扫描" class="headerlink" title="服务版本扫描"></a>服务版本扫描</h2><h2 id="主机系统的指纹识别"><a href="#主机系统的指纹识别" class="headerlink" title="主机系统的指纹识别"></a>主机系统的指纹识别</h2><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h2><h2 id="创建扫描版本"><a href="#创建扫描版本" class="headerlink" title="创建扫描版本"></a>创建扫描版本</h2><h2 id="burpsuite手工测"><a href="#burpsuite手工测" class="headerlink" title="burpsuite手工测"></a>burpsuite手工测</h2><h2 id="TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP"><a href="#TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP" class="headerlink" title="TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)"></a>TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3></li>
-<li>客户端向服务端发送请求</li>
-<li>服务端向客户端发送响应包</li>
-<li>客户端向服务端发送确认相应包</li>
-<li>如果客户端已知不发送，服务端会等待（看服务端的设置状态，例如：等待n秒）<h3 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h3></li>
-<li>当黑客手里握着的主机同时向服务端发送请求时，如果超过服务器能够承受的量，且黑客一直在第三次握手的时候不发送确认包，则会令服务端一直等待，严重的导致拒绝服务<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3></li>
-<li>扫描速度快，准确性高，对操作者没有权限上的要求</li>
-<li>但是容易被防火墙和IDS防入侵系统发现<h2 id="SYN扫描-sS（s表明扫描方式-S表明SYN扫描）"><a href="#SYN扫描-sS（s表明扫描方式-S表明SYN扫描）" class="headerlink" title="SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）"></a>SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）</h2></li>
-<li>秘密的扫描方式</li>
-<li>Client和Server之间没有形成三次握手，所以没有简历一个正常的TCP链接</li>
-<li>不会被防火墙和日志所记录，一般不会在目标主机上留下任何痕迹，但是这种扫描需要root权限<h2 id="使用UDP-ping探测主机"><a href="#使用UDP-ping探测主机" class="headerlink" title="使用UDP ping探测主机"></a>使用UDP ping探测主机</h2>nmap -PU xxx<h2 id="服务器版本探测"><a href="#服务器版本探测" class="headerlink" title="服务器版本探测"></a>服务器版本探测</h2>nmap -sV xxx</li>
-<li>服务器版本即服务器系统的版本<h2 id="精确地确认端口上运行的服务"><a href="#精确地确认端口上运行的服务" class="headerlink" title="精确地确认端口上运行的服务"></a>精确地确认端口上运行的服务</h2>nmap -sV –script unusual-port xxx<h2 id="探测目标主机的操作系统"><a href="#探测目标主机的操作系统" class="headerlink" title="探测目标主机的操作系统"></a>探测目标主机的操作系统</h2></li>
-<li>nmap -O xxx</li>
-<li>nmap -A xxx</li>
-<li>-oN 导出扫描结果</li>
-<li>-oX 导出扫描结果xml格式  </li>
-<li>nmap -A xxx -oX c:\123.xml<h2 id="防火墙躲避绕过"><a href="#防火墙躲避绕过" class="headerlink" title="防火墙躲避绕过"></a>防火墙躲避绕过</h2></li>
-<li>-f 分片绕过</li>
-<li>-D 使用诱饵隐蔽扫描： nmap -D 1.1.1.1,222.222.222.222 xxx</li>
-<li>–source-port 源端口欺骗<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1></li>
-<li>syn扫描器</li>
-<li>扫描外围主机网段</li>
-<li>对应端口爆破工具</li>
-<li>提供访问木马服务器下载的工具</li>
-<li>一个远控<h1 id="AWVS"><a href="#AWVS" class="headerlink" title="AWVS"></a>AWVS</h1></li>
-<li></li>
-</ol>
-
-        </div>
-    
-
 </div>
-            
-                
-<div class="post">
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-19</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/blog6/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
     </div>
-
-    
-        <div class="content">
-            <pre class="line-numbers language-none"><code class="language-none">title: 域名信息<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h1 id="IP概念"><a href="#IP概念" class="headerlink" title="IP概念"></a>IP概念</h1><ol>
-<li>网络地址：可以用来识别设备所在的网络，网络地址位于IP地址的前端，企业申请IP地址时，获得的不是IP地址，而是唯一的能够识别的网络地址</li>
-<li>主机地址：位于IP地址的后段，可以用来是被网络上的设备，同一网络上的设备都会有相同的网络地址，而各台设备之间通过主机地址来区别<h1 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h1></li>
-<li>版本（4）：IPV6协议版本，其值为6，负责向处理机所运行的IP软件指名此IP数据是IPV6版本</li>
-<li>优先级（4）</li>
-<li>流标号（24）<h1 id="对应IP收集"><a href="#对应IP收集" class="headerlink" title="对应IP收集"></a>对应IP收集</h1></li>
-<li>ping 域名：可以初步获取该地址的服务器相关信息</li>
-<li>相关域名对应IP,相关工具：nslookup：nslookup endl 地址<h1 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h1><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></li>
-<li>www.或bbs.为主机名，是主机头</li>
-<li>baidu.com为主域名</li>
-<li>bbs.baidu.com或edu.baidu.com为该主域名下的子域名</li>
-<li>子域名的防御性没有主域名高，子域名可能跟主域名在一个服务器上，通过子域名也可以渗透到主域名</li>
-<li>根据主站点来查找:site.baidu.com</li>
-<li>使用layer子域名挖掘机：输入域名，端口，选择暴力枚举还是解析接口</li>
-<li>可以发现多个域名用一个IP<h1 id="whois-注册人-信息查询"><a href="#whois-注册人-信息查询" class="headerlink" title="whois(注册人)信息查询"></a>whois(注册人)信息查询</h1></li>
-<li>根据已知域名反查，分析出此域名的注册人，邮箱。电话</li>
-<li>工具：爱站网，输入域名后点击whois查询<h1 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h1>目的：搜集信息</li>
-<li>扫robots.txt，其中定义了哪些页面不允许爬行（定义的都是一些敏感的）</li>
-<li>安装包（backup）:<a target="_blank" rel="noopener" href="http://www.root.rar/zip;beifen.rar/zip;tar.gz">www.root.rar/zip;beifen.rar/zip;tar.gz</a></li>
-<li>上传目录:ewebedit;ckfinder</li>
-<li>mysql:phpmyadmin:pmd/pma/phadmin</li>
-<li>phpinfo</li>
-<li>编辑器</li>
-<li>iis短文件<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2></li>
-<li>字典爆破：御剑：输入域名之后直接开始扫目录</li>
-<li>蜘蛛爬行：菜刀：开spider（蜘蛛爬取），输入域名之后开始爬取（菜刀是轻量级的，所有扫出来的结果将放到桌面）<h1 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h1><h2 id="记得查常用端口"><a href="#记得查常用端口" class="headerlink" title="记得查常用端口"></a>记得查常用端口</h2><h2 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h2><h2 id="portscan-收录在CTFtools中"><a href="#portscan-收录在CTFtools中" class="headerlink" title="portscan(收录在CTFtools中)"></a>portscan(收录在CTFtools中)</h2></li>
-<li>输入起止IP</li>
-<li>设置端口</li>
-<li>点击start<h2 id="ntscan"><a href="#ntscan" class="headerlink" title="ntscan"></a>ntscan</h2><h2 id="telnet-是Windows自带的链接端口的工具"><a href="#telnet-是Windows自带的链接端口的工具" class="headerlink" title="telnet(是Windows自带的链接端口的工具)"></a>telnet(是Windows自带的链接端口的工具)</h2></li>
-<li>格式：telnet 域名 端口（telnet <a target="_blank" rel="noopener" href="http://qufutuan.com/">http://qufutuan.com</a> 3306）<h1 id="旁站c站"><a href="#旁站c站" class="headerlink" title="旁站c站"></a>旁站c站</h1><h1 id="整站分析"><a href="#整站分析" class="headerlink" title="整站分析"></a>整站分析</h1><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2></li>
-<li>windows/linux<h2 id="脚本格式"><a href="#脚本格式" class="headerlink" title="脚本格式"></a>脚本格式</h2></li>
-<li>asp aspx php jsp<h2 id="数据库类型"><a href="#数据库类型" class="headerlink" title="数据库类型"></a>数据库类型</h2></li>
-<li>access</li>
-<li>sqlserver</li>
-<li>oracle</li>
-<li>db2</li>
-<li>postgresql</li>
-<li>sqlite<h2 id="防护情况waf"><a href="#防护情况waf" class="headerlink" title="防护情况waf"></a>防护情况waf</h2></li>
-<li>web application firewall<h2 id="cms类型"><a href="#cms类型" class="headerlink" title="cms类型"></a>cms类型</h2></li>
-<li>dedecms</li>
-<li>diguo</li>
-<li>meterinfo</li>
-<li>dz<h2 id="获取cms"><a href="#获取cms" class="headerlink" title="获取cms"></a>获取cms</h2></li>
-<li>使用yunsee输入域名后查询：web指纹，语言，数据库，容器，服务器IP，操作系统<h2 id="操作-1"><a href="#操作-1" class="headerlink" title="操作"></a>操作</h2><h3 id="判断是什么脚本"><a href="#判断是什么脚本" class="headerlink" title="判断是什么脚本"></a>判断是什么脚本</h3></li>
-<li>/index.php若正常则为php脚本</li>
-<li>/index.asp若正常则为asp脚本</li>
-<li>/index.asps若正常则为aspx脚本</li>
-<li>/index.jsp若正常则为jsp脚本<h3 id="判断操作系统"><a href="#判断操作系统" class="headerlink" title="判断操作系统"></a>判断操作系统</h3></li>
-<li>windows不区分大小写，Linux区分大小写</li>
-<li>输入/index.phP(即修改一个字母)若正常则为windows，不正常则为linux（当php脚本存在时）</li>
-<li>注意区分脚本类型<h3 id="测waf"><a href="#测waf" class="headerlink" title="测waf"></a>测waf</h3></li>
-<li>输入and 1=1</li>
-<li>waf会拦截and这一类的参数<h1 id="谷歌hacker"><a href="#谷歌hacker" class="headerlink" title="谷歌hacker"></a>谷歌hacker</h1></li>
-<li>intext:查找网页中含有xx关键字的网站（intext: 管理员登录）</li>
-<li>intitle:查找某个标题（intitle: 后台登录）</li>
-<li>Filetype：查找某个文件类型的文件(数据挖掘 filetype: doc)</li>
-<li>inurl:查找url中带有某字段的网站（inurl: php?id=）</li>
-<li>Site:在某域名中查找信息<h1 id="url采集"><a href="#url采集" class="headerlink" title="url采集"></a>url采集</h1><h1 id="后台查找"><a href="#后台查找" class="headerlink" title="后台查找"></a>后台查找</h1><h2 id="弱口令默认后台"><a href="#弱口令默认后台" class="headerlink" title="弱口令默认后台"></a>弱口令默认后台</h2></li>
-<li>admin,admin/login.asp,manage,login.asp<h2 id="查看网页的链接（超链接）"><a href="#查看网页的链接（超链接）" class="headerlink" title="查看网页的链接（超链接）"></a>查看网页的链接（超链接）</h2></li>
-<li>一般来说，网页的主页有管理登录类似的东西，有些可能被管理员删掉</li>
-<li>选择图片等获取链接，从中截取前半部分关于后台的链接，看看是否能访问<h2 id="查看网站使用的管理系统，从而确定后台"><a href="#查看网站使用的管理系统，从而确定后台" class="headerlink" title="查看网站使用的管理系统，从而确定后台"></a>查看网站使用的管理系统，从而确定后台</h2><h2 id="使用工具查找"><a href="#使用工具查找" class="headerlink" title="使用工具查找"></a>使用工具查找</h2></li>
-<li>御剑</li>
-<li>蜘蛛（菜刀）<h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2></li>
-<li>robots.txt文件告诉蜘蛛程序在服务器上什么样的文件可以被查看<h2 id="googlehacker"><a href="#googlehacker" class="headerlink" title="googlehacker"></a>googlehacker</h2><h2 id="短文件利用"><a href="#短文件利用" class="headerlink" title="短文件利用"></a>短文件利用</h2></li>
-<li>如果有administrator121321312.asp,那么可以直接输入/a<del>!.asp(开头char加</del>加！加文件类型)<h1 id="CDN绕过方法（信息收集上最后）"><a href="#CDN绕过方法（信息收集上最后）" class="headerlink" title="CDN绕过方法（信息收集上最后）"></a>CDN绕过方法（信息收集上最后）</h1><h2 id="什么是CDN"><a href="#什么是CDN" class="headerlink" title="什么是CDN"></a>什么是CDN</h2></li>
-<li>内容分发网络（访问加速）</li>
-<li></li>
-</ol>
-
-        </div>
-    
-
 </div>
-            
-                
-<div class="post">
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/git/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-19</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/git/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
+
+<main class="content">
 
     
-        <div class="content">
-            <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
-<li>工作区：仓库的目录</li>
-<li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li>
-<li>版本库：存放所有已经提交到本地仓库的代码版本</li>
-<li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li>
-<li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li>
-<li>git config –global user.email <a href="mailto:&#120;&#120;&#x78;&#64;&#120;&#x78;&#120;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#120;&#x78;&#64;&#120;&#x78;&#120;&#x2e;&#x63;&#x6f;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li>
-<li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li>
-<li>git add xxx:将xxx文件添加到暂存区</li>
-<li>git add .:将所有待加入暂存区的文件加入暂存区</li>
-<li>git rm –catched xx:将文件从仓库索引目录中删掉</li>
-<li>git log :查看xx当前分支中的所有版本 </li>
-<li>git reflog : 查看HEAD指针的移动历史</li>
-<li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li>
-<li>git reset –hard HEAD^^回滚两次，以此类推</li>
-<li>git reset –hard HEAD~num:回滚num次</li>
-<li>git reset –hard 版本号：回滚到某一特定版本</li>
-<li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li>
-<li>git remote add origin <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#46;&#x61;&#x63;&#x77;&#x69;&#110;&#103;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#46;&#x61;&#x63;&#x77;&#x69;&#110;&#103;&#x2e;&#x63;&#111;&#x6d;</a>:…将本地仓库关联到远程仓库</li>
-<li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li>
-<li>git push origin branch_name:将本地的某个分支推送到远程仓库</li>
-<li>git clone <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#46;&#97;&#99;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#46;&#97;&#99;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#109;</a>:…将远程仓库xxx下载到当前目录下</li>
-<li></li>
-</ol>
-<h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol>
-<li>git restore xxx:将工作区的文件回滚到暂存区版本</li>
-<li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-15</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
 
     
-        <div class="content">
-            <h1 id="常见术语介绍"><a href="#常见术语介绍" class="headerlink" title="常见术语介绍"></a>常见术语介绍</h1><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><ol>
-<li>asp</li>
-<li>php</li>
-<li>jsp<h2 id="html-静态网站"><a href="#html-静态网站" class="headerlink" title="html(静态网站)"></a>html(静态网站)</h2></li>
-<li>css</li>
-<li>js</li>
-<li>html</li>
-<li>交互性少，漏洞少，非论坛性<h2 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h2><h2 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h2></li>
-</ol>
 
-        </div>
-    
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
 
-</div>
-            
-                
-<div class="post">
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                信息收集下操作方向
+域名信息
+whois信息
+目录信息
+谷歌hacker
+整站分析
+旁站c端
+后台查找
+cdn绕过
+app
+host.txt自动跑漏洞工具Nmap端口扫描王主机探测（看哪些主机IP在线）（up/down）（以下步骤的前提是切
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-20
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
+                    
+                </div>
+            </div>
             
-                <span class="date">2022-01-15</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
 
-    
-        <div class="content">
-            <pre class="line-numbers language-none"><code class="language-none">
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                title: 域名信息
+IP概念
+网络地址：可以用来识别设备所在的网络，网络地址位于IP地址的前端，企业申请IP地址时，获得的不是IP地址，而是唯一的能够识别的网络地址
+主机地址：位于IP地址的后段，可以用来是被网络上的设备，同一网络上的设
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/git/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                git将历史版本代码用树的形式来整合利用基本概念
+工作区：仓库的目录
+暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的
+版本库：存放所有已经提交到本地仓库的代码版本
+版本结构：树结构，树中每个节点代表一
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                常见术语介绍脚本
+asp
+php
+jsphtml(静态网站)
+css
+js
+html
+交互性少，漏洞少，非论坛性http协议CMS
+
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
 title: XHTML规范
 
 date: 2022-1-19
 
 &#123;% label info info %&#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<span class="label label-info">info</span>
-<h2 id="XHTML的出现是为了过渡到xml"><a href="#XHTML的出现是为了过渡到xml" class="headerlink" title="XHTML的出现是为了过渡到xml"></a>XHTML的出现是为了过渡到xml</h2><h2 id="HTML中不区分大小写，但是我们一般都使用小写"><a href="#HTML中不区分大小写，但是我们一般都使用小写" class="headerlink" title="HTML中不区分大小写，但是我们一般都使用小写"></a>HTML中不区分大小写，但是我们一般都使用小写</h2><h2 id="HTML的注释不能嵌套（就和c-中的if-else一样）"><a href="#HTML的注释不能嵌套（就和c-中的if-else一样）" class="headerlink" title="HTML的注释不能嵌套（就和c++中的if-else一样）"></a>HTML的注释不能嵌套（就和c++中的if-else一样）</h2><h2 id="HTML标签必须结构完整，要么成对出现，要么自结束标签"><a href="#HTML标签必须结构完整，要么成对出现，要么自结束标签" class="headerlink" title="HTML标签必须结构完整，要么成对出现，要么自结束标签"></a>HTML标签必须结构完整，要么成对出现，要么自结束标签</h2><ol>
-<li>浏览器会尽最大努力正确解析页面，不符合语法规范的内容，浏览器会自动修正</li>
-<li>但是有些情况会修正错误<h1 id="F12会跳出开发者控制台"><a href="#F12会跳出开发者控制台" class="headerlink" title="F12会跳出开发者控制台"></a>F12会跳出开发者控制台</h1>##自结束标签：</li>
-<li>html5中&lt; br &gt;</li>
-<li>xhtml中&lt; br /&gt;(最后有反斜杠)<h2 id="HTML标签可以嵌套，但是不能交叉嵌套"><a href="#HTML标签可以嵌套，但是不能交叉嵌套" class="headerlink" title="HTML标签可以嵌套，但是不能交叉嵌套"></a>HTML标签可以嵌套，但是不能交叉嵌套</h2><h2 id="HTML标签中的属性必须有值，且值必须加引号"><a href="#HTML标签中的属性必须有值，且值必须加引号" class="headerlink" title="HTML标签中的属性必须有值，且值必须加引号"></a>HTML标签中的属性必须有值，且值必须加引号</h2></li>
-<li>&lt; font color=”red” &gt;</li>
-<li>单双引号均可</li>
-</ol>
 
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/meta/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-15</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/meta/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h1><h2 id="可以提供页面元信息"><a href="#可以提供页面元信息" class="headerlink" title="可以提供页面元信息"></a>可以提供页面元信息</h2><h2 id="meta标签永远位于head元素内部"><a href="#meta标签永远位于head元素内部" class="headerlink" title="meta标签永远位于head元素内部"></a>meta标签永远位于head元素内部</h2><h2 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h2><h3 id="必须"><a href="#必须" class="headerlink" title="必须"></a>必须</h3><ol>
-<li>content:定义与http-equiv或name属性相关的元信息（使用，进行分割）<h3 id="可选："><a href="#可选：" class="headerlink" title="可选："></a>可选：</h3></li>
-<li>http-equiv:把content属性关联到HTTP头部</li>
-<li>name:把content属性关联到一个名称</li>
-<li>scheme:定义用于翻译content属性值的格式<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4></li>
-<li>keywords:为文档定义了一组关键字，某些搜索引擎在遇到这些关键字时会用这些关键字对文档进行分类。<meta name="keywords" content="HTML,ASP,PHP" />(会将HTML等内容进行转keywords操作，content内容使用,进行分割)<h3 id="http-equiv"><a href="#http-equiv" class="headerlink" title="http-equiv"></a>http-equiv</h3></li>
-<li>为名称/值对提供了名称，并指示服务器在发送实际的文档之前先要传送给浏览器的MIME文档头部包含名称值对。</li>
-<li>当服务器向浏览器发送文档时，会先发送许多名称/值对，但是所有的服务器都至少要发送一个。</li>
-<li>使用带有http-equiv属性的meta标签时，服务器将把名称/值对添加到发送给浏览器的内容头部</li>
-<li><meta http-equiv="charset" content="iso-8859-1">
-### content</li>
-<li>提供了名称/值对中的值，该值可以是任何有效的字符串</li>
-<li>content属性始终要和name属性或http-equiv属性一起使用<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2></li>
-<li><meta http-equiv="Refresh" content="间隔时间；url=跳转页面的url"></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-15</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h1><h2 id="src属性配置的是图片的路径，目前我们配置的都是相对路径"><a href="#src属性配置的是图片的路径，目前我们配置的都是相对路径" class="headerlink" title="src属性配置的是图片的路径，目前我们配置的都是相对路径"></a>src属性配置的是图片的路径，目前我们配置的都是相对路径</h2><h2 id="相对路劲：相对于当前资源所在目录的位置"><a href="#相对路劲：相对于当前资源所在目录的位置" class="headerlink" title="相对路劲：相对于当前资源所在目录的位置"></a>相对路劲：相对于当前资源所在目录的位置</h2>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>#图片标签</p>
-<h2 id="使用img-image-标签来向网页中引入一个外部图片"><a href="#使用img-image-标签来向网页中引入一个外部图片" class="headerlink" title="使用img(image)标签来向网页中引入一个外部图片"></a>使用img(image)标签来向网页中引入一个外部图片</h2><ol>
-<li>img标签也是一个自结束标签<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="src：设置一个外部图片的路径"><a href="#src：设置一个外部图片的路径" class="headerlink" title="src：设置一个外部图片的路径"></a>src：设置一个外部图片的路径</h3><h3 id="alt：可以用来设置图片的描述"><a href="#alt：可以用来设置图片的描述" class="headerlink" title="alt：可以用来设置图片的描述"></a>alt：可以用来设置图片的描述</h3></li>
-<li>（当图片不能显示时，直接显示alt中的内容），搜索引擎可以通过alt属性来识别不同的图片（百度专门搜索图片的时候就是用alt）</li>
-<li>如果不写alt，搜索引擎将不会对img中的图片进行收录<h3 id="width：可以用来修改图片的宽度，一般使用px为单位（像素）"><a href="#width：可以用来修改图片的宽度，一般使用px为单位（像素）" class="headerlink" title="width：可以用来修改图片的宽度，一般使用px为单位（像素）"></a>width：可以用来修改图片的宽度，一般使用px为单位（像素）</h3><h3 id="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"><a href="#height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小" class="headerlink" title="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"></a>height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小</h3><h2 id="如果两个值同时指定，则按照你指定的值来设置"><a href="#如果两个值同时指定，则按照你指定的值来设置" class="headerlink" title="如果两个值同时指定，则按照你指定的值来设置"></a>如果两个值同时指定，则按照你指定的值来设置</h2></li>
-<li>如果两个值同时指定，则按照你指定的值来设置<h2 id="一般开发中除了自适应页面，不建议设置width和height"><a href="#一般开发中除了自适应页面，不建议设置width和height" class="headerlink" title="一般开发中除了自适应页面，不建议设置width和height"></a>一般开发中除了自适应页面，不建议设置width和height</h2></li>
-<li>让美工话自己想要的大小<h2 id=""><a href="#" class="headerlink" title=""></a><img src="路径" alt="图片描述" /></h2><h1 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h1></li>
-<li>JPEG(JPG):支持的颜色比较多，图片可以压缩，但是不支持透明(指的是背景透明)，一般用来保存照片等颜色丰富的图片</li>
-<li>GIF：支持的颜色少，只支持简单的透明（背景透明）（但是边界会有白边），支持动态图，图片颜色单一或者是动态图时可以使用gif</li>
-<li>PNG：支持的颜色多，并且支持复杂的透明（背景透明），可以用来显示颜色复杂的透明的图片<h2 id="图片的使用原则："><a href="#图片的使用原则：" class="headerlink" title="图片的使用原则："></a>图片的使用原则：</h2></li>
-<li>效果不一致用好的</li>
-<li>效果一致用小的（jpg一般小于png）</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E5%AE%9E%E4%BD%93/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E5%AE%9E%E4%BD%93/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h1><h2 id="在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）"><a href="#在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）" class="headerlink" title="在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）"></a>在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）</h2><ol>
-<li>需要使用一些特殊的符号来表示这些特殊字符，这些特殊符号我们称为实体（转义字符串）</li>
-<li>浏览器解析到实体时，会自动将实体转换为其对应的字符<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
-<li>&amp;实体的名字（将linux系统操作的-换位&amp;）(只能说是一部分)</li>
-<li>小于&lt; -lt</li>
-<li>大于&gt; -gt</li>
-<li>空格&nbsp;(牛逼space)(no break space，即不会换行的空格)</li>
-<li>版权符号 &amp;copy（不让你copy）<h3 id="amp-开头，；结尾"><a href="#amp-开头，；结尾" class="headerlink" title="&amp;开头，；结尾"></a>&amp;开头，；结尾</h3></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E6%A0%87%E7%AD%BE/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E6%A0%87%E7%AD%BE/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="常用的标签："><a href="#常用的标签：" class="headerlink" title="常用的标签："></a>常用的标签：</h1><h2 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h2><ol>
-<li>HTML中一共有六级标签：h1~h6</li>
-<li>h1最大，为一级；h6为最小，为6级</li>
-<li>一般不用，主要是css来修改</li>
-<li>使用HTML标签时，关心的是标签的语义，我们使用的标签都是语义化标签</li>
-<li>6级标签中，h1最重要，表示一个网页中的主要内容，h2~h6的重要性一次降低<h3 id="对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容"><a href="#对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容" class="headerlink" title="对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容"></a>对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容</h3></li>
-<li>h1标签非常重要，会影响页面再搜索引擎中的排名，页面只能写一个h1</li>
-<li>一般页面标题中只使用h1,h2,h3，h3以后的基本不使用<h2 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h2></li>
-<li>用于表示内容中的一个自然段，使用p标签来表示一个段落</li>
-<li><p>中间放段落</p></li>
-<li>p标签中的文字，默认会独占一行，并且段和段之间会有一个间</li>
-<li>但是如果没有p标签则会出现在一行，并且行与行之间没有间距<h3 id="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"><a href="#在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析" class="headerlink" title="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"></a>在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析</h3><h3 id="在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签"><a href="#在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签" class="headerlink" title="在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签"></a>在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签<br /></h3><h3 id="，hr标签也是一个自结束标签，可以在页面中生成一条水平线"><a href="#，hr标签也是一个自结束标签，可以在页面中生成一条水平线" class="headerlink" title="，hr标签也是一个自结束标签，可以在页面中生成一条水平线"></a><hr />，hr标签也是一个自结束标签，可以在页面中生成一条水平线</h3></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="" href="/blog6/page/2/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/blog6/page/4/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    拒绝划水，拒绝摸鱼
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/blog6/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">Untitled</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/blog6/burpsuit%20intruder%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">Untitled</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/blog6/ls%E5%91%BD%E4%BB%A4/">Untitled</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/blog6/%E6%95%B0%E8%AE%BA/">Untitled</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
+info
+XHTML的出现是为了过渡到xmlHTML中不区分大小写，但是我们一般都使用小写HTML的注释不
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
                             </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
                             </span>
-                        </a>
-                    </li>
+                        </div>
+                    </div>
+
                     
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:a18888200398@163.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
                 </div>
             </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/meta/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                meta标签可以提供页面元信息meta标签永远位于head元素内部属性：必须
+content:定义与http-equiv或name属性相关的元信息（使用，进行分割）可选：
+http-equiv:把content属性关联到HTTP头部
+nam
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                相对路径src属性配置的是图片的路径，目前我们配置的都是相对路径相对路劲：相对于当前资源所在目录的位置
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                #图片标签
+使用img(image)标签来向网页中引入一个外部图片
+img标签也是一个自结束标签属性src：设置一个外部图片的路径alt：可以用来设置图片的描述
+（当图片不能显示时，直接显示alt中的内容），搜索引擎可以通过alt属性来识别
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/%E5%AE%9E%E4%BD%93/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                实体在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）
+需要使用一些特殊的符号来表示这些特殊字符，这些特殊符号我们称为实体（转义字符串）
+浏览器解析到实体时，会自动将实体转换为其对应的字符语法
+&amp
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/blog6/%E6%A0%87%E7%AD%BE/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                常用的标签：标题标签
+HTML中一共有六级标签：h1~h6
+h1最大，为一级；h6为最小，为6级
+一般不用，主要是css来修改
+使用HTML标签时，关心的是标签的语义，我们使用的标签都是语义化标签
+6级标签中，h1最重要，表示一个网页中的主
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                syk
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
         </div>
+    </article>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/blog6/page/2/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">3 / 5</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/blog6/page/4/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/blog6/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/blog6/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <span id="year">2019</span>
+            <a href="/blog6/about" target="_blank">syk</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/blog6/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
     </div>
 </footer>
 
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/blog6/js/main.js"></script>
+<div class="progress-bar"></div>
 
 
-<!-- Disqus Comments -->
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
 <script type="text/javascript">
-    var disqus_shortname = 'klugjotest';
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
 
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/blog6/search.xml', 'searchInput', 'searchResult');
+});
 </script>
 
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
 
+
+    <script src="/blog6/libs/materialize/materialize.min.js"></script>
+    <script src="/blog6/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/blog6/libs/aos/aos.js"></script>
+    <script src="/blog6/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/blog6/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/blog6/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/blog6/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/blog6/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/blog6/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
 
