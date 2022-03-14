@@ -156,6 +156,280 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-20</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="信息收集下"><a href="#信息收集下" class="headerlink" title="信息收集下"></a>信息收集下</h1><h2 id="操作方向"><a href="#操作方向" class="headerlink" title="操作方向"></a>操作方向</h2><ol>
+<li>域名信息</li>
+<li>whois信息</li>
+<li>目录信息</li>
+<li>谷歌hacker</li>
+<li>整站分析</li>
+<li>旁站c端</li>
+<li>后台查找</li>
+<li>cdn绕过</li>
+<li>app</li>
+<li>host.txt<h2 id="自动跑漏洞工具"><a href="#自动跑漏洞工具" class="headerlink" title="自动跑漏洞工具"></a>自动跑漏洞工具</h2><h3 id="Nmap端口扫描王"><a href="#Nmap端口扫描王" class="headerlink" title="Nmap端口扫描王"></a>Nmap端口扫描王</h3><h4 id="主机探测（看哪些主机IP在线）（up-down）"><a href="#主机探测（看哪些主机IP在线）（up-down）" class="headerlink" title="主机探测（看哪些主机IP在线）（up/down）"></a>主机探测（看哪些主机IP在线）（up/down）</h4>（以下步骤的前提是切换到nmap的目录下能够找到nmap.exe）</li>
+<li>扫描单个主机 nmap.exe 192.168.1.2</li>
+<li>扫描整个子网 nmap.exe 192.168.1.1/24</li>
+<li>扫描多个目标 nmap.exe IP1 IP2</li>
+<li>扫描一个范围内的目标 nmap.exe 192.168.1.1-100(扫描1到100的所有主机)<h4 id="查看扫描的所有主机的列表（加参数-sL）"><a href="#查看扫描的所有主机的列表（加参数-sL）" class="headerlink" title="查看扫描的所有主机的列表（加参数-sL）"></a>查看扫描的所有主机的列表（加参数-sL）</h4></li>
+<li>nmap -sL 192.168.1.1/24<h4 id="扫描除过某一个IP外的所有子网主机"><a href="#扫描除过某一个IP外的所有子网主机" class="headerlink" title="扫描除过某一个IP外的所有子网主机"></a>扫描除过某一个IP外的所有子网主机</h4></li>
+<li>nmapxxx-excludexx****</li>
+<li>include和exclude<h4 id="扫描除过某一个文件中的IP外的子网主机命令"><a href="#扫描除过某一个文件中的IP外的子网主机命令" class="headerlink" title="扫描除过某一个文件中的IP外的子网主机命令"></a>扫描除过某一个文件中的IP外的子网主机命令</h4></li>
+<li>nmapxxx-excludefilexxx.txt(会先读取xxx.file中的IP，然后排除)<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3></li>
+<li>nmap -F -sT -v IP</li>
+<li>-F:扫描100个最有可能开放的端口</li>
+<li>-v 获取扫描的信息</li>
+<li>-sT:采用的是TCP扫描，不写也可，默认为TCP扫描</li>
+<li>-p指定扫描的端口<h3 id="zenmap是可视化界面"><a href="#zenmap是可视化界面" class="headerlink" title="zenmap是可视化界面"></a>zenmap是可视化界面</h3></li>
+<li>可以直接输入域名进行扫描<h2 id="端口扫描状态"><a href="#端口扫描状态" class="headerlink" title="端口扫描状态"></a>端口扫描状态</h2></li>
+<li>open 端口开启，数据有到达主机，有程序在端口上监控</li>
+<li>closed 端口关闭，数据有到达主机，没有程序在端口上监控</li>
+<li>filtered 数据没有到达主机，返回的结果为空，数据被防火墙或者是IDS过滤</li>
+<li>unfiltered 数据有到达主机，但是不能识别端口的当前状态</li>
+<li><img src="D:\CTF学习工具\QQ截图.png"><h2 id="服务版本扫描"><a href="#服务版本扫描" class="headerlink" title="服务版本扫描"></a>服务版本扫描</h2><h2 id="主机系统的指纹识别"><a href="#主机系统的指纹识别" class="headerlink" title="主机系统的指纹识别"></a>主机系统的指纹识别</h2><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h2><h2 id="创建扫描版本"><a href="#创建扫描版本" class="headerlink" title="创建扫描版本"></a>创建扫描版本</h2><h2 id="burpsuite手工测"><a href="#burpsuite手工测" class="headerlink" title="burpsuite手工测"></a>burpsuite手工测</h2><h2 id="TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP"><a href="#TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP" class="headerlink" title="TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)"></a>TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3></li>
+<li>客户端向服务端发送请求</li>
+<li>服务端向客户端发送响应包</li>
+<li>客户端向服务端发送确认相应包</li>
+<li>如果客户端已知不发送，服务端会等待（看服务端的设置状态，例如：等待n秒）<h3 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h3></li>
+<li>当黑客手里握着的主机同时向服务端发送请求时，如果超过服务器能够承受的量，且黑客一直在第三次握手的时候不发送确认包，则会令服务端一直等待，严重的导致拒绝服务<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3></li>
+<li>扫描速度快，准确性高，对操作者没有权限上的要求</li>
+<li>但是容易被防火墙和IDS防入侵系统发现<h2 id="SYN扫描-sS（s表明扫描方式-S表明SYN扫描）"><a href="#SYN扫描-sS（s表明扫描方式-S表明SYN扫描）" class="headerlink" title="SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）"></a>SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）</h2></li>
+<li>秘密的扫描方式</li>
+<li>Client和Server之间没有形成三次握手，所以没有简历一个正常的TCP链接</li>
+<li>不会被防火墙和日志所记录，一般不会在目标主机上留下任何痕迹，但是这种扫描需要root权限<h2 id="使用UDP-ping探测主机"><a href="#使用UDP-ping探测主机" class="headerlink" title="使用UDP ping探测主机"></a>使用UDP ping探测主机</h2>nmap -PU xxx<h2 id="服务器版本探测"><a href="#服务器版本探测" class="headerlink" title="服务器版本探测"></a>服务器版本探测</h2>nmap -sV xxx</li>
+<li>服务器版本即服务器系统的版本<h2 id="精确地确认端口上运行的服务"><a href="#精确地确认端口上运行的服务" class="headerlink" title="精确地确认端口上运行的服务"></a>精确地确认端口上运行的服务</h2>nmap -sV –script unusual-port xxx<h2 id="探测目标主机的操作系统"><a href="#探测目标主机的操作系统" class="headerlink" title="探测目标主机的操作系统"></a>探测目标主机的操作系统</h2></li>
+<li>nmap -O xxx</li>
+<li>nmap -A xxx</li>
+<li>-oN 导出扫描结果</li>
+<li>-oX 导出扫描结果xml格式  </li>
+<li>nmap -A xxx -oX c:\123.xml<h2 id="防火墙躲避绕过"><a href="#防火墙躲避绕过" class="headerlink" title="防火墙躲避绕过"></a>防火墙躲避绕过</h2></li>
+<li>-f 分片绕过</li>
+<li>-D 使用诱饵隐蔽扫描： nmap -D 1.1.1.1,222.222.222.222 xxx</li>
+<li>–source-port 源端口欺骗<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1></li>
+<li>syn扫描器</li>
+<li>扫描外围主机网段</li>
+<li>对应端口爆破工具</li>
+<li>提供访问木马服务器下载的工具</li>
+<li>一个远控<h1 id="AWVS"><a href="#AWVS" class="headerlink" title="AWVS"></a>AWVS</h1></li>
+<li></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-19</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <pre class="line-numbers language-none"><code class="language-none">title: 域名信息<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="IP概念"><a href="#IP概念" class="headerlink" title="IP概念"></a>IP概念</h1><ol>
+<li>网络地址：可以用来识别设备所在的网络，网络地址位于IP地址的前端，企业申请IP地址时，获得的不是IP地址，而是唯一的能够识别的网络地址</li>
+<li>主机地址：位于IP地址的后段，可以用来是被网络上的设备，同一网络上的设备都会有相同的网络地址，而各台设备之间通过主机地址来区别<h1 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h1></li>
+<li>版本（4）：IPV6协议版本，其值为6，负责向处理机所运行的IP软件指名此IP数据是IPV6版本</li>
+<li>优先级（4）</li>
+<li>流标号（24）<h1 id="对应IP收集"><a href="#对应IP收集" class="headerlink" title="对应IP收集"></a>对应IP收集</h1></li>
+<li>ping 域名：可以初步获取该地址的服务器相关信息</li>
+<li>相关域名对应IP,相关工具：nslookup：nslookup endl 地址<h1 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h1><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></li>
+<li>www.或bbs.为主机名，是主机头</li>
+<li>baidu.com为主域名</li>
+<li>bbs.baidu.com或edu.baidu.com为该主域名下的子域名</li>
+<li>子域名的防御性没有主域名高，子域名可能跟主域名在一个服务器上，通过子域名也可以渗透到主域名</li>
+<li>根据主站点来查找:site.baidu.com</li>
+<li>使用layer子域名挖掘机：输入域名，端口，选择暴力枚举还是解析接口</li>
+<li>可以发现多个域名用一个IP<h1 id="whois-注册人-信息查询"><a href="#whois-注册人-信息查询" class="headerlink" title="whois(注册人)信息查询"></a>whois(注册人)信息查询</h1></li>
+<li>根据已知域名反查，分析出此域名的注册人，邮箱。电话</li>
+<li>工具：爱站网，输入域名后点击whois查询<h1 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h1>目的：搜集信息</li>
+<li>扫robots.txt，其中定义了哪些页面不允许爬行（定义的都是一些敏感的）</li>
+<li>安装包（backup）:<a target="_blank" rel="noopener" href="http://www.root.rar/zip;beifen.rar/zip;tar.gz">www.root.rar/zip;beifen.rar/zip;tar.gz</a></li>
+<li>上传目录:ewebedit;ckfinder</li>
+<li>mysql:phpmyadmin:pmd/pma/phadmin</li>
+<li>phpinfo</li>
+<li>编辑器</li>
+<li>iis短文件<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2></li>
+<li>字典爆破：御剑：输入域名之后直接开始扫目录</li>
+<li>蜘蛛爬行：菜刀：开spider（蜘蛛爬取），输入域名之后开始爬取（菜刀是轻量级的，所有扫出来的结果将放到桌面）<h1 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h1><h2 id="记得查常用端口"><a href="#记得查常用端口" class="headerlink" title="记得查常用端口"></a>记得查常用端口</h2><h2 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h2><h2 id="portscan-收录在CTFtools中"><a href="#portscan-收录在CTFtools中" class="headerlink" title="portscan(收录在CTFtools中)"></a>portscan(收录在CTFtools中)</h2></li>
+<li>输入起止IP</li>
+<li>设置端口</li>
+<li>点击start<h2 id="ntscan"><a href="#ntscan" class="headerlink" title="ntscan"></a>ntscan</h2><h2 id="telnet-是Windows自带的链接端口的工具"><a href="#telnet-是Windows自带的链接端口的工具" class="headerlink" title="telnet(是Windows自带的链接端口的工具)"></a>telnet(是Windows自带的链接端口的工具)</h2></li>
+<li>格式：telnet 域名 端口（telnet <a target="_blank" rel="noopener" href="http://qufutuan.com/">http://qufutuan.com</a> 3306）<h1 id="旁站c站"><a href="#旁站c站" class="headerlink" title="旁站c站"></a>旁站c站</h1><h1 id="整站分析"><a href="#整站分析" class="headerlink" title="整站分析"></a>整站分析</h1><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2></li>
+<li>windows/linux<h2 id="脚本格式"><a href="#脚本格式" class="headerlink" title="脚本格式"></a>脚本格式</h2></li>
+<li>asp aspx php jsp<h2 id="数据库类型"><a href="#数据库类型" class="headerlink" title="数据库类型"></a>数据库类型</h2></li>
+<li>access</li>
+<li>sqlserver</li>
+<li>oracle</li>
+<li>db2</li>
+<li>postgresql</li>
+<li>sqlite<h2 id="防护情况waf"><a href="#防护情况waf" class="headerlink" title="防护情况waf"></a>防护情况waf</h2></li>
+<li>web application firewall<h2 id="cms类型"><a href="#cms类型" class="headerlink" title="cms类型"></a>cms类型</h2></li>
+<li>dedecms</li>
+<li>diguo</li>
+<li>meterinfo</li>
+<li>dz<h2 id="获取cms"><a href="#获取cms" class="headerlink" title="获取cms"></a>获取cms</h2></li>
+<li>使用yunsee输入域名后查询：web指纹，语言，数据库，容器，服务器IP，操作系统<h2 id="操作-1"><a href="#操作-1" class="headerlink" title="操作"></a>操作</h2><h3 id="判断是什么脚本"><a href="#判断是什么脚本" class="headerlink" title="判断是什么脚本"></a>判断是什么脚本</h3></li>
+<li>/index.php若正常则为php脚本</li>
+<li>/index.asp若正常则为asp脚本</li>
+<li>/index.asps若正常则为aspx脚本</li>
+<li>/index.jsp若正常则为jsp脚本<h3 id="判断操作系统"><a href="#判断操作系统" class="headerlink" title="判断操作系统"></a>判断操作系统</h3></li>
+<li>windows不区分大小写，Linux区分大小写</li>
+<li>输入/index.phP(即修改一个字母)若正常则为windows，不正常则为linux（当php脚本存在时）</li>
+<li>注意区分脚本类型<h3 id="测waf"><a href="#测waf" class="headerlink" title="测waf"></a>测waf</h3></li>
+<li>输入and 1=1</li>
+<li>waf会拦截and这一类的参数<h1 id="谷歌hacker"><a href="#谷歌hacker" class="headerlink" title="谷歌hacker"></a>谷歌hacker</h1></li>
+<li>intext:查找网页中含有xx关键字的网站（intext: 管理员登录）</li>
+<li>intitle:查找某个标题（intitle: 后台登录）</li>
+<li>Filetype：查找某个文件类型的文件(数据挖掘 filetype: doc)</li>
+<li>inurl:查找url中带有某字段的网站（inurl: php?id=）</li>
+<li>Site:在某域名中查找信息<h1 id="url采集"><a href="#url采集" class="headerlink" title="url采集"></a>url采集</h1><h1 id="后台查找"><a href="#后台查找" class="headerlink" title="后台查找"></a>后台查找</h1><h2 id="弱口令默认后台"><a href="#弱口令默认后台" class="headerlink" title="弱口令默认后台"></a>弱口令默认后台</h2></li>
+<li>admin,admin/login.asp,manage,login.asp<h2 id="查看网页的链接（超链接）"><a href="#查看网页的链接（超链接）" class="headerlink" title="查看网页的链接（超链接）"></a>查看网页的链接（超链接）</h2></li>
+<li>一般来说，网页的主页有管理登录类似的东西，有些可能被管理员删掉</li>
+<li>选择图片等获取链接，从中截取前半部分关于后台的链接，看看是否能访问<h2 id="查看网站使用的管理系统，从而确定后台"><a href="#查看网站使用的管理系统，从而确定后台" class="headerlink" title="查看网站使用的管理系统，从而确定后台"></a>查看网站使用的管理系统，从而确定后台</h2><h2 id="使用工具查找"><a href="#使用工具查找" class="headerlink" title="使用工具查找"></a>使用工具查找</h2></li>
+<li>御剑</li>
+<li>蜘蛛（菜刀）<h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2></li>
+<li>robots.txt文件告诉蜘蛛程序在服务器上什么样的文件可以被查看<h2 id="googlehacker"><a href="#googlehacker" class="headerlink" title="googlehacker"></a>googlehacker</h2><h2 id="短文件利用"><a href="#短文件利用" class="headerlink" title="短文件利用"></a>短文件利用</h2></li>
+<li>如果有administrator121321312.asp,那么可以直接输入/a<del>!.asp(开头char加</del>加！加文件类型)<h1 id="CDN绕过方法（信息收集上最后）"><a href="#CDN绕过方法（信息收集上最后）" class="headerlink" title="CDN绕过方法（信息收集上最后）"></a>CDN绕过方法（信息收集上最后）</h1><h2 id="什么是CDN"><a href="#什么是CDN" class="headerlink" title="什么是CDN"></a>什么是CDN</h2></li>
+<li>内容分发网络（访问加速）</li>
+<li></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/git/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-19</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/git/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li>工作区：仓库的目录</li>
+<li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li>
+<li>版本库：存放所有已经提交到本地仓库的代码版本</li>
+<li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li>
+<li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li>
+<li>git config –global user.email <a href="mailto:&#120;&#120;&#x78;&#64;&#120;&#x78;&#120;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#120;&#x78;&#64;&#120;&#x78;&#120;&#x2e;&#x63;&#x6f;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li>
+<li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li>
+<li>git add xxx:将xxx文件添加到暂存区</li>
+<li>git add .:将所有待加入暂存区的文件加入暂存区</li>
+<li>git rm –catched xx:将文件从仓库索引目录中删掉</li>
+<li>git log :查看xx当前分支中的所有版本 </li>
+<li>git reflog : 查看HEAD指针的移动历史</li>
+<li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li>
+<li>git reset –hard HEAD^^回滚两次，以此类推</li>
+<li>git reset –hard HEAD~num:回滚num次</li>
+<li>git reset –hard 版本号：回滚到某一特定版本</li>
+<li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li>
+<li>git remote add origin <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#46;&#x61;&#x63;&#x77;&#x69;&#110;&#103;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#46;&#x61;&#x63;&#x77;&#x69;&#110;&#103;&#x2e;&#x63;&#111;&#x6d;</a>:…将本地仓库关联到远程仓库</li>
+<li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li>
+<li>git push origin branch_name:将本地的某个分支推送到远程仓库</li>
+<li>git clone <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#46;&#97;&#99;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#46;&#97;&#99;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#109;</a>:…将远程仓库xxx下载到当前目录下</li>
+<li></li>
+</ol>
+<h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol>
+<li>git restore xxx:将工作区的文件回滚到暂存区版本</li>
+<li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-01-15</span>
+            
+            
+                <a href="https://dezhoutorizhao.github.io/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="常见术语介绍"><a href="#常见术语介绍" class="headerlink" title="常见术语介绍"></a>常见术语介绍</h1><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><ol>
+<li>asp</li>
+<li>php</li>
+<li>jsp<h2 id="html-静态网站"><a href="#html-静态网站" class="headerlink" title="html(静态网站)"></a>html(静态网站)</h2></li>
+<li>css</li>
+<li>js</li>
+<li>html</li>
+<li>交互性少，漏洞少，非论坛性<h2 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h2><h2 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h2></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/blog6/HTML%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">
                 Untitled
             </a>
@@ -385,291 +659,6 @@ date: 2022-1-19
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E5%92%8C%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-14</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E5%92%8C%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="乱码问题"><a href="#乱码问题" class="headerlink" title="乱码问题"></a>乱码问题</h1><p>###乱码出现的原因：编码和解码所采用的字符集不同</p>
-<ol>
-<li>计算机只认识0和1</li>
-<li>在计算机中保存的任何内容，最终都需要用二进制编码保存，包括网页中的内容</li>
-<li>在读取内容时，需要将二进制编码再转换为正确的内容<br>###编码：依据一定的规则，将字符转换为二进制编码的过程<br>###解码：一句一定的规则，将二进制编码转换为字符的过程<br>##字符集：编码和解码所采用的规则</li>
-<li>ASCII：７位０\１,128个</li>
-<li>ISO－８８５９－１,8位0\1，256个</li>
-<li>GBK：国标</li>
-<li>GB２３１２：国标，中文系统的默认编码</li>
-<li>UTF－８：万国码，支持地球上所有的文字(即unicode编码)</li>
-<li>ANSI：自动以系统默认的编码来保存文件<h3 id="在中文系统浏览器中，默认都是使用GB２３１２进行解码"><a href="#在中文系统浏览器中，默认都是使用GB２３１２进行解码" class="headerlink" title="在中文系统浏览器中，默认都是使用GB２３１２进行解码"></a>在中文系统浏览器中，默认都是使用GB２３１２进行解码</h3><h2 id="使用notepad-可以直接将网页拖入，显示网页的源代码"><a href="#使用notepad-可以直接将网页拖入，显示网页的源代码" class="headerlink" title="使用notepad++可以直接将网页拖入，显示网页的源代码"></a>使用notepad++可以直接将网页拖入，显示网页的源代码</h2><h2 id="更改编码：在notepad-中，上方的菜单栏中选编码"><a href="#更改编码：在notepad-中，上方的菜单栏中选编码" class="headerlink" title="更改编码：在notepad++中，上方的菜单栏中选编码"></a>更改编码：在notepad++中，上方的菜单栏中选编码</h2><h2 id="更改浏览器解码方式"><a href="#更改浏览器解码方式" class="headerlink" title="更改浏览器解码方式"></a>更改浏览器解码方式</h2><h2 id="：meta是一个自结束标签，最后加上-表示结束"><a href="#：meta是一个自结束标签，最后加上-表示结束" class="headerlink" title="：meta是一个自结束标签，最后加上/表示结束"></a><meta charset="字符集" />：meta是一个自结束标签，最后加上/表示结束</h2><h2 id="txt中可以在保存的时候选择编码方式"><a href="#txt中可以在保存的时候选择编码方式" class="headerlink" title="txt中可以在保存的时候选择编码方式"></a>txt中可以在保存的时候选择编码方式</h2></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/CSS/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-13</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/CSS/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="用于控制页面中的元素的样式"><a href="#用于控制页面中的元素的样式" class="headerlink" title="用于控制页面中的元素的样式"></a>用于控制页面中的元素的样式</h1>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/ssh/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-13</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/ssh/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><h2 id="ssh登录"><a href="#ssh登录" class="headerlink" title="ssh登录"></a>ssh登录</h2><h3 id="远程登录服务器"><a href="#远程登录服务器" class="headerlink" title="远程登录服务器"></a>远程登录服务器</h3><ol>
-<li>ssh user@hostname(user为用户名，hostname为IP地址或域名)</li>
-<li>默认登录端口为22号，如果想要登录某一特定端口：ssh user@hostname -p 22<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3></li>
-<li>创建文件~/.ssh/config</li>
-<li>输入Host myserver1</li>
-<li>\t,HostName IP地址或域名</li>
-<li>\t，User 用户名<h3 id="密钥登录"><a href="#密钥登录" class="headerlink" title="密钥登录"></a>密钥登录</h3></li>
-<li>ssh-keygen(key generation),然后一直回车</li>
-<li>执行结束后~/.ssh/目录下会多两个文件</li>
-<li>id_rsa和(私钥)id_rsa.pub(公钥)</li>
-<li>之后想要免密登录哪个服务器，即可将公钥传给哪个服务器即可</li>
-<li>例如想要免密登录myserver。则将公钥中的内容复制到myserver中的~/.ssh/authorized_keys文件中即可</li>
-<li>也可以使用命令一键添加公钥：ssh-copy-id myserver<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3></li>
-<li>格式：ssh user@hostname command</li>
-<li>ssh user@hostname ls -a</li>
-<li>ssh myserver <code>for ((i = 0; i &lt; 10; i ++ )) do echo $i;done</code><h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/blog6/shell%E8%AF%AD%E6%B3%95/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-01-10</span>
-            
-            
-                <a href="https://dezhoutorizhao.github.io/blog6/shell%E8%AF%AD%E6%B3%95/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="shell语法"><a href="#shell语法" class="headerlink" title="shell语法"></a>shell语法</h1><h2 id="一门新的语言"><a href="#一门新的语言" class="headerlink" title="一门新的语言"></a>一门新的语言</h2><h2 id="Linux中常见的脚本"><a href="#Linux中常见的脚本" class="headerlink" title="Linux中常见的脚本"></a>Linux中常见的脚本</h2><ol>
-<li>sh:/usr/bin/sh或/bin/sh</li>
-<li>bash:/bin/bash</li>
-<li>csh:/usr/bin/csh</li>
-<li>ksh:/usr/bin/ksh</li>
-<li>zsh<h2 id="开头必须使用-bin-bash指名bash为脚本解释器"><a href="#开头必须使用-bin-bash指名bash为脚本解释器" class="headerlink" title="开头必须使用 #! /bin/bash指名bash为脚本解释器"></a>开头必须使用 #! /bin/bash指名bash为脚本解释器</h2><h2 id="运行方式："><a href="#运行方式：" class="headerlink" title="运行方式："></a>运行方式：</h2><h3 id="作为可执行文件："><a href="#作为可执行文件：" class="headerlink" title="作为可执行文件："></a>作为可执行文件：</h3></li>
-<li>chmod +x test.sh使脚本具有可执行权限</li>
-<li>./test.sh当前路径下执行（相对路径）</li>
-<li>/home/acs/test.sh绝对路径下执行</li>
-<li>~/test.sh家目录下执行<h3 id="用解释器执行"><a href="#用解释器执行" class="headerlink" title="用解释器执行"></a>用解释器执行</h3></li>
-<li>bash test.sh<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2></li>
-<li>意思和c++中cout 或 printf相同<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2></li>
-<li>井号后面的都是注释，（与py相同）</li>
-<li>其实脚本解释的时候#! /bin/bash解释的时候也是注释，只是系统识别为脚本解释器</li>
-<li>多行注释：前 :&lt;&lt;EOF后：EOF;其中EOF也可以换成其他字符串，或者符号（必须首位相同）<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h3></li>
-<li>定义变量不需要￥符号</li>
-<li>name1=’yxc’ （单引号定于字符串）</li>
-<li>name2=”yxc” (双引号定义字符串)</li>
-<li>name3=yxc (可以不加引号，同样表示字符串)</li>
-<li>注意等号两边不能有空格！！！否则会报错<h3 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h3></li>
-<li>使用变量需要加上￥（此符号在bash中意为取值），或者$（），花括号是可选的，主要是为了帮助解释器识别边界</li>
-<li>echo $yxc</li>
-<li>echo $(yxc)</li>
-<li>echo会自动换行</li>
-<li>错误：echo $namesacwing，因为没有括号，边界判断不对，不知道是namesacwing还是names<h3 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h3></li>
-<li>readonly 变量(相当于c++中的const,声明了一个只读变量)        </li>
-<li>declare -r 变量<h3 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h3></li>
-<li>unset(类似于c++终端undef),如果一个变量被删除，后面调用的时候会替换为空（NULL）<h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3></li>
-<li>自定义变量（局部变量）：子进程不能访问的变量</li>
-<li>环境变量（全局变量）：子进程可以访问的变量<h3 id="自定义变量转环境变量"><a href="#自定义变量转环境变量" class="headerlink" title="自定义变量转环境变量"></a>自定义变量转环境变量</h3></li>
-<li>export 变量名</li>
-<li>declare -x 变量名</li>
-<li>此时可以在子进程中使用变量              <h3 id="使用bash"><a href="#使用bash" class="headerlink" title="使用bash"></a>使用bash</h3></li>
-<li>使用bash会将原进程bash睡眠掉，进入一个新的bash子进程</li>
-<li>退出：exit或者ctrl+d          <h3 id="环境变量转自定义变量"><a href="#环境变量转自定义变量" class="headerlink" title="环境变量转自定义变量"></a>环境变量转自定义变量</h3></li>
-<li>declare +x 变量名(可以理解为给变量赋予了自定义权限)<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2></li>
-<li>字符串可以使用单引号，也可以使用双引号，也可以不使用引号<h3 id="单引号和双引号的区别（不加引号和双引号相同）"><a href="#单引号和双引号的区别（不加引号和双引号相同）" class="headerlink" title="单引号和双引号的区别（不加引号和双引号相同）"></a>单引号和双引号的区别（不加引号和双引号相同）</h3></li>
-<li>单引号中的内容会原样输出，不会执行，不会取变量（即不会转义），即没有使用&amp;符号取值</li>
-<li>双引号中的内容可以执行，可以取变量，即可以使用&amp;取值<h3 id="取出字符串的长度"><a href="#取出字符串的长度" class="headerlink" title="取出字符串的长度"></a>取出字符串的长度</h3></li>
-<li>￥后面加井号</li>
-<li>echo ${井号name},即可以取出name的长度（注意这个地方是花括号）<h3 id="提取子串"><a href="#提取子串" class="headerlink" title="提取子串"></a>提取子串</h3></li>
-<li>根据下标取值</li>
-<li>echo ${name:m:n}注意这个每一个下标前都有冒号<h2 id="查看自己开了多少进程"><a href="#查看自己开了多少进程" class="headerlink" title="查看自己开了多少进程"></a>查看自己开了多少进程</h2></li>
-<li>top可以查看</li>
-<li>按下<q>退出<h2 id="文件参数变量"><a href="#文件参数变量" class="headerlink" title="文件参数变量"></a>文件参数变量</h2></li>
-<li>在执行shell脚本时可以想脚本传递参数，$1时第一个参数，$2是第二个参数…，特殊的是$0是文件名（包含路径）</li>
-<li>$#:文件传入参数的个数（不包括文件名）</li>
-<li>$*：由所有参数构成的用空格隔开的字符串，整体为字符串用双引号括起来</li>
-<li>$@:每个参数分别用双引号括起来的字符串（@和*都是取所有的意思）</li>
-<li>$$:脚本当前运行的进程ID</li>
-<li>$?:上一条命令的退出状态（注意不是stdout,而是exit code）,0表示正常退出，其他值表示错误</li>
-<li>$(command):返回command这条命令的stdout(注意区分stdout和exit code,输出的数是stdout,例如cout,而退出状态是exit code,例如c++中的return)</li>
-<li><code>command</code> 返回command这条命令的stdout,（~上面的`）（7，8等价）<h3 id="小括号是获取stdout的值，-是取变量的值"><a href="#小括号是获取stdout的值，-是取变量的值" class="headerlink" title="$()小括号是获取stdout的值，${}是取变量的值"></a>$()小括号是获取stdout的值，${}是取变量的值</h3><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2></li>
-<li>数组中可以存放多个不同的值，只支持一位数组，初始化时不需要指定数组大小（和py中的list一样不需要指定数组大小）<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3></li>
-<li>数组用小括号表示，元素之间用空格隔开，如：array=(1 abc “def” yxc)</li>
-<li>也可以直接定义数组中某个元素的值，如：array[0]=1,array[1]=abc,array[2]=”def”<h3 id="读取数组中某个元素的值"><a href="#读取数组中某个元素的值" class="headerlink" title="读取数组中某个元素的值"></a>读取数组中某个元素的值</h3></li>
-<li>格式:${array[index]}</li>
-<li>echo ${array[0]}<h3 id="读取整个数组"><a href="#读取整个数组" class="headerlink" title="读取整个数组"></a>读取整个数组</h3></li>
-<li>格式：（@和*都是取所有的意思）</li>
-<li>$(array[@])</li>
-<li>$(array[*])<h2 id="expr命令"><a href="#expr命令" class="headerlink" title="expr命令"></a>expr命令</h2></li>
-<li>格式：expr 表达式<br>####说明：</li>
-<li>用空格隔开每一项</li>
-<li>用反斜杠放在shell特定的字符前面，发现表达式运行错误时，可以试试转义</li>
-<li>包含空格和其他特殊字符的字符串要用引号括起来  </li>
-<li>expr会在stdout中输出结果，如果结果为真，stdout为1，否则为0</li>
-<li>expr也有exit code返回值，如果为真，exit code为0，否则为1</li>
-<li>stdout 和 exit code 返回值为互反（真时相反，假时也相反）<h3 id="字符串表达式（以下参数都是在expr后面的）"><a href="#字符串表达式（以下参数都是在expr后面的）" class="headerlink" title="字符串表达式（以下参数都是在expr后面的）"></a>字符串表达式（以下参数都是在expr后面的）</h3></li>
-<li>输出长度：length STRING:返回STRING的长度</li>
-<li>index STRING CHARSET:CHARSET中任意单个字符在STRING中最前面的字符位置，下标从１开始。如果子啊STRING中完全不存在CHARSET中的字符，则返回0</li>
-<li>substr STRING POSITION LENGTH 返回STRING字符串中从POSITON开始，长度最大为LENGTH的子串。如果POSITION或LENGTH为负数，0或非数值，则返回空字符串（下标从1开始）          　        <h3 id="整数表达式"><a href="#整数表达式" class="headerlink" title="整数表达式"></a>整数表达式</h3></li>
-<li>expr支持普通算数操作，算数表达式优先级低于字符串表达式，高于逻辑表达式</li>
-<li><ul>
-<li>— 加减运算，两端参数会转化为整数，如果转化失败则会报错</li>
-</ul>
-</li>
-<li>*  / % 乘除取余运算，两端参数会转化为整数（*在shell中有特殊含义，所以需要转义）</li>
-<li>（）可以表示优先级，但是需要用反斜杠转义<h3 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h3></li>
-<li>| 或（c++中是||,少一半）：如果第一个值不是0，则会返回第一个值，第二个值不会计算，如果第一个参数非空并且非0，则会返回第一个参数的值</li>
-<li>&amp; 与 (c++中是&amp;&amp;，少一半)：如果第一个值是0，则不会计算第二个值（短路特性），如果都非空并且非0，则会返回第一个值   </li>
-<li>== 与 = 是同义词，但是还是要按照c++来写逻辑等号==，复制=</li>
-<li>&lt; &lt;= &gt; &gt;= != == = 比较两端的参数，如果为true则返回1，否则返回0，expr首先尝试将两端的参数转换为整数，并做算数比较，如果转换失败，则按字符集排序规则做字符比较（strcmp）</li>
-<li>需要转义的：*、（）、&gt;、&lt;=、|、&amp;</li>
-<li>echo expr a + b加号和数字之间有空格<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                       ### read命令（cin或scanf）
-</code></pre>
-</li>
-<li>用于从标准输入中读入单行数据，当读到文件结束符时，exit code为1，否则为0</li>
-<li>-p 添加提示信息(类似于input（提示信息）)</li>
-<li>-t 后面跟秒数，定义输入字符的等待时间，超过等待时间后会自动忽略此命令<h3 id="echo命令（相当于cout或printf）"><a href="#echo命令（相当于cout或printf）" class="headerlink" title="echo命令（相当于cout或printf）"></a>echo命令（相当于cout或printf）</h3></li>
-<li>输出格式：echo STRING</li>
-<li>显示普通字符串：echo “Hello acterminal”,引号也可以省略</li>
-<li>显示转义字符：echo “&quot;Hello acterminal&quot;“注意只能使用双引号，单引号不能够转义</li>
-<li>也可以省略最外面表示字符串的双引号：echo &quot;Hello acterminal&quot;</li>
-<li>显示变量：注意一定要用双引号，单引号不能够转义：name=yxc echo “My name is $name”</li>
-<li>显示换行：直接\n无法显示换行转义，开启转义需要-e：例如:echo -e “Hi\n”,即可输出转义</li>
-<li>强行不换行：-e后\c，\c可以取消最后的回车（和py中的end = “”相同），因为echo和py中的print相同，最后会自动换行。</li>
-<li>显示结果到echo “Hello world” &gt; output.txt</li>
-<li> 原样输出字符串，不进行转义或取变量：用单引号引起来</li>
-<li> 显示命令的执行结果：用`引起来<h3 id="printf语句-c-中是以-隔开每一项，而shell中是以space隔开每一项"><a href="#printf语句-c-中是以-隔开每一项，而shell中是以space隔开每一项" class="headerlink" title="printf语句(c++中是以,隔开每一项，而shell中是以space隔开每一项)"></a>printf语句(c++中是以,隔开每一项，而shell中是以space隔开每一项)</h3></li>
-<li>格式：printf format-string [arguments…]</li>
-<li>printf “%d\n” yxc</li>
-<li>shell中printf不自带换行,所以需要自己加上\n(此时无需-e进行转义)<h3 id="文件逻辑运算符"><a href="#文件逻辑运算符" class="headerlink" title="文件逻辑运算符"></a>文件逻辑运算符</h3></li>
-<li>|与&amp;单与和单或是expr中的（必须在expr中使用）</li>
-<li>而||与&amp;&amp;双与和双或是bash中自带的，可以直接在bash中使用</li>
-<li>也带有短路特性</li>
-<li>表达式中的exit code为0表示真，非0表示假</li>
-<li>可以根据短路特性来做if表达式<h3 id="test命令"><a href="#test命令" class="headerlink" title="test命令"></a>test命令</h3></li>
-<li>test命令用于判断文件类型，以及对变量做比较</li>
-<li>test命令用exit code来返回结果，而不是使用stdout，0表示真，非0表示假</li>
-<li>test -e test.sh &amp;&amp; echo “exist” || echo “Not exist”这种情况，如果前面test判断为0（真就会执行逻辑与（虽然是0，但是也是真，这种情况下可以不去看是0还是1，直接根据真假判断））<h4 id="文件类型判断"><a href="#文件类型判断" class="headerlink" title="文件类型判断"></a>文件类型判断</h4></li>
-<li>-e文件是否存在（exist）</li>
-<li>-f是否为文件（file）</li>
-<li>-d是否为目录（directory）<h4 id="文件权限判断"><a href="#文件权限判断" class="headerlink" title="文件权限判断"></a>文件权限判断</h4></li>
-<li>-r文件是否可读</li>
-<li>-w文件是否可写</li>
-<li>-x文件是否可执行</li>
-<li>-s文件是否为非空文件，是则返回0（真），否则返回1（假）<h4 id="整数间的比较"><a href="#整数间的比较" class="headerlink" title="整数间的比较"></a>整数间的比较</h4></li>
-<li>-eq a是否等于b（equal）(为什么不是-e，因为-e是转义，已经被使用过，-e也可以是exist中的是否存在)</li>
-<li>-ne a是否不等于b（not equal）</li>
-<li>-gt a是否大于b（great test）</li>
-<li>-lt a是否小于b（less test）</li>
-<li>-ge a是否大于等于b（great or equal）</li>
-<li>-le a是否小于等于b (less or equal) <h3 id="注意区分expr和test"><a href="#注意区分expr和test" class="headerlink" title="注意区分expr和test"></a>注意区分expr和test</h3></li>
-<li>expr是stdout，1表示真，0表示假（就和if一样，if内部是1即为真）</li>
-<li>test是exit code,0表示真，非0表示假（就和return一样，return 0即为真，return 一个非0的值即为假）<h4 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h4></li>
-<li>-z判断STRING是否为空，如果为空则返回ｔｒｕｅ</li>
-<li>-n判断STRING是否为非空，如果为非空则返回true(-n也可以省略)</li>
-<li>== 判断s1和s2是否相等</li>
-<li>！=判断s1和s2是否不相等</li>
-<li>&gt;和&lt;判断（需要用反斜杠转义），结果等于使用strcmp(逐个字符的ascii码进行比较)<h4 id="多重条件判定"><a href="#多重条件判定" class="headerlink" title="多重条件判定"></a>多重条件判定</h4></li>
-<li>命令格式：test -r filename -a -x filename(由2，3条来链接两个test命令，第二个命令不需要test)</li>
-<li>-a:&amp;&amp;，and</li>
-<li>-o:||,or</li>
-<li>!:例如test ! -x filename:当filename不可执行时，返回true<h4 id="判断符号"><a href="#判断符号" class="headerlink" title="判断符号"></a>判断符号</h4></li>
-<li>【】和test用法几乎一样，更常用于if语句中</li>
-<li>[]内的每一项都要用空格隔开</li>
-<li>中括号内的变量，最好用双引号括起来（为了防止当变量中有空格时&amp;取值出现错误（too many arguments））</li>
-<li>中括号内的常熟，最好用单或双引号括起来<h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2></li>
-<li>if then语句，（类似与c++中的if-else语句）if后面跟的是命令，不是值</li>
-<li>if <code>expr 3 \&lt; 3</code>和if 0相同，但是0不是命令，所以无法执行</li>
-<li>需要写if后面跟着命令 if expr 3 &lt; 3</li>
-<li>if then elif then else fi</li>
-<li>case $变量 in 值1）…；；值2）…；；*）…；； esac</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -712,19 +701,19 @@ date: 2022-1-19
         <ul>
             
             <li>
-                <a class="footer-post" href="/blog6/n%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E7%AC%ACk%E4%BD%8D%E6%95%B0%E5%AD%97%E6%98%AF%E5%87%A0/">Untitled</a>
+                <a class="footer-post" href="/blog6/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%EF%BC%9A/">Untitled</a>
+                <a class="footer-post" href="/blog6/burpsuit%20intruder%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Untitled</a>
+                <a class="footer-post" href="/blog6/ls%E5%91%BD%E4%BB%A4/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/blog6/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98/">Untitled</a>
+                <a class="footer-post" href="/blog6/%E6%95%B0%E8%AE%BA/">Untitled</a>
             </li>
             
         </ul>

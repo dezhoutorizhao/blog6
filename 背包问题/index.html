@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/blog6/%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%EF%BC%9A/">
+            <a href="/blog6/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
                 Untitled
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2022-03-05</span>
+                <span class="date">2022-03-13</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
@@ -174,39 +174,18 @@
         
 
         <!-- Post Content -->
-        <h1 id="数据元素："><a href="#数据元素：" class="headerlink" title="数据元素："></a>数据元素：</h1><ol>
-<li>数据的基本单位，在计算机程序中通常作为一个整体进行考虑和处理<br>2， 也简称为元素，node结点<h1 id="数据项"><a href="#数据项" class="headerlink" title="数据项"></a>数据项</h1>1， 构成数据元素的不可分割的最小单位</li>
+        <h1 id="宗旨：在背包可以容纳的情况下，最多可以实现的价值是多少"><a href="#宗旨：在背包可以容纳的情况下，最多可以实现的价值是多少" class="headerlink" title="宗旨：在背包可以容纳的情况下，最多可以实现的价值是多少"></a>宗旨：在背包可以容纳的情况下，最多可以实现的价值是多少</h1><h1 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h1><h2 id="N个物品和容量为U的背包"><a href="#N个物品和容量为U的背包" class="headerlink" title="N个物品和容量为U的背包"></a>N个物品和容量为U的背包</h2><h2 id="v来表示体积，w来表示价值"><a href="#v来表示体积，w来表示价值" class="headerlink" title="v来表示体积，w来表示价值"></a>v来表示体积，w来表示价值</h2><ol>
+<li>每件物品仅用一次<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3></li>
+<li>在背包可以容纳的情况下，可以实现的最大价值是多少</li>
+<li>dp要从两个方面来考虑：</li>
+<li>状态表示：f(i,j):即为价值的最大值      即需要考虑需要多少维度来表示</li>
+<li>状态计算：（如何一步一步地把状态计算出来）；状态划分</li>
 </ol>
-<h1 id="数据对象"><a href="#数据对象" class="headerlink" title="数据对象"></a>数据对象</h1><ol>
-<li>性质相同的数据元素的集合</li>
+<h2 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h2><ol>
+<li>只从前i个物品中选</li>
+<li>总体积 &lt;= j</li>
 </ol>
-<h1 id="关系："><a href="#关系：" class="headerlink" title="关系："></a>关系：</h1><ol>
-<li>数据&gt;数据元素 &gt; 数据项</li>
-<li>整个数据&gt;node&gt; value</li>
-</ol>
-<h1 id="数据结构："><a href="#数据结构：" class="headerlink" title="数据结构："></a>数据结构：</h1><ol>
-<li>数据元素互相之间的关系称为结构<br>2，互相之间存在的一种或多种特定关系的数据元素集合 </li>
-</ol>
-<h1 id="数据结构的三方面内容"><a href="#数据结构的三方面内容" class="headerlink" title="数据结构的三方面内容"></a>数据结构的三方面内容</h1><ol>
-<li>逻辑结构</li>
-<li>数据元素和其关系在内存中的表示（映像），物理结构或数据的存储结构</li>
-<li>数据的运算和实现，对数据元素可以施加的操作和这些操作</li>
-</ol>
-<h1 id="逻辑结构的种类："><a href="#逻辑结构的种类：" class="headerlink" title="逻辑结构的种类："></a>逻辑结构的种类：</h1><h2 id="直接分法："><a href="#直接分法：" class="headerlink" title="直接分法："></a>直接分法：</h2><ol>
-<li>线性结构：有且只有一个开始和一个终端节点，并且所有节点都最多只有一个直接前驱和一个直接后继</li>
-<li>非线性结构：一个节点可能有多个直接前驱和直接后驱：树和图（多对多）<h2 id="四类基本逻辑结构："><a href="#四类基本逻辑结构：" class="headerlink" title="四类基本逻辑结构："></a>四类基本逻辑结构：</h2></li>
-<li>集合：除了同属于一个集合外无其它关系</li>
-<li>线性：结构中数据元素之间存在一对一的关系</li>
-<li>树：一对多的关系</li>
-<li>图：多对多的网状关系</li>
-</ol>
-<h1 id="四种基本的存储结构："><a href="#四种基本的存储结构：" class="headerlink" title="四种基本的存储结构："></a>四种基本的存储结构：</h1><ol>
-<li>顺序存储结构：用一组连续的存储单元依次存储数据元素，数据结构之间的逻辑关系由元素的存储位置来实现</li>
-<li>链接存储结构：<br>用一组任意的存储单元存储数据元素，数据元素之间的逻辑关系用指针来实现</li>
-<li>索引存储结构：在存储节点信息的同时还建立附加的索引表</li>
-<li>散列存储结构：根据结点的刮泥机案子直接计算出该节点的存储地址</li>
-</ol>
-
+<h1 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h1><h2 id="每件物品有无限个"><a href="#每件物品有无限个" class="headerlink" title="每件物品有无限个"></a>每件物品有无限个</h2><h1 id="多重背包问题"><a href="#多重背包问题" class="headerlink" title="多重背包问题"></a>多重背包问题</h1><h2 id="每个物品的个数不同"><a href="#每个物品的个数不同" class="headerlink" title="每个物品的个数不同"></a>每个物品的个数不同</h2><h1 id="分组背包问题"><a href="#分组背包问题" class="headerlink" title="分组背包问题"></a>分组背包问题</h1><h2 id="物品有N组，每一组中有若干个，一组之中只能选一个物品"><a href="#物品有N组，每一组中有若干个，一组之中只能选一个物品" class="headerlink" title="物品有N组，每一组中有若干个，一组之中只能选一个物品"></a>物品有N组，每一组中有若干个，一组之中只能选一个物品</h2>
     </div>
 
     
