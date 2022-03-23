@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-20
+                    2022-03-23
                 </div>
                 
 
@@ -467,17 +467,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ctfhub的默认口令"><a href="#ctfhub的默认口令" class="headerlink" title="ctfhub的默认口令"></a>ctfhub的默认口令</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qZKhQ0"><img src="https://s1.ax1x.com/2022/03/20/qZKhQ0.png" alt="qZKhQ0.png"></a></li>
-<li>三个登录框，一开始想用burp的intruder去爆破，或者绕过验证码</li>
-<li>后来看wp知道给的eyou右键网关的意义是让我们去寻找默认口令</li>
+                <h1 id="sqlmap使用方法"><a href="#sqlmap使用方法" class="headerlink" title="sqlmap使用方法"></a>sqlmap使用方法</h1><h2 id="判断是否能注入"><a href="#判断是否能注入" class="headerlink" title="判断是否能注入"></a>判断是否能注入</h2><ol>
+<li>python sqlmap.py -u “url?id=1”<h2 id="找库"><a href="#找库" class="headerlink" title="找库"></a>找库</h2></li>
+<li>python sqlmap.py -u “url?id=1” –dbs</li>
 </ol>
-<h1 id="ctfhub的备份文件"><a href="#ctfhub的备份文件" class="headerlink" title="ctfhub的备份文件"></a>ctfhub的备份文件</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qZbrGt"><img src="https://s1.ax1x.com/2022/03/20/qZbrGt.png" alt="qZbrGt.png"></a></li>
-<li>给出常见的网站源码备份文件后缀和常见的网站源码备份文件名</li>
-<li>一个一个组合起来试一试，发现<a target="_blank" rel="noopener" href="http://www.zip是可行的,作为后缀可以给出一个zip文件/">www.zip是可行的，作为后缀可以给出一个zip文件</a></li>
-<li>将爆出的txt文件的文件名作为后缀用hackbar打开，可以爆出flag</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qZqEod"><img src="https://s1.ax1x.com/2022/03/20/qZqEod.png" alt="qZqEod.png"></a></li>
+<h2 id="找表"><a href="#找表" class="headerlink" title="找表"></a>找表</h2><ol>
+<li>python sqlmap.py -u “url?id=1” -D 库名 –tables</li>
+</ol>
+<h2 id="找列"><a href="#找列" class="headerlink" title="找列"></a>找列</h2><ol>
+<li>python sqlmap.py -u “url?id=1” -D 库名 -T 表名 –columns</li>
+</ol>
+<h2 id="dump掉信息"><a href="#dump掉信息" class="headerlink" title="dump掉信息"></a>dump掉信息</h2><ol>
+<li>python sqlmap.py -u “url?id=1” -D 库名 -T 表名 -C 列名 –dump</li>
+<li>或者列名前加–columns</li>
+</ol>
+<h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ichunqiu/p/5805108.html">https://www.cnblogs.com/ichunqiu/p/5805108.html</a></li>
+</ol>
+<h1 id="嗅探等级："><a href="#嗅探等级：" class="headerlink" title="嗅探等级："></a>嗅探等级：</h1><h2 id="不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢"><a href="#不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢" class="headerlink" title="不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢"></a>不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢</h2><h2 id="当不能确定哪个payload时或参数作为注入点，可以使用较高的level值"><a href="#当不能确定哪个payload时或参数作为注入点，可以使用较高的level值" class="headerlink" title="当不能确定哪个payload时或参数作为注入点，可以使用较高的level值"></a>当不能确定哪个payload时或参数作为注入点，可以使用较高的level值</h2><h2 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h2><ol>
+<li>http cookie测试</li>
+</ol>
+<h2 id="level-3"><a href="#level-3" class="headerlink" title="level 3"></a>level 3</h2><ol>
+<li>http user-agent/referer头回测试</li>
+</ol>
+<h1 id="参考博客-1"><a href="#参考博客-1" class="headerlink" title="参考博客"></a>参考博客</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/a_small_rabbit/article/details/101110011">https://blog.csdn.net/a_small_rabbit/article/details/101110011</a></li>
 </ol>
 
                 
@@ -505,7 +519,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/ctfhub%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8F%A3%E4%BB%A4/">https://dezhoutorizhao.github.io/blog6/blog6/ctfhub%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8F%A3%E4%BB%A4/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/sqlmap%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">https://dezhoutorizhao.github.io/blog6/blog6/sqlmap%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -710,9 +724,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/blog6/sqlmap%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
                     <div class="card-image">
@@ -730,9 +745,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -741,6 +756,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -751,7 +767,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog6/adduser/">
+                <a href="/blog6/ctfhub%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8F%A3%E4%BB%A4/">
                     <div class="card-image">
                         
                         
@@ -768,7 +784,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-20
                             </span>
                         <span class="publish-author">
                             

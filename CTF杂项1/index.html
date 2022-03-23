@@ -472,9 +472,9 @@
 <li>音频</li>
 <li>视频</li>
 <li>压缩包<h2 id="图像隐写"><a href="#图像隐写" class="headerlink" title="图像隐写"></a>图像隐写</h2></li>
-<li>颜色差别</li>
+<li>颜色差别(LSB隐写)</li>
 <li>gif多帧隐藏</li>
-<li>exif信息隐藏</li>
+<li>exif信息隐藏（藏在图片的exif信息中）</li>
 <li>图片修复<h3 id="LSB最低有效位隐写"><a href="#LSB最低有效位隐写" class="headerlink" title="LSB最低有效位隐写"></a>LSB最低有效位隐写</h3></li>
 <li>利用RGB</li>
 <li>红色十进制为255，二进制为1111，1111（8个1）</li>
@@ -488,31 +488,52 @@
 <li>jpeg/jpg 文件头：（2byte）FF D8 文件结束：（2byte）FF D9</li>
 <li>png(8byte):89 50 4E 47 0D 0A 1A 0A</li>
 <li>gif(6byte):47 49 46 38 39(37) 61</li>
-<li>BMP(2byte):42 4D<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3></li>
+<li>BMP(2byte):42 4D</li>
+<li>参考博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/senior-engineer/p/9541719.html">https://www.cnblogs.com/senior-engineer/p/9541719.html</a></li>
+<li>常用类型博客参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaolong22333/article/details/107498232">https://blog.csdn.net/xiaolong22333/article/details/107498232</a><h4 id="修改图片大小"><a href="#修改图片大小" class="headerlink" title="修改图片大小"></a>修改图片大小</h4></li>
+<li>第二行的前四位是宽，后四位是高<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3></li>
 <li>winhex修复文件头<h3 id="音频隐写"><a href="#音频隐写" class="headerlink" title="音频隐写"></a>音频隐写</h3></li>
 <li>信息隐藏在声音里（逆序）</li>
 <li>信息隐藏在数据里<h3 id="工具-1"><a href="#工具-1" class="headerlink" title="工具"></a>工具</h3></li>
-<li>Adoube Audition<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4></li>
+<li>Adoube Audition<h4 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h4></li>
+<li>拉到Adobe Audition里面是下面这个样子。我们可以手动比照上面那个表格得到数字，也可以用dtmf2num.exe自动解码。</li>
+<li>MP3Stego<h4 id="Decode-exe-X-文件名-P-密码"><a href="#Decode-exe-X-文件名-P-密码" class="headerlink" title="Decode.exe -X 文件名 -P 密码"></a>Decode.exe -X 文件名 -P 密码</h4></li>
+<li>-X后面是隐藏的东西 -P后面写密码</li>
+<li>****1.开始-&gt;运行-&gt;CMD</li>
+<li>进入某个磁盘，直接盘符代号：如D：，不用CD 命令切换</li>
+<li>进入除根录以下的文件夹 cd 文件夹路径 例如我要进入 E:/Program Files/PHP 就<br>输入 E：回车<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4></li>
 <li>将没有隐藏信息的部分删掉</li>
 <li>若有莫斯电码信息，则减弱左声道，加强右声道或倒过来<h3 id="视频隐写"><a href="#视频隐写" class="headerlink" title="视频隐写"></a>视频隐写</h3></li>
 <li>信息一女昂在视频的某个或多个帧中</li>
 <li>Premiere<h3 id="文件隐写"><a href="#文件隐写" class="headerlink" title="文件隐写"></a>文件隐写</h3></li>
-<li>文件拼接<h4 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h4></li>
+<li>文件拼接</li>
+<li>简单的可以直接使用Windows下的文件拼接命令copy /b 1.jpg+2.zip output.jpg<h4 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h4></li>
 <li>binwalk</li>
 <li>dd</li>
 <li>winhex</li>
 </ol>
-<h1 id="密码学及编码"><a href="#密码学及编码" class="headerlink" title="密码学及编码"></a>密码学及编码</h1><h2 id="位移密码"><a href="#位移密码" class="headerlink" title="位移密码"></a>位移密码</h2><ol>
+<h1 id="md5解密网站"><a href="#md5解密网站" class="headerlink" title="md5解密网站"></a>md5解密网站</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cmd5.com/">https://www.cmd5.com/</a></li>
+<li>MD5算法特点：</li>
+<li>压缩性：任意长度的数据，算出的MD5值长度都是固定的</li>
+<li>容易计算，从原数据计算出的MD5值很容易<h1 id="base64解密网站"><a href="#base64解密网站" class="headerlink" title="base64解密网站"></a>base64解密网站</h1></li>
+<li><a target="_blank" rel="noopener" href="https://the-x.cn/base64">https://the-x.cn/base64</a></li>
+<li>这个网站对格式要求不是很高，且能够报错</li>
+</ol>
+<h1 id="密码学及编码"><a href="#密码学及编码" class="headerlink" title="密码学及编码"></a>密码学及编码</h1><ol>
+<li>古典密码可以分为置换密码和替换密码<h2 id="位移密码"><a href="#位移密码" class="headerlink" title="位移密码"></a>位移密码</h2></li>
 <li>凯撒密码</li>
-<li>每一个字母顺序移动几个位置<h2 id="解密方法（对key值进行解密）"><a href="#解密方法（对key值进行解密）" class="headerlink" title="解密方法（对key值进行解密）"></a>解密方法（对key值进行解密）</h2></li>
+<li>每一个字母顺序移动几个位置，key值即为偏移量<h2 id="解密方法（对key值进行解密）"><a href="#解密方法（对key值进行解密）" class="headerlink" title="解密方法（对key值进行解密）"></a>解密方法（对key值进行解密）</h2></li>
 <li>手动解密</li>
 <li>在线工具</li>
 <li>python中的pycipher模块</li>
 <li>from pycipher import Caesar</li>
 <li>Caesar(key=设置).encipher(“待引入”)<h3 id="特殊形式ROT13"><a href="#特殊形式ROT13" class="headerlink" title="特殊形式ROT13"></a>特殊形式ROT13</h3></li>
+<li>相当于凯撒加密的key=13</li>
 <li>加密和解密是一个循环</li>
 <li>一共26个英文字母，相当于是跑了一边英文字母<h2 id="栅栏密码"><a href="#栅栏密码" class="headerlink" title="栅栏密码"></a>栅栏密码</h2></li>
-<li>一维的加密<h2 id="弗吉尼亚密码"><a href="#弗吉尼亚密码" class="headerlink" title="弗吉尼亚密码"></a>弗吉尼亚密码</h2></li>
+<li>一维的加密(分组密码)</li>
+<li>栏数必须为密文长度的约数，明文长度与密文长度相同<h2 id="弗吉尼亚密码"><a href="#弗吉尼亚密码" class="headerlink" title="弗吉尼亚密码"></a>弗吉尼亚密码</h2></li>
 <li>二维的加密<h3 id="工具：在线解密，脚本"><a href="#工具：在线解密，脚本" class="headerlink" title="工具：在线解密，脚本"></a>工具：在线解密，脚本</h3></li>
 <li>输入明文</li>
 <li>输入密钥<h2 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h2></li>
@@ -521,12 +542,39 @@
 <li>使用在线工具进行解密<h2 id="非对称加密算法"><a href="#非对称加密算法" class="headerlink" title="非对称加密算法"></a>非对称加密算法</h2></li>
 <li>如果使用公钥进行加密，则用对应的私钥才能解密</li>
 <li>如果使用私钥，则需要使用公钥</li>
-<li>RSA,Elgamal,背包算法，Rabin,D-H,ECC<h2 id="猪圈密码"><a href="#猪圈密码" class="headerlink" title="猪圈密码"></a>猪圈密码</h2><h2 id="培根密码：由a和b构成的替换密码"><a href="#培根密码：由a和b构成的替换密码" class="headerlink" title="培根密码：由a和b构成的替换密码"></a>培根密码：由a和b构成的替换密码</h2></li>
+<li>RSA,Elgamal,背包算法，Rabin,D-H,ECC<h2 id="猪圈密码"><a href="#猪圈密码" class="headerlink" title="猪圈密码"></a>猪圈密码</h2></li>
+<li>直线和点组成的图形</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qMyOud"><img src="https://s1.ax1x.com/2022/03/22/qMyOud.png" alt="qMyOud.png"></a><h2 id="培根密码：由a和b构成的替换密码"><a href="#培根密码：由a和b构成的替换密码" class="headerlink" title="培根密码：由a和b构成的替换密码"></a>培根密码：由a和b构成的替换密码</h2></li>
 <li>可以将a理解为0</li>
-<li>b理解为1<h2 id="键盘密码：电脑键盘位置连线画出图案"><a href="#键盘密码：电脑键盘位置连线画出图案" class="headerlink" title="键盘密码：电脑键盘位置连线画出图案"></a>键盘密码：电脑键盘位置连线画出图案</h2></li>
-<li>连线得到的是字母图案<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="加密通过密钥和密文可以还原原始信息"><a href="#加密通过密钥和密文可以还原原始信息" class="headerlink" title="加密通过密钥和密文可以还原原始信息"></a>加密通过密钥和密文可以还原原始信息</h2><h2 id="编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输"><a href="#编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输" class="headerlink" title="编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输"></a>编码：将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输</h2><h2 id="散列：哈希值，验证完整性，不能解码"><a href="#散列：哈希值，验证完整性，不能解码" class="headerlink" title="散列：哈希值，验证完整性，不能解码"></a>散列：哈希值，验证完整性，不能解码</h2></li>
+<li>b理解为1</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qM6K8U"><img src="https://s1.ax1x.com/2022/03/22/qM6K8U.png" alt="qM6K8U.png"></a><h2 id="键盘密码：电脑键盘位置连线画出图案"><a href="#键盘密码：电脑键盘位置连线画出图案" class="headerlink" title="键盘密码：电脑键盘位置连线画出图案"></a>键盘密码：电脑键盘位置连线画出图案</h2></li>
+<li>连线得到的是字母图案<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2></li>
+<li>通过密钥和密文可以还原原始信息<h2 id="编码："><a href="#编码：" class="headerlink" title="编码："></a>编码：</h2></li>
+<li>将数据转化成某种固定的格式的编码信息，方便不同系统之间的传输<h2 id="散列："><a href="#散列：" class="headerlink" title="散列："></a>散列：</h2></li>
+<li>哈希值，验证完整性，不能解码<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3></li>
+<li>莫斯电码，HTML编码，二维码也算是编码</li>
+<li>base64编码文本末尾输出字符使用=，所以编码后输出的文本末尾可能会出现一个或两个=</li>
 </ol>
-<h1 id="隐写术工具"><a href="#隐写术工具" class="headerlink" title="隐写术工具"></a>隐写术工具</h1><h2 id="stegsolve"><a href="#stegsolve" class="headerlink" title="stegsolve"></a>stegsolve</h2><h2 id="winhex-010editor-导出或导入16进制处理txt形式的文件"><a href="#winhex-010editor-导出或导入16进制处理txt形式的文件" class="headerlink" title="winhex/010editor(导出或导入16进制处理txt形式的文件)"></a>winhex/010editor(导出或导入16进制处理txt形式的文件)</h2><h2 id="photoshop（图形拼接）"><a href="#photoshop（图形拼接）" class="headerlink" title="photoshop（图形拼接）"></a>photoshop（图形拼接）</h2><ol>
+<h1 id="解码网站汇总"><a href="#解码网站汇总" class="headerlink" title="解码网站汇总"></a>解码网站汇总</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://daimajiaoliu.com/daima/8c7941818c4d408">https://daimajiaoliu.com/daima/8c7941818c4d408</a></li>
+</ol>
+<h1 id="各种编码特点"><a href="#各种编码特点" class="headerlink" title="各种编码特点"></a>各种编码特点</h1><ol>
+<li>参考博客：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1748394">https://cloud.tencent.com/developer/article/1748394</a></li>
+<li>1、MD5——示例21232F297A57A5A743894A0E4A801FC3<br>一般MD5值是32位由数字“0-9”和字母“a-f”所组成的字符串，如图。如果出现这个范围以外的字符说明这可能是个错误的md5值，就没必要再拿去解密了。16位值是取的是8~24位。</li>
+<li>2、sha1——示例d033e22ae348aeb5660fc2140aec35850c4da997<br>这种加密的密文特征跟MD5差不多，只不过位数是40</li>
+<li>1、Base64——示例YWRtaW4tcm9vdA==<br>一般情况下密文尾部都会有两个等号，明文很少的时候则没有</li>
+<li>2、Base58——示例6tmHCZvhgfNjQu<br>它最大的特点是没有等号</li>
+<li>3、Base32——示例GEZDGNBVGY3TQOJQGE======<br>他的特点是明文超过十个后面就会有很多等号</li>
+<li>4、Base16——示例61646D696E<br>它的特点是没有等号并且数字要多于字母</li>
+<li>5、Base85——示例@:X4hDWe0rkE(G[OdP4CT]N#<br>特点是奇怪的字符比较多，但是很难出现等号</li>
+<li>6、Base100——示例:emoji<br>特点就是一堆Emoji表情<h1 id="各种密码特点"><a href="#各种密码特点" class="headerlink" title="各种密码特点"></a>各种密码特点</h1></li>
+<li>1、凯撒密码——示例iodj{khoor_zrug_123}<br>只对字母进行加密，常用于CTF比赛中</li>
+<li>2、维吉尼亚密码——示例fmcg{iglmq_wptd_123}<br>可以说是凯撒密码的加强版，引入了密钥</li>
+</ol>
+<h1 id="隐写术工具"><a href="#隐写术工具" class="headerlink" title="隐写术工具"></a>隐写术工具</h1><h2 id="stegsolve"><a href="#stegsolve" class="headerlink" title="stegsolve"></a>stegsolve</h2><ol>
+<li>图片隐写术</li>
+<li>扫出二维码可以用手机qq，微信，cortexscan</li>
+<li>也可以逐帧分析gif，点击frame browser进入帧预览功能<h2 id="winhex-010editor-导出或导入16进制处理txt形式的文件"><a href="#winhex-010editor-导出或导入16进制处理txt形式的文件" class="headerlink" title="winhex/010editor(导出或导入16进制处理txt形式的文件)"></a>winhex/010editor(导出或导入16进制处理txt形式的文件)</h2><h2 id="photoshop（图形拼接）"><a href="#photoshop（图形拼接）" class="headerlink" title="photoshop（图形拼接）"></a>photoshop（图形拼接）</h2></li>
 <li>矩形选框功能选出条形码</li>
 <li>ctrl+c进行复制</li>
 <li>右下角创建图层</li>
@@ -538,7 +586,10 @@
 <li>decode实现解密（选择解码方式）</li>
 </ol>
 <h1 id="CTF取证技术"><a href="#CTF取证技术" class="headerlink" title="CTF取证技术"></a>CTF取证技术</h1><h2 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h2><h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3><h4 id="筛选器"><a href="#筛选器" class="headerlink" title="筛选器"></a>筛选器</h4><ol>
-<li>点击右侧表达式，使用wireshark内在表达式进行过滤<h4 id="追踪流"><a href="#追踪流" class="headerlink" title="追踪流"></a>追踪流</h4></li>
+<li>点击右侧表达式，使用wireshark内在表达式进行过滤</li>
+<li>筛选协议：http,ftp等</li>
+<li>ip.addr == 192.168.1.1</li>
+<li>也可以使用表达式中的逻辑运算符进行运算<h4 id="追踪流"><a href="#追踪流" class="headerlink" title="追踪流"></a>追踪流</h4></li>
 <li>右击追踪流</li>
 <li>选择TCP/UDP/SSL/HTTP</li>
 <li>弹出的窗口中选择查找下一个<h4 id="文件导出"><a href="#文件导出" class="headerlink" title="文件导出"></a>文件导出</h4></li>
@@ -548,6 +599,10 @@
 <li>点击上方筛选</li>
 <li>查看所有upload中hack.php信息</li>
 <li>右击，选择follow，追踪http流</li>
+</ol>
+<h3 id="四种流"><a href="#四种流" class="headerlink" title="四种流"></a>四种流</h3><ol>
+<li>GET用来获取资源，只是获取，查询数据，不会修改服务器的数据</li>
+<li>POST可以向服务器发送修改请求，进行数据的修改。</li>
 </ol>
 <h3 id="不同文件类型的文件头"><a href="#不同文件类型的文件头" class="headerlink" title="不同文件类型的文件头"></a>不同文件类型的文件头</h3><h2 id="日志分析"><a href="#日志分析" class="headerlink" title="日志分析"></a>日志分析</h2><h2 id="电子取证"><a href="#电子取证" class="headerlink" title="电子取证"></a>电子取证</h2><h3 id="即日志分析"><a href="#即日志分析" class="headerlink" title="即日志分析"></a>即日志分析</h3><p>访问IP+访问时间+访问方式+访问路径+访问版本+响应</p>
 
