@@ -583,7 +583,11 @@
 <li>上方的hms一栏中可以增大音符<h2 id="搜索加解密工具"><a href="#搜索加解密工具" class="headerlink" title="搜索加解密工具"></a>搜索加解密工具</h2><h2 id="burpsuit"><a href="#burpsuit" class="headerlink" title="burpsuit"></a>burpsuit</h2></li>
 <li>最上方一栏decoder可以实现编码和解码</li>
 <li>encode实现加密（选择编码方式）</li>
-<li>decode实现解密（选择解码方式）</li>
+<li>decode实现解密（选择解码方式）<h2 id="binwalk"><a href="#binwalk" class="headerlink" title="binwalk"></a>binwalk</h2></li>
+<li>先cat一下看看里面有什么</li>
+<li>检测隐写的东西里面有什么</li>
+<li>binwalk 文件（命令），即可检测出里面有什么东西<h2 id="foremost"><a href="#foremost" class="headerlink" title="foremost"></a>foremost</h2></li>
+<li>foremost 文件名（命令），即可分离出里面隐藏的东西</li>
 </ol>
 <h1 id="CTF取证技术"><a href="#CTF取证技术" class="headerlink" title="CTF取证技术"></a>CTF取证技术</h1><h2 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h2><h3 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h3><h4 id="筛选器"><a href="#筛选器" class="headerlink" title="筛选器"></a>筛选器</h4><ol>
 <li>点击右侧表达式，使用wireshark内在表达式进行过滤</li>
@@ -594,6 +598,12 @@
 <li>选择TCP/UDP/SSL/HTTP</li>
 <li>弹出的窗口中选择查找下一个<h4 id="文件导出"><a href="#文件导出" class="headerlink" title="文件导出"></a>文件导出</h4></li>
 <li>Export Objects,选择不同类型</li>
+</ol>
+<h5 id="被偷走的文件和秘密文件"><a href="#被偷走的文件和秘密文件" class="headerlink" title="被偷走的文件和秘密文件"></a>被偷走的文件和秘密文件</h5><ol>
+<li>题目给出入侵时的秘密文件，分析ftp流量包</li>
+<li>追踪流</li>
+<li>发现有rar文件，使用binwalk -e进行分离</li>
+<li>分离出rar文件，使用ARCHPR进行爆破，得到flag</li>
 </ol>
 <h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><ol>
 <li>点击上方筛选</li>
