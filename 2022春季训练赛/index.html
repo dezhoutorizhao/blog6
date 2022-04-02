@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-19
+                    2022-03-27
                 </div>
                 
 
@@ -467,33 +467,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
-<li>工作区：仓库的目录</li>
-<li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li>
-<li>版本库：存放所有已经提交到本地仓库的代码版本</li>
-<li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li>
-<li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li>
-<li>git config –global user.email <a href="mailto:&#120;&#x78;&#x78;&#64;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#x78;&#x78;&#64;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li>
-<li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li>
-<li>git add xxx:将xxx文件添加到暂存区</li>
-<li>git add .:将所有待加入暂存区的文件加入暂存区</li>
-<li>git rm –catched xx:将文件从仓库索引目录中删掉</li>
-<li>git log :查看xx当前分支中的所有版本 </li>
-<li>git reflog : 查看HEAD指针的移动历史</li>
-<li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li>
-<li>git reset –hard HEAD^^回滚两次，以此类推</li>
-<li>git reset –hard HEAD~num:回滚num次</li>
-<li>git reset –hard 版本号：回滚到某一特定版本</li>
-<li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li>
-<li>git remote add origin <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#x2e;&#97;&#99;&#x77;&#105;&#110;&#x67;&#46;&#99;&#111;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#x2e;&#97;&#99;&#x77;&#105;&#110;&#x67;&#46;&#99;&#111;&#109;</a>:…将本地仓库关联到远程仓库</li>
-<li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li>
-<li>git push origin branch_name:将本地的某个分支推送到远程仓库</li>
-<li>git clone <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#46;&#x61;&#x63;&#119;&#x69;&#110;&#x67;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#46;&#x61;&#x63;&#119;&#x69;&#110;&#x67;&#46;&#99;&#111;&#x6d;</a>:…将远程仓库xxx下载到当前目录下</li>
-<li></li>
+                <h1 id="2022春季训练赛"><a href="#2022春季训练赛" class="headerlink" title="2022春季训练赛"></a>2022春季训练赛</h1><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到："><a href="#签到：" class="headerlink" title="签到："></a>签到：</h3><ol>
+<li>010editor打开发现PK开头，知道是一个zip压缩包</li>
+<li>更改后缀为.zip，解压打开发现flag</li>
 </ol>
-<h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol>
-<li>git restore xxx:将工作区的文件回滚到暂存区版本</li>
-<li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li>
+<h3 id="签到：-1"><a href="#签到：-1" class="headerlink" title="签到："></a>签到：</h3><ol>
+<li>BASE85{6:”O=1GX;K8jQKJ;G(“;DhKL9h)S6;BsD:IJ&gt;[;HHmd9h[rJ1c/0%&lt;(g@i6&lt;6QU&lt;\d]P7RpNU:eETA&lt;BWK.4ZtrV}</li>
+<li>BASE85解一层出base35</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIiNQ"><img src="https://s1.ax1x.com/2022/03/27/qwIiNQ.png" alt="qwIiNQ.png"></a></li>
+<li>再解一层给出微信id</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIE3n"><img src="https://s1.ax1x.com/2022/03/27/qwIE3n.png" alt="qwIE3n.png"></a></li>
+<li>微信加好友有备注即可获得flag</li>
+</ol>
+<h3 id="黑化的维亚"><a href="#黑化的维亚" class="headerlink" title="黑化的维亚"></a>黑化的维亚</h3><ol>
+<li>用stegsolve打开，查看不同色域下的图片</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIgDf"><img src="https://s1.ax1x.com/2022/03/27/qwIgDf.png" alt="qwIgDf.png"></a></li>
+<li>找到flag的上一级（我一开始还以为这就是flag，提交不对）</li>
+<li>后面看到!123和fkvd这么不规则但是又像flag的</li>
+<li>后面尝试偏移量为0，1，2，3的栅栏密码，即可解得flag</li>
+</ol>
+<h3 id="0和1的故事"><a href="#0和1的故事" class="headerlink" title="0和1的故事"></a>0和1的故事</h3><ol>
+<li>解压后里面有一个txt文件，打开后看最后发现有==，知道是base64解码</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwb2tO"><img src="https://s1.ax1x.com/2022/03/27/qwb2tO.png" alt="qwb2tO.png"></a></li>
+<li>解码网站<a target="_blank" rel="noopener" href="https://the-x.cn/base64/">https://the-x.cn/base64/</a></li>
+<li>解码后发现里面有一个png文件，图片中全是01字符</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwbonI"><img src="https://s1.ax1x.com/2022/03/27/qwbonI.png" alt="qwbonI.png"></a></li>
+<li>两种选择，一种是利用手机去扫描出文本，第二种是在linux环境下cat出01字符串</li>
+<li>得到01字符一开始还以为是一个二进制文件或者是培根密码，然后我五位一解，（解出来的都是什么东西。。。）（培根密码是0为a，1为b，依此得出不同字符）</li>
+<li>长和宽相同的情况下猜测是二维码，但是上学期学的py都被时间冲刷干净了，我就在网上找脚本，但是找到的因为MAXN设定的不同，无法得到正确的二维码（轻易改动数据，也会出现数组越界的segementation fault的问题）</li>
+<li>后面用excel表格去做，将1所在的单元格填充为黑色，0所在的单元格填充为白色（可能出现的绿色不会影响二维码扫描）</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwbbAf"><img src="https://s1.ax1x.com/2022/03/27/qwbbAf.png" alt="qwbbAf.png"></a></li>
+<li>扫描后即可得到flag{Stories_of_0_and_1}</li>
+</ol>
+<h2 id="web题"><a href="#web题" class="headerlink" title="web题"></a>web题</h2><h3 id="Robot"><a href="#Robot" class="headerlink" title="Robot"></a>Robot</h3><ol>
+<li>上来一看什么也没有，就猜测是哪几种题型（反正不可能上来就是sql注入文件上传之类的，没有地方注入东西）</li>
+<li>用御剑字典爆破后缀或者用spider去爬，发现有一个txt为后缀的，打开网页得到4ll.html</li>
+<li>我一开始还以为是411，结果404就搁置了好久，最后有hint发布，“411和4ll真的能分清吗”，在hackbar中打开，给后缀，excute后给出I have tell you all的字符,还是没有什么东西</li>
+<li>ctrl + u查看源代码发现flag</li>
+<li>这里由于没有保留截图，也没有环境，暂无截图</li>
+</ol>
+<h3 id="ezsql"><a href="#ezsql" class="headerlink" title="ezsql"></a>ezsql</h3><ol>
+<li>我不知道给的那个hint是什么意思。。。</li>
+<li>强大的工具一把梭，我sqlmap跑了好久都没有</li>
+<li>这里浅谈一下我的思路吧</li>
+<li>两个登录框，分别给出1，1，用burp抓包，发现是post包，post注入</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwLEIf"><img src="https://s1.ax1x.com/2022/03/27/qwLEIf.png" alt="qwLEIf.png"></a></li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwLJiT"><img src="https://s1.ax1x.com/2022/03/27/qwLJiT.png" alt="qwLJiT.png"></a></li>
+<li>sqlmap post注入的命令分别是：</li>
+<li>sqlmap -r “admin.txt” –dbs (–level n)(默认为level 1)</li>
+<li>sqlmap -r “admin.txt” -D xxx –tables</li>
+<li>sqlmap -r “admin.txt” -D xxx -T xxx –columns</li>
+<li>sqlmap -r “admin.txt” -D xxx –T xxx -C xxx –dump</li>
+</ol>
+<h2 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h2><ol>
+<li>猪圈+银河骑士+圣殿+栅栏</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwL7Y8"><img src="https://s1.ax1x.com/2022/03/27/qwL7Y8.png" alt="qwL7Y8.png"></a></li>
 </ol>
 
                 
@@ -521,7 +549,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/git/">https://dezhoutorizhao.github.io/blog6/blog6/git/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/2022%E6%98%A5%E5%AD%A3%E8%AE%AD%E7%BB%83%E8%B5%9B/">https://dezhoutorizhao.github.io/blog6/blog6/2022%E6%98%A5%E5%AD%A3%E8%AE%AD%E7%BB%83%E8%B5%9B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -730,7 +758,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog6/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/">
+                <a href="/blog6/froeign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/">
                     <div class="card-image">
                         
                         
@@ -747,7 +775,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-29
                         </span>
                         <span class="publish-author">
                             
@@ -767,7 +795,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog6/web%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                <a href="/blog6/%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/">
                     <div class="card-image">
                         
                         
@@ -784,7 +812,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-27
                             </span>
                         <span class="publish-author">
                             
