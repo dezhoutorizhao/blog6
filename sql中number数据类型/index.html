@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="搭建博客过程中常见的问题, 更好的明天">
+    <meta name="keywords" content="sql中的NUMBER数据类型, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>搭建博客过程中常见的问题 | 更好的明天</title>
+    <title>sql中的NUMBER数据类型 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/blog6/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog6/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">搭建博客过程中常见的问题</h1>
+                    <h1 class="description center-align post-title">sql中的NUMBER数据类型</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-05
+                    2022-04-05
                 </div>
                 
 
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    129
+                    147
                 </div>
                 
 
@@ -482,15 +482,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol>
-<li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li>
-<li>删掉C盘用户中的.ssh文件</li>
-<li>ssh-keygen -t rsa -C <a href="mailto:&#x78;&#x78;&#120;&#120;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#x78;&#120;&#120;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li>
-<li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li>
-<li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li>
-<li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li>
-<li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li>
-<li>就是这个地方</li>
+                <h1 id="NUMBER"><a href="#NUMBER" class="headerlink" title="NUMBER"></a>NUMBER</h1><ol>
+<li>可以存储零值，正负数，定长数</li>
+</ol>
+<h2 id="表示范围和存储空间"><a href="#表示范围和存储空间" class="headerlink" title="表示范围和存储空间"></a>表示范围和存储空间</h2><ol>
+<li>从从1.0 x 10-130 到 1.0 x 10126(不包括)，如果表达式或值大于1.0 x 10126，Oracle会返回错误信息</li>
+</ol>
+<h2 id="NUMBER类型表示方法"><a href="#NUMBER类型表示方法" class="headerlink" title="NUMBER类型表示方法"></a>NUMBER类型表示方法</h2><ol>
+<li>number(p,s) p和s可选</li>
+<li>其中p表示数字的总长度，s表示可以有几位小数</li>
+<li>precision叫精度，数中总数字的个数，默认为38位</li>
+<li>scale是小数位数，即数中小数点右边的数字个数</li>
+</ol>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li>number数据类型只存在于Oracle中，不存在于MySQL中</li>
 </ol>
 
                 
@@ -518,7 +523,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">https://dezhoutorizhao.github.io/blog6/blog6/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/sql%E4%B8%ADnumber%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">https://dezhoutorizhao.github.io/blog6/blog6/sql%E4%B8%ADnumber%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -727,13 +732,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog6/%E7%A1%AC%E7%9B%98%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
+                <a href="/blog6/sql%E8%AF%AD%E5%8F%A5%E4%B8%ADchange%E5%92%8Cmodify%E7%9A%84%E5%8C%BA%E5%88%AB/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/7.jpg" class="responsive-img" alt="硬盘基本知识">
+                        <img src="/blog6/medias/featureimages/18.jpg" class="responsive-img" alt="sql语句中change和modify的区别">
                         
-                        <span class="card-title">硬盘基本知识</span>
+                        <span class="card-title">sql语句中change和modify的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -744,7 +749,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-05
                         </span>
                         <span class="publish-author">
                             
@@ -764,13 +769,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog6/%E6%9D%82%E9%A1%B9/">
+                <a href="/blog6/sql%E4%B8%AD%E8%A1%A8%E7%BA%A7%E5%88%AB%E7%9A%84%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%88%97%E7%BA%A7%E5%88%AB%E7%9A%84%E7%BA%A6%E6%9D%9F/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/13.jpg" class="responsive-img" alt="buuctf前几个杂项">
+                        <img src="/blog6/medias/featureimages/18.jpg" class="responsive-img" alt="sql中表级别的约束和列级别的约束">
                         
-                        <span class="card-title">buuctf前几个杂项</span>
+                        <span class="card-title">sql中表级别的约束和列级别的约束</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -781,7 +786,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-03
                             </span>
                         <span class="publish-author">
                             
