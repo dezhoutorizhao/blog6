@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="web常用套路解析, 更好的明天">
+    <meta name="keywords" content="dfs深度优先遍历模板, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>web常用套路解析 | 更好的明天</title>
+    <title>dfs深度优先遍历模板 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/blog6/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog6/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">web常用套路解析</h1>
+                    <h1 class="description center-align post-title">dfs深度优先遍历模板</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-27
+                    2022-04-06
                 </div>
                 
 
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    96
+                    114
                 </div>
                 
 
@@ -482,11 +482,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="常用套路解析"><a href="#常用套路解析" class="headerlink" title="常用套路解析"></a>常用套路解析</h1><ol>
-<li>查看HTML源码（JS源码）<h2 id="直接在浏览器中右击，查看源文件即可找到flag"><a href="#直接在浏览器中右击，查看源文件即可找到flag" class="headerlink" title="直接在浏览器中右击，查看源文件即可找到flag"></a>直接在浏览器中右击，查看源文件即可找到flag</h2></li>
-<li>HTTP请求或响应包中<h2 id="使用抓包工具burpsuite查看HTTP请求或响应头部（the-key-is）"><a href="#使用抓包工具burpsuite查看HTTP请求或响应头部（the-key-is）" class="headerlink" title="使用抓包工具burpsuite查看HTTP请求或响应头部（the key is）"></a>使用抓包工具burpsuite查看HTTP请求或响应头部（the key is）</h2></li>
-<li>修改或添加HTTP请求头<h2 id="referer-来源伪造"><a href="#referer-来源伪造" class="headerlink" title="referer:来源伪造"></a>referer:来源伪造</h2><h2 id="X-Frowarded-For-ip伪造"><a href="#X-Frowarded-For-ip伪造" class="headerlink" title="X-Frowarded-For:ip伪造"></a>X-Frowarded-For:ip伪造</h2><h2 id="User-Agent-用户代理"><a href="#User-Agent-用户代理" class="headerlink" title="User-Agent:用户代理"></a>User-Agent:用户代理</h2><h2 id="Cookie：维持登录状态，用户身份识别"><a href="#Cookie：维持登录状态，用户身份识别" class="headerlink" title="Cookie：维持登录状态，用户身份识别"></a>Cookie：维持登录状态，用户身份识别</h2></li>
-</ol>
+                <h1 id="dfs模板"><a href="#dfs模板" class="headerlink" title="dfs模板"></a>dfs模板</h1><pre><code>    void dfs()&#123;//参数用来表示状态
+        if(到达终点状态)&#123;
+        //根据题意任意添加
+        return;
+    &#125;
+    if(越界或不合法状态)&#123;
+        return;
+    &#125;
+    if(特殊状态)&#123;//剪枝
+        return;
+    &#125;
+    for(拓展方式)&#123;
+        if(拓展方式所到达状态合法)&#123;
+            修改操作;
+           标记;
+            dfs(更深层的递归)
+            还原标记;
+          //是否还原根据题意
+         //如果加上（还原标记）则是回溯法
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 
                 
             </div>
@@ -513,7 +531,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/web%E5%B8%B8%E7%94%A8%E5%A5%97%E8%B7%AF%E8%A7%A3%E6%9E%90/">https://dezhoutorizhao.github.io/blog6/blog6/web%E5%B8%B8%E7%94%A8%E5%A5%97%E8%B7%AF%E8%A7%A3%E6%9E%90/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E6%A8%A1%E6%9D%BF/">https://dezhoutorizhao.github.io/blog6/blog6/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E6%A8%A1%E6%9D%BF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -718,54 +736,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blog6/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%85%E5%AE%B9/">
+                <a href="/blog6/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E6%A8%A1%E6%9D%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/23.jpg" class="responsive-img" alt="数据库内容">
+                        <img src="/blog6/medias/featureimages/5.jpg" class="responsive-img" alt="dfs深度优先遍历模板">
                         
-                        <span class="card-title">数据库内容</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-31
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            syk
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog6/CTF%E6%9D%82%E9%A1%B91/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog6/medias/featureimages/13.jpg" class="responsive-img" alt="CTF杂项1">
-                        
-                        <span class="card-title">CTF杂项1</span>
+                        <span class="card-title">dfs深度优先遍历模板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -776,7 +758,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            syk
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog6/%E5%9B%BE%E7%89%87%E5%90%88%E6%88%90%E9%97%AE%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog6/medias/featureimages/16.jpg" class="responsive-img" alt="ctf图片合成问题">
+                        
+                        <span class="card-title">ctf图片合成问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-05
                             </span>
                         <span class="publish-author">
                             
