@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据元素, 更好的明天">
+    <meta name="keywords" content="白帽子sql注入, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据元素 | 更好的明天</title>
+    <title>白帽子sql注入 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/blog6/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog6/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据元素</h1>
+                    <h1 class="description center-align post-title">白帽子sql注入</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-05
+                    2022-04-12
                 </div>
                 
 
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    501
+                    699
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -482,37 +482,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数据元素："><a href="#数据元素：" class="headerlink" title="数据元素："></a>数据元素：</h1><ol>
-<li>数据的基本单位，在计算机程序中通常作为一个整体进行考虑和处理<br>2， 也简称为元素，node结点<h1 id="数据项"><a href="#数据项" class="headerlink" title="数据项"></a>数据项</h1>1， 构成数据元素的不可分割的最小单位</li>
+                <h1 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h1><h2 id="不同的字符编码也会导致出现一些安全问题"><a href="#不同的字符编码也会导致出现一些安全问题" class="headerlink" title="不同的字符编码也会导致出现一些安全问题"></a>不同的字符编码也会导致出现一些安全问题</h2><h3 id="sql语法中用单引号”‘“作为转义字符"><a href="#sql语法中用单引号”‘“作为转义字符" class="headerlink" title="sql语法中用单引号”‘“作为转义字符"></a>sql语法中用单引号”‘“作为转义字符</h3><ol>
+<li>insert into person(LastName) values(‘O’’R’)</li>
+<li>则输出结果为O’R</li>
 </ol>
-<h1 id="数据对象"><a href="#数据对象" class="headerlink" title="数据对象"></a>数据对象</h1><ol>
-<li>性质相同的数据元素的集合</li>
+<h3 id="php中的转义为"><a href="#php中的转义为" class="headerlink" title="php中的转义为\"></a>php中的转义为\</h3><h2 id="如果进入数据库之前，web语言中没有考虑到双字节字符问题，双字节字符会被认为是两个字节"><a href="#如果进入数据库之前，web语言中没有考虑到双字节字符问题，双字节字符会被认为是两个字节" class="headerlink" title="如果进入数据库之前，web语言中没有考虑到双字节字符问题，双字节字符会被认为是两个字节"></a>如果进入数据库之前，web语言中没有考虑到双字节字符问题，双字节字符会被认为是两个字节</h2><ol>
+<li>0x 5c和0x bf 5c会被认为是一个字符（双字节字符）</li>
 </ol>
-<h1 id="关系："><a href="#关系：" class="headerlink" title="关系："></a>关系：</h1><ol>
-<li>数据&gt;数据元素 &gt; 数据项</li>
-<li>整个数据&gt;node&gt; value</li>
+<h2 id="要解决这种问题，需要统一数据库，操作系统，web应用所使用的字符集，避免各层对字符的理解存在差异"><a href="#要解决这种问题，需要统一数据库，操作系统，web应用所使用的字符集，避免各层对字符的理解存在差异" class="headerlink" title="要解决这种问题，需要统一数据库，操作系统，web应用所使用的字符集，避免各层对字符的理解存在差异"></a>要解决这种问题，需要统一数据库，操作系统，web应用所使用的字符集，避免各层对字符的理解存在差异</h2><ol>
+<li>统一设置为utf-8是一个很好的办法</li>
 </ol>
-<h1 id="数据结构："><a href="#数据结构：" class="headerlink" title="数据结构："></a>数据结构：</h1><ol>
-<li>数据元素互相之间的关系称为结构<br>2，互相之间存在的一种或多种特定关系的数据元素集合 </li>
+<h1 id="mysql中环境变量sql-mode"><a href="#mysql中环境变量sql-mode" class="headerlink" title="mysql中环境变量sql_mode"></a>mysql中环境变量sql_mode</h1><ol>
+<li>定义了mysql应该支持的sql语法，数据校验等</li>
+<li>默认为null，这种设置下可以允许一些非法操作，比如允许一些非法数据的插入</li>
+<li>在生产环境下必须设置为严格模式<h2 id="sql-mode常用来解决的几类问题"><a href="#sql-mode常用来解决的几类问题" class="headerlink" title="sql_mode常用来解决的几类问题"></a>sql_mode常用来解决的几类问题</h2></li>
+<li>通过设置sql_mode，可以完成不同严格程度的数据校验，有效地保证数据准确性；</li>
+<li>通过设置sql_mode为宽松模式，来保证大多数sql符合标准的sql语法，这样应用在不同数据库之间进行迁移时。则不需要对业务sql进行较大的修改；</li>
+<li>在不同数据库之间进行数据迁移之前，通过设置sql_mode可以使MySQL上的数据更方便地迁移到目标数据库中<h2 id="sql-mode包含的模式"><a href="#sql-mode包含的模式" class="headerlink" title="sql_mode包含的模式"></a>sql_mode包含的模式</h2></li>
+<li>ansi模式：宽松模式，对插入数据进行校验，如果不符合定义类型或长度，对数据类型调整或截断保存，爆warning警告</li>
+<li>traditional模式：严格模式，当向mysql数据库插入数据时，进行数据的严格校验，保证错误数据不能插入，爆error错误</li>
+<li>strict_trans_tables模式：严格模式，进行数据的严格校验，错误数据不能插入，爆error错误</li>
 </ol>
-<h1 id="数据结构的三方面内容"><a href="#数据结构的三方面内容" class="headerlink" title="数据结构的三方面内容"></a>数据结构的三方面内容</h1><ol>
-<li>逻辑结构</li>
-<li>数据元素和其关系在内存中的表示（映像），物理结构或数据的存储结构</li>
-<li>数据的运算和实现，对数据元素可以施加的操作和这些操作</li>
-</ol>
-<h1 id="逻辑结构的种类："><a href="#逻辑结构的种类：" class="headerlink" title="逻辑结构的种类："></a>逻辑结构的种类：</h1><h2 id="直接分法："><a href="#直接分法：" class="headerlink" title="直接分法："></a>直接分法：</h2><ol>
-<li>线性结构：有且只有一个开始和一个终端节点，并且所有节点都最多只有一个直接前驱和一个直接后继</li>
-<li>非线性结构：一个节点可能有多个直接前驱和直接后驱：树和图（多对多）<h2 id="四类基本逻辑结构："><a href="#四类基本逻辑结构：" class="headerlink" title="四类基本逻辑结构："></a>四类基本逻辑结构：</h2></li>
-<li>集合：除了同属于一个集合外无其它关系</li>
-<li>线性：结构中数据元素之间存在一对一的关系</li>
-<li>树：一对多的关系</li>
-<li>图：多对多的网状关系</li>
-</ol>
-<h1 id="四种基本的存储结构："><a href="#四种基本的存储结构：" class="headerlink" title="四种基本的存储结构："></a>四种基本的存储结构：</h1><ol>
-<li>顺序存储结构：用一组连续的存储单元依次存储数据元素，数据结构之间的逻辑关系由元素的存储位置来实现</li>
-<li>链接存储结构：<br>用一组任意的存储单元存储数据元素，数据元素之间的逻辑关系用指针来实现</li>
-<li>索引存储结构：在存储节点信息的同时还建立附加的索引表</li>
-<li>散列存储结构：根据结点的刮泥机案子直接计算出该节点的存储地址</li>
+<h3 id="查看sql-mode的语句："><a href="#查看sql-mode的语句：" class="headerlink" title="查看sql_mode的语句："></a>查看sql_mode的语句：</h3><ol>
+<li><p>use database_name;</p>
+</li>
+<li><p>select @@sql_mode;</p>
+</li>
+<li><p>或者</p>
+</li>
+<li><p>use data_basename;</p>
+</li>
+<li><p>show variables like ‘%sql_mode%’;</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/LmrvjS"><img src="https://s1.ax1x.com/2022/04/12/LmrvjS.png" alt="LmrvjS.png"></a></p>
+</li>
+<li><p>结论：在STRICT_TRANS_TABLES模式下，插入数据时，mysql会严格的进行数据的校验，当发现插入列值未满足要求，直接报告error错误，保证了错误数据无法插入到数据库中</p>
+</li>
+<li><p>结论：</p>
+</li>
+<li><p>严格模式，当向mysql数据库插入数据时，进行数据的严格校验，保证错误数据不能插入，报error错误，而不仅仅是警告。用于事务时，会进行事务的回滚。</p>
+</li>
+<li><p>一旦发现错误立即放弃INSERT/UPDATE。如果你使用非事务存储引擎，这种方式不是你想要的，因为出现错误前进行的数据更改不会“滚动”，结果是更新“只进行了一部分”。</p>
+</li>
 </ol>
 
                 
@@ -540,7 +551,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%EF%BC%9A/">https://dezhoutorizhao.github.io/blog6/blog6/%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%EF%BC%9A/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/%E7%99%BD%E5%B8%BD%E5%AD%90sql%E6%B3%A8%E5%85%A5/">https://dezhoutorizhao.github.io/blog6/blog6/%E7%99%BD%E5%B8%BD%E5%AD%90sql%E6%B3%A8%E5%85%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -745,54 +756,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blog6/n%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E7%AC%ACk%E4%BD%8D%E6%95%B0%E5%AD%97%E6%98%AF%E5%87%A0/">
+                <a href="/blog6/%E7%99%BD%E5%B8%BD%E5%AD%90sql%E6%B3%A8%E5%85%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/20.jpg" class="responsive-img" alt="n的二进制表示中第k位数字是几">
+                        <img src="/blog6/medias/featureimages/21.jpg" class="responsive-img" alt="白帽子sql注入">
                         
-                        <span class="card-title">n的二进制表示中第k位数字是几</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            syk
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog6/medias/featureimages/7.jpg" class="responsive-img" alt="数据结构">
-                        
-                        <span class="card-title">数据结构</span>
+                        <span class="card-title">白帽子sql注入</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,7 +778,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            syk
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog6/sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog6/medias/featureimages/2.jpg" class="responsive-img" alt="第三章数据查询">
+                        
+                        <span class="card-title">第三章数据查询</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-12
                             </span>
                         <span class="publish-author">
                             
