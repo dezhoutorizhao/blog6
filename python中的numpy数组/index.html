@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql操作, 更好的明天">
+    <meta name="keywords" content="python中numpy数组, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mysql操作 | 更好的明天</title>
+    <title>python中numpy数组 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/blog6/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog6/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mysql操作</h1>
+                    <h1 class="description center-align post-title">python中numpy数组</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-02
+                    2022-04-17
                 </div>
                 
 
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    160
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    1 分
                 </div>
                 
 
@@ -482,248 +482,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="mysql操作"><a href="#mysql操作" class="headerlink" title="mysql操作"></a>mysql操作</h1><h2 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h2><h3 id="本质上是说这类数据库有多张表，通过关系彼此关联"><a href="#本质上是说这类数据库有多张表，通过关系彼此关联" class="headerlink" title="本质上是说这类数据库有多张表，通过关系彼此关联"></a>本质上是说这类数据库有多张表，通过关系彼此关联</h3><h2 id="sys是Mysql自己内部运行用的数据库"><a href="#sys是Mysql自己内部运行用的数据库" class="headerlink" title="sys是Mysql自己内部运行用的数据库"></a>sys是Mysql自己内部运行用的数据库</h2><h2 id="shemas"><a href="#shemas" class="headerlink" title="shemas"></a>shemas</h2><h1 id="着重号的使用："><a href="#着重号的使用：" class="headerlink" title="着重号的使用："></a>着重号的使用：</h1><ol>
-<li>区分字段和关键字</li>
-<li>例如：NAME本身是关键字，加``着重号后会变色，便于区分</li>
+                <h1 id="numpy数组"><a href="#numpy数组" class="headerlink" title="numpy数组"></a>numpy数组</h1><ol>
+<li>numpy用于处理数组，对象称为ndarray</li>
+<li>可以用array()函数创建一个numpy ndarray对象<pre class="line-numbers language-none"><code class="language-none">arr &#x3D; np array([1,2,3,4,5])
+print(arr)
+print(type(arr))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h1 id="numpy和list的区别："><a href="#numpy和list的区别：" class="headerlink" title="numpy和list的区别："></a>numpy和list的区别：</h1></li>
+<li>内存大小–numpy数据结构占用的内存空间更小</li>
+<li>性能–numpy底层是用c写的，比列表更快</li>
+<li>运算方法–内置优化了代数运算等方法</li>
 </ol>
-<h3 id="tables"><a href="#tables" class="headerlink" title="tables"></a>tables</h3><ol>
-<li>存储数据的地方<h4 id="点击最右侧的表格图标"><a href="#点击最右侧的表格图标" class="headerlink" title="点击最右侧的表格图标"></a>点击最右侧的表格图标</h4></li>
-<li>显示出的数据每一行为一个数据，用id来唯一区分<h3 id="views"><a href="#views" class="headerlink" title="views"></a>views</h3></li>
-<li>视图，将不同表的数据组合到一起<h3 id="stored-procedures"><a href="#stored-procedures" class="headerlink" title="stored procedures"></a>stored procedures</h3></li>
-<li>存   储过程</li>
-<li>用来查询数据<h3 id="functions"><a href="#functions" class="headerlink" title="functions"></a>functions</h3></li>
-<li>函数</li>
-<li>存储再数据库里的项目<h2 id="码风"><a href="#码风" class="headerlink" title="码风"></a>码风</h2></li>
-<li>大写mysql关键字，小写其余内容</li>
+<h1 id="np-linspace函数"><a href="#np-linspace函数" class="headerlink" title="np.linspace函数"></a>np.linspace函数</h1><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+x &#x3D; np.linspace(-np.pi,np.pi,256,endpoint &#x3D; True)
+c,s &#x3D; np.cos(x),np.sin(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>linspace函数：指定的间隔内返回均匀间隔的数字</li>
+<li>endpoint：bool类型，如果为true则包含stop,否则不包含stop(结尾点)</li>
+<li></li>
 </ol>
-<h2 id="button"><a href="#button" class="headerlink" title="button"></a>button</h2><ol>
-<li>Query中的execute是执行所有的sql</li>
-</ol>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="use"><a href="#use" class="headerlink" title="use"></a>use</h3><ol>
-<li>调用数据库，类似与py中的import和c++中的include<h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3></li>
-<li>指名想要明确获取的列</li>
-<li>*代表所有列</li>
-</ol>
-<h2 id="查询常量值："><a href="#查询常量值：" class="headerlink" title="查询常量值："></a>查询常量值：</h2><ol>
-<li>select 100;</li>
-<li>select “name”;mysql中不区分字符和字符串的概念<h2 id="查询表达式："><a href="#查询表达式：" class="headerlink" title="查询表达式："></a>查询表达式：</h2></li>
-<li>select 100*9;<h2 id="查询函数："><a href="#查询函数：" class="headerlink" title="查询函数："></a>查询函数：</h2></li>
-<li>select VERSION()</li>
-<li>调用该函数得到它的返回值</li>
-</ol>
-<h2 id="逻辑顺序："><a href="#逻辑顺序：" class="headerlink" title="逻辑顺序："></a>逻辑顺序：</h2><ol>
-<li>先用from找到表</li>
-<li>where走筛选</li>
-<li>最后select走查询<h3 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h3></li>
-<li>指名想要查询的表</li>
-<li>select * from some_table：先库后id最后table</li>
-<li>和py中的from random import choice 有异曲同工之处<h1 id="调用大小级关系"><a href="#调用大小级关系" class="headerlink" title="调用大小级关系"></a>调用大小级关系</h1></li>
-<li>调用库用USE</li>
-<li>调用列用select</li>
-<li>调用table用FROM<h1 id="select语句"><a href="#select语句" class="headerlink" title="select语句"></a>select语句</h1></li>
-<li>选择某一列</li>
-<li>先后顺序根据参数的前后顺序决定</li>
-<li>DISTINCT为消除重复项（列中参数的重复项）<h1 id="where语句"><a href="#where语句" class="headerlink" title="where语句"></a>where语句</h1></li>
-<li>日期参数默认是year-month-date：四位year,两位month,两位date</li>
-</ol>
-<h2 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h2><ol>
-<li>使用条件表达式筛选：条件运算符：&gt; &lt; = != &lt;&gt; &lt;= &gt;=</li>
-<li>按照逻辑表达式筛选：逻辑运算符：&amp;&amp; || ! and or not </li>
-<li>模糊查询：like; between and; in; is null;</li>
-</ol>
-<h2 id="参数：and-；not；-or；in-between-like-regexp"><a href="#参数：and-；not；-or；in-between-like-regexp" class="headerlink" title="参数：and ；not； or；in;between;like,regexp"></a>参数：and ；not； or；in;between;like,regexp</h2><h3 id="参数特点："><a href="#参数特点：" class="headerlink" title="参数特点："></a>参数特点：</h3><ol>
-<li><h4 id="not"><a href="#not" class="headerlink" title="not"></a>not</h4></li>
-<li> WHERE NOT(ID != 10 AND CountryCode = “AFG”)即可产生ID != 10 AND CountryCode = “AFG”的反面<h4 id="in"><a href="#in" class="headerlink" title="in"></a>in</h4></li>
-<li>in:简化or的写法，即WHERE Name = a OR Name = b OR Name = c == WHERE Name IN (‘a’,’b’,’c’);字符型的值必须使用单引号引起来；当某一位为下划线的时候’_’</li>
-<li>in列表的值类型必须统一</li>
-<li>相当于=，不能用通配符’%’和’_’<h4 id="between-and"><a href="#between-and" class="headerlink" title="between and"></a>between and</h4></li>
-<li>between:当要将一个属性同一个范围值相比较简化AND的写法：WHERE points &gt;= 1000 AND points &lt;= 3000 == WHERE points BETWEEN 1000 AND 3000(闭区间取值);两个临界值不能颠倒（先大于等于，后小于等于）<h4 id="like"><a href="#like" class="headerlink" title="like"></a>like</h4></li>
-<li>LIKE:%表示any number of characters;_表示single character<h4 id="regexp"><a href="#regexp" class="headerlink" title="regexp"></a>regexp</h4></li>
-<li>REGEXP:regular expression(正则表达式)，用异或^来表示字符串开头，用美元$来表示字符串末尾，用|来表示多个寻找，用[‘]’来表示下一个字符从某个列表中寻找，在[]中用-来表示从哪到哪（a-h即为abcdefgh）<h4 id="null"><a href="#null" class="headerlink" title="null"></a>null</h4></li>
-<li>null不能够使用=和&lt;&gt;</li>
-<li>ifnull(exp1,exp2):当exp1为null时将返回exp2,否则将返回exp1</li>
-</ol>
-<h1 id="正则表达式："><a href="#正则表达式：" class="headerlink" title="正则表达式："></a>正则表达式：</h1><ol>
-<li>^ beginning</li>
-<li>$ end</li>
-<li>| logical or</li>
-<li>[abcd] any choice</li>
-<li>[a-f] surrounding</li>
-<li>&lt;=&gt; 安全等于，既可以用Null和数值等于</li>
-</ol>
-<h1 id="schemas中的每一个table的设置"><a href="#schemas中的每一个table的设置" class="headerlink" title="schemas中的每一个table的设置"></a>schemas中的每一个table的设置</h1><ol>
-<li>第一行带黄色感叹号的是这张表的主键列，每一个table中都有一个</li>
-</ol>
-<h1 id="order-by"><a href="#order-by" class="headerlink" title="order by"></a>order by</h1><ol>
-<li>排序，例：SELECT Name,CountryCode FROM city ORDER BY 1,2(即Name,CountryCode)</li>
-<li>即将按照Name先排序，后按照CountryCode进行排序</li>
-<li>asc是升序排序</li>
-<li>desc是降序排序</li>
-<li>SELECT * FROM employees ORDER BY salary DESC;</li>
-<li>SELECT * FROM employees ORDER BY salary ASC;(asc可以省略)</li>
-</ol>
-<h1 id="limit-n"><a href="#limit-n" class="headerlink" title="limit n"></a>limit n</h1><ol>
-<li>返回前n项<h2 id="offset-偏移量"><a href="#offset-偏移量" class="headerlink" title="offset(偏移量)"></a>offset(偏移量)</h2></li>
-<li>limit m,n:跳过前m项数据后获取n条记录</li>
-</ol>
-<h1 id="内链接：同一个库中不同表格的链接"><a href="#内链接：同一个库中不同表格的链接" class="headerlink" title="内链接：同一个库中不同表格的链接"></a>内链接：同一个库中不同表格的链接</h1><ol>
-<li>联合记录：on语句，例：JOIN customers ON orders.customer_id = customers.customer_id</li>
-<li>加表格名前缀使列可以用，防止ambigous</li>
-<li>使用别名避免重复，紧跟在每个表后使用别名<h1 id="跨数据库链接：不同数据库之间的链接"><a href="#跨数据库链接：不同数据库之间的链接" class="headerlink" title="跨数据库链接：不同数据库之间的链接"></a>跨数据库链接：不同数据库之间的链接</h1></li>
-<li>未使用USE的数据库记得加上前缀</li>
-</ol>
-<h2 id="为字段起别名"><a href="#为字段起别名" class="headerlink" title="为字段起别名"></a>为字段起别名</h2><h3 id="便于理解，如果要查询的字段有重名的情况，使用别名可以区分开来"><a href="#便于理解，如果要查询的字段有重名的情况，使用别名可以区分开来" class="headerlink" title="便于理解，如果要查询的字段有重名的情况，使用别名可以区分开来"></a>便于理解，如果要查询的字段有重名的情况，使用别名可以区分开来</h3><h3 id="方式1：AS"><a href="#方式1：AS" class="headerlink" title="方式1：AS"></a>方式1：AS</h3><ol>
-<li>select 100*98 AS 替换后的名字;</li>
-<li>select last_name AS 姓,first_name AS 名 FROM table;<h3 id="方式2：空格"><a href="#方式2：空格" class="headerlink" title="方式2：空格"></a>方式2：空格</h3></li>
-<li>select last_name 姓，first_name 名 FROM table;</li>
-</ol>
-<h3 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h3><ol>
-<li>当有空格，井号等特殊符号时需要加单双引号</li>
-<li>SELECT salary AS “out put” FROM employees;</li>
-</ol>
-<h2 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h2><h3 id="在字段前加上字段DISTINCT"><a href="#在字段前加上字段DISTINCT" class="headerlink" title="在字段前加上字段DISTINCT"></a>在字段前加上字段DISTINCT</h3><ol>
-<li>SELECT DISTINCT department_id FROM employees;</li>
-</ol>
-<h2 id="的作用"><a href="#的作用" class="headerlink" title="+的作用"></a>+的作用</h2><h3 id="仅仅只有一个功能：运算符"><a href="#仅仅只有一个功能：运算符" class="headerlink" title="仅仅只有一个功能：运算符"></a>仅仅只有一个功能：运算符</h3><h3 id="只要有一个操作数为字符串，起连接符作用的java中-作用在mysql中不存在"><a href="#只要有一个操作数为字符串，起连接符作用的java中-作用在mysql中不存在" class="headerlink" title="只要有一个操作数为字符串，起连接符作用的java中+作用在mysql中不存在"></a>只要有一个操作数为字符串，起连接符作用的java中+作用在mysql中不存在</h3><ol>
-<li>当其中一方为字符型，试图将字符型数据转换为数值型，成功则继续做加法运算，失败则将字符型数据转换为0</li>
-<li>SELECT ‘123’ + 90得出213</li>
-<li>SELECT ‘join’ + 90得出90</li>
-<li>当一方为null则结果肯定为null（没有底数怎么加都没有结果）</li>
-</ol>
-<h1 id="函数："><a href="#函数：" class="headerlink" title="函数："></a>函数：</h1><ol>
-<li>隐藏了实现细节</li>
-<li>提高了代码的重用性<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2></li>
-<li>select 函数名(实参列表) [from 表]<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2></li>
-<li>叫什么（函数名）</li>
-<li>干什么（函数功能）</li>
-</ol>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ol>
-<li>单行函数：contact length ifnull等只有一个返回值的函数</li>
-<li>分组函数：做统计使用，缩小返回值的量，统计函数，聚合函数，组函数<h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2></li>
-<li>SELECT CONTACT(‘a’,’b’,’c’) AS 结果;得出abc</li>
-</ol>
-<h1 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h1><h2 id="length（是字节长度）"><a href="#length（是字节长度）" class="headerlink" title="length（是字节长度）"></a>length（是字节长度）</h2><ol>
-<li>select length(‘join’) 4</li>
-<li>select length(‘张三疯hahaha’) 15(看字符集判断汉字字节长度)<h2 id="concat拼接字符串"><a href="#concat拼接字符串" class="headerlink" title="concat拼接字符串"></a>concat拼接字符串</h2></li>
-<li>SELECT CONCAT(last_name,’-‘,first_name) FROM employees;<h2 id="upper-lower"><a href="#upper-lower" class="headerlink" title="upper,lower"></a>upper,lower</h2></li>
-<li>SELECT UPPER(‘join’); JOIN<h3 id="实例：将姓变大写，将名变小写"><a href="#实例：将姓变大写，将名变小写" class="headerlink" title="实例：将姓变大写，将名变小写"></a>实例：将姓变大写，将名变小写</h3></li>
-<li>SELECT CONCAT(UPPER(last_name),LOWER(first_name)) 姓名 FROM employees;<h2 id="substr-substring"><a href="#substr-substring" class="headerlink" title="substr,substring"></a>substr,substring</h2><h3 id="索引从1开始"><a href="#索引从1开始" class="headerlink" title="索引从1开始"></a>索引从1开始</h3></li>
-<li>SELECT SUBSTR(‘abcdef’,from) out_put:将从from到最后的字符选择<h3 id="截取指定长度的字符（一定是字符长度）"><a href="#截取指定长度的字符（一定是字符长度）" class="headerlink" title="截取指定长度的字符（一定是字符长度）"></a>截取指定长度的字符（一定是字符长度）</h3></li>
-<li>SELECT SUBSTR(‘abcdef’,from,end) out_put</li>
-</ol>
-<h4 id="姓名用首字符大写，其他字符用小写后用——拼接"><a href="#姓名用首字符大写，其他字符用小写后用——拼接" class="headerlink" title="姓名用首字符大写，其他字符用小写后用——拼接"></a>姓名用首字符大写，其他字符用小写后用——拼接</h4><p>SELECT CONCAT(UPPER(SUBSTR(last_name,1,1)),’_’,LOWER(SUBSTR(last_name,2)));</p>
-<h3 id="instr"><a href="#instr" class="headerlink" title="instr"></a>instr</h3><ol>
-<li>用于返回字符的起始索引</li>
-<li>SELECT INSTR(‘abcdef’,’def’) AS out_put</li>
-<li>如果找不到返回0</li>
-</ol>
-<h2 id="trim"><a href="#trim" class="headerlink" title="trim:"></a>trim:</h2><ol>
-<li>SELECT TRIM(‘   abcde    ‘) AS out_put</li>
-<li>去掉字符串两侧的空格</li>
-<li>python中是strip或者replace<h3 id="删去a"><a href="#删去a" class="headerlink" title="删去a:"></a>删去a:</h3></li>
-<li>SELECT TRIM(‘a’ FROM ‘aaaaaaaa人名aaaaaaaaa人名aaaaa’)将删去两侧的a，中间的a不会删去</li>
-</ol>
-<h2 id="lpad"><a href="#lpad" class="headerlink" title="lpad"></a>lpad</h2><ol>
-<li>用指定的字符实现左填充指定长度</li>
-<li>SELECT LPAD(‘人名名’，10，’*’)</li>
-</ol>
-<h2 id="rpad"><a href="#rpad" class="headerlink" title="rpad"></a>rpad</h2><ol>
-<li>用指定字符实现右填充</li>
-<li>参数：待填充字符串，填充后长度，用于填充的字符串</li>
-</ol>
-<h2 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h2><ol>
-<li>SELECT REPLACE(‘abcdefabcdef’,’a’,’b’) AS out_put</li>
-<li>将字符串中的所有a和b都删去</li>
-<li>参数：待删除字符串，后面都是需要删除的字符</li>
-</ol>
-<h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><ol>
-<li>数学函数的第二位都是小数点后保留几位<h3 id="round"><a href="#round" class="headerlink" title="round"></a>round</h3></li>
-<li>四舍五入</li>
-<li>SELECT ROUND(x,y)</li>
-<li>将x绝对值四舍五入，后删去正负号</li>
-<li>y是保留小数点后的位数</li>
-</ol>
-<h3 id="ceil"><a href="#ceil" class="headerlink" title="ceil"></a>ceil</h3><ol>
-<li>向上取整</li>
-<li>返回大于等于该参数的最小整数</li>
-</ol>
-<h2 id="floor"><a href="#floor" class="headerlink" title="floor"></a>floor</h2><ol>
-<li>向下取整</li>
-<li>返回小于等于该参数的最大整数</li>
-</ol>
-<h2 id="truncate"><a href="#truncate" class="headerlink" title="truncate"></a>truncate</h2><ol>
-<li>截断,无论后面是什么，都会四舍五入</li>
-<li>SELECT TRUNCATE(1.69999,1) AS out_put:返回1.6</li>
-</ol>
-<h2 id="mod"><a href="#mod" class="headerlink" title="mod"></a>mod</h2><ol>
-<li>SELECT MOD(10,3);</li>
-<li>相当于SELECT 10 % 3;</li>
-<li>被除数如果为正，则结果为正，否则为负</li>
-<li>a-a/b*b   (除数一定返回的是整数，即被整除的值)</li>
-</ol>
-<h2 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h2><h3 id="now"><a href="#now" class="headerlink" title="now"></a>now</h3><ol>
-<li>用于返回系统日期+时间</li>
-</ol>
-<h3 id="curdate"><a href="#curdate" class="headerlink" title="curdate"></a>curdate</h3><ol>
-<li>用于返回系统日期，没有时间</li>
-<li>与now的区别在于没有时间</li>
-</ol>
-<h3 id="curtime"><a href="#curtime" class="headerlink" title="curtime"></a>curtime</h3><ol>
-<li>用于返回系统时间，不包含系统日期</li>
-</ol>
-<h3 id="可以获取指定部分，年，月，日，小时，分钟，秒"><a href="#可以获取指定部分，年，月，日，小时，分钟，秒" class="headerlink" title="可以获取指定部分，年，月，日，小时，分钟，秒"></a>可以获取指定部分，年，月，日，小时，分钟，秒</h3><ol>
-<li>SELECT YEAR(NOW()) 年；</li>
-<li>出现英文需要在函数后面加MONTH</li>
-<li>SELECT MONTHNAME(NOW()) 年；</li>
-</ol>
-<h3 id="str-to-date-将日期格式的字符转换成指定格式的日期"><a href="#str-to-date-将日期格式的字符转换成指定格式的日期" class="headerlink" title="str_to_date:将日期格式的字符转换成指定格式的日期"></a>str_to_date:将日期格式的字符转换成指定格式的日期</h3><ol>
-<li>STR_TO_DATE(‘7-29-2003’,’%Y-%m-%d’) 2003-07-29:</li>
-<li>月份将转为两位</li>
-<li><img src="https://s4.ax1x.com/2022/02/12/H0kaCt.png"></li>
-<li>SELECT * FROM employees WHERE hiredate = STR_TO_DATE(‘4-3-1992’,’%c-%d %Y’)</li>
-</ol>
-<h3 id="date-format-将日期转换成字符"><a href="#date-format-将日期转换成字符" class="headerlink" title="date_format:将日期转换成字符"></a>date_format:将日期转换成字符</h3><ol>
-<li>DATE_FORMAT(‘2003-07-29’,’%Y年%m月%d日’) 将返回2003年07月29日</li>
-</ol>
-<h2 id="其它函数"><a href="#其它函数" class="headerlink" title="其它函数"></a>其它函数</h2><ol>
-<li>SELECT VERSION();版本号</li>
-<li>SELECT DATABASES();查看数据库（注意有s表示复数）</li>
-<li>SELECT USER();查看用户</li>
-</ol>
-<h2 id="流程控制函数"><a href="#流程控制函数" class="headerlink" title="流程控制函数"></a>流程控制函数</h2><h3 id="if函数"><a href="#if函数" class="headerlink" title="if函数"></a>if函数</h3><ol>
-<li>if(exp1,exp2,exp3)</li>
-<li>exp1是条件表达式，true or false</li>
-<li>如果为true，则返回exp2的值</li>
-<li>如果为false，则返回exp3的值</li>
-<li>和py中的倒装句类似 （正确 if 条件 else 错误）</li>
-</ol>
-<h3 id="case函数"><a href="#case函数" class="headerlink" title="case函数"></a>case函数</h3><ol>
-<li>case 要判断的字段或表达式</li>
-<li>when 常量1 then 要显示的值1或语句1</li>
-<li>when 常量2 then 要显示的值2或语句2</li>
-<li>else 要显示的值n或语句n</li>
-<li>end</li>
-</ol>
-<h4 id="等值判断"><a href="#等值判断" class="headerlink" title="等值判断"></a>等值判断</h4><ol>
-<li>select salary 原始工资，departmant_id,</li>
-<li>CASE department_id</li>
-<li>WHEN 30 THEN salary*1.1</li>
-<li>WHEN 40 THEN salary*1.2</li>
-<li>WHEN 50 THEN salary*1.3</li>
-<li>ELSE salary</li>
-<li>END AS 新工资</li>
-<li>FROM employees;</li>
-</ol>
-<h5 id="多重if判断区间"><a href="#多重if判断区间" class="headerlink" title="多重if判断区间"></a>多重if判断区间</h5><ol>
-<li>SELECT salary</li>
-<li>CASE</li>
-<li>WHEN salary&gt;2 THEN ‘A’</li>
-<li>WHEN salary&gt;1 THEN ‘B’</li>
-<li>ELSE ‘D’</li>
-<li>END AS 工资级别</li>
-<li>FROM employees;</li>
-</ol>
-<h1 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h1><h2 id="sum"><a href="#sum" class="headerlink" title="sum"></a>sum</h2><h2 id="avg"><a href="#avg" class="headerlink" title="avg"></a>avg</h2><h2 id="max"><a href="#max" class="headerlink" title="max"></a>max</h2><h2 id="min"><a href="#min" class="headerlink" title="min"></a>min</h2><h2 id="count"><a href="#count" class="headerlink" title="count"></a>count</h2>
+
                 
             </div>
             <hr/>
@@ -749,7 +526,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/mysql%E6%93%8D%E4%BD%9C/">https://dezhoutorizhao.github.io/blog6/blog6/mysql%E6%93%8D%E4%BD%9C/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/python%E4%B8%AD%E7%9A%84numpy%E6%95%B0%E7%BB%84/">https://dezhoutorizhao.github.io/blog6/blog6/python%E4%B8%AD%E7%9A%84numpy%E6%95%B0%E7%BB%84/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -958,13 +735,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog6/sql%E6%B3%A8%E5%85%A5%E9%BB%91%E9%A9%AC%E6%95%99%E7%A8%8B/">
+                <a href="/blog6/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E(ing)/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="sql注入黑马教程">
+                        <img src="/blog6/medias/featureimages/20.jpg" class="responsive-img" alt="文件上传漏洞(更新中)">
                         
-                        <span class="card-title">sql注入黑马教程</span>
+                        <span class="card-title">文件上传漏洞(更新中)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -975,7 +752,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
                         </span>
                         <span class="publish-author">
                             
@@ -995,13 +772,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog6/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%85%E5%AE%B9/">
+                <a href="/blog6/%E5%85%B3%E4%BA%8Ecommandping%E5%92%8Cwaf/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/23.jpg" class="responsive-img" alt="数据库内容">
+                        <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="关于command类题型，ping和waf">
                         
-                        <span class="card-title">数据库内容</span>
+                        <span class="card-title">关于command类题型，ping和waf</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1012,7 +789,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-14
                             </span>
                         <span class="publish-author">
                             
