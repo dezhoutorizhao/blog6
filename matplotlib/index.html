@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据结构, 更好的明天">
+    <meta name="keywords" content="matplotlib, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据结构 | 更好的明天</title>
+    <title>matplotlib | 更好的明天</title>
     <link rel="icon" type="image/png" href="/blog6/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog6/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据结构</h1>
+                    <h1 class="description center-align post-title">matplotlib</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-05
+                    2022-04-20
                 </div>
                 
 
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    431
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -482,40 +482,105 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="链表和邻接表"><a href="#链表和邻接表" class="headerlink" title="链表和邻接表"></a>链表和邻接表</h2><ol>
-<li>struct Node{<br> int val;<br> Node *next;<br>}<br> new Node()</li>
-<li>数组模拟链表：<h3 id="数组模拟单链表："><a href="#数组模拟单链表：" class="headerlink" title="数组模拟单链表："></a>数组模拟单链表：</h3></li>
-<li>用的最多的是邻接表：存储图和树</li>
-<li>空指针的为-1</li>
-<li>优化某些问题</li>
-<li>e<a href="%E7%94%A8%E6%9D%A5%E5%AD%98%E5%82%A8value">N</a>和ne<a href="%E7%94%A8%E6%9D%A5%E5%AD%98%E5%82%A8%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%BD%8D%E7%BD%AE">N</a><br>3， 空节点的下标用-1来表示</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/b0GXJe"><img src="https://s4.ax1x.com/2022/03/05/b0GXJe.md.png" alt="b0GXJe.md.png"></a><h3 id="数组模拟双链表："><a href="#数组模拟双链表：" class="headerlink" title="数组模拟双链表："></a>数组模拟双链表：</h3></li>
-<li>和单链表的区别在于双链表节点的指针一个指向前，另一个指向后</li>
+                <h1 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h1><pre class="line-numbers language-none"><code class="language-none"># 导入 matplotlib 的所有内容（nympy 可以用 np 这个名字来使用）
+from pylab import *
+
+# 创建一个 8 * 6 点（point）的图，并设置分辨率为 80
+figure(figsize&#x3D;(8,6), dpi&#x3D;80)
+
+# 创建一个新的 1 * 1 的子图，接下来的图样绘制在其中的第 1 块（也是唯一的一块）
+subplot(1,1,1)
+
+X &#x3D; np.linspace(-np.pi, np.pi, 256,endpoint&#x3D;True)
+C,S &#x3D; np.cos(X), np.sin(X)
+
+# 绘制余弦曲线，使用蓝色的、连续的、宽度为 1 （像素）的线条
+plot(X, C, color&#x3D;&quot;blue&quot;, linewidth&#x3D;1.0, linestyle&#x3D;&quot;-&quot;)
+
+# 绘制正弦曲线，使用绿色的、连续的、宽度为 1 （像素）的线条
+plot(X, S, color&#x3D;&quot;green&quot;, linewidth&#x3D;1.0, linestyle&#x3D;&quot;-&quot;)
+
+# 设置横轴的上下限
+xlim(-4.0,4.0)
+
+# 设置横轴记号
+xticks(np.linspace(-4,4,9,endpoint&#x3D;True))
+
+# 设置纵轴的上下限
+ylim(-1.0,1.0)
+
+# 设置纵轴记号
+yticks(np.linspace(-1,1,5,endpoint&#x3D;True))
+
+# 以分辨率 72 来保存图片
+# savefig(&quot;exercice_2.png&quot;,dpi&#x3D;72)
+
+# 在屏幕上显示
+show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="设置底层图片的大小"><a href="#设置底层图片的大小" class="headerlink" title="设置底层图片的大小"></a>设置底层图片的大小</h2><ol>
+<li>figsize()函数设置散点图是几×几大小的</li>
+<li>dpi设置分辨率(像素)<h3 id="像素的定义："><a href="#像素的定义：" class="headerlink" title="像素的定义："></a>像素的定义：</h3></li>
+<li>在由一个数字序列表示的图像中的一个最小单位</li>
+<li>当像素点的大小一定时，像素点约多，照片越大<h2 id="改变线条的颜色和粗细"><a href="#改变线条的颜色和粗细" class="headerlink" title="改变线条的颜色和粗细"></a>改变线条的颜色和粗细</h2></li>
+<li>plot()函数</li>
+<li>color参数设置颜色</li>
+<li>linewidth参数设置线条粗细</li>
+<li>linestyle参数设置线条风格</li>
 </ol>
-<h2 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h2><ol>
-<li>栈是先进后出，类似于只有一端开口的羽毛球筒</li>
-<li>队列是先进先出，类似于两端开口的羽毛球筒<h3 id="单调栈："><a href="#单调栈：" class="headerlink" title="单调栈："></a>单调栈：</h3></li>
-<li>遍历</li>
-<li>找到左边离它最近且比它小的数在什么地方（返回的是那个数）</li>
-<li>找到右边离它最近且比它大的数在什么地方（返回的是那个数）</li>
-<li>不存在返回-1</li>
-<li>3   4    2   7   5</li>
-<li>-1  3   -1   2   2</li>
-<li>把所有逆序的点全部删去，就可以得到一个严格按照升序排列的数</li>
+<h3 id="plot函数详解："><a href="#plot函数详解：" class="headerlink" title="plot函数详解："></a>plot函数详解：</h3><ol>
+<li>plt.plot(x,y,linestyle=’-‘,linewidth=’x’,label=’xxx’,color=’xxx’)</li>
+<li>x:x轴上的值</li>
+<li>y:y轴上的值</li>
+<li>linestyle:线条风格</li>
+<li>linewidth:线条粗细</li>
+<li>label:标签文本</li>
 </ol>
-<h2 id="kmp"><a href="#kmp" class="headerlink" title="kmp"></a>kmp</h2><h3 id="暴力："><a href="#暴力：" class="headerlink" title="暴力："></a>暴力：</h3><p>S[N],p[M];<br>for(int i = 1;i &lt;= n;i++){<br>    bool flag = true;<br>    for(int j = 1;j &lt;= m;j++){<br>        if(s[i] != p[j]){<br>            flag = false;<br>            break;<br>        }<br>    }<br>}</p>
-<h3 id="如何优化："><a href="#如何优化：" class="headerlink" title="如何优化："></a>如何优化：</h3><h1 id="节点的插入操作："><a href="#节点的插入操作：" class="headerlink" title="节点的插入操作："></a>节点的插入操作：</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><h3 id="共同点："><a href="#共同点：" class="headerlink" title="共同点："></a>共同点：</h3><ol>
-<li>e[idx] = x; 最先将元素插进去</li>
-<li>ne[idx] = head/ne[k] idx的下一个为head和k</li>
-<li>ne[k]/head = idx</li>
-<li>idx++<h2 id="最后输出"><a href="#最后输出" class="headerlink" title="最后输出"></a>最后输出</h2></li>
-<li>for(int i = head;i != -1;i = ne[i]) cout &lt;&lt; e[i] &lt;&lt; ‘ ‘;</li>
+<h3 id="linestyle参数"><a href="#linestyle参数" class="headerlink" title="linestyle参数"></a>linestyle参数</h3><pre class="line-numbers language-none"><code class="language-none">&#39;-&#39;, &#39;--&#39;, &#39;-.&#39;, &#39;:&#39;, &#39;None&#39;, &#39; &#39;, &#39;&#39;, &#39;solid&#39;, &#39;dashed&#39;, &#39;dashdot&#39;, &#39;dotted&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置图片边界"><a href="#设置图片边界" class="headerlink" title="设置图片边界"></a>设置图片边界</h2><h2 id="设置记号"><a href="#设置记号" class="headerlink" title="设置记号"></a>设置记号</h2><ol>
+<li>r表示不需要转义,raw(生的)，LATEX用法，python中使用latex,需要在文本的后面加上$,\pi会转义为pi<pre class="line-numbers language-none"><code class="language-none">xticks(lis,[r&#39;$-\pi$&#39;,r&#39;$-\pi&#x2F;2$&#39;,r&#39;$0$&#39;,r&#39;$-\pi$&#39;,r&#39;$-\pi$&#39;])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>后面数组中的每一个元素都与前面元素一一对应</li>
 </ol>
-<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><h3 id="插入操作："><a href="#插入操作：" class="headerlink" title="插入操作："></a>插入操作：</h3><ol>
-<li>e[idx] = x; 给idx为下标的地方赋值</li>
-<li>l[idx] = k; idx的位置在k的右边（k在idx的后面，idx的下一个为k）</li>
-<li>r[idx] = r[k]; 将idx的下一个位置指向原本k的下一个位置</li>
-<li>l[r[k]] = idx; 将k+1的位置的点左指针指向idx位置</li>
+<h2 id="设置轴："><a href="#设置轴：" class="headerlink" title="设置轴："></a>设置轴：</h2><ol>
+<li>matplotlib的图中，默认有四个轴，两个横轴和两个竖轴，通过ax.plt.gca()方法获取，gca是get current axes的缩写（axes是轴的意思）</li>
+<li>总共有四个轴：top,bottom,left,right<h3 id="由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示"><a href="#由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示" class="headerlink" title="由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示"></a>由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示</h3><pre class="line-numbers language-none"><code class="language-none">ax.spines[&#39;right&#39;].set_color(&#39;none&#39;)
+ax.spines[&#39;top&#39;].set_color(&#39;none&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>将会看见top和right边被隐藏<h3 id="移动下面和左边的轴到指定的位置"><a href="#移动下面和左边的轴到指定的位置" class="headerlink" title="移动下面和左边的轴到指定的位置"></a>移动下面和左边的轴到指定的位置</h3></li>
+<li>data:移动轴的位置到交叉轴的指定坐标</li>
+<li>outward:不太懂</li>
+<li>axes:0.0~1.0之间的值，整个轴上的比例</li>
+<li>center:(‘axes’,0.5)</li>
+<li>zero:(‘data’,0.0)<pre class="line-numbers language-none"><code class="language-none">ax.spines[&#39;bottom&#39;].set_position((&#39;data&#39;,0))
+ax.spines[&#39;left&#39;].set_position((&#39;data&#39;,0))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<a target="_blank" rel="noopener" href="https://imgtu.com/i/LrlVm9"><img src="https://s1.ax1x.com/2022/04/20/LrlVm9.png" alt="LrlVm9.png"></a><br><a target="_blank" rel="noopener" href="https://imgtu.com/i/LrlZwR"><img src="https://s1.ax1x.com/2022/04/20/LrlZwR.png" alt="LrlZwR.png"></a></li>
+<li>由上图可看出，这个轴其实不是坐标轴，而是图形的边界</li>
+<li>我认为：top和right的轴是图形的边界，不能够改变坐标轴</li>
+<li>而left和bottom可以改变坐标轴的位置，参数如上图所示</li>
+</ol>
+<h2 id="添加图例："><a href="#添加图例：" class="headerlink" title="添加图例："></a>添加图例：</h2><ol>
+<li>在plot函数中以[键-值] 的形式增加一个参数<pre class="line-numbers language-none"><code class="language-none">plot(X,S,color&#x3D;&quot;blue&quot;,linewidth&#x3D;2.5,linestyle&#x3D;&quot;-&quot;,lable&#x3D;&quot;图例名称&quot;)
+legend(loc&#x3D;&quot;位置&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>legend位置参数：upper,bottom,left,right<h3 id="常用legend函数参数："><a href="#常用legend函数参数：" class="headerlink" title="常用legend函数参数："></a>常用legend函数参数：</h3></li>
+<li>loc:图例位置</li>
+<li>fontsize:字体大小</li>
+<li>edgecolor: frame edgecolor</li>
+<li>facecolor: frame facecolor</li>
+</ol>
+<h2 id="特殊点添加注释："><a href="#特殊点添加注释：" class="headerlink" title="特殊点添加注释："></a>特殊点添加注释：</h2><ol>
+<li>前提：x，y轴包括数值以及大小和颜色</li>
+<li><a target="_blank" rel="noopener" href="https://www.jb51.net/article/127806.htm">https://www.jb51.net/article/127806.htm</a><pre class="line-numbers language-none"><code class="language-none">scatter([t,],[np.cos(t),],50,color&#x3D;&#39;blue&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>scatter(x,y,[size],[color],[marker])<h3 id="scatter参数详解："><a href="#scatter参数详解：" class="headerlink" title="scatter参数详解："></a>scatter参数详解：</h3></li>
+<li>x,y:形如shape[n,]不全的数组，即添加注释点的位置</li>
+<li>size:直接给出点的大小，标量或者形如shape[n,]的数组</li>
+<li>color:色彩或颜色序列</li>
+<li>marker:markstyle,可选，默认’o’<br><img src="https://img.jbzj.com/file_images/article/201711/201711081604306.jpg" alt="marker"></li>
+</ol>
+<h3 id="annotate参数详解"><a href="#annotate参数详解" class="headerlink" title="annotate参数详解"></a>annotate参数详解</h3><pre class="line-numbers language-none"><code class="language-none">annotate(s,xy,xytext&#x3D;None,xycoords&#x3D;&#39;data&#39;,textcoords&#x3D;None)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>s:被注释内容</li>
+<li>xy:被注释的坐标点，二维元组形如[x,y]</li>
+<li>xytext:注释文本的坐标点，也是二维元组，默认与xy相同</li>
+<li>xycoords:被注释点的坐标系属性</li>
+<li>textcoords设置注释文本的坐标系属性<br>```<br>annotate(r’$sin(\frac{2\pi}{3})’=\frac{\sqrt{3}}{2}$’,xy=(t,np.sin(t)),xycoords=’data’,xytext=(+10,+30),textcoords=’offset points’)</li>
 </ol>
 
                 
@@ -543,7 +608,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">https://dezhoutorizhao.github.io/blog6/blog6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/matplotlib/">https://dezhoutorizhao.github.io/blog6/blog6/matplotlib/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -748,54 +813,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blog6/%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%EF%BC%9A/">
+                <a href="/blog6/matplotlib/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/19.jpg" class="responsive-img" alt="数据元素">
+                        <img src="/blog6/medias/featureimages/4.jpg" class="responsive-img" alt="matplotlib">
                         
-                        <span class="card-title">数据元素</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            syk
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog6/%E6%95%B0%E5%AD%97%E5%9E%8B%E6%B3%A8%E5%85%A5/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="sql手动注入语法">
-                        
-                        <span class="card-title">sql手动注入语法</span>
+                        <span class="card-title">matplotlib</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -806,7 +835,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            syk
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog6/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E(ing)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog6/medias/featureimages/20.jpg" class="responsive-img" alt="文件上传漏洞(更新中)">
+                        
+                        <span class="card-title">文件上传漏洞(更新中)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
                             </span>
                         <span class="publish-author">
                             
