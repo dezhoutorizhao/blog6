@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    10 分
                 </div>
                 
 
@@ -544,7 +544,10 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li>matplotlib的图中，默认有四个轴，两个横轴和两个竖轴，通过ax.plt.gca()方法获取，gca是get current axes的缩写（axes是轴的意思）</li>
 <li>总共有四个轴：top,bottom,left,right<h3 id="由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示"><a href="#由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示" class="headerlink" title="由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示"></a>由于axes会获取到四个轴，而我们只需要两个轴，所以我们需要把另外两个轴隐藏，把顶部和右边轴的颜色设置为none，将不会显示</h3><pre class="line-numbers language-none"><code class="language-none">ax.spines[&#39;right&#39;].set_color(&#39;none&#39;)
 ax.spines[&#39;top&#39;].set_color(&#39;none&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>将会看见top和right边被隐藏<h3 id="移动下面和左边的轴到指定的位置"><a href="#移动下面和左边的轴到指定的位置" class="headerlink" title="移动下面和左边的轴到指定的位置"></a>移动下面和左边的轴到指定的位置</h3></li>
+<li>将会看见top和right边被隐藏<h3 id="移动下面和左边的轴到指定的位置"><a href="#移动下面和左边的轴到指定的位置" class="headerlink" title="移动下面和左边的轴到指定的位置"></a>移动下面和左边的轴到指定的位置</h3><h4 id="具体函数-ax-spines-‘四个轴的位置’-set-position-‘值的类型’，具体值"><a href="#具体函数-ax-spines-‘四个轴的位置’-set-position-‘值的类型’，具体值" class="headerlink" title="具体函数:ax.spines[‘四个轴的位置’].set_position(‘值的类型’，具体值)"></a>具体函数:ax.spines[‘四个轴的位置’].set_position(‘值的类型’，具体值)</h4><pre class="line-numbers language-none"><code class="language-none">一定一定要注意，spines后面是[]而非(),set_position後面是()
+我對此的理解為：[]表示选择，ax在gca()时已经初始化了，[]是在top,bottom,left和right中的选择；()表示需补充参数，参数未经过初始化
+区分选择和补充的含义<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="以下是set-position中各种值的类型"><a href="#以下是set-position中各种值的类型" class="headerlink" title="以下是set_position中各种值的类型"></a>以下是set_position中各种值的类型</h4></li>
 <li>data:移动轴的位置到交叉轴的指定坐标</li>
 <li>outward:不太懂</li>
 <li>axes:0.0~1.0之间的值，整个轴上的比例</li>
@@ -580,9 +583,106 @@ legend(loc&#x3D;&quot;位置&quot;)<span aria-hidden="true" class="line-numbers-
 <li>xy:被注释的坐标点，二维元组形如[x,y]</li>
 <li>xytext:注释文本的坐标点，也是二维元组，默认与xy相同</li>
 <li>xycoords:被注释点的坐标系属性</li>
-<li>textcoords设置注释文本的坐标系属性<br>```<br>annotate(r’$sin(\frac{2\pi}{3})’=\frac{\sqrt{3}}{2}$’,xy=(t,np.sin(t)),xycoords=’data’,xytext=(+10,+30),textcoords=’offset points’)</li>
+<li>textcoords设置注释文本的坐标系属性<pre class="line-numbers language-none"><code class="language-none">annotate(r&#39;$sin(\frac&#123;2\pi&#125;&#123;3&#125;)&#39;&#x3D;\frac&#123;\sqrt&#123;3&#125;&#125;&#123;2&#125;$&#39;,xy&#x3D;(t,np.sin(t)),xycoords&#x3D;&#39;data&#39;,xytext&#x3D;(+10,+30),textcoords&#x3D;&#39;offset points&#39;)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="看过李师哥的备课后的补充"><a href="#看过李师哥的备课后的补充" class="headerlink" title="看过李师哥的备课后的补充"></a>看过李师哥的备课后的补充</h1><h2 id="构建画框的骨架的两种方法："><a href="#构建画框的骨架的两种方法：" class="headerlink" title="构建画框的骨架的两种方法："></a>构建画框的骨架的两种方法：</h2><pre class="line-numbers language-none"><code class="language-none">fig &#x3D; plt.figure()
+ax &#x3D; fig.add_axes([0.1,0.1,0.8,0.8])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+和<pre class="line-numbers language-none"><code class="language-none">fig &#x3D; plt.figure()
+ax &#x3D; gca()&#x2F;&#x2F;初始化四个轴
+left &#x3D; bottom &#x3D; 0.1
+right &#x3D; top &#x3D; 0.8
+ls &#x3D; [left,bottom,right,top]
+for i in ls:
+ax.spines[top].set_position(i)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1></li>
+<li>引入matpoltlib库</li>
+<li>创建一个图作为背景figure</li>
+<li>x轴坐标，y轴坐标</li>
+<li>plot绘制曲线</li>
+<li>设置横轴上下限xlim</li>
+<li>设置横轴记号和纵轴记号</li>
+<li>保存图片savefig</li>
+<li>在屏幕上显示show</li>
 </ol>
+<h1 id="正弦函数图像"><a href="#正弦函数图像" class="headerlink" title="正弦函数图像"></a>正弦函数图像</h1><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+figure(figsize&#x3D;(8,6),dpi&#x3D;80)
+x &#x3D; np.linspace(-np.pi,np.pi,256,endpoint&#x3D;True)
+y &#x3D; np.sin(x)
+plot(x,y,color&#x3D;&#39;blue&#39;,linewidth&#x3D;&#39;10&#39;,linestyle&#x3D;&#39;-&#39;)
+xlim(-4.0,4.0)
+ylim(-1.0,1.0)
+xticks(np.linspace(-4,4,9,endpoint&#x3D;True))
+yticks(np.linspace(-1.0,1.0,3,endpoint&#x3D;True))
+ax &#x3D; gca()
+ax.spines[&#39;right&#39;].set_color(&#39;None&#39;)
+ax.spines[&#39;top&#39;].set_color(&#39;None&#39;)
+ax.spines[&#39;bottom&#39;].set_position((&#39;axes&#39;,0.5))
+ax.spines[&#39;left&#39;].set_position((&#39;axes&#39;,0.5))
+show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h1 id="二次曲线图像"><a href="#二次曲线图像" class="headerlink" title="二次曲线图像"></a>二次曲线图像</h1><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+from numpy import *
+x &#x3D; np.linspace(-1,1,66,endpoint&#x3D;True)
+
+y &#x3D; x**2
+plot(x,y,linestyle&#x3D;&#39;-&#39;,lw&#x3D;&#39;10&#39;,color&#x3D;&#39;blue&#39;)
+
+show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="正余弦函数图像"><a href="#正余弦函数图像" class="headerlink" title="正余弦函数图像"></a>正余弦函数图像</h1><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+fig &#x3D; figure(figsize&#x3D;(8,6),dpi&#x3D;80)#dpi参数是分辨率
+fig.add_axes([0.1,0.1,0.8,0.8])
+
+subplot(1,1,1)#创建一个1*1子图，接下来图样的绘制在第一块
+
+x &#x3D; np.linspace(-np.pi,np.pi,256,endpoint&#x3D;True)
+c,s &#x3D; np.cos(x),np.sin(x)
+plot(x,c,color&#x3D;&quot;blue&quot;,linewidth&#x3D;1.0,linestyle&#x3D;&quot;solid&quot;,label&#x3D;&quot;cosine&quot;)
+
+plot(x,s,color&#x3D;&quot;green&quot;,linewidth&#x3D;1.0,linestyle&#x3D;&quot;dotted&quot;,label&#x3D;&quot;sine&quot;)
+
+legend(loc&#x3D;&#39;upper left&#39;,fontsize&#x3D;&quot;18&quot;)
+xlim(-4.0,4.0)
+
+lis &#x3D; ([-np.pi,-np.pi&#x2F;2.0,0,np.pi&#x2F;2.0,np.pi])
+
+#xticks(np.linspace(-4,4,9,endpoint&#x3D;True))
+
+ylim(-1.0,1.0)
+#yticks(np.linspace(-4,4,9,endpoint&#x3D;True))
+#xticks(lis)
+xticks(lis,[r&#39;$-\pi$&#39;,r&#39;$-\pi&#x2F;2$&#39;,r&#39;$0$&#39;,r&#39;$-\pi$&#39;,r&#39;$-\pi$&#39;])#r表示不需要转义,raw(生的)，LATEX用法，python中使用latex,需要在文本的后面加上$,\pi会转义为pi
+yticks(lis)
+
+ax &#x3D; gca()
+ax.spines[&#39;right&#39;].set_color(&#39;none&#39;)
+ax.spines[&#39;top&#39;].set_color(&#39;none&#39;)
+ax.spines[&#39;bottom&#39;].set_position((&#39;axes&#39;,0.5))
+ax.spines[&#39;left&#39;].set_position((&#39;axes&#39;,0.5))
+
+t &#x3D; 2*np.pi&#x2F;3
+plot([t,t],[0,np.cos(t)],color&#x3D;&#39;blue&#39;,linewidth&#x3D;2.5,linestyle&#x3D;&#39;--&#39;)
+scatter([t,],[np.cos(t),],50,color&#x3D;&#39;blue&#39;)
+
+t &#x3D; 2*np.pi&#x2F;3
+plot([t,t],[0,np.cos(t)], color &#x3D;&#39;blue&#39;, linewidth&#x3D;2.5, linestyle&#x3D;&quot;--&quot;)
+scatter([t,],[np.cos(t),], 50, color &#x3D;&#39;blue&#39;)
+
+annotate(r&#39;$\sin(\frac&#123;2\pi&#125;&#123;3&#125;)&#x3D;\frac&#123;\sqrt&#123;3&#125;&#125;&#123;2&#125;$&#39;,
+         xy&#x3D;(t, np.sin(t)), xycoords&#x3D;&#39;data&#39;,
+         xytext&#x3D;(+10, +30), textcoords&#x3D;&#39;offset points&#39;, fontsize&#x3D;16,
+         arrowprops&#x3D;dict(arrowstyle&#x3D;&quot;-&gt;&quot;, connectionstyle&#x3D;&quot;arc3,rad&#x3D;.2&quot;))
+
+plot([t,t],[0,np.sin(t)], color &#x3D;&#39;red&#39;, linewidth&#x3D;2.5, linestyle&#x3D;&quot;--&quot;)
+scatter([t,],[np.sin(t),], 50, color &#x3D;&#39;red&#39;)
+
+annotate(r&#39;$\cos(\frac&#123;2\pi&#125;&#123;3&#125;)&#x3D;-\frac&#123;1&#125;&#123;2&#125;$&#39;,
+         xy&#x3D;(t, np.cos(t)), xycoords&#x3D;&#39;data&#39;,
+         xytext&#x3D;(-90, -50), textcoords&#x3D;&#39;offset points&#39;, fontsize&#x3D;16,
+         arrowprops&#x3D;dict(arrowstyle&#x3D;&quot;-&gt;&quot;, connectionstyle&#x3D;&quot;arc3,rad&#x3D;.2&quot;))
+
+show()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1078,7 +1178,7 @@ legend(loc&#x3D;&quot;位置&quot;)<span aria-hidden="true" class="line-numbers-
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">29.3k</span>&nbsp;字
+                class="white-color">30.3k</span>&nbsp;字
             
             
             
