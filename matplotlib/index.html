@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    12 分
                 </div>
                 
 
@@ -535,6 +535,11 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li>linewidth:线条粗细</li>
 <li>label:标签文本</li>
 </ol>
+<h4 id="plot函数常见问题："><a href="#plot函数常见问题：" class="headerlink" title="plot函数常见问题："></a>plot函数常见问题：</h4><pre class="line-numbers language-none"><code class="language-none">x and y must have same first dimensition,but have shapes (4,) and (6,)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>意为：x和y必须参数的个数相同（个数不相同，有的只有一个坐标你怎么画点呢？）<br><a target="_blank" rel="noopener" href="https://imgtu.com/i/Lg0l1U"><img src="https://s1.ax1x.com/2022/04/22/Lg0l1U.md.png" alt="Lg0l1U.md.png"></a></li>
+<li>ing</li>
+</ol>
 <h3 id="linestyle参数"><a href="#linestyle参数" class="headerlink" title="linestyle参数"></a>linestyle参数</h3><pre class="line-numbers language-none"><code class="language-none">&#39;-&#39;, &#39;--&#39;, &#39;-.&#39;, &#39;:&#39;, &#39;None&#39;, &#39; &#39;, &#39;&#39;, &#39;solid&#39;, &#39;dashed&#39;, &#39;dashdot&#39;, &#39;dotted&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="设置图片边界"><a href="#设置图片边界" class="headerlink" title="设置图片边界"></a>设置图片边界</h2><h2 id="设置记号"><a href="#设置记号" class="headerlink" title="设置记号"></a>设置记号</h2><ol>
 <li>r表示不需要转义,raw(生的)，LATEX用法，python中使用latex,需要在文本的后面加上$,\pi会转义为pi<pre class="line-numbers language-none"><code class="language-none">xticks(lis,[r&#39;$-\pi$&#39;,r&#39;$-\pi&#x2F;2$&#39;,r&#39;$0$&#39;,r&#39;$-\pi$&#39;,r&#39;$-\pi$&#39;])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -593,8 +598,73 @@ left &#x3D; bottom &#x3D; 0.1
 right &#x3D; top &#x3D; 0.8
 ls &#x3D; [left,bottom,right,top]
 for i in ls:
-ax.spines[top].set_position(i)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1></li>
+ax.spines[top].set_position(i)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="子图的划分"><a href="#子图的划分" class="headerlink" title="子图的划分"></a>子图的划分</h2><ol>
+<li>如果两个图片的x轴的范围不同的情况下，放在同一张画布下是不易显示的<h3 id="格式一"><a href="#格式一" class="headerlink" title="格式一"></a>格式一</h3><pre class="line-numbers language-none"><code class="language-none">figure &#x3D; plt.figure()
+plt.subplot(nrows,ncols,plot_number)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>其中nrows表示要划分的行数</li>
+<li>ncols表示要划分的列数</li>
+<li>plot_number表示当前的子图区<pre class="line-numbers language-none"><code class="language-none">from pylab import *
+x &#x3D; []
+y &#x3D; []
+figure &#x3D; figure((m，n)，dpi)&#x2F;&#x2F;创建一个m*n点的图像
+axes1 &#x3D; figure.add_subplot(2,1,1)&#x2F;&#x2F;划分为两行，将第一行作为当前需要描绘的子图区
+plot(x,y)
+x &#x3D; []
+y &#x3D; []
+axes2 &#x3D; figure.add_subplot(2,1,2)&#x2F;&#x2F;选取第二块子图区
+plot(x,y)
+show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="plt-rcParams属性总结"><a href="#plt-rcParams属性总结" class="headerlink" title="plt.rcParams属性总结"></a>plt.rcParams属性总结</h2><ol>
+<li>plt使用rc配置文件；来自定义图形的各种观点默认属性，称之为rc配置或rc参数，通过rc参数可以修改默认的属性，包括窗体大小，每英寸的点数，线条宽度，颜色，样式，坐标轴坐标，网络属性，文本，字体</li>
+<li>plt.rcParams[‘font.sans-serif’] = ‘SimHei’设置字体</li>
+<li>plt.rcParams[‘axes.unicode_minus’] = False字符显示</li>
+</ol>
+<h3 id="获取用户配置路径"><a href="#获取用户配置路径" class="headerlink" title="获取用户配置路径"></a>获取用户配置路径</h3><pre class="line-numbers language-none"><code class="language-none">import matplotlib
+matplotlib.get_gonfigdir()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="获取用户当前使用配置文件的路径"><a href="#获取用户当前使用配置文件的路径" class="headerlink" title="获取用户当前使用配置文件的路径"></a>获取用户当前使用配置文件的路径</h3><pre class="line-numbers language-none"><code class="language-none">import matplotlib
+matplotlib.matplotlib_fname()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="查看rc参数的方法与rc参数的使用"><a href="#查看rc参数的方法与rc参数的使用" class="headerlink" title="查看rc参数的方法与rc参数的使用"></a>查看rc参数的方法与rc参数的使用</h3><ol>
+<li><p>查看：</p>
+<pre class="line-numbers language-none"><code class="language-none">import matplotlib as mpl
+print(mpl.rcParams)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>修改：(用中括号去取下标)</p>
+<pre class="line-numbers language-none"><code class="language-none">import matplotlib
+matplotlib.rcParams[&#39;具体参数名称&#39;] &#x3D; xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>通过matplotlib.rc一次设置多个参数</p>
+<pre class="line-numbers language-none"><code class="language-none">import matplotlib
+matplotlib.rc(&#39;lines&#39;,linewidth&#x3D;2,color&#x3D;&#39;red&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>rc参数说明：</p>
+<pre class="line-numbers language-none"><code class="language-none">lines.linewidth:线宽
+lines.linestyle:线的风格
+lines.color:线的颜色
+lines.marker:None 默认标记
+lines.markersize:标记大小
+lines.antialiased:True 使用抗锯齿渲染：没有缺口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="rc参数字体属性："><a href="#rc参数字体属性：" class="headerlink" title="rc参数字体属性："></a>rc参数字体属性：</h4></li>
+<li><p>font.family</p>
+</li>
+<li><p>font.style:normal(roman),italic,oblique</p>
+</li>
+<li><p>font.variant:normal,small-caps</p>
+</li>
+<li><p>font.weight:normal,bold,bolder,lighter,100,200,300…900</p>
+</li>
+<li><p>font.stretch</p>
+</li>
+<li><p>font.size:默认字体大小，以磅为单位</p>
+</li>
+<li><p>网格：</p>
+<pre class="line-numbers language-none"><code class="language-none">grid.color:网格颜色
+grid.linestyle:点
+grid.linewidth:pt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="具体参数详见博客地址"><a href="#具体参数详见博客地址" class="headerlink" title="具体参数详见博客地址"></a>具体参数详见博客地址</h4><pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;www.cnblogs.com&#x2F;shuaishuaidefeizhu&#x2F;p&#x2F;14035247.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ol>
 <li>引入matpoltlib库</li>
 <li>创建一个图作为背景figure</li>
 <li>x轴坐标，y轴坐标</li>
@@ -913,18 +983,17 @@ show()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog6/matplotlib/">
+                <a href="/blog6/seedlabs(%E6%9B%B4%E6%96%B0%E4%B8%AD)/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/4.jpg" class="responsive-img" alt="matplotlib">
+                        <img src="/blog6/medias/featureimages/21.jpg" class="responsive-img" alt="seedlabs\">
                         
-                        <span class="card-title">matplotlib</span>
+                        <span class="card-title">seedlabs\</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -934,9 +1003,9 @@ show()
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -945,7 +1014,6 @@ show()
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1178,7 +1246,7 @@ show()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.3k</span>&nbsp;字
+                class="white-color">30.8k</span>&nbsp;字
             
             
             
