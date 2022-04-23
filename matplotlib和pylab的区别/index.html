@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ssh, 更好的明天">
+    <meta name="keywords" content="matplotlib和pylab区别的精简总结, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ssh | 更好的明天</title>
+    <title>matplotlib和pylab区别的精简总结 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/blog6/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog6/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog6/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ssh</h1>
+                    <h1 class="description center-align post-title">matplotlib和pylab区别的精简总结</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-13
+                    2022-04-22
                 </div>
                 
 
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    217
+                    152
                 </div>
                 
 
@@ -482,22 +482,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><h2 id="ssh登录"><a href="#ssh登录" class="headerlink" title="ssh登录"></a>ssh登录</h2><h3 id="远程登录服务器"><a href="#远程登录服务器" class="headerlink" title="远程登录服务器"></a>远程登录服务器</h3><ol>
-<li>ssh user@hostname(user为用户名，hostname为IP地址或域名)</li>
-<li>默认登录端口为22号，如果想要登录某一特定端口：ssh user@hostname -p 22<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3></li>
-<li>创建文件~/.ssh/config</li>
-<li>输入Host myserver1</li>
-<li>\t,HostName IP地址或域名</li>
-<li>\t，User 用户名<h3 id="密钥登录"><a href="#密钥登录" class="headerlink" title="密钥登录"></a>密钥登录</h3></li>
-<li>ssh-keygen(key generation),然后一直回车</li>
-<li>执行结束后~/.ssh/目录下会多两个文件</li>
-<li>id_rsa和(私钥)id_rsa.pub(公钥)</li>
-<li>之后想要免密登录哪个服务器，即可将公钥传给哪个服务器即可</li>
-<li>例如想要免密登录myserver。则将公钥中的内容复制到myserver中的~/.ssh/authorized_keys文件中即可</li>
-<li>也可以使用命令一键添加公钥：ssh-copy-id myserver<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3></li>
-<li>格式：ssh user@hostname command</li>
-<li>ssh user@hostname ls -a</li>
-<li>ssh myserver <code>for ((i = 0; i &lt; 10; i ++ )) do echo $i;done</code><h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2></li>
+                <h1 id="网上的大部分解释"><a href="#网上的大部分解释" class="headerlink" title="网上的大部分解释"></a>网上的大部分解释</h1><ol>
+<li>pyplot:方便快速绘图,matplotlib通过pyplot模块提供了与一套和MATLAB类似的绘图API，将众多绘图对象构成的复杂结构隐藏在这套API内部<br>2， pylab:matplotlib还提供了一个名为pylab的模块，其中包含许多Numpy和pyplot模块中常用的函数<h1 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h1></li>
+<li>pylab = pyplot+大部分numpy</li>
+<li>也就是说pylab只是提供了一个方便的导入常用包的接口<h1 id="和matlab的区别："><a href="#和matlab的区别：" class="headerlink" title="和matlab的区别："></a>和matlab的区别：</h1></li>
+<li>在matlab中，画了一条线以后，如果想接着画另一条线，则需要hold on函数</li>
+<li>python中直接画即可</li>
 </ol>
 
                 
@@ -525,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/ssh/">https://dezhoutorizhao.github.io/blog6/blog6/ssh/</a>
+                    <a href="https://dezhoutorizhao.github.io/blog6/blog6/matplotlib%E5%92%8Cpylab%E7%9A%84%E5%8C%BA%E5%88%AB/">https://dezhoutorizhao.github.io/blog6/blog6/matplotlib%E5%92%8Cpylab%E7%9A%84%E5%8C%BA%E5%88%AB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -730,54 +720,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blog6/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E5%92%8C%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/">
+                <a href="/blog6/matplotlib%E5%92%8Cpylab%E7%9A%84%E5%8C%BA%E5%88%AB/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog6/medias/featureimages/10.jpg" class="responsive-img" alt="乱码问题">
+                        <img src="/blog6/medias/featureimages/17.jpg" class="responsive-img" alt="matplotlib和pylab区别的精简总结">
                         
-                        <span class="card-title">乱码问题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            syk
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog6/shell%E8%AF%AD%E6%B3%95/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog6/medias/featureimages/0.jpg" class="responsive-img" alt="shell语法">
-                        
-                        <span class="card-title">shell语法</span>
+                        <span class="card-title">matplotlib和pylab区别的精简总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -788,7 +742,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            syk
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog6/seedlabs(%E6%9B%B4%E6%96%B0%E4%B8%AD)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog6/medias/featureimages/21.jpg" class="responsive-img" alt="seedlabs\">
+                        
+                        <span class="card-title">seedlabs\</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
                             </span>
                         <span class="publish-author">
                             

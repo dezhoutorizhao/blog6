@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    15 分
                 </div>
                 
 
@@ -573,7 +573,7 @@ legend(loc&#x3D;&quot;位置&quot;)<span aria-hidden="true" class="line-numbers-
 <li>edgecolor: frame edgecolor</li>
 <li>facecolor: frame facecolor</li>
 </ol>
-<h2 id="特殊点添加注释："><a href="#特殊点添加注释：" class="headerlink" title="特殊点添加注释："></a>特殊点添加注释：</h2><ol>
+<h2 id="特殊点添加注释：函数scatter-意为分散的点"><a href="#特殊点添加注释：函数scatter-意为分散的点" class="headerlink" title="特殊点添加注释：函数scatter(意为分散的点)"></a>特殊点添加注释：函数scatter(意为分散的点)</h2><ol>
 <li>前提：x，y轴包括数值以及大小和颜色</li>
 <li><a target="_blank" rel="noopener" href="https://www.jb51.net/article/127806.htm">https://www.jb51.net/article/127806.htm</a><pre class="line-numbers language-none"><code class="language-none">scatter([t,],[np.cos(t),],50,color&#x3D;&#39;blue&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>scatter(x,y,[size],[color],[marker])<h3 id="scatter参数详解："><a href="#scatter参数详解：" class="headerlink" title="scatter参数详解："></a>scatter参数详解：</h3></li>
@@ -620,11 +620,15 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <h2 id="plt-rcParams属性总结"><a href="#plt-rcParams属性总结" class="headerlink" title="plt.rcParams属性总结"></a>plt.rcParams属性总结</h2><ol>
 <li>plt使用rc配置文件；来自定义图形的各种观点默认属性，称之为rc配置或rc参数，通过rc参数可以修改默认的属性，包括窗体大小，每英寸的点数，线条宽度，颜色，样式，坐标轴坐标，网络属性，文本，字体</li>
 <li>plt.rcParams[‘font.sans-serif’] = ‘SimHei’设置字体</li>
-<li>plt.rcParams[‘axes.unicode_minus’] = False字符显示</li>
+<li>plt.rcParams[‘axes.unicode_minus’] = False字符显示：减号使用unicode编码而不是连字符号</li>
 </ol>
-<h3 id="获取用户配置路径"><a href="#获取用户配置路径" class="headerlink" title="获取用户配置路径"></a>获取用户配置路径</h3><pre class="line-numbers language-none"><code class="language-none">import matplotlib
-matplotlib.get_gonfigdir()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<h3 id="设置中文字体："><a href="#设置中文字体：" class="headerlink" title="设置中文字体："></a>设置中文字体：</h3><ol>
+<li>plt.rcParams[‘font.san-serif’]=[‘SimHei’]：SimHei是设置字体为黑体</li>
+<li>plt.rcParams[‘axes.unicode_minus’] = False设置字符显示</li>
+<li>这个地方的unicode_minus我的理解为减去unicode即为不使用Unicode编码</li>
+<li>如果设置为false，则负负得正，使用Unicode编码<h3 id="获取用户配置路径"><a href="#获取用户配置路径" class="headerlink" title="获取用户配置路径"></a>获取用户配置路径</h3><pre class="line-numbers language-none"><code class="language-none">import matplotlib
+matplotlib.get_gonfigdir()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
 <h3 id="获取用户当前使用配置文件的路径"><a href="#获取用户当前使用配置文件的路径" class="headerlink" title="获取用户当前使用配置文件的路径"></a>获取用户当前使用配置文件的路径</h3><pre class="line-numbers language-none"><code class="language-none">import matplotlib
 matplotlib.matplotlib_fname()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -753,6 +757,51 @@ annotate(r&#39;$\cos(\frac&#123;2\pi&#125;&#123;3&#125;)&#x3D;-\frac&#123;1&#125
 
 show()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="将一个figure对象划分为6个子图，分别绘制不同的曲线，不同的颜色和标记的线条"><a href="#将一个figure对象划分为6个子图，分别绘制不同的曲线，不同的颜色和标记的线条" class="headerlink" title="将一个figure对象划分为6个子图，分别绘制不同的曲线，不同的颜色和标记的线条"></a>将一个figure对象划分为6个子图，分别绘制不同的曲线，不同的颜色和标记的线条</h1><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+x &#x3D; [1,2,3,4,5,6]
+y &#x3D; [3,5,7,1,9,12]
+figure &#x3D; figure(figsize&#x3D;(8,6),dpi &#x3D; 80)
+axes1 &#x3D; figure.add_subplot(2,3,1)
+axes2 &#x3D; figure.add_subplot(2,3,2)
+axes3 &#x3D; figure.add_subplot(2,3,3)
+axes4 &#x3D; figure.add_subplot(2,3,4)
+axes5 &#x3D; figure.add_subplot(2,3,5)
+axes6 &#x3D; figure.add_subplot(2,3,6)
+axes1.plot(x,y,&#39;ro&#39;)
+axes2.plot(x,y,&#39;r-*&#39;)
+axes3.plot(x,y,&#39;bs&#39;)
+axes4.plot(x,y,&#39;^g-.&#39;)
+axes5.plot(x,y,&#39;m8&#39;)
+axes6.plot(x,y,&#39;yd:&#39;)
+show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>plot中的线条的线性，标记的符号和线条的颜色参数的前后位置没有要求</li>
+</ol>
+<h1 id="条形图"><a href="#条形图" class="headerlink" title="条形图"></a>条形图</h1><h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><ol>
+<li>在条形图中可以非常直观地通过位置比较比较数值大小，因为在条形图中条的高度就是数值，所以一眼就可以看出数值的高度<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><pre class="line-numbers language-none"><code class="language-none">bar(x,height,width,bottom)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h3></li>
+<li>(x,height)定义在什么位置上，多高的bar（这个地方的高度其实是条形图的宽度，因为是躺着的，所以叫高度）</li>
+<li>width定义bar的宽度（这个地方的宽度是条形图的高度，因为是躺着的，座椅叫做宽度）</li>
+<li>bottom定义bar的实际高度（我的理解是bar的实际底在哪里）<h4 id="默认参数："><a href="#默认参数：" class="headerlink" title="默认参数："></a>默认参数：</h4></li>
+<li>height：柱子的高度，y轴上的坐标</li>
+<li>width：柱子的宽度，默认值是0.8</li>
+<li>bottom：柱子的基准高度，浮点数或者类数组结构，默认值为0</li>
+<li>bar orientation:给定的是一个向量，该向量指定单元局部坐标系的纵轴方向<h3 id="条形图实例"><a href="#条形图实例" class="headerlink" title="条形图实例"></a>条形图实例</h3><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+x &#x3D; [1,2,3,4,5,6]
+y &#x3D; [2,3,54,6,7,4]
+figure &#x3D; figure(figsize&#x3D;(8,6),dpi &#x3D; 80)
+bar(x,y)
+show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="横向条形图实例"><a href="#横向条形图实例" class="headerlink" title="横向条形图实例"></a>横向条形图实例</h3><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+x &#x3D; [1,2,3,4,5,6]
+y &#x3D; [3,5,1,7,9,12]
+#x指定其实位置从0开始，bottom指定水平条其实位置为左侧，height指定绘图的水平条的宽度，width指定绘制的水平条的长度，orientation指定要绘制的是水平条，color指定颜色
+bar(x&#x3D;0,bottom&#x3D;y,height&#x3D;0.3,width&#x3D;x,orientation&#x3D;&#39;horizontal&#39;,color&#x3D;&#39;red&#39;)
+show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="注意重叠问题："><a href="#注意重叠问题：" class="headerlink" title="注意重叠问题："></a>注意重叠问题：</h3></li>
+<li>在绘制多组条形图进行对比时需要注意一点，bar_width的范围是(0,1)没错，但是多组图表需要保证几组图表的范围之和不超过1（范围之和！和！！和！！！）<br>```</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -1246,7 +1295,7 @@ show()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.8k</span>&nbsp;字
+                class="white-color">31.7k</span>&nbsp;字
             
             
             
