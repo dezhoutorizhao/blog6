@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>常用文件管理命令</title>
+      <link href="/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/"/>
+      <url>/blog6/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</url>
+      
+        <content type="html"><![CDATA[<h1 id="相对路径："><a href="#相对路径：" class="headerlink" title="相对路径："></a>相对路径：</h1><ol><li>以引用文件之网页躲在位置为参考基础而建立出来的目录路径。</li><li>当保存不同目录的网页引用同一个文件时，所使用的路径将不相同，因此称为相对</li><li>不以/开头，默认是当前文件夹，直接选择当前文件夹下的一个文件夹分支即可</li></ol><h1 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h1><ol><li>以web站点根目录为参考基础的目录路径，之所以称为绝对，意为指当所有网页引用同一个文件时，所使用的路径都是一样的</li><li>以/开头</li></ol><h1 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h1><ol><li>每一级目录都是将/放在当前级目录后面<h1 id="不同之处"><a href="#不同之处" class="headerlink" title="不同之处"></a>不同之处</h1></li><li>描述目录路径时，采用的参考点不同</li><li>由于对网站上所有文件而言，根目录这个参考点对所有文件都是一样的，所以运用以根目录为参考点的路径描述方式才会被称为绝对路径</li></ol><h1 id="常用文件种类（-根目录下）"><a href="#常用文件种类（-根目录下）" class="headerlink" title="常用文件种类（/根目录下）"></a>常用文件种类（/根目录下）</h1><h2 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h2><ol><li>常用可执行二进制文件的命令</li></ol><h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><ol><li>配置文件</li></ol><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ol><li>网站日志log会在var中</li></ol><h2 id="lib"><a href="#lib" class="headerlink" title="lib"></a>lib</h2><ol><li>存安装包或库文件</li></ol><h2 id="home"><a href="#home" class="headerlink" title="home"></a>home</h2><ol><li>所有用户的家目录</li></ol><h2 id="proc"><a href="#proc" class="headerlink" title="proc"></a>proc</h2><ol><li>process，进程信息</li><li>cpuinfo：cpu信息</li></ol><h2 id="root"><a href="#root" class="headerlink" title="root"></a>root</h2><ol><li>根目录</li></ol><h2 id="注意区分家目录和根目录"><a href="#注意区分家目录和根目录" class="headerlink" title="注意区分家目录和根目录"></a>注意区分家目录和根目录</h2><ol><li>根目录是最上一级目录,/</li><li>家目录是根目录下的一个分支,/home</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安装vmware tools</title>
       <link href="/blog6/%E5%AE%89%E8%A3%85vmwaretools/"/>
       <url>/blog6/%E5%AE%89%E8%A3%85vmwaretools/</url>
@@ -1243,7 +1268,7 @@
       <link href="/blog6/git/"/>
       <url>/blog6/git/</url>
       
-        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li>工作区：仓库的目录</li><li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li><li>版本库：存放所有已经提交到本地仓库的代码版本</li><li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li><li>git config –global user.email <a href="mailto:&#x78;&#x78;&#120;&#x40;&#x78;&#x78;&#120;&#x2e;&#99;&#111;&#109;">&#x78;&#x78;&#120;&#x40;&#x78;&#x78;&#120;&#x2e;&#99;&#111;&#109;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li><li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li><li>git add xxx:将xxx文件添加到暂存区</li><li>git add .:将所有待加入暂存区的文件加入暂存区</li><li>git rm –catched xx:将文件从仓库索引目录中删掉</li><li>git log :查看xx当前分支中的所有版本 </li><li>git reflog : 查看HEAD指针的移动历史</li><li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li><li>git reset –hard HEAD^^回滚两次，以此类推</li><li>git reset –hard HEAD~num:回滚num次</li><li>git reset –hard 版本号：回滚到某一特定版本</li><li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li><li>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#46;&#x61;&#x63;&#x77;&#105;&#x6e;&#x67;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#46;&#x61;&#x63;&#x77;&#105;&#x6e;&#x67;&#46;&#x63;&#111;&#109;</a>:…将本地仓库关联到远程仓库</li><li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li><li>git push origin branch_name:将本地的某个分支推送到远程仓库</li><li>git clone <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#46;&#x61;&#99;&#x77;&#105;&#110;&#103;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#46;&#x61;&#99;&#x77;&#105;&#110;&#103;&#x2e;&#x63;&#x6f;&#109;</a>:…将远程仓库xxx下载到当前目录下</li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li>工作区：仓库的目录</li><li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li><li>版本库：存放所有已经提交到本地仓库的代码版本</li><li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li><li>git config –global user.email <a href="mailto:&#x78;&#x78;&#120;&#x40;&#x78;&#120;&#x78;&#x2e;&#99;&#111;&#x6d;">&#x78;&#x78;&#120;&#x40;&#x78;&#120;&#x78;&#x2e;&#99;&#111;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li><li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li><li>git add xxx:将xxx文件添加到暂存区</li><li>git add .:将所有待加入暂存区的文件加入暂存区</li><li>git rm –catched xx:将文件从仓库索引目录中删掉</li><li>git log :查看xx当前分支中的所有版本 </li><li>git reflog : 查看HEAD指针的移动历史</li><li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li><li>git reset –hard HEAD^^回滚两次，以此类推</li><li>git reset –hard HEAD~num:回滚num次</li><li>git reset –hard 版本号：回滚到某一特定版本</li><li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li><li>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x2e;&#x61;&#99;&#119;&#x69;&#110;&#x67;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x2e;&#x61;&#99;&#119;&#x69;&#110;&#x67;&#x2e;&#99;&#x6f;&#x6d;</a>:…将本地仓库关联到远程仓库</li><li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li><li>git push origin branch_name:将本地的某个分支推送到远程仓库</li><li>git clone <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#46;&#97;&#99;&#x77;&#x69;&#110;&#103;&#46;&#99;&#111;&#109;">&#103;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#46;&#97;&#99;&#x77;&#x69;&#110;&#103;&#46;&#99;&#111;&#109;</a>:…将远程仓库xxx下载到当前目录下</li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol>]]></content>
       
       
       <categories>
@@ -1527,9 +1552,9 @@
       
         <tags>
             
-            <tag> 文件修复 </tag>
-            
             <tag> 定义 </tag>
+            
+            <tag> 文件修复 </tag>
             
         </tags>
       
@@ -1542,7 +1567,7 @@
       <link href="/blog6/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
       <url>/blog6/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#x78;&#120;&#x78;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#120;&#x78;&#120;&#x78;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#x78;&#120;&#120;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#120;&#x78;&#120;&#120;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
       
       
       <categories>
