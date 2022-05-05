@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="二分算法，判断第一次和最后一次出现的下标, 更好的明天">
+    <meta name="keywords" content="整数二分, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>二分算法，判断第一次和最后一次出现的下标 | 更好的明天</title>
+    <title>整数二分 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二分算法，判断第一次和最后一次出现的下标</h1>
+                    <h1 class="description center-align post-title">整数二分</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/acm%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">acm算法</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BA%8C%E5%88%86/">
-                                <span class="chip bg-color">二分</span>
+                            <a href="/tags/acm/">
+                                <span class="chip bg-color">acm</span>
                             </a>
                         
                     </div>
@@ -447,12 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/acm%E7%AE%97%E6%B3%95/" class="post-category">
-                                acm算法
-                            </a>
-                        
-                            <a href="/categories/acm%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86/" class="post-category">
-                                二分
+                            <a href="/categories/acm/" class="post-category">
+                                acm
                             </a>
                         
                     </div>
@@ -473,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    291
+                    174
                 </div>
                 
 
@@ -503,42 +495,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="二分算法，判断第一次和最后一次出现的下标"><a href="#二分算法，判断第一次和最后一次出现的下标" class="headerlink" title="二分算法，判断第一次和最后一次出现的下标"></a>二分算法，判断第一次和最后一次出现的下标</h1><h2 id="第一次"><a href="#第一次" class="headerlink" title="第一次"></a>第一次</h2><pre class="line-numbers language-none"><code class="language-none">int findfirst(int nums[],int target,int left,int right)&#123;
-    while(Left &lt;&#x3D; right)&#123;
-        int mid &#x3D; left + right &gt;&gt; 1;
-        if(nums[mid] &lt; target) left &#x3D; mid + 1;
-        else if(nums[mid] &gt;&#x3D; target) right &#x3D; mid - 1;&#x2F;&#x2F;注意这个地方的等号和-1
-    &#125;
-    &#x2F;&#x2F;注意这个地方的特判，必须当r大于0（存在）且中间值等于target时才可以
-    if(right &gt;&#x3D; 0 &amp;&amp; nums[mid] &#x3D;&#x3D; target)&#123;
-        return right;
-    &#125;
-    return -1;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="最后一次"><a href="#最后一次" class="headerlink" title="最后一次"></a>最后一次</h2><pre class="line-numbers language-none"><code class="language-none">int findlast(int nums[],int target,int left,int right)&#123;
-    &#x2F;&#x2F;注意当寻找的是前后的边界时写的是left &lt;&#x3D; right，有等号
-    while(left &lt;&#x3D; right)&#123;
-        int mid &#x3D; left + target &gt;&gt; 1;
-        if(nums[mid] &gt; target) r &#x3D; mid - 1;
-        else if(nums[mid] &lt;&#x3D; target) l &#x3D; mid + 1;
-    &#125;
-    if(left !&#x3D; last &amp;&amp; nums[mid] &#x3D;&#x3D; target)&#123;
-        return left;
-    &#125;
-    return -1;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="不去判断前后边界，只是去找是否存在"><a href="#不去判断前后边界，只是去找是否存在" class="headerlink" title="不去判断前后边界，只是去找是否存在"></a>不去判断前后边界，只是去找是否存在</h2><pre class="line-numbers language-none"><code class="language-none">int find(int nums[],int target,int left,int right)
-&#123;
-    while(left &lt;&#x3D; right)&#123;
-        int mid &#x3D; left + right &gt;&gt; 1;
-        if(nums[mid] &gt; target) right &#x3D; mid - 1;
-        else left &#x3D; mid;
-    &#125;
-    if(a[l] &#x3D;&#x3D; target)&#123;
-        return left;
-    &#125;
-    return -1;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="整数二分步骤"><a href="#整数二分步骤" class="headerlink" title="整数二分步骤"></a>整数二分步骤</h1><ol>
+<li>找一个区间l,r，使得答案一定在该区间中</li>
+<li>找一个判断条件，使得该判断条件具有二段性，并且答案一定是在该二段性的分界点</li>
+<li>分析终点M在该判断条件下是否成立，如果成立，考虑答案在哪个区间，如果不成立，考虑答案在哪个区间（答案一定落在M上））</li>
+<li>如果更新方式是￥R=mid 则不用做任何处理，如果L=mid,则需要在计算mid时+1</li>
+<li>我的想法：L=mid，终点落在L上，则判断为左边界</li>
+<li>R=mid，终点落在R上，则判断为右边界</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -602,12 +567,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/acm%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">acm算法</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BA%8C%E5%88%86/">
-                                    <span class="chip bg-color">二分</span>
+                                <a href="/tags/acm/">
+                                    <span class="chip bg-color">acm</span>
                                 </a>
                             
                         </div>
@@ -1052,7 +1013,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.6k</span>&nbsp;字
+                class="white-color">34.6k</span>&nbsp;字
             
             
             
