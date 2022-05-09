@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -665,6 +665,43 @@ for(int i &#x3D; n;i &gt;&#x3D; 0;i --)&#123;
 
 <h1 id="返回x的最后一位1"><a href="#返回x的最后一位1" class="headerlink" title="返回x的最后一位1:"></a>返回x的最后一位1:</h1><ol>
 <li>lowbit(x) = x &amp; -x</li>
+</ol>
+<h2 id="常用库函数"><a href="#常用库函数" class="headerlink" title="常用库函数"></a>常用库函数</h2><h3 id="在算法库中"><a href="#在算法库中" class="headerlink" title="在算法库中"></a>在<algorithm>算法库中</h3><h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h4><ol>
+<li>反转数组<pre class="line-numbers language-none"><code class="language-none">vector&lt;int&gt; a;
+reverse(a.begin(),a.end());
+&#x2F;&#x2F;反转数组
+reverse(a,a+a.size()+1);&#x2F;&#x2F;a的首部位置和a的最后一个元素的下一个位置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><img src="https://s2.loli.net/2022/05/06/LbQafHFu6lERZyT.png"></li>
+</ol>
+<h4 id="unique"><a href="#unique" class="headerlink" title="unique"></a>unique</h4><ol>
+<li>数组判重，然后将元素放到数组开头的位置,但是重复的元素只是放到后面，不是删除</li>
+<li>返回值：不同元素的下一个位置的指针</li>
+<li>注意：只是去掉相邻的相同元素，必要时需要sort排序<pre class="line-numbers language-none"><code class="language-none">int m &#x3D; unique(a.begin(),a.end()) - a.begin()
+&#x2F;&#x2F;返回的差值是数组中不同元素的个数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><img src="https://s2.loli.net/2022/05/06/glWePkoQ8NDbuhn.png"></li>
+<li><img src="https://s2.loli.net/2022/05/06/8goGlZO6KeLnYEh.png"></li>
+</ol>
+<h4 id="random-shuffle"><a href="#random-shuffle" class="headerlink" title="random_shuffle()"></a>random_shuffle()</h4><ol>
+<li>参数和reverse()函数一样<pre class="line-numbers language-none"><code class="language-none">random_shuffle(a.begin(),a.end());<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>打乱数组</li>
+<li>random_shuffle(a.begin(),a.end());</li>
+<li>随机种子不一样，打乱顺序不一样</li>
+<li>一般引用<ctime>库中的time(0)函数，生成种子；</li>
+<li><img src="https://s2.loli.net/2022/05/06/AfJWYFN9o854l6w.png"></li>
+</ol>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><ol>
+<li>sort(a.begin(),a.end())从小到大</li>
+<li>如果希望从大到小排序，则需要加上一个参数greater<int>()<pre class="line-numbers language-none"><code class="language-none">sort(a.begin(),a.end(),greater&lt;int&gt;())
+3. 按照自己的想法进行排序，自己写一个cmp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">bool cmp(int a,int b)&#123;&#x2F;&#x2F;a是否应该排在b的前面
+    return a &gt; b;&#x2F;&#x2F;从大到小
+    return a &lt; b;&#x2F;&#x2F;从小到大
+    &#x2F;&#x2F;如果a应该排在b的前面，返回true,否则返回false
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>如果需要重载大于或小于号的写法<pre class="line-numbers language-none"><code class="language-none">bool opeartor&lt; (const Rec &amp;t) const
+&#123;
+    return x &lt; t.x;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -1188,7 +1225,7 @@ for(int i &#x3D; n;i &gt;&#x3D; 0;i --)&#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34.6k</span>&nbsp;字
+                class="white-color">35.2k</span>&nbsp;字
             
             
             
