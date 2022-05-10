@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    48
+                    108
                 </div>
                 
 
@@ -495,13 +495,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="REQUEST-‘x’"><a href="#REQUEST-‘x’" class="headerlink" title="$_REQUEST(‘x’)"></a>$_REQUEST(‘x’)</h2><ol>
+                <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><ol>
+<li>$_REQUEST是一个PHP超级全局变量，用于在提交HTML表单后收集数据</li>
 <li>其中request内部x为参数名称</li>
 <li>$id=$request;id是变量名称<br><img src="https://s2.loli.net/2022/05/09/sgActeK3pFujEQB.png"></li>
 <li>?id=是get传参，参数传递给id</li>
 <li>mysql_query($sql)来执行sql语句</li>
 <li>mysql_fetch_array($result)来展示结果</li>
 <li><img src="https://s2.loli.net/2022/05/09/ECWUtYsDQBVLHvq.png"></li>
+<li>通过参数传递，拼接到之前定义的sql语句中，来实现自定义查询<br><img src="https://s2.loli.net/2022/05/10/A7tpuDqGrkaINRs.png"></li>
+</ol>
+<h1 id="常用unicode编码"><a href="#常用unicode编码" class="headerlink" title="常用unicode编码"></a>常用unicode编码</h1><ol>
+<li>%20是空格’ ‘</li>
+<li>%23是注释#</li>
 </ol>
 
                 
