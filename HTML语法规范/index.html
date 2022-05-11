@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -498,43 +498,120 @@
                 <span class="label label-info">info</span>
 <h2 id="XHTML的出现是为了过渡到xml"><a href="#XHTML的出现是为了过渡到xml" class="headerlink" title="XHTML的出现是为了过渡到xml"></a>XHTML的出现是为了过渡到xml</h2><h2 id="HTML中不区分大小写，但是我们一般都使用小写"><a href="#HTML中不区分大小写，但是我们一般都使用小写" class="headerlink" title="HTML中不区分大小写，但是我们一般都使用小写"></a>HTML中不区分大小写，但是我们一般都使用小写</h2><h2 id="HTML的注释不能嵌套（就和c-中的if-else一样）"><a href="#HTML的注释不能嵌套（就和c-中的if-else一样）" class="headerlink" title="HTML的注释不能嵌套（就和c++中的if-else一样）"></a>HTML的注释不能嵌套（就和c++中的if-else一样）</h2><h2 id="HTML标签必须结构完整，要么成对出现，要么自结束标签"><a href="#HTML标签必须结构完整，要么成对出现，要么自结束标签" class="headerlink" title="HTML标签必须结构完整，要么成对出现，要么自结束标签"></a>HTML标签必须结构完整，要么成对出现，要么自结束标签</h2><ol>
 <li>浏览器会尽最大努力正确解析页面，不符合语法规范的内容，浏览器会自动修正</li>
-<li>但是有些情况会修正错误<h1 id="F12会跳出开发者控制台"><a href="#F12会跳出开发者控制台" class="headerlink" title="F12会跳出开发者控制台"></a>F12会跳出开发者控制台</h1>##自结束标签：</li>
+<li>但是有些情况会修正错误<h1 id="F12会跳出开发者控制台"><a href="#F12会跳出开发者控制台" class="headerlink" title="F12会跳出开发者控制台"></a>F12会跳出开发者控制台</h1><h2 id="自结束标签："><a href="#自结束标签：" class="headerlink" title="自结束标签："></a>自结束标签：</h2></li>
 <li>html5中&lt; br &gt;</li>
 <li>xhtml中&lt; br /&gt;(最后有反斜杠)<h2 id="HTML标签可以嵌套，但是不能交叉嵌套"><a href="#HTML标签可以嵌套，但是不能交叉嵌套" class="headerlink" title="HTML标签可以嵌套，但是不能交叉嵌套"></a>HTML标签可以嵌套，但是不能交叉嵌套</h2><h2 id="HTML标签中的属性必须有值，且值必须加引号"><a href="#HTML标签中的属性必须有值，且值必须加引号" class="headerlink" title="HTML标签中的属性必须有值，且值必须加引号"></a>HTML标签中的属性必须有值，且值必须加引号</h2></li>
 <li>&lt; font color=”red” &gt;</li>
 <li>单双引号均可</li>
 </ol>
-<h1 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h1><h2 id="可以提供页面元信息"><a href="#可以提供页面元信息" class="headerlink" title="可以提供页面元信息"></a>可以提供页面元信息</h2><h2 id="meta标签永远位于head元素内部"><a href="#meta标签永远位于head元素内部" class="headerlink" title="meta标签永远位于head元素内部"></a>meta标签永远位于head元素内部</h2><h2 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h2><h3 id="必须"><a href="#必须" class="headerlink" title="必须"></a>必须</h3><ol>
+<h1 id="live-server快捷键"><a href="#live-server快捷键" class="headerlink" title="live-server快捷键"></a>live-server快捷键</h1><ol>
+<li>写标签的名字后按tab键补全</li>
+<li>写开始标签，回车自动补全</li>
+<li>ctrl+/，自动生成注释标签</li>
+</ol>
+<h1 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><ol>
+<li>HTML中元素指的是从开始标签到结束标签的所有代码，或者开放标签和闭合标签</li>
+</ol>
+<h1 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h1><ol>
+<li>在网页中，编写的多个空格，会被浏览器自动解析为一个空格</li>
+<li>在html中我们不能直接书写一些特殊符号，比如连续多个空格，比如字母两侧的大于和小于号</li>
+<li>如果我们需要在网页中书写这些符号，需要使用html中的实体（转义字符）</li>
+<li>实体的语法<pre class="line-numbers language-none"><code class="language-none">&amp;实体的名字;
+    &amp;nbsp;空格
+    &gt;大于号
+    &lt;小于号
+    &amp;copy;版权符号
+&amp;开头;结尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h1><pre class="line-numbers language-none"><code class="language-none">定义：the html &lt;meta&gt; represents metadata that cannot be represented by other html meta related elements,like &lt;base&gt;,&lt;link&gt;,&lt;script&gt;,&lt;style&gt;,&lt;title&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="可以提供页面元信息"><a href="#可以提供页面元信息" class="headerlink" title="可以提供页面元信息"></a>可以提供页面元信息</h2><pre class="line-numbers language-none"><code class="language-none">元信息是指描述自身的信息，元信息类标签是指html中用于描述文档自身的一类标签
+通常出现在head标签中，提供给浏览器或者搜索引擎阅读的，一般不会显示给用户<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="meta标签永远位于head元素内部"><a href="#meta标签永远位于head元素内部" class="headerlink" title="meta标签永远位于head元素内部"></a>meta标签永远位于head元素内部</h2><h2 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h2><pre class="line-numbers language-none"><code class="language-none">content指定的数据内容
+    charset: 指定网页的字符集
+    name: 指定数据的名称
+    content： 指定数据的内容
+    keywords: 表示网站的关键字
+    description: 用于指定网站的描述,显示在搜索引擎中的搜索结果中
+
+title标签的内容会作为搜索结果的超链接上的文字显示
+![](https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;05&#x2F;11&#x2F;ZpA93mTEXU82Yr4.png)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="必须"><a href="#必须" class="headerlink" title="必须"></a>必须</h3><ol>
 <li>content:定义与http-equiv或name属性相关的元信息（使用，进行分割）<h3 id="可选："><a href="#可选：" class="headerlink" title="可选："></a>可选：</h3></li>
 <li>http-equiv:把content属性关联到HTTP头部</li>
 <li>name:把content属性关联到一个名称</li>
-<li>scheme:定义用于翻译content属性值的格式<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4></li>
-<li>keywords:为文档定义了一组关键字，某些搜索引擎在遇到这些关键字时会用这些关键字对文档进行分类。<meta name="keywords" content="HTML,ASP,PHP" />(会将HTML等内容进行转keywords操作，content内容使用,进行分割)<h3 id="http-equiv"><a href="#http-equiv" class="headerlink" title="http-equiv"></a>http-equiv</h3></li>
+<li>scheme:定义用于翻译content属性值的格式</li>
+<li>description:<img src="https://s2.loli.net/2022/05/11/QjIFcrkgbGBCHPO.png"><h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4></li>
+<li>keywords:为文档定义了一组关键字，某些搜索引擎在遇到这些关键字时会用这些关键字对文档进行分类。<meta name="keywords" content="HTML,ASP,PHP" />(会将HTML等内容进行转keywords操作，content内容使用,进行分割)<h3 id="http-equiv"><a href="#http-equiv" class="headerlink" title="http-equiv"></a>http-equiv</h3><pre class="line-numbers language-none"><code class="language-none">用来设置http协议，将一个页面重定向到另一个网站，<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>为名称/值对提供了名称，并指示服务器在发送实际的文档之前先要传送给浏览器的MIME文档头部包含名称值对。</li>
 <li>当服务器向浏览器发送文档时，会先发送许多名称/值对，但是所有的服务器都至少要发送一个。</li>
 <li>使用带有http-equiv属性的meta标签时，服务器将把名称/值对添加到发送给浏览器的内容头部</li>
-<li><meta http-equiv="charset" content="iso-8859-1">
-### content</li>
+<li><meta http-equiv="charset" content="iso-8859-1"></li>
+<li><img src="https://s2.loli.net/2022/05/11/QNcIihLlHoBgq2U.png"></li>
+<li>其中3表示时间，url表示往哪跳转，重定向到哪.之间用什么间隔<h3 id="content"><a href="#content" class="headerlink" title="content"></a>content</h3></li>
 <li>提供了名称/值对中的值，该值可以是任何有效的字符串</li>
 <li>content属性始终要和name属性或http-equiv属性一起使用<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2></li>
 <li><meta http-equiv="Refresh" content="间隔时间；url=跳转页面的url"></li>
 </ol>
-<h1 id="常用的标签："><a href="#常用的标签：" class="headerlink" title="常用的标签："></a>常用的标签：</h1><h2 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h2><ol>
+<h1 id="常用的标签："><a href="#常用的标签：" class="headerlink" title="常用的标签："></a>常用的标签：</h1><h2 id="在页面中独占一行的元素称为块元素block-element"><a href="#在页面中独占一行的元素称为块元素block-element" class="headerlink" title="在页面中独占一行的元素称为块元素block element"></a>在页面中独占一行的元素称为块元素block element</h2><h3 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h3><ol>
 <li>HTML中一共有六级标签：h1~h6</li>
 <li>h1最大，为一级；h6为最小，为6级</li>
 <li>一般不用，主要是css来修改</li>
 <li>使用HTML标签时，关心的是标签的语义，我们使用的标签都是语义化标签</li>
-<li>6级标签中，h1最重要，表示一个网页中的主要内容，h2~h6的重要性一次降低<h3 id="对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容"><a href="#对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容" class="headerlink" title="对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容"></a>对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容</h3></li>
+<li>6级标签中，h1最重要，表示一个网页中的主要内容，h2~h6的重要性一次降低</li>
+<li>搜索引擎先搜素title标签，然后就会搜索标题标签，从h1到h6</li>
+</ol>
+<h4 id="对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容"><a href="#对于搜索引擎来说，h1的重要性仅次于title-搜索引擎检索完title，会立即查看h1中的内容" class="headerlink" title="对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容"></a>对于搜索引擎来说，h1的重要性仅次于title,搜索引擎检索完title，会立即查看h1中的内容</h4><ol>
 <li>h1标签非常重要，会影响页面再搜索引擎中的排名，页面只能写一个h1</li>
-<li>一般页面标题中只使用h1,h2,h3，h3以后的基本不使用<h2 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h2></li>
+<li>一般页面标题中只使用h1,h2,h3，h3以后的基本不使用<br><img src="https://s2.loli.net/2022/05/11/evhY6jZuxoz3qRH.png"></li>
+</ol>
+<h4 id="hgroup"><a href="#hgroup" class="headerlink" title="hgroup"></a>hgroup</h4><ol>
+<li>hgroup用来为标题分组，剋将一组相关的标题同时放入到hgroup</li>
+<li>分组的目的是用css单独控制这个组，方便修改样式</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/05/11/Qndbqt1LljZuIz7.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;hgroup&gt;
+    &lt;h1&gt;...&lt;&#x2F;h1&gt;
+    &lt;h2&gt;...&lt;&#x2F;h2&gt;
+&lt;&#x2F;hgroup&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h3><ol>
 <li>用于表示内容中的一个自然段，使用p标签来表示一个段落</li>
 <li><p>中间放段落</p></li>
 <li>p标签中的文字，默认会独占一行，并且段和段之间会有一个间</li>
-<li>但是如果没有p标签则会出现在一行，并且行与行之间没有间距<h3 id="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"><a href="#在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析" class="headerlink" title="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"></a>在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析</h3><h3 id="在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签"><a href="#在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签" class="headerlink" title="在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签"></a>在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签<br /></h3><h3 id="，hr标签也是一个自结束标签，可以在页面中生成一条水平线"><a href="#，hr标签也是一个自结束标签，可以在页面中生成一条水平线" class="headerlink" title="，hr标签也是一个自结束标签，可以在页面中生成一条水平线"></a><hr />，hr标签也是一个自结束标签，可以在页面中生成一条水平线</h3></li>
+<li>但是如果没有p标签则会出现在一行，并且行与行之间没有间距</li>
 </ol>
-<h1 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h1><h2 id="在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）"><a href="#在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）" class="headerlink" title="在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）"></a>在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）</h2><ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a><br></h3><ol>
+<li>在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签<br /></li>
+</ol>
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a><hr></h3><ol>
+<li><hr />，hr标签也是一个自结束标签，可以在页面中生成一条水平线</li>
+</ol>
+<h1 id="在页面中不会独占一行的元素称为行内元素（inline-element"><a href="#在页面中不会独占一行的元素称为行内元素（inline-element" class="headerlink" title="在页面中不会独占一行的元素称为行内元素（inline element)"></a>在页面中不会独占一行的元素称为行内元素（inline element)</h1><h2 id="加重语气标签"><a href="#加重语气标签" class="headerlink" title="加重语气标签"></a><em>加重语气标签</h2><ol>
+<li>样式会和其它的没有em的字体不同，可能会斜体，突出</li>
+<li>没有换行</li>
+<li>只是语气的加重</li>
+</ol>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><strong></h2><ol>
+<li>表示强调，重要内容</li>
+<li>是整体的强调作用</li>
+</ol>
+<h2 id="-3"><a href="#-3" class="headerlink" title=""></a><q></h2><ol>
+<li>表示引用</li>
+<li>短引用</li>
+<li>会有引号，但是不会缩进</li>
+</ol>
+<h2 id="-4"><a href="#-4" class="headerlink" title=""></a><blockquote></h2><ol>
+<li>块引用(长引用)</li>
+<li>会缩进，没有引号</li>
+</ol>
+<h1 id="实体-1"><a href="#实体-1" class="headerlink" title="实体"></a>实体</h1><h2 id="在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）"><a href="#在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）" class="headerlink" title="在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）"></a>在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）</h2><ol>
 <li>需要使用一些特殊的符号来表示这些特殊字符，这些特殊符号我们称为实体（转义字符串）</li>
-<li>浏览器解析到实体时，会自动将实体转换为其对应的字符<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
+<li>浏览器解析到实体时，会自动将实体转换为其对应的字符</li>
+</ol>
+<h2 id="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"><a href="#在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析" class="headerlink" title="在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析"></a>在HTML中，字符之间写再多的空格，浏览器也会当成一个空格解析，换行也会当成一个空格解析</h2><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ol>
 <li>&amp;实体的名字（将linux系统操作的-换位&amp;）(只能说是一部分)</li>
 <li>小于&lt; -lt</li>
 <li>大于&gt; -gt</li>
@@ -546,7 +623,7 @@
 <li>（当图片不能显示时，直接显示alt中的内容），搜索引擎可以通过alt属性来识别不同的图片（百度专门搜索图片的时候就是用alt）</li>
 <li>如果不写alt，搜索引擎将不会对img中的图片进行收录<h3 id="width：可以用来修改图片的宽度，一般使用px为单位（像素）"><a href="#width：可以用来修改图片的宽度，一般使用px为单位（像素）" class="headerlink" title="width：可以用来修改图片的宽度，一般使用px为单位（像素）"></a>width：可以用来修改图片的宽度，一般使用px为单位（像素）</h3><h3 id="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"><a href="#height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小" class="headerlink" title="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"></a>height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小</h3><h2 id="如果两个值同时指定，则按照你指定的值来设置"><a href="#如果两个值同时指定，则按照你指定的值来设置" class="headerlink" title="如果两个值同时指定，则按照你指定的值来设置"></a>如果两个值同时指定，则按照你指定的值来设置</h2></li>
 <li>如果两个值同时指定，则按照你指定的值来设置<h2 id="一般开发中除了自适应页面，不建议设置width和height"><a href="#一般开发中除了自适应页面，不建议设置width和height" class="headerlink" title="一般开发中除了自适应页面，不建议设置width和height"></a>一般开发中除了自适应页面，不建议设置width和height</h2></li>
-<li>让美工话自己想要的大小<h2 id=""><a href="#" class="headerlink" title=""></a><img src="路径" alt="图片描述" /></h2><h1 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h1></li>
+<li>让美工话自己想要的大小<h2 id="-5"><a href="#-5" class="headerlink" title=""></a><img src="路径" alt="图片描述" /></h2><h1 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h1></li>
 <li>JPEG(JPG):支持的颜色比较多，图片可以压缩，但是不支持透明(指的是背景透明)，一般用来保存照片等颜色丰富的图片</li>
 <li>GIF：支持的颜色少，只支持简单的透明（背景透明）（但是边界会有白边），支持动态图，图片颜色单一或者是动态图时可以使用gif</li>
 <li>PNG：支持的颜色多，并且支持复杂的透明（背景透明），可以用来显示颜色复杂的透明的图片<h2 id="图片的使用原则："><a href="#图片的使用原则：" class="headerlink" title="图片的使用原则："></a>图片的使用原则：</h2></li>
@@ -1063,7 +1140,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.2k</span>&nbsp;字
+                class="white-color">35.9k</span>&nbsp;字
             
             
             
