@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -552,7 +552,15 @@ title标签的内容会作为搜索结果的超链接上的文字显示
 <li>content属性始终要和name属性或http-equiv属性一起使用<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2></li>
 <li><meta http-equiv="Refresh" content="间隔时间；url=跳转页面的url"></li>
 </ol>
-<h1 id="常用的标签："><a href="#常用的标签：" class="headerlink" title="常用的标签："></a>常用的标签：</h1><h2 id="在页面中独占一行的元素称为块元素block-element"><a href="#在页面中独占一行的元素称为块元素block-element" class="headerlink" title="在页面中独占一行的元素称为块元素block element"></a>在页面中独占一行的元素称为块元素block element</h2><h3 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h3><ol>
+<h1 id="常用的标签："><a href="#常用的标签：" class="headerlink" title="常用的标签："></a>常用的标签：</h1><h2 id="二者之间的关系"><a href="#二者之间的关系" class="headerlink" title="二者之间的关系"></a>二者之间的关系</h2><ol>
+<li>一般情况下会在块元素中放行内元素</li>
+<li>而不会在行内元素中放块元素</li>
+<li>块元素中一般什么都能放</li>
+<li>但是尤其注意：p元素中不能放任何的块元素<br><img src="https://s2.loli.net/2022/05/12/QuWLGEeUR6FXwmc.png"><br><img src="https://s2.loli.net/2022/05/12/HaYZM1bfSoLrFQJ.png"></li>
+</ol>
+<h2 id="在页面中独占一行的元素称为块元素block-element"><a href="#在页面中独占一行的元素称为块元素block-element" class="headerlink" title="在页面中独占一行的元素称为块元素block element"></a>在页面中独占一行的元素称为块元素block element</h2><ol>
+<li>在页面中一般通过块元素来对页面进行宏观布局</li>
+<li><img src="https://s2.loli.net/2022/05/12/96Cd5z1Z2fqwMFv.png"><h3 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h3></li>
 <li>HTML中一共有六级标签：h1~h6</li>
 <li>h1最大，为一级；h6为最小，为6级</li>
 <li>一般不用，主要是css来修改</li>
@@ -589,7 +597,11 @@ title标签的内容会作为搜索结果的超链接上的文字显示
 <h3 id="-1"><a href="#-1" class="headerlink" title=""></a><hr></h3><ol>
 <li><hr />，hr标签也是一个自结束标签，可以在页面中生成一条水平线</li>
 </ol>
-<h1 id="在页面中不会独占一行的元素称为行内元素（inline-element"><a href="#在页面中不会独占一行的元素称为行内元素（inline-element" class="headerlink" title="在页面中不会独占一行的元素称为行内元素（inline element)"></a>在页面中不会独占一行的元素称为行内元素（inline element)</h1><h2 id="加重语气标签"><a href="#加重语气标签" class="headerlink" title="加重语气标签"></a><em>加重语气标签</h2><ol>
+<h1 id="在页面中不会独占一行的元素称为行内元素（inline-element"><a href="#在页面中不会独占一行的元素称为行内元素（inline-element" class="headerlink" title="在页面中不会独占一行的元素称为行内元素（inline element)"></a>在页面中不会独占一行的元素称为行内元素（inline element)</h1><ol>
+<li>和布局无关</li>
+<li>主要用来包裹文字</li>
+</ol>
+<h2 id="加重语气标签"><a href="#加重语气标签" class="headerlink" title="加重语气标签"></a><em>加重语气标签</h2><ol>
 <li>样式会和其它的没有em的字体不同，可能会斜体，突出</li>
 <li>没有换行</li>
 <li>只是语气的加重</li>
@@ -606,6 +618,16 @@ title标签的内容会作为搜索结果的超链接上的文字显示
 <h2 id="-4"><a href="#-4" class="headerlink" title=""></a><blockquote></h2><ol>
 <li>块引用(长引用)</li>
 <li>会缩进，没有引号</li>
+</ol>
+<h1 id="浏览器的自动修正"><a href="#浏览器的自动修正" class="headerlink" title="浏览器的自动修正"></a>浏览器的自动修正</h1><ol>
+<li>浏览器在解析网页时，会对网页中不符合规范的内容进行修正</li>
+<li>比如标签写在了根&lt; html &gt;的外部</li>
+<li>p元素中嵌套了块元素</li>
+<li>根元素中出现了head和body以外的子元素<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2></li>
+<li>修正的不是源码</li>
+<li>而是源码在内存中的形式</li>
+<li>看的是f12打开后的element元素</li>
+<li><img src="https://s2.loli.net/2022/05/12/5LTbZUdfRzYraI6.png"></li>
 </ol>
 <h1 id="实体-1"><a href="#实体-1" class="headerlink" title="实体"></a>实体</h1><h2 id="在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）"><a href="#在HTML中-lt-gt-这种特殊字符不能直接使用（-lt-gt-会被解析为标签）" class="headerlink" title="在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）"></a>在HTML中&lt; &gt;这种特殊字符不能直接使用（&lt;&gt;会被解析为标签）</h2><ol>
 <li>需要使用一些特殊的符号来表示这些特殊字符，这些特殊符号我们称为实体（转义字符串）</li>
@@ -1140,7 +1162,7 @@ title标签的内容会作为搜索结果的超链接上的文字显示
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.9k</span>&nbsp;字
+                class="white-color">36.1k</span>&nbsp;字
             
             
             
