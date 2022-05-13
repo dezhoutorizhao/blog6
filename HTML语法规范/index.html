@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    11 分
                 </div>
                 
 
@@ -582,19 +582,51 @@ title标签的内容会作为搜索结果的超链接上的文字显示
     &lt;h2&gt;...&lt;&#x2F;h2&gt;
 &lt;&#x2F;hgroup&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-
+<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a><header>标签</h4><ol>
+<li><header></header>
+![](https://s2.loli.net/2022/05/13/A3rjc1Gludx48Q7.png)</li>
+<li>定义网页的头部</li>
+<li>可以是网页的某一个部分的头部，所以header标签可以不只有一个</li>
+</ol>
+<h4 id=""><a href="#" class="headerlink" title=""></a><main></h4><ol>
+<li>网页的主体部分</li>
+<li>和c++main函数一样，一个页面中只能有一个</li>
+</ol>
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a><footer></h4><ol>
+<li>网页的底部<br><img src="https://s2.loli.net/2022/05/13/9qymkQrbfwnPjig.png"></li>
+<li>可以是网页的某一个部分的底部，所以footer标签不只有一个</li>
+</ol>
+<h4 id="-2"><a href="#-2" class="headerlink" title=""></a><nav></h4><ol>
+<li>表示网页的导航</li>
+<li><img src="https://s2.loli.net/2022/05/13/GAeNYhfSF3ksCgH.png"></li>
+</ol>
+<h4 id="-3"><a href="#-3" class="headerlink" title=""></a><aside></h4><ol>
+<li>和主体相关又不属于主体</li>
+<li>对文章中的某一个字或词在旁边进行图解注释<br><img src="https://s2.loli.net/2022/05/13/gKvtkwVUAzMqjPo.png"></li>
+</ol>
+<h4 id="-4"><a href="#-4" class="headerlink" title=""></a><article></h4><ol>
+<li>表示一个独立的文章</li>
+<li>每一个独立的<article>都可以插入小的<article></li>
+</ol>
+<h4 id="-5"><a href="#-5" class="headerlink" title=""></a><section></h4><ol>
+<li>表示一个独立的区块(其它)</li>
+<li>上面的标签都不能表示时，使用section</li>
+<li>例如header里面放三个section<br><img src="https://s2.loli.net/2022/05/13/87bqE6IzhRxBsrp.png"></li>
+</ol>
+<h4 id="-6"><a href="#-6" class="headerlink" title=""></a><div></h4><ol>
+<li>没有语义，就是用来表示一个区块</li>
+<li>上面的<header>,<aside>,<article>,<section>,<nav>都可以用div来代替</li>
+</ol>
 <h3 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h3><ol>
 <li>用于表示内容中的一个自然段，使用p标签来表示一个段落</li>
 <li><p>中间放段落</p></li>
 <li>p标签中的文字，默认会独占一行，并且段和段之间会有一个间</li>
 <li>但是如果没有p标签则会出现在一行，并且行与行之间没有间距</li>
 </ol>
-<h3 id=""><a href="#" class="headerlink" title=""></a><br></h3><ol>
+<h3 id="-7"><a href="#-7" class="headerlink" title=""></a><br></h3><ol>
 <li>在页面中也可以使用br标签来表示一个换行，br标签是一个自结束标签<br /></li>
 </ol>
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a><hr></h3><ol>
+<h3 id="-8"><a href="#-8" class="headerlink" title=""></a><hr></h3><ol>
 <li><hr />，hr标签也是一个自结束标签，可以在页面中生成一条水平线</li>
 </ol>
 <h1 id="在页面中不会独占一行的元素称为行内元素（inline-element"><a href="#在页面中不会独占一行的元素称为行内元素（inline-element" class="headerlink" title="在页面中不会独占一行的元素称为行内元素（inline element)"></a>在页面中不会独占一行的元素称为行内元素（inline element)</h1><ol>
@@ -606,18 +638,21 @@ title标签的内容会作为搜索结果的超链接上的文字显示
 <li>没有换行</li>
 <li>只是语气的加重</li>
 </ol>
-<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><strong></h2><ol>
+<h2 id="-9"><a href="#-9" class="headerlink" title=""></a><strong></h2><ol>
 <li>表示强调，重要内容</li>
 <li>是整体的强调作用</li>
 </ol>
-<h2 id="-3"><a href="#-3" class="headerlink" title=""></a><q></h2><ol>
+<h2 id="-10"><a href="#-10" class="headerlink" title=""></a><q></h2><ol>
 <li>表示引用</li>
 <li>短引用</li>
 <li>会有引号，但是不会缩进</li>
 </ol>
-<h2 id="-4"><a href="#-4" class="headerlink" title=""></a><blockquote></h2><ol>
+<h2 id="-11"><a href="#-11" class="headerlink" title=""></a><blockquote></h2><ol>
 <li>块引用(长引用)</li>
 <li>会缩进，没有引号</li>
+</ol>
+<h2 id="-12"><a href="#-12" class="headerlink" title=""></a><span></h2><ol>
+<li>行内元素，没有任何的语义，一般用于在网页中选中文字</li>
 </ol>
 <h1 id="浏览器的自动修正"><a href="#浏览器的自动修正" class="headerlink" title="浏览器的自动修正"></a>浏览器的自动修正</h1><ol>
 <li>浏览器在解析网页时，会对网页中不符合规范的内容进行修正</li>
@@ -641,16 +676,88 @@ title标签的内容会作为搜索结果的超链接上的文字显示
 <li>版权符号 &amp;copy（不让你copy）<h3 id="amp-开头，；结尾"><a href="#amp-开头，；结尾" class="headerlink" title="&amp;开头，；结尾"></a>&amp;开头，；结尾</h3></li>
 </ol>
 <h1 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a>图片标签</h1><h2 id="使用img-image-标签来向网页中引入一个外部图片"><a href="#使用img-image-标签来向网页中引入一个外部图片" class="headerlink" title="使用img(image)标签来向网页中引入一个外部图片"></a>使用img(image)标签来向网页中引入一个外部图片</h2><ol>
-<li>img标签也是一个自结束标签<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="src：设置一个外部图片的路径"><a href="#src：设置一个外部图片的路径" class="headerlink" title="src：设置一个外部图片的路径"></a>src：设置一个外部图片的路径</h3><h3 id="alt：可以用来设置图片的描述"><a href="#alt：可以用来设置图片的描述" class="headerlink" title="alt：可以用来设置图片的描述"></a>alt：可以用来设置图片的描述</h3></li>
+<li>img标签也是一个自结束标签<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2></li>
+<li>img标签属于一种替换元素，介于行内元素和块元素之间，具备行内元素和块元素的特点<h3 id="src：设置一个外部图片的路径"><a href="#src：设置一个外部图片的路径" class="headerlink" title="src：设置一个外部图片的路径"></a>src：设置一个外部图片的路径</h3></li>
+<li>路径规则和超链接是一样的，src指定的是外部图片的路径<h3 id="alt：可以用来设置图片的描述"><a href="#alt：可以用来设置图片的描述" class="headerlink" title="alt：可以用来设置图片的描述"></a>alt：可以用来设置图片的描述</h3></li>
 <li>（当图片不能显示时，直接显示alt中的内容），搜索引擎可以通过alt属性来识别不同的图片（百度专门搜索图片的时候就是用alt）</li>
 <li>如果不写alt，搜索引擎将不会对img中的图片进行收录<h3 id="width：可以用来修改图片的宽度，一般使用px为单位（像素）"><a href="#width：可以用来修改图片的宽度，一般使用px为单位（像素）" class="headerlink" title="width：可以用来修改图片的宽度，一般使用px为单位（像素）"></a>width：可以用来修改图片的宽度，一般使用px为单位（像素）</h3><h3 id="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"><a href="#height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小" class="headerlink" title="height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小"></a>height：可以用来修改土拍你的高度，一般使用px为单位，宽度和高度如果只设置一个，另一个也会同时等比例调整大小</h3><h2 id="如果两个值同时指定，则按照你指定的值来设置"><a href="#如果两个值同时指定，则按照你指定的值来设置" class="headerlink" title="如果两个值同时指定，则按照你指定的值来设置"></a>如果两个值同时指定，则按照你指定的值来设置</h2></li>
 <li>如果两个值同时指定，则按照你指定的值来设置<h2 id="一般开发中除了自适应页面，不建议设置width和height"><a href="#一般开发中除了自适应页面，不建议设置width和height" class="headerlink" title="一般开发中除了自适应页面，不建议设置width和height"></a>一般开发中除了自适应页面，不建议设置width和height</h2></li>
-<li>让美工话自己想要的大小<h2 id="-5"><a href="#-5" class="headerlink" title=""></a><img src="路径" alt="图片描述" /></h2><h1 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h1></li>
+<li>让美工话自己想要的大小<h2 id="-13"><a href="#-13" class="headerlink" title=""></a><img src="路径" alt="图片描述" /></h2><h1 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h1></li>
 <li>JPEG(JPG):支持的颜色比较多，图片可以压缩，但是不支持透明(指的是背景透明)，一般用来保存照片等颜色丰富的图片</li>
 <li>GIF：支持的颜色少，只支持简单的透明（背景透明）（但是边界会有白边），支持动态图，图片颜色单一或者是动态图时可以使用gif</li>
 <li>PNG：支持的颜色多，并且支持复杂的透明（背景透明），可以用来显示颜色复杂的透明的图片<h2 id="图片的使用原则："><a href="#图片的使用原则：" class="headerlink" title="图片的使用原则："></a>图片的使用原则：</h2></li>
 <li>效果不一致用好的</li>
 <li>效果一致用小的（jpg一般小于png）</li>
+</ol>
+<h1 id="列表-list"><a href="#列表-list" class="headerlink" title="列表(list)"></a>列表(list)</h1><h2 id="成组出现"><a href="#成组出现" class="headerlink" title="成组出现"></a>成组出现</h2><ol>
+<li><img src="https://s2.loli.net/2022/05/13/UJNDSeWis49Hnzk.png"></li>
+</ol>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ol>
+<li>使用ul标签来创建无序标签</li>
+<li>使用li表示列表项</li>
+<li><img src="https://s2.loli.net/2022/05/13/1LZPmuA2fd7RUn3.png"></li>
+<li><img src="https://s2.loli.net/2022/05/13/vVdlJ4HmbXiaYPZ.png"></li>
+</ol>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
+<li>使用ol标签来创建有序标签</li>
+<li><img src="https://s2.loli.net/2022/05/13/wCnWDPHkm3GV7yR.png"></li>
+</ol>
+<h2 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h2><ol>
+<li>为一些东西下定义</li>
+<li>使用<dl>标签来创建定义列表</li>
+<li>使用<dd>标签来对内容进行解释说明</li>
+<li>使用下拉菜单时可以使用</li>
+</ol>
+<h2 id="列表之间可以互相嵌套"><a href="#列表之间可以互相嵌套" class="headerlink" title="列表之间可以互相嵌套"></a>列表之间可以互相嵌套</h2><p><img src="https://s2.loli.net/2022/05/13/ezo4qlruRNcmdZ1.png"></p>
+<h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h1><h2 id="超链接可以让我们从一个页面跳转到其它页面，或者当前页面的其它位置"><a href="#超链接可以让我们从一个页面跳转到其它页面，或者当前页面的其它位置" class="headerlink" title="超链接可以让我们从一个页面跳转到其它页面，或者当前页面的其它位置"></a>超链接可以让我们从一个页面跳转到其它页面，或者当前页面的其它位置</h2><h2 id="-14"><a href="#-14" class="headerlink" title=""></a><a></h2><ol>
+<li>使用a标签来创建超链接</li>
+<li>是一个行内元素</li>
+<li><a>标签中可以放任何元素</li>
+</ol>
+<h3 id="属性href"><a href="#属性href" class="headerlink" title="属性href"></a>属性href</h3><ol>
+<li>href指定跳转的目标路径<br><img src="https://s2.loli.net/2022/05/13/LnEjVowTU79uS8r.png"></li>
+<li>值可以是一个外部页面的地址</li>
+<li>也可以写一个内部页面的地址</li>
+<li>当在同一个目录下，可以写相对于当前目录的地址</li>
+</ol>
+<h3 id="可以写绝对路径"><a href="#可以写绝对路径" class="headerlink" title="可以写绝对路径"></a>可以写绝对路径</h3><h3 id="也可以写相对路径"><a href="#也可以写相对路径" class="headerlink" title="也可以写相对路径"></a>也可以写相对路径</h3><ol>
+<li>当我们需要跳转到服务器内部的页面时，一般用相对路径</li>
+<li>./可以省略不写，如果不写./，也不写../，则相当于写了./</li>
+<li>./07.html和07.html相同<br><img src="https://s2.loli.net/2022/05/13/YwThiqOKbHr5eQA.png"></li>
+</ol>
+<h3 id="通过颜色的区别来区分"><a href="#通过颜色的区别来区分" class="headerlink" title="通过颜色的区别来区分"></a>通过颜色的区别来区分</h3><ol>
+<li>紫色的是点过的</li>
+<li>蓝色的是没有点过的</li>
+</ol>
+<h2 id="超链接的其它用法"><a href="#超链接的其它用法" class="headerlink" title="超链接的其它用法"></a>超链接的其它用法</h2><h3 id="跳转出一个新的页面，而不是覆盖掉当前页面"><a href="#跳转出一个新的页面，而不是覆盖掉当前页面" class="headerlink" title="跳转出一个新的页面，而不是覆盖掉当前页面"></a>跳转出一个新的页面，而不是覆盖掉当前页面</h3><h4 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a>target属性</h4><ol>
+<li>_self默认值，在当前页面中打开超链接</li>
+<li>_blank,在一个新的页面中打开超链接</li>
+<li>国内用_blank很多，但是会在不经意间打开很多窗口，所以国外使用_self较多</li>
+</ol>
+<h3 id="回到顶部"><a href="#回到顶部" class="headerlink" title="回到顶部"></a>回到顶部</h3><ol>
+<li>可以将超链接的href属性设置为#,这样点击超链接之后，页面不会发生跳转，而是转到当前页面的顶部位置<pre class="line-numbers language-none"><code class="language-none">&lt;a href&#x3D;&quot;#&quot;,target&#x3D;&quot;&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="回到底部"><a href="#回到底部" class="headerlink" title="回到底部"></a>回到底部</h3><ol>
+<li>没有特殊的回到底部的href属性</li>
+<li>可以通过设置id属性，使其跳转到”回到顶部”标签所在的位置</li>
+<li>当id重复时，前面的id具有优先性，起那面的会生效</li>
+</ol>
+<h3 id="id属性"><a href="#id属性" class="headerlink" title="id属性"></a>id属性</h3><ol>
+<li>唯一不重复的</li>
+<li>每一个标签都可以添加一个id属性</li>
+<li>id属性就是元素的唯一标识，同一个页面中不能出现重复的id属性</li>
+<li>一般id的格式都是先一个小写英文字母，后数字<pre class="line-numbers language-none"><code class="language-none">&lt;a href&#x3D;&quot;#p3&quot;&gt;&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="跳转到指定位置"><a href="#跳转到指定位置" class="headerlink" title="跳转到指定位置"></a>跳转到指定位置</h3><ol>
+<li>只需要将href属性设置为：#目标元素的id属性值</li>
+</ol>
+<h3 id="作为占位符"><a href="#作为占位符" class="headerlink" title="#作为占位符"></a>#作为占位符</h3><ol>
+<li>在开发中可以将#作为超链接的占位符使用</li>
+</ol>
+<h1 id="生成随机文本"><a href="#生成随机文本" class="headerlink" title="生成随机文本"></a>生成随机文本</h1><h2 id="lorem"><a href="#lorem" class="headerlink" title="lorem"></a>lorem</h2><ol>
+<li>格式：lorem + 单词数量</li>
+<li><img src="https://img-blog.csdn.net/20170802213142346?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDI5MTQ5Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></li>
+<li>乱数假文，用于排版领域来测试不同文本下的显示状态</li>
 </ol>
 
                 
@@ -1162,7 +1269,7 @@ title标签的内容会作为搜索结果的超链接上的文字显示
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">36.1k</span>&nbsp;字
+                class="white-color">37.1k</span>&nbsp;字
             
             
             
