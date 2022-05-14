@@ -136,8 +136,18 @@
         <content type="html"><![CDATA[<h1 id="子系统"><a href="#子系统" class="headerlink" title="子系统"></a>子系统</h1><ol><li>模型元素，具有包和类的语义，子系统的行为由它所包含的类或其它子系统提供，</li><li>子系统实现一个或多个接口，这写接口定义子系统可以执行的行为</li><li>系统是一个可以独立存在的完整实体，由一组完成特定任务的功能组成</li><li>子系统顾名思义，也是一个系统，仍然是一个完整的实体，系统和子系统的概念是相对的，作为另一个系统的一部分时，系统就称为了一个子系统<h1 id="协作（i-still-dont-know）"><a href="#协作（i-still-dont-know）" class="headerlink" title="协作（i still dont know）"></a>协作（i still dont know）</h1></li><li>协作指的是主体之间互相配合一起工作</li></ol><h1 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h1><ol><li>操作系统最基本的部分，是众多应用程序对计算机硬件的安全访问的一部分硬件</li><li>基于硬件的第一层软件扩充，提供操作系统的最基本的功能，操作系统工作的基础</li><li>负责管理操作系统的进程，内存，设备驱动程序，文件和网络系统，决定了系统的性能和稳定性</li><li>总体：链接应用程序和硬件的桥梁，操作系统背后黑盒的核心</li></ol><h1 id="字符设备"><a href="#字符设备" class="headerlink" title="字符设备"></a>字符设备</h1><ol><li>在I/O传输过程中以字符为单位进行传输的串口设备，例如调制解调器，键盘和打印机</li></ol><h1 id="串口"><a href="#串口" class="headerlink" title="串口"></a>串口</h1><ol><li>串行接口简称为串口，COM接口，采用串行通信的拓展接口</li><li>串行接口指的是数据一位一位地进行传输</li><li>比喻：一串地进行行走，口径为1bit，只能一位一位地走过去</li></ol><h1 id="块设备"><a href="#块设备" class="headerlink" title="块设备"></a>块设备</h1><ol><li>存储数据以供系统存取的接口设备</li><li>例如硬盘和光驱</li></ol><h1 id="I-O设备"><a href="#I-O设备" class="headerlink" title="I/O设备"></a>I/O设备</h1><ol><li>输入/输出设备</li><li>指的是一切操作，程序或设备与计算机之间发生的数据传输过程</li></ol><h1 id="符号连接设备"><a href="#符号连接设备" class="headerlink" title="符号连接设备"></a>符号连接设备</h1><ol><li>一个符号链接文件仅包含有一个文本字符串，其被操作系统解释为一条指向另一个文件或者目录的路径。它是一个独立文件，其存在并不依赖于目标文件。如果删除一个符号链接，它指向的目标文件不受影响。如果目标文件被移动、重命名或者删除，任何指向它的符号链接仍然存在，但是它们将会指向一个不复存在的文件。这种情况被有时被称为被遗弃。</li><li>我认为是和快捷链接类似的</li></ol><h1 id="管道文件"><a href="#管道文件" class="headerlink" title="管道文件"></a>管道文件</h1><ol><li>分为无名管道和有名管道两种</li><li>管道文件是建立在内存之上可以同时被两个进程访问的文件</li><li>有名管道可以在任意两个进程之间通讯，而无名管道只能在父子进程之间通迅。</li><li>写入管道的数据存储在内存中，而不是磁盘中，所以写入管道的数据读写更快</li></ol><h1 id="挂载点："><a href="#挂载点：" class="headerlink" title="挂载点："></a>挂载点：</h1><ol><li>把一部分硬盘容量分成一个文件夹的形式，用来干一些事情，这个文件夹就叫做挂载点</li></ol>]]></content>
       
       
+      <categories>
+          
+          <category> 定义 </category>
+          
+          <category> ing </category>
+          
+      </categories>
+      
       
         <tags>
+            
+            <tag> ing </tag>
             
             <tag> 定义 </tag>
             
@@ -323,12 +333,16 @@
           
           <category> 网站备份漏洞 </category>
           
+          <category> ing </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> CTF </tag>
+            
+            <tag> ing </tag>
             
             <tag> 网站备份漏洞 </tag>
             
@@ -431,6 +445,8 @@
           
           <category> 数据库 </category>
           
+          <category> ing </category>
+          
       </categories>
       
       
@@ -456,14 +472,14 @@
       
       <categories>
           
-          <category> acm </category>
+          <category> acm算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> acm </tag>
+            <tag> acm算法 </tag>
             
         </tags>
       
@@ -1097,34 +1113,7 @@
           
           <category> CTF </category>
           
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-            <tag> sql注入 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>联合查询注入</title>
-      <link href="/%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/"/>
-      <url>/%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/</url>
-      
-        <content type="html"><![CDATA[<h1 id="联合查询注入"><a href="#联合查询注入" class="headerlink" title="联合查询注入"></a>联合查询注入</h1><h2 id="通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边"><a href="#通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边" class="headerlink" title="通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边"></a>通过系统关键字union从而拼接自己的select语句，后个select得到的结果将拼接到前个select的结果后边</h2><ol><li>联合查询必须保证前后的查询列数一致</li><li>可以先使用order by去判断列数</li><li>?id=4 union select 1,2,3,4 #(%23)</li><li>上面的1，2，3是起到占位的作用，数字本身没有意义，有意义的是数字所占到的位数</li></ol><h1 id="post注入"><a href="#post注入" class="headerlink" title="post注入"></a>post注入</h1><ol><li>语句原理：select 1 from users where username=? and password = ?</li><li>如果是单引号字符型的则select 1 from users where username=’’ or 1  %23’ and password = ?</li><li>%23是#表明后面是注释，屏蔽掉后面的单引号</li><li>上面输入的是: ‘ or 1 #<h2 id="右击，查看元素"><a href="#右击，查看元素" class="headerlink" title="右击，查看元素"></a>右击，查看元素</h2></li><li>可以看到values和names的参数</li><li>找names=uname和names=passwd类似的参数</li><li>uname=<em>&amp;passwd=</em></li></ol><h2 id="做此类题目的burpsuit"><a href="#做此类题目的burpsuit" class="headerlink" title="做此类题目的burpsuit"></a>做此类题目的burpsuit</h2><ol><li>Proxy:代理</li><li>intercept:开启或停止抓包</li><li>http history:http历史请求记录</li><li><h3 id="options："><a href="#options：" class="headerlink" title="options："></a>options：</h3></li><li><ol><li>intercept response之类的勾选可以抓相应包和请求包</li></ol></li><li><ol start="2"><li>Proxy-&gt;intecept-&gt;forward是丢给服务器;drop是丢弃掉</li></ol></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> sql注入 </category>
-          
-          <category> CTF </category>
+          <category> ing </category>
           
       </categories>
       
@@ -1135,38 +1124,7 @@
             
             <tag> sql注入 </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sql注入黑马教程</title>
-      <link href="/sql%E6%B3%A8%E5%85%A5%E9%BB%91%E9%A9%AC%E6%95%99%E7%A8%8B/"/>
-      <url>/sql%E6%B3%A8%E5%85%A5%E9%BB%91%E9%A9%AC%E6%95%99%E7%A8%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="sql注入黑马教程"><a href="#sql注入黑马教程" class="headerlink" title="sql注入黑马教程"></a>sql注入黑马教程</h1><h2 id="index-php-id"><a href="#index-php-id" class="headerlink" title="index.php?id="></a>index.php?id=</h2><ol><li>get传参数，会将传递的参数显示在网页地址栏</li><li>格式：网址后+’?’+参数的名字1+参数的值+&amp;+参数的名字2+参数的值2</li></ol><h2 id="使用order-by来判断字段个数"><a href="#使用order-by来判断字段个数" class="headerlink" title="使用order by来判断字段个数"></a>使用order by来判断字段个数</h2><ol><li>order by 是用来排序的，如果后面跟的是数字，则代表是对查询结果的第几列进行判断，从而实现了判断字段个数</li></ol><h2 id="union-select-用来爆显示位"><a href="#union-select-用来爆显示位" class="headerlink" title="union select 用来爆显示位"></a>union select 用来爆显示位</h2><ol><li>SELECT * FROM users WHERE id = ‘-1’ union select 1,2,3</li><li>左边查询没有结果，没有这个id，右边结果1，2，3</li></ol><h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2><h3 id="concat用来链接字符串"><a href="#concat用来链接字符串" class="headerlink" title="concat用来链接字符串"></a>concat用来链接字符串</h3><h3 id="concat-ws："><a href="#concat-ws：" class="headerlink" title="concat_ws："></a>concat_ws：</h3><ol><li>第一位是连接符</li><li>后面的是具体数据</li><li>select concat_ws(‘~’,databases(),version(),user())</li><li>将出现以~为连接符的字段</li></ol><h3 id="group-concat"><a href="#group-concat" class="headerlink" title="group_concat"></a>group_concat</h3><ol><li>拼接字符串</li></ol><h1 id="information-schema"><a href="#information-schema" class="headerlink" title="information schema"></a>information schema</h1><ol><li>简单的信息数据库</li><li>里面都是视图，不是表，所以没有具体文件</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF </category>
-          
-          <category> sql注入 </category>
-          
-          <category> 手动注入 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-            <tag> sql注入 </tag>
-            
-            <tag> 手动注入 </tag>
+            <tag> ing </tag>
             
         </tags>
       
@@ -1353,7 +1311,7 @@
       <link href="/git/"/>
       <url>/git/</url>
       
-        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li>工作区：仓库的目录</li><li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li><li>版本库：存放所有已经提交到本地仓库的代码版本</li><li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li><li>git config –global user.email <a href="mailto:&#120;&#120;&#x78;&#x40;&#120;&#120;&#120;&#46;&#x63;&#x6f;&#109;">&#120;&#120;&#x78;&#x40;&#120;&#120;&#120;&#46;&#x63;&#x6f;&#109;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li><li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li><li>git add xxx:将xxx文件添加到暂存区</li><li>git add .:将所有待加入暂存区的文件加入暂存区</li><li>git rm –catched xx:将文件从仓库索引目录中删掉</li><li>git log :查看xx当前分支中的所有版本 </li><li>git reflog : 查看HEAD指针的移动历史</li><li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li><li>git reset –hard HEAD^^回滚两次，以此类推</li><li>git reset –hard HEAD~num:回滚num次</li><li>git reset –hard 版本号：回滚到某一特定版本</li><li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li><li>git remote add origin <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x2e;&#97;&#99;&#x77;&#105;&#x6e;&#x67;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x2e;&#97;&#99;&#x77;&#105;&#x6e;&#x67;&#x2e;&#x63;&#x6f;&#x6d;</a>:…将本地仓库关联到远程仓库</li><li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li><li>git push origin branch_name:将本地的某个分支推送到远程仓库</li><li>git clone <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x2e;&#97;&#x63;&#119;&#x69;&#x6e;&#x67;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x2e;&#97;&#x63;&#119;&#x69;&#x6e;&#x67;&#x2e;&#x63;&#x6f;&#x6d;</a>:…将远程仓库xxx下载到当前目录下</li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li>工作区：仓库的目录</li><li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li><li>版本库：存放所有已经提交到本地仓库的代码版本</li><li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li><li>git config –global user.email <a href="mailto:&#120;&#x78;&#x78;&#64;&#x78;&#x78;&#x78;&#x2e;&#99;&#111;&#109;">&#120;&#x78;&#x78;&#64;&#x78;&#x78;&#x78;&#x2e;&#99;&#111;&#109;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li><li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li><li>git add xxx:将xxx文件添加到暂存区</li><li>git add .:将所有待加入暂存区的文件加入暂存区</li><li>git rm –catched xx:将文件从仓库索引目录中删掉</li><li>git log :查看xx当前分支中的所有版本 </li><li>git reflog : 查看HEAD指针的移动历史</li><li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li><li>git reset –hard HEAD^^回滚两次，以此类推</li><li>git reset –hard HEAD~num:回滚num次</li><li>git reset –hard 版本号：回滚到某一特定版本</li><li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li><li>git remote add origin <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#46;&#x61;&#x63;&#x77;&#x69;&#x6e;&#x67;&#x2e;&#x63;&#x6f;&#109;">&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#46;&#x61;&#x63;&#x77;&#x69;&#x6e;&#x67;&#x2e;&#x63;&#x6f;&#109;</a>:…将本地仓库关联到远程仓库</li><li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li><li>git push origin branch_name:将本地的某个分支推送到远程仓库</li><li>git clone <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#46;&#x61;&#99;&#x77;&#x69;&#x6e;&#x67;&#x2e;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#46;&#x61;&#99;&#x77;&#x69;&#x6e;&#x67;&#x2e;&#x63;&#111;&#109;</a>:…将远程仓库xxx下载到当前目录下</li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol>]]></content>
       
       
       <categories>
@@ -1652,7 +1610,7 @@
       <link href="/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
       <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#120;&#120;&#x78;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#120;&#120;&#120;&#x78;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
       
       
       <categories>
