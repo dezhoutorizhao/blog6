@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
-                            </a>
-                        
                             <a href="/tags/ing/">
                                 <span class="chip bg-color">ing</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -473,7 +473,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -596,6 +596,23 @@ on FIRST.cpno &#x3D; SECOND.cno;<span aria-hidden="true" class="line-numbers-row
 <li>假设A中有n行数据，b中有m行数据，没有限制匹配条件的话，最终输出的结果就会有n*m行数据</li>
 <li>在互联网大体量数据情况下，每个表 可能有几百万几千万行数据，几千万*几千万最终得到的结果行数会是天文数字，所以在写匹配时，一定不要忘了加上匹配条件。</li>
 </ol>
+<h1 id="全称量词命题和存在量词命题"><a href="#全称量词命题和存在量词命题" class="headerlink" title="全称量词命题和存在量词命题"></a>全称量词命题和存在量词命题</h1><p><img src="https://s2.loli.net/2022/05/15/C8n7jA3FNu4BTcI.png"><br><img src="https://s2.loli.net/2022/05/15/jnP8qkXrQzlxcJ7.png"></p>
+<h1 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h1><h2 id="嵌套查询的工作方式"><a href="#嵌套查询的工作方式" class="headerlink" title="嵌套查询的工作方式"></a>嵌套查询的工作方式</h2><ol>
+<li>先处理内查询，由内向外处理</li>
+<li>外层查询利用内层查询的结果<br><img src="https://s2.loli.net/2022/05/15/GIv4x7RsuibCVPM.png"><pre class="line-numbers language-none"><code class="language-none">select tag,count(tag) as tag_cnt
+from exam_record
+join examination_info on exam_record.exam_id &#x3D; examination_info.exam_id
+where uid in (
+    select uid
+    from exam_record
+    where submit_time is not null
+    group by score
+    having count(exam_id) &#x2F; count(distinct DATE_FORMAT(start_time,&quot;%Y%m&quot;)) &gt;&#x3D; 3
+)
+group by tag
+order by tag_cnt desc;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="https://s2.loli.net/2022/05/15/b49OdtZRJVKMaox.png"><br><img src="https://s2.loli.net/2022/05/15/1pJmxVgWicM7wB2.png"></li>
+</ol>
 
                 
             </div>
@@ -660,12 +677,12 @@ on FIRST.cpno &#x3D; SECOND.cno;<span aria-hidden="true" class="line-numbers-row
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
-                                </a>
-                            
                                 <a href="/tags/ing/">
                                     <span class="chip bg-color">ing</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -1130,7 +1147,7 @@ on FIRST.cpno &#x3D; SECOND.cno;<span aria-hidden="true" class="line-numbers-row
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.9k</span>&nbsp;字
+                class="white-color">39k</span>&nbsp;字
             
             
             
