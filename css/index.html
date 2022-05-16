@@ -473,14 +473,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    975
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -590,15 +590,72 @@ abc
 <li>class是一个标签的属性，和id类似，不同的是，class可以重复使用</li>
 <li>可以通过class属性来为元素分组</li>
 <li>可以同时为一个元素指定多个class属性</li>
-<li>标签中的class属性通过空格隔开&amp;/nbsp;</li>
+<li>标签中的多个class属性通过空格隔开&amp;/nbsp;<br><img src="https://s2.loli.net/2022/05/16/NHKhdM9qXUuWJwF.png"></li>
 </ol>
 <h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">.class(属性值)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<p><img src="https://s2.loli.net/2022/05/16/gjH1zo382Q7uGFy.png"></p>
 <h2 id="通配选择器"><a href="#通配选择器" class="headerlink" title="通配选择器"></a>通配选择器</h2><h3 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h3><ol>
 <li>选中页面中的所有元素<h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">*&#123;属性值&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <img src="https://s2.loli.net/2022/05/15/5j74LVzBTZpN9He.png"></li>
 </ol>
+<h1 id="复合选择器"><a href="#复合选择器" class="headerlink" title="复合选择器"></a>复合选择器</h1><h2 id="交叉选择器"><a href="#交叉选择器" class="headerlink" title="交叉选择器"></a>交叉选择器</h2><ol>
+<li>选中同时满足多个条件的元素</li>
+<li>多个选择器的复合<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3></li>
+<li>选择器1.选择器2.选择器n{}<pre class="line-numbers language-none"><code class="language-none">div.red&#123;
+    font-size: 30px;
+    color: red;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><ol>
+<li>交叉选择器中如果有元素选择器，必须使用元素选择器开头</li>
+<li>一般不会出现id选择器和其它选择器的复用，因为id选择器已经可以唯一确定一个标签，一般只是元素选择器和类选择器之间的交叉</li>
+</ol>
+<h2 id="选择器分组-并集选择器"><a href="#选择器分组-并集选择器" class="headerlink" title="选择器分组/并集选择器"></a>选择器分组/并集选择器</h2><h3 id="作用-3"><a href="#作用-3" class="headerlink" title="作用"></a>作用</h3><ol>
+<li>同时选择多个选择器对应的元素</li>
+</ol>
+<h3 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">选择器1,选择器2,选择器n&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>逗号在此处相当于是并集符号<br><img src="https://s2.loli.net/2022/05/16/tF5kXKfyqu1zaoM.png"></li>
+</ol>
+<h2 id="交叉选择器和并集选择器可以复合使用"><a href="#交叉选择器和并集选择器可以复合使用" class="headerlink" title="交叉选择器和并集选择器可以复合使用"></a>交叉选择器和并集选择器可以复合使用</h2><h2 id="网页中不同元素之间的关系"><a href="#网页中不同元素之间的关系" class="headerlink" title="网页中不同元素之间的关系"></a>网页中不同元素之间的关系</h2><h3 id="父子关系"><a href="#父子关系" class="headerlink" title="父子关系"></a>父子关系</h3><ol>
+<li>直接包含子元素的是父元素（注意是直接）</li>
+<li>直接被父元素包含的是子元素<h3 id="祖先后代元素"><a href="#祖先后代元素" class="headerlink" title="祖先后代元素"></a>祖先后代元素</h3></li>
+<li>直接或间接包含后代元素叫祖先元素</li>
+<li>一个元素的父元素也是祖先元素</li>
+<li>直接或间接被祖先元素包含的元素叫做后代元素</li>
+</ol>
+<h3 id="兄弟元素"><a href="#兄弟元素" class="headerlink" title="兄弟元素"></a>兄弟元素</h3><ol>
+<li>拥有相同父元素的叫兄弟元素</li>
+</ol>
+<h2 id="关系选择器"><a href="#关系选择器" class="headerlink" title="关系选择器"></a>关系选择器</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><h4 id="作用：-1"><a href="#作用：-1" class="headerlink" title="作用："></a>作用：</h4><ol>
+<li>选中指定父元素的指定子元素<h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><pre class="line-numbers language-none"><code class="language-none">父元素 &gt; 子元素
+div &gt; span &#123;
+    color: red;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="后代元素选择器"><a href="#后代元素选择器" class="headerlink" title="后代元素选择器"></a>后代元素选择器</h3><h4 id="作用：-2"><a href="#作用：-2" class="headerlink" title="作用："></a>作用：</h4><ol>
+<li>选中指定元素的指定后代元素</li>
+<li>范围比子选择器更大，相当于递归处理（-r）</li>
+</ol>
+<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><pre class="line-numbers language-none"><code class="language-none">祖先 后代&#123;
 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="兄弟元素选择器"><a href="#兄弟元素选择器" class="headerlink" title="兄弟元素选择器"></a>兄弟元素选择器</h2><h3 id="作用-4"><a href="#作用-4" class="headerlink" title="作用"></a>作用</h3><ol>
+<li>选择下一个兄弟</li>
+<li>注意必须是紧邻的下一个兄弟元素</li>
+<li>隔开的兄弟元素不会被选中</li>
+<li>前面的兄弟元素不会被选中，只会选中前面的兄弟元素</li>
+</ol>
+<h3 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">前一个 + 下一个
+ p + span&#123;
+
+ &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">选择下边所有的兄弟
+兄 ~ 弟&#123;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1134,7 +1191,7 @@ abc
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">39k</span>&nbsp;字
+                class="white-color">39.5k</span>&nbsp;字
             
             
             
