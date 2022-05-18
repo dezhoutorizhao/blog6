@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql workbench table加check约束, 更好的明天">
+    <meta name="keywords" content="nmap, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mysql workbench table加check约束 | 更好的明天</title>
+    <title>nmap | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mysql workbench table加check约束</h1>
+                    <h1 class="description center-align post-title">nmap</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/categories/CTF/" class="post-category">
+                                CTF
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-02
+                    2022-05-18
                 </div>
                 
 
@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    40
+                    473
                 </div>
                 
 
@@ -495,10 +495,54 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="加check约束"><a href="#加check约束" class="headerlink" title="加check约束"></a>加check约束</h1><ol>
-<li>选择Datatype类，下拉选择ENUM(‘男’，’女’)</li>
-<li>即为枚举类型，加check约束后的，仅限于男和女两种数据的约束</li>
+                <h1 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/343709343">https://zhuanlan.zhihu.com/p/343709343</a></li>
 </ol>
+<h2 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h2><ol>
+<li>zenmap</li>
+</ol>
+<h2 id="分布式框架"><a href="#分布式框架" class="headerlink" title="分布式框架"></a>分布式框架</h2><ol>
+<li>Dnamp</li>
+</ol>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
+<li>主机探测</li>
+<li>端口扫描</li>
+<li>版本检测</li>
+<li>系统检测</li>
+<li>支持探测脚本的编写</li>
+</ol>
+<h2 id="Nmap在实际中应用场合如下："><a href="#Nmap在实际中应用场合如下：" class="headerlink" title="Nmap在实际中应用场合如下："></a>Nmap在实际中应用场合如下：</h2><ol>
+<li>通过对设备或者防火墙的探测来审计它的安全性</li>
+<li>探测目标主机所开放的端口</li>
+<li>通过识别新的服务器审计网络的安全性</li>
+<li>探测网络上的主机</li>
+</ol>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
+<li>端口扫描工具，即借助工具，试图了解所扫描IP提供的计算机网络服务类型（网络服务均与端口号相关），从而发现攻击弱点，常见服务对应端口号</li>
+</ol>
+<h2 id="Nmap进行完整全面的扫描"><a href="#Nmap进行完整全面的扫描" class="headerlink" title="Nmap进行完整全面的扫描"></a>Nmap进行完整全面的扫描</h2><pre class="line-numbers language-none"><code class="language-none">nmap –T4 –A –v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ol>
+<li>其中-A选项用于使用进攻性（Aggressive）方式扫描；</li>
+<li>-T4指定扫描过程使用的时序（Timing），总有6个级别（0-5），级别越高，扫描速度越快，但也容易被防火墙或IDS检测并屏蔽掉，在网络通讯状况良好的情况推荐使用T4；</li>
+<li>-v表示显示冗余（verbosity）信息，在扫描过程中显示扫描的细节，从而让用户了解当前的扫描状态。</li>
+</ol>
+<h4 id="最重要的是-T"><a href="#最重要的是-T" class="headerlink" title="最重要的是-T"></a>最重要的是-T</h4><ol>
+<li>扫描速度过快，容易被系统拦截，导致访问一堆200，结果打开全是503，所以应避免扫描过快<br><img src="https://s2.loli.net/2022/05/18/jpYi1NqhPz392Qx.png"></li>
+</ol>
+<h2 id="主机扫描"><a href="#主机扫描" class="headerlink" title="主机扫描"></a>主机扫描</h2><p><img src="https://s2.loli.net/2022/05/18/bgHAlBP93FzDmIW.png"></p>
+<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><h3 id="扫描方式选项"><a href="#扫描方式选项" class="headerlink" title="扫描方式选项"></a>扫描方式选项</h3><p><img src="https://s2.loli.net/2022/05/18/Jek6ZarFWlzmBVU.png"></p>
+<h3 id="端口参数和扫描顺序"><a href="#端口参数和扫描顺序" class="headerlink" title="端口参数和扫描顺序"></a>端口参数和扫描顺序</h3><p><img src="https://s2.loli.net/2022/05/18/4V8jf6sMhDFPK5T.png"></p>
+<h3 id="版本侦测的用法"><a href="#版本侦测的用法" class="headerlink" title="版本侦测的用法"></a>版本侦测的用法</h3><p><img src="https://s2.loli.net/2022/05/18/eMa8ZJ2mXHYfCtE.png"></p>
+<h2 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h2><h3 id="用nmap扫描特定IP地址"><a href="#用nmap扫描特定IP地址" class="headerlink" title="用nmap扫描特定IP地址"></a>用nmap扫描特定IP地址</h3><p><img src="https://pic1.zhimg.com/80/v2-f9463447819bc6eddc02d61f57f26d30_720w.jpg"></p>
+<h3 id="用-vv对结果进行详细输出"><a href="#用-vv对结果进行详细输出" class="headerlink" title="用-vv对结果进行详细输出"></a>用-vv对结果进行详细输出</h3><p><img src="https://pic2.zhimg.com/80/v2-b7f94720fc07861cda0f03a0eaaac8bd_720w.jpg"></p>
+<h3 id="自行设置端口范围进行扫描"><a href="#自行设置端口范围进行扫描" class="headerlink" title="自行设置端口范围进行扫描"></a>自行设置端口范围进行扫描</h3><p><img src="https://pic1.zhimg.com/80/v2-70a54588925eb0a44e9d5ead03f55fbc_720w.jpg"></p>
+<h3 id="指定端口号进行扫描"><a href="#指定端口号进行扫描" class="headerlink" title="指定端口号进行扫描"></a>指定端口号进行扫描</h3><p><img src="https://pic2.zhimg.com/80/v2-416f2b4c051b5f2bd62cbe48d3101f41_720w.jpg"></p>
+<h3 id="对端口进行ping扫描"><a href="#对端口进行ping扫描" class="headerlink" title="对端口进行ping扫描"></a>对端口进行ping扫描</h3><p><img src="https://pic3.zhimg.com/80/v2-ef3ef08d4f7b120d170f9b0a95130b7a_720w.jpg"></p>
+<h3 id="路由跟踪"><a href="#路由跟踪" class="headerlink" title="路由跟踪"></a>路由跟踪</h3><p><img src="https://pic1.zhimg.com/80/v2-24910deb4da23cdf158ee3dd15b98170_720w.jpg"></p>
+<h3 id="扫描一个段的主机在线情况"><a href="#扫描一个段的主机在线情况" class="headerlink" title="扫描一个段的主机在线情况"></a>扫描一个段的主机在线情况</h3><p><img src="https://pic2.zhimg.com/80/v2-3849b8e75d023539fd93923ea7aa2bd9_720w.jpg"></p>
+<h3 id="操作系统探测"><a href="#操作系统探测" class="headerlink" title="操作系统探测"></a>操作系统探测</h3><p><img src="https://pic4.zhimg.com/80/v2-4e9d4f7f27b827fbc4d976fd96511d93_720w.png"></p>
+<h3 id="万能开关扫描"><a href="#万能开关扫描" class="headerlink" title="万能开关扫描"></a>万能开关扫描</h3><p><img src="https://pic3.zhimg.com/80/v2-fc195a646aa1353f8b71342ec6a67b26_720w.jpg"></p>
+<h3 id="SYN-FIN-ACK等其它扫描方式"><a href="#SYN-FIN-ACK等其它扫描方式" class="headerlink" title="SYN,FIN,ACK等其它扫描方式"></a>SYN,FIN,ACK等其它扫描方式</h3><p><img src="https://s2.loli.net/2022/05/18/NpMt7T9Qv2dhK6P.png"></p>
 
                 
             </div>
@@ -525,7 +569,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/mysql%E5%8A%A0check%E7%BA%A6%E6%9D%9F/">https://www.strongwill.top/mysql%E5%8A%A0check%E7%BA%A6%E6%9D%9F/</a>
+                    <a href="https://www.strongwill.top/nmap%E4%BD%BF%E7%94%A8/">https://www.strongwill.top/nmap%E4%BD%BF%E7%94%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -563,8 +607,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -734,17 +778,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/mysql%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E5%BC%95%E6%93%8E/">
+                <a href="/nmap%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="mysql中的所有引擎">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="nmap">
                         
-                        <span class="card-title">mysql中的所有引擎</span>
+                        <span class="card-title">nmap</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -754,26 +799,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -787,13 +833,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/create%20tables%E9%80%89%E9%A1%B9/">
+                <a href="/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="sql约束">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ctfshow信息搜集">
                         
-                        <span class="card-title">sql约束</span>
+                        <span class="card-title">ctfshow信息搜集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -804,14 +850,18 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
+                                </a>
+                            
+                            <a href="/categories/CTF/ing/" class="post-category">
+                                    ing
                                 </a>
                             
                             
@@ -821,8 +871,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
                     </a>
                     
                 </div>
