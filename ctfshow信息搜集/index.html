@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git源码泄露问题, 更好的明天">
+    <meta name="keywords" content="ctfshow信息搜集, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git源码泄露问题 | 更好的明天</title>
+    <title>ctfshow信息搜集 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git源码泄露问题</h1>
+                    <h1 class="description center-align post-title">ctfshow信息搜集</h1>
                 </div>
             </div>
         </div>
@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-17
+                    2022-05-18
                 </div>
                 
 
@@ -473,14 +473,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    824
+                    211
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -503,55 +503,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="git源码泄露问题"><a href="#git源码泄露问题" class="headerlink" title="git源码泄露问题"></a>git源码泄露问题</h1><h2 id="githack是什么"><a href="#githack是什么" class="headerlink" title="githack是什么"></a>githack是什么</h2><ol>
-<li>GitHack是一个.git泄露利用测试脚本，通过泄露的文件，还原重建工程源代码。</li>
+                <h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><h2 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h2><ol>
+<li>开发注释未能及时删除</li>
+<li>打开ctrl + u查看源代码即可获得flag</li>
 </ol>
-<h2 id="Git-源码泄露"><a href="#Git-源码泄露" class="headerlink" title="Git 源码泄露"></a>Git 源码泄露</h2><p>开发人员会使用 git 进行版本控制，对站点自动部署。但如果配置不当，可能会将 .git 文件夹直接部署到线上环境，这就引起了 git 泄露漏洞，我们可以利用这个漏洞直接获得网页源码。</p>
-<h2 id="确定是否存在泄漏"><a href="#确定是否存在泄漏" class="headerlink" title="确定是否存在泄漏"></a>确定是否存在泄漏</h2><p>想要确定是否存在这个漏洞，可以通过以下方式。首先是看看有没有提示醒目地指出 Git，如果有就考虑存在。如果没有也可以使用 dirsearch 工具扫描后台，如果存在则会扫描出 .git 目录如图所示。</p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
-<li>githack只能在python2环境下运行，否则会出现<br><img src="https://s2.loli.net/2022/05/17/ufNapbJdWSlRhHE.png"></li>
+<h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><ol>
+<li>有的浏览器直接打开查看源代码就能看到flag</li>
+<li>这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。</li>
+<li>当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看<br><img src="https://s2.loli.net/2022/05/18/k4UizITfxOc7S1u.png"></li>
 </ol>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="攻防世界lottery"><a href="#攻防世界lottery" class="headerlink" title="攻防世界lottery"></a>攻防世界lottery</h3><ol>
-<li><p>打开网页，让我们买彩票赚钱，随便买一下<br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902101030311-594723942.png"><br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902102734433-334503714.png"></p>
+<h2 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h2><ol>
+<li><p>用御剑和dirsearch扫了一遍，发现一堆垃圾文件</p>
 </li>
-<li><p>赚够足够的钱，才能够买flag<br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902103927411-413792927.png"></p>
-</li>
-<li><p>用dirsearch扫一下后台,发现有git<br><img src="https://s2.loli.net/2022/05/17/uKqnltzHT9wRcUJ.png"></p>
-</li>
-<li><p>或者用御剑扫以下后台，发现robot协议文件，发现禁用git，很可疑，判断是git源码泄露</p>
-</li>
-<li><p>用githack扫描url，把文件都下载下来</p>
-<pre class="line-numbers language-none"><code class="language-none">python githack.py URL<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>打开其中的 “api.php” 文件审计代码，注意到这里有个 buy() 函数，这个是我们在网页买彩票会调用的函数。其中我们看到 numbers 这个变量是我们能操作的，函数会以数组的形式提取每位数字。</p>
+<li><p>没思路的时候burp抓个包看看，有意外收获，flag在响应的数据包里面<br><img src="https://s2.loli.net/2022/05/18/ez4SxcJiY1U7VXj.png"></p>
 </li>
 </ol>
-<p><img src="https://s2.loli.net/2022/05/17/G8wMKyUBuP3Abgp.png"></p>
-<ol start="7">
-<li><p>由于随机变量是数字，因此我们可以使用 true 来满足比较，但是我们显然不能在输入框输入 7 个 “true”。因此我们考虑修改数据包，通过抓包发现数据的传输是通过传一个映射来上传的。<br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902103450123-831589597.jpg"></p>
-</li>
-<li><p>因此抓包之后修改 numbers 变量为一个数组，其中的 7 个变量都是 true。放包之后就能够快速赚钱了，赚够钱后购买得到 flag</p>
-</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;action&quot;:&quot;buy&quot;,&quot;numbers&quot;:[true,true,true,true,true,true,true]&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="攻防世界mfw"><a href="#攻防世界mfw" class="headerlink" title="攻防世界mfw"></a>攻防世界mfw</h3><ol>
-<li>打开后在每个标签中查看<br><img src="https://s2.loli.net/2022/05/18/hG7ucDX1SlxnLR8.png"></li>
-<li>查看源代码发现有个跳转到flag的超链接被注释掉了，但是不允许修改，我直接改跳转到contact的超链接为flag<br><img src="https://s2.loli.net/2022/05/18/rFoVfdMxc4JqHDz.png"></li>
-<li>但是在flag标签内什么也没有发现<br><img src="https://s2.loli.net/2022/05/18/yCV58D71mQvMdYt.png"></li>
-<li>在上一张图片中有两个词，git和php，猜测是git源码泄露，用dirsearch跑一跑,真的发现了很多.git文件</li>
-</ol>
-<p><img src="https://s2.loli.net/2022/05/18/GVN56mYsDi31W4S.png"></p>
-<ol start="5">
-<li><p>用githack去跑，看看能不能下下来一些.git下的源码，发现在.index的开头找到了php源码<br><img src="https://s2.loli.net/2022/05/18/9mv3rVzMhtELTjU.png"></p>
-</li>
-<li><p>其中assert()函数会将括号中的字符当成代码来执行，并返回true或false，strpos()函数会返回字符串第一次出现的位置，如果没有找到则返回False</p>
-</li>
-<li><p>于是重心就放在file变量中，发现file变量是用我们输入的page变量拼接而成的，而且没有任何的过滤，我们可以在这段输入的字符中插入system函数来执行系统命令<br><img src="https://s2.loli.net/2022/05/18/kfJjFVSPbWrpsHc.png"></p>
-</li>
-<li><p>注意到调用file时用的单引号和括号来限制file的范围<br>于是可以构造url为</p>
-<pre class="line-numbers language-none"><code class="language-none">page&#x3D;a &#39;) or system(&quot;cat templates&#x2F;flag.php&quot;);&#x2F;&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://s2.loli.net/2022/05/18/jG4twcHOWvbkFCq.png"></p>
-</li>
+<h2 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h2><ol>
+<li>题目提示：总有人把后台地址写入robots,知道是robots.txt协议，写后缀robots.txt，发现过滤了所有用户的/flagishere.txt<br><a href="www.strongwill.top/robots协议文件.md">robots协议</a><br><img src="https://s2.loli.net/2022/05/18/JWf5Dtjl24aimyw.png"></li>
+<li>直觉告诉我们，被过滤的是flag，打开后真的发现了flag<br><img src="https://s2.loli.net/2022/05/18/YXu6hvxZTpa9knM.png"></li>
 </ol>
 
                 
@@ -579,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/">https://www.strongwill.top/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/</a>
+                    <a href="https://www.strongwill.top/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">https://www.strongwill.top/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -792,9 +761,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">
                     <div class="card-image">
@@ -812,9 +782,67 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-18
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
+                                </a>
+                            
+                            <a href="/categories/CTF/ing/" class="post-category">
+                                    ing
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="git源码泄露问题">
+                        
+                        <span class="card-title">git源码泄露问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -840,63 +868,6 @@
                     
                     <a href="/tags/ing/">
                         <span class="chip bg-color">ing</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/robots%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="robots协议">
-                        
-                        <span class="card-title">robots协议</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-17
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/CTF/" class="post-category">
-                                    CTF
-                                </a>
-                            
-                            <a href="/categories/CTF/web/" class="post-category">
-                                    web
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
