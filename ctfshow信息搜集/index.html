@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="/tags/ing/">
                                 <span class="chip bg-color">ing</span>
+                            </a>
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -473,7 +473,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    295
+                    382
                 </div>
                 
 
@@ -513,7 +513,7 @@
 <li>当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看<br><img src="https://s2.loli.net/2022/05/18/k4UizITfxOc7S1u.png"></li>
 </ol>
 <h2 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h2><ol>
-<li><p>用御剑和dirsearch扫了一遍，发现一堆垃圾文件</p>
+<li><p>用御剑和dirsearch扫了一遍，被拦了</p>
 </li>
 <li><p>没思路的时候burp抓个包看看，有意外收获，flag在响应的数据包里面<br><img src="https://s2.loli.net/2022/05/18/ez4SxcJiY1U7VXj.png"></p>
 </li>
@@ -534,6 +534,17 @@
 <h2 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h2><ol>
 <li>考察信息svn泄露，直接访问url/.svn/<br><img src="https://s2.loli.net/2022/05/18/YWCx8S9noqcURHu.png"></li>
 </ol>
+<h2 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h2><ol>
+<li>考察vim临时文件泄露<h3 id="vim临时文件泄露"><a href="#vim临时文件泄露" class="headerlink" title="vim临时文件泄露"></a>vim临时文件泄露</h3></li>
+<li>vim编辑器在编辑时会生成一个隐藏的临时文件</li>
+<li>当vim非正常关闭时，这个文件就会被保存下来</li>
+<li>一般会保存在url/编辑的文件.swp下</li>
+</ol>
+<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><ol>
+<li>cookie泄露</li>
+<li>打开burp抓包，获得cookie是flag<br><img src="https://s2.loli.net/2022/05/21/qB9zAWvCNQTr6UV.png"></li>
+</ol>
+<p>千峰教育的计算机网络</p>
 
                 
             </div>
@@ -598,12 +609,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="/tags/ing/">
                                     <span class="chip bg-color">ing</span>
+                                </a>
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -864,12 +875,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/ing/">
                         <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1068,7 +1079,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.8k</span>&nbsp;字
+                class="white-color">43.3k</span>&nbsp;字
             
             
             

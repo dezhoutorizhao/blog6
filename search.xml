@@ -4,6 +4,93 @@
   
     
     <entry>
+      <title>nc命令</title>
+      <link href="/nc%E5%91%BD%E4%BB%A4/"/>
+      <url>/nc%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="nc命令"><a href="#nc命令" class="headerlink" title="nc命令"></a>nc命令</h1><h2 id="netcat的简写"><a href="#netcat的简写" class="headerlink" title="netcat的简写"></a>netcat的简写</h2><ol><li>nc是软连接到ncat<h2 id="主要作用："><a href="#主要作用：" class="headerlink" title="主要作用："></a>主要作用：</h2></li><li>实现任意TCP/UDP端口侦听，nc可以作为server以TCP或UDP方式侦听指定端口</li><li>端口的扫描（其它的博客推荐nmap，确实是）</li><li>机器之间传输文件</li><li>机器之间网络测速</li></ol><h1 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h1><ol><li>验证服务器端口是否通<br><img src="https://img-blog.csdnimg.cn/20210615163556344.png"></li><li>拷贝文件,首先在文件接受终端test2机器上激活nc监听，然后再文件发送终端test1机器上发送文件，test2上检查文件是否已经接受<br><img src=""></li></ol><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ol><li>ncat [options] [hostname] [port]<br><img src="https://s2.loli.net/2022/05/21/ahBkJyTRbjZfHFm.png"><br><img src="https://s2.loli.net/2022/05/21/ZeqnEW7c6bFDTjI.png"><br><img src="https://s2.loli.net/2022/05/21/g6Qu3w74rNoRevt.png"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+          <category> web </category>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> linux </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>国赛前训练题目</title>
+      <link href="/%E5%9B%BD%E8%B5%9B%E5%89%8D%E8%AE%AD%E7%BB%83%E9%A2%98%E7%9B%AE/"/>
+      <url>/%E5%9B%BD%E8%B5%9B%E5%89%8D%E8%AE%AD%E7%BB%83%E9%A2%98%E7%9B%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="buuctf神奇的二维码"><a href="#buuctf神奇的二维码" class="headerlink" title="buuctf神奇的二维码"></a>buuctf神奇的二维码</h1><ol><li>一个二维码，扫一下啥也没有</li><li>在放到010editor看头和尾和检查是否为exif隐写之后，binwalk分离出来了压缩包<br><img src="https://s2.loli.net/2022/05/21/hle1bIpEKm9PzB7.png"></li><li>里面有一个encode.txt编码文件<br><img src="https://s2.loli.net/2022/05/21/VFnBgsLtlZW52J4.png"></li><li>解码之后获得密码，打开了放flag的doc文件<br><img src="https://s2.loli.net/2022/05/21/jz1mJAOsChTuYeL.png"></li><li>发现flag.doc文件中是一个特别长的base64编码，使用basecrack破解<br><img src="https://s2.loli.net/2022/05/21/kmaJoR5WdUAHglS.png"></li><li>获得flag<br><a href="www.strongwill.top/basecrack工具使用">basecrack工具使用</a></li></ol><h1 id="buu-test-your-nc"><a href="#buu-test-your-nc" class="headerlink" title="buu test_your_nc"></a>buu test_your_nc</h1><p><a href="www.strongwill.top/nc命令">nc命令</a><br><img src="https://s2.loli.net/2022/05/21/8Jj69Obg3DzKQBn.png"></p><ol><li>直接nc加靶机号，连上之后ls看目录</li><li>发现flag，直接cat看一下就报flag</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+          <category> ing </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ing </tag>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>basecrack工具使用</title>
+      <link href="/basecrack/"/>
+      <url>/basecrack/</url>
+      
+        <content type="html"><![CDATA[<h1 id="basecrack工具"><a href="#basecrack工具" class="headerlink" title="basecrack工具"></a>basecrack工具</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><pre class="line-numbers language-none"><code class="language-none">$ git clone https:&#x2F;&#x2F;github.com&#x2F;mufeedvh&#x2F;basecrack.git$ cd basecrack$ pip install -r requirements.txt$ python basecrack.py -h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre class="line-numbers language-none"><code class="language-none">对来自用户输入的单个Base编码数据进行解码：python basecrack.py对通过参数（-b&#x2F;--base）传递的单个Base编码数据进行解码：python basecrack.py -b SGVsbG8gV29ybGQh对通过文件（-f&#x2F;--file）传递的多个Base编码数据进行解码：python basecrack.py -f file.txt对任意模式的多重Base编码数据进行解码（-m&#x2F;--magic）：python basecrack.py --magic使用解码的Base数据生成字典文件并输出（-o&#x2F;--output）：python basecrack.py -f file.txt -o output-wordlist.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nmap</title>
       <link href="/nmap%E4%BD%BF%E7%94%A8/"/>
       <url>/nmap%E4%BD%BF%E7%94%A8/</url>
@@ -33,7 +120,7 @@
       <link href="/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/"/>
       <url>/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/</url>
       
-        <content type="html"><![CDATA[<h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><h2 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h2><ol><li>开发注释未能及时删除</li><li>打开ctrl + u查看源代码即可获得flag</li></ol><h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><ol><li>有的浏览器直接打开查看源代码就能看到flag</li><li>这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。</li><li>当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看<br><img src="https://s2.loli.net/2022/05/18/k4UizITfxOc7S1u.png"></li></ol><h2 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h2><ol><li><p>用御剑和dirsearch扫了一遍，发现一堆垃圾文件</p></li><li><p>没思路的时候burp抓个包看看，有意外收获，flag在响应的数据包里面<br><img src="https://s2.loli.net/2022/05/18/ez4SxcJiY1U7VXj.png"></p></li></ol><h2 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h2><ol><li>题目提示：总有人把后台地址写入robots,知道是robots.txt协议，写后缀robots.txt，发现过滤了所有用户的/flagishere.txt<br><a href="http://www.strongwill.top/robot%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/">robots协议</a><br><img src="https://s2.loli.net/2022/05/18/JWf5Dtjl24aimyw.png"></li><li>直觉告诉我们，被过滤的是flag，打开后真的发现了flag<br><img src="https://s2.loli.net/2022/05/18/YXu6hvxZTpa9knM.png"></li></ol><h2 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h2><ol><li>phps源码泄露问题</li><li>直接访问index.phps,获得flag<br><img src="https://s2.loli.net/2022/05/18/4CSF3kr52x9yin6.png"></li><li>访问后自动下载一个index.phps文件，打开后发现flag<br><img src="https://s2.loli.net/2022/05/18/w3CcsoZLUgGtzvm.png"></li></ol><h2 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h2><h2 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h2><ol><li>考察git代码泄露，直接访问url/.git/index.php</li><li>git源码泄露一般在根目录下/.git/文件夹下找<br><img src="https://s2.loli.net/2022/05/18/TIRAXNm3fVMi1l7.png"></li></ol><h2 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h2><ol><li>考察信息svn泄露，直接访问url/.svn/<br><img src="https://s2.loli.net/2022/05/18/YWCx8S9noqcURHu.png"></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><h2 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h2><ol><li>开发注释未能及时删除</li><li>打开ctrl + u查看源代码即可获得flag</li></ol><h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><ol><li>有的浏览器直接打开查看源代码就能看到flag</li><li>这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。</li><li>当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看<br><img src="https://s2.loli.net/2022/05/18/k4UizITfxOc7S1u.png"></li></ol><h2 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h2><ol><li><p>用御剑和dirsearch扫了一遍，被拦了</p></li><li><p>没思路的时候burp抓个包看看，有意外收获，flag在响应的数据包里面<br><img src="https://s2.loli.net/2022/05/18/ez4SxcJiY1U7VXj.png"></p></li></ol><h2 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h2><ol><li>题目提示：总有人把后台地址写入robots,知道是robots.txt协议，写后缀robots.txt，发现过滤了所有用户的/flagishere.txt<br><a href="http://www.strongwill.top/robot%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/">robots协议</a><br><img src="https://s2.loli.net/2022/05/18/JWf5Dtjl24aimyw.png"></li><li>直觉告诉我们，被过滤的是flag，打开后真的发现了flag<br><img src="https://s2.loli.net/2022/05/18/YXu6hvxZTpa9knM.png"></li></ol><h2 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h2><ol><li>phps源码泄露问题</li><li>直接访问index.phps,获得flag<br><img src="https://s2.loli.net/2022/05/18/4CSF3kr52x9yin6.png"></li><li>访问后自动下载一个index.phps文件，打开后发现flag<br><img src="https://s2.loli.net/2022/05/18/w3CcsoZLUgGtzvm.png"></li></ol><h2 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h2><h2 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h2><ol><li>考察git代码泄露，直接访问url/.git/index.php</li><li>git源码泄露一般在根目录下/.git/文件夹下找<br><img src="https://s2.loli.net/2022/05/18/TIRAXNm3fVMi1l7.png"></li></ol><h2 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h2><ol><li>考察信息svn泄露，直接访问url/.svn/<br><img src="https://s2.loli.net/2022/05/18/YWCx8S9noqcURHu.png"></li></ol><h2 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h2><ol><li>考察vim临时文件泄露<h3 id="vim临时文件泄露"><a href="#vim临时文件泄露" class="headerlink" title="vim临时文件泄露"></a>vim临时文件泄露</h3></li><li>vim编辑器在编辑时会生成一个隐藏的临时文件</li><li>当vim非正常关闭时，这个文件就会被保存下来</li><li>一般会保存在url/编辑的文件.swp下</li></ol><h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><ol><li>cookie泄露</li><li>打开burp抓包，获得cookie是flag<br><img src="https://s2.loli.net/2022/05/21/qB9zAWvCNQTr6UV.png"></li></ol><p>千峰教育的计算机网络</p>]]></content>
       
       
       <categories>
@@ -47,9 +134,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -76,9 +163,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -134,9 +221,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -510,9 +597,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
             <tag> 网站备份漏洞 </tag>
             
@@ -1290,9 +1377,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
             <tag> sql注入 </tag>
             
@@ -1481,7 +1568,7 @@
       <link href="/git/"/>
       <url>/git/</url>
       
-        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li>工作区：仓库的目录</li><li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li><li>版本库：存放所有已经提交到本地仓库的代码版本</li><li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li><li>git config –global user.email <a href="mailto:&#120;&#x78;&#x78;&#64;&#120;&#120;&#120;&#46;&#99;&#111;&#x6d;">&#120;&#x78;&#x78;&#64;&#120;&#120;&#120;&#46;&#99;&#111;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li><li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li><li>git add xxx:将xxx文件添加到暂存区</li><li>git add .:将所有待加入暂存区的文件加入暂存区</li><li>git rm –catched xx:将文件从仓库索引目录中删掉</li><li>git log :查看xx当前分支中的所有版本 </li><li>git reflog : 查看HEAD指针的移动历史</li><li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li><li>git reset –hard HEAD^^回滚两次，以此类推</li><li>git reset –hard HEAD~num:回滚num次</li><li>git reset –hard 版本号：回滚到某一特定版本</li><li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li><li>git remote add origin <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x2e;&#x61;&#x63;&#119;&#x69;&#x6e;&#103;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x2e;&#x61;&#x63;&#119;&#x69;&#x6e;&#103;&#46;&#x63;&#x6f;&#x6d;</a>:…将本地仓库关联到远程仓库</li><li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li><li>git push origin branch_name:将本地的某个分支推送到远程仓库</li><li>git clone <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#46;&#x61;&#99;&#x77;&#105;&#x6e;&#103;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#46;&#x61;&#99;&#x77;&#105;&#x6e;&#103;&#46;&#x63;&#x6f;&#109;</a>:…将远程仓库xxx下载到当前目录下</li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li>工作区：仓库的目录</li><li>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</li><li>版本库：存放所有已经提交到本地仓库的代码版本</li><li>版本结构：树结构，树中每个节点代表一个代码版本<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</li><li>git config –global user.email <a href="mailto:&#120;&#120;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#x6f;&#109;">&#120;&#120;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#x6f;&#109;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</li><li>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</li><li>git add xxx:将xxx文件添加到暂存区</li><li>git add .:将所有待加入暂存区的文件加入暂存区</li><li>git rm –catched xx:将文件从仓库索引目录中删掉</li><li>git log :查看xx当前分支中的所有版本 </li><li>git reflog : 查看HEAD指针的移动历史</li><li>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</li><li>git reset –hard HEAD^^回滚两次，以此类推</li><li>git reset –hard HEAD~num:回滚num次</li><li>git reset –hard 版本号：回滚到某一特定版本</li><li>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</li><li>git remote add origin <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#46;&#97;&#99;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#46;&#97;&#99;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#x6d;</a>:…将本地仓库关联到远程仓库</li><li>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</li><li>git push origin branch_name:将本地的某个分支推送到远程仓库</li><li>git clone <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#46;&#x61;&#x63;&#x77;&#105;&#110;&#103;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#46;&#x61;&#x63;&#x77;&#105;&#110;&#103;&#x2e;&#x63;&#x6f;&#x6d;</a>:…将远程仓库xxx下载到当前目录下</li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol>]]></content>
       
       
       <categories>
@@ -1765,9 +1852,9 @@
       
         <tags>
             
-            <tag> 文件修复 </tag>
-            
             <tag> 定义 </tag>
+            
+            <tag> 文件修复 </tag>
             
         </tags>
       
@@ -1780,7 +1867,7 @@
       <link href="/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
       <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#x78;&#x78;&#120;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#109;">&#120;&#x78;&#x78;&#120;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#109;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#x78;&#120;&#120;&#x78;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x78;&#120;&#120;&#x78;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
       
       
       <categories>
