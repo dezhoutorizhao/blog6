@@ -473,7 +473,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -504,12 +504,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h1><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>from字句后面的表名，可以用表原名，也可以为它起别名，一旦有了别名，整个查询语句中凡是涉及用表明的地方都要用表原名</li>
+<li>from字句后面的表名，可以用表原名，也可以为它起别名，一旦有了别名，整个查询语句中凡是涉及用表名的地方都要用表原名</li>
 <li>查询语句中出现的所有列，若在所有涉及的表中是唯一的，则列明前可以不加表明前缀</li>
-<li>如果不是唯一的，为了确定它的唯一性，<strong>必须在列名前假表名前缀</strong></li>
+<li>如果不是唯一的，为了确定它的唯一性，<strong>必须在列名前加表名前缀</strong></li>
 </ol>
 <h2 id="等值连接和非等值连接"><a href="#等值连接和非等值连接" class="headerlink" title="等值连接和非等值连接"></a>等值连接和非等值连接</h2><ol>
-<li>两个表进行连接时，必须要有可比字段，两个可比字段的值进行逐一比较来决定当前两个元组是否可以连接<pre class="line-numbers language-none"><code class="language-none">select student.*,SC.*
+<li>两个表进行连接时，必须要有可比字段，两个可比字段的值进行逐一比较来决定当前两个元组是否可以连接</li>
+<li>等值连接不会去重<pre class="line-numbers language-none"><code class="language-none">select student.*,SC.*
 from student,SC
 where student.sno &#x3D; SC.sno;
 
@@ -519,7 +520,8 @@ where SC.score BETWEEN SG.minscore AND SG.maxscore;<span aria-hidden="true" clas
 </ol>
 <h2 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h2><h3 id="显示内连接"><a href="#显示内连接" class="headerlink" title="显示内连接"></a>显示内连接</h3><ol>
 <li>on来连接两个连接列，where中写连接条件</li>
-<li>显示内连接用inner join<pre class="line-numbers language-none"><code class="language-none">select 目标列列表
+<li>显示内连接用inner join</li>
+<li>内连接又叫自然连接，会去掉重复列的等值连接<pre class="line-numbers language-none"><code class="language-none">select 目标列列表
 from 表1 inner join 表2
 on 表1.连接列&#x3D;表2.连接列
 where 查询条件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
@@ -1147,7 +1149,7 @@ order by tag_cnt desc;<span aria-hidden="true" class="line-numbers-rows"><span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.3k</span>&nbsp;字
+                class="white-color">46.7k</span>&nbsp;字
             
             
             
