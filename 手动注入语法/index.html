@@ -578,20 +578,20 @@
 <li>输入1和1’来判断是字符型还是数字型，发现是字符型注入</li>
 <li>使用1’ or 1=1 #来万能绕过</li>
 </ol>
-<h1 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h1><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h3><ol>
+<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h4><ol>
 <li>extractvalue():从目标xml中返回包含所查询的字符串</li>
 <li>EXTRACTVALUE(XML_document,XPath_string)</li>
 <li>第一个参数：XML_document是String格式，为XML文档对象的名称</li>
 <li>第二个参数：Xpath_string(xpath格式的字符串)</li>
 <li>concat:返回结果为连接参数产生的字符串</li>
 </ol>
-<h3 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h3><ol>
+<h4 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h4><ol>
 <li>updatexml(xml_document,xpath_string,new_value)</li>
 <li>第一个参数：xml_document是string格式，为xml文档对象的名称</li>
 <li>第二个参数：xpath_string</li>
 <li>第三个参数：new_value,string格式，替换查找到符合条件的数据</li>
 </ol>
-<h1 id="用database-爆数据库"><a href="#用database-爆数据库" class="headerlink" title="用database()爆数据库"></a>用database()爆数据库</h1><h1 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h1><ol>
+<h4 id="用database-爆数据库"><a href="#用database-爆数据库" class="headerlink" title="用database()爆数据库"></a>用database()爆数据库</h4><h1 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h1><ol>
 <li>information_schema.tables有表名</li>
 <li>information_schema.columns有列名</li>
 </ol>
@@ -600,23 +600,23 @@
 <li>table_name=’表的名字’,查询满足某些条件的表名</li>
 <li>table_type表的类型</li>
 </ol>
-<h1 id="报错注入-1"><a href="#报错注入-1" class="headerlink" title="报错注入"></a>报错注入</h1><h2 id="extractvalue函数原理"><a href="#extractvalue函数原理" class="headerlink" title="extractvalue函数原理"></a>extractvalue函数原理</h2><ol>
+<h2 id="报错注入-1"><a href="#报错注入-1" class="headerlink" title="报错注入"></a>报错注入</h2><h3 id="extractvalue函数原理"><a href="#extractvalue函数原理" class="headerlink" title="extractvalue函数原理"></a>extractvalue函数原理</h3><ol>
 <li>对xml文件进行查询的函数，会从xml文件中返回所包含查询值的字符串，语法：<pre class="line-numbers language-none"><code class="language-none">extractvalue(&#39;xml_document&#39;,&#39;Xpath_string&#39;)
 extractvalue(&#39;目标文件名&#39;,;&#39;在xml中查询的字符串&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>第二个参数要求是xpath格式的字符串，语法正确是会按照路径 <strong>/该xml文件/要查询的字符串</strong> 进行查询 </li>
 <li>如果我们输入的Xpath_string不对就会报错，而如果页面回显sql报错信息就可以得到我们想要的信息了。</li>
 <li>此处的xml_document可以是anything</li>
 </ol>
-<h2 id="而如果页面回显sql报错信息就可以得到我们想要的信息了"><a href="#而如果页面回显sql报错信息就可以得到我们想要的信息了" class="headerlink" title="而如果页面回显sql报错信息就可以得到我们想要的信息了"></a>而如果页面回显sql报错信息就可以得到我们想要的信息了</h2><h2 id="拼接方法"><a href="#拼接方法" class="headerlink" title="拼接方法"></a>拼接方法</h2><ol>
+<h3 id="而如果页面回显sql报错信息就可以得到我们想要的信息了"><a href="#而如果页面回显sql报错信息就可以得到我们想要的信息了" class="headerlink" title="而如果页面回显sql报错信息就可以得到我们想要的信息了"></a>而如果页面回显sql报错信息就可以得到我们想要的信息了</h3><h3 id="拼接方法"><a href="#拼接方法" class="headerlink" title="拼接方法"></a>拼接方法</h3><ol>
 <li>使用concat函数拼接一个错误的Xpath让mysql报错得到包含查询值的字符串<pre class="line-numbers language-none"><code class="language-none">select(extractvalue(1,concat(0x7e,database)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>修改database()部分可以爆表，列，值</li>
 <li>concat存在的意义就是让extractvalue函数的第二个参数出错，所以concat拼接的参数是个非法字符就行</li>
 </ol>
-<h3 id="extractvalue函数一次只能查询32长度"><a href="#extractvalue函数一次只能查询32长度" class="headerlink" title="extractvalue函数一次只能查询32长度"></a>extractvalue函数一次只能查询32长度</h3><ol>
+<h4 id="extractvalue函数一次只能查询32长度"><a href="#extractvalue函数一次只能查询32长度" class="headerlink" title="extractvalue函数一次只能查询32长度"></a>extractvalue函数一次只能查询32长度</h4><ol>
 <li>所以在爆表，列，值的时候需要加上limit x,1逐一查询（<strong>limit m,n跳过前m项数据后获取n条记录</strong>）<pre class="line-numbers language-none"><code class="language-none">假设有三列
 select 1,2,(extractvalue(1,concat(0x7e,(select table_name from information_schema.tables where table_schema &#x3D; &#39;security&#39; limit 0,1&#x2F;1,1&#x2F;2,1))))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
-<h4 id="例题ctfshow报错注入"><a href="#例题ctfshow报错注入" class="headerlink" title="例题ctfshow报错注入"></a>例题ctfshow报错注入</h4><ol>
+<h5 id="例题ctfshow报错注入"><a href="#例题ctfshow报错注入" class="headerlink" title="例题ctfshow报错注入"></a>例题ctfshow报错注入</h5><ol>
 <li><pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-cd4501bf2d967240.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and extractvalue(1,concat(0x7e,database())) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://s2.loli.net/2022/06/30/L6tXebY2BRmcihF.png"></p>
 </li>
@@ -977,12 +977,12 @@ select 1,2,(extractvalue(1,concat(0x7e,(select table_name from information_schem
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/ing/">
                         <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="/tags/sql%E6%B3%A8%E5%85%A5/">
