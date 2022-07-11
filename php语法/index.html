@@ -1,0 +1,1556 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="php基本语法复习, 更好的明天">
+    <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>php基本语法复习 | 更好的明天</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">更好的明天</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">更好的明天</div>
+        <div class="logo-desc">
+            
+            打ACM和CTF，未来的人上人，嘿嘿
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">php基本语法复习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
+                            </a>
+                        
+                            <a href="/tags/ing/">
+                                <span class="chip bg-color">ing</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-11
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="php"><a href="#php" class="headerlink" title="php"></a>php</h1><h2 id="一种创建动态交互性站点的强有力的服务端脚本语言"><a href="#一种创建动态交互性站点的强有力的服务端脚本语言" class="headerlink" title="一种创建动态交互性站点的强有力的服务端脚本语言"></a>一种创建动态交互性站点的强有力的服务端脚本语言</h2><h2 id="环境：phpstudy搭建而成"><a href="#环境：phpstudy搭建而成" class="headerlink" title="环境：phpstudy搭建而成"></a>环境：phpstudy搭建而成</h2><ol>
+<li>在phpstudy下的WWW下的文件夹下编写php程序</li>
+<li>保存到WWW的下一级目录下</li>
+<li>可以使用回环地址加上php文件名运行程序</li>
+<li>例如:127.0.0.1/文件名.php</li>
+</ol>
+<h2 id="什么是php文件"><a href="#什么是php文件" class="headerlink" title="什么是php文件"></a>什么是php文件</h2><ol>
+<li>php文件可以包含文本、HTML、CSS、以及PHP代码</li>
+<li>php代码在服务器上执行，而结果以纯文本的形式返回浏览器</li>
+<li>文件名后缀为.php</li>
+</ol>
+<h2 id="php能够做什么"><a href="#php能够做什么" class="headerlink" title="php能够做什么"></a>php能够做什么</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220708183356.png"></p>
+<h2 id="语法知识"><a href="#语法知识" class="headerlink" title="语法知识"></a>语法知识</h2><h3 id="php脚本可以放在文档中的任何位置"><a href="#php脚本可以放在文档中的任何位置" class="headerlink" title="php脚本可以放在文档中的任何位置"></a>php脚本可以放在文档中的任何位置</h3><h3 id="开头结尾"><a href="#开头结尾" class="headerlink" title="开头结尾"></a>开头结尾</h3><ol>
+<li>php脚本以’ &lt;?php ‘开头</li>
+<li>以’ ?&gt; ‘结尾</li>
+</ol>
+<h3 id="内建php输出文本函数"><a href="#内建php输出文本函数" class="headerlink" title="内建php输出文本函数"></a>内建php输出文本函数</h3><ol>
+<li>echo<pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;我的第一张 PHP 页面&lt;&#x2F;h1&gt;
+
+&lt;?php
+echo &quot;Hello World!&quot;;
+?&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="php语句以分号结尾（；）"><a href="#php语句以分号结尾（；）" class="headerlink" title="php语句以分号结尾（；）"></a>php语句以分号结尾（；）</h3><ol>
+<li>php代码块的关闭标签也会自动表明分号，因此在php代码的最后一行不必使用分号</li>
+</ol>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ol>
+<li>php的注释和c++的注释符号一样<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;
+#
+&#x2F;*
+    此处为注释
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="php对大小写敏感性问题"><a href="#php对大小写敏感性问题" class="headerlink" title="php对大小写敏感性问题"></a>php对大小写敏感性问题</h3><pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;?php
+ECHO &quot;Hello World!&lt;br&gt;&quot;;
+echo &quot;Hello World!&lt;br&gt;&quot;;
+EcHo &quot;Hello World!&lt;br&gt;&quot;;
+?&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>以上的三种方法等价</li>
+<li>所有<strong>用户定义的****函数，类和关键词</strong>都对大小写不敏感，例如if else echo等等</li>
+<li>在php中所有变量都对大小写敏感,试运行以下代码<pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;?php
+$color&#x3D;&quot;red&quot;;
+echo &quot;My car is &quot; . $color . &quot;&lt;br&gt;&quot;;
+echo &quot;My house is &quot; . $COLOR . &quot;&lt;br&gt;&quot;;
+echo &quot;My boat is &quot; . $coLOR . &quot;&lt;br&gt;&quot;;
+?&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量的命名规则"><a href="#变量的命名规则" class="headerlink" title="变量的命名规则"></a>变量的命名规则</h4><ol>
+<li>变量以$符号开头，其后是变量的名称</li>
+<li>变量名称必须以字母或者下划线开头</li>
+<li>变量名称不能以数字开头</li>
+<li>变量名称只能包含字母数字下划线</li>
+<li>变量名称对大小写敏感</li>
+</ol>
+<h4 id="变量的创建"><a href="#变量的创建" class="headerlink" title="变量的创建"></a>变量的创建</h4><ol>
+<li>php没有创建变量的命令</li>
+<li>变量会在首次赋值时被创建</li>
+<li>如果为变量赋值为文本，用引号包围该值</li>
+</ol>
+<h4 id="变量的引用"><a href="#变量的引用" class="headerlink" title="变量的引用"></a>变量的引用</h4><ol>
+<li>变量的引用也需要加‘$’</li>
+<li>取数组中的某一个元素加大括号{数组[index]}</li>
+</ol>
+<h4 id="PHP-是一门类型松散的语言"><a href="#PHP-是一门类型松散的语言" class="headerlink" title="PHP 是一门类型松散的语言"></a>PHP 是一门类型松散的语言</h4><ol>
+<li>php在创建变量的时候不必告知php变量的数据类型</li>
+</ol>
+<h4 id="php变量作用域"><a href="#php变量作用域" class="headerlink" title="php变量作用域"></a>php变量作用域</h4><ol>
+<li>可以在任意位置对变量进行声明</li>
+<li>三个作用域：<strong>local global static</strong><h5 id="local和global"><a href="#local和global" class="headerlink" title="local和global"></a>local和global</h5></li>
+<li>global是全局作用域，可以在函数外访问</li>
+<li>local是局部作用域，只能在函数内部进行访问</li>
+<li>在函数外部定义的是global</li>
+<li>函数内部定义的是local</li>
+<li>global关键词，用于<strong>在函数内部访问全局变量</strong>，要做到这一点，要在<strong>函数内部变量前面使用global关键词</strong>，（这一点和python不同，python中global是将局部变量转换为全局变量，而php中是在函数内部<strong>调用全局变量</strong>），<strong>如果删除global，将不能在函数内部调用全局变量</strong></li>
+<li>php同时在名为 $GLOBALS[index]的数组中存储了所有的全局变量，下标存有变量名，用 \ $GLOBALS[index]即可访问到名为index的全局变量</li>
+</ol>
+<h5 id="static关键词"><a href="#static关键词" class="headerlink" title="static关键词"></a>static关键词</h5><ol>
+<li>通常，在函数完成或执行后，会删除所有变量，不过有时我需要不删除某个局部变量</li>
+<li>使用static关键词<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+
+function myTest() &#123;
+  static $x&#x3D;0;
+  echo $x;
+  $x++;
+&#125;
+
+myTest();
+myTest();
+myTest();
+
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>每当函数被调用时，这个变量所存储的信息都是函数最后一次被调用时包含的信息（不会重新赋值）</li>
+<li>但是这个变量仍然是局部变量</li>
+</ol>
+<h3 id="echo和print"><a href="#echo和print" class="headerlink" title="echo和print"></a>echo和print</h3><h4 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h4><ol>
+<li>echo能够输出一个以上的字符串</li>
+<li>print只能输出一个字符串，始终返回值为1</li>
+<li>echo比print稍快，因为他不返回任何值</li>
+</ol>
+<h4 id="print"><a href="#print" class="headerlink" title="print"></a>print</h4><ol>
+<li>有无括号都可使用（**print和print()**）<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+$txt1&#x3D;&quot;Learn PHP&quot;;
+$txt2&#x3D;&quot;W3School.com.cn&quot;;
+$cars&#x3D;array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;SAAB&quot;);
+
+print $txt1;
+print &quot;&lt;br&gt;&quot;;
+print &quot;Study PHP at $txt2&quot;;
+print &quot;My car is a &#123;$cars[0]&#125;&quot;;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>取数组中的某一个元素需要加大括号，大括号内部是数组名[index]</li>
+</ol>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ol>
+<li>字符串是字符序列</li>
+<li>单双括号等价</li>
+</ol>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="var-dump-函数"><a href="#var-dump-函数" class="headerlink" title="var_dump()函数"></a>var_dump()函数</h3><ol>
+<li>返回变量的数据类型和值</li>
+<li>值自动转化为十进制的值</li>
+</ol>
+<h3 id="php对象"><a href="#php对象" class="headerlink" title="php对象"></a>php对象</h3><ol>
+<li>对象是存储数据和有关如何处理数据的信息的数据类型</li>
+<li>php中必须明确地声明对象</li>
+<li>首先必须声明对象的类，使用class关键词，类是包含属性和方法的结构</li>
+<li>在对象类中定义数据类型，然后在该类的实例中使用此数据类型</li>
+</ol>
+<h3 id="NULL值"><a href="#NULL值" class="headerlink" title="NULL值"></a>NULL值</h3><ol>
+<li>表示变量无量</li>
+<li>NULL是NULL唯一可能的值</li>
+<li>NULL值表示变量是否为空，用于区分字符串与空值数据库</li>
+</ol>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><h3 id="strlen"><a href="#strlen" class="headerlink" title="strlen()"></a>strlen()</h3><ol>
+<li>返回字符串的长度<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo strlen(&quot;hello world&quot;);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="字符串中单词个数的统计"><a href="#字符串中单词个数的统计" class="headerlink" title="字符串中单词个数的统计"></a>字符串中单词个数的统计</h3><ol>
+<li>str_word_count()<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo str_word_count(&quot;hello world&quot;);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="strrev"><a href="#strrev" class="headerlink" title="strrev()"></a>strrev()</h3><ol>
+<li>用于反转字符串<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo strrev(&quot;hello world&quot;); &#x2F;&#x2F;输出dlrow olleh
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="strpos"><a href="#strpos" class="headerlink" title="strpos()"></a>strpos()</h3><ol>
+<li>用于检索字符串内指定的字符或文本</li>
+<li>如果找到匹配，则会返回首个匹配的字符位置，如果未找到，则会返回false</li>
+<li>strpos(“原字符串”，“待检索字符串”);<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo strpos(&quot;hello world&quot;,&quot;world&quot;); &#x2F;&#x2F;输出为6，下标从0开始（很特殊的是sql中的substr）;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="str-replace"><a href="#str-replace" class="headerlink" title="str_replace()"></a>str_replace()</h3><ol>
+<li>用一些字符串替换字符串中的另一些字符<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo str_replace(&quot;被替换字符&quot;,&quot;替换字符&quot;，“原string”);
+    echo str_replace(&quot;world&quot;,&quot;kitty&quot;,&quot;hello world&quot;); &#x2F;&#x2F;结果为hello kitty
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="常量是单个值的标识符，脚本中无法改变该值"><a href="#常量是单个值的标识符，脚本中无法改变该值" class="headerlink" title="常量是单个值的标识符，脚本中无法改变该值"></a>常量是单个值的标识符，脚本中无法改变该值</h3><h3 id="有效的常量名以字符或下划线开头，（常量名称前面没有-符号）"><a href="#有效的常量名以字符或下划线开头，（常量名称前面没有-符号）" class="headerlink" title="有效的常量名以字符或下划线开头，（常量名称前面没有$符号）"></a>有效的常量名以字符或下划线开头，（<strong>常量名称前面没有$符号</strong>）</h3><h3 id="设置php变量"><a href="#设置php变量" class="headerlink" title="设置php变量"></a>设置php变量</h3><ol>
+<li>define()函数，一共三个参数</li>
+<li>首个参数定义常量的名称</li>
+<li>第二个参数定义常量的值</li>
+<li>第三个参数规定常量名对大小写是否敏感，默认为false<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    define(&quot;GREETING&quot;,&quot;Welcome&quot;)；
+    echo GTEETING; &#x2F;&#x2F;创建了一个对大小写不敏感的GREETING常量，值为Welcome;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="常量是全局的，而且可以贯穿整个脚本使用"><a href="#常量是全局的，而且可以贯穿整个脚本使用" class="headerlink" title="常量是全局的，而且可以贯穿整个脚本使用"></a>常量是全局的，而且可以贯穿整个脚本使用</h3><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    define(&quot;GREETING&quot;,&quot;Welcome&quot;);
+    function mytest() &#123;
+        echo GREETING;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>在函数内使用了一个常量，即使它在函数外定义</li>
+</ol>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id=""><a href="#" class="headerlink" title="+ - * / %"></a>+ - * / %</h3><ol>
+<li>$x + $y</li>
+<li>$x - $y</li>
+<li>$x * $y</li>
+<li>$x / $y</li>
+<li>$x % $y<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $x&#x3D;17;
+    $y&#x3D;8;
+    echo ($x+$y);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ol>
+<li>用于向变量写值</li>
+<li>基础赋值运算符为=</li>
+<li>右赋给左</li>
+</ol>
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><h4 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h4><ol>
+<li>. 表示串接，$txt1=”hello” $txt2=$txt1.”world”;//$txt2为hello world</li>
+<li>.= 串接赋值，$txt1=”hello” $txt1.=”world”;//$txt1为hello world (类似于+=)</li>
+</ol>
+<h3 id="递增递减"><a href="#递增递减" class="headerlink" title="递增递减"></a>递增递减</h3><ol>
+<li>++$x</li>
+<li>–$x</li>
+<li>$x++</li>
+<li>$x–</li>
+</ol>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ol>
+<li>and</li>
+<li>or 至少有一个就返回true</li>
+<li>xor 有且仅有一个为true，则返回true</li>
+<li>&amp;&amp;</li>
+<li>||</li>
+<li>！</li>
+</ol>
+<h3 id="数组运算符"><a href="#数组运算符" class="headerlink" title="数组运算符"></a>数组运算符</h3><ol>
+<li><ul>
+<li>联合</li>
+</ul>
+</li>
+<li>== 相等</li>
+<li>=== 全等</li>
+<li>!=</li>
+<li>&lt;&gt;</li>
+<li>!==</li>
+</ol>
+<h2 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h2><h3 id="if-elseif-else"><a href="#if-elseif-else" class="headerlink" title="if elseif else"></a>if elseif else</h3><pre class="line-numbers language-none"><code class="language-none">if (条件) &#123;
+    语句;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="if-elseif-else-1"><a href="#if-elseif-else-1" class="headerlink" title="if elseif else"></a>if elseif else</h3><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+if()&#123;
+
+&#125;
+elseif()&#123;
+
+&#125;
+else&#123;
+
+&#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><ol>
+<li>有选择地执行若干代码<pre class="line-numbers language-none"><code class="language-none">switch(expression)&#123;
+    case label1:
+        expression &#x3D; label1时执行的代码;
+        break;
+    case label2:
+        expression &#x3D; label2时执行的代码;
+        break;
+    default:
+        表达式的值不等于label1和label2时执行的代码
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>如果没有case为真，才使用default</li>
+</ol>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><ol>
+<li>while只要条件为真，循环执行</li>
+<li>do while先执行一次代码块，然后只要指定条件为真，则重复循环（<strong>先做一次do，再判断while</strong>），即至少会执行一次语句，即使条件测试在第一次就失败了</li>
+</ol>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><ol>
+<li>提前确定了脚本运行的次数，用for循环<pre class="line-numbers language-none"><code class="language-none">for(init counter;test counter;increment counter)&#123;
+    code to be executed;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>第一个参数是初始化循环计数器的值</li>
+<li>第二个参数是判断每个循环迭代，true继续，false结束</li>
+<li>第三个参数是增加循环计数器的值<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    for($x&#x3D;0;$x&lt;&#x3D;10;$x++)&#123;
+        echo &quot;xxx&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3></li>
+<li>定义（1）</li>
+<li>判断（2）</li>
+<li>执行循环体语句</li>
+<li>改变循环变量（3）</li>
+</ol>
+<h3 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h3><ol>
+<li>foreach循环只用于数组</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">syk</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.strongwill.top/php%E8%AF%AD%E6%B3%95/">https://www.strongwill.top/php%E8%AF%AD%E6%B3%95/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">syk</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
+                                </a>
+                            
+                                <a href="/tags/ing/">
+                                    <span class="chip bg-color">ing</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/php%E8%AF%AD%E6%B3%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="php基本语法复习">
+                        
+                        <span class="card-title">php基本语法复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            syk
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="小迪老师">
+                        
+                        <span class="card-title">小迪老师</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="000WbhMB3NCyYg"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">syk</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">55.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://strongwill.top" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:18888200398@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=13969260011" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 13969260011" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
