@@ -435,12 +435,12 @@
                                 <span class="chip bg-color">CTF</span>
                             </a>
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
-                            </a>
-                        
                             <a href="/tags/ing/">
                                 <span class="chip bg-color">ing</span>
+                            </a>
+                        
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
                             </a>
                         
                     </div>
@@ -464,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    16 分
                 </div>
                 
 
@@ -789,7 +789,220 @@ else&#123;
 <li>改变循环变量（3）</li>
 </ol>
 <h3 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h3><ol>
-<li>foreach循环只用于数组</li>
+<li>foreach循环只用于数组，用于遍历数组中的每个键值对<pre class="line-numbers language-none"><code class="language-none">foreach($array as $value)&#123;
+    执行代码
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>每一次循环迭代，当前数组的值就会赋给$value变量，并且数组指针会逐一移动，直到到达最后一个数组元素<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $color &#x3D; array(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;);
+    foreach($color as $value)&#123; &#x2F;&#x2F;类似于c++中的范围遍历，将$color数组中的每一个元素作为value
+        echo &quot;value&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="php真正的力量，来自于它的函数，php拥有超过1000个内建的函数"><a href="#php真正的力量，来自于它的函数，php拥有超过1000个内建的函数" class="headerlink" title="php真正的力量，来自于它的函数，php拥有超过1000个内建的函数"></a>php真正的力量，来自于它的函数，php拥有超过1000个内建的函数</h3><h3 id="用户定义函数"><a href="#用户定义函数" class="headerlink" title="用户定义函数"></a>用户定义函数</h3><ol>
+<li>以单词function开头<pre class="line-numbers language-none"><code class="language-none">function functionname()&#123;
+    被执行的代码;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>函数名对大小写不敏感</li>
+</ol>
+<h3 id="php函数参数"><a href="#php函数参数" class="headerlink" title="php函数参数"></a>php函数参数</h3><ol>
+<li>通过参数向函数传递信息，参数类似于变量</li>
+<li>逗号隔开参数<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    function family($name)&#123;
+        echo &quot;$name&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h3><ol>
+<li>如果调用没有参数的函数，参数会取默认值</li>
+<li>默认参数值只会发生在函数的<strong>调用过程</strong>中<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    function setheight($min&#x3D;60)&#123;
+        echo &quot;height is $min&quot;;
+    &#125;
+    setheight();     &#x2F;&#x2F;无参数，使用默认值60
+    setheight(100);  &#x2F;&#x2F;有参数，不适用默认值，使用传入的100
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="php函数返回值"><a href="#php函数返回值" class="headerlink" title="php函数返回值"></a>php函数返回值</h3><ol>
+<li>使用返回值，用return</li>
+<li>当函数内部使用形参时，想要往外输出参数，则需要return，因为形参不是全局变量、</li>
+</ol>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="数组能够在单独的变量名中存储一个或多个值"><a href="#数组能够在单独的变量名中存储一个或多个值" class="headerlink" title="数组能够在单独的变量名中存储一个或多个值"></a>数组能够在单独的<strong>变量名</strong>中存储一个或多个值</h3><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);
+    echo &quot;I like&quot; . $cars[0] . &quot;,&quot; . $cars[1] . &quot;,&quot; . cars[2] . &quot;.&quot;;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h3><ol>
+<li>array()函数用于创建函数<h4 id="三种数组类型"><a href="#三种数组类型" class="headerlink" title="三种数组类型"></a>三种数组类型</h4></li>
+<li>索引数组 - 带有数字索引的数组</li>
+<li>关联数组 - 带有指定键的数组</li>
+<li>多维数组 - 包含一个或多个数组的数组</li>
+</ol>
+<h4 id="索引数组"><a href="#索引数组" class="headerlink" title="索引数组"></a>索引数组</h4><h5 id="索引是自动分配的"><a href="#索引是自动分配的" class="headerlink" title="索引是自动分配的"></a>索引是自动分配的</h5><ol>
+<li>索引自动分配，从0开始<pre class="line-numbers language-none"><code class="language-none">$cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+等价于
+$cars[0] &#x3D; &#39;a&#39;;
+$cars[1] &#x3D; &#39;b&#39;;
+$cars[2] &#x3D; &#39;c&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h4><ol>
+<li>count()函数，即返回元素个数<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);
+    echo count($cars); &#x2F;&#x2F;运行结果即为3
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="遍历索引函数"><a href="#遍历索引函数" class="headerlink" title="遍历索引函数"></a>遍历索引函数</h4><ol>
+<li>可以使用for循环遍历并输出索引数组的所有值<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+    $arrlength&#x3D;count($cars);
+
+    for($x&#x3D;0;$x &lt; $arrlength;$x++)&#123;
+        echo $cars[x];
+        echo &quot;&lt;br&gt;&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="关联数组"><a href="#关联数组" class="headerlink" title="关联数组"></a>关联数组</h4><ol>
+<li>关联数组是使用分配给数组的指定键的数组<pre class="line-numbers language-none"><code class="language-none">$age&#x3D;array(&quot;bill&quot; &#x3D;&gt; &quot;35&quot;,&quot;steve&quot; &#x3D;&gt; &quot;36&quot;,&quot;elon&quot; &#x3D;&gt; &quot;37&quot;);
+等价于
+$age[&quot;bill&quot;]&#x3D;&quot;35&quot;;
+$age[&quot;steve&quot;]&#x3D;&quot;36&quot;;
+$age[&quot;elon&quot;]&#x3D;&quot;37&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>语法：array(“键”=&gt;”值”,”键”=&gt;”值”);</li>
+</ol>
+<h5 id="遍历关联数组"><a href="#遍历关联数组" class="headerlink" title="遍历关联数组"></a>遍历关联数组</h5><ol>
+<li>使用foreach循环，遍历并输出关联数组的所有值<pre class="line-numbers language-none"><code class="language-none">foreach($age as $x&#x3D;&gt;$x_value)&#123;
+    echo &quot;key&#x3D;&quot;.$x.&quot;,value&#x3D;&quot;.$x_value;
+    echo &quot;&lt;br&gt;&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h2><h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><ol>
+<li>以升序对数组排序<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+    sort($cars);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="rsort"><a href="#rsort" class="headerlink" title="rsort()"></a>rsort()</h3><ol>
+<li>按照ascii码降序对数组进行排序,reverse的sort();<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+    rsort($cars);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="asort"><a href="#asort" class="headerlink" title="asort()"></a>asort()</h3><ol>
+<li>根据值对数组进行升序排序</li>
+<li>排序对象是关联数组，排序的根据是键值对的值<?php
+ $age=array("Bill"=>"63","Steve"=>"56","Elon"=>"47");
+ asort($age);
+?></li>
+</ol>
+<h3 id="ksort"><a href="#ksort" class="headerlink" title="ksort()"></a>ksort()</h3><ol>
+<li>根据键对关联数组进行排序</li>
+<li>排序对象是关联数组，排序的根据是键值对的键<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $age&#x3D;array(&quot;Bill&quot;&#x3D;&gt;&quot;63&quot;,&quot;Steve&quot;&#x3D;&gt;&quot;56&quot;,&quot;Elon&quot;&#x3D;&gt;&quot;47&quot;);
+    ksort($age);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="arsort"><a href="#arsort" class="headerlink" title="arsort()"></a>arsort()</h3><ol>
+<li>根据值对关联数组进行降序排序</li>
+</ol>
+<h3 id="krsort"><a href="#krsort" class="headerlink" title="krsort()"></a>krsort()</h3><ol>
+<li>根据键对关联数组进行降序排序</li>
+</ol>
+<h2 id="超全局变量"><a href="#超全局变量" class="headerlink" title="超全局变量"></a><strong>超全局变量</strong></h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ol>
+<li>php中许多预定义变量都是超全局的，这意味着他们在一个脚本的全部作用域中都可用，无需执行global<pre class="line-numbers language-none"><code class="language-none">$GLOBALS
+$_SERVER
+$_REQUEST
+$_POST
+$_GET
+$_FILES
+$_ENV
+$_COOKIE
+$_SESSION<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="GLOBALS"><a href="#GLOBALS" class="headerlink" title="$GLOBALS"></a>$GLOBALS</h3><ol>
+<li>用于在PHP脚本中的任意位置访问全局变量</li>
+<li>PHP在名为$GLOBALS[index]的数组中存储了所有全局变量，变量的名字就是数组的键(逐一这个地方是数组的名字，是去掉$的数组名字再加上单引号括起来)<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $x&#x3D;1;
+    $y&#x3D;2;
+    function addition() &#123;
+        $GLOBALS[&#39;$z&#39;] &#x3D; $GLOBALS[&#39;$x&#39;] + $GLOBALS[&#39;$y&#39;];
+    &#125;
+    addition();
+    echo $z;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="server"><a href="#server" class="headerlink" title="$_server"></a>$_server</h3><ol>
+<li>$_server这种超全局变量保存关于报头，路径和脚本位置的信息<pre class="line-numbers language-none"><code class="language-none">&lt;?php 
+echo $_SERVER[&#39;PHP_SELF&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;SERVER_NAME&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;HTTP_HOST&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;HTTP_REFERER&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;HTTP_USER_AGENT&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;SCRIPT_NAME&#39;];
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>$_server中访问的最重要的元素<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712002132.png"></li>
+<li>重要的<pre class="line-numbers language-none"><code class="language-none">$_server[&#39;REQUEST_METHOD&#39;];返回访问页面使用的请求方法，例如post和get
+$_server[&#39;SERVER_ADDR&#39;];返回当前脚本所在的服务器的IP地址
+$_server[&#39;PHP_SELF&#39;];返回当前执行脚本的文件名
+$_server[&#39;SERVER_NAME&#39;];返回当前运行脚本所在的服务器的主机名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h3><ol>
+<li>用于收集HTML表单提交的数据</li>
+<li>下面是一个包含输入字段和提交按钮的表单，当用户通过点击提交按钮来提交表单数据时，表单将发送到<form>标签的 action 属性中指定的脚本文件.</li>
+<li>在这个例子中，我们指定文件本身来处理表单数据。如果您需要使用其他的 PHP 文件来处理表单数据，请修改为您选择的文件名即可。然后，我们可以使用超级全局变量 $_REQUEST 来收集 input 字段的值：<pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+
+&lt;body&gt;
+
+&lt;form method&#x3D;&quot;post&quot; action&#x3D;&quot;&lt;?php echo $_SERVER[&#39;PHP_SELF&#39;];?&gt;&quot;&gt;
+Name: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;fname&quot;&gt;
+&lt;input type&#x3D;&quot;submit&quot;&gt;
+&lt;&#x2F;form&gt;
+
+&lt;?php 
+$name &#x3D; $_REQUEST[&#39;fname&#39;]; 
+echo $name; 
+?&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="post"><a href="#post" class="headerlink" title="$_post"></a>$_post</h3><ol>
+<li>广泛用于收集method=”post”的HTML表单后的表单数据<pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+&lt;body&gt;
+&lt;form method&#x3D;&quot;post&quot; action&#x3D;&quot;&lt;?php echo $_SERVER[&#39;PHP_SELF&#39;]?&gt;&quot;&gt;
+Name: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;fname&quot;&gt;;
+&lt;input type&#x3D;&quot;submit&quot;&gt;;
+&lt;&#x2F;form&gt;
+
+&lt;?php
+    $name &#x3D; $POST[&#39;fname&#39;];
+    echo $name;
+?&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="get"><a href="#get" class="headerlink" title="$_get"></a>$_get</h3><ol>
+<li>用于提交HTML表单(method=”get”)之后的表单数据</li>
+<li>$GET 也可以收集URL中发送的数据</li>
+</ol>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li>上面的$_POST和$_GET都是变量，类似于$GLOBAL,存储了脚本中的所有POST或者GET方法传入的参数</li>
+<li>使用方法和$GLOBAL类似<pre class="line-numbers language-none"><code class="language-none">echo $_GET[&quot;name&quot;];
+echo $_POST[&quot;age&quot;];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>$_GET是通过URL参数传递到当前脚本的变量数组</li>
+<li>$_POST是通过HTTP POST传递到当前脚本的变量数组</li>
+</ol>
+<h3 id="何时使用"><a href="#何时使用" class="headerlink" title="何时使用"></a>何时使用</h3><ol>
+<li>GET 方法从表单发送的信息对任何人都是可见的（所有变量名和值都显示在 URL 中）。GET 对所发送信息的数量也有限制。GET 可用于发送非敏感的数据。</li>
+<li>GET可以看见<strong>注入点</strong>（发送的信息的变量名）</li>
+<li>POST 方法从表单发送的信息对其他人是不可见的（所有名称/值会被嵌入 HTTP 请求的主体中）并且对所发送信息的数量也无限制。</li>
 </ol>
 
                 
@@ -859,12 +1072,12 @@ else&#123;
                                     <span class="chip bg-color">CTF</span>
                                 </a>
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
-                                </a>
-                            
                                 <a href="/tags/ing/">
                                     <span class="chip bg-color">ing</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
                                 </a>
                             
                         </div>
@@ -1034,18 +1247,17 @@ else&#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/php%E8%AF%AD%E6%B3%95/">
+                <a href="/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="php基本语法复习">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="小迪老师文件上传">
                         
-                        <span class="card-title">php基本语法复习</span>
+                        <span class="card-title">小迪老师文件上传</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1055,27 +1267,26 @@ else&#123;
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            syk
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/CTF/">
                         <span class="chip bg-color">CTF</span>
-                    </a>
-                    
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
                     </a>
                     
                     <a href="/tags/ing/">
@@ -1331,7 +1542,7 @@ else&#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.3k</span>&nbsp;字
+                class="white-color">59.5k</span>&nbsp;字
             
             
             

