@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    827
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -530,7 +530,7 @@
 <li>每个image的名称：xxxx：xxxx,冒号前面为名称，冒号后面为tag,即版本号</li>
 </ol>
 <h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3><ol>
-<li>拉取一个镜像,此处以拉取20版ubuntu为例，镜像名称:镜像版本<pre class="line-numbers language-none"><code class="language-none">docker pull ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>拉取（从docker Hub中<strong>下载</strong>一个镜像）一个镜像,此处以拉取20版ubuntu为例，镜像名称:镜像版本<pre class="line-numbers language-none"><code class="language-none">docker pull ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>列出本地所有镜像<pre class="line-numbers language-none"><code class="language-none">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>删除某个镜像，此处以ubuntu:20为例<pre class="line-numbers language-none"><code class="language-none">docker image rm ubuntu:20.04 或者 docker rmi ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>创建某个container的镜像<pre class="line-numbers language-none"><code class="language-none">docker [container] commit CONTAINER IMAGE_NAME:TAG<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -538,10 +538,34 @@
 <li>将镜像ubuntu:20.04从本地文件ubuntu_20_04.tar中加载出来<pre class="line-numbers language-none"><code class="language-none">docker load -i ubuntu_20_04.tar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><ol>
-<li>利用镜像创建一个容器<pre class="line-numbers language-none"><code class="language-none">docker [container] create -it ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>利用镜像创建一个容器,create -it<pre class="line-numbers language-none"><code class="language-none">docker [container] create -it ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>查看本地所有的容器,所有创建了的容器，不只是启动了的就加[-a]参数，如果不加-a参数的话就是默认正在启动的容器<pre class="line-numbers language-none"><code class="language-none">docker ps [-a]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>启动容器<pre class="line-numbers language-none"><code class="language-none">docker [container] start CONTAINER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li></li>
+<li>启动容器,start<pre class="line-numbers language-none"><code class="language-none">docker [container] start CONTAINER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>停止容器,stop<pre class="line-numbers language-none"><code class="language-none">docker stop CONTAINER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>重启容器,restart<pre class="line-numbers language-none"><code class="language-none">docker restart CONTAINER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>创建并启动一个容器,加-d不进入,不加-d就是创建并进入容器,run,-it<pre class="line-numbers language-none"><code class="language-none">docker run -itd ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>进入容器,先按ctrl+p,再按ctrl+q可以挂起容器<pre class="line-numbers language-none"><code class="language-none">docker attach container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>在容器中执行命令,exec<pre class="line-numbers language-none"><code class="language-none">docker exec container command<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>删除容器，rm<pre class="line-numbers language-none"><code class="language-none">docker rm container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>删除所有已经停止的容器，prune<pre class="line-numbers language-none"><code class="language-none">docker container prune<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>将容器container导出到本地文件xxx.rar中,export<pre class="line-numbers language-none"><code class="language-none">docker export -o xxx.rar container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>将本地文件xxx.tar导出为镜像，并且将镜像命名为image_name:tag,import,从本地导向容器是import,从容器导向本地是export,进出关系<pre class="line-numbers language-none"><code class="language-none">docker import xxx.tar image_name:tag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>docker export/import 与docker save/load的区别<pre class="line-numbers language-none"><code class="language-none">export&#x2F;import 会丢弃记录和元数据信息，仅仅保存容器当时的快照信息，例如容器的名字就不会保留
+save&#x2F;load 会保留完整记录，体积更大<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>查看某个容器的所有进程,top<pre class="line-numbers language-none"><code class="language-none">docker top container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>查看所有容器的统计信息，包括CPU，内存，存储，网络等信息,stats<pre class="line-numbers language-none"><code class="language-none">docker stats<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>在本地和容器之间复制文件,还是和cp和scp的格式一样,先source后destination，先从后到,cp<pre class="line-numbers language-none"><code class="language-none">docker cp xxx container:xxx
+docker cp container:xxx xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>重命名容器,rename<pre class="line-numbers language-none"><code class="language-none">docker rename container1 container2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>修改容器限制,update<pre class="line-numbers language-none"><code class="language-none">docker update container --memory 500MB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="容器和镜像的区别"><a href="#容器和镜像的区别" class="headerlink" title="容器和镜像的区别"></a>容器和镜像的区别</h3><ol>
+<li>docker的生命周期：镜像image+容器container+仓库registry,容器是由镜像实例化而来</li>
+<li>容器即为进程，是镜像的实例，是运行环境包的实例，可以针对这个环境包运行N个实例，即容器是镜像的一种具体表现形式</li>
+<li>镜像即为文件，想象为一个盖章，可以盖到任意的docker平台中去运行</li>
+<li>容器是基于镜像所创建的，容器中的进程依赖于镜像中的文件</li>
+<li>docker就是一个mini版本的Linux系统，拥有完全与宿主机隔离的系统文件，进程，用户权限，网络空间等</li>
+<li>镜像和容器的先后顺序：现有镜像后由实例的容器，虽然创建镜像可以参考某个容器，但是标准的做法是先制作镜像后跑容器</li>
 </ol>
 
                 
@@ -1067,7 +1091,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">60.6k</span>&nbsp;字
+                class="white-color">61.2k</span>&nbsp;字
             
             
             
