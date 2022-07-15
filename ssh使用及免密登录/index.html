@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    638
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -542,6 +542,32 @@ Host myserver2
 <li>这个命令的执行是在服务器中实现的，结果重定向到本地</li>
 <li>注意：单引号中的$i可以求值<pre class="line-numbers language-none"><code class="language-none">ssh myserver &#39;for ((i &#x3D; 0; i &lt; 10; i ++ )) do echo $i; done&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>双引号中的$i不可以求值<pre class="line-numbers language-none"><code class="language-none">ssh myserver &quot;for ((i &#x3D; 0; i &lt; 10; i ++ )) do echo $i; done&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="scp传文件"><a href="#scp传文件" class="headerlink" title="scp传文件"></a>scp传文件</h2><h3 id="命令格式-可以记成ssh的cp-scp"><a href="#命令格式-可以记成ssh的cp-scp" class="headerlink" title="命令格式(可以记成ssh的cp,scp)"></a>命令格式(可以记成ssh的cp,scp)</h3><ol>
+<li>scp source destination</li>
+<li>将source路径下的文件复制到destination中，先从后到，和cp命令一样<h4 id="一次复制多个文件"><a href="#一次复制多个文件" class="headerlink" title="一次复制多个文件"></a>一次复制多个文件</h4></li>
+<li>scp source1 source2 destination</li>
+</ol>
+<h4 id="复制文件夹"><a href="#复制文件夹" class="headerlink" title="复制文件夹"></a>复制文件夹</h4><ol>
+<li>scp -r ~/tmp myserver:/home/acs  -r放在source和destination的前面</li>
+<li>服务器和本地的地址都可以作为source或者destination,即既可以将文件从本地传到服务器上，也可以从服务器上传到本地</li>
+<li>本地文件使用相对路径或绝对路径都可以</li>
+<li>服务器上的路径：服务器的地址或别名:地址（这个地址可以写绝对路径，也可以写相对于根目录的相对地址，<strong>不写的话默认为根目录</strong>）</li>
+</ol>
+<h4 id="指定服务器的端口号"><a href="#指定服务器的端口号" class="headerlink" title="指定服务器的端口号"></a>指定服务器的端口号</h4><pre class="line-numbers language-none"><code class="language-none">scp -P source1 source2 destination<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>注意，这个地方的-P是大写的，ssh的-p是小写的</li>
+<li>scp的-r和-P参数尽量加在source和destination之前</li>
+</ol>
+<h4 id="服务器之间传"><a href="#服务器之间传" class="headerlink" title="服务器之间传"></a>服务器之间传</h4><ol>
+<li>scp命令不止限于主机和服务器之间传文件，也可以在两台服务器之间传文件，即source和destination都可以为服务器的路径</li>
+<li>但是必须两台服务器之间的授权非常完整，否则会报错</li>
+<li>所以可以将一台服务器上的文件传到本地，再由本地传到另一台服务器上<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220715104640.png"></li>
+</ol>
+<h3 id="使用scp配置其它服务器的vim和tmux"><a href="#使用scp配置其它服务器的vim和tmux" class="headerlink" title="使用scp配置其它服务器的vim和tmux"></a>使用scp配置其它服务器的vim和tmux</h3><ol>
+<li>vim的配置文件:  .vimrc</li>
+<li>tmux的配置文件：  .tmux.conf</li>
+<li>配置vim和tmux只需要将vim和tmux的配置文件传到服务器的根目录下即可<pre class="line-numbers language-none"><code class="language-none">scp .vimrc .tmux.conf myserver:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -778,18 +804,17 @@ Host myserver2
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/ssh%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">
+                <a href="/acwing%E6%90%AD%E5%BB%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="ssh">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="acwing搭建云服务器及docker的使用">
                         
-                        <span class="card-title">ssh</span>
+                        <span class="card-title">acwing搭建云服务器及docker的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -799,9 +824,9 @@ Host myserver2
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-15
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -814,7 +839,6 @@ Host myserver2
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -867,12 +891,12 @@ Host myserver2
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ing/">
-                        <span class="chip bg-color">ing</span>
-                    </a>
-                    
                     <a href="/tags/CTF/">
                         <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
                     </a>
                     
                 </div>
@@ -1071,7 +1095,7 @@ Host myserver2
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59.5k</span>&nbsp;字
+                class="white-color">60.6k</span>&nbsp;字
             
             
             
