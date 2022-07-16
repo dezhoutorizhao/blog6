@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    222
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    25 分
                 </div>
                 
 
@@ -511,9 +511,417 @@
 <h2 id="利用类型"><a href="#利用类型" class="headerlink" title="利用类型"></a>利用类型</h2><h3 id="常规类"><a href="#常规类" class="headerlink" title="常规类"></a>常规类</h3><h4 id="扫描获取上传"><a href="#扫描获取上传" class="headerlink" title="扫描获取上传"></a>扫描获取上传</h4><ol>
 <li>扫描到敏感目录，上传地址</li>
 </ol>
-<h4 id="会员中心上传"><a href="#会员中心上传" class="headerlink" title="会员中心上传"></a>会员中心上传</h4><h4 id="后台系统上传"><a href="#后台系统上传" class="headerlink" title="后台系统上传"></a>后台系统上传</h4><h4 id="各种途径上传"><a href="#各种途径上传" class="headerlink" title="各种途径上传"></a>各种途径上传</h4><h3 id="CMS类"><a href="#CMS类" class="headerlink" title="CMS类"></a>CMS类</h3><h3 id="编辑器类"><a href="#编辑器类" class="headerlink" title="编辑器类"></a>编辑器类</h3><h3 id="其他类-CVE"><a href="#其他类-CVE" class="headerlink" title="其他类/CVE"></a>其他类/CVE</h3><h3 id="配合解析漏洞下的文件类型后门测试3938"><a href="#配合解析漏洞下的文件类型后门测试3938" class="headerlink" title="配合解析漏洞下的文件类型后门测试3938"></a>配合解析漏洞下的文件类型后门测试3938</h3><ol>
+<h4 id="会员中心上传"><a href="#会员中心上传" class="headerlink" title="会员中心上传"></a>会员中心上传</h4><h4 id="后台系统上传"><a href="#后台系统上传" class="headerlink" title="后台系统上传"></a>后台系统上传</h4><h4 id="各种途径上传"><a href="#各种途径上传" class="headerlink" title="各种途径上传"></a>各种途径上传</h4><h3 id="CMS类"><a href="#CMS类" class="headerlink" title="CMS类"></a>CMS类</h3><ol>
+<li>一般的文件上传不允许上传脚本格式的</li>
+</ol>
+<h3 id="编辑器类"><a href="#编辑器类" class="headerlink" title="编辑器类"></a>编辑器类</h3><h3 id="其他类-CVE"><a href="#其他类-CVE" class="headerlink" title="其他类/CVE"></a>其他类/CVE</h3><h3 id="配合解析漏洞下的文件类型后门测试3938"><a href="#配合解析漏洞下的文件类型后门测试3938" class="headerlink" title="配合解析漏洞下的文件类型后门测试3938"></a>配合解析漏洞下的文件类型后门测试3938</h3><ol>
 <li>假设上传了一个木马含在图片里的文件,直接访问上传路径解析不出来，按理来说应该解析图片的同时应该解析出phpinfo()的脚本函数，但是没有<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713182905.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713183140.png"></li>
-<li>在上传路径后面加上/1.php   (文件的名字不重要，重要的是文件类型是php)<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713182720.png"></li>
+<li>在上传路径后面加上/1.php   (文件的名字不重要，重要的是文件类型是php)<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713182720.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716084818.png"></li>
+<li>解析漏洞是看搭建的平台的，例如apache和nginx的</li>
+<li>nginx是可以将图片格式作为php格式执行</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h4 id="Contant-type"><a href="#Contant-type" class="headerlink" title="Contant-type"></a>Contant-type</h4><ol>
+<li>内容类型，一般指的是网页中存在的Content-Type，用于定义网络文件的类型和网页的编码，决定接收方以什么形式，什么编码解读这个文件</li>
+<li>ContentType属性指定响应的 HTTP内容类型。如果未指定 ContentType，默认为TEXT/HTML</li>
+<li>application/octet-stream 字节流，浏览器处理字节流的默认方式就是下载，<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716120216.png"><pre class="line-numbers language-none"><code class="language-none">最重要的1. application&#x2F;octet-stream 字节流，浏览器处理字节流的默认方式就是下载
+       2. image&#x2F;png 图片类型，将会以图片类型解析
+&quot;.*&quot;&#x3D;&quot;application&#x2F;octet-stream&quot;
+&quot;.001&quot;&#x3D;&quot;application&#x2F;x-001&quot;
+&quot;.301&quot;&#x3D;&quot;application&#x2F;x-301&quot;
+&quot;.323&quot;&#x3D;&quot;text&#x2F;h323&quot;
+&quot;.906&quot;&#x3D;&quot;application&#x2F;x-906&quot;
+&quot;.907&quot;&#x3D;&quot;drawing&#x2F;907&quot;
+&quot;.a11&quot;&#x3D;&quot;application&#x2F;x-a11&quot;
+&quot;.acp&quot;&#x3D;&quot;audio&#x2F;x-mei-aac&quot;
+&quot;.ai&quot;&#x3D;&quot;application&#x2F;postscript&quot;
+&quot;.aif&quot;&#x3D;&quot;audio&#x2F;aiff&quot;
+&quot;.aifc&quot;&#x3D;&quot;audio&#x2F;aiff&quot;
+&quot;.aiff&quot;&#x3D;&quot;audio&#x2F;aiff&quot;
+&quot;.anv&quot;&#x3D;&quot;application&#x2F;x-anv&quot;
+&quot;.asa&quot;&#x3D;&quot;text&#x2F;asa&quot;
+&quot;.asf&quot;&#x3D;&quot;video&#x2F;x-ms-asf&quot;
+&quot;.asp&quot;&#x3D;&quot;text&#x2F;asp&quot;
+&quot;.asx&quot;&#x3D;&quot;video&#x2F;x-ms-asf&quot;
+&quot;.au&quot;&#x3D;&quot;audio&#x2F;basic&quot;
+&quot;.avi&quot;&#x3D;&quot;video&#x2F;avi&quot;
+&quot;.awf&quot;&#x3D;&quot;application&#x2F;vnd.adobe.workflow&quot;
+&quot;.biz&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.bmp&quot;&#x3D;&quot;application&#x2F;x-bmp&quot;
+&quot;.bot&quot;&#x3D;&quot;application&#x2F;x-bot&quot;
+&quot;.c4t&quot;&#x3D;&quot;application&#x2F;x-c4t&quot;
+&quot;.c90&quot;&#x3D;&quot;application&#x2F;x-c90&quot;
+&quot;.cal&quot;&#x3D;&quot;application&#x2F;x-cals&quot;
+&quot;.cat&quot;&#x3D;&quot;application&#x2F;s-pki.seccat&quot;
+&quot;.cdf&quot;&#x3D;&quot;application&#x2F;x-netcdf&quot;
+&quot;.cdr&quot;&#x3D;&quot;application&#x2F;x-cdr&quot;
+&quot;.cel&quot;&#x3D;&quot;application&#x2F;x-cel&quot;
+&quot;.cer&quot;&#x3D;&quot;application&#x2F;x-x509-ca-cert&quot;
+&quot;.cg4&quot;&#x3D;&quot;application&#x2F;x-g4&quot;
+&quot;.cgm&quot;&#x3D;&quot;application&#x2F;x-cgm&quot;
+&quot;.cit&quot;&#x3D;&quot;application&#x2F;x-cit&quot;
+&quot;.class&quot;&#x3D;&quot;java&#x2F;*&quot;
+&quot;.cml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.cmp&quot;&#x3D;&quot;application&#x2F;x-cmp&quot;
+&quot;.cmx&quot;&#x3D;&quot;application&#x2F;x-cmx&quot;
+&quot;.cot&quot;&#x3D;&quot;application&#x2F;x-cot&quot;
+&quot;.crl&quot;&#x3D;&quot;application&#x2F;pkix-crl&quot;
+&quot;.crt&quot;&#x3D;&quot;application&#x2F;x-x509-ca-cert&quot;
+&quot;.csi&quot;&#x3D;&quot;application&#x2F;x-csi&quot;
+&quot;.css&quot;&#x3D;&quot;text&#x2F;css&quot;
+&quot;.cut&quot;&#x3D;&quot;application&#x2F;x-cut&quot;
+&quot;.dbf&quot;&#x3D;&quot;application&#x2F;x-dbf&quot;
+&quot;.dbm&quot;&#x3D;&quot;application&#x2F;x-dbm&quot;
+&quot;.dbx&quot;&#x3D;&quot;application&#x2F;x-dbx&quot;
+&quot;.dcd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.dcx&quot;&#x3D;&quot;application&#x2F;x-dcx&quot;
+&quot;.der&quot;&#x3D;&quot;application&#x2F;x-x509-ca-cert&quot;
+&quot;.dgn&quot;&#x3D;&quot;application&#x2F;x-dgn&quot;
+&quot;.dib&quot;&#x3D;&quot;application&#x2F;x-dib&quot;
+&quot;.dll&quot;&#x3D;&quot;application&#x2F;x-msdownload&quot;
+&quot;.doc&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.dot&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.drw&quot;&#x3D;&quot;application&#x2F;x-drw&quot;
+&quot;.dtd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.dwf&quot;&#x3D;&quot;Model&#x2F;vnd.dwf&quot;
+&quot;.dwf&quot;&#x3D;&quot;application&#x2F;x-dwf&quot;
+&quot;.dwg&quot;&#x3D;&quot;application&#x2F;x-dwg&quot;
+&quot;.dxb&quot;&#x3D;&quot;application&#x2F;x-dxb&quot;
+&quot;.dxf&quot;&#x3D;&quot;application&#x2F;x-dxf&quot;
+&quot;.edn&quot;&#x3D;&quot;application&#x2F;vnd.adobe.edn&quot;
+&quot;.emf&quot;&#x3D;&quot;application&#x2F;x-emf&quot;
+&quot;.eml&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.ent&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.epi&quot;&#x3D;&quot;application&#x2F;x-epi&quot;
+&quot;.eps&quot;&#x3D;&quot;application&#x2F;x-ps&quot;
+&quot;.eps&quot;&#x3D;&quot;application&#x2F;postscript&quot;
+&quot;.etd&quot;&#x3D;&quot;application&#x2F;x-ebx&quot;
+&quot;.exe&quot;&#x3D;&quot;application&#x2F;x-msdownload&quot;
+&quot;.fax&quot;&#x3D;&quot;image&#x2F;fax&quot;
+&quot;.fdf&quot;&#x3D;&quot;application&#x2F;vnd.fdf&quot;
+&quot;.fif&quot;&#x3D;&quot;application&#x2F;fractals&quot;
+&quot;.fo&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.frm&quot;&#x3D;&quot;application&#x2F;x-frm&quot;
+&quot;.g4&quot;&#x3D;&quot;application&#x2F;x-g4&quot;
+&quot;.gbr&quot;&#x3D;&quot;application&#x2F;x-gbr&quot;
+&quot;.gcd&quot;&#x3D;&quot;application&#x2F;x-gcd&quot;
+&quot;.gif&quot;&#x3D;&quot;image&#x2F;gif&quot;
+&quot;.gl2&quot;&#x3D;&quot;application&#x2F;x-gl2&quot;
+&quot;.gp4&quot;&#x3D;&quot;application&#x2F;x-gp4&quot;
+&quot;.hgl&quot;&#x3D;&quot;application&#x2F;x-hgl&quot;
+&quot;.hmr&quot;&#x3D;&quot;application&#x2F;x-hmr&quot;
+&quot;.hpg&quot;&#x3D;&quot;application&#x2F;x-hpgl&quot;
+&quot;.hpl&quot;&#x3D;&quot;application&#x2F;x-hpl&quot;
+&quot;.hqx&quot;&#x3D;&quot;application&#x2F;mac-binhex40&quot;
+&quot;.hrf&quot;&#x3D;&quot;application&#x2F;x-hrf&quot;
+&quot;.hta&quot;&#x3D;&quot;application&#x2F;hta&quot;
+&quot;.htc&quot;&#x3D;&quot;text&#x2F;x-component&quot;
+&quot;.htm&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.html&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.htt&quot;&#x3D;&quot;text&#x2F;webviewhtml&quot;
+&quot;.htx&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.icb&quot;&#x3D;&quot;application&#x2F;x-icb&quot;
+&quot;.ico&quot;&#x3D;&quot;image&#x2F;x-icon&quot;
+&quot;.ico&quot;&#x3D;&quot;application&#x2F;x-ico&quot;
+&quot;.iff&quot;&#x3D;&quot;application&#x2F;x-iff&quot;
+&quot;.ig4&quot;&#x3D;&quot;application&#x2F;x-g4&quot;
+&quot;.igs&quot;&#x3D;&quot;application&#x2F;x-igs&quot;
+&quot;.iii&quot;&#x3D;&quot;application&#x2F;x-iphone&quot;
+&quot;.img&quot;&#x3D;&quot;application&#x2F;x-img&quot;
+&quot;.ins&quot;&#x3D;&quot;application&#x2F;x-internet-signup&quot;
+&quot;.isp&quot;&#x3D;&quot;application&#x2F;x-internet-signup&quot;
+&quot;.IVF&quot;&#x3D;&quot;video&#x2F;x-ivf&quot;
+&quot;.java&quot;&#x3D;&quot;java&#x2F;*&quot;
+&quot;.jfif&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpe&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpe&quot;&#x3D;&quot;application&#x2F;x-jpe&quot;
+&quot;.jpeg&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpg&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpg&quot;&#x3D;&quot;application&#x2F;x-jpg&quot;
+&quot;.js&quot;&#x3D;&quot;application&#x2F;x-javascript&quot;
+&quot;.jsp&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.la1&quot;&#x3D;&quot;audio&#x2F;x-liquid-file&quot;
+&quot;.lar&quot;&#x3D;&quot;application&#x2F;x-laplayer-reg&quot;
+&quot;.latex&quot;&#x3D;&quot;application&#x2F;x-latex&quot;
+&quot;.lavs&quot;&#x3D;&quot;audio&#x2F;x-liquid-secure&quot;
+&quot;.lbm&quot;&#x3D;&quot;application&#x2F;x-lbm&quot;
+&quot;.lmsff&quot;&#x3D;&quot;audio&#x2F;x-la-lms&quot;
+&quot;.ls&quot;&#x3D;&quot;application&#x2F;x-javascript&quot;
+&quot;.ltr&quot;&#x3D;&quot;application&#x2F;x-ltr&quot;
+&quot;.m1v&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.m2v&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.m3u&quot;&#x3D;&quot;audio&#x2F;mpegurl&quot;
+&quot;.m4e&quot;&#x3D;&quot;video&#x2F;mpeg4&quot;
+&quot;.mac&quot;&#x3D;&quot;application&#x2F;x-mac&quot;
+&quot;.man&quot;&#x3D;&quot;application&#x2F;x-troff-man&quot;
+&quot;.math&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.mdb&quot;&#x3D;&quot;application&#x2F;msaccess&quot;
+&quot;.mdb&quot;&#x3D;&quot;application&#x2F;x-mdb&quot;
+&quot;.mfp&quot;&#x3D;&quot;application&#x2F;x-shockwave-flash&quot;
+&quot;.mht&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.mhtml&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.mi&quot;&#x3D;&quot;application&#x2F;x-mi&quot;
+&quot;.mid&quot;&#x3D;&quot;audio&#x2F;mid&quot;
+&quot;.midi&quot;&#x3D;&quot;audio&#x2F;mid&quot;
+&quot;.mil&quot;&#x3D;&quot;application&#x2F;x-mil&quot;
+&quot;.mml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.mnd&quot;&#x3D;&quot;audio&#x2F;x-musicnet-download&quot;
+&quot;.mns&quot;&#x3D;&quot;audio&#x2F;x-musicnet-stream&quot;
+&quot;.mocha&quot;&#x3D;&quot;application&#x2F;x-javascript&quot;
+&quot;.movie&quot;&#x3D;&quot;video&#x2F;x-sgi-movie&quot;
+&quot;.mp1&quot;&#x3D;&quot;audio&#x2F;mp1&quot;
+&quot;.mp2&quot;&#x3D;&quot;audio&#x2F;mp2&quot;
+&quot;.mp2v&quot;&#x3D;&quot;video&#x2F;mpeg&quot;
+&quot;.mp3&quot;&#x3D;&quot;audio&#x2F;mp3&quot;
+&quot;.mp4&quot;&#x3D;&quot;video&#x2F;mp4&quot;
+&quot;.mpa&quot;&#x3D;&quot;video&#x2F;x-mpg&quot;
+&quot;.mpd&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mpe&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.mpeg&quot;&#x3D;&quot;video&#x2F;mpg&quot;
+&quot;.mpg&quot;&#x3D;&quot;video&#x2F;mpg&quot;
+&quot;.mpga&quot;&#x3D;&quot;audio&#x2F;rn-mpeg&quot;
+&quot;.mpp&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mps&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.mpt&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mpv&quot;&#x3D;&quot;video&#x2F;mpg&quot;
+&quot;.mpv2&quot;&#x3D;&quot;video&#x2F;mpeg&quot;
+&quot;.mpw&quot;&#x3D;&quot;application&#x2F;s-project&quot;
+&quot;.mpx&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mtx&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.mxp&quot;&#x3D;&quot;application&#x2F;x-mmxp&quot;
+&quot;.net&quot;&#x3D;&quot;image&#x2F;pnetvue&quot;
+&quot;.nrf&quot;&#x3D;&quot;application&#x2F;x-nrf&quot;
+&quot;.nws&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.odc&quot;&#x3D;&quot;text&#x2F;x-ms-odc&quot;
+&quot;.out&quot;&#x3D;&quot;application&#x2F;x-out&quot;
+&quot;.p10&quot;&#x3D;&quot;application&#x2F;pkcs10&quot;
+&quot;.p12&quot;&#x3D;&quot;application&#x2F;x-pkcs12&quot;
+&quot;.p7b&quot;&#x3D;&quot;application&#x2F;x-pkcs7-certificates&quot;
+&quot;.p7c&quot;&#x3D;&quot;application&#x2F;pkcs7-mime&quot;
+&quot;.p7m&quot;&#x3D;&quot;application&#x2F;pkcs7-mime&quot;
+&quot;.p7r&quot;&#x3D;&quot;application&#x2F;x-pkcs7-certreqresp&quot;
+&quot;.p7s&quot;&#x3D;&quot;application&#x2F;pkcs7-signature&quot;
+&quot;.pc5&quot;&#x3D;&quot;application&#x2F;x-pc5&quot;
+&quot;.pci&quot;&#x3D;&quot;application&#x2F;x-pci&quot;
+&quot;.pcl&quot;&#x3D;&quot;application&#x2F;x-pcl&quot;
+&quot;.pcx&quot;&#x3D;&quot;application&#x2F;x-pcx&quot;
+&quot;.pdf&quot;&#x3D;&quot;application&#x2F;pdf&quot;
+&quot;.pdx&quot;&#x3D;&quot;application&#x2F;vnd.adobe.pdx&quot;
+&quot;.pfx&quot;&#x3D;&quot;application&#x2F;x-pkcs12&quot;
+&quot;.pgl&quot;&#x3D;&quot;application&#x2F;x-pgl&quot;
+&quot;.pic&quot;&#x3D;&quot;application&#x2F;x-pic&quot;
+&quot;.pko&quot;&#x3D;&quot;application-pki.pko&quot;
+&quot;.pl&quot;&#x3D;&quot;application&#x2F;x-perl&quot;
+&quot;.plg&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.pls&quot;&#x3D;&quot;audio&#x2F;scpls&quot;
+&quot;.plt&quot;&#x3D;&quot;application&#x2F;x-plt&quot;
+&quot;.png&quot;&#x3D;&quot;image&#x2F;png&quot;
+&quot;.png&quot;&#x3D;&quot;application&#x2F;x-png&quot;
+&quot;.pot&quot;&#x3D;&quot;applications-powerpoint&quot;
+&quot;.ppa&quot;&#x3D;&quot;application&#x2F;vs-powerpoint&quot;
+&quot;.ppm&quot;&#x3D;&quot;application&#x2F;x-ppm&quot;
+&quot;.pps&quot;&#x3D;&quot;application-powerpoint&quot;
+&quot;.ppt&quot;&#x3D;&quot;applications-powerpoint&quot;
+&quot;.ppt&quot;&#x3D;&quot;application&#x2F;x-ppt&quot;
+&quot;.pr&quot;&#x3D;&quot;application&#x2F;x-pr&quot;
+&quot;.prf&quot;&#x3D;&quot;application&#x2F;pics-rules&quot;
+&quot;.prn&quot;&#x3D;&quot;application&#x2F;x-prn&quot;
+&quot;.prt&quot;&#x3D;&quot;application&#x2F;x-prt&quot;
+&quot;.ps&quot;&#x3D;&quot;application&#x2F;x-ps&quot;
+&quot;.ps&quot;&#x3D;&quot;application&#x2F;postscript&quot;
+&quot;.ptn&quot;&#x3D;&quot;application&#x2F;x-ptn&quot;
+&quot;.pwz&quot;&#x3D;&quot;application&#x2F;powerpoint&quot;
+&quot;.r3t&quot;&#x3D;&quot;text&#x2F;vnd.rn-realtext3d&quot;
+&quot;.ra&quot;&#x3D;&quot;audio&#x2F;vnd.rn-realaudio&quot;
+&quot;.ram&quot;&#x3D;&quot;audio&#x2F;x-pn-realaudio&quot;
+&quot;.ras&quot;&#x3D;&quot;application&#x2F;x-ras&quot;
+&quot;.rat&quot;&#x3D;&quot;application&#x2F;rat-file&quot;
+&quot;.rdf&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.rec&quot;&#x3D;&quot;application&#x2F;vnd.rn-recording&quot;
+&quot;.red&quot;&#x3D;&quot;application&#x2F;x-red&quot;
+&quot;.rgb&quot;&#x3D;&quot;application&#x2F;x-rgb&quot;
+&quot;.rjs&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rjs&quot;
+&quot;.rjt&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rjt&quot;
+&quot;.rlc&quot;&#x3D;&quot;application&#x2F;x-rlc&quot;
+&quot;.rle&quot;&#x3D;&quot;application&#x2F;x-rle&quot;
+&quot;.rm&quot;&#x3D;&quot;application&#x2F;vnd.rn-realmedia&quot;
+&quot;.rmf&quot;&#x3D;&quot;application&#x2F;vnd.adobe.rmf&quot;
+&quot;.rmi&quot;&#x3D;&quot;audio&#x2F;mid&quot;
+&quot;.rmj&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rmj&quot;
+&quot;.rmm&quot;&#x3D;&quot;audio&#x2F;x-pn-realaudio&quot;
+&quot;.rmp&quot;&#x3D;&quot;application&#x2F;vnd.rn-rn_music_package&quot;
+&quot;.rms&quot;&#x3D;&quot;application&#x2F;vnd.rn-realmedia-secure&quot;
+&quot;.rmvb&quot;&#x3D;&quot;application&#x2F;vnd.rn-realmedia-vbr&quot;
+&quot;.rmx&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rmx&quot;
+&quot;.rnx&quot;&#x3D;&quot;application&#x2F;vnd.rn-realplayer&quot;
+&quot;.rp&quot;&#x3D;&quot;image&#x2F;vnd.rn-realpix&quot;
+&quot;.rpm&quot;&#x3D;&quot;audio&#x2F;x-pn-realaudio-plugin&quot;
+&quot;.rsml&quot;&#x3D;&quot;application&#x2F;vnd.rn-rsml&quot;
+&quot;.rt&quot;&#x3D;&quot;text&#x2F;vnd.rn-realtext&quot;
+&quot;.rtf&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.rtf&quot;&#x3D;&quot;application&#x2F;x-rtf&quot;
+&quot;.rv&quot;&#x3D;&quot;video&#x2F;vnd.rn-realvideo&quot;
+&quot;.sam&quot;&#x3D;&quot;application&#x2F;x-sam&quot;
+&quot;.sat&quot;&#x3D;&quot;application&#x2F;x-sat&quot;
+&quot;.sdp&quot;&#x3D;&quot;application&#x2F;sdp&quot;
+&quot;.sdw&quot;&#x3D;&quot;application&#x2F;x-sdw&quot;
+&quot;.sit&quot;&#x3D;&quot;application&#x2F;x-stuffit&quot;
+&quot;.slb&quot;&#x3D;&quot;application&#x2F;x-slb&quot;
+&quot;.sld&quot;&#x3D;&quot;application&#x2F;x-sld&quot;
+&quot;.slk&quot;&#x3D;&quot;drawing&#x2F;x-slk&quot;
+&quot;.smi&quot;&#x3D;&quot;application&#x2F;smil&quot;
+&quot;.smil&quot;&#x3D;&quot;application&#x2F;smil&quot;
+&quot;.smk&quot;&#x3D;&quot;application&#x2F;x-smk&quot;
+&quot;.snd&quot;&#x3D;&quot;audio&#x2F;basic&quot;
+&quot;.sol&quot;&#x3D;&quot;text&#x2F;plain&quot;
+&quot;.sor&quot;&#x3D;&quot;text&#x2F;plain&quot;
+&quot;.spc&quot;&#x3D;&quot;application&#x2F;x-pkcs7-certificates&quot;
+&quot;.spl&quot;&#x3D;&quot;application&#x2F;futuresplash&quot;
+&quot;.spp&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.ssm&quot;&#x3D;&quot;application&#x2F;streamingmedia&quot;
+&quot;.sst&quot;&#x3D;&quot;application-pki.certstore&quot;
+&quot;.stl&quot;&#x3D;&quot;application&#x2F;-pki.stl&quot;
+&quot;.stm&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.sty&quot;&#x3D;&quot;application&#x2F;x-sty&quot;
+&quot;.svg&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.swf&quot;&#x3D;&quot;application&#x2F;x-shockwave-flash&quot;
+&quot;.tdf&quot;&#x3D;&quot;application&#x2F;x-tdf&quot;
+&quot;.tg4&quot;&#x3D;&quot;application&#x2F;x-tg4&quot;
+&quot;.tga&quot;&#x3D;&quot;application&#x2F;x-tga&quot;
+&quot;.tif&quot;&#x3D;&quot;image&#x2F;tiff&quot;
+&quot;.tif&quot;&#x3D;&quot;application&#x2F;x-tif&quot;
+&quot;.tiff&quot;&#x3D;&quot;image&#x2F;tiff&quot;
+&quot;.tld&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.top&quot;&#x3D;&quot;drawing&#x2F;x-top&quot;
+&quot;.torrent&quot;&#x3D;&quot;application&#x2F;x-bittorrent&quot;
+&quot;.tsd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.txt&quot;&#x3D;&quot;text&#x2F;plain&quot;
+&quot;.uin&quot;&#x3D;&quot;application&#x2F;x-icq&quot;
+&quot;.uls&quot;&#x3D;&quot;text&#x2F;iuls&quot;
+&quot;.vcf&quot;&#x3D;&quot;text&#x2F;x-vcard&quot;
+&quot;.vda&quot;&#x3D;&quot;application&#x2F;x-vda&quot;
+&quot;.vdx&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.vpg&quot;&#x3D;&quot;application&#x2F;x-vpeg005&quot;
+&quot;.vsd&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vsd&quot;&#x3D;&quot;application&#x2F;x-vsd&quot;
+&quot;.vss&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vst&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vst&quot;&#x3D;&quot;application&#x2F;x-vst&quot;
+&quot;.vsw&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vsx&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vtx&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vxml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.wav&quot;&#x3D;&quot;audio&#x2F;wav&quot;
+&quot;.wax&quot;&#x3D;&quot;audio&#x2F;x-ms-wax&quot;
+&quot;.wb1&quot;&#x3D;&quot;application&#x2F;x-wb1&quot;
+&quot;.wb2&quot;&#x3D;&quot;application&#x2F;x-wb2&quot;
+&quot;.wb3&quot;&#x3D;&quot;application&#x2F;x-wb3&quot;
+&quot;.wbmp&quot;&#x3D;&quot;image&#x2F;vnd.wap.wbmp&quot;
+&quot;.wiz&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.wk3&quot;&#x3D;&quot;application&#x2F;x-wk3&quot;
+&quot;.wk4&quot;&#x3D;&quot;application&#x2F;x-wk4&quot;
+&quot;.wkq&quot;&#x3D;&quot;application&#x2F;x-wkq&quot;
+&quot;.wks&quot;&#x3D;&quot;application&#x2F;x-wks&quot;
+&quot;.wm&quot;&#x3D;&quot;video&#x2F;x-ms-wm&quot;
+&quot;.wma&quot;&#x3D;&quot;audio&#x2F;x-ms-wma&quot;
+&quot;.wmd&quot;&#x3D;&quot;application&#x2F;x-ms-wmd&quot;
+&quot;.wmf&quot;&#x3D;&quot;application&#x2F;x-wmf&quot;
+&quot;.wml&quot;&#x3D;&quot;text&#x2F;vnd.wap.wml&quot;
+&quot;.wmv&quot;&#x3D;&quot;video&#x2F;x-ms-wmv&quot;
+&quot;.wmx&quot;&#x3D;&quot;video&#x2F;x-ms-wmx&quot;
+&quot;.wmz&quot;&#x3D;&quot;application&#x2F;x-ms-wmz&quot;
+&quot;.wp6&quot;&#x3D;&quot;application&#x2F;x-wp6&quot;
+&quot;.wpd&quot;&#x3D;&quot;application&#x2F;x-wpd&quot;
+&quot;.wpg&quot;&#x3D;&quot;application&#x2F;x-wpg&quot;
+&quot;.wpl&quot;&#x3D;&quot;application&#x2F;-wpl&quot;
+&quot;.wq1&quot;&#x3D;&quot;application&#x2F;x-wq1&quot;
+&quot;.wr1&quot;&#x3D;&quot;application&#x2F;x-wr1&quot;
+&quot;.wri&quot;&#x3D;&quot;application&#x2F;x-wri&quot;
+&quot;.wrk&quot;&#x3D;&quot;application&#x2F;x-wrk&quot;
+&quot;.ws&quot;&#x3D;&quot;application&#x2F;x-ws&quot;
+&quot;.ws2&quot;&#x3D;&quot;application&#x2F;x-ws&quot;
+&quot;.wsc&quot;&#x3D;&quot;text&#x2F;scriptlet&quot;
+&quot;.wsdl&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.wvx&quot;&#x3D;&quot;video&#x2F;x-ms-wvx&quot;
+&quot;.xdp&quot;&#x3D;&quot;application&#x2F;vnd.adobe.xdp&quot;
+&quot;.xdr&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xfd&quot;&#x3D;&quot;application&#x2F;vnd.adobe.xfd&quot;
+&quot;.xfdf&quot;&#x3D;&quot;application&#x2F;vnd.adobe.xfdf&quot;
+&quot;.xhtml&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.xls&quot;&#x3D;&quot;application&#x2F;-excel&quot;
+&quot;.xls&quot;&#x3D;&quot;application&#x2F;x-xls&quot;
+&quot;.xlw&quot;&#x3D;&quot;application&#x2F;x-xlw&quot;
+&quot;.xml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xpl&quot;&#x3D;&quot;audio&#x2F;scpls&quot;
+&quot;.xq&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xql&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xquery&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xsd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xsl&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xslt&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xwd&quot;&#x3D;&quot;application&#x2F;x-xwd&quot;
+&quot;.x_b&quot;&#x3D;&quot;application&#x2F;x-x_b&quot;
+&quot;.x_t&quot;&#x3D;&quot;application&#x2F;x-x_t&quot;
+Office2007对应的值:
+&quot;application&#x2F;vnd.openxmlformats-officedocument.wordprocessingml.template&quot; (for .docx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.presentationml.presentation&quot; (for .pptx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.presentationml.slideshow&quot; (for .ppsx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.presentationml.template&quot; (for .potx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; (for .xlsx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.spreadsheetml.template&quot; (for .xltx files)
+相对于Office2003是这样的
+Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3><ol>
+<li>system函数用于执行外部程序，并且<strong>显示输出</strong><pre class="line-numbers language-none"><code class="language-none">system(string $command,int &amp;$return_var&#x3D;?):string<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>返回值为可选的，可以省略</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716122452.png"></li>
+</ol>
+<h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><ol>
+<li>eval()函数把字符串按照PHP代码来计算</li>
+<li>该字符串必须是合法的PHP代码，以分号结尾</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716124148.png"></li>
+</ol>
+<h3 id="tac-cat"><a href="#tac-cat" class="headerlink" title="tac/cat"></a>tac/cat</h3><ol>
+<li>用来显示文件，tac是反向（向前）的顺序列出文件的内容</li>
+<li>cat是读取其后所指文件内容并将其输出到标准输出设备上</li>
+</ol>
+<h2 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h2><h3 id="js前端过滤，ctfshow"><a href="#js前端过滤，ctfshow" class="headerlink" title="js前端过滤，ctfshow"></a>js前端过滤，ctfshow</h3><ol>
+<li>查看网页源代码，查看js，发现前端过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094646.png"></li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094739.png"></li>
+<li>修改前端js，屏蔽过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094808.png"></li>
+<li>文件可以上传成功<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094857.png"></li>
+<li>1=system(“ls ./“);在本地找不到东西</li>
+<li>1=system(“ls /“);在根目录下也找不到东西<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716114825.png"></li>
+<li>1=system(“ls ../“);在上级目录找到flag<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716114952.png"></li>
+<li>构造语句1=system(“tac ../flag.php”);看到flag<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115039.png"></li>
+</ol>
+<h3 id="文件后缀绕过攻击"><a href="#文件后缀绕过攻击" class="headerlink" title="文件后缀绕过攻击"></a>文件后缀绕过攻击</h3><ol>
+<li>服务端代码中限制了某些后缀的文件不允许上传，但是有些apache是允许解析其它文件后缀的</li>
+<li>在apache的解析顺序中，是从右到左开始解析文件后缀的，如果最右侧的拓展名不能识别，就继续向左判断，直到遇到可以解析的文件后缀为止</li>
+<li>例如：1.php.xxxx，xxxx不能解析，所以向左解析后缀php</li>
+<li>或者可以大写一个字母，绕过弱过滤，例如php写为phP,大写一个字母</li>
+</ol>
+<h3 id="文件类型绕过攻击-后端不能单一校验"><a href="#文件类型绕过攻击-后端不能单一校验" class="headerlink" title="文件类型绕过攻击,后端不能单一校验"></a>文件类型绕过攻击,后端不能单一校验</h3><ol>
+<li>在客户端上传文件时，通过burp抓包，当上传一个php格式的文件时，和上传一个jpg格式的<strong>Content-type不一致</strong></li>
+<li>如果<strong>服务端</strong>是<strong>通过Content-type来判断</strong>文件的类型，就存在被绕过的可能，因为Content-type的值是<strong>客户端传递的</strong>，是<strong>可以任意修改的</strong></li>
+<li>所以上传一个php文件格式时，在burp中修改<strong>Content-type</strong>的值为image/jpeg，就可以绕过后端的检测</li>
+</ol>
+<h4 id="使用-FLIES-“file”-“type”-后端过滤"><a href="#使用-FLIES-“file”-“type”-后端过滤" class="headerlink" title="使用$_FLIES[“file”][“type”]后端过滤"></a>使用$_FLIES[“file”][“type”]后端过滤</h4><ol>
+<li>$_FILES[“file”][“type”]是客户端请求数据包中的Contant-type,可以通过修改Contant-type来绕过</li>
+<li>ctfshow例题152</li>
+<li>直接上传，发现<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716165636.png"></li>
+<li>上来先找js有没有前端过滤，发现js有前端过滤，修改为php<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115444.png"></li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115448.png">还是不能够上传，应该就是后端有过滤了</li>
+<li>抓个包，首先看看是不是文件名后缀的问题，<strong>大写一个字母</strong>，例如phP，发现还是被过滤掉了</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115845.png">，<strong>修改文件的Content-type</strong>,和前端所要求的文件类型一致，为image/png<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716120958.png">,就可以上传成功了<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716121004.png"></li>
+</ol>
+<h4 id="使用getimagesize-后端过滤"><a href="#使用getimagesize-后端过滤" class="headerlink" title="使用getimagesize()后端过滤"></a>使用getimagesize()后端过滤</h4><ol>
+<li>getimagesize()可以获取到图片的宽高，如果上传的不是图片文件，getimagesize()就获取不到信息，返回false，取反!getimagesize()就为true<pre class="line-numbers language-none"><code class="language-none">if(!getimagesize($_FILES[&quot;file&quot;][&quot;type_name&quot;]))&#123;
+    exit();  &#x2F;&#x2F;不满足就退出
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>此时可以将一个图片和一个webshell合并为一个文件<pre class="line-numbers language-none"><code class="language-none">cat image.png webshell.php&gt;image.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>也可以用010editor放到最后</li>
 </ol>
 
                 
@@ -1049,7 +1457,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">61.5k</span>&nbsp;字
+                class="white-color">65.9k</span>&nbsp;字
             
             
             
