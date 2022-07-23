@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -567,6 +567,34 @@ docker cp container:xxx xxx<span aria-hidden="true" class="line-numbers-rows"><s
 <li>容器是基于镜像所创建的，容器中的进程依赖于镜像中的文件</li>
 <li>docker就是一个mini版本的Linux系统，拥有完全与宿主机隔离的系统文件，进程，用户权限，网络空间等</li>
 <li>镜像和容器的先后顺序：现有镜像后由实例的容器，虽然创建镜像可以参考某个容器，但是标准的做法是先制作镜像后跑容器</li>
+</ol>
+<h2 id="docker入门概念"><a href="#docker入门概念" class="headerlink" title="docker入门概念"></a>docker入门概念</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722155932.png"></p>
+<ol>
+<li>开发和运维工程师的结合，更快的交付<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722160245.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722160743.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722163027.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722164155.png"></li>
+</ol>
+<h2 id="docker和docker-hub的关系"><a href="#docker和docker-hub的关系" class="headerlink" title="docker和docker hub的关系"></a>docker和docker hub的关系</h2><ol>
+<li>docker是官网</li>
+<li>docker hub是安装docker镜像的仓库<h3 id="dockerfile-image-container-repository"><a href="#dockerfile-image-container-repository" class="headerlink" title="dockerfile image container repository"></a>dockerfile image container repository</h3></li>
+<li>通过dockerfile可以生成docker image</li>
+<li>自己制作的镜像可以上传到docker hub平台，也可以从平台上拉去我们所需要的镜像</li>
+<li>当镜像拉取到本地后，我们可以实例化这个镜像，形成一个container(实例)了<pre class="line-numbers language-none"><code class="language-none">docker run [组织名称]&#x2F;&lt;镜像名称&gt;：[镜像标签]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ol>
+<li><p>Dockerfile 是 Docker 比较重要的概念。它是 Docker 创建镜像的核心，它的出现给 Docker 提供了两大好处：</p>
+</li>
+<li><p>文本化的镜像生成操作让其方便版本管理和自动化部署</p>
+</li>
+<li><p>每条命令对应镜像的一层，细化操作后保证其可增量更新，复用镜像块，减小镜像体积</p>
+</li>
+</ol>
+<h4 id="dockerfile的编写规则"><a href="#dockerfile的编写规则" class="headerlink" title="dockerfile的编写规则"></a>dockerfile的编写规则</h4><ol>
+<li>使用#来注释</li>
+<li>from指令告诉docker使用哪个镜像作为基础</li>
+<li>run开头的指令会在创建中运行，比如安装一个软件包</li>
+<li>copy指令将文件复制到镜像中</li>
+<li>workdir指定工作目录</li>
+<li>cmd/entrypoint 镜像启动执行命令</li>
+<li>最后执行以下命令即可完成docker镜像的创建<pre class="line-numbers language-none"><code class="language-none">docker build lizheming&#x2F;drone-wechat:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -1094,7 +1122,7 @@ docker cp container:xxx xxx<span aria-hidden="true" class="line-numbers-rows"><s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">68.7k</span>&nbsp;字
+                class="white-color">73.6k</span>&nbsp;字
             
             
             

