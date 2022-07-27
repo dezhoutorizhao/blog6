@@ -639,8 +639,8 @@ select 1,2,(extractvalue(1,concat(0x7e,(select table_name from information_schem
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class="line-numbers language-none"><code class="language-none">playload：and length(database()) &#x3D;8 --+ &#x2F;判断数据库名长度
 是否等于8
 如果不等于
-则返回错
-等于的话就是开始页面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+则返回错，并且返回index.php
+如果等于就返回query_success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol>
 <li>如果是错误，会回显报错</li>
 <li>如果是正确的，会返回开始页面</li>
@@ -1187,12 +1187,12 @@ left((select database()),1)&#x3D;‘s’ 同样的意思
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ing/">
-                        <span class="chip bg-color">ing</span>
-                    </a>
-                    
                     <a href="/tags/CTF/">
                         <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
                     </a>
                     
                     <a href="/tags/sql%E6%B3%A8%E5%85%A5/">
@@ -1395,7 +1395,7 @@ left((select database()),1)&#x3D;‘s’ 同样的意思
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.6k</span>&nbsp;字
+                class="white-color">73.9k</span>&nbsp;字
             
             
             
