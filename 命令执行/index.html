@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    15 分
                 </div>
                 
 
@@ -502,12 +502,18 @@
                 <h1 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h1><h2 id="常用绕过"><a href="#常用绕过" class="headerlink" title="常用绕过"></a>常用绕过</h2><ol>
 <li>绕过php，flag等特殊字符：使用通配符</li>
 <li>绕过system等执行函数：使用反单引号</li>
-<li>绕过了. \ `等函数常用字符<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718153954.png">,使用逃逸</li>
+<li>绕过了. \ `等函数常用字符<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718153954.png">,但是没有绕过<strong>$和_</strong>,使用<strong>逃逸</strong>，c=eval($_GET[1])</li>
 <li>最nb的是可以使用URL编码进行绕过，因为服务器会自动解一层url编码，所以可以对过滤掉的字符进行一次url编码</li>
 <li>过滤了分号，最后一条语句可以不带分号，结束的标志为’?&gt;’,则我们可以将两条语句中间需要分号的位置替换为’?&gt;’,那么就可以使用两条语句</li>
 <li>过滤了分号和括号，则必须使用语言结构，echo print isset unset include require，使用include加上php过滤器实现</li>
 <li>文件包含题目：使用伪协议：data伪协议可以执行后面的php代码</li>
 <li>过滤掉了字符和数字：使用url编码去代替字符，如果可以使用或运算，即可通过或运算去取字符，web41</li>
+<li>如果是过滤掉了冒号，则是想要过滤掉使用伪协议的方法，那么我们可以先逃逸出去一个变量后再使用伪协议进行文件包含操作</li>
+<li>绕过了eval和system等执行函数，我们可以使用data伪协议，data伪协议data://text/plain,可以直接执行后面跟着的php代码</li>
+<li>如果不能直接访问flag.php，可以先使用mv flag.php 1.txt进行重命名之后再访问1.txt,从而cat到flag.php中的内容</li>
+<li>当遇到了黑洞问题，可以使用双写绕过，例如?c=ls;ls</li>
+<li>当遇到了黑洞问题，并且过滤了分号，可以使用&amp;&amp;来起到分号的分隔作用</li>
+<li>当过滤掉了空格，可以使用其它的URL编码后的空白符:<pre class="line-numbers language-none"><code class="language-none">空格 %26 +   tab水平制表符 %09 回车 %0a或%0A<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h2 id="web29"><a href="#web29" class="headerlink" title="web29"></a>web29</h2><h3 id="cookie的概念"><a href="#cookie的概念" class="headerlink" title="cookie的概念"></a>cookie的概念</h3><ol>
 <li>cookie用于识别用户，cookie是服务器留在用户计算机中的小文件，每当相同的计算机通过浏览器请求页面时，它同时会发送cookie<h3 id="isset"><a href="#isset" class="headerlink" title="isset()"></a>isset()</h3></li>
@@ -603,8 +609,11 @@ abc.php中源码为
 <h3 id="题：-1"><a href="#题：-1" class="headerlink" title="题："></a>题：</h3><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720094642.png">过滤了冒号，为了过滤php伪协议形式的命令</li>
 <li>分号和括号过滤，则只能使用语言结构，语言结构的函数：print echo isset unset include require</li>
-<li>对于?c=print%0a$_GET[1]?&gt;&amp;1=phpinfo();只能出现<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720154430.png">的字符：二进制数据段和代码段的区别关系，就是print没法像eval一样将字符当作php代码去执行</li>
-<li>使用include就可以使用文件包含的方式去实现命令执行<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720154643.png"></li>
+<li>对于?c=print%0a$_GET[1]?&gt;&amp;1=phpinfo();只能出现</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720154430.png"></li>
+<li>的字符：二进制数据段和代码段的区别关系，就是print没法像eval一样将字符当作php代码去执行</li>
+<li>使用include就可以使用文件包含的方式去实现命令执行</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720154643.png"></li>
 </ol>
 <h2 id="对于get传参时不加单引号的问题"><a href="#对于get传参时不加单引号的问题" class="headerlink" title="对于get传参时不加单引号的问题"></a>对于get传参时不加单引号的问题</h2><ol>
 <li>$_GET[1]和$_GET[‘1’]</li>
@@ -686,8 +695,8 @@ $results &#x3D; print_r ($b, true); &#x2F;&#x2F; $results 包含了 print_r 的�
 <h3 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h3><ol>
 <li>因为不能用$,所以不能使用之前的逃逸字符来绕过</li>
 <li>考虑是否能通过打印变量，从变量中获取到信息<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;print_r(get_defined_vars());<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150824.png">发现是通过post给这个数组传参，尝试加一个post值</li>
-<li>post传参后回显<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150904.png"></li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150824.png"><br>发现是通过post给这个数组传参，尝试加一个post值</li>
+<li>post传参后回显<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150904.png"></li>
 <li>为了拿到array中的那个phpinfo()的字符串，rce一下，使用next函数将指针后移,并且形成了一个新的数组，这个数组的值为phpinfo(),键为它的键</li>
 <li>为了拿到指针指向的那个值，弹出array_pop()，将会返回数组中的最后一个值</li>
 </ol>
@@ -784,10 +793,36 @@ while True:
 <li>可以从ASCII为0-255的字符中找到或运算能得到的可用的字符</li>
 <li>跑脚本吧，虽然最后我也没解出来，但是思路是对的</li>
 </ol>
-<h2 id="web41-1"><a href="#web41-1" class="headerlink" title="web41"></a>web41</h2><h3 id="黑洞"><a href="#黑洞" class="headerlink" title="黑洞"></a>黑洞</h3><ol>
+<h2 id="web42"><a href="#web42" class="headerlink" title="web42"></a>web42</h2><h3 id="黑洞"><a href="#黑洞" class="headerlink" title="黑洞"></a>黑洞</h3><ol>
 <li>‘&gt;/dev/null’命令</li>
-<li>目的是抑制各种命令输出的空设备<a target="_blank" rel="noopener" href="https://linuxhint.com/two-dev-null-command-purpose/">https://linuxhint.com/two-dev-null-command-purpose/</a></li>
+<li>目的是抑制各种命令输出的空设备<a target="_blank" rel="noopener" href="https://linuxhint.com/two-dev-null-command-purpose/">https://linuxhint.com/two-dev-null-command-purpose/</a><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729154309.png"></li>
 </ol>
+<h2 id="web43"><a href="#web43" class="headerlink" title="web43"></a>web43</h2><h3 id="过滤掉分号，但是还是需要两条命令的情况"><a href="#过滤掉分号，但是还是需要两条命令的情况" class="headerlink" title="过滤掉分号，但是还是需要两条命令的情况"></a>过滤掉分号，但是还是需要两条命令的情况</h3><ol>
+<li>过滤掉了分号，但是还是需要两条命令</li>
+<li>可以使用&amp;&amp;</li>
+<li>当前面的语句执行结果为true时，会执行后面的语句，而且前后是分割的两条命令</li>
+<li>遇到黑洞问题并且过滤掉了分号就可以用&amp;&amp;来起到分隔作用<pre class="line-numbers language-none"><code class="language-none">if(!preg_match(&quot;&#x2F;\;|cat&#x2F;i&quot;, $c))&#123;
+        system($c.&quot; &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1&quot;);
+    &#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729155254.png"></li>
+</ol>
+<h3 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h3><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729160723.png"></li>
+<li>发现有黑洞，并且过滤掉了分号，我们可以使用&amp;&amp;对两条命令进行分隔，成为两条命令</li>
+<li>传参?c=ls&amp;&amp;ls ,并对&amp;&amp;进行URL编码，即传参?c=ls%26%26ls 可以查看到回显，那么我们可以修改第一条命令来得到flag，因为第二条命令进入了黑洞中<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729160856.png"></li>
+<li>?c=tac flag.php%26%26ls得到flag</li>
+</ol>
+<h2 id="web46"><a href="#web46" class="headerlink" title="web46"></a>web46</h2><h3 id="当过滤掉数字和-时，URL编码中的数字不会被过滤"><a href="#当过滤掉数字和-时，URL编码中的数字不会被过滤" class="headerlink" title="当过滤掉数字和%时，URL编码中的数字不会被过滤"></a>当过滤掉数字和%时，URL编码中的数字不会被过滤</h3><ol>
+<li>当过滤掉数字时，URL编码中的数字不会被过滤</li>
+<li>因为URL编码在上传的过程中已经被浏览器解了一次码了，传到服务器的时候已经是字符而不是URL编码的数字了</li>
+<li>%同理</li>
+</ol>
+<h3 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h3><ol>
+<li>过滤掉了数字，$和*，即不让我们使用数字，逃逸和任意字符数的通配符</li>
+<li>我们可以使用?来代替*的通配符,URL编码中的数字会自动解码，不用担心</li>
+<li>?c=tac%09fla?.php%26%26ls</li>
+</ol>
+<h2 id="web50"><a href="#web50" class="headerlink" title="web50"></a>web50</h2><p>1. </p>
 
                 
             </div>
@@ -1314,7 +1349,7 @@ while True:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.9k</span>&nbsp;字
+                class="white-color">75.7k</span>&nbsp;字
             
             
             

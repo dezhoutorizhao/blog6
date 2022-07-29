@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.7k
+                    5.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    30 分
                 </div>
                 
 
@@ -883,7 +883,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716124148.png"></li>
 </ol>
 <h3 id="tac-cat"><a href="#tac-cat" class="headerlink" title="tac/cat"></a>tac/cat</h3><ol>
-<li>用来显示文件，tac是反向（向前）的顺序列出文件的内容</li>
+<li>用来显示文件，tac是反向（向前）的顺序列出文件的内容,tac最重要的作用是对HTML的注释内容进行破坏，从而使注释内容不需要查看源代码即可回显到主页面</li>
 <li>cat是读取其后所指文件内容并将其输出到标准输出设备上</li>
 </ol>
 <h3 id="-1"><a href="#-1" class="headerlink" title="@"></a>@</h3><ol>
@@ -981,6 +981,20 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <h3 id="重复改包的技巧"><a href="#重复改包的技巧" class="headerlink" title="重复改包的技巧"></a>重复改包的技巧</h3><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717150132.png"></li>
 <li>host的位置是域名去掉前面的http头和最后那里的‘/’而成的</li>
+</ol>
+<h3 id="web160"><a href="#web160" class="headerlink" title="web160"></a>web160</h3><h4 id="使用文件包含"><a href="#使用文件包含" class="headerlink" title="使用文件包含"></a>使用文件包含</h4><ol>
+<li>/var/log/nginx/access.log</li>
+<li>因为对log有过滤，所以可以使用php的’.’去进行拼接</li>
+<li>‘/var/l’.’og/nginx/access.l’.’og’</li>
+</ol>
+<h4 id="题"><a href="#题" class="headerlink" title="题"></a>题</h4><ol>
+<li>题中过滤了空格，小括号</li>
+<li>可以使用文件包含去做</li>
+<li>先上传一个.user.ini,内容为auto_append_file=1.txt</li>
+<li>1.txt中写一句话木马</li>
+<li><?=include1'/var/l'.'og/nginx/access.l'.'og'?>，这个地方因为过滤了空格，我们考虑使用空白换行符，但是不能直接换行，否则解码的时候空格和换行符的URL编码相同<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220728161132.png"></li>
+<li>把上面的1位置的hex值由31改为0d即可上传</li>
+<li>后面接着改UA，连接蚁剑即可</li>
 </ol>
 
                 
@@ -1312,12 +1326,12 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
                         <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/ing/">
-                        <span class="chip bg-color">ing</span>
-                    </a>
-                    
                     <a href="/tags/web/">
                         <span class="chip bg-color">web</span>
+                    </a>
+                    
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
                     </a>
                     
                 </div>
@@ -1516,7 +1530,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.9k</span>&nbsp;字
+                class="white-color">75.7k</span>&nbsp;字
             
             
             

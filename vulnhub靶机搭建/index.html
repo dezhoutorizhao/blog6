@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="春季训练赛, 更好的明天">
+    <meta name="keywords" content="vulnhub靶场搭建, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>春季训练赛 | 更好的明天</title>
+    <title>vulnhub靶场搭建 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">春季训练赛</h1>
+                    <h1 class="description center-align post-title">vulnhub靶场搭建</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-26
+                    2022-07-29
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    757
+                    418
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -495,61 +495,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2022春季训练赛"><a href="#2022春季训练赛" class="headerlink" title="2022春季训练赛"></a>2022春季训练赛</h1><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到："><a href="#签到：" class="headerlink" title="签到："></a>签到：</h3><ol>
-<li>010editor打开发现PK开头，知道是一个zip压缩包</li>
-<li>更改后缀为.zip，解压打开发现flag</li>
+                <h1 id="vulnhub靶机搭建"><a href="#vulnhub靶机搭建" class="headerlink" title="vulnhub靶机搭建"></a>vulnhub靶机搭建</h1><h2 id="预先准备工具"><a href="#预先准备工具" class="headerlink" title="预先准备工具"></a>预先准备工具</h2><ol>
+<li>vulnhub官网的靶机(ova文件)<a target="_blank" rel="noopener" href="https://www.vulnhub.com/![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726110103.png)">https://www.vulnhub.com/![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726110103.png)</a></li>
+<li>virtualbox<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726110144.png"></li>
+<li>vmware</li>
+<li>一个Linux环境，从虚拟机里开或者直接装子系统都可以</li>
 </ol>
-<h3 id="签到：-1"><a href="#签到：-1" class="headerlink" title="签到："></a>签到：</h3><ol>
-<li>BASE85{6:”O=1GX;K8jQKJ;G(“;DhKL9h)S6;BsD:IJ&gt;[;HHmd9h[rJ1c/0%&lt;(g@i6&lt;6QU&lt;\d]P7RpNU:eETA&lt;BWK.4ZtrV}</li>
-<li>BASE85解一层出base35</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIiNQ"><img src="https://s1.ax1x.com/2022/03/27/qwIiNQ.png" alt="qwIiNQ.png"></a></li>
-<li>再解一层给出微信id</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIE3n"><img src="https://s1.ax1x.com/2022/03/27/qwIE3n.png" alt="qwIE3n.png"></a></li>
-<li>微信加好友有备注即可获得flag</li>
+<h2 id="virtualbox的使用"><a href="#virtualbox的使用" class="headerlink" title="virtualbox的使用"></a>virtualbox的使用</h2><ol>
+<li>在virtualbox主界面的页面中点击导入<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726110331.png"></li>
+<li>给文件<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726110408.png"></li>
+<li>配设置<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726110430.png"></li>
+<li>为了能使虚拟机能够操作vulnhub靶机，将他们放到同一个网段下，使用桥接模式，在某一个特定的虚拟机下 点击设置–&gt;点击网络–&gt;点击连接方式–&gt;点击桥接网卡<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726110628.png"></li>
 </ol>
-<h3 id="黑化的维亚"><a href="#黑化的维亚" class="headerlink" title="黑化的维亚"></a>黑化的维亚</h3><ol>
-<li>用stegsolve打开，查看不同色域下的图片</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIgDf"><img src="https://s1.ax1x.com/2022/03/27/qwIgDf.png" alt="qwIgDf.png"></a></li>
-<li>找到flag的上一级（我一开始还以为这就是flag，提交不对）</li>
-<li>后面看到!123和fkvd这么不规则但是又像flag的</li>
-<li>后面尝试偏移量为0，1，2，3的栅栏密码，即可解得flag</li>
+<h3 id="virtualbox的报错问题"><a href="#virtualbox的报错问题" class="headerlink" title="virtualbox的报错问题"></a>virtualbox的报错问题</h3><ol>
+<li>无法导入虚拟机文件–&gt;重装virtualbox，将virtualbox的安装地址设为默认</li>
+<li>还是不行，到官网去下载插件，<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726111302.png">，将插件放到和virtualbox同一个目录下，并且将插件导入到virtualbox中</li>
+<li>在virtualbox的主界面点击拓展，点击右侧加号，导入插件即可<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726111437.png"></li>
 </ol>
-<h3 id="0和1的故事"><a href="#0和1的故事" class="headerlink" title="0和1的故事"></a>0和1的故事</h3><ol>
-<li>解压后里面有一个txt文件，打开后看最后发现有==，知道是base64解码</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwb2tO"><img src="https://s1.ax1x.com/2022/03/27/qwb2tO.png" alt="qwb2tO.png"></a></li>
-<li>解码网站<a target="_blank" rel="noopener" href="https://the-x.cn/base64/">https://the-x.cn/base64/</a></li>
-<li>解码后发现里面有一个png文件，图片中全是01字符</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwbonI"><img src="https://s1.ax1x.com/2022/03/27/qwbonI.png" alt="qwbonI.png"></a></li>
-<li>两种选择，一种是利用手机去扫描出文本，第二种是在linux环境下cat出01字符串</li>
-<li>得到01字符一开始还以为是一个二进制文件或者是培根密码，然后我五位一解，（解出来的都是什么东西。。。）（培根密码是0为a，1为b，依此得出不同字符）</li>
-<li>长和宽相同的情况下猜测是二维码，但是上学期学的py都被时间冲刷干净了，我就在网上找脚本，但是找到的因为MAXN设定的不同，无法得到正确的二维码（轻易改动数据，也会出现数组越界的segementation fault的问题）</li>
-<li>后面用excel表格去做，将1所在的单元格填充为黑色，0所在的单元格填充为白色（可能出现的绿色不会影响二维码扫描）</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwbbAf"><img src="https://s1.ax1x.com/2022/03/27/qwbbAf.png" alt="qwbbAf.png"></a></li>
-<li>扫描后即可得到flag{Stories_of_0_and_1}</li>
+<h2 id="使用Linux命令找到同一个网段下的vulnhub靶机"><a href="#使用Linux命令找到同一个网段下的vulnhub靶机" class="headerlink" title="使用Linux命令找到同一个网段下的vulnhub靶机"></a>使用Linux命令找到同一个网段下的vulnhub靶机</h2><ol>
+<li>ip a (ip addr)命令的缩写，可以查看到本机联网的IP地址,其中eth0的网卡即为我们联网的IP<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726112040.png"></li>
+<li>查看子网掩码，区分网络号和主机号</li>
+<li>将网络号不变，主机号设为0，加上后面的/24</li>
+<li>nmap扫描这个得到的不同的IP地址，扫描到的端口一个一个送到浏览器里去，查看是不是靶机的页面即可</li>
 </ol>
-<h2 id="web题"><a href="#web题" class="headerlink" title="web题"></a>web题</h2><h3 id="Robot"><a href="#Robot" class="headerlink" title="Robot"></a>Robot</h3><ol>
-<li>上来一看什么也没有，就猜测是哪几种题型（反正不可能上来就是sql注入文件上传之类的，没有地方注入东西）</li>
-<li>用御剑字典爆破后缀或者用spider去爬，发现有一个txt为后缀的，打开网页得到4ll.html</li>
-<li>我一开始还以为是411，结果404就搁置了好久，最后有hint发布，“411和4ll真的能分清吗”，在hackbar中打开，给后缀，excute后给出I have tell you all的字符,还是没有什么东西</li>
-<li>ctrl + u查看源代码发现flag</li>
-<li>这里由于没有保留截图，也没有环境，暂无截图</li>
-</ol>
-<h3 id="ezsql"><a href="#ezsql" class="headerlink" title="ezsql"></a>ezsql</h3><ol>
-<li>我不知道给的那个hint是什么意思。。。</li>
-<li>强大的工具一把梭，我sqlmap跑了好久都没有</li>
-<li>这里浅谈一下我的思路吧</li>
-<li>两个登录框，分别给出1，1，用burp抓包，发现是post包，post注入</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwLEIf"><img src="https://s1.ax1x.com/2022/03/27/qwLEIf.png" alt="qwLEIf.png"></a></li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwLJiT"><img src="https://s1.ax1x.com/2022/03/27/qwLJiT.png" alt="qwLJiT.png"></a></li>
-<li>sqlmap post注入的命令分别是：</li>
-<li>sqlmap -r “admin.txt” –dbs (–level n)(默认为level 1)</li>
-<li>sqlmap -r “admin.txt” -D xxx –tables</li>
-<li>sqlmap -r “admin.txt” -D xxx -T xxx –columns</li>
-<li>sqlmap -r “admin.txt” -D xxx –T xxx -C xxx –dump</li>
-</ol>
-<h2 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h2><ol>
-<li>猪圈+银河骑士+圣殿+栅栏</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwL7Y8"><img src="https://s1.ax1x.com/2022/03/27/qwL7Y8.png" alt="qwL7Y8.png"></a></li>
+<h2 id="查看这个靶机下的不同目录"><a href="#查看这个靶机下的不同目录" class="headerlink" title="查看这个靶机下的不同目录"></a>查看这个靶机下的不同目录</h2><ol>
+<li>dirb命令</li>
+<li>查看帮助文档 man + 命令名称</li>
+<li>dirb URL 即可查看到这个目录下所有的文件</li>
+<li>得到的带’+‘的即为扫描得到的文件结果<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220726113005.png"></li>
 </ol>
 
                 
@@ -577,7 +550,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/2022%E6%98%A5%E5%AD%A3%E8%AE%AD%E7%BB%83%E8%B5%9B/">https://www.strongwill.top/2022%E6%98%A5%E5%AD%A3%E8%AE%AD%E7%BB%83%E8%B5%9B/</a>
+                    <a href="https://www.strongwill.top/vulnhub%E9%9D%B6%E6%9C%BA%E6%90%AD%E5%BB%BA/">https://www.strongwill.top/vulnhub%E9%9D%B6%E6%9C%BA%E6%90%AD%E5%BB%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -786,17 +759,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">
+                <a href="/vulnhub%E9%9D%B6%E6%9C%BA%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="信息泄露">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="vulnhub靶场搭建">
                         
-                        <span class="card-title">信息泄露</span>
+                        <span class="card-title">vulnhub靶场搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -806,18 +780,14 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" class="post-category">
-                                    信息泄露
-                                </a>
-                            
-                            <a href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/CTF/" class="post-category">
+                            <a href="/categories/CTF/" class="post-category">
                                     CTF
                                 </a>
                             
@@ -825,15 +795,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/CTF/">
                         <span class="chip bg-color">CTF</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">
-                        <span class="chip bg-color">信息泄露</span>
                     </a>
                     
                 </div>
@@ -847,13 +814,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/burpsuit%20intruder%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">
+                <a href="/%E9%BB%91%E6%B4%9E/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="burpsuit intruder的四种攻击方式">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="黑洞&gt;/dev/null和2&gt;&amp;1">
                         
-                        <span class="card-title">burpsuit intruder的四种攻击方式</span>
+                        <span class="card-title">黑洞&gt;/dev/null和2&gt;&amp;1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -864,7 +831,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-29
                             </span>
                         <span class="publish-author">
                             
