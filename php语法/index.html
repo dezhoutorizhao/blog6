@@ -464,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    6.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    28 分
                 </div>
                 
 
@@ -1002,7 +1002,227 @@ echo $_POST[&quot;age&quot;];<span aria-hidden="true" class="line-numbers-rows">
 <h3 id="何时使用"><a href="#何时使用" class="headerlink" title="何时使用"></a>何时使用</h3><ol>
 <li>GET 方法从表单发送的信息对任何人都是可见的（所有变量名和值都显示在 URL 中）。GET 对所发送信息的数量也有限制。GET 可用于发送非敏感的数据。</li>
 <li>GET可以看见<strong>注入点</strong>（发送的信息的变量名）</li>
-<li>POST 方法从表单发送的信息对其他人是不可见的（所有名称/值会被嵌入 HTTP 请求的主体中）并且对所发送信息的数量也无限制。</li>
+<li>POST 方法从表单发送的信息对其他人是不可见的（所有名称/值会被嵌入 HTTP 请求的主体中）并且对所发送信息的数量也无限制。<h1 id="PHP文件处理"><a href="#PHP文件处理" class="headerlink" title="PHP文件处理"></a>PHP文件处理</h1><h2 id="readfile"><a href="#readfile" class="headerlink" title="readfile()"></a>readfile()</h2></li>
+<li>readfile()函数读取文件，并把它写入输出缓冲</li>
+<li>假设我们有一个名为 “webdictionary.txt” 的文本文件，存放在服务器上，就像这样：<pre class="line-numbers language-none"><code class="language-none">AJAX &#x3D; Asynchronous JavaScript and XML
+CSS &#x3D; Cascading Style Sheets
+HTML &#x3D; Hyper Text Markup Language
+PHP &#x3D; PHP Hypertext Preprocessor
+SQL &#x3D; Structured Query Language
+SVG &#x3D; Scalable Vector Graphics
+XML &#x3D; EXtensible Markup Language<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>读取此文件并且写到输出流的PHP代码如下：读取成功则readfile()函数<strong>返回字节数</strong><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+echo readfile(webdictionary.txt);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h2><ol>
+<li>提供比readfile()更多的选项</li>
+<li>fopen的第一个参数包含被打开的文件名，第二个参数规定打开文件的模式<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $myfile&#x3D;fopen(&quot;webdictionary.txt&quot;,&quot;r&quot;) or die(&quot;unable to open file&quot;);
+    fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="文件打开的模式"><a href="#文件打开的模式" class="headerlink" title="文件打开的模式"></a>文件打开的模式</h2><ol>
+<li>带+的读写都有<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220730140021.png"></li>
+<li>r读</li>
+<li>w重写</li>
+<li>a追加写</li>
+<li>x执行</li>
+</ol>
+<h2 id="fread"><a href="#fread" class="headerlink" title="fread()"></a>fread()</h2><ol>
+<li>fread()读取打开的文件</li>
+<li>fread()的第一个参数包含待读取文件的文件名，第二个参数规定待读取的最大字节数</li>
+</ol>
+<h2 id="fclose"><a href="#fclose" class="headerlink" title="fclose()"></a>fclose()</h2><ol>
+<li>fclose()函数用于关闭打开的文件</li>
+<li>用完文件后把它们全部关闭是一个良好的编程习惯。您并不想打开的文件占用您的服务器资源。</li>
+<li>fclose需要待关闭的文件的名称，或者存有文件名的变量</li>
+</ol>
+<h2 id="fgets"><a href="#fgets" class="headerlink" title="fgets()"></a>fgets()</h2><ol>
+<li>fgets()函数用于从文件中读取单行</li>
+<li>调用fgets()函数之后，文件指针会移动到下一行</li>
+</ol>
+<h2 id="feof"><a href="#feof" class="headerlink" title="feof()"></a>feof()</h2><ol>
+<li>feof()函数检查是否已经到达end of file</li>
+<li>feof()对于遍历未知长度的数据很有用<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+$myfile&#x3D;fopen(&quot;a.txt&quot;,&quot;r&quot;) or die(&quot;unable to open file&quot;);
+while(!feof($myfile))&#123;
+    echo fgets($myfile).&lt;br&gt;;
+&#125;
+fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="fgetc"><a href="#fgetc" class="headerlink" title="fgetc()"></a>fgetc()</h2><ol>
+<li>fgetc()函数用于从文件中读取单个字符<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    fopen(&quot;a.txt&quot;,&quot;r&quot;) or die(&quot;unable&quot;);
+    while(!feof($myfile))&#123;
+        echo fgetc($myfile);
+    &#125;
+    fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="fopen-1"><a href="#fopen-1" class="headerlink" title="fopen()"></a>fopen()</h2><ol>
+<li>fopen()函数用于创建文件</li>
+<li>在php中，创建文件所用的函数和打开文件的相同</li>
+<li>如果fopen()没有遍历到文件，就会创建一个文件<pre class="line-numbers language-none"><code class="language-none">$myfile&#x3D;fopen(&quot;a.txt&quot;,&quot;w&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="fwrite"><a href="#fwrite" class="headerlink" title="fwrite()"></a>fwrite()</h2><ol>
+<li>fwrite()函数用于写入文件</li>
+<li>fwrite()的第一个参数包含要写入的文件的文件名，第二个参数是被写的字符串<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+$myfile&#x3D;fopen(&quot;newfile.txt&quot;,&quot;w&quot;) or die(&quot;unable&quot;);
+$txt&#x3D;&quot;a&quot;;
+fwrite($myfile,$txt);&#x2F;&#x2F;写a
+$txt&#x3D;&quot;b&quot;;
+fwrite($myfile,$txt);&#x2F;&#x2F;写b
+fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="PHP文件上传"><a href="#PHP文件上传" class="headerlink" title="PHP文件上传"></a>PHP文件上传</h1><h2 id="创建一个文件上传表单"><a href="#创建一个文件上传表单" class="headerlink" title="创建一个文件上传表单"></a>创建一个文件上传表单</h2><pre class="line-numbers language-none"><code class="language-none">&lt;form action&#x3D;&quot;upload_file.php&quot; method&#x3D;&quot;post&quot; enctype&#x3D;&#39;multipart&#x2F;form-data&#39;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>&lt;\form&gt;标签的enctype属性规定了在提交表单时要使用哪种内容类型，在表单需要使用二进制数据时，比如文件内容，请使用”multipart/form-data”</li>
+<li>&lt;\input&gt;标签的type=”file”属性规定了应该把输入作为文件来处理，举例来说，当在浏览器中预览时，会看到输入框旁边有一个浏览按钮。</li>
+</ol>
+<h2 id="创建上传脚本"><a href="#创建上传脚本" class="headerlink" title="创建上传脚本"></a>创建上传脚本</h2><ol>
+<li>upload_file.php文件含有供文件上传的代码</li>
+<li>通过使用PHP的全局数组$_FILE，可以从客户端计算机向远程服务器上传文件</li>
+</ol>
+<h3 id="FILES"><a href="#FILES" class="headerlink" title="$_FILES"></a>$_FILES</h3><ol>
+<li>第一个参数是input name</li>
+<li>第二个下标可以是name type size tmp_name error<pre class="line-numbers language-none"><code class="language-none">$_FILES[&quot;file&quot;][&quot;name&quot;] 被上传文件的名称
+$_FILES[&quot;file&quot;][&quot;type&quot;] 被上传的文件类型
+$_FILES[&quot;file&quot;][&quot;size&quot;] 被上传的文件大小，以字节计算
+$_FILES[&quot;file&quot;][&quot;tmp_name&quot;] 存储在服务器的文件的临时副本名称
+$_FILES[&quot;file&quot;][&quot;error&quot;] 由文件上传导致的错误代码
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>总之$_FILES超全局变量的作用就是用来上传文件的</li>
+</ol>
+<h2 id="设置上传限制"><a href="#设置上传限制" class="headerlink" title="设置上传限制"></a>设置上传限制</h2><ol>
+<li>只能上传gif或者jpeg文件<pre class="line-numbers language-none"><code class="language-none">if((($_FILES[&#39;file&#39;][&#39;type&#39;] &#x3D;&#x3D; &#39;image&#x2F;gif&#39;) || $_FILES[&#39;file&#39;][&#39;type&#39;] &#x3D;&#x3D; &#39;image&#x2F;jpeg&#39; || $_FILES[&#39;file&#39;][&#39;type&#39;] &#x3D;&#x3D; &#39;image&#x2F;pjpeg&#39;)) &amp;&amp; ($_FILES[&#39;file&#39;][&#39;size&#39;] &lt; 20000&gt;))
+&#123;
+    if($_FILES[&#39;file&#39;][&#39;error&#39;] &gt; 0) &#x2F;&#x2F; 这个地方如果为error则错误代码&gt;0
+    &#123;
+        echo &quot;ERROR&quot; . $_FILES[&#39;file&#39;][&#39;error&#39;] . &quot;&lt;br &#x2F;&gt;&quot;
+    &#125;
+    else&#123;
+        echo &quot;UPLOAD-name&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;] . &lt;br &#x2F;&gt;
+        echo &quot;Type&quot; . $_FILES[&quot;file&quot;][&quot;type&quot;] . &lt;br &#x2F;&gt;
+        echo &quot;Size&quot; . $_FILES[&#39;file&#39;][&#39;size&#39;] . &quot;byte&quot; . &lt;br &#x2F;&gt;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="保存被上传的文件"><a href="#保存被上传的文件" class="headerlink" title="保存被上传的文件"></a>保存被上传的文件</h2><ol>
+<li>上面的例子在服务器的PHP临时文件夹中创建了一个临时副本</li>
+<li>这个临时副本会在脚本结束时消失，要保存被上传的文件，我们需要把它拷贝到另外的位置<pre class="line-numbers language-none"><code class="language-none">if(file_exists(&quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;]))&#123;
+    echo $_FILES[&quot;file&quot;][&quot;name&quot;] . &quot;already exists.&quot;;
+&#125;
+else&#123;
+    move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;],&quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;]);
+    echo &quot;stored in:&quot; . &quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;];
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>上面的脚本检测了是否已经存在了此文件，如果不存在，则把文件拷贝到指定的文件夹</li>
+<li>file_exists() 检测在指定目录下是否有文件名的文件存在</li>
+<li>move_uploaded_file() 移动文件</li>
+</ol>
+<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><h2 id="什么是cookie"><a href="#什么是cookie" class="headerlink" title="什么是cookie"></a>什么是cookie</h2><ol>
+<li>cookie常用于识别用户，cookie是服务器留在用户计算机中的小文件，每当相同的计算机通过浏览器请求页面时，它同时会发送cookie.通过php,您能够创建并取回cookie的值</li>
+<li>注意一定是服务器留在用户计算机中的，服务器-&gt;用户计算机</li>
+</ol>
+<h2 id="创建cookie"><a href="#创建cookie" class="headerlink" title="创建cookie"></a>创建cookie</h2><ol>
+<li>setcookie()函数用来设置cookie</li>
+<li>setcookie()函数必须位于&lt;\html&gt;标签之前<pre class="line-numbers language-none"><code class="language-none">setcookie(name,value,expire,path,domain)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>创建用户名为user的cookie，将它赋值为alex port，规定在一小时后过期<pre class="line-numbers language-none"><code class="language-none">&lt;?php 
+    setcookie(&quot;user&quot;,&quot;alex port&quot;,time()+3600);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>在发送cookie时，cookie的值会自动进行URL编码，在取回时自动解码</li>
+<li>为了防止URL编码，使用setrawcookie()函数取代，set 设置,raw 生的，没有改变进行URL编码的cookie</li>
+</ol>
+<h2 id="取回cookie的值"><a href="#取回cookie的值" class="headerlink" title="取回cookie的值"></a>取回cookie的值</h2><ol>
+<li>$_COOKIE超全局变量用于取回cookie的值</li>
+<li>取回名为user的cookie值，并且显示<pre class="line-numbers language-none"><code class="language-none">echo $_COOKIE[&#39;user&#39;];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>使用isset()函数来确认是否已经设置了cookie<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    if(isset($_COOKIE[&quot;user&quot;]))
+        echo &quot;welcome&quot; . $_COOKIE[&#39;user&#39;] . &lt;br &#x2F;&gt;
+    else
+        echo &quot;welcome guest&quot; . &lt;br &#x2F;&gt;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="删除cookie"><a href="#删除cookie" class="headerlink" title="删除cookie"></a>删除cookie</h2><ol>
+<li>当删除cookie时，应该使用过期日期变更为过去的时间点</li>
+<li>如果过期日期在过去的时间点，则认为过去已经过期<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    setcookie(&quot;user&quot;,&quot;&quot;,time()-3600);&#x2F;&#x2F;默认为cookie的名称为user,值为空，时间在过去一个小时的时候已经过期
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="php错误处理"><a href="#php错误处理" class="headerlink" title="php错误处理"></a>php错误处理</h1><h2 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h2><ol>
+<li>在php中，默认的错误处理很简单，一条消息会被发送到浏览器，这条消息带有文件名，行号，以及一条错误的信息</li>
+</ol>
+<h2 id="php错误处理-1"><a href="#php错误处理-1" class="headerlink" title="php错误处理"></a>php错误处理</h2><ol>
+<li>在创建脚本和web应用程序时，错误处理是一个重要的部分。</li>
+</ol>
+<h2 id="基本的错误处理：使用die-函数"><a href="#基本的错误处理：使用die-函数" class="headerlink" title="基本的错误处理：使用die()函数"></a>基本的错误处理：使用die()函数</h2><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220802155519.png"></li>
+<li>die()函数的错误处理机制，在错误之后终止了脚本</li>
+</ol>
+<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>PHP过滤器用于验证和过滤来自非安全来源的数据</li>
+<li>验证和过滤用户输入或自定义是任何web应用程序的重要组成部分</li>
+</ol>
+<h2 id="为什么使用过滤器"><a href="#为什么使用过滤器" class="headerlink" title="为什么使用过滤器"></a>为什么使用过滤器</h2><ol>
+<li>几乎所有的web应用程序都依赖外部的输入，这些数据通常都来自用户或其它应用程序</li>
+<li>使用过滤器，能确保所有应用程序都获得正确的输入类型</li>
+</ol>
+<h2 id="什么是外部数据？"><a href="#什么是外部数据？" class="headerlink" title="什么是外部数据？"></a>什么是外部数据？</h2><pre class="line-numbers language-none"><code class="language-none">
+来自表单的输入数据
+Cookies
+服务器变量
+数据库查询结果
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="函数和过滤器"><a href="#函数和过滤器" class="headerlink" title="函数和过滤器"></a>函数和过滤器</h2><ol>
+<li>如果需要过滤变量，使用以下的过滤器函数之一<pre class="line-numbers language-none"><code class="language-none">filter_var() 通过一个指定的过滤器来过滤单一的变量
+filter_var_array() 通过相同的或不同的过滤器来过滤多个变量
+filter_input() 获取一个输入变量，并对它进行过滤
+filter_input_array() 获取多个输入变量，并通过相同的或不同的过滤器对他们进行过滤<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/php/php_ref_filter.asp">https://www.w3school.com.cn/php/php_ref_filter.asp</a>  php-filter函数</li>
+</ol>
+<h1 id="PHP表单"><a href="#PHP表单" class="headerlink" title="PHP表单"></a>PHP表单</h1><h2 id="PHP表单处理"><a href="#PHP表单处理" class="headerlink" title="PHP表单处理"></a>PHP表单处理</h2><pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+&lt;body&gt;
+&lt;form action&#x3D;&#39;welcome.php&#39; method&#x3D;&#39;post&#39;&gt;
+Name: &lt;input type&#x3D;&#39;text&#39; name&#x3D;&#39;name&#39;&gt;&lt;br&gt;
+E-mail: &lt;input type&#x3D;&#39;text&#39; name&#x3D;&#39;email&#39;&gt;&lt;br&gt;
+&lt;input type&#x3D;&#39;submit&#39;&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>用户填写此表单并点击提交按钮后，表单数据会发送到名为welcome.php的文件供处理，表单数据是通过HTTP POST的方式发送的</li>
+<li>如需显示出被提交的数据，您可以简单地输出（echo）所有变量。”welcome.php” 文件是这样的：<pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+&lt;body&gt;
+welcome &lt;?php echo $_POST[&quot;name&quot;];?&gt;&lt;br&gt;
+your email address is: &lt;?php echo $_POST[&quot;email&quot;]?&gt;&lt;br&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h2><h3 id="文本字段"><a href="#文本字段" class="headerlink" title="文本字段"></a>文本字段</h3><pre class="line-numbers language-none"><code class="language-none">Name: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&#39;name&#39;&gt;
+E-mail: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&#39;email&#39;&gt;
+website: &lt;input type&#x3D;&#39;text&#39; name&#x3D;&#39;website&#39;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h3><ol>
+<li>gender字段是单选按钮,其中，radio的type类型是单选框<pre class="line-numbers language-none"><code class="language-none">gender:
+&lt;input type&#x3D;&#39;radio&#39; name&#x3D;&#39;gender&#39; value&#x3D;&#39;female&#39;&gt; female
+&lt;input type&#x3D;&#39;radio&#39; name&#x3D;&#39;gender&#39; value&#x3D;&#39;male&#39;&gt; male<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h3><pre class="line-numbers language-none"><code class="language-none">&lt;form method&#x3D;&#39;post&#39; action&#x3D;&quot;&lt;?php echo htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]);?&gt;&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>当提交此表单时，通过method=’post’发送表单数据</li>
+</ol>
+<h3 id="SERVER-“PHP-SELF”"><a href="#SERVER-“PHP-SELF”" class="headerlink" title="$_SERVER[“PHP_SELF”]"></a>$_SERVER[“PHP_SELF”]</h3><ol>
+<li>$_SERVER[“PHP_SELF”]是一种超全局变量，它返回当前执行脚本的文件名</li>
+<li>因此，$_SERVER[“PHP_SELF”]将表单数据发送到页面本身，而不是跳转到另一张页面，这样用户就能在表单页面获得错误提示信息</li>
+</ol>
+<h2 id="表单验证-1"><a href="#表单验证-1" class="headerlink" title="表单验证"></a>表单验证</h2><h3 id="验证名字"><a href="#验证名字" class="headerlink" title="验证名字"></a>验证名字</h3><ol>
+<li>检查name字段是否包含字母和空格，如果name字段无效，则存储一条错误信息<pre class="line-numbers language-none"><code class="language-none">$name&#x3D;test_input($_POST[&quot;name&quot;]);
+if(!preg_match(&quot;&#x2F;^[a-zA-Z]*$&#x2F;&quot;,name))&#123;
+    $emailErr&#x3D;&#39;无效的email格式&#39;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>preg_match()函数检索字符串的模式，如果模式存在则返回true,否则返回false</li>
 </ol>
 
                 
@@ -1542,7 +1762,7 @@ echo $_POST[&quot;age&quot;];<span aria-hidden="true" class="line-numbers-rows">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.7k</span>&nbsp;字
+                class="white-color">78.7k</span>&nbsp;字
             
             
             
