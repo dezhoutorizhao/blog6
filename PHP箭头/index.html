@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    24
+                    783
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -495,9 +495,128 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="PHP中-gt-和-gt-以及-符号的用法"><a href="#PHP中-gt-和-gt-以及-符号的用法" class="headerlink" title="PHP中=&gt;和-&gt;以及::符号的用法"></a>PHP中=&gt;和-&gt;以及::符号的用法</h1><h2 id="gt"><a href="#gt" class="headerlink" title="-&gt;"></a>-&gt;</h2><ol>
-<li>-&gt;是插入式解引用操作符</li>
-<li></li>
+                <h1 id="PHP中-gt-和-gt-以及-符号的用法"><a href="#PHP中-gt-和-gt-以及-符号的用法" class="headerlink" title="PHP中=&gt;和-&gt;以及::符号的用法"></a>PHP中=&gt;和-&gt;以及::符号的用法</h1><h2 id="gt-的用法"><a href="#gt-的用法" class="headerlink" title="-&gt;的用法"></a>-&gt;的用法</h2><ol>
+<li>插入式解引用操作符</li>
+<li>用于类里，访问类里的函数或对象,就是在类里面定义了一个函数，使用-&gt;可以调用这个类里面的函数<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">test</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">function</span> <span class="token function-definition function">do_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"doing foo."</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token variable">$bar</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">test</span><span class="token punctuation">;</span>
+<span class="token variable">$bar</span> <span class="token operator">=</span> <span class="token function">do_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>-&gt;用来引用对象的成员（属性和方法），即可以调用类里面定义的函数和变量<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$arr</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'a'</span> <span class="token operator">=></span> <span class="token number">123</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'b'</span> <span class="token operator">=></span> <span class="token number">456</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">A</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token variable">$a</span><span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$b</span><span class="token operator">=</span><span class="token number">456</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$obj</span> <span class="token operator">-></span> <span class="token property">a</span><span class="token punctuation">;</span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$obj</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="gt-的用法-1"><a href="#gt-的用法-1" class="headerlink" title="=&gt;的用法"></a>=&gt;的用法</h2><ol>
+<li><p>创建关联数组时，经常使用=&gt;来操作数组</p>
+ <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$new_array</span><span class="token operator">=</span><span class="token keyword">array</span><span class="token punctuation">(</span>in <span class="token operator">=></span> <span class="token string single-quoted-string">'reply'</span><span class="token punctuation">,</span>side <span class="token operator">=></span> <span class="token string single-quoted-string">'left'</span><span class="token punctuation">,</span>padx <span class="token operator">=></span> <span class="token number">2</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p> 如果需要使用数字大于等于的符号，应该使用&gt;=而不是=&gt;</p>
+</li>
+<li><p>php中数组默认键名为整数，也可以自己定义任意字符键名，最好有实际意义，例如</p>
+ <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$css</span><span class="token operator">=</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'style'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'0'</span><span class="token punctuation">;</span><span class="token string single-quoted-string">'color'</span><span class="token operator">=></span><span class="token string single-quoted-string">'green'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$css</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'style'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string single-quoted-string">'0'</span><span class="token punctuation">,</span><span class="token variable">$css</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'color'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string single-quoted-string">'green'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p> 综上，=&gt;的作用就是用来给数组中的值赋值</p>
+</li>
+</ol>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$arr</span><span class="token operator">=</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'one'</span> <span class="token operator">=></span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword type-declaration">array</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'one'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="的用法"><a href="#的用法" class="headerlink" title="::的用法"></a>::的用法</h2><ol>
+<li>  双冒号操作符，即作用域限定操作符，可以访问静态，const，类中重写的属性和方法</li>
+</ol>
+<h3 id="用变量在类定义外部访问"><a href="#用变量在类定义外部访问" class="headerlink" title="用变量在类定义外部访问"></a>用变量在类定义外部访问</h3><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">class</span> <span class="token class-name-definition class-name">fruit</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">const</span> <span class="token constant">CONST_VALUE</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'fruit color'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token variable">$classname</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'fruit'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$classname</span><span class="token operator">::</span><span class="token constant">CONST_VALUE</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token class-name static-context">fruit</span><span class="token operator">::</span><span class="token constant">CONST_VALUE</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="在类定义外部使用"><a href="#在类定义外部使用" class="headerlink" title="在类定义外部使用"></a>在类定义外部使用</h3><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">fruit</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">const</span> <span class="token constant">const_value</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'fruit color'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">apple</span> <span class="token keyword">extends</span> <span class="token class-name">fruit</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token variable">$color</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'red'</span><span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function-definition function">doubleColon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">echo</span> <span class="token keyword static-context">parent</span><span class="token operator">::</span><span class="token constant">CONST_VALUE</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'\n'</span><span class="token punctuation">;</span>
+		<span class="token keyword">echo</span> <span class="token keyword static-context">self</span><span class="token operator">::</span><span class="token variable">$color</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'\n'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name static-context">apple</span><span class="token operator">::</span><span class="token function">doubleColon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="调用parent方法"><a href="#调用parent方法" class="headerlink" title="调用parent方法"></a>调用parent方法</h3><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">fruit</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function-definition function">showcolor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">echo</span> <span class="token string double-quoted-string">"fruit::showcolor()\n"</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">class</span> <span class="token class-name-definition class-name">apple</span> <span class="token keyword">extends</span> <span class="token class-name">fruit</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">showcolor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			<span class="token keyword static-context">parent</span><span class="token operator">::</span><span class="token function">showcolor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">echo</span> <span class="token string double-quoted-string">"apple::showcolor()\n"</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token variable">$apple</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">apple</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$apple</span> <span class="token operator">=</span> <span class="token function">showcolor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面向对象self和parent的区别"><a href="#面向对象self和parent的区别" class="headerlink" title="面向对象self和parent的区别"></a>面向对象self和parent的区别</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Par</span><span class="token punctuation">&#123;</span><span class="token comment">//父类</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'小红漂亮'</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token constant">TITLE</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'阿里巴巴'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Chi</span> <span class="token keyword">extends</span> <span class="token class-name">Par</span> <span class="token comment">//子类</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'小黄最帅'</span><span class="token punctuation">;</span><span class="token comment">//子类静态属性</span>
+    <span class="token keyword">const</span> <span class="token constant">TITLE</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'刘强东|京东'</span><span class="token punctuation">;</span><span class="token comment">//子类常量</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'自己的静态属性:'</span><span class="token operator">.</span><span class="token keyword static-context">self</span><span class="token operator">::</span><span class="token variable">$name</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token operator">.=</span> <span class="token string single-quoted-string">'&lt;br>父类的静态属性:'</span><span class="token operator">.</span><span class="token keyword static-context">parent</span><span class="token operator">::</span><span class="token variable">$name</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token operator">.=</span> <span class="token string single-quoted-string">'&lt;br>自己的常量强东:'</span><span class="token operator">.</span><span class="token keyword static-context">self</span><span class="token operator">::</span><span class="token constant">TITLE</span><span class="token punctuation">;</span>
+        <span class="token variable">$str</span> <span class="token operator">.=</span> <span class="token string single-quoted-string">'&lt;br>父类的常量阿里:'</span><span class="token operator">.</span><span class="token keyword static-context">parent</span><span class="token operator">::</span><span class="token constant">TITLE</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token variable">$str</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token variable">$obj</span> <span class="token operator">=</span>  <span class="token keyword">new</span> <span class="token class-name">Chi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$obj</span><span class="token operator">-></span><span class="token function">demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>  相同点：self和parent都是调用父类的属性或者方法</li>
+<li>  不同点：如果两个属性一样，假如都叫$name ，那么self::调用的是自己类中的，parent::则是调用父类的</li>
+</ol>
+<h2 id="php中extends"><a href="#php中extends" class="headerlink" title="php中extends"></a>php中extends</h2><ol>
+<li><p>在php中，extends关键字用于定义类的继承，语法为</p>
+  <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">class</span> 子类 <span class="token keyword">extends</span> 父类<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>  通过该关键字可以实现单继承，一个类只能从另一个类中继承数据，但一个类可以有多个子类</p>
+</li>
+<li><p>  即一个子类只能有一个父类，但是一个父类可以有多个子类，一对多的关系</p>
+</li>
+<li><p>  在c++中，一个子类可以继承一个基类，也可以继承多个基类，继承一个基类称为单继承，继承多个基类，称为多继承</p>
+</li>
+<li><p>  但是在php中没有多继承，只能使用单继承，也就是说，一个类只能直接从另一个类中继承数据，但是一个类可以有多个子类</p>
+</li>
 </ol>
 
                 
@@ -1021,7 +1140,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.7k</span>&nbsp;字
+                class="white-color">81.7k</span>&nbsp;字
             
             
             
