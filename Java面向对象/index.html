@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="PHP反序列化, 更好的明天">
+    <meta name="keywords" content="Java面向对象OOP, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>PHP反序列化 | 更好的明天</title>
+    <title>Java面向对象OOP | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PHP反序列化</h1>
+                    <h1 class="description center-align post-title">Java面向对象OOP</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
+                            <a href="/tags/ing/">
+                                <span class="chip bg-color">ing</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -443,8 +447,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/CTF/" class="post-category">
-                                CTF
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                            <a href="/categories/Java/ing/" class="post-category">
+                                ing
                             </a>
                         
                     </div>
@@ -456,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-04
+                    2022-08-13
                 </div>
                 
 
@@ -465,14 +473,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    225
+                    922
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -495,26 +503,120 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="PHP反序列化原理"><a href="#PHP反序列化原理" class="headerlink" title="PHP反序列化原理"></a>PHP反序列化原理</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
-<li>  序列化就是将对象转换成字符串。反序列化相反，数据的格式的转换对象的序列化利于对象的保存和传输，也可以让多个文件共享对象。</li>
+                <h1 id="Java面向对象-OOP"><a href="#Java面向对象-OOP" class="headerlink" title="Java面向对象 OOP"></a>Java面向对象 OOP</h1><h2 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object Oriented Programming"></a>Object Oriented Programming</h2><h2 id="要解决的问题"><a href="#要解决的问题" class="headerlink" title="要解决的问题"></a>要解决的问题</h2><ol>
+<li><p>  单独的变量解决，不利于数据的管理，把某个对象的信息拆解了，例如：存储一只猫的名字，年龄等信息</p>
+</li>
+<li><p>如果用数组，<strong>数据类型</strong>体现不出来，而且<strong>变量名和内容的对应关系</strong>体现不出来，例如：int只能用string来存，<strong>只能通过下标来获取信息</strong></p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220813150749.png"></p>
+</li>
+<li><p>  不能体现猫的行为，比如，数组的结构无法加入方法（函数）的处理方式</p>
+</li>
+<li><p>  总之，不利于数据的管理，效率低</p>
+</li>
 </ol>
-<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220804163144.png"></p>
+<h2 id="类与对象的概述"><a href="#类与对象的概述" class="headerlink" title="类与对象的概述"></a>类与对象的概述</h2><ol>
+<li><p>  一个程序就是一个世界，有很多事物：对象[属性，行为]</p>
+</li>
+<li><p>  数据类型分为Java提供的数据类型和<strong>自定义的数据类型</strong></p>
+</li>
+<li><p>  <strong>类就是一个数据类型</strong></p>
+</li>
+<li><p>  对象：可以通过一个类来创建一个对象</p>
+</li>
+<li><p>  实例化：就是具体化，具体到一只猫</p>
+</li>
+<li><p>  <strong>类是抽象的，概念的，代表一类事务：人类，猫类</strong></p>
+</li>
+<li><p>  <strong>对象是具体的，实际的，代表一个具体事物，即，是实例</strong></p>
+</li>
+<li><p><strong>类是对象的模板，对象是类的一个个体，对应一个实例</strong></p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220813163126.png"></p>
+</li>
+</ol>
+<h2 id="从类到对象的不同说法"><a href="#从类到对象的不同说法" class="headerlink" title="从类到对象的不同说法"></a>从类到对象的不同说法</h2><ol>
+<li><p>  创建一个对象</p>
+</li>
+<li><p>  实例化一个对象</p>
+</li>
+<li><p>  把类实例化</p>
+</li>
+<li><p>总之：类实例化 -&gt; 对象</p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220813163552.png"></p>
+</li>
+</ol>
+<h2 id="面向对象快速入门"><a href="#面向对象快速入门" class="headerlink" title="面向对象快速入门"></a>面向对象快速入门</h2><ol>
+<li>  使用OOP面向对象解决</li>
+<li>  实例化一只猫[创建一只猫对象]</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">public class Cat &#123;
+    public static void main(String[] args) &#123;
+        &#x2F;&#x2F; 如何实例化一个对象
+        &#x2F;&#x2F; 1. new Catt(); 创建一只猫
+        &#x2F;&#x2F; 2. Catt cat1 &#x3D; new Catt(); 把创建的猫赋给cat1
+        Catt cat1 &#x3D; new Catt();
+        cat1.name &#x3D; &quot;abc&quot;;
+        cat1.age &#x3D; 3;
+        cat1.color &#x3D; &quot;white&quot;;
+
+        &#x2F;&#x2F; 如何访问对象的属性
+        System.out.println(&quot;第一只猫的信息&quot; + cat1.name + &quot; &quot; + cat1.age + &quot; &quot; + cat1.color);
+
+    &#125;
+&#125;
+
+class Catt &#123;
+    String name;
+    int age;
+    String color;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="对象的内存布局，对象的存在形式"><a href="#对象的内存布局，对象的存在形式" class="headerlink" title="对象的内存布局，对象的存在形式"></a>对象的内存布局，对象的存在形式</h2><ol>
+<li>  new后产生的<strong>对象</strong>在<strong>栈</strong>内（对象和数组都是引用类型），有一个<strong>指向堆中的地址</strong></li>
+<li>  如果<strong>实例化的类中又有字符串</strong>等引用类型的变量，会有一个从<strong>堆中指向方法区</strong>的地址</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220813171456.png"></li>
+</ol>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="属性的概念"><a href="#属性的概念" class="headerlink" title="属性的概念"></a>属性的概念</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Catt</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> name<span class="token punctuation">;</span> <span class="token comment">// name,age,color即为成员变量</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token class-name">String</span> color<span class="token punctuation">;</span>
+    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> master<span class="token punctuation">;</span> <span class="token comment">//属性可以是基本数据类型，也可以是引用数据类型（对象，数组）</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">Catt</span> cat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Catt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li><p>  类中的变量即为属性，成员变量是用来表示属性的</p>
+</li>
+<li><p>  成员变量 = 属性 = field</p>
+</li>
+<li><p>  属性是类的一个组成部分，一般是基本数据类型，也可以是引用类型（对象，数组）。</p>
+</li>
+<li><p>  Catt类实例化后产生的cat实际上是对象引用，而不是真正的对象</p>
+</li>
+<li><p>真正的对象是class内部的属性：name,age,color,master</p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220813173531.png"></p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220813173618.png"></p>
+</li>
+<li><p>  <strong>对象引用</strong>：实际上就是<strong>人的名字</strong>，小明，<strong>不是真正的属性</strong>，因为<strong>小明是个字符串名字，而不是一个人</strong></p>
+</li>
+<li><p>  对象：<strong>对象才是真正的人</strong>，<strong>对象的胳膊腿就是属性</strong></p>
+</li>
+</ol>
+<h3 id="属性的定义"><a href="#属性的定义" class="headerlink" title="属性的定义"></a>属性的定义</h3><p>1.属性的定义语法同变量：访问修饰符 + 属性范围 + 属性名；</p>
 <ol start="2">
-<li>  最根本的是数据类型和格式的一种相互转换</li>
-<li>  serialize() 将一个对象转换成一个字符串</li>
-<li>  unserialize() 将字符串还原成一个对象</li>
+<li>  访问修饰符：public protected 默认 private -&gt;访问范围逐渐缩小</li>
 </ol>
-<h3 id="触发"><a href="#触发" class="headerlink" title="触发"></a>触发</h3><ol>
-<li>  unserialize() 函数的变量可控，文件中存在可以利用的类</li>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><ol>
+<li><p>先声明再创建</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Cat</span> cat<span class="token punctuation">;</span> <span class="token comment">//先声明，声明的时候没有分配内存空间</span>
+cat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//再创建，分配内存空间，实例化</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>直接创建</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Cat</span> cat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>  声明格式：定义变量的类 + 定义变量的名字</p>
+</li>
 </ol>
-<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220804164302.png"></p>
-<ol start="2">
-<li>  上面”name”也可以理解为是一个值</li>
-</ol>
-<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220804164601.png"></p>
-<ol start="3">
-<li>  上图 s表示string类型 6表示6位 “xiaodi”表示值为”xiaodi”</li>
-<li>  serialize()和unserialize()都是要先进行格式的判断，如果假如给一个字符串进行unserialize()则没有返回结果，如果给一个对象进行serialize()则也没有对象，因为数据类型格式不对，无法识别。</li>
+<h3 id="访问对象中的属性"><a href="#访问对象中的属性" class="headerlink" title="访问对象中的属性"></a>访问对象中的属性</h3><ol>
+<li>  基本语法：对象名.属性名</li>
+<li>  用 . 来取对象中的属性</li>
 </ol>
 
                 
@@ -542,7 +644,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">https://www.strongwill.top/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</a>
+                    <a href="https://www.strongwill.top/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">https://www.strongwill.top/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -580,8 +682,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
+                                <a href="/tags/ing/">
+                                    <span class="chip bg-color">ing</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -751,17 +857,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9C%9F%E9%A2%98/">
+                <a href="/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PHP反序列化真题">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Java面向对象OOP">
                         
-                        <span class="card-title">PHP反序列化真题</span>
+                        <span class="card-title">Java面向对象OOP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -771,26 +878,35 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF/" class="post-category">
-                                    CTF
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            <a href="/categories/Java/ing/" class="post-category">
+                                    ing
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -804,13 +920,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/PHP%E7%9A%84%E7%B1%BB/">
+                <a href="/Java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="PHP中的类">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java">
                         
-                        <span class="card-title">PHP中的类</span>
+                        <span class="card-title">Java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -821,14 +937,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/PHP/" class="post-category">
-                                    PHP
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -838,8 +954,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/">
-                        <span class="chip bg-color">PHP</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -1038,7 +1154,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">84.9k</span>&nbsp;字
+                class="white-color">93.9k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="PHP反序列化真题, 更好的明天">
+    <meta name="keywords" content="PHP反序列化, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>PHP反序列化真题 | 更好的明天</title>
+    <title>PHP反序列化 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PHP反序列化真题</h1>
+                    <h1 class="description center-align post-title">PHP反序列化</h1>
                 </div>
             </div>
         </div>
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    11 分
                 </div>
                 
 
@@ -495,7 +495,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="PHP反序列化真题"><a href="#PHP反序列化真题" class="headerlink" title="PHP反序列化真题"></a>PHP反序列化真题</h1><h2 id="添加cookie的方法："><a href="#添加cookie的方法：" class="headerlink" title="添加cookie的方法："></a>添加cookie的方法：</h2><ol>
+                <h1 id="PHP反序列化原理"><a href="#PHP反序列化原理" class="headerlink" title="PHP反序列化原理"></a>PHP反序列化原理</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
+<li>  序列化就是将对象转换成字符串。反序列化相反，数据的格式的转换对象的序列化利于对象的保存和传输，也可以让多个文件共享对象。</li>
+</ol>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220804163144.png"></p>
+<ol start="2">
+<li>  最根本的是数据类型和格式的一种相互转换</li>
+<li>  serialize() 将一个对象转换成一个字符串</li>
+<li>  unserialize() 将字符串还原成一个对象</li>
+</ol>
+<h3 id="触发"><a href="#触发" class="headerlink" title="触发"></a>触发</h3><ol>
+<li>  unserialize() 函数的变量可控，文件中存在可以利用的类</li>
+</ol>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220804164302.png"></p>
+<ol start="2">
+<li>  上面”name”也可以理解为是一个值</li>
+</ol>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220804164601.png"></p>
+<ol start="3">
+<li>  上图 s表示string类型 6表示6位 “xiaodi”表示值为”xiaodi”</li>
+<li>  serialize()和unserialize()都是要先进行格式的判断，如果假如给一个字符串进行unserialize()则没有返回结果，如果给一个对象进行serialize()则也没有对象，因为数据类型格式不对，无法识别。</li>
+</ol>
+<h1 id="PHP反序列化真题"><a href="#PHP反序列化真题" class="headerlink" title="PHP反序列化真题"></a>PHP反序列化真题</h1><h2 id="添加cookie的方法："><a href="#添加cookie的方法：" class="headerlink" title="添加cookie的方法："></a>添加cookie的方法：</h2><ol>
 <li>  用burp去添加cookie，抓包后添加指定名字的cookie，只需要在cookie的后面加上待添加cookie的名称=待添加的值，即可</li>
 </ol>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">Cookie: user=xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -516,11 +537,11 @@
 <li>  我们不能改类的方法，即不能改类中的代码</li>
 <li>  但是我们可以控制类的属性，即更改类中变量的值</li>
 </ol>
-<h2 id="ctfshow原题"><a href="#ctfshow原题" class="headerlink" title="ctfshow原题"></a>ctfshow原题</h2><h3 id="web255"><a href="#web255" class="headerlink" title="web255"></a>web255</h3><ol>
+<h2 id="ctfshow原题"><a href="#ctfshow原题" class="headerlink" title="ctfshow原题"></a>ctfshow原题</h2><h2 id="web255"><a href="#web255" class="headerlink" title="web255"></a>web255</h2><ol>
 <li>  对cookie进行反序列化，需要调用user中的login函数，而此函数在ctfShowUser类中出现，则需要对ctfShowUser进行反序列化</li>
 <li>  使用php在线反序列化工具即可</li>
 </ol>
-<h3 id="web256"><a href="#web256" class="headerlink" title="web256"></a>web256</h3><pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">==     数值相等  可以进行数据类型转换，如果类型转换后$a和$b相等，则为true
+<h2 id="web256"><a href="#web256" class="headerlink" title="web256"></a>web256</h2><pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">==     数值相等  可以进行数据类型转换，如果类型转换后$a和$b相等，则为true
 ===   全等   不进行数据类型转换，如果$a等于$b，并且数据类型也相同，才能为true
 !=     不等   可以进行数据类型转换，如果类型转换后$a和$b不相等，返回值为true
 !==    不全等  不进行数据类型转换，如果$a和$b不相等，或者类型不相同，返回值为true
@@ -539,7 +560,7 @@
 <li>  一定不要忘记变量username和password的值要用引号包裹</li>
 </ol>
 <p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220805142340.png"></p>
-<h3 id="web257"><a href="#web257" class="headerlink" title="web257"></a>web257</h3><ol>
+<h2 id="web257"><a href="#web257" class="headerlink" title="web257"></a>web257</h2><ol>
 <li><p>  __destruct()：折构函数/方法</p>
 </li>
 <li><p>  析构函数的作用和构造函数正好相反，析构函数只有在对象被垃圾收集器收集前（即对象从内存中删除之前）才会被自动调用。析构函数允许我们在销毁一个对象之前执行一些特定的操作，例如关闭文件、释放结果集等。</p>
@@ -1105,13 +1126,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                <a href="/PHP%E7%9A%84%E7%B1%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="PHP反序列化">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="PHP中的类">
                         
-                        <span class="card-title">PHP反序列化</span>
+                        <span class="card-title">PHP中的类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1122,14 +1143,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF/" class="post-category">
-                                    CTF
+                            <a href="/categories/PHP/" class="post-category">
+                                    PHP
                                 </a>
                             
                             
@@ -1139,8 +1160,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                 </div>
@@ -1339,7 +1360,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">84.9k</span>&nbsp;字
+                class="white-color">93.9k</span>&nbsp;字
             
             
             
