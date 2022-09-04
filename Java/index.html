@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8k
+                    8.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    32 分
+                    33 分
                 </div>
                 
 
@@ -1205,16 +1205,16 @@ a<span class="token punctuation">[</span><span class="token number">0</span><spa
 <li><p>  数组在默认情况下是引用传递，赋的值是地址，赋值方式为引用赋值</p>
 </li>
 <li><p>引用赋值传递的是一个地址，arr2和arr1指向的是同一个地址，所以当对arr2的数组进行操作时，会对arr1产生影响</p>
-  <pre class="line-numbers language-none"><code class="language-none">public class detail &#123;
-    public static void main(String[] args) &#123;
-        int[] arr1 &#x3D; &#123;1,2,3&#125;;
-        int[] arr2 &#x3D; arr1;
-        arr2[0] &#x3D; 10;
-        for(int i &#x3D; 0;i &lt; arr1.length;i++)&#123;
-            System.out.println(arr1[i]);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> detail <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr2 <span class="token operator">=</span> arr1<span class="token punctuation">;</span>
+        arr2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> arr1<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//这个时候就会输出10,2,</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </li>
 </ol>
@@ -1480,6 +1480,34 @@ public class Reduce &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>  和数组扩容的思路相同</p>
 </li>
+</ol>
+<h1 id="acwing补充"><a href="#acwing补充" class="headerlink" title="acwing补充"></a>acwing补充</h1><h2 id="Java和c-，python的不同点"><a href="#Java和c-，python的不同点" class="headerlink" title="Java和c++，python的不同点"></a>Java和c++，python的不同点</h2><ol>
+<li>  java中的函数必须定义到类中</li>
+<li>  c++的函数可以定义到类外面</li>
+</ol>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><ol>
+<li>  一个方法如果加上了static，那么这个方法就是绑定到了类本身</li>
+<li>  和global类似</li>
+<li>  static的意思是从这个类实例化出来的对象共享属性</li>
+<li>  类方法和类变量</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829214224.png"></li>
+<li>  静态方法中必须只能调用静态方法和静态属性，不能调用非静态的，即必须加上static</li>
+</ol>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><ol>
+<li>  接口就是用来规范化方法的</li>
+<li>  接口虽然是类，但是不能实例化</li>
+<li>  接口只是对方法进行一个声明，不能具体写实现方法</li>
+<li>  所有implements接口的类必须实现所有接口中的所有方法都实现，接口中的方法都是abstract的，即没有具体写明的</li>
+</ol>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ol>
+<li>  如果一个游戏有很多英雄</li>
+<li>  英雄有公共（都有）的技能</li>
+<li>  那么其它英雄的技能可以继承自一个基类，这个基类中写共有的方法</li>
+<li>  基类就是父类</li>
+<li>  继承的作用就是为了不去重复写，公共的放到父类中去</li>
+</ol>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><ol>
+<li>  同一个类的同一个函数可能会有不同的行为</li>
 </ol>
 
                 
@@ -2019,7 +2047,7 @@ public class Reduce &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93.9k</span>&nbsp;字
+                class="white-color">108.7k</span>&nbsp;字
             
             
             
