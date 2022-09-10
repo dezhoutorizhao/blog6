@@ -469,7 +469,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.9k
                 </div>
                 
 
@@ -559,7 +559,7 @@ system(&#39;cp flag.php 1.txt&#39;)  &#x2F;&#x2F;这个地方是单引号
 </ol>
 <h2 id="web31"><a href="#web31" class="headerlink" title="web31"></a>web31</h2><h3 id="preg-match中的转义"><a href="#preg-match中的转义" class="headerlink" title="preg_match中的转义"></a>preg_match中的转义</h3><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718152309.png"></li>
-<li>\后面的字符代表转义，例如： ‘.‘ 即为’.’</li>
+<li>\后面的字符代表转义，例如： ‘\.’ 即为’.’</li>
 </ol>
 <h3 id="逃逸"><a href="#逃逸" class="headerlink" title="逃逸"></a>逃逸</h3><ol>
 <li>中间搭一个桥，使用超全局变量</li>
@@ -569,18 +569,19 @@ system(&#39;cp flag.php 1.txt&#39;)  &#x2F;&#x2F;这个地方是单引号
 <li>过滤了更多，对’和.都有过滤</li>
 <li>使用c=eval($_GET[1]);对c进行逃逸操作，这个变量1逃逸出去了，1不属于c,则变量1可以使用任何过滤掉的字符</li>
 <li>构造?c=eval($_GET[1]);&amp;1=system(‘cp flag.php 1.txt’);</li>
-<li>在路径后面直接加上/1.txt，就可以查看到flag.php中的内容了</li>
+<li>在<strong>路径后面直接加上/1.txt</strong>，就可以查看到flag.php中的内容了,但是不能在system()中拼接cat 1.txt</li>
+<li>当有新文件产生时，直接在url后面拼接上新文件的名字</li>
 </ol>
 <h2 id="web32"><a href="#web32" class="headerlink" title="web32"></a>web32</h2><h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ol>
 <li>include语句获取指定文件中存在的所有文本/代码/标记，并将其复制到使用include语句的文件中<pre class="line-numbers language-none"><code class="language-none">include require<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>希望在报错时继续执行并且向用户显示输出，使用include语句，因为当include语句包含的文件不存在时，只是产生一个警告，但是脚本会继续执行</li>
 <li>而require引用的文件如果不存在，就会提示错误，并终止脚本的运行<pre class="line-numbers language-none"><code class="language-none">include &quot;header.htm&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>上面的header.htm中可以php语句，因为可以包含htm静态文件，所以可以设计缓存机制，比如把一些页面分为几部分，有一些读取数据库耗费效率的部分可以缓存为html，然后通过include</li>
-<li>文件上传中include代码执行原理：<pre class="line-numbers language-none"><code class="language-none">$i&#x3D;include &#39;abc.php&#39;;
+<li>文件上传中include代码执行原理：<pre class="line-numbers language-php" data-language="php"><code class="language-php">$i=include 'abc.php';
 abc.php中源码为
-&lt;?php
-    return &quot;hello world&quot;;
-?&gt;
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+    <span class="token keyword">return</span> <span class="token string double-quoted-string">"hello world"</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span>
 那么echo $i;如果include中引用的源码中使用了return，则返回return中的返回值，如果没有，则返回1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="题："><a href="#题：" class="headerlink" title="题："></a>题：</h3><ol>
@@ -629,6 +630,7 @@ abc.php中源码为
 <li>对于要包含php执行代码的文件包含题目，使用data://text/plain,伪协议可以绕过过滤了eval等执行函数的情况<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>执行上面的函数发现可以执行，满足fopen和include都开启的条件，则后面的php执行代码可以操作<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php system(&quot;mv fla?.php 1.txt&quot;)?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>和过滤后缀的题目一样，重命名后再在路径后面直接添加1.txt即可访问到</li>
+<li>有新文件产生在url后面拼接新文件的名字</li>
 </ol>
 <h2 id="web38"><a href="#web38" class="headerlink" title="web38"></a>web38</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721141702.png"></li>
@@ -642,7 +644,7 @@ abc.php中源码为
 <li>按照上面的方式即可得到flag</li>
 </ol>
 <h2 id="web40"><a href="#web40" class="headerlink" title="web40"></a>web40</h2><h3 id="array-pop"><a href="#array-pop" class="headerlink" title="array_pop()"></a>array_pop()</h3><ol>
-<li>删除数组中的最后一个元素<pre class="line-numbers language-none"><code class="language-none">array_pop(array)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>删除数组中的最后一个元素<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">array_pop</span><span class="token punctuation">(</span><span class="token keyword type-casting">array</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>其中array参数是必须的</li>
 <li>返回值：返回数组中的最后一个值，如果数组是空的，或者不是一个数组，将返回NULL</li>
 </ol>
@@ -1349,7 +1351,7 @@ while True:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.4k</span>&nbsp;字
+                class="white-color">111.1k</span>&nbsp;字
             
             
             

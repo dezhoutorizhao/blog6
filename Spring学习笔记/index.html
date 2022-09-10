@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -907,30 +907,74 @@ _______________________
 </li>
 <li><p>  从maven官网找依赖，spring-boot-starter-security</p>
 </li>
-<li><pre><code class="java">  &lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security --&gt;
-  &lt;dependency&gt;
-      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-      &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
-      &lt;version&gt;2.7.3&lt;/version&gt;
-  &lt;/dependency&gt;
+<li><p>```java</p>
+  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+      <version>2.7.3</version>
+  </dependency>
   
-</code></pre>
+  <pre class="line-numbers language-none"><code class="language-none">
+5.   添加进pom.xml中
+
+6.   session和jwt，选择了jwt
+
+7.   spring用户名默认为user
+
+8.   spring密码会自动生成，需要在终端中寻找
+
+## session验证
+
+1.   当spring boot传数据给client的时候，同时传了一个字符串，session id
+2.   client在拿到session id的时候，还会在浏览器中留一个cookie,关闭之后仍然会存在
+3.   每一次访问的时候，浏览器都会默认从客户端取出session id,并放到cookie中传给spring boot
+4.   如果cookie中的session id没有过期，则可以登录
+5.   如果cookie中的session id过期了，或者session id不存在，则会返回一个登录页面，让其重新登录
+
+## post请求需要在参数前面加一个注解
+
+1.   post请求需要在参数前面加一个注解
+
+2.   &#96;&#96;&#96;java
+     @RequestParam<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="QueryWrapper"><a href="#QueryWrapper" class="headerlink" title="QueryWrapper"></a>QueryWrapper</h1><ol>
+<li><p>  用来生成sql的where条件，entity属性也用于生成sql的where条件</p>
 </li>
-<li><p>  添加进pom.xml中</p>
+<li><p>  声明一个QueryWrapper：</p>
 </li>
-<li><p>  session和jwt，选择了jwt</p>
-</li>
-<li><p>  spring用户名默认为user</p>
-</li>
-<li><p>  spring密码会自动生成，需要在终端中寻找</p>
+<li>  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">QueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">></span></span> queryWrapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryWrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+queryWrapper<span class="token punctuation">.</span><span class="token function">eq</span><span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">,</span>value_in_database<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">User</span> user <span class="token operator">=</span> userMapper<span class="token punctuation">.</span><span class="token function">selectOne</span><span class="token punctuation">(</span>queryWrapper<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//这个userMapper是@Autowired private UserMapper userMapper声明出来的，记住是由userMapper来控制数据库</span>
+<span class="token comment">//此处可以对如果查找错误进行判断</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>user <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"用户不存在"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//报错用throw new RuntimeException();扔出一个错误</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220908210022.png"></p>
 </li>
 </ol>
-<h2 id="session验证"><a href="#session验证" class="headerlink" title="session验证"></a>session验证</h2><ol>
-<li>  当spring boot传数据给client的时候，同时传了一个字符串，session id</li>
-<li>  client在拿到session id的时候，还会在浏览器中留一个cookie,关闭之后仍然会存在</li>
-<li>  每一次访问的时候，浏览器都会默认从客户端取出session id,并放到cookie中传给spring boot</li>
-<li>  如果cookie中的session id没有过期，则可以登录</li>
-<li>  如果cookie中的session id过期了，或者session id不存在，则会返回一个登录页面，让其重新登录</li>
+<h1 id="搭建项目的框架"><a href="#搭建项目的框架" class="headerlink" title="搭建项目的框架"></a>搭建项目的框架</h1><ol>
+<li><p>  MVC</p>
+</li>
+<li><p>  M：model，用JavaBean写的实体类</p>
+</li>
+<li><pre><code>  public 的类
+  private的属性
+  必须包含一个无参构造器，构造器可以不唯一，即可以存在其它构造器和无参构造器构成重载
+  必须对每一个成员属性都有一个getter和一个setter
+</code></pre>
+</li>
+<li><p>  V:view,即存放前端可视化代码</p>
+</li>
+<li><p>  C:controller,用来控制实体类</p>
+</li>
+</ol>
+<h2 id="再细分"><a href="#再细分" class="headerlink" title="再细分"></a>再细分</h2><ol>
+<li>  User来映射数据库</li>
+<li>  Mapper来操控制数据库，其实就是复制一个接口</li>
+<li>  Service来实现具体的业务逻辑</li>
+<li>  Controller来实现和前端的交互</li>
 </ol>
 
                 
@@ -1454,7 +1498,7 @@ _______________________
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.4k</span>&nbsp;字
+                class="white-color">111.1k</span>&nbsp;字
             
             
             
