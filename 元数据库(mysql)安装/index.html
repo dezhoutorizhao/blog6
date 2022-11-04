@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hadoop, 更好的明天">
+    <meta name="keywords" content="linux环境下元数据库(mysql)的安装, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hadoop | 更好的明天</title>
+    <title>linux环境下元数据库(mysql)的安装 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hadoop</h1>
+                    <h1 class="description center-align post-title">linux环境下元数据库(mysql)的安装</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                <span class="chip bg-color">大数据</span>
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                大数据
+                            <a href="/categories/mysql/" class="post-category">
+                                mysql
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-30
+                    2022-11-02
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    95
+                    742
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -495,16 +495,107 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h1><h2 id="分布式和集群的相关概念"><a href="#分布式和集群的相关概念" class="headerlink" title="分布式和集群的相关概念"></a>分布式和集群的相关概念</h2><ol>
-<li>  分布式：多台机器，<strong>每台机器上部署不同组件</strong></li>
-<li>  集群：多台机器，<strong>每台机器上部署相同组件</strong></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220830170852.png"></li>
+                <h1 id="linux环境下元数据库-mysql-的安装"><a href="#linux环境下元数据库-mysql-的安装" class="headerlink" title="linux环境下元数据库(mysql)的安装"></a>linux环境下元数据库(mysql)的安装</h1><h2 id="解压mysql安装包"><a href="#解压mysql安装包" class="headerlink" title="解压mysql安装包"></a>解压mysql安装包</h2><ol>
+<li>  将mysql的安装文件移至/root/downloads下</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102102905.png"></li>
+<li>  创建文件夹/root/bigdata/mysql</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102102921.png"></li>
+<li>  将安装文件解压至/root/bigdata/mysql</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102102932.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102102951.png"></li>
 </ol>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ol>
-<li>  如何存储：单机存储有瓶颈，多台机器分布式存储</li>
-<li>  如何计算：单机计算能力有限，多台机器分布式计算</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220830171229.png"></li>
-<li>  人多力量大</li>
+<h2 id="升级并安装依赖包"><a href="#升级并安装依赖包" class="headerlink" title="升级并安装依赖包"></a>升级并安装依赖包</h2><ol>
+<li><p>```<br>  root@master:~/bigdata/mysql# sudo apt-get upgrade</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+### 如果报错
+
+1.   &#96;&#96;&#96;
+     E: 无法获得锁 &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock-frontend - open (11: 资源暂时不可用)
+     E: 无法获取 dpkg 前端锁 (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock-frontend)，是否有其他进程正占用它？
+     root@master:~&#x2F;bigdata&#x2F;mysql# rm &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;lock
+     root@master:~&#x2F;bigdata&#x2F;mysql# rm &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock
+     root@master:~&#x2F;bigdata&#x2F;mysql# rm &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock-frontend
+     root@master:~&#x2F;bigdata&#x2F;mysql# apt-get upgrade
+     E: dpkg 被中断，您必须手工运行 ‘dpkg --configure -a’ 解决此问题。
+     root@master:~&#x2F;bigdata&#x2F;mysql# rm &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;updates&#x2F;*
+     root@master:~&#x2F;bigdata&#x2F;mysql# apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102103045.png"></p>
+</li>
+<li><p>```<br>  root@master:~/bigdata/mysql# apt-get upgrade</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103104.png)
+
+5.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103122.png)
+
+6.    
+
+     [无法获取 dpkg 前端锁 (&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock-frontend)，是否有其他进程正占用它？ - while19 - 博客园 (cnblogs.com)](https:&#x2F;&#x2F;www.cnblogs.com&#x2F;while19&#x2F;p&#x2F;16197099.html)
+
+     [(23条消息) dpkg 被中断问题解决方法_半遮雨的博客-CSDN博客_dpkg中断](https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_14935437&#x2F;article&#x2F;details&#x2F;77199615)
+
+7.   &#96;&#96;&#96;
+     root@master:~&#x2F;bigdata&#x2F;mysql# apt-get install libaio1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102103147.png"></p>
+</li>
+</ol>
+<h3 id="3-按顺序安装d-eb-程序包"><a href="#3-按顺序安装d-eb-程序包" class="headerlink" title="*3.* *按顺序安装d**eb**程序包*"></a><em><strong>*3.*</strong></em> <em><strong>*按顺序安装d*</strong></em><em><strong>*eb*</strong></em><em><strong>*程序包*</strong></em></h3><ol>
+<li><p>```bash<br>  root@master:~/bigdata/mysql# dpkg -i mysql-common_8.0.14-1ubuntu18.04_amd64.deb</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103226.png)
+
+3.   &#96;&#96;&#96;
+     root@master:~&#x2F;bigdata&#x2F;mysql# dpkg -i libmysqlclient21_8.0.14-1ubuntu18.04_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102103239.png"></p>
+</li>
+<li><p>```<br>  root@master:~/bigdata/mysql# dpkg -i libmysqlclient-dev_8.0.14-1ubuntu18.04_amd64.deb</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103254.png)
+
+7.   &#96;&#96;&#96;bash
+     root@master:~&#x2F;bigdata&#x2F;mysql# dpkg -i mysql-community-client-core_8.0.14-1ubuntu18.04_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102103310.png"></p>
+</li>
+<li><p>```bash<br>  root@master:~/bigdata/mysql# dpkg -i mysql-community-client_8.0.14-1ubuntu18.04_amd64.deb</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+10.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103324.png)
+
+11.   &#96;&#96;&#96;bash
+      root@master:~&#x2F;bigdata&#x2F;mysql# apt-get install libaio1 libmecab2 openssh-client<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221102103347.png"></p>
+</li>
+<li><p>```bash<br>  root@master:~/bigdata/mysql# dpkg -i mysql-community-server-core_8.0.14-1ubuntu18.04_amd64.deb</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+14.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103406.png)
+
+15.   &#96;&#96;&#96;bash
+      root@master:~&#x2F;bigdata&#x2F;mysql# dpkg -i mysql-community-server_8.0.14-1ubuntu18.04_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  此过程会出现图形化界面设置MySQL的密码及验证方式等。</p>
+</li>
+<li><p>```bash<br>  root@master:~/bigdata/mysql# dpkg -i mysql-server_8.0.14-1ubuntu18.04_amd64.deb</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+18.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103440.png)
+
+## ***\*4.\**** ***\*检验M\***\*ySQL\*******\*是否安装成功\****
+
+1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102103503.png)
+
+## ***\*5.\**** ***\*M\*******\*ySQL\*******\*数据库操作\****
+
+&#96;&#96;&#96;bash
+（1）登录
+mysql -u root –p
+（2）创建新用户
+create user &#39;hadming&#39;@&#39;%&#39; identified by &#39;123456&#39;;
+（3）为用户授权
+mysql&gt; grant all on *.* to &#39;hadming&#39;@&#39;%&#39;;
+（4）创建数据库
+create database hadoopDB;
+（5）查看数据库
+show databases;
+(6)选择数据库
+Use hadoopDB
+(7)删除数据库
+（8）创建表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -532,7 +623,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/hadoop/">https://www.strongwill.top/hadoop/</a>
+                    <a href="https://www.strongwill.top/%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93(mysql)%E5%AE%89%E8%A3%85/">https://www.strongwill.top/%E5%85%83%E6%95%B0%E6%8D%AE%E5%BA%93(mysql)%E5%AE%89%E8%A3%85/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -570,8 +661,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                                    <span class="chip bg-color">大数据</span>
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
                                 </a>
                             
                         </div>
@@ -745,13 +836,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Upload/">
+                <a href="/go%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="给毕师傅打工的题目wp">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">给毕师傅打工的题目wp</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -762,14 +853,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-04
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF/" class="post-category">
-                                    CTF
+                            <a href="/categories/go/" class="post-category">
+                                    go
                                 </a>
                             
                             
@@ -779,8 +870,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
+                    <a href="/tags/go/">
+                        <span class="chip bg-color">go</span>
                     </a>
                     
                 </div>
@@ -794,13 +885,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <a href="/go_downloader/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Spring学习笔记">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="go_downloader">
                         
-                        <span class="card-title">Spring学习笔记</span>
+                        <span class="card-title">go_downloader</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -811,14 +902,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Javaweb/" class="post-category">
-                                    Javaweb
+                            <a href="/categories/go/" class="post-category">
+                                    go
                                 </a>
                             
                             
@@ -828,8 +919,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Javaweb/">
-                        <span class="chip bg-color">Javaweb</span>
+                    <a href="/tags/go/">
+                        <span class="chip bg-color">go</span>
                     </a>
                     
                 </div>
@@ -1028,7 +1119,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.8k</span>&nbsp;字
+                class="white-color">132.1k</span>&nbsp;字
             
             
             

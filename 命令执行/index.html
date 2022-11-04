@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    16 分
                 </div>
                 
 
@@ -542,7 +542,7 @@
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718150508.png"></li>
 <li>get传参，传给变量c，在变量c中使用preg_match来匹配flag，如果没有flag，就执行变量c中的语句</li>
 <li>给c传值，用system函数产生回显<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718150648.png">，可以解析并执行</li>
-<li>因为不能出现flag，所以使用<strong>cp命令</strong>给flag.php换个名字</li>
+<li>因为不能出现flag，所以使用<strong>cp命令</strong>给flag.php换个名字,<strong>这个地方cp是shell命令，并不是一个函数</strong>，所以没有类似于函数的传参形式</li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718150936.png"></li>
 <li>直接在路径后面使用文件名称来访问<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718151056.png"></li>
 </ol>
@@ -570,10 +570,11 @@ system(&#39;cp flag.php 1.txt&#39;)  &#x2F;&#x2F;这个地方是单引号
 <li>使用c=eval($_GET[1]);对c进行逃逸操作，这个变量1逃逸出去了，1不属于c,则变量1可以使用任何过滤掉的字符</li>
 <li>构造?c=eval($_GET[1]);&amp;1=system(‘cp flag.php 1.txt’);</li>
 <li>在<strong>路径后面直接加上/1.txt</strong>，就可以查看到flag.php中的内容了,但是不能在system()中拼接cat 1.txt</li>
-<li>当有新文件产生时，直接在url后面拼接上新文件的名字</li>
+<li><strong>当有新文件产生时，直接在url后面拼接上新文件的名字</strong></li>
+<li><strong>system()函数中传参一定要加上单引号</strong>，system(‘ls’),system(‘cp xxx xxxx’)</li>
 </ol>
 <h2 id="web32"><a href="#web32" class="headerlink" title="web32"></a>web32</h2><h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ol>
-<li>include语句获取指定文件中存在的所有文本/代码/标记，并将其复制到使用include语句的文件中<pre class="line-numbers language-none"><code class="language-none">include require<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>include语句获取指定文件中存在的所有文本/代码/标记，并将其<strong>复制</strong>到使用include语句的文件中<pre class="line-numbers language-none"><code class="language-none">include require<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>希望在报错时继续执行并且向用户显示输出，使用include语句，因为当include语句包含的文件不存在时，只是产生一个警告，但是脚本会继续执行</li>
 <li>而require引用的文件如果不存在，就会提示错误，并终止脚本的运行<pre class="line-numbers language-none"><code class="language-none">include &quot;header.htm&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>上面的header.htm中可以php语句，因为可以包含htm静态文件，所以可以设计缓存机制，比如把一些页面分为几部分，有一些读取数据库耗费效率的部分可以缓存为html，然后通过include</li>
@@ -587,7 +588,8 @@ abc.php中源码为
 <h3 id="题："><a href="#题：" class="headerlink" title="题："></a>题：</h3><ol>
 <li>大致方法为按照文件包含的方法去做</li>
 <li>空格绕过：使用url编码</li>
-<li>因为过滤了反单引号，可以使用include包含执行代码去绕过<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;include%0a$_GET[1]?&gt;&amp;1&#x3D;&#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>因为过滤了反单引号，可以使用include包含执行代码去绕过</li>
+<li>相当于是<strong>逃逸加上文件包含的传参方式</strong><pre class="line-numbers language-none"><code class="language-none">?c&#x3D;include%0a$_GET[1]?&gt;&amp;1&#x3D;&#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122127.png">，发现可以回显</li>
 <li>可以使用文件包含的原理来实现<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122230.png">，原理就是加上一个php的过滤器</li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122336.png">，得到一串base64编码，解码即可获得flag<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122415.png"></li>
@@ -627,10 +629,10 @@ abc.php中源码为
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163511.png"></li>
 <li>发现是一个文件包含题目，考虑使用php伪协议</li>
-<li>对于要包含php执行代码的文件包含题目，使用data://text/plain,伪协议可以绕过过滤了eval等执行函数的情况<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>对于要包含php执行代码的文件包含题目，使用data://text/plain,伪协议可以<strong>绕过过滤了eval等执行函数</strong>的情况<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>执行上面的函数发现可以执行，满足fopen和include都开启的条件，则后面的php执行代码可以操作<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php system(&quot;mv fla?.php 1.txt&quot;)?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>和过滤后缀的题目一样，重命名后再在路径后面直接添加1.txt即可访问到</li>
-<li>有新文件产生在url后面拼接新文件的名字</li>
+<li><strong>有新文件产生在url后面拼接新文件的名字</strong></li>
 </ol>
 <h2 id="web38"><a href="#web38" class="headerlink" title="web38"></a>web38</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721141702.png"></li>
@@ -803,9 +805,11 @@ while True:
 <li>过滤掉了分号，但是还是需要两条命令</li>
 <li>可以使用&amp;&amp;</li>
 <li>当前面的语句执行结果为true时，会执行后面的语句，而且前后是分割的两条命令</li>
-<li>遇到黑洞问题并且过滤掉了分号就可以用&amp;&amp;来起到分隔作用<pre class="line-numbers language-none"><code class="language-none">if(!preg_match(&quot;&#x2F;\;|cat&#x2F;i&quot;, $c))&#123;
+<li>遇到黑洞问题并且过滤掉了分号就可以用&amp;&amp;来起到分隔作用</li>
+<li>shell会执行第一个参数，将第二个参数带入到黑洞</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221013185128.png"><pre class="line-numbers language-none"><code class="language-none">if(!preg_match(&quot;&#x2F;\;|cat&#x2F;i&quot;, $c))&#123;
         system($c.&quot; &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1&quot;);
-    &#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+  &#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729155254.png"></li>
 </ol>
 <h3 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h3><ol>
@@ -824,7 +828,13 @@ while True:
 <li>我们可以使用?来代替*的通配符,URL编码中的数字会自动解码，不用担心</li>
 <li>?c=tac%09fla?.php%26%26ls</li>
 </ol>
-<h2 id="web50"><a href="#web50" class="headerlink" title="web50"></a>web50</h2><p>1. </p>
+<h2 id="web50"><a href="#web50" class="headerlink" title="web50"></a>web50</h2><ol>
+<li>shell特性：两个单引号分割字符串，中间执行会自动忽略</li>
+<li><strong>nl命令</strong>：将指定的文件添加行号标注后写到标准输出。如果不指定文件或指定文件为”-“ ，程序将从标准输入读取数据。</li>
+<li>nl [选项]… [文件]…</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221013194449.png"></li>
+<li></li>
+</ol>
 
                 
             </div>
@@ -1351,7 +1361,7 @@ while True:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.8k</span>&nbsp;字
+                class="white-color">132.1k</span>&nbsp;字
             
             
             

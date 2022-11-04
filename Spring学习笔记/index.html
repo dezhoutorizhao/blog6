@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    18 分
                 </div>
                 
 
@@ -959,22 +959,207 @@ queryWrapper<span class="token punctuation">.</span><span class="token function"
 </li>
 <li><p>  M：model，用JavaBean写的实体类</p>
 </li>
-<li><pre><code>  public 的类
-  private的属性
-  必须包含一个无参构造器，构造器可以不唯一，即可以存在其它构造器和无参构造器构成重载
-  必须对每一个成员属性都有一个getter和一个setter
-</code></pre>
-</li>
-<li><p>  V:view,即存放前端可视化代码</p>
-</li>
-<li><p>  C:controller,用来控制实体类</p>
+<li><p>```<br>  public 的类<br>  private的属性<br>  必须包含一个无参构造器，构造器可以不唯一，即可以存在其它构造器和无参构造器构成重载<br>  必须对每一个成员属性都有一个getter和一个setter</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+4.   V:view,即存放前端可视化代码
+
+5.   C:controller,用来控制实体类
+
+## 再细分
+
+1.   User来映射数据库
+2.   Mapper来操控制数据库，其实就是复制一个接口
+3.   Service来实现具体的业务逻辑
+4.   Controller来实现和前端的交互
+
+
+
+# 黑马springboot
+
+## springboot起步依赖原理分析
+
+1.   版本锁定：在父工程中定义了一些坐标和版本信息，在后面继承这个父类时，就不需要再写版本信息了，可以有效地避免冲突
+2.   spring boot-web中集成了spring的一些依赖，也就是说springboot是基于spring的，spring较为底层
+3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220917211502.png)
+4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220917211615.png)
+
+## 配置文件
+
+1.   springboot是基于约定的，很多配置都有默认值，但是如果想用自己的配置替换默认配置的话，就可以使用application.properties或者application.yml（或者application.yaml，yml和yaml是相同的，就和html和htm一样）进行配置
+2.   配置文件都在resources目录下
+3.   加载顺序：properties &gt; yml &gt; yaml,如果高低优先级中同时存在，则会采用高优先级的
+
+### properties
+
+&#96;&#96;&#96;java\
+server.port&#x3D;8080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  properties采用键值对的形式</p>
 </li>
 </ol>
-<h2 id="再细分"><a href="#再细分" class="headerlink" title="再细分"></a>再细分</h2><ol>
-<li>  User来映射数据库</li>
-<li>  Mapper来操控制数据库，其实就是复制一个接口</li>
-<li>  Service来实现具体的业务逻辑</li>
-<li>  Controller来实现和前端的交互</li>
+<h3 id="yml"><a href="#yml" class="headerlink" title="yml"></a>yml</h3><ol>
+<li><p>```java<br>  server:</p>
+<pre><code>  port: 8080
+</code></pre>
+  <pre class="line-numbers language-none"><code class="language-none">
+2.   使用缩进代表父子层级关系
+
+3.   冒号和数值之间有空格，如果没有空格，数值将不会被识别
+
+## yaml
+
+1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918092359.png)
+
+2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918092647.png)
+3.   注意：**缩进表示层级关系**
+4.   缩进时不允许使用tab，只允许使用空格，各个系统tab对应的空格数目可能不同，导致层次混乱（idea不用担心）
+5.   缩进的空格数目不重要，只要相同层级的元素左对齐即可
+
+### yaml数据格式
+
+1.   对象（map）：键值对的集合，支持行内写法
+
+2.   行内写法，不同属性之间**用逗号去分隔**
+
+3.   采用一种键值对的形式
+
+4.   &#96;&#96;&#96;
+     person: &#123;name: zhangsan,age: 20&#125; &#x2F;&#x2F;了解即可，最好采用缩进的写法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918093431.png"></p>
+</li>
+<li><p>数组：</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java">address<span class="token operator">:</span>
+	<span class="token operator">-</span> beijing
+	<span class="token operator">-</span> shanghai
+address<span class="token operator">:</span> <span class="token punctuation">[</span>beijing<span class="token punctuation">,</span>shanghai<span class="token punctuation">]</span> <span class="token comment">//也可以采用一种默认数组下标的方式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  纯量，<strong>单引号忽略转义字符，双引号识别转义字符</strong></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918093806.png"></p>
+</li>
+<li><p>参数引用</p>
+  <pre class="line-numbers language-none"><code class="language-none">name: lisi
+person:
+	name: $&#123;name&#125;
+&#x2F;&#x2F;这样在获取person.name时，就会输出lisi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ol>
+<h2 id="读取配置文件的内容"><a href="#读取配置文件的内容" class="headerlink" title="读取配置文件的内容"></a>读取配置文件的内容</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918113134.png"></p>
+<ol>
+<li><p>注意，以下内容都是獲取application.properties/yml/yaml中的配置文件的内容</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;name&#125;"</span><span class="token punctuation">)</span> <span class="token comment">//這樣可以獲取到一個application配置文件中的name屬性</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span> <span class="token comment">//然後需要一個變量來承接，而且一定要承接，爲其分配内存空間，否則會報錯,承接的變量變量名可以自定</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>  可以理解為@Value中的内容是用來取數據，而承接是用來起別名</p>
+</li>
+<li><p>```java<br>  @Value(“{address[0]}”)<br>  private String msg;  //此時，msg的值就為address[0]</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+### 注入一個對象，環境對象
+
+1.   使用這種方法的目的就是不用@Value()去一個一個地注入，一次性整體注入進去
+
+&#96;&#96;&#96;java
+@Autowired; &#x2F;&#x2F;使用@Autowired注解自動注入
+private Environment env; &#x2F;&#x2F;在springboot程序啓動的時候，就會在spring boot容器中初始化好一個Environment對象<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>通過getProperty方法，指定鍵的名稱，就可以獲取到鍵對應的屬性值了</p>
+  <pre class="line-numbers language-none"><code class="language-none">String env.getProperty(&quot;name&quot;);&#x2F;&#x2F;引號中寫鍵的名稱&#x2F;屬性的名稱<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+</li>
+</ol>
+<h3 id="ConfigurationProperties"><a href="#ConfigurationProperties" class="headerlink" title="@ConfigurationProperties"></a>@ConfigurationProperties</h3><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918162453.png"></li>
+<li>  prefix参数：捕获配置文件中固定前缀的属性，然后依次赋值到这个类中</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918162639.png"></li>
+</ol>
+<h3 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h3><ol>
+<li>  @Component是基础注解，表示一个JavaBean可以被注入到spring容器中</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918163510.png"></li>
+<li>  上面这张图片，@Component表示这个person类被spring识别，是一个bean</li>
+</ol>
+<h2 id="profile"><a href="#profile" class="headerlink" title="profile"></a>profile</h2><h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918163719.png"></li>
+<li>  在程序迁移时，数据库地址，端口等配置进行动态切换</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918164056.png"></li>
+</ol>
+<h3 id="注意配置文件的命名"><a href="#注意配置文件的命名" class="headerlink" title="注意配置文件的命名"></a>注意配置文件的命名</h3><ol>
+<li><p>都为</p>
+  <pre class="line-numbers language-none"><code class="language-none">application-xxx.properties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>  模板：</p>
+</li>
+<li><p>  application-dev.properties 开发环境developer</p>
+</li>
+<li><p>  application-pro.properties 生产环境</p>
+</li>
+<li><p>  application-test.properties 测试环境</p>
+</li>
+</ol>
+<h3 id="profile配置方式"><a href="#profile配置方式" class="headerlink" title="profile配置方式"></a>profile配置方式</h3><ol>
+<li>  多profile文件方式</li>
+<li>  yml多文档方式</li>
+</ol>
+<h3 id="profile激活方式，多profile文件方式"><a href="#profile激活方式，多profile文件方式" class="headerlink" title="profile激活方式，多profile文件方式"></a>profile激活方式，多profile文件方式</h3><ol>
+<li><p>```<br>  spring.profiles.active=dev</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+2.   上面这个spring.profiles.active属性用来激活profile,后面的dev根据具体情况而定
+
+3.   例如dev是根据后缀application-dev.properties
+
+4.   pro是根据application-pro.properties
+
+### yml多文档方式
+
+1.   使用三个杠来分隔
+2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918181518.png)
+3.   spring.profiles.active属性来设定来调用哪一个properties
+
+
+
+### profile激活方式
+
+1.   配置文件
+2.   虚拟机参数
+3.   命令行参数
+
+### 利用虚拟机参数进行激活
+
+1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918182650.png)
+
+2.   在run&#x2F;debug configruation中更改配置
+
+3.   修改VM options参数为
+
+4.   &#96;&#96;&#96;java
+     -Dspring profiles active&#x3D;test<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  虚拟机参数会覆盖配置文件中的配置</p>
+</li>
+</ol>
+<h3 id="使用命令行参数进行配置的修改"><a href="#使用命令行参数进行配置的修改" class="headerlink" title="使用命令行参数进行配置的修改"></a>使用命令行参数进行配置的修改</h3><ol>
+<li><p>  在program arguments中添加命令行参数</p>
+</li>
+<li><p>  将此参数修改为</p>
+</li>
+<li><pre><code class="java">  --spring.profiles.active=pro
+  <pre class="line-numbers language-none"><code class="language-none">
+### 注意
+
+1.   命令行参数和虚拟机参数激活的前提是在yml文件中写为多文档模式
+2.   后两种优点是不用一次次地修改配置文件
+
+## 实际生产中打成jar包的操作
+
+1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918183902.png)
+
+2.   运行jar包
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  java -jar 文件名
+  <pre class="line-numbers language-none"><code class="language-none">
+3.   添加命令行参数来激活profile
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  java -jar 文件名 --spring.profiles.active=pro
+</code></pre>
+</li>
+</ol>
+<h2 id="springboot内部配置加载顺序"><a href="#springboot内部配置加载顺序" class="headerlink" title="springboot内部配置加载顺序"></a>springboot内部配置加载顺序</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918184909.png"></li>
+<li></li>
 </ol>
 
                 
@@ -1215,13 +1400,13 @@ queryWrapper<span class="token punctuation">.</span><span class="token function"
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/hadoop/">
+                <a href="/Upload/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="hadoop">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="给毕师傅打工的题目wp">
                         
-                        <span class="card-title">hadoop</span>
+                        <span class="card-title">给毕师傅打工的题目wp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1232,14 +1417,14 @@ queryWrapper<span class="token punctuation">.</span><span class="token function"
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
-                                    大数据
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
                             
@@ -1249,8 +1434,8 @@ queryWrapper<span class="token punctuation">.</span><span class="token function"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">大数据</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1498,7 +1683,7 @@ queryWrapper<span class="token punctuation">.</span><span class="token function"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.8k</span>&nbsp;字
+                class="white-color">132.1k</span>&nbsp;字
             
             
             

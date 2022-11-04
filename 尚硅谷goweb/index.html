@@ -1,0 +1,1793 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="尚硅谷goweb教程, 更好的明天">
+    <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>尚硅谷goweb教程 | 更好的明天</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">更好的明天</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">更好的明天</div>
+        <div class="logo-desc">
+            
+            打ACM和CTF，未来的人上人，嘿嘿
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">尚硅谷goweb教程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/goweb/">
+                                <span class="chip bg-color">goweb</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/goweb/" class="post-category">
+                                goweb
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-10-14
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="搭建服务器"><a href="#搭建服务器" class="headerlink" title="搭建服务器"></a>搭建服务器</h1><ol>
+<li><p>```go<br>  package main</p>
+<p>  import (</p>
+<pre><code>  &quot;fmt&quot;
+  &quot;net/http&quot;
+</code></pre>
+<p>  )</p>
+<p>  //创建处理器函数<br>  func handler(w http.ResponseWriter,r*http.Request) { //这里面的参数是不能变的</p>
+<pre><code>  fmt.Fprintln(w,&quot;Hello world&quot;,&quot;abc&quot;,r.URL.Path,&quot;def&quot;) //fprintln函数可以随意拼接自己想要的字符
+</code></pre>
+<p>  }</p>
+<p>  func main() {</p>
+<pre><code>  http.HandleFunc(&quot;/abc&quot;,handler) //定义一个函数类型，就可以把函数作为参数传入，handlerfunc函数当访问根目录时就会自动执行handler函数
+                                  //handlerfunc函数会将指定的url拼接到后面，当拼接了指定的url时，会自动执行handler函数
+  //创建路由
+  http.ListenAndServe(&quot;:8088&quot;,nil) //ListenAndServer函数会映射指定的端口，第一个参数就是映射到哪个端口，第二个参数是
+                                   //ListenAndServer函数需要传入两个参数都需要监听的端口和handler，第一个是监听的端口，第二个是处理请求的接口，
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+2.   handler函数：是一个接口，接口名随便起，参数是固定的，必须是w http.ResponseWriter 和 r*http.Request,自定义的，所以不需要写http.包的名字
+
+3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014212121.png)
+
+4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014212749.png)
+
+5.   HandlerFunc，是调用http包的函数，所以必须调用http.来说明是包内的函数，第一个参数是后面拼接的后缀（映射的地址）（url为string类型），第二个参数是一个处理器，说明映射的地址交给哪个处理器去完成
+
+6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014212520.png)
+
+7.   ListenAndServe函数第一个参数是监听TCP地址addr（端口）,并且会使用handler参数调用Serve函数处理接收到的链接，handler参数一般设置为nil,此时会使用DefaultServeMux
+
+8.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014213351.png)
+
+1.   &#96;&#96;&#96;go
+     package main
+     
+     import (
+     	&quot;fmt&quot;
+     	&quot;net&#x2F;http&quot;
+     )
+     
+     type MyHandler struct &#123;&#125;
+     
+     func (m *MyHandler) ServeHTTP(w http.ResponseWriter , r *http.Request) &#123;
+     	fmt.Fprintln(w,&quot;通过自己创建的处理器处理请求！&quot;)
+     &#125;
+     
+     func main() &#123;
+     	myHandler :&#x3D; MyHandler&#123;&#125;
+     	http.Handle(&quot;&#x2F;myHandler&quot;,&amp;myHandler) &#x2F;&#x2F;Handle函数的第二个参数是myHandler的地址,实例对象的地址
+     
+     	http.ListenAndServe(&quot;:8088&quot;,nil)
+     &#125;
+     &#x2F;&#x2F;这个是比较麻烦的自己创建处理器的方法，不推荐使用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  如果调用的是HandleFunc函数会自动转换成处理器，不需要一个struct来实现接口</p>
+</li>
+<li><p>  如果调用的是Handle函数，则必须要实现ServeHTTP方法（一个接口）</p>
+</li>
+</ol>
+<h1 id="HTTP报文格式"><a href="#HTTP报文格式" class="headerlink" title="HTTP报文格式"></a>HTTP报文格式</h1><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221015112257.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221015112459.png"></p>
+</li>
+<li><p>  请求报文</p>
+</li>
+<li><p>```<br>  第一行是请求首行，包含请求方式，请求地址 和 请求协议<br>  第二行开始是请求头信息，就是请求的属性信息<br>  后面紧跟一个空行<br>  空行后面是请求体</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+5.   get请求没有请求体，post请求才有请求体
+
+6.   可以通过浏览器的network来查看报文信息，其中view-source选项可以查看具有报文结构的报文信息
+
+7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015113803.png)
+
+8.   &#96;&#96;&#96;go
+     package main
+     
+     import (
+     	&quot;fmt&quot;
+     	&quot;net&#x2F;http&quot;
+     )
+     
+     &#x2F;&#x2F;创建处理器函数
+     func handler(w http.ResponseWriter , r *http.Request)&#123;
+     	fmt.Fprintln(w , &quot;测试http协议&quot;)
+     &#125;
+     
+     func main() &#123;
+     	&#x2F;&#x2F;调用处理器处理请求
+     	http.HandleFunc(&quot;&#x2F;http&quot;,handler)
+     	&#x2F;&#x2F;路由
+     	http.ListenAndServe(&quot;:8080&quot;,nil)
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>```html</p>
+  <html>
+      <head>
+          <meta charset="UTF-8"/>
+      </head>
+      <body>
+          <form action="http://localhost:8080/http" method="POST" > <!--form标签用于为用户输入创建HTML表单，可以包含input元素，比如文本字段等，表单用于向服务器传输数据-->
+          用户名：<input type="text" name="username" /><br/>
+          密码: <input type="text" name="password" /><br/>
+          <input type="submit" />
+      </body>
+  </html>
+  <pre class="line-numbers language-none"><code class="language-none">
+10.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102110231.png)
+
+# 通过go语言链接数据库
+
+1.   查看如何拼接sql语句官方文档看database&#x2F;sql库中的
+2.   [Go语言标准库文档中文版 | Go语言中文网 | Golang中文社区 | Golang中国 (studygolang.com)](https:&#x2F;&#x2F;studygolang.com&#x2F;pkgdoc)
+3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015164640.png)
+4.   使用database&#x2F;sql包来操作数据库
+5.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015164950.png)
+6.   因为go语言没有提供任何官方的数据库驱动，所以我们需要导入第三方的数据库驱动，“github.com&#x2F;go-sql-driver&#x2F;mysql”
+7.   放在 gomodcache 指向的目录下，有一个github.com目录
+8.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015165822.png)
+9.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015165843.png)
+10.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015170131.png)
+11.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015170715.png)
+12.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015170727.png)
+
+## 链接数据库
+
+1.   &#96;&#96;&#96;go
+     package utils
+     
+     import (
+     	&quot;database&#x2F;sql&quot;
+     	_ &quot;github.com&#x2F;go-sql-driver&#x2F;mysql&quot;
+     )
+     
+     var (
+     	Db *sql.DB
+     	err error
+     )
+     
+     func init() &#123;
+     	Db,err :&#x3D; sql.Open(&quot;mysql&quot;,&quot;root:20030729a@tcp(localhost:3306)&#x2F;ctfshow&quot;)
+     	if err !&#x3D; nil &#123;
+     		panic(err.Error())
+     	&#125;
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="adduser添加用户的方法"><a href="#adduser添加用户的方法" class="headerlink" title="adduser添加用户的方法"></a>adduser添加用户的方法</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>user <span class="token operator">*</span>User<span class="token punctuation">)</span> <span class="token function">AddUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//写sql语句</span>
+	sqlStr <span class="token operator">:=</span> <span class="token string">"insert into users(username,password,email) values(?,?,?)"</span>
+	<span class="token comment">//预编译</span>
+	inStmt <span class="token punctuation">,</span> err <span class="token operator">:=</span> utils<span class="token punctuation">.</span>Db<span class="token punctuation">.</span><span class="token function">Prepare</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数"><a href="#Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数" class="headerlink" title="Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数"></a>Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>db <span class="token operator">*</span>DB<span class="token punctuation">)</span> <span class="token function">Exec</span><span class="token punctuation">(</span>query <span class="token builtin">string</span><span class="token punctuation">,</span>args <span class="token operator">...</span><span class="token keyword">interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>Result<span class="token punctuation">,</span><span class="token builtin">error</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221022162417.png"></p>
+<h2 id="Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数"><a href="#Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数" class="headerlink" title="Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数"></a>Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>db <span class="token operator">*</span>DB<span class="token punctuation">)</span> <span class="token function">Query</span><span class="token punctuation">(</span>query <span class="token builtin">string</span><span class="token punctuation">,</span>args <span class="token operator">...</span><span class="token keyword">interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token operator">*</span>Rows<span class="token punctuation">,</span><span class="token builtin">error</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221022163218.png"></p>
+<h2 id="QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误"><a href="#QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误" class="headerlink" title="QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误"></a>QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221022163458.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">func (db *DB) QueryRow(query string,args ...interface()) *Row<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="总：AddUser-添加User的方法一，需要预编译"><a href="#总：AddUser-添加User的方法一，需要预编译" class="headerlink" title="总：AddUser 添加User的方法一，需要预编译"></a>总：AddUser 添加User的方法一，需要预编译</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// AddUser 添加用户的方法一</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>user <span class="token operator">*</span>User<span class="token punctuation">)</span> <span class="token function">AddUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//写sql语句</span>
+	sqlStr <span class="token operator">:=</span> <span class="token string">"insert into users(username,password,email) values(?,?,?)"</span>
+	<span class="token comment">//预编译</span>
+	inStmt <span class="token punctuation">,</span> err <span class="token operator">:=</span> utils<span class="token punctuation">.</span>Db<span class="token punctuation">.</span><span class="token function">Prepare</span><span class="token punctuation">(</span>sqlStr<span class="token punctuation">)</span> <span class="token comment">//预编译得到的是inStmt,通过操作inStmt得到不同的结果</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"预编译出现异常"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> err
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">//3.执行</span>
+	<span class="token boolean">_</span><span class="token punctuation">,</span>err2 <span class="token operator">:=</span> inStmt<span class="token punctuation">.</span><span class="token function">Exec</span><span class="token punctuation">(</span><span class="token string">"admin"</span><span class="token punctuation">,</span><span class="token string">"123456"</span><span class="token punctuation">,</span><span class="token string">"admin@atguigu.com"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err2 <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"执行出现异常"</span><span class="token punctuation">,</span>err2<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> err2
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><ol>
+<li><p>  单元测试就是为了验证单元的正确性而设置的自动化测试，一个单元就是程序中的一个模块化部分</p>
+</li>
+<li><p>  一般来说，一个单元通常会和程序中的一个函数或者一个方法对应</p>
+</li>
+<li><p>  go的单元测试需要用到testing包以及go test命令，而且对测试文件也有以下要求</p>
+</li>
+<li><p>```</p>
+<ol>
+<li>被测试的源文件和测试文件必须位于同一个包下</li>
+<li>测试文件必须以 _test.go结尾</li>
+<li>虽然go对测试文件_test.go的前缀没有强制要求，不过一般都设置魏被测试文件的文件名，对user.go测试，名字一般设置为user_test.go</li>
+<li>测试文件中的测试函数为 TestXXX(*test.T)<br>其中，XXX的首字母必须是大写的英文字母<br>函数参数必须是test.T的指针类型</li>
+<li>Test测试函数的参数必须是 t *test.T<pre class="line-numbers language-none"><code class="language-none">
+5.   &#96;&#96;&#96;go
+     package model
+     
+     import (
+     	&quot;fmt&quot;
+     	&quot;testing&quot;
+     )
+     
+     func TestAddUser(t *testing.T) &#123;
+     	fmt.Println(&quot;测试添加用户：&quot;)
+     	user :&#x3D; &amp;User&#123;&#125;
+     	&#x2F;&#x2F;调用添加用户的方法
+     	user.AddUser()
+     	user.AddUser2()
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+</li>
+<li><p>  如果函数名不是以Test开头，那么函数默认不执行，我们可以将它设置成为一个子测试程序</p>
+</li>
+<li><p>  在主Test函数中调用子测试程序，可以将声明的test.T指针对象指向子测试函数</p>
+</li>
+<li><p>```go<br>  t.Run(“测试添加用户”,testAddUser) //第一个参数是自己写的string类型，在调用时自动输出，第二个参数是要调用哪个子测试程序</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+9.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102193939.png)
+
+## 预处理SQL
+
+1.   预编译语句是将需要反复调用的某一条sql语句的值用占位符代替，可以视为将sql语句模板化或者参数化，这类语句即为prepared statements，预编译语句
+
+2.   优势在于：一次编译，多次运行，省去了解析优化的过程，此外预编译语句能够防止sql注入
+
+3.   &#96;&#96;&#96;sql
+     # 定义预处理语句
+     prepare state_string from prepareable_state_ment;
+     # 执行预处理语句
+     execute state_string [using @var_name , @var_name]
+     # 删除（释放）定义
+     &#123;deallocate|drop&#125; prepare state_ment;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="处理一条语句"><a href="#处理一条语句" class="headerlink" title="处理一条语句"></a>处理一条语句</h2><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103100450.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103100520.png"></p>
+</li>
+<li><p>  QueryRow函数返回的是一行结果的指针，row的内容隐藏或非导出字段，代表单行查询结果</p>
+</li>
+<li><p>  实际查询代码</p>
+</li>
+<li><p>```go<br>  func (user *User) GetUserById() (*User,error) {</p>
+<pre><code>  //写sql语句
+  sqlStr := &quot;select id,username,password,email from users where id = ?&quot;
+  //执行
+  row := utils.Db.QueryRow(sqlStr,user.ID)
+  //声明
+  var id int
+  var username string
+  var password string
+  var email string
+  err := row.Scan(&amp;id,&amp;username,&amp;password,&amp;email)
+  if err != nil &#123;
+      return nil,err
+  &#125;
+  u := &amp;User &#123;
+      ID : id,
+      Username : username,
+      Password: password,
+      Email: email,
+  &#125;
+  return u , nil
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+6.   单元测试代码
+
+7.   &#96;&#96;&#96;go
+     &#x2F;&#x2F;测试获取一个User
+     func testGetUserById(t *testing.T)&#123;
+     	fmt.Println(&quot;测试一条查询数据&quot;)
+     	user :&#x3D; User &#123;
+     		ID : 3,
+     	&#125;
+     	&#x2F;&#x2F;调用获取User的方法
+     	u,err2 :&#x3D; user.GetUserById()
+     	if err2 !&#x3D; nil&#123;
+     		fmt.Println(err2)
+     	&#125; else &#123;
+     		fmt.Println(&quot;得到的User信息是:&quot;,u)
+     	&#125;
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="处理多条语句"><a href="#处理多条语句" class="headerlink" title="处理多条语句"></a>处理多条语句</h2><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103103314.png"></p>
+</li>
+<li><p>  实际查询代码</p>
+</li>
+<li><p>```go<br>  //GetUsers 获取数据库中的所有记录<br>  func (user *User) GetUsers() ([]*User,error) { //在一个切片上存储指针或带指针的值，典型的例子是[]*string</p>
+<pre><code>  //写sql语句
+  sqlStr := &quot;select id,username,password,email from users&quot;
+  //执行
+  rows ,_ := utils.Db.Query(sqlStr)
+  // if err3 != nil &#123;
+  //     return err3,nil
+  // &#125;
+
+  //创建User切片
+  var users []*User
+  for rows.Next()&#123;
+  var id int
+  var username string
+  var password string
+  var email string
+  err := rows.Scan(&amp;id,&amp;username,&amp;password,&amp;email)
+  if err != nil &#123;
+      return nil,err
+  &#125;
+
+
+  u := &amp;User &#123; //要被添加的值是地址
+      ID : id,
+      Username : username,
+      Password: password,
+      Email: email,
+  &#125;
+  users = append(users,u) //append函数的第一个值是被添加到的slice的地址，第二个值是添加的值，因为这个地方是一个存储地址的数组，所以添加的值也是地址
+  &#125;
+  return users,nil
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+4.   单元测试代码
+
+5.   &#96;&#96;&#96;go
+     &#x2F;&#x2F;测试获取所有的User
+     func testGetUsers(t *testing.T)&#123;
+     	fmt.Println(&quot;测试查询所有记录：&quot;)
+     	user :&#x3D; &amp;User&#123;&#125;
+     	&#x2F;&#x2F;调用获取所有User的方法
+     	rows,_ :&#x3D; user.GetUsers()
+     	&#x2F;&#x2F;遍历输出切片中的内容
+     	for k , v :&#x3D; range rows&#123;
+     		fmt.Printf(&quot;第%v个用户是%v:&quot;,k+1,v)
+     		fmt.Println()
+     	&#125;
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li></li>
+</ol>
+<h2 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103104921.png"></li>
+</ol>
+<h2 id="切片上存储指针或带指针的值"><a href="#切片上存储指针或带指针的值" class="headerlink" title="切片上存储指针或带指针的值"></a>切片上存储指针或带指针的值</h2><ol>
+<li>  在一个切片上存储指针或带指针的值，典型的例子是[]*string</li>
+</ol>
+<h2 id="获取请求行中的信息（url和传递的参数）"><a href="#获取请求行中的信息（url和传递的参数）" class="headerlink" title="获取请求行中的信息（url和传递的参数）"></a>获取请求行中的信息（url和传递的参数）</h2><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103112325.png"></p>
+</li>
+<li><p>  这个地方的Request类型和handler处理器中的参数是一个类型</p>
+</li>
+<li><p>  其中Request数据类型中的URL属性，也是一个结构体type</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103111150.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103111647.png"></p>
+</li>
+<li><p>```go<br>  package main</p>
+<p>  import (</p>
+<pre><code>  &quot;fmt&quot;
+  &quot;net/http&quot;
+</code></pre>
+<p>  )</p>
+<p>  //创建处理器函数<br>  func handler(w http.ResponseWriter,r *http.Request){</p>
+<pre><code>  fmt.Fprintln(w,&quot;你发送的请求地址是:&quot;,r.URL.Path)
+  fmt.Fprintln(w,&quot;你发送的请求地址后的查询字符串是:&quot;,r.URL.RawQuery)
+</code></pre>
+<p>  }</p>
+<p>  func main(){</p>
+<pre><code>  http.HandleFunc(&quot;/hello&quot;,handler)
+
+  http.ListenAndServe(&quot;:8080&quot;,nil)
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+7.   Request类型的变量r，r.URL.Path获得到的是请求地址，r.URL.RawQuery获得到的是传递的参数
+
+## 获取请求行和请求体
+
+1.   Request类型中的Header字段即为请求头
+
+2.   Request变量r中的Header字段，代表了请求头中的所有信息
+
+3.   如果想要获取Header字段中的某个信息，可以通过中括号取下标的方式来获取
+
+4.   &#96;&#96;&#96;go
+     r.Header[&quot;Accept-Encodeing&quot;] &#x2F;&#x2F;这样可以获取请求头中的报文编码格式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  获取Header字段中某个信息的属性值用Get方法</p>
+</li>
+<li><p>```go<br>  r.Header.Get(“Accept-Encoding”)</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103114058.png)
+
+8.   Get返回键对应的第一个值，如果键不存在会返回&quot;&quot;,如果获取该键对应的值切片，请直接用规范格式的键访问map
+
+9.   &#96;&#96;&#96;go
+     package main
+     
+     import (
+     	&quot;fmt&quot;
+     	&quot;net&#x2F;http&quot;
+     )
+     
+     &#x2F;&#x2F;创建处理器函数
+     func handler(w http.ResponseWriter,r *http.Request)&#123;
+     	fmt.Fprintln(w,&quot;你发送的请求地址是:&quot;,r.URL.Path)
+     	fmt.Fprintln(w,&quot;你发送的请求地址后的查询字符串是:&quot;,r.URL.RawQuery)
+     	fmt.Fprintln(w,&quot;请求头中所有的信息有：&quot;,r.Header)
+     	fmt.Fprintln(w,&quot;请求头中Accept-Encoding的信息是:&quot;,r.Header[&quot;Accept-Encoding&quot;])
+     &#125;
+     
+     func main()&#123;
+     	http.HandleFunc(&quot;&#x2F;hello&quot;,handler)
+     
+     	http.ListenAndServe(&quot;:8080&quot;,nil)
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103114636.png"></p>
+</li>
+<li><p>  其中不同的是：r.Header[属性]获取到的是map</p>
+</li>
+<li><p>  r.Header.Get()获取到的是值，没有大括号，Get函数中的参数是string类型的属性，和大括号取值中大括号中的内容相同</p>
+</li>
+</ol>
+<h3 id="refer属性"><a href="#refer属性" class="headerlink" title="refer属性"></a>refer属性</h3><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103115525.png"></li>
+<li>  Referer属性可以起到防盗链和广告计费的作用，防盗链：如果不是特定的页面跳转过来的权限不是完全开放；广告计费：在页面中加广告，当从特定的Referer跳转过来的时候，访问流量达到多少会计费</li>
+</ol>
+<h3 id="获取请求体中的信息"><a href="#获取请求体中的信息" class="headerlink" title="获取请求体中的信息"></a>获取请求体中的信息</h3><ol>
+<li>  请求和响应的主体都是由Request结构中的Body字段表示，这个字段是io.ReadClose接口</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103160115.png"></li>
+</ol>
+<h2 id="获取请求参数"><a href="#获取请求参数" class="headerlink" title="获取请求参数"></a>获取请求参数</h2><ol>
+<li><p>  通过net/http库中的Request结构的字段以及方法获取请求URL后面的query参数和POST或PUT的表单数据</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103161923.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103162114.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103162642.png"></p>
+</li>
+<li><p>  如果想要<strong>获取postform字段中的数据</strong>，需要<strong>特定enctype的属性值为application/x-www-form-urlencoded</strong>，指定编码方式，如果编码方式为multipart/form-data的属性值，则使用postform字段无法获取表单中的数据</p>
+</li>
+<li><p>  form表单的enctype属性的默认值时application/x-www-form-urlencode编码，<strong>实现文件上传时</strong>需要将<strong>该属性的值设置为multipart/form-data的编码格式</strong></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103164549.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103165559.png"></p>
+</li>
+<li><p>  Request的type中，ContentLength属性记录相关内容的长度，在客户端，如果Body非nil而该字段为0，则表示不知道Body的长度</p>
+</li>
+<li><p>```go<br>  //获取请求体中内容的长度</p>
+<pre><code>  len := r.ContentLength //ContentLength属性在Request对象中
+</code></pre>
+  <pre class="line-numbers language-none"><code class="language-none">
+11.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103171021.png)
+
+12.   将Body中的内容读到body中
+
+13.   &#96;&#96;&#96;go
+      &#x2F;&#x2F;将Body中的内容读到body中
+      	r.Body.Read(body)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103171257.png"></p>
+</li>
+</ol>
+<h3 id="通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值"><a href="#通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值" class="headerlink" title="通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值"></a>通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值</h3><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103171640.png"></li>
+<li>  FormValue函数传递的参数是键key，string类型的参数</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103172018.png"></li>
+<li>  From是解析好的表单数据，包括URL的query参数和POST或PUT传递的表单数据</li>
+</ol>
+<h2 id="处理客户端响应"><a href="#处理客户端响应" class="headerlink" title="处理客户端响应"></a>处理客户端响应</h2><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103173336.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103173718.png"></p>
+</li>
+<li><p>  handler处理器的第一个参数，w http.ResponseWriter类型的对象w</p>
+</li>
+<li><p>  例子</p>
+</li>
+<li><p>```go<br>  func handler(w http.ResponseWriter , r *http.Request){</p>
+<pre><code>  w.write([]byte(&quot;你的请求我已经收到&quot;))
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103174031.png)
+
+7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103174806.png)
+
+### 给客户端响应改变为json格式
+
+1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103184358.png)
+
+2.   记住，一定要**导入encoding&#x2F;json的包**
+
+3.   &#96;&#96;&#96;go
+     func testJsonRes(w http.ResponseWriter,r *http.Request)&#123;
+     	&#x2F;&#x2F;设置响应内容的类型
+     	w.Header().Set(&quot;Content-Type&quot;,&quot;application&#x2F;json&quot;)
+     	&#x2F;&#x2F;创建User
+     	user :&#x3D; model.User&#123;
+     		ID:1,
+     		Username:&quot;admin&quot;,
+     		Password:&quot;123456&quot;,
+     		Email:&quot;admin@atguigu.com&quot;,
+     	&#125;
+     	&#x2F;&#x2F;将User转换为Json格式
+     	json,_ :&#x3D; json.Marshal(user)
+     	&#x2F;&#x2F;将json格式的数据相应给客户端
+     	w.Write(json)
+     &#125;
+     
+     func main()&#123;
+     	http.HandleFunc(&quot;&#x2F;hello&quot;,handler)
+     	http.HandleFunc(&quot;&#x2F;testJson&quot;,testJsonRes)
+     
+     	http.ListenAndServe(&quot;:8080&quot;,nil)
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="让客户端重定向"><a href="#让客户端重定向" class="headerlink" title="让客户端重定向"></a>让客户端重定向</h3><ol>
+<li><p>  处理器端代码</p>
+</li>
+<li><p>```go<br>  func handler(w http.ResponseWriter,r *http.Request){</p>
+<pre><code>  //以下操作必须得在WriteHeader之前运行
+  w.Header().Set(&quot;Location&quot;,&quot;https://www.baidu.com&quot;) //第一个参数是表明Location地址，第二个参数指定重定向位置
+  w.WriteHeader(302) //设置响应的状态码
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+3.   可以看出，*http.Request 参数是用来处理用户的请求
+
+4.   http.ReponseWriter用来给用户响应
+
+## 模板引擎，处理响应数据
+
+1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221104090340.png)
+
+2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221104090544.png)
+
+3.   &#96;&#96;&#96;go
+     func testTemplate(w http.ResponseWriter,r *http.Request) &#123;
+     	&#x2F;&#x2F;解析模板
+     	t,_ :&#x3D; template.ParseFiles(&quot;index.html&quot;)
+     	t.Execute(w,&quot;&quot;)
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="处理静态文件"><a href="#处理静态文件" class="headerlink" title="处理静态文件"></a>处理静态文件</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221104100013.png"></li>
+<li></li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">syk</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.strongwill.top/%E5%B0%9A%E7%A1%85%E8%B0%B7goweb/">https://www.strongwill.top/%E5%B0%9A%E7%A1%85%E8%B0%B7goweb/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">syk</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/goweb/">
+                                    <span class="chip bg-color">goweb</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/Hive%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hive的安装和配置">
+                        
+                        <span class="card-title">Hive的安装和配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hive/" class="post-category">
+                                    Hive
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hive/">
+                        <span class="chip bg-color">Hive</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/Hadoop%E7%9A%84HDFS%E6%93%8D%E4%BD%9C/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Hadoop的HDFS操作">
+                        
+                        <span class="card-title">Hadoop的HDFS操作</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/hadoop/" class="post-category">
+                                    hadoop
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hadoop/">
+                        <span class="chip bg-color">hadoop</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="000WbhMB3NCyYg"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">syk</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">132.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://strongwill.top" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:18888200398@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=13969260011" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 13969260011" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

