@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.6k
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    30 分
+                    25 分
                 </div>
                 
 
@@ -504,118 +504,110 @@
 <h2 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h2><ol>
 <li><p>  构造客户端</p>
 </li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221105110355.png"></p>
-</li>
-<li><p>```go<br>  var client http.Client<br>  //Client类型代表HTTP客户端。它的零值（DefaultClient）是一个可用的使用DefaultTransport的客户端。</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   构造get请求
+<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221105110355.png"></p>
+  <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> client http<span class="token punctuation">.</span>Client
+<span class="token comment">//Client类型代表HTTP客户端。它的零值（DefaultClient）是一个可用的使用DefaultTransport的客户端。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>构造get请求</p>
+  <pre class="line-numbers language-go" data-language="go"><code class="language-go">reqList<span class="token punctuation">,</span> err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">NewRequest</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> URL<span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">)</span>
+<span class="token comment">//返回值是Request包和一个错误类型的值，Request中包含了请求头，请求体（get请求没有请求体），host值等信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>添加请求头,为了防止浏览器检测到爬虫访问，添加一些请求头来伪造成浏览器访问</p>
+  <pre class="line-numbers language-go" data-language="go"><code class="language-go">req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Connection"</span><span class="token punctuation">,</span> <span class="token string">"keep-alive"</span><span class="token punctuation">)</span>
+req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Pragma"</span><span class="token punctuation">,</span> <span class="token string">"no-cache"</span><span class="token punctuation">)</span>
+req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Cache-Control"</span><span class="token punctuation">,</span> <span class="token string">"no-cache"</span><span class="token punctuation">)</span>
+req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Upgrade-Insecure-Requests"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span>
+req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">,</span> <span class="token string">"application/x-www-form-urlencoded"</span><span class="token punctuation">)</span>
+req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"User-Agent"</span><span class="token punctuation">,</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"</span><span class="token punctuation">)</span>
+req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Accept"</span><span class="token punctuation">,</span> <span class="token string">"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"</span><span class="token punctuation">)</span>
+req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Accept-Language"</span><span class="token punctuation">,</span> <span class="token string">"zh-CN,zh;q=0.9"</span><span class="token punctuation">)</span>
+        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>发送请求</p>
+  <pre class="line-numbers language-go" data-language="go"><code class="language-go">resp<span class="token punctuation">,</span>err <span class="token operator">:=</span> client<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span> <span class="token comment">//client的Do方法，将接收一个request类型的参数，发送request请求，返回http回复，第一个参数接收，接收的参数自动为Response类型</span>
+<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"请求失败"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">defer</span> resp<span class="token punctuation">.</span>Body<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//程序在使用完回复后必须关闭回复的主体，defer关键字类似于其它语言的析构函数，释放对应内存，Close()函数关闭</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-5.   &#96;&#96;&#96;go
-     reqList, err :&#x3D; http.NewRequest(&quot;GET&quot;, URL, nil)
-     &#x2F;&#x2F;返回值是Request包和一个错误类型的值，Request中包含了请求头，请求体（get请求没有请求体），host值等信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  添加请求头,为了防止浏览器检测到爬虫访问，添加一些请求头来伪造成浏览器访问</p>
-</li>
-<li><p>```go</p>
-<pre><code>  req.Header.Set(&quot;Connection&quot;, &quot;keep-alive&quot;)
-  req.Header.Set(&quot;Pragma&quot;, &quot;no-cache&quot;)
-  req.Header.Set(&quot;Cache-Control&quot;, &quot;no-cache&quot;)
-  req.Header.Set(&quot;Upgrade-Insecure-Requests&quot;, &quot;1&quot;)
-  req.Header.Set(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;)
-  req.Header.Set(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&quot;)
-  req.Header.Set(&quot;Accept&quot;, &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&quot;)
-  req.Header.Set(&quot;Accept-Language&quot;, &quot;zh-CN,zh;q=0.9&quot;)
-</code></pre>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221105162556.png"></p>
 </li>
 </ol>
-  <pre class="line-numbers language-none"><code class="language-none">
-8.   发送请求
+<h2 id="解析网页"><a href="#解析网页" class="headerlink" title="解析网页"></a>解析网页</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go">docDetail <span class="token punctuation">,</span>err <span class="token operator">:=</span> goquery<span class="token punctuation">.</span><span class="token function">NewDocumentFromReader</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>Body<span class="token punctuation">)</span>
+<span class="token comment">//NewDocumentFromReader函数将从response的body内返回一个文档，解析为html并返回给第一个参数，如果不能解析为html，则返回错误作为第二个值</span>
+<span class="token comment">//docDetail接收的是解析后的html文件</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"解析失败"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-9.   &#96;&#96;&#96;go
-     resp,err :&#x3D; client.Do(req) &#x2F;&#x2F;client的Do方法，将接收一个request类型的参数，发送request请求，返回http回复，第一个参数接收，接收的参数自动为Response类型
-     if err !&#x3D; nil &#123;
-     	fmt.Println(&quot;请求失败&quot;,err)
-     &#125;
-     defer resp.Body.Close() &#x2F;&#x2F;程序在使用完回复后必须关闭回复的主体，defer关键字类似于其它语言的析构函数，释放对应内存，Close()函数关闭<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre><code> ![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221105162556.png)
-</code></pre>
-<h2 id="解析网页"><a href="#解析网页" class="headerlink" title="解析网页"></a>解析网页</h2><ol>
-<li>```go<br>  docDetail ,err := goquery.NewDocumentFromReader(resp.Body)<br>  //NewDocumentFromReader函数将从response的body内返回一个文档，解析为html并返回给第一个参数，如果不能解析为html，则返回错误作为第二个值<br>  //docDetail接收的是解析后的html文件<pre><code>  if err != nil &#123;
-      fmt.Println(&quot;解析失败&quot;,err)
-  &#125;
-</code></pre>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221105162225.png)
-
-## 获取节点信息
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221105163708.png)
-
-2.   github.com&#x2F;PuerkitoBio&#x2F;goquery包内内置了Find函数，&quot;Find 获取当前匹配元素集中每个元素的后代，由选择器过滤。,它返回一个包含这些匹配元素的新选择对象。&quot;
-
-3.   内置了Each函数，“每个迭代一个 Selection 对象，为每个匹配的元素执行一个函数。**它返回当前的 Selection 对象。**函数 f 为选择中的每个元素调用，该选择中元素的索引从 0 开始，*Selection 仅包含该元素”
-
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221105164020.png)
-
-5.   &#96;&#96;&#96;go
-     docDetail.Find(&quot;#content &gt; div &gt; div.article &gt; ol &gt; li &gt; div&quot;). &#x2F;&#x2F;列表,使用Document.Find创建初始选择，然后用类似jQuery的可链接语法和方法进行操作
-     		Each(func(i int,s * goquery.Selection)&#123; &#x2F;&#x2F;在列表里面继续找，第一个参数代表的是索引
-     			title :&#x3D; s.Find(&quot;div.info &gt; div.hd &gt; a &gt; span:nth-child(1)&quot;).Text()
-     			img :&#x3D; s.Find(&quot;div.pic &gt; a &gt; img&quot;) &#x2F;&#x2F;img标签 -&gt; src属性里面
-     			imgTmp , ok :&#x3D; img.Attr(&quot;src&quot;)
-     			info :&#x3D; s.Find(&quot;div.info &gt; div.bd &gt; p:nth-child(1)&quot;).Text()
-     			score :&#x3D; s.Find(&quot;div.info &gt; div.bd &gt; div &gt; span.rating_num&quot;).Text()
-     			quote :&#x3D; s.Find(&quot;div.info &gt; div.bd &gt; p.quote &gt; span&quot;).Text()
-     			if ok &#123;
-     				fmt.Println(&quot;title&quot;,title)
-     				fmt.Println(&quot;imgTmp&quot;,imgTmp)
-     				fmt.Println(&quot;info&quot;,info)
-     				fmt.Println(&quot;score&quot;,score)
-     				fmt.Println(&quot;quote&quot;,quote)
-     			&#125;
-     		&#125;) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221105162225.png"></li>
 </ol>
-<h2 id="利用正则去区分不同内容"><a href="#利用正则去区分不同内容" class="headerlink" title="利用正则去区分不同内容"></a>利用正则去区分不同内容</h2><ol>
-<li>```go<br>  func infoSpite(info string) (director string,actor string,year string) {<pre><code>  //directory
-  directoryRe , _ := regexp.Compile(`导演:(.*)主演:`)
-  director = string(directoryRe.Find([]byte(info)))
-
-  //actor
-  actorRe , _ := regexp.Compile(`主演:(.*)`)
-  actor = string(actorRe.Find([]byte(info)))
-
-  //year
-  yearRe,_ := regexp.Compile(`(\d+)`)
-  year = string(yearRe.Find([]byte(info)))
-  return
+<h2 id="获取节点信息"><a href="#获取节点信息" class="headerlink" title="获取节点信息"></a>获取节点信息</h2><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221105163708.png"></p>
+</li>
+<li><p>  github.com/PuerkitoBio/goquery包内内置了Find函数，”Find 获取当前匹配元素集中每个元素的后代，由选择器过滤。,它返回一个包含这些匹配元素的新选择对象。”</p>
+</li>
+<li><p>  内置了Each函数，“每个迭代一个 Selection 对象，为每个匹配的元素执行一个函数。<strong>它返回当前的 Selection 对象。</strong>函数 f 为选择中的每个元素调用，该选择中元素的索引从 0 开始，*Selection 仅包含该元素”</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221105164020.png"></p>
+</li>
+<li><p>```go<br>  docDetail.Find(“#content &gt; div &gt; div.article &gt; ol &gt; li &gt; div”). //列表,使用Document.Find创建初始选择，然后用类似jQuery的可链接语法和方法进行操作</p>
+<pre><code>      Each(func(i int,s * goquery.Selection)&#123; //在列表里面继续找，第一个参数代表的是索引
+          title := s.Find(&quot;div.info &gt; div.hd &gt; a &gt; span:nth-child(1)&quot;).Text()
+          img := s.Find(&quot;div.pic &gt; a &gt; img&quot;) //img标签 -&gt; src属性里面
+          imgTmp , ok := img.Attr(&quot;src&quot;)
+          info := s.Find(&quot;div.info &gt; div.bd &gt; p:nth-child(1)&quot;).Text()
+          score := s.Find(&quot;div.info &gt; div.bd &gt; div &gt; span.rating_num&quot;).Text()
+          quote := s.Find(&quot;div.info &gt; div.bd &gt; p.quote &gt; span&quot;).Text()
+          if ok &#123;
+              fmt.Println(&quot;title&quot;,title)
+              fmt.Println(&quot;imgTmp&quot;,imgTmp)
+              fmt.Println(&quot;info&quot;,info)
+              fmt.Println(&quot;score&quot;,score)
+              fmt.Println(&quot;quote&quot;,quote)
+          &#125;
+      &#125;) 
 </code></pre>
-  }  <pre class="line-numbers language-none"><code class="language-none">
-### 定义结构体去存储不同的信息
+  <pre class="line-numbers language-none"><code class="language-none">
+## 利用正则去区分不同内容
 
 1.   &#96;&#96;&#96;go
-     &#x2F;&#x2F;结构体的定义
-     type MovieData struct &#123;
-     	Title string
-     	Director string
-     	Picture string
-     	Actor string
-     	Year string
-     	Score string
-     	Quote string
-     &#125;
-     &#x2F;&#x2F;给不同的变量传参
-     if ok &#123;
-     	director,actor,year :&#x3D; infoSpite(info)
-     	data.Title&#x3D;title
-     	data.Director&#x3D;director
-     	data.Picture&#x3D;imgTmp
-     	data.Actor&#x3D;actor
-     	data.Year&#x3D;year
-     	data.Score&#x3D;score
-     	data.Quote&#x3D;quote
-     	fmt.Println(&quot;data%v\n&quot;,data) &#x2F;&#x2F;打印一下检测是否正确存储
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+     func infoSpite(info string) (director string,actor string,year string) &#123;
+     	&#x2F;&#x2F;directory
+     	directoryRe , _ :&#x3D; regexp.Compile(&#96;导演:(.*)主演:&#96;)
+     	director &#x3D; string(directoryRe.Find([]byte(info)))
+     
+     	&#x2F;&#x2F;actor
+     	actorRe , _ :&#x3D; regexp.Compile(&#96;主演:(.*)&#96;)
+     	actor &#x3D; string(actorRe.Find([]byte(info)))
+     
+     	&#x2F;&#x2F;year
+     	yearRe,_ :&#x3D; regexp.Compile(&#96;(\d+)&#96;)
+     	year &#x3D; string(yearRe.Find([]byte(info)))
+     	return
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
+<h3 id="定义结构体去存储不同的信息"><a href="#定义结构体去存储不同的信息" class="headerlink" title="定义结构体去存储不同的信息"></a>定义结构体去存储不同的信息</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//结构体的定义</span>
+<span class="token keyword">type</span> MovieData <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	Title <span class="token builtin">string</span>
+	Director <span class="token builtin">string</span>
+	Picture <span class="token builtin">string</span>
+	Actor <span class="token builtin">string</span>
+	Year <span class="token builtin">string</span>
+	Score <span class="token builtin">string</span>
+	Quote <span class="token builtin">string</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//给不同的变量传参</span>
+<span class="token keyword">if</span> ok <span class="token punctuation">&#123;</span>
+	director<span class="token punctuation">,</span>actor<span class="token punctuation">,</span>year <span class="token operator">:=</span> <span class="token function">infoSpite</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span>
+	data<span class="token punctuation">.</span>Title<span class="token operator">=</span>title
+	data<span class="token punctuation">.</span>Director<span class="token operator">=</span>director
+	data<span class="token punctuation">.</span>Picture<span class="token operator">=</span>imgTmp
+	data<span class="token punctuation">.</span>Actor<span class="token operator">=</span>actor
+	data<span class="token punctuation">.</span>Year<span class="token operator">=</span>year
+	data<span class="token punctuation">.</span>Score<span class="token operator">=</span>score
+	data<span class="token punctuation">.</span>Quote<span class="token operator">=</span>quote
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"data%v\n"</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span> <span class="token comment">//打印一下检测是否正确存储</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="修改参数"><a href="#修改参数" class="headerlink" title="修改参数"></a>修改参数</h3><ol>
 <li><p>  每一页的传参是通过get传参，给start变量传参</p>
 </li>
@@ -623,173 +615,11 @@
   <pre class="line-numbers language-none"><code class="language-none">
 ## 链接数据库
 
-1.   &#96;&#96;&#96;go
-     &#x2F;&#x2F;数据库初始化
-     func InitDB() &#123;
-     	&#x2F;&#x2F;链接数据库
-     	DB , err :&#x3D; sql.Open(&quot;mysql&quot;,USERNAME + &quot;:&quot; + PASSWORD + &quot;@tcp(&quot; + HOST + &quot;)&#x2F;&quot; + DBNAME)
-     	if err !&#x3D; nil &#123;
-     		panic(err.Error())
-     	&#125;
-     	DB.SetConnMaxLifetime(10)
-     	DB.SetMaxIdleConns(5)
-     	if err :&#x3D; DB.Ping() ; err !&#x3D; nil &#123;
-     		fmt.Println(&quot;open database fail&quot;)
-     		return
-     	&#125;
-     	fmt.Println(&quot;connect success&quot;)
-     &#125;
-     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  连接数据库用来保存爬下来的数据</p>
-</li>
-</ol>
-<h2 id="将爬下来的数据插入到数据库中，定义插入函数"><a href="#将爬下来的数据插入到数据库中，定义插入函数" class="headerlink" title="将爬下来的数据插入到数据库中，定义插入函数"></a>将爬下来的数据插入到数据库中，定义插入函数</h2><ol>
-<li>```go<br>  //插入数据<br>  func InsertData(moviedata MovieData) bool {<pre><code>  //新建事务
-  tx , err := DB.Begin()
-  if err != nil &#123;
-      fmt.Println(&quot;begin err&quot;,err)
-      return false
-  &#125;
-  stmt , err := tx.Prepare(&quot;INSERT INTO movie_data(Title,Director,Picture,Actor,Year,Score,Quote) VALUES(?,?,?,?,?,?,?)&quot;)
-  if err != nil &#123;
-      fmt.Println(&quot;prepare fail err&quot;,err)
-      return false
-  &#125;
-  _ , err =stmt.Exec(moviedata.Title,moviedata.Director,moviedata.Picture,moviedata.Actor,moviedata.Year,moviedata.Score,moviedata.Quote)
-  if err != nil &#123;
-      fmt.Println(&quot;exec fail&quot;,err)
-  &#125;
-  _ = tx.Commit()
-  return true
-</code></pre>
-  }  <pre class="line-numbers language-none"><code class="language-none">
-## 综上，没有实现高并发的代码
-
 &#96;&#96;&#96;go
-package main
-
-import (
-	&quot;database&#x2F;sql&quot;
-	&quot;fmt&quot;
-	&quot;net&#x2F;http&quot;
-	&quot;regexp&quot;
-	&quot;strconv&quot;
-	_ &quot;github.com&#x2F;go-sql-driver&#x2F;mysql&quot;
-	&quot;github.com&#x2F;PuerkitoBio&#x2F;goquery&quot;
-)
-
-&#x2F;&#x2F;数据库配置
-const (
-	USERNAME &#x3D; &quot;root&quot;
-	PASSWORD &#x3D; &quot;20030729a&quot;
-	HOST &#x3D; &quot;127.0.0.1&quot;
-	PORT &#x3D; &quot;3306&quot;
-	DBNAME &#x3D; &quot;movie&quot;
-)
-
-var DB *sql.DB
-
-func main() &#123;
-	InitDB()
-	for i:&#x3D;0 ; i &lt; 10;i++&#123;
-		fmt.Printf(&quot;正在爬取第%v页信息\n&quot;,i)
-		Spider(strconv.Itoa(i*25))
-	&#125;
-&#125;
-
-type MovieData struct &#123;
-	Title string
-	Director string
-	Picture string
-	Actor string
-	Year string
-	Score string
-	Quote string
-&#125;
-
-func Spider(page string) &#123;
-	&#x2F;&#x2F;1. 发送请求
-	var client http.Client
-	var data MovieData
-	req,err :&#x3D; http.NewRequest(&quot;GET&quot;,&quot;https:&#x2F;&#x2F;movie.douban.com&#x2F;top250?start&#x3D;&quot;+page,nil)
-	if err !&#x3D; nil &#123;
-		fmt.Println(&quot;req.err&quot;,err)
-	&#125;
-	&#x2F;&#x2F;防止浏览器检爬虫访问，所以加一些请求头伪造成浏览器访问
-	req.Header.Set(&quot;Connection&quot;, &quot;keep-alive&quot;)
-	req.Header.Set(&quot;Pragma&quot;, &quot;no-cache&quot;)
-	req.Header.Set(&quot;Cache-Control&quot;, &quot;no-cache&quot;)
-	req.Header.Set(&quot;Upgrade-Insecure-Requests&quot;, &quot;1&quot;)
-	req.Header.Set(&quot;Content-Type&quot;, &quot;application&#x2F;x-www-form-urlencoded&quot;)
-	req.Header.Set(&quot;User-Agent&quot;, &quot;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;86.0.4240.198 Safari&#x2F;537.36&quot;)
-	req.Header.Set(&quot;Accept&quot;, &quot;text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,image&#x2F;avif,image&#x2F;webp,image&#x2F;apng,*&#x2F;*;q&#x3D;0.8,application&#x2F;signed-exchange;v&#x3D;b3;q&#x3D;0.9&quot;)
-	req.Header.Set(&quot;Accept-Language&quot;, &quot;zh-CN,zh;q&#x3D;0.9&quot;)
-
-	resp,err :&#x3D; client.Do(req)
-	if err !&#x3D; nil &#123;
-		fmt.Println(&quot;请求失败&quot;,err)
-	&#125;
-	defer resp.Body.Close()
-	&#x2F;&#x2F;2. 解析网页
-	docDetail ,err :&#x3D; goquery.NewDocumentFromReader(resp.Body)
-	if err !&#x3D; nil &#123;
-		fmt.Println(&quot;解析失败&quot;,err)
-	&#125;
-	&#x2F;&#x2F;3. 获取节点信息,copy css selector
-	&#x2F;&#x2F;.grid_view &gt; li:nth-child(1) &gt; div:nth-child(1) &gt; div:nth-child(2) &gt; div:nth-child(1) &gt; a:nth-child(1)
-	&#x2F;&#x2F;#content &gt; div &gt; div.article &gt; ol &gt; li:nth-child(1) &gt; div &gt; div.info &gt; div.hd &gt; a &gt; span:nth-child(1)
-	&#x2F;&#x2F;.grid_view &gt; li:nth-child(1) &gt; div:nth-child(1) &gt; div:nth-child(2) &gt; div:nth-child(1) &gt; a:nth-child(1)
-	&#x2F;&#x2F;.grid_view &gt; li:nth-child(3)
-	&#x2F;&#x2F;.grid_view &gt; li:nth-child(4)
-	docDetail.Find(&quot;#content &gt; div &gt; div.article &gt; ol &gt; li &gt; div&quot;). &#x2F;&#x2F;列表
-		Each(func(i int,s * goquery.Selection)&#123; &#x2F;&#x2F;在列表里面继续找
-			title :&#x3D; s.Find(&quot;div.info &gt; div.hd &gt; a &gt; span:nth-child(1)&quot;).Text()
-			img :&#x3D; s.Find(&quot;div.pic &gt; a &gt; img&quot;) &#x2F;&#x2F;img标签 -》 src属性里面
-			imgTmp , ok :&#x3D; img.Attr(&quot;src&quot;)
-			info :&#x3D; s.Find(&quot;div.info &gt; div.bd &gt; p:nth-child(1)&quot;).Text()
-			score :&#x3D; s.Find(&quot;div.info &gt; div.bd &gt; div &gt; span.rating_num&quot;).Text()
-			quote :&#x3D; s.Find(&quot;div.info &gt; div.bd &gt; p.quote &gt; span&quot;).Text()
-			&#x2F;&#x2F;4. 保存信息
-			if ok &#123;
-				director,actor,year :&#x3D; infoSpite(info)
-				data.Title&#x3D;title
-				data.Director&#x3D;director
-				data.Picture&#x3D;imgTmp
-				data.Actor&#x3D;actor
-				data.Year&#x3D;year
-				data.Score&#x3D;score
-				data.Quote&#x3D;quote
-				if InsertData(data) &#123;
-					fmt.Println(&quot;插入成功&quot;)
-				&#125; else &#123;
-					fmt.Println(&quot;插入失败&quot;)
-					return
-				&#125;
-				&#x2F;&#x2F; fmt.Println(&quot;data%v\n&quot;,data)
-			&#125;
-		&#125;) 
-			return
-&#125;
-
-func infoSpite(info string) (director string,actor string,year string) &#123;
-	&#x2F;&#x2F;directory
-	directoryRe , _ :&#x3D; regexp.Compile(&#96;导演:(.*)主演:&#96;)
-	director &#x3D; string(directoryRe.Find([]byte(info)))
-
-	&#x2F;&#x2F;actor
-	actorRe , _ :&#x3D; regexp.Compile(&#96;主演:(.*)&#96;)
-	actor &#x3D; string(actorRe.Find([]byte(info)))
-
-	&#x2F;&#x2F;year
-	yearRe,_ :&#x3D; regexp.Compile(&#96;(\d+)&#96;)
-	year &#x3D; string(yearRe.Find([]byte(info)))
-	return
-&#125;
-
 &#x2F;&#x2F;数据库初始化
 func InitDB() &#123;
 	&#x2F;&#x2F;链接数据库
-	DB , err :&#x3D; sql.Open(&quot;mysql&quot;,&quot;root:20030729a@tcp(localhost:3306)&#x2F;movie&quot;)
+	DB , err :&#x3D; sql.Open(&quot;mysql&quot;,USERNAME + &quot;:&quot; + PASSWORD + &quot;@tcp(&quot; + HOST + &quot;)&#x2F;&quot; + DBNAME)
 	if err !&#x3D; nil &#123;
 		panic(err.Error())
 	&#125;
@@ -801,49 +631,207 @@ func InitDB() &#123;
 	&#125;
 	fmt.Println(&quot;connect success&quot;)
 &#125;
-
-
-&#x2F;&#x2F;插入数据
-func InsertData(moviedata MovieData) bool &#123;
-	&#x2F;&#x2F;新建事务
-	tx , err :&#x3D; DB.Begin()
-	if err !&#x3D; nil &#123;
-		fmt.Println(&quot;begin err&quot;,err)
-		return false
-	&#125;
-	stmt , err :&#x3D; tx.Prepare(&quot;INSERT INTO movie_data(Title,Director,Picture,Actor,Year,Score,Quote) VALUES(?,?,?,?,?,?,?)&quot;)
-	if err !&#x3D; nil &#123;
-		fmt.Println(&quot;prepare fail err&quot;,err)
-		return false
-	&#125;
-	_ , err &#x3D;stmt.Exec(moviedata.Title,moviedata.Director,moviedata.Picture,moviedata.Actor,moviedata.Year,moviedata.Score,moviedata.Quote)
-	if err !&#x3D; nil &#123;
-		fmt.Println(&quot;exec fail&quot;,err)
-	&#125;
-	_ &#x3D; tx.Commit()
-	return true
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  连接数据库用来保存爬下来的数据</p>
+</li>
 </ol>
+<h2 id="将爬下来的数据插入到数据库中，定义插入函数"><a href="#将爬下来的数据插入到数据库中，定义插入函数" class="headerlink" title="将爬下来的数据插入到数据库中，定义插入函数"></a>将爬下来的数据插入到数据库中，定义插入函数</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//插入数据</span>
+<span class="token keyword">func</span> <span class="token function">InsertData</span><span class="token punctuation">(</span>moviedata MovieData<span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//新建事务</span>
+	tx <span class="token punctuation">,</span> err <span class="token operator">:=</span> DB<span class="token punctuation">.</span><span class="token function">Begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"begin err"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	stmt <span class="token punctuation">,</span> err <span class="token operator">:=</span> tx<span class="token punctuation">.</span><span class="token function">Prepare</span><span class="token punctuation">(</span><span class="token string">"INSERT INTO movie_data(Title,Director,Picture,Actor,Year,Score,Quote) VALUES(?,?,?,?,?,?,?)"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"prepare fail err"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token boolean">_</span> <span class="token punctuation">,</span> err <span class="token operator">=</span>stmt<span class="token punctuation">.</span><span class="token function">Exec</span><span class="token punctuation">(</span>moviedata<span class="token punctuation">.</span>Title<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Director<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Picture<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Actor<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Year<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Score<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Quote<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"exec fail"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token boolean">_</span> <span class="token operator">=</span> tx<span class="token punctuation">.</span><span class="token function">Commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="综上，没有实现高并发的代码"><a href="#综上，没有实现高并发的代码" class="headerlink" title="综上，没有实现高并发的代码"></a>综上，没有实现高并发的代码</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"database/sql"</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"net/http"</span>
+	<span class="token string">"regexp"</span>
+	<span class="token string">"strconv"</span>
+	<span class="token boolean">_</span> <span class="token string">"github.com/go-sql-driver/mysql"</span>
+	<span class="token string">"github.com/PuerkitoBio/goquery"</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">//数据库配置</span>
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+	USERNAME <span class="token operator">=</span> <span class="token string">"root"</span>
+	PASSWORD <span class="token operator">=</span> <span class="token string">"20030729a"</span>
+	HOST <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span>
+	PORT <span class="token operator">=</span> <span class="token string">"3306"</span>
+	DBNAME <span class="token operator">=</span> <span class="token string">"movie"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> DB <span class="token operator">*</span>sql<span class="token punctuation">.</span>DB
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token function">InitDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">for</span> i<span class="token operator">:=</span><span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"正在爬取第%v页信息\n"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+		<span class="token function">Spider</span><span class="token punctuation">(</span>strconv<span class="token punctuation">.</span><span class="token function">Itoa</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">type</span> MovieData <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	Title <span class="token builtin">string</span>
+	Director <span class="token builtin">string</span>
+	Picture <span class="token builtin">string</span>
+	Actor <span class="token builtin">string</span>
+	Year <span class="token builtin">string</span>
+	Score <span class="token builtin">string</span>
+	Quote <span class="token builtin">string</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">Spider</span><span class="token punctuation">(</span>page <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//1. 发送请求</span>
+	<span class="token keyword">var</span> client http<span class="token punctuation">.</span>Client
+	<span class="token keyword">var</span> data MovieData
+	req<span class="token punctuation">,</span>err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">NewRequest</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span><span class="token string">"https://movie.douban.com/top250?start="</span><span class="token operator">+</span>page<span class="token punctuation">,</span><span class="token boolean">nil</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"req.err"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">//防止浏览器检爬虫访问，所以加一些请求头伪造成浏览器访问</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Connection"</span><span class="token punctuation">,</span> <span class="token string">"keep-alive"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Pragma"</span><span class="token punctuation">,</span> <span class="token string">"no-cache"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Cache-Control"</span><span class="token punctuation">,</span> <span class="token string">"no-cache"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Upgrade-Insecure-Requests"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">,</span> <span class="token string">"application/x-www-form-urlencoded"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"User-Agent"</span><span class="token punctuation">,</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Accept"</span><span class="token punctuation">,</span> <span class="token string">"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Accept-Language"</span><span class="token punctuation">,</span> <span class="token string">"zh-CN,zh;q=0.9"</span><span class="token punctuation">)</span>
+
+	resp<span class="token punctuation">,</span>err <span class="token operator">:=</span> client<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"请求失败"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">defer</span> resp<span class="token punctuation">.</span>Body<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token comment">//2. 解析网页</span>
+	docDetail <span class="token punctuation">,</span>err <span class="token operator">:=</span> goquery<span class="token punctuation">.</span><span class="token function">NewDocumentFromReader</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>Body<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"解析失败"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">//3. 获取节点信息,copy css selector</span>
+	<span class="token comment">//.grid_view > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1)</span>
+	<span class="token comment">//#content > div > div.article > ol > li:nth-child(1) > div > div.info > div.hd > a > span:nth-child(1)</span>
+	<span class="token comment">//.grid_view > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1)</span>
+	<span class="token comment">//.grid_view > li:nth-child(3)</span>
+	<span class="token comment">//.grid_view > li:nth-child(4)</span>
+	docDetail<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"#content > div > div.article > ol > li > div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span> <span class="token comment">//列表</span>
+		<span class="token function">Each</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">,</span>s <span class="token operator">*</span> goquery<span class="token punctuation">.</span>Selection<span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token comment">//在列表里面继续找</span>
+			title <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.hd > a > span:nth-child(1)"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			img <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.pic > a > img"</span><span class="token punctuation">)</span> <span class="token comment">//img标签 -》 src属性里面</span>
+			imgTmp <span class="token punctuation">,</span> ok <span class="token operator">:=</span> img<span class="token punctuation">.</span><span class="token function">Attr</span><span class="token punctuation">(</span><span class="token string">"src"</span><span class="token punctuation">)</span>
+			info <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.bd > p:nth-child(1)"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			score <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.bd > div > span.rating_num"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			quote <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.bd > p.quote > span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			<span class="token comment">//4. 保存信息</span>
+			<span class="token keyword">if</span> ok <span class="token punctuation">&#123;</span>
+				director<span class="token punctuation">,</span>actor<span class="token punctuation">,</span>year <span class="token operator">:=</span> <span class="token function">infoSpite</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span>
+				data<span class="token punctuation">.</span>Title<span class="token operator">=</span>title
+				data<span class="token punctuation">.</span>Director<span class="token operator">=</span>director
+				data<span class="token punctuation">.</span>Picture<span class="token operator">=</span>imgTmp
+				data<span class="token punctuation">.</span>Actor<span class="token operator">=</span>actor
+				data<span class="token punctuation">.</span>Year<span class="token operator">=</span>year
+				data<span class="token punctuation">.</span>Score<span class="token operator">=</span>score
+				data<span class="token punctuation">.</span>Quote<span class="token operator">=</span>quote
+				<span class="token keyword">if</span> <span class="token function">InsertData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+					fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"插入成功"</span><span class="token punctuation">)</span>
+				<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+					fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"插入失败"</span><span class="token punctuation">)</span>
+					<span class="token keyword">return</span>
+				<span class="token punctuation">&#125;</span>
+				<span class="token comment">// fmt.Println("data%v\n",data)</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">)</span> 
+			<span class="token keyword">return</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">infoSpite</span><span class="token punctuation">(</span>info <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>director <span class="token builtin">string</span><span class="token punctuation">,</span>actor <span class="token builtin">string</span><span class="token punctuation">,</span>year <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//directory</span>
+	directoryRe <span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">Compile</span><span class="token punctuation">(</span><span class="token string">`导演:(.*)主演:`</span><span class="token punctuation">)</span>
+	director <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>directoryRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+	<span class="token comment">//actor</span>
+	actorRe <span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">Compile</span><span class="token punctuation">(</span><span class="token string">`主演:(.*)`</span><span class="token punctuation">)</span>
+	actor <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>actorRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+	<span class="token comment">//year</span>
+	yearRe<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">Compile</span><span class="token punctuation">(</span><span class="token string">`(\d+)`</span><span class="token punctuation">)</span>
+	year <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>yearRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//数据库初始化</span>
+<span class="token keyword">func</span> <span class="token function">InitDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//链接数据库</span>
+	DB <span class="token punctuation">,</span> err <span class="token operator">:=</span> sql<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">"mysql"</span><span class="token punctuation">,</span><span class="token string">"root:20030729a@tcp(localhost:3306)/movie"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span><span class="token function">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	DB<span class="token punctuation">.</span><span class="token function">SetConnMaxLifetime</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+	DB<span class="token punctuation">.</span><span class="token function">SetMaxIdleConns</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">:=</span> DB<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"open database fail"</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span>
+	<span class="token punctuation">&#125;</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"connect success"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token comment">//插入数据</span>
+<span class="token keyword">func</span> <span class="token function">InsertData</span><span class="token punctuation">(</span>moviedata MovieData<span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//新建事务</span>
+	tx <span class="token punctuation">,</span> err <span class="token operator">:=</span> DB<span class="token punctuation">.</span><span class="token function">Begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"begin err"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	stmt <span class="token punctuation">,</span> err <span class="token operator">:=</span> tx<span class="token punctuation">.</span><span class="token function">Prepare</span><span class="token punctuation">(</span><span class="token string">"INSERT INTO movie_data(Title,Director,Picture,Actor,Year,Score,Quote) VALUES(?,?,?,?,?,?,?)"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"prepare fail err"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token boolean">_</span> <span class="token punctuation">,</span> err <span class="token operator">=</span>stmt<span class="token punctuation">.</span><span class="token function">Exec</span><span class="token punctuation">(</span>moviedata<span class="token punctuation">.</span>Title<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Director<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Picture<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Actor<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Year<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Score<span class="token punctuation">,</span>moviedata<span class="token punctuation">.</span>Quote<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"exec fail"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token boolean">_</span> <span class="token operator">=</span> tx<span class="token punctuation">.</span><span class="token function">Commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="实现结果"><a href="#实现结果" class="headerlink" title="实现结果"></a>实现结果</h2><ol>
 <li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221106104406.png"></li>
 </ol>
-<h2 id="出现问题及解决方法"><a href="#出现问题及解决方法" class="headerlink" title="出现问题及解决方法"></a>出现问题及解决方法</h2><h3 id="too-many-connection"><a href="#too-many-connection" class="headerlink" title="too many connection"></a>too many connection</h3><ol>
-<li>```go<br>  tx, err := DB.Begin()<pre><code>  if err != nil &#123;
-      fmt.Println(&quot;tx fail&quot;,err)
-      return false
-  &#125;
-</code></pre>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   当启动数据库时报错：too many connection ，1040错误
+<h2 id="出现问题及解决方法"><a href="#出现问题及解决方法" class="headerlink" title="出现问题及解决方法"></a>出现问题及解决方法</h2><h3 id="too-many-connection"><a href="#too-many-connection" class="headerlink" title="too many connection"></a>too many connection</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go">tx<span class="token punctuation">,</span> err <span class="token operator">:=</span> DB<span class="token punctuation">.</span><span class="token function">Begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"tx fail"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-3.   默认情况下，同时处理100个链接
-
-4.   但是，由于爬虫爬取速度太高，无法同时处理多个链接，会报错1040
-
-5.   此时可以调高mysql的最大链接数量
-
-6.   &#96;&#96;&#96;sql
-     set global max_connections &#x3D; 合适的链接数量;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<ol>
+<li><p>  当启动数据库时报错：too many connection ，1040错误</p>
+</li>
+<li><p>  默认情况下，同时处理100个链接</p>
+</li>
+<li><p>  但是，由于爬虫爬取速度太高，无法同时处理多个链接，会报错1040</p>
+</li>
+<li><p>此时可以调高mysql的最大链接数量</p>
+  <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> max_connections <span class="token operator">=</span> 合适的链接数量<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h3 id="爬取内容超出了数据类型所能容纳的"><a href="#爬取内容超出了数据类型所能容纳的" class="headerlink" title="爬取内容超出了数据类型所能容纳的"></a>爬取内容超出了数据类型所能容纳的</h3><ol>
 <li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221106104918.png"></li>
@@ -1012,262 +1000,261 @@ func InsertData(moviedata MovieData) bool &#123;
 <ol>
 <li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221106110604.png"></p>
 </li>
-<li><p>  高并发爬虫爬取同等内容需要1s左右</p>
+<li><p>高并发爬虫爬取同等内容需要1s左右</p>
+  <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"database/sql"</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"github.com/PuerkitoBio/goquery"</span>
+	<span class="token boolean">_</span> <span class="token string">"github.com/jinzhu/gorm/dialects/mysql"</span>
+	<span class="token string">"log"</span>
+	<span class="token string">"net/http"</span>
+	<span class="token string">"regexp"</span>
+	<span class="token string">"strconv"</span>
+	<span class="token string">"strings"</span>
+	<span class="token string">"time"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+	USERNAME <span class="token operator">=</span> <span class="token string">"root"</span>
+	PASSWORD <span class="token operator">=</span> <span class="token string">"root"</span>
+	HOST <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span>
+	PORT <span class="token operator">=</span> <span class="token string">"3306"</span>
+	DBNAME <span class="token operator">=</span> <span class="token string">"douban_movie"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> DB <span class="token operator">*</span>sql<span class="token punctuation">.</span>DB
+
+
+<span class="token keyword">type</span> MovieData <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	Title    <span class="token builtin">string</span> <span class="token string">`json:"title"`</span>
+	Director <span class="token builtin">string</span> <span class="token string">`json:"director"`</span>
+	Picture  <span class="token builtin">string</span> <span class="token string">`json:"picture"`</span>
+	Actor    <span class="token builtin">string</span> <span class="token string">`json:"actor"`</span>
+	Year     <span class="token builtin">string</span> <span class="token string">`json:"year"`</span>
+	Score    <span class="token builtin">string</span> <span class="token string">`json:"score"`</span>
+	Quote    <span class="token builtin">string</span> <span class="token string">`json:"quote"`</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token function">InitDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	start <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">Spider</span><span class="token punctuation">(</span>strconv<span class="token punctuation">.</span><span class="token function">Itoa</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">// ch := make(chan bool)</span>
+	<span class="token comment">// for i := 0; i &lt; 10; i++ &#123;</span>
+	<span class="token comment">// 	Spider(strconv.Itoa(i*25), ch)</span>
+	<span class="token comment">// &#125;</span>
+	<span class="token comment">// for i := 0; i &lt; 10; i++ &#123;</span>
+	<span class="token comment">// 	&lt;-ch</span>
+	<span class="token comment">// &#125;</span>
+	elapsed <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Since</span><span class="token punctuation">(</span>start<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"ChannelStart Time %s \n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>elapsed<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">Spider</span><span class="token punctuation">(</span>page <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	client <span class="token operator">:=</span> <span class="token operator">&amp;</span>http<span class="token punctuation">.</span>Client<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+	req<span class="token punctuation">,</span> err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">NewRequest</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"https://movie.douban.com/top250?start="</span><span class="token operator">+</span>page<span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Connection"</span><span class="token punctuation">,</span> <span class="token string">"keep-alive"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Cache-Control"</span><span class="token punctuation">,</span> <span class="token string">"max-age=0"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"sec-ch-ua-mobile"</span><span class="token punctuation">,</span> <span class="token string">"?0"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Upgrade-Insecure-Requests"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"User-Agent"</span><span class="token punctuation">,</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Accept"</span><span class="token punctuation">,</span> <span class="token string">"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Sec-Fetch-Site"</span><span class="token punctuation">,</span> <span class="token string">"same-origin"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Sec-Fetch-Mode"</span><span class="token punctuation">,</span> <span class="token string">"navigate"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Sec-Fetch-User"</span><span class="token punctuation">,</span> <span class="token string">"?1"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Sec-Fetch-Dest"</span><span class="token punctuation">,</span> <span class="token string">"document"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Referer"</span><span class="token punctuation">,</span> <span class="token string">"https://movie.douban.com/chart"</span><span class="token punctuation">)</span>
+	req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Accept-Language"</span><span class="token punctuation">,</span> <span class="token string">"zh-CN,zh;q=0.9"</span><span class="token punctuation">)</span>
+	resp<span class="token punctuation">,</span> err <span class="token operator">:=</span> client<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">defer</span> resp<span class="token punctuation">.</span>Body<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	docDetail<span class="token punctuation">,</span> err <span class="token operator">:=</span> goquery<span class="token punctuation">.</span><span class="token function">NewDocumentFromReader</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>Body<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	docDetail<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"#content > div > div.article > ol > li > div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+		<span class="token function">Each</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">,</span> s <span class="token operator">*</span>goquery<span class="token punctuation">.</span>Selection<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">var</span> movieData MovieData
+			<span class="token comment">//#content > div > div.article > ol > li:nth-child(16) > div > div.info > div.hd > a > span:nth-child(1)</span>
+			title <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.hd > a > span:nth-child(1)"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			img <span class="token operator">:=</span> s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.pic > a > img"</span><span class="token punctuation">)</span>
+			imgTmp<span class="token punctuation">,</span> ok <span class="token operator">:=</span> img<span class="token punctuation">.</span><span class="token function">Attr</span><span class="token punctuation">(</span><span class="token string">"src"</span><span class="token punctuation">)</span>
+			info <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.bd > p:nth-child(1)"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">)</span>
+			director<span class="token punctuation">,</span> actor<span class="token punctuation">,</span> year <span class="token operator">:=</span> <span class="token function">InfoSpite</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span>
+			score <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.bd > div > span.rating_num"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">)</span>
+			score <span class="token operator">=</span> strings<span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+			quote <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">"div.info > div.bd > p.quote > span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">)</span>
+			<span class="token keyword">if</span> ok <span class="token punctuation">&#123;</span>
+				movieData<span class="token punctuation">.</span>Title <span class="token operator">=</span> title
+				movieData<span class="token punctuation">.</span>Director <span class="token operator">=</span> director
+				movieData<span class="token punctuation">.</span>Picture <span class="token operator">=</span> imgTmp
+				movieData<span class="token punctuation">.</span>Actor <span class="token operator">=</span> actor
+				movieData<span class="token punctuation">.</span>Year <span class="token operator">=</span> year
+				movieData<span class="token punctuation">.</span>Score <span class="token operator">=</span> score
+				movieData<span class="token punctuation">.</span>Quote <span class="token operator">=</span> quote
+				fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>movieData<span class="token punctuation">)</span>
+				<span class="token function">InsertSql</span><span class="token punctuation">(</span>movieData<span class="token punctuation">)</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token comment">// if ch != nil&#123;</span>
+	<span class="token comment">// 	ch &lt;- true</span>
+	<span class="token comment">// &#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">InfoSpite</span><span class="token punctuation">(</span>info <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>director <span class="token punctuation">,</span>actor <span class="token punctuation">,</span> year <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	directorRe<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">Compile</span><span class="token punctuation">(</span><span class="token string">`导演:(.*)主演:`</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>director<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">8</span> <span class="token punctuation">&#123;</span>
+		director <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>directorRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+		director <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>directorRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+	<span class="token punctuation">&#125;</span>
+	director <span class="token operator">=</span> strings<span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span>director<span class="token punctuation">,</span> <span class="token string">"主演:"</span><span class="token punctuation">)</span>
+	actorRe<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">Compile</span><span class="token punctuation">(</span><span class="token string">`主演:(.*)`</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>actor<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">8</span> <span class="token punctuation">&#123;</span>
+		actor <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>actorRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+		actor <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>actorRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+	<span class="token punctuation">&#125;</span>
+	yearRe<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> regexp<span class="token punctuation">.</span><span class="token function">Compile</span><span class="token punctuation">(</span><span class="token string">`(\d+)`</span><span class="token punctuation">)</span>
+	year <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span>yearRe<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">InitDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	DB<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">=</span> sql<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">"mysql"</span><span class="token punctuation">,</span> <span class="token string">"root:20030729a@tcp(localhost:3306)/movie"</span><span class="token punctuation">)</span>
+	DB<span class="token punctuation">.</span><span class="token function">SetConnMaxLifetime</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+	DB<span class="token punctuation">.</span><span class="token function">SetMaxIdleConns</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">:=</span> DB<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"opon database fail"</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span>
+	<span class="token punctuation">&#125;</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"connnect success"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">InsertSql</span><span class="token punctuation">(</span>movieData MovieData<span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">&#123;</span>
+	tx<span class="token punctuation">,</span> err <span class="token operator">:=</span> DB<span class="token punctuation">.</span><span class="token function">Begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"tx fail"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	stmt<span class="token punctuation">,</span> err <span class="token operator">:=</span> tx<span class="token punctuation">.</span><span class="token function">Prepare</span><span class="token punctuation">(</span><span class="token string">"INSERT INTO movie_data (`Title`,`Director`,`Actor`,`Year`,`Score`,`Quote`) VALUES (?, ?, ?,?,?,?)"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Prepare fail"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">=</span> stmt<span class="token punctuation">.</span><span class="token function">Exec</span><span class="token punctuation">(</span>movieData<span class="token punctuation">.</span>Title<span class="token punctuation">,</span> movieData<span class="token punctuation">.</span>Director<span class="token punctuation">,</span> movieData<span class="token punctuation">.</span>Actor<span class="token punctuation">,</span> movieData<span class="token punctuation">.</span>Year<span class="token punctuation">,</span> movieData<span class="token punctuation">.</span>Score<span class="token punctuation">,</span> movieData<span class="token punctuation">.</span>Quote<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Exec fail"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token boolean">_</span> <span class="token operator">=</span> tx<span class="token punctuation">.</span><span class="token function">Commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221106111317.png"></p>
 </li>
-<li><p>```go<br>  package main</p>
-<p>  import (</p>
-<pre><code>  &quot;database/sql&quot;
-  &quot;fmt&quot;
-  &quot;github.com/PuerkitoBio/goquery&quot;
-  _ &quot;github.com/jinzhu/gorm/dialects/mysql&quot;
-  &quot;log&quot;
-  &quot;net/http&quot;
-  &quot;regexp&quot;
-  &quot;strconv&quot;
-  &quot;strings&quot;
-  &quot;time&quot;
-</code></pre>
-<p>  )</p>
-<p>  const (</p>
-<pre><code>  USERNAME = &quot;root&quot;
-  PASSWORD = &quot;root&quot;
-  HOST = &quot;127.0.0.1&quot;
-  PORT = &quot;3306&quot;
-  DBNAME = &quot;douban_movie&quot;
-</code></pre>
-<p>  )</p>
-<p>  var DB *sql.DB</p>
-<p>  type MovieData struct {</p>
-<pre><code>  Title    string `json:&quot;title&quot;`
-  Director string `json:&quot;director&quot;`
-  Picture  string `json:&quot;picture&quot;`
-  Actor    string `json:&quot;actor&quot;`
-  Year     string `json:&quot;year&quot;`
-  Score    string `json:&quot;score&quot;`
-  Quote    string `json:&quot;quote&quot;`
-</code></pre>
-<p>  }</p>
-<p>  func main() {</p>
-<pre><code>  InitDB()
-  start := time.Now()
-  for i := 0; i &lt; 10; i++ &#123;
-      Spider(strconv.Itoa(i*25))
-  &#125;
-  // ch := make(chan bool)
-  // for i := 0; i &lt; 10; i++ &#123;
-  //     Spider(strconv.Itoa(i*25), ch)
-  // &#125;
-  // for i := 0; i &lt; 10; i++ &#123;
-  //     &lt;-ch
-  // &#125;
-  elapsed := time.Since(start)
-  fmt.Printf(&quot;ChannelStart Time %s \n&quot;,&amp;elapsed)
-</code></pre>
-<p>  }</p>
-<p>  func Spider(page string) {</p>
-<pre><code>  client := &amp;http.Client&#123;&#125;
-  req, err := http.NewRequest(&quot;GET&quot;, &quot;https://movie.douban.com/top250?start=&quot;+page, nil)
-  if err != nil &#123;
-      log.Fatal(err)
-  &#125;
-  req.Header.Set(&quot;Connection&quot;, &quot;keep-alive&quot;)
-  req.Header.Set(&quot;Cache-Control&quot;, &quot;max-age=0&quot;)
-  req.Header.Set(&quot;sec-ch-ua-mobile&quot;, &quot;?0&quot;)
-  req.Header.Set(&quot;Upgrade-Insecure-Requests&quot;, &quot;1&quot;)
-  req.Header.Set(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&quot;)
-  req.Header.Set(&quot;Accept&quot;, &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&quot;)
-  req.Header.Set(&quot;Sec-Fetch-Site&quot;, &quot;same-origin&quot;)
-  req.Header.Set(&quot;Sec-Fetch-Mode&quot;, &quot;navigate&quot;)
-  req.Header.Set(&quot;Sec-Fetch-User&quot;, &quot;?1&quot;)
-  req.Header.Set(&quot;Sec-Fetch-Dest&quot;, &quot;document&quot;)
-  req.Header.Set(&quot;Referer&quot;, &quot;https://movie.douban.com/chart&quot;)
-  req.Header.Set(&quot;Accept-Language&quot;, &quot;zh-CN,zh;q=0.9&quot;)
-  resp, err := client.Do(req)
-  if err != nil &#123;
-      log.Fatal(err)
-  &#125;
-  defer resp.Body.Close()
-  docDetail, err := goquery.NewDocumentFromReader(resp.Body)
-  if err != nil &#123;
-      log.Fatal(err)
-  &#125;
-  docDetail.Find(&quot;#content &gt; div &gt; div.article &gt; ol &gt; li &gt; div&quot;).
-      Each(func(i int, s *goquery.Selection) &#123;
-          var movieData MovieData
-          //#content &gt; div &gt; div.article &gt; ol &gt; li:nth-child(16) &gt; div &gt; div.info &gt; div.hd &gt; a &gt; span:nth-child(1)
-          title := s.Find(&quot;div.info &gt; div.hd &gt; a &gt; span:nth-child(1)&quot;).Text()
-          img := s.Find(&quot;div.pic &gt; a &gt; img&quot;)
-          imgTmp, ok := img.Attr(&quot;src&quot;)
-          info := strings.Trim(s.Find(&quot;div.info &gt; div.bd &gt; p:nth-child(1)&quot;).Text(), &quot; &quot;)
-          director, actor, year := InfoSpite(info)
-          score := strings.Trim(s.Find(&quot;div.info &gt; div.bd &gt; div &gt; span.rating_num&quot;).Text(), &quot; &quot;)
-          score = strings.Trim(score, &quot;\n&quot;)
-          quote := strings.Trim(s.Find(&quot;div.info &gt; div.bd &gt; p.quote &gt; span&quot;).Text(), &quot; &quot;)
-          if ok &#123;
-              movieData.Title = title
-              movieData.Director = director
-              movieData.Picture = imgTmp
-              movieData.Actor = actor
-              movieData.Year = year
-              movieData.Score = score
-              movieData.Quote = quote
-              fmt.Println(movieData)
-              InsertSql(movieData)
-          &#125;
-      &#125;)
-  // if ch != nil&#123;
-  //     ch &lt;- true
-  // &#125;
-</code></pre>
-<p>  }</p>
-<p>  func InfoSpite(info string) (director ,actor , year string) {</p>
-<pre><code>  directorRe, _ := regexp.Compile(`导演:(.*)主演:`)
-  if len(director) &lt; 8 &#123;
-      director = string(directorRe.Find([]byte(info)))
-  &#125; else &#123;
-      director = string(directorRe.Find([]byte(info)))[8:]
-  &#125;
-  director = strings.Trim(director, &quot;主演:&quot;)
-  actorRe, _ := regexp.Compile(`主演:(.*)`)
-  if len(actor) &lt; 8 &#123;
-      actor = string(actorRe.Find([]byte(info)))
-  &#125; else &#123;
-      actor = string(actorRe.Find([]byte(info)))[8:]
-  &#125;
-  yearRe, _ := regexp.Compile(`(\d+)`)
-  year = string(yearRe.Find([]byte(info)))
-  return
-</code></pre>
-<p>  }</p>
-<p>  func InitDB(){</p>
-<pre><code>  DB, _ = sql.Open(&quot;mysql&quot;, &quot;root:20030729a@tcp(localhost:3306)/movie&quot;)
-  DB.SetConnMaxLifetime(10)
-  DB.SetMaxIdleConns(5)
-  if err := DB.Ping(); err != nil&#123;
-      fmt.Println(&quot;opon database fail&quot;)
-      return
-  &#125;
-  fmt.Println(&quot;connnect success&quot;)
-</code></pre>
-<p>  }</p>
-<p>  func InsertSql(movieData MovieData) bool {</p>
-<pre><code>  tx, err := DB.Begin()
-  if err != nil &#123;
-      fmt.Println(&quot;tx fail&quot;,err)
-      return false
-  &#125;
-  stmt, err := tx.Prepare(&quot;INSERT INTO movie_data (`Title`,`Director`,`Actor`,`Year`,`Score`,`Quote`) VALUES (?, ?, ?,?,?,?)&quot;)
-  if err != nil &#123;
-      fmt.Println(&quot;Prepare fail&quot;, err)
-      return false
-  &#125;
-  _, err = stmt.Exec(movieData.Title, movieData.Director, movieData.Actor, movieData.Year, movieData.Score, movieData.Quote)
-  if err != nil &#123;
-      fmt.Println(&quot;Exec fail&quot;, err)
-      return false
-  &#125;
-  _ = tx.Commit()
-  return true
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221106111317.png)
+<li><p>  而没有实现并发的爬虫爬取相同内容的时间达到了3s，比实现了并发的爬虫时间延长了三倍左右</p>
+</li>
+</ol>
+<h2 id="数据分析阶段"><a href="#数据分析阶段" class="headerlink" title="数据分析阶段"></a>数据分析阶段</h2><ol>
+<li>  该项目主要分析不同导演作品的数量，不同主演作品的数量和不同导演作品的得分</li>
+</ol>
+<h3 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span>Director <span class="token keyword">from</span> movie<span class="token punctuation">.</span>movie_data <span class="token keyword">group</span> <span class="token keyword">by</span> Director<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-5.   而没有实现并发的爬虫爬取相同内容的时间达到了3s，比实现了并发的爬虫时间延长了三倍左右
-
-## 数据分析阶段
-
-1.   该项目主要分析不同导演作品的数量，不同主演作品的数量和不同导演作品的得分
-
-### 数据筛选
-
-1.   &#96;&#96;&#96;sql
-     select count(*),Director from movie.movie_data group by Director;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<ol>
 <li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221110111402.png"></p>
 </li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221110111429.png"></p>
-</li>
-<li><p>```sql<br>  select count(*),Actor from movie.movie_data group by Director;</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   
+<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221110111429.png"></p>
+  <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span>Actor <span class="token keyword">from</span> movie<span class="token punctuation">.</span>movie_data <span class="token keyword">group</span> <span class="token keyword">by</span> Director<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="python实现mysql数据统计及可视化"><a href="#python实现mysql数据统计及可视化" class="headerlink" title="python实现mysql数据统计及可视化"></a>python实现mysql数据统计及可视化</h2><ol>
+<li><p>链接数据库</p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>password<span class="token operator">=</span><span class="token string">'20030729a'</span><span class="token punctuation">,</span> database<span class="token operator">=</span><span class="token string">'movie'</span><span class="token punctuation">)</span>
+cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+链接数据库 pymysql.connect的参数
+connection = pymysql.connect(host='localhost',
+                             user='user',
+                             password='passwd',
+                             database='db',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>数据处理阶段</p>
+  <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">sql</span> <span class="token operator">=</span> <span class="token string">"select count(*) cnt,Director from movie.movie_data group by Director order by cnt desc;"</span>
+<span class="token keyword">cursor</span><span class="token punctuation">.</span><span class="token keyword">execute</span><span class="token punctuation">(</span><span class="token keyword">sql</span><span class="token punctuation">)</span>
+res1 <span class="token operator">=</span> <span class="token keyword">cursor</span><span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-## python实现mysql数据统计及可视化
+name <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cnt <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+count <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+Score <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+i <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> <span class="token keyword">row</span> <span class="token operator">in</span> res1:
+    i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
+    count<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    name<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token keyword">row</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    cnt<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token keyword">row</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    Score<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token keyword">row</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>画图像阶段</p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 画图像阶段</span>
 
-1.   链接数据库
+plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'SimHei'</span>
+<span class="token comment"># 建立图标</span>
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>num<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>dpi<span class="token operator">=</span><span class="token number">45</span><span class="token punctuation">)</span>
 
-2.   &#96;&#96;&#96;python
-     db &#x3D; pymysql.connect(host&#x3D;&#39;localhost&#39;, port&#x3D;3306, user&#x3D;&#39;root&#39;,password&#x3D;&#39;20030729a&#39;, database&#x3D;&#39;movie&#39;)
-     cursor &#x3D; db.cursor()
-     &#39;&#39;&#39;
-     链接数据库 pymysql.connect的参数
-     connection &#x3D; pymysql.connect(host&#x3D;&#39;localhost&#39;,
-                                  user&#x3D;&#39;user&#39;,
-                                  password&#x3D;&#39;passwd&#39;,
-                                  database&#x3D;&#39;db&#39;,
-                                  charset&#x3D;&#39;utf8mb4&#39;,
-                                  cursorclass&#x3D;pymysql.cursors.DictCursor)
-     &#39;&#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  数据处理阶段</p>
-</li>
-<li><p>```sql<br>  sql = “select count(*) cnt,Director from movie.movie_data group by Director order by cnt desc;”<br>  cursor.execute(sql)<br>  res1 = cursor.fetchall()</p>
-<p>  name = list()<br>  cnt = list()<br>  count = list()<br>  Score = list()<br>  i = 0<br>  for row in res1:</p>
-<pre><code>  i += 1
-  count.append(i)
-  name.append(row[1])
-  cnt.append(row[0])
-  Score.append(row[2])
-</code></pre>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   &#96;&#96;&#96;python
-     # 画图像阶段
-     
-     plt.rcParams[&#39;font.family&#39;] &#x3D; &#39;SimHei&#39;
-     # 建立图标
-     fig &#x3D; plt.figure(num&#x3D;1,figsize&#x3D;(100,100),dpi&#x3D;45)
-     
-     # 设置坐标轴阶段
-     
-     # 设置坐标轴的范围
-     plt.xlim((0,100))
-     plt.ylim((0,70))
-     
-     # 隐藏无用轴
-     ax &#x3D; plt.gca()
-     
-     # 将上边的坐标轴颜色设置为空，不显示
-     ax.spines[&#39;top&#39;].set_color(&#39;none&#39;)
-     
-     # 将x轴设置为底部bottom,将y轴设置为顶部top
-     ax.xaxis.set_ticks_position(&#39;bottom&#39;)
-     # ax.xaxis.set_ticks_position(&#39;left&#39;)
-     
-     # 将x轴和y轴(底轴和左轴的位置设置为坐标原点)
-     ax.spines[&#39;bottom&#39;].set_position((&#39;data&#39;,0))
-     ax.spines[&#39;left&#39;].set_position((&#39;data&#39;,0))
-     # 设置坐标轴的名字
-     plt.xlabel(&#39;Director&#39;,fontsize&#x3D;30)
-     plt.ylabel(&#39;Number&#39;,fontsize&#x3D;30)
-     
-     x &#x3D; MultipleLocator(10)    # x轴每10一个刻度
-     y &#x3D; MultipleLocator(15)    # y轴每15一个刻度
-     
-     new_ticks &#x3D; np.linspace(0,100,100)
-     plt.xticks(count,name,rotation&#x3D;90)
-     l1 &#x3D; ax.plot(name,cnt,color&#x3D;&#39;blue&#39;,linewidth&#x3D;10.0,linestyle&#x3D;&quot;-&quot;)
-     
-     
-     ax2 &#x3D; ax.twinx()
-     # ax2.xaxis.set_ticks_position(&#39;bottom&#39;)
-     # ax2.xaxis.set_ticks_position(&#39;right&#39;)
-     plt.ylim(15)
-     l2 &#x3D; ax.plot(name,Score,color&#x3D;&#39;red&#39;,linewidth&#x3D;10.0,linestyle&#x3D;&#39;--&#39;)
-     ax2.set_ylabel(&#39;Score&#39;,fontsize&#x3D;30)
-     
-     ax2.spines[&#39;top&#39;].set_color(&#39;none&#39;)
-     
-     ax.legend([&#39;Number&#39;,&#39;Score&#39;],title&#x3D;&#39;图例&#39;,)
-     
-     plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># 设置坐标轴阶段</span>
+
+<span class="token comment"># 设置坐标轴的范围</span>
+plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 隐藏无用轴</span>
+ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 将上边的坐标轴颜色设置为空，不显示</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_color<span class="token punctuation">(</span><span class="token string">'none'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 将x轴设置为底部bottom,将y轴设置为顶部top</span>
+ax<span class="token punctuation">.</span>xaxis<span class="token punctuation">.</span>set_ticks_position<span class="token punctuation">(</span><span class="token string">'bottom'</span><span class="token punctuation">)</span>
+<span class="token comment"># ax.xaxis.set_ticks_position('left')</span>
+
+<span class="token comment"># 将x轴和y轴(底轴和左轴的位置设置为坐标原点)</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'bottom'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_position<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'left'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_position<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 设置坐标轴的名字</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Director'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Number'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+
+x <span class="token operator">=</span> MultipleLocator<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>    <span class="token comment"># x轴每10一个刻度</span>
+y <span class="token operator">=</span> MultipleLocator<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>    <span class="token comment"># y轴每15一个刻度</span>
+
+new_ticks <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>count<span class="token punctuation">,</span>name<span class="token punctuation">,</span>rotation<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">)</span>
+l1 <span class="token operator">=</span> ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>name<span class="token punctuation">,</span>cnt<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">,</span>linestyle<span class="token operator">=</span><span class="token string">"-"</span><span class="token punctuation">)</span>
+
+
+ax2 <span class="token operator">=</span> ax<span class="token punctuation">.</span>twinx<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># ax2.xaxis.set_ticks_position('bottom')</span>
+<span class="token comment"># ax2.xaxis.set_ticks_position('right')</span>
+plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>
+l2 <span class="token operator">=</span> ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>name<span class="token punctuation">,</span>Score<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">,</span>linestyle<span class="token operator">=</span><span class="token string">'--'</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'Score'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+
+ax2<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_color<span class="token punctuation">(</span><span class="token string">'none'</span><span class="token punctuation">)</span>
+
+ax<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'Number'</span><span class="token punctuation">,</span><span class="token string">'Score'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>title<span class="token operator">=</span><span class="token string">'图例'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="完整实现代码"><a href="#完整实现代码" class="headerlink" title="完整实现代码"></a>完整实现代码</h3><h3 id="分析Director的作品数量和整体分数之间的关系"><a href="#分析Director的作品数量和整体分数之间的关系" class="headerlink" title="分析Director的作品数量和整体分数之间的关系"></a>分析Director的作品数量和整体分数之间的关系</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
 <span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
@@ -1348,89 +1335,86 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <li>  实现效果</li>
 <li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221112111608.png"></li>
 </ol>
-<h3 id="分析Actor作品数量和平均分数之间的关系"><a href="#分析Actor作品数量和平均分数之间的关系" class="headerlink" title="分析Actor作品数量和平均分数之间的关系"></a>分析Actor作品数量和平均分数之间的关系</h3><h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><ol>
-<li><pre><code class="python">  import pymysql
-  import matplotlib.pyplot as plt
-  import numpy as np
-  from matplotlib.pyplot import MultipleLocator
-  
-  
-  # 从数据库中获取数据阶段
-  db = pymysql.connect(host=&#39;localhost&#39;, port=3306, user=&#39;root&#39;,
-                       password=&#39;20030729a&#39;, database=&#39;movie&#39;)
-  cursor = db.cursor()
-  sql = &quot;select count(*) cnt,Actor,avg(Score) from movie.movie_data group by Actor order by avg(Score) desc;&quot;
-  
-  cursor.execute(sql)
-  res1 = cursor.fetchall()
-  
-  name = list()
-  cnt = list()
-  count = list()
-  Score = list()
-  i = 0
-  for row in res1:
-      i += 1
-      count.append(i)
-      name.append(row[1])
-      cnt.append(row[0])
-      Score.append(row[2])
-  
-  # 画图像阶段
-  
-  plt.rcParams[&#39;font.family&#39;] = &#39;SimHei&#39;
-  # 建立图标
-  fig = plt.figure(num=1, figsize=(100, 100), dpi=45)
-  
-  # 设置坐标轴阶段
-  
-  # 设置坐标轴的范围
-  plt.xlim((0, 100))
-  plt.ylim((0, 70))
-  
-  # 隐藏无用轴
-  ax = plt.gca()
-  
-  # 将上边的坐标轴颜色设置为空，不显示
-  ax.spines[&#39;top&#39;].set_color(&#39;none&#39;)
-  
-  # 将x轴设置为底部bottom,将y轴设置为顶部top
-  ax.xaxis.set_ticks_position(&#39;bottom&#39;)
-  # ax.xaxis.set_ticks_position(&#39;left&#39;)
-  
-  # 将x轴和y轴(底轴和左轴的位置设置为坐标原点)
-  ax.spines[&#39;bottom&#39;].set_position((&#39;data&#39;, 0))
-  ax.spines[&#39;left&#39;].set_position((&#39;data&#39;, 0))
-  # 设置坐标轴的名字
-  plt.xlabel(&#39;Actor&#39;, fontsize=30)
-  plt.ylabel(&#39;Number&#39;, fontsize=30)
-  
-  x = MultipleLocator(10)    # x轴每10一个刻度
-  y = MultipleLocator(15)    # y轴每15一个刻度
-  
-  new_ticks = np.linspace(0, 100, 100)
-  plt.xticks(count, name, rotation=90)
-  l1 = ax.plot(name, cnt, color=&#39;blue&#39;, linewidth=10.0, linestyle=&quot;-&quot;)
-  
-  
-  ax2 = ax.twinx()
-  # ax2.xaxis.set_ticks_position(&#39;bottom&#39;)
-  # ax2.xaxis.set_ticks_position(&#39;right&#39;)
-  plt.ylim(5,10)
-  l2 = ax.plot(name, Score, color=&#39;red&#39;, linewidth=10.0, linestyle=&#39;--&#39;)
-  ax2.set_ylabel(&#39;Score&#39;, fontsize=30)
-  
-  ax2.spines[&#39;top&#39;].set_color(&#39;none&#39;)
-  
-  ax.legend([&#39;Number&#39;, &#39;Score&#39;], title=&#39;图例&#39;,)
-  
-  plt.show()
-  
-</code></pre>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221112112938.png"></p>
-</li>
-</ol>
+<h3 id="分析Actor作品数量和平均分数之间的关系"><a href="#分析Actor作品数量和平均分数之间的关系" class="headerlink" title="分析Actor作品数量和平均分数之间的关系"></a>分析Actor作品数量和平均分数之间的关系</h3><h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">import</span> MultipleLocator
+
+
+<span class="token comment"># 从数据库中获取数据阶段</span>
+db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>
+                     password<span class="token operator">=</span><span class="token string">'20030729a'</span><span class="token punctuation">,</span> database<span class="token operator">=</span><span class="token string">'movie'</span><span class="token punctuation">)</span>
+cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sql <span class="token operator">=</span> <span class="token string">"select count(*) cnt,Actor,avg(Score) from movie.movie_data group by Actor order by avg(Score) desc;"</span>
+
+cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+res1 <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+name <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+cnt <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+count <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Score <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+i <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> row <span class="token keyword">in</span> res1<span class="token punctuation">:</span>
+    i <span class="token operator">+=</span> <span class="token number">1</span>
+    count<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    name<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    cnt<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    Score<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 画图像阶段</span>
+
+plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'SimHei'</span>
+<span class="token comment"># 建立图标</span>
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>num<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dpi<span class="token operator">=</span><span class="token number">45</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 设置坐标轴阶段</span>
+
+<span class="token comment"># 设置坐标轴的范围</span>
+plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 隐藏无用轴</span>
+ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 将上边的坐标轴颜色设置为空，不显示</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_color<span class="token punctuation">(</span><span class="token string">'none'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 将x轴设置为底部bottom,将y轴设置为顶部top</span>
+ax<span class="token punctuation">.</span>xaxis<span class="token punctuation">.</span>set_ticks_position<span class="token punctuation">(</span><span class="token string">'bottom'</span><span class="token punctuation">)</span>
+<span class="token comment"># ax.xaxis.set_ticks_position('left')</span>
+
+<span class="token comment"># 将x轴和y轴(底轴和左轴的位置设置为坐标原点)</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'bottom'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_position<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'left'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_position<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 设置坐标轴的名字</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Actor'</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Number'</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+
+x <span class="token operator">=</span> MultipleLocator<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>    <span class="token comment"># x轴每10一个刻度</span>
+y <span class="token operator">=</span> MultipleLocator<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>    <span class="token comment"># y轴每15一个刻度</span>
+
+new_ticks <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>count<span class="token punctuation">,</span> name<span class="token punctuation">,</span> rotation<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">)</span>
+l1 <span class="token operator">=</span> ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>name<span class="token punctuation">,</span> cnt<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">"-"</span><span class="token punctuation">)</span>
+
+
+ax2 <span class="token operator">=</span> ax<span class="token punctuation">.</span>twinx<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># ax2.xaxis.set_ticks_position('bottom')</span>
+<span class="token comment"># ax2.xaxis.set_ticks_position('right')</span>
+plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+l2 <span class="token operator">=</span> ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>name<span class="token punctuation">,</span> Score<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">'--'</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'Score'</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+
+ax2<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_color<span class="token punctuation">(</span><span class="token string">'none'</span><span class="token punctuation">)</span>
+
+ax<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'Number'</span><span class="token punctuation">,</span> <span class="token string">'Score'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'图例'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="根据上述图表进行数据分析"><a href="#根据上述图表进行数据分析" class="headerlink" title="根据上述图表进行数据分析"></a>根据上述图表进行数据分析</h2>
                 
             </div>
@@ -1953,7 +1937,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.2k</span>&nbsp;字
+                class="white-color">138.5k</span>&nbsp;字
             
             
             
