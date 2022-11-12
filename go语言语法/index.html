@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.7k
+                    7.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    30 分
                 </div>
                 
 
@@ -1417,9 +1417,88 @@ func main() &#123;
 </li>
 <li><p>  声明一个通道使用chan关键字，通道在使用前必须先创建</p>
 </li>
-<li><pre><code class="go">  ch := make(chan int)
-</code></pre>
+<li><p>```go<br>  ch := make(chan int)</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+## 复习
+
+### channel定义
+
+1.   channel : make(chan 类型，容量)
+
+2.   &#96;&#96;&#96;
+     ch :&#x3D; make(chan string)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  写端：ch &lt;- “hehe” ,写端写数据，读端不再读，写端阻塞</p>
 </li>
+<li><p>  读端：str := &lt;- ch , 读端读数据，同时写端不在写，读端阻塞</p>
+</li>
+<li><p>  通道中的数据只能读取一次，不能多次重复读取，读完就消失</p>
+</li>
+</ol>
+<h3 id="有缓冲通道：同步通信"><a href="#有缓冲通道：同步通信" class="headerlink" title="有缓冲通道：同步通信"></a>有缓冲通道：同步通信</h3><h3 id="无缓冲通道：异步通信"><a href="#无缓冲通道：异步通信" class="headerlink" title="无缓冲通道：异步通信"></a>无缓冲通道：异步通信</h3><pre class="line-numbers language-none"><code class="language-none">ch :&#x3D; make(chan int,5)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>  len(ch):channel中<strong>剩余未读取数据</strong>的个数</li>
+<li>  cap(ch):<strong>通道的容量</strong></li>
+</ol>
+<h3 id="关闭channel"><a href="#关闭channel" class="headerlink" title="关闭channel"></a>关闭channel</h3><ol>
+<li><p>  写和读是两个不同的goroutine,当确定不再继续向对端发送数据时，关闭channel,使用close(ch)关闭channel</p>
+</li>
+<li><p>  如果写端关闭，读端再去读，就会读到一个0/nil，类似于EOF，此时就需要去关闭channel</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221108211902.png"></p>
+</li>
+<li><p>  对端可以判断channel是否关闭</p>
+</li>
+<li><p>```go<br>  if num,ok := &lt;- ch;ok == true{</p>
+<pre><code>  //如果对端已经关闭，ok==false，num无数据
+  //如果对端没有关闭，ok==true，num保存读到的数据
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+6.   可以使用range来替代ok
+
+7.   &#96;&#96;&#96;go
+     for num :&#x3D; range ch &#123;
+     &#x2F;&#x2F;和循环遍历类似，ch不能替换为&lt;-
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221108212359.png"></p>
+</li>
+<li><p>  关闭的channel不能再向其中写数据，但是可以从中读取数据</p>
+</li>
+</ol>
+<h3 id="生产者消费者模型"><a href="#生产者消费者模型" class="headerlink" title="生产者消费者模型"></a>生产者消费者模型</h3><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221108213838.png"></p>
+</li>
+<li><p>```go<br>  package main</p>
+<p>  import “fmt”</p>
+<p>  func producer(out chan &lt;- int,a int) {</p>
+<pre><code>  out &lt;- a
+  fmt.Println(&quot;生产者提供数据&quot;,a)
+  close(out)
+</code></pre>
+<p>  }</p>
+<p>  func consumer(in &lt;- chan int){</p>
+<pre><code>  for data := range in&#123;
+      fmt.Println(&quot;消费者得到数据&quot;,data)
+  &#125;
+</code></pre>
+<p>  }</p>
+<p>  func main() {</p>
+<pre><code>  ch := make(chan int,5)
+
+  go producer(ch,5)
+  consumer(ch)
+</code></pre>
+<p>  }<br>  //双向channel var ch chan int 没有箭头<br>  //单向写channel var sendCh chan &lt;- int  sendCh = make(chan &lt;- int) 可以理解为chan为写入对象或读出对象，写入channel chan &lt;- 读出channel &lt;- chan<br>  //单向读channel var recvCh &lt;- chan int   recvCh = make(&lt;- chan int)<br>  //双向channel可以任意转换为一种单向channel<br>  //单向channel不能转换为双向</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+### 定时器
+
+![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221108214033.png)
+
+1.   &#96;&#96;&#96;go
+     type Timer struct &#123;
+         
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li></li>
 </ol>
 
@@ -1944,7 +2023,7 @@ func main() &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132.1k</span>&nbsp;字
+                class="white-color">139.2k</span>&nbsp;字
             
             
             
