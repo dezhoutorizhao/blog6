@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    5.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    25 分
+                    27 分
                 </div>
                 
 
@@ -1414,7 +1414,84 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 
 
 
-<h2 id="根据上述图表进行数据分析"><a href="#根据上述图表进行数据分析" class="headerlink" title="根据上述图表进行数据分析"></a>根据上述图表进行数据分析</h2>
+<ol>
+<li>  分析年份和评分之间的关系的完整实现代码</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">import</span> MultipleLocator
+
+
+<span class="token comment"># 从数据库中获取数据阶段</span>
+db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>
+                     password<span class="token operator">=</span><span class="token string">'20030729a'</span><span class="token punctuation">,</span> database<span class="token operator">=</span><span class="token string">'movie'</span><span class="token punctuation">)</span>
+cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sql <span class="token operator">=</span> <span class="token string">"select count(*) cnt,Year,avg(Score) from movie.movie_data group by Year order by Year;"</span>
+
+cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+res1 <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+name <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+cnt <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+count <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+xu <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Score <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+i <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> row <span class="token keyword">in</span> res1<span class="token punctuation">:</span>
+    i <span class="token operator">+=</span> <span class="token number">1</span>
+    count<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    name<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    cnt<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    Score<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 画图像阶段</span>
+
+plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'SimHei'</span>
+<span class="token comment"># 建立图标</span>
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>num<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dpi<span class="token operator">=</span><span class="token number">45</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 设置坐标轴阶段</span>
+
+<span class="token comment"># 设置坐标轴的范围</span>
+plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 隐藏无用轴</span>
+ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 将上边的坐标轴颜色设置为空，不显示</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_color<span class="token punctuation">(</span><span class="token string">'none'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 将x轴设置为底部bottom,将y轴设置为顶部top</span>
+ax<span class="token punctuation">.</span>xaxis<span class="token punctuation">.</span>set_ticks_position<span class="token punctuation">(</span><span class="token string">'bottom'</span><span class="token punctuation">)</span>
+<span class="token comment"># ax.xaxis.set_ticks_position('left')</span>
+
+<span class="token comment"># 将x轴和y轴(底轴和左轴的位置设置为坐标原点)</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'bottom'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_position<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>spines<span class="token punctuation">[</span><span class="token string">'left'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_position<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 设置坐标轴的名字</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Year'</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Score'</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+
+x <span class="token operator">=</span> MultipleLocator<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>    <span class="token comment"># x轴每10一个刻度</span>
+y <span class="token operator">=</span> MultipleLocator<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token comment"># y轴每15一个刻度</span>
+
+new_ticks <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>count<span class="token punctuation">,</span> name<span class="token punctuation">,</span> rotation<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">)</span>
+l1 <span class="token operator">=</span> ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>name<span class="token punctuation">,</span>Score<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">"-"</span><span class="token punctuation">)</span>
+
+x <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">256</span><span class="token punctuation">,</span>endpoint<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> x<span class="token operator">*</span><span class="token number">0.0112</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">9.3</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token string">'10'</span><span class="token punctuation">,</span>linestyle<span class="token operator">=</span><span class="token string">'--'</span><span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="根据上述图表进行数据分析"><a href="#根据上述图表进行数据分析" class="headerlink" title="根据上述图表进行数据分析"></a>根据上述图表进行数据分析</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221128213448.png"></p>
+
                 
             </div>
             <hr/>
@@ -1936,7 +2013,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.3k</span>&nbsp;字
+                class="white-color">143.1k</span>&nbsp;字
             
             
             
