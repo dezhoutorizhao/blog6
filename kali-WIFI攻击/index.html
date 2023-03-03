@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="c++面向对象, 更好的明天">
+    <meta name="keywords" content="kali WIFI攻击, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>c++面向对象 | 更好的明天</title>
+    <title>kali WIFI攻击 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">c++面向对象</h1>
+                    <h1 class="description center-align post-title">kali WIFI攻击</h1>
                 </div>
             </div>
         </div>
@@ -429,25 +429,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/c/">
-                                <span class="chip bg-color">c++</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/c/" class="post-category">
-                                c++
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -456,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-26
+                    2022-09-13
                 </div>
                 
 
@@ -465,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.4k
                 </div>
                 
 
@@ -495,235 +482,79 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="c-OOP"><a href="#c-OOP" class="headerlink" title="c++ OOP"></a>c++ OOP</h1><h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><ol>
-<li><p>  以关键字class开头，类的主体包含在一对花括号中</p>
+                <h1 id="无线渗透攻击"><a href="#无线渗透攻击" class="headerlink" title="无线渗透攻击"></a>无线渗透攻击</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>  首先呢我们我们来看一下渗透之前需要准备的工具。</p>
+<ul>
+<li><p>kali linux系统</p>
 </li>
-<li><p>  类的定义后必须跟着一个分号或者一个声明列表</p>
+<li><p>监听网卡</p>
 </li>
-<li><p>```c++<br>  class Box {</p>
-<pre><code>  public:
-      double length;
-      double breadth;
-      double height;
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   访问属性后面加冒号
-
-5.   &#96;&#96;&#96;c++
-     public:
-     protected:
-     private:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="定义对象"><a href="#定义对象" class="headerlink" title="定义对象"></a>定义对象</h2><ol>
-<li><p>  对象根据类来创建，声明类的对象，就像声明基本类型的变量（int a）一样</p>
+<li><p>aircark-ng套件</p>
 </li>
-<li><p>```c++<br>  Box Box1;<br>  Box Box2;</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-## 访问数据成员
-
-1.   类的对象的公共数据成员可以使用直接成员访问运算符 **.** 来访问
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220926150737.png)
-
-## 成员函数
-
-1.    成员函数可以定义在类定义的内部，或者单独使用**范围解析运算符 ::**来定义
-
-2.   在类定义中的定义成员函数**把函数声明为内联的**，即便没有使用**inline**标识符
-
-3.   &#96;&#96;&#96;c++
-     class Box &#123;
-         public:
-         	double length;
-         	double breadth;
-         	double height;
-         	double getVolume(void) &#123;
-                 return lenth * breadth * height;
-             &#125;
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>```c++<br>  double Box::getVolume(void){</p>
-<pre><code>  return length * breadth * height;
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   在 **范围解析运算符** 之前**必须使用类名**，调用成员函数是**在对象上使用点运算符**，这样它就能操作与该对象相关的数据（调用的是对象的函数，而不是类的函数，因为类没有分配内存空间）
-
-6.   &#96;&#96;&#96;c++
-     Box mybox; &#x2F;&#x2F;创建一个对象
-     myBox.getVolume(); &#x2F;&#x2F;调用该对象的成员函数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li></li>
-</ol>
-<h2 id="继承中的特点"><a href="#继承中的特点" class="headerlink" title="继承中的特点"></a>继承中的特点</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220926152805.png"></li>
-<li>  基类成员的最大的访问属性和继承方式有关</li>
-<li>  public继承，最大的就是public</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220926153816.png"></li>
-</ol>
-<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><ol>
-<li><p>  构造器的名称和类的名称是完全相同的，并且不会返回任何类型，也不会返回void</p>
+<li><p>mdk3工具</p>
 </li>
-<li><p>  构造器为了某些成员变量社子和初始值</p>
+<li><p>fluxion工具</p>
 </li>
-<li><p>```c++<br>  #include&lt;bits/stdc++.h&gt;<br>  using namespace std;</p>
-<p>  class Line {</p>
-<pre><code>  public:
-      void setLength(double len);
-      Line(double len); //构造函数
-      double getLength(void);
-  private:
-      double length;
+</ul>
+<p>上面的这些准备工作需要特点注意的一点是这个监听网卡，注意在某宝购买的过程中一定要注意购买的网卡是否是双频，我在购买的时候没有注意，所以购买的是单频网卡也就是2.4G版本的，没有办法收到5G频段，现在家用主流的路由器基本上都是双频，所以只能攻击单频段的话通常会自动跳转到另一个频段导致无法抓取数据包。关于aircark-ng套件在kali是内置的，mdk3以及fluxion需要下载一下。</p>
+<pre class="line-numbers language-none"><code class="language-none">apt-get install mdk3
+git clone https:&#x2F;&#x2F;github.com&#x2F;FluxionNetwork&#x2F;fluxion.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="无线攻击"><a href="#无线攻击" class="headerlink" title="无线攻击"></a>无线攻击</h2><p>目前市面上主流路由器的加密方式是WPA2，是WPA的升级版，它们的区别是，WPA2使用更安全的加密技术AES ，因此比WPA更难破解，也更安全。 但是依旧会被攻击，本章节测试环境就是以WPA2加密的路由器进行的。说起无线局域网，不得不提及路由器的两个接口LAN和WAN以及WLAN。</p>
+<p>LAN可以理解为局域网，通过接入LAN口的设备即处于这个局域网内。<br>WAN口可以理解为广域网，是连接外网的接口，是对外的，作用是接入网络。<br>WLAN是无线局域网。<br>LAN和WLAN是对内，像电脑，手机，电视等都是接入在这个接口，他们之间构成了一个局域网可以相互通信。他们对外通信需要先经过路由器然后向外转发。</p>
+<p>这里我们针对无线攻击是针对路由器进行的，通过路由器导致局域网内的设备无法对外通信或者抓取他们的通信数据。</p>
+<h2 id="监听网卡配置"><a href="#监听网卡配置" class="headerlink" title="监听网卡配置"></a>监听网卡配置</h2><p>在虚拟机中装入可以进行监听的网卡，连接网卡之后使用命令查看网卡的配置</p>
+<pre class="line-numbers language-none"><code class="language-none">iwconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/image-20220913204359616.png"></p>
+<p>我们可以看到虚拟机已经识别网卡，下面我们需要将网卡切换为监听模式。监听模式是指无线网卡可以接收所有经过它的数据流的工作方式。这里我们使用命令开启监听模式:</p>
+<pre class="line-numbers language-none"><code class="language-none">airmon-ng start wlan0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这里的wlan0是我们网卡的名字，通过iwconfig可以看到。</p>
+<p>执行完上述命令后，再执行iwconfig我们发现网卡名称变为了wlan0这说明网卡进入了监听模式，下面我们就可以进行测试了。</p>
+<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/image-20220913204726968.png"></p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>首先我们需要对附近的网络进行扫描，获取附近wifi的一些信息。这对后面的渗透非常重要，我们需要这一步获取到的信息来进行后面的渗透操作。<br>输入命令来获取无线wifi列表</p>
+<pre class="line-numbers language-none"><code class="language-none">airodump-ng wlan0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>BSSID：wifi的mac地址。<br>PWR：网卡报告的信号水平，数值越低信号越好，忽略前面的负号。<br>Beacons：无线发出的通告编号<br>CH：信道<br>MB：无线所支持的最大速率<br>ENC：使用的加密算法体系，OPN表示无加密<br>CIPHER：检测到的加密算法<br>AUTH：使用的认证协议。<br>ESSID：wifi名称<br>STATION：客户端的MAC地址，包括连上的和想要搜索无线来连接的客户端。如果客户端没有连接上，就在BSSID下显示“notassociated”。<br>Rate：表示传输率。<br>Lost：在过去10秒钟内丢失的数据分组<br>Frames：客户端发送的数据分组数量。<br>Probe：被连接的wifi名</p>
+<h2 id="mdk3利用攻击"><a href="#mdk3利用攻击" class="headerlink" title="mdk3利用攻击"></a>mdk3利用攻击</h2><p><strong>MDK3 是一款无线DOS 攻击测试工具，能够发起Beacon Flood、Authentication  DoS、Deauthentication/Disassociation Amok 等模式的攻击,另外它还具有针对隐藏ESSID  的暴力探测模式、802.1X 渗透测试等功能。</strong></p>
+<p>安装方法文章上面已经讲过，这里就不再进行陈述。我们主要来看一下验证洪水攻击和取消身份验证攻击这也是使用比较多的两种攻击方式。</p>
+<h3 id="验证洪水攻击-Authentication-Flood-Attack"><a href="#验证洪水攻击-Authentication-Flood-Attack" class="headerlink" title="验证洪水攻击/Authentication Flood Attack"></a>验证洪水攻击/Authentication Flood Attack</h3><p>验证洪水攻击，通常被简称为Auth攻击，是无线网络拒绝服务攻击的一种形式。该攻击目标主要针对那些处于通过验证、和AP建立关联的关联客户端，攻击者将向AP发送大量伪造的身份验证请求帧(伪造的身份验证服务和状态代码)，当收到大量伪造的身份验证请求超过所能承受的能力时，AP将断开其它无线服务连接。</p>
+<p> <strong>a是指验证洪水攻击，-a为指定攻击wifi的mac。</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">mdk3 wlan0 a -a 50:2B:73:6A:18:81<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用上述命令后会发送大量验证信息给目标AP，不久便会断开其他无线连接，继续攻击路由器会卡死崩溃。部分路由器具有防DDOS功能可以防止此类攻击。这样的攻击模式下，路由器会变得特别慢。</p>
+<h3 id="取消身份验证攻击-De-authentication-Flood-Attack"><a href="#取消身份验证攻击-De-authentication-Flood-Attack" class="headerlink" title="取消身份验证攻击/De-authentication Flood Attack"></a>取消身份验证攻击/De-authentication Flood Attack</h3><p>取消验证洪水攻击，通常被简称为Deauth攻击，是无线网络拒绝服务攻击的一种形式，它旨在通过欺骗从AP到客户端单播地址的取消身份验证帧来将客户端转为未关联的/未认证的状态。对于目前广泛使用的无线客户端适配器工具来说，这种形式的攻击在打断客户端无线服务方面非常有效和快捷。一般来说，在攻击者发送另一个取消身份验证帧之前，客户站会重新关联和认证以再次获取服务。攻击者反复欺骗取消身份验证帧才能使所有客户端持续拒绝服务。<br>d为取消身份验证攻击，-c为指定信道。<br>在攻击的过程中没有任何回显，使用-c指定信道会攻击信道2的所有WIFI，可以使用-w指定白名单，则不会攻击白名单内的信号。</p>
+<p><img src="https://img-blog.csdnimg.cn/2020032814445329.png" alt="在这里插入图片描述"></p>
+<p>我们发现WIFI连接被断开了，再次尝试连接会显示密码错误。</p>
+<h3 id="aireplay-ng-取消身份验证攻击"><a href="#aireplay-ng-取消身份验证攻击" class="headerlink" title="aireplay-ng/取消身份验证攻击"></a>aireplay-ng/取消身份验证攻击</h3><p>aireplay-ng同样是aircark-ng套件中的工具，这里讲解的是他的取消身份验证攻击的分析讲解，下面我们来看一下。<br> <strong>-0为指定攻击方式为取消身份验证攻击，0为无限发送断开包，指定其他数字则为发送离线包的数量，-a指定目标路由器mac地址。</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">aireplay-ng -0 0 -a mac wlan0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>注：若是5GHZ请在mac后添加-D参数，若出现错误可以尝试更换信道</p>
+<pre class="line-numbers language-none"><code class="language-none">airodump-ng wlan0 -c 12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>开始攻击后会不断向目标发送离线包。</p>
+<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/image-20220913211918763.png"></p>
+<p>攻击过程中，wifi会断开连接，如果尝试重新连接则会要求重新输入wifi密码，所以我也认为它的攻击效果是要优于mdk3的。</p>
+<h2 id="WIFI密码抓取"><a href="#WIFI密码抓取" class="headerlink" title="WIFI密码抓取"></a>WIFI密码抓取</h2><p>这里我们讲解的是wifi密码抓取，基本原理就是我们监听指定路由的数据包，期间使用Deauth攻击，致使wifi下的人重新连接，从而抓取登录时的握手包进行破解</p>
+<p>监听数据包<br>     首先我们需要监听指定频道的数据包，使用命令:<br>-c指定频道，-w指定输出地址，数据包以hello开头，–bssid指定AP的MAC地址。</p>
+<pre><code>airodump-ng -c 2 -w /root/cap/hello --bssid 50:2B:73:6A:18:81 wlan0
 </code></pre>
-<p>  }; //class的结尾必须是分号</p>
-<p>  Line::Line(double len){</p>
-<pre><code>  length = len;
+<p>我们可以看到箭头所指方向不断的在接收数据包</p>
+<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/ycachgr4.bmp"></p>
+<p>现在正在监听该频道，接着我们对其进行取消身份验证攻击，然后手机端重新连接。</p>
+<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/ufyngztw.bmp"></p>
+<p>看到箭头所指的方向出现了WPA handshake说明已经成功抓取到，我们ctrl+c停止抓包。可以看到目录中数据包。</p>
+<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/sugzux4t.bmp"></p>
+<p>接着我们对数据包进行爆破，使用命令:<br>-w指定字典</p>
+<pre><code>aircark -w /root/number.txt /root/cap/hello-01.cap
 </code></pre>
-<p>  }<br>  void Line::setLength(double len) {</p>
-<pre><code>  length = len;
-</code></pre>
-<p>  }<br>  void Line::getLength(void) {</p>
-<pre><code>  return length;
-</code></pre>
-<p>  }</p>
-<p>  int main() {</p>
-<pre><code>  Line line(10.0); //在创建对象时，先指定类型，然后调用构造器，和Line Line()类似，后面是无参的
-  cout &lt;&lt; line.getLength() &lt;&lt; endl;
-  line.setLength(6.0);
-  cout &lt;&lt; line.getLength() &lt;&lt; endl;
-  return 0;
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220926162906.png)
-
-### 类的析构函数
-
-1.   类的析构函数是类的特殊成员函数，会在每次删除所创建的对象时执行
-
-2.   **析构函数的名称和类的名称是完全相同的**（类似构造器），只是**在前面加了个波浪号（~）作为前缀**，**不会返回任何值，也不能带有任何参数**
-
-3.   &#96;&#96;&#96;c++
-     Line();&#x2F;&#x2F;这是构造函数的声明
-     ~Line(); &#x2F;&#x2F;这是析构函数的声明
-     Line::Line(void)&#123;
-         &#x2F;&#x2F;这是构造器
-     &#125;
-     Line::~Line(void)&#123;
-         &#x2F;&#x2F;这是析构函数
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><ol>
-<li><p>  创建对象时，是<strong>使用同一类中之前创建的对象来初始化新创建的对象</strong></p>
-</li>
-<li><p>  通常用于：</p>
-</li>
-<li><p>```c++<br>  //1. 通过使用另一个同类型的对象来初始化新创建的对象<br>  //2. 复制对象，把它最为参数传递给函数<br>  //3. 复制对象，并从函数返回这个对象</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   [](https:&#x2F;&#x2F;www.runoob.com&#x2F;cplusplus&#x2F;cpp-copy-constructor.html)
-
-## 友元函数
-
-1.   类的友元函数是定义在**类的外部**，但**有权访问类的所有私有成员和保护成员**
-2.   友元可以是一个函数，也可以是一个类，友元函数，友元类
-3.   定义友元函数：类定义中该函数原型前使用关键字**friend**
-4.   **友元函数可以访问类的私有成员，但是注意，友元函数不是类的成员函数**
-5.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220926194231.png)
-
-## 内联函数
-
-1.   内联函数是直接复制镶嵌到主函数中去的，就是直接将内联函数的代码放到内联函数的位置上
-2.   与一般函数的不同：主函数在调用一般函数时，是指令跳转到被调用函数的入口地址，执行完被调用函数后，指令再跳转回主函数上继续执行后面的代码
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220926203713.png)
-4.   用inline定义内联函数，不允许使用循环，开关
-5.   内联函数先定义后使用
-
-## this指针
-
-1.   每一个对象都可以通过this指针来访问自己的地址
-2.   this指针是所有成员函数的隐含参数
-3.   **友元函数没有this指针，因为友元不是类的成员，只有成员函数才有this指针**，记住，是**成员函数内部**，实参和形参的位置不能手动加
-4.   友元函数，全局函数，static函数都不具备this指针
-
-## 继承中构造函数的顺序
-
-1.   子类中声明了构造函数（无参或带参），则子类的构造函数可以写成任何形式，不用顾及父类的构造函数
-2.   构造函数先调用父类的，再调用子类的
-3.   如果父类只声明了无参构造函数，没有显示的调用父类的构造，则会调用父类的无参构造函数，也就是说，父类的无参构造函数被隐式地调用，再调用子类的构造函数
-
-## 析构函数的顺序
-
-1.   #### 先调用父类的构造函数，再初始化成员，最后调用自己的构造函数
-
-2.   #### 先调用自己的析构函数，再析构成员，最后调用父类的析构函数
-
-3.   #### 如果父类定义了有参数的构造函数，则自己也必须自定义带参数的构造函数
-
-## 继承类型的从小原则
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221009153326.png)
-
-## 静态数据成员可以不止通过 类名::标识符来调用
-
-1.   &#96;&#96;&#96;c++
-     #include&lt;bits&#x2F;stdc++.h&gt;
-     using namespace std;
-     
-     class Student &#123;
-         public:
-             static int c; &#x2F;&#x2F;声明一个变量为静态变量时，只需要在声明时使用static
-     &#125;;
-     
-     int Student::c &#x3D; 0; &#x2F;&#x2F;不需要在初始化赋值（定义）的时候再次使用static关键字
-     
-     int main(void) &#123;
-         Student student;
-         student.c &#x3D; 1; &#x2F;&#x2F; 在调用的时候，可以使用对象来调用，而不去使用类名进行调用
-         cout &lt;&lt; Student::c &lt;&lt; endl;
-         return 0;
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ol>
-<li><p>  基类构造函数的调用顺序和他们在派生类中的出现顺序（派生类中调用的基类构造函数）无关，而是和声明派生类时基类出现的顺序相同</p>
-</li>
-<li><p>```c++<br>  class D : public A , public B , public C{</p>
-<pre><code>  D(形参列表):A(实参列表),B(实参列表),C()&#123;&#125;;
-</code></pre>
-<p>  }; //上面的构造器调用顺序及为D-&gt;A-&gt;B-&gt;C，和声明派生类时的基类出现的顺序相同，而和派生类的构造函数中谁先调用无关</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   ### C++中，派生类的对象可以赋值给[基类](https:&#x2F;&#x2F;so.csdn.net&#x2F;so&#x2F;search?q&#x3D;基类&amp;spm&#x3D;1001.2101.3001.7020)对象，因为，一个派生 [类对象](https:&#x2F;&#x2F;so.csdn.net&#x2F;so&#x2F;search?q&#x3D;类对象&amp;spm&#x3D;1001.2101.3001.7020)，也可看作是一个基类对象（大学生是学生）。反过来则不行(学生未 必是大学生） 同样，调用需要基类对象作参数的函数时，以派生类对象作为实参，也是没有问题的:如果函数的参数是基类对象或基类对象的引用，函数调用时的实参可以是派生类对象。
-
-4.   如果公有派生，则可以用派生类对象给基类对象赋值。
-
-5.   派生类对象隐含转换为基类对象，即用派生类对象中从基类继承来的成员，逐个赋值给基类对象的成员。
-     注意：public继承方式下，基类的private成员，在派生类中虽然无法访问，但是还是客观存在的！！！。如果一定要通过派生类对象访问基类的private成员，那么只能在基类中设置一个公有接口。
-
-6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221101204029.png)
-
-7.   &#96;&#96;&#96;c++
-     #include&lt;iostream&gt;
-     using namespace std;
-     class A
-     &#123;
-     public:
-         A()&#123;cout&lt;&lt;&quot;A&quot;;&#125;
-     &#125;;
-     class B
-     &#123;
-     public:
-         B()&#123;cout&lt;&lt;&quot;B&quot;;&#125;
-     &#125;;
-     class C:public A
-     &#123;
-         B b;
-     public:
-         C()&#123;cout&lt;&lt;&quot;C&quot;;&#125;
-     &#125;;
-     int main()&#123;
-         C obj;
-         return 0;
-     &#125;
-     &#x2F;&#x2F;jie&#39;guo&#39;wABC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li></li>
-</ol>
+<p>得到wifi密码，攻击利用完毕(没错wifi密码是我的号码)，字典大家可以在网上下载，理论上只要字典厉害都可以爆破出来，有一道CTF题目就是考的这个工具。</p>
+<h2 id="Fluxion渗透工具"><a href="#Fluxion渗透工具" class="headerlink" title="Fluxion渗透工具"></a>Fluxion渗透工具</h2><p>   fluxion是一款无线安全测试工具，其攻击的原理更偏向于社会工程学中的钓鱼。其中的install.sh脚本可以迅速帮你检查所需要的插件并进行安装，可以在短时间内搭建出一个完整的环境。新版增加了对中文的支持，使其更加人性化。整合了包括上面讲解的几种工具组合而成，使攻击更加灵活方便。某种程度上减低了攻击利用的门槛。</p>
+<p>个人认为他的攻击模式偏向社会工程学，与上面的抓取握手包爆破不同，当然也可以选择暴力破解的模式，这里的攻击方式我是选择的伪装AP，工具会攻击断开真的wifi，生成一个相同名字的无密码AP信号，用户连接后会自动弹出页面要求输入wifi密码，当用户输入后则自动把回显信息返回给攻击机。当然得到的密码一定是正确的，因为他会去进行验证，确认为真实密码才会返回。这里准备另起一篇博客细讲。</p>
 
                 
             </div>
@@ -750,7 +581,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/c++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">https://www.strongwill.top/c++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</a>
+                    <a href="https://www.strongwill.top/kali-WIFI%E6%94%BB%E5%87%BB/">https://www.strongwill.top/kali-WIFI%E6%94%BB%E5%87%BB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -787,11 +618,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/c/">
-                                    <span class="chip bg-color">c++</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -963,13 +790,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/NewStarCTF/">
+                <a href="/%E5%8F%96%E6%B6%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%94%BB%E5%87%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="NewStarCTF">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="取消身份认证攻击">
                         
-                        <span class="card-title">NewStarCTF</span>
+                        <span class="card-title">取消身份认证攻击</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -980,7 +807,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
                         </span>
                         <span class="publish-author">
                             
@@ -1012,13 +839,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                <a href="/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="计算机组成原理">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">计算机组成原理</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1029,7 +856,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-07
                             </span>
                         <span class="publish-author">
                             
@@ -1225,7 +1052,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2022</span>
+                <span id="year">2021-2023</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">syk</a>
@@ -1234,7 +1061,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.1k</span>&nbsp;字
+                class="white-color">141.5k</span>&nbsp;字
             
             
             
