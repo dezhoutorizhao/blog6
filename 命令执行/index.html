@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="命令执行, 更好的明天">
+    <meta name="keywords" content="命令执行漏洞, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>命令执行 | 更好的明天</title>
+    <title>命令执行漏洞 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">命令执行</h1>
+                    <h1 class="description center-align post-title">命令执行漏洞</h1>
                 </div>
             </div>
         </div>
@@ -499,10 +499,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h1><h2 id="常用绕过"><a href="#常用绕过" class="headerlink" title="常用绕过"></a>常用绕过</h2><ol>
+                <h1 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h1><h2 id="常用绕过"><a href="#常用绕过" class="headerlink" title="常用绕过"></a>常用绕过</h2><ol>
 <li>绕过php，flag等特殊字符：使用通配符</li>
 <li>绕过system等执行函数：使用反单引号</li>
-<li>绕过了. \ `等函数常用字符<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718153954.png">,但是没有绕过<strong>$和_</strong>,使用<strong>逃逸</strong>，c=eval($_GET[1])</li>
+<li>过滤了. \ `等函数常用字符<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718153954.png">,但是没有过滤<strong>$和_</strong>,使用<strong>逃逸</strong>，c=eval($_GET[1])</li>
 <li>最nb的是可以使用URL编码进行绕过，因为服务器会自动解一层url编码，所以可以对过滤掉的字符进行一次url编码</li>
 <li>过滤了分号，最后一条语句可以不带分号，结束的标志为’?&gt;’,则我们可以将两条语句中间需要分号的位置替换为’?&gt;’,那么就可以使用两条语句</li>
 <li>过滤了分号和括号，则必须使用语言结构，echo print isset unset include require，使用include加上php过滤器实现</li>
@@ -577,7 +577,7 @@ system(&#39;cp flag.php 1.txt&#39;)  &#x2F;&#x2F;这个地方是单引号
 <li>include语句获取指定文件中存在的所有文本/代码/标记，并将其<strong>复制</strong>到使用include语句的文件中<pre class="line-numbers language-none"><code class="language-none">include require<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>希望在报错时继续执行并且向用户显示输出，使用include语句，因为当include语句包含的文件不存在时，只是产生一个警告，但是脚本会继续执行</li>
 <li>而require引用的文件如果不存在，就会提示错误，并终止脚本的运行<pre class="line-numbers language-none"><code class="language-none">include &quot;header.htm&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>上面的header.htm中可以php语句，因为可以包含htm静态文件，所以可以设计缓存机制，比如把一些页面分为几部分，有一些读取数据库耗费效率的部分可以缓存为html，然后通过include</li>
+<li>上面的header.htm中可以php语句，因为可以包含html静态文件，所以可以设计缓存机制，比如把一些页面分为几部分，有一些读取数据库耗费效率的部分可以缓存为html，然后通过include</li>
 <li>文件上传中include代码执行原理：<pre class="line-numbers language-php" data-language="php"><code class="language-php">$i=include 'abc.php';
 abc.php中源码为
 <span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
@@ -1361,7 +1361,7 @@ while True:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.1k</span>&nbsp;字
+                class="white-color">143.8k</span>&nbsp;字
             
             
             
