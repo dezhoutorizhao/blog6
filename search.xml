@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title></title>
-      <link href="/28%E6%97%A5ciscn/"/>
-      <url>/28%E6%97%A5ciscn/</url>
+      <title>CTF杂题集合</title>
+      <link href="/CTF%E6%9D%82%E9%A2%98%E9%9B%86%E5%90%88/"/>
+      <url>/CTF%E6%9D%82%E9%A2%98%E9%9B%86%E5%90%88/</url>
       
-        <content type="html"><![CDATA[<h1 id="pyshell"><a href="#pyshell" class="headerlink" title="pyshell"></a>pyshell</h1><ol><li>  python的shell终端</li><li>  拼接读取flag的字符串后用eval()进行执行，即可获得flag</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145149.png"></li></ol><h1 id="dumpit"><a href="#dumpit" class="headerlink" title="dumpit"></a>dumpit</h1><ol><li><p>对/flag下所有提供的参数进行测试，发现提供的第二个参数可以到日志</p><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145934.png"></p><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150053.png"></p></li><li><p>  过滤了post和get，不能直接将木马写入参数中执行</p></li><li><p>  这里采用echo重定向的方式，将待执行的命令写入到User-Agent中，并重定向到/app/log/a.php中</p></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150351.png"></p></li><li><p>  访问/log/a.php发现可以成功执行</p></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150427.png"></p></li><li><p>  最后在env环境变量中找到flag</p></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150515.png"></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="CTF杂题集合"><a href="#CTF杂题集合" class="headerlink" title="CTF杂题集合"></a>CTF杂题集合</h1><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到："><a href="#签到：" class="headerlink" title="签到："></a>签到：</h3><ol><li>010editor打开发现PK开头，知道是一个zip压缩包</li><li>更改后缀为.zip，解压打开发现flag</li></ol><h3 id="签到：-1"><a href="#签到：-1" class="headerlink" title="签到："></a>签到：</h3><ol><li>BASE85{6:”O=1GX;K8jQKJ;G(“;DhKL9h)S6;BsD:IJ&gt;[;HHmd9h[rJ1c/0%&lt;(g@i6&lt;6QU&lt;\d]P7RpNU:eETA&lt;BWK.4ZtrV}</li><li>BASE85解一层出base35</li><li><a href="https://imgtu.com/i/qwIiNQ"><img src="https://s1.ax1x.com/2022/03/27/qwIiNQ.png" alt="qwIiNQ.png"></a></li><li>再解一层给出微信id</li><li><a href="https://imgtu.com/i/qwIE3n"><img src="https://s1.ax1x.com/2022/03/27/qwIE3n.png" alt="qwIE3n.png"></a></li><li>微信加好友有备注即可获得flag</li></ol><h3 id="黑化的维亚"><a href="#黑化的维亚" class="headerlink" title="黑化的维亚"></a>黑化的维亚</h3><ol><li>用stegsolve打开，查看不同色域下的图片</li><li><a href="https://imgtu.com/i/qwIgDf"><img src="https://s1.ax1x.com/2022/03/27/qwIgDf.png" alt="qwIgDf.png"></a></li><li>找到flag的上一级（我一开始还以为这就是flag，提交不对）</li><li>后面看到!123和fkvd这么不规则但是又像flag的</li><li>后面尝试偏移量为0，1，2，3的栅栏密码，即可解得flag</li></ol><h3 id="0和1的故事"><a href="#0和1的故事" class="headerlink" title="0和1的故事"></a>0和1的故事</h3><ol><li>解压后里面有一个txt文件，打开后看最后发现有==，知道是base64解码</li><li><a href="https://imgtu.com/i/qwb2tO"><img src="https://s1.ax1x.com/2022/03/27/qwb2tO.png" alt="qwb2tO.png"></a></li><li>解码网站<a href="https://the-x.cn/base64/">https://the-x.cn/base64/</a></li><li>解码后发现里面有一个png文件，图片中全是01字符</li><li><a href="https://imgtu.com/i/qwbonI"><img src="https://s1.ax1x.com/2022/03/27/qwbonI.png" alt="qwbonI.png"></a></li><li>两种选择，一种是利用手机去扫描出文本，第二种是在linux环境下cat出01字符串</li><li>得到01字符一开始还以为是一个二进制文件或者是培根密码，然后我五位一解，（解出来的都是什么东西。。。）（培根密码是0为a，1为b，依此得出不同字符）</li><li>长和宽相同的情况下猜测是二维码，但是上学期学的py都被时间冲刷干净了，我就在网上找脚本，但是找到的因为MAXN设定的不同，无法得到正确的二维码（轻易改动数据，也会出现数组越界的segementation fault的问题）</li><li>后面用excel表格去做，将1所在的单元格填充为黑色，0所在的单元格填充为白色（可能出现的绿色不会影响二维码扫描）</li><li><a href="https://imgtu.com/i/qwbbAf"><img src="https://s1.ax1x.com/2022/03/27/qwbbAf.png" alt="qwbbAf.png"></a></li><li>扫描后即可得到flag{Stories_of_0_and_1}</li></ol><h2 id="web题"><a href="#web题" class="headerlink" title="web题"></a>web题</h2><h3 id="Robot"><a href="#Robot" class="headerlink" title="Robot"></a>Robot</h3><ol><li>上来一看什么也没有，就猜测是哪几种题型（反正不可能上来就是sql注入文件上传之类的，没有地方注入东西）</li><li>用御剑字典爆破后缀或者用spider去爬，发现有一个txt为后缀的，打开网页得到4ll.html</li><li>我一开始还以为是411，结果404就搁置了好久，最后有hint发布，“411和4ll真的能分清吗”，在hackbar中打开，给后缀，excute后给出I have tell you all的字符,还是没有什么东西</li><li>ctrl + u查看源代码发现flag</li><li>这里由于没有保留截图，也没有环境，暂无截图</li></ol><h3 id="ezsql"><a href="#ezsql" class="headerlink" title="ezsql"></a>ezsql</h3><ol><li>我不知道给的那个hint是什么意思。。。</li><li>强大的工具一把梭，我sqlmap跑了好久都没有</li><li>这里浅谈一下我的思路吧</li><li>两个登录框，分别给出1，1，用burp抓包，发现是post包，post注入</li><li><a href="https://imgtu.com/i/qwLEIf"><img src="https://s1.ax1x.com/2022/03/27/qwLEIf.png" alt="qwLEIf.png"></a></li><li><a href="https://imgtu.com/i/qwLJiT"><img src="https://s1.ax1x.com/2022/03/27/qwLJiT.png" alt="qwLJiT.png"></a></li><li>sqlmap post注入的命令分别是：</li><li>sqlmap -r “admin.txt” –dbs (–level n)(默认为level 1)</li><li>sqlmap -r “admin.txt” -D xxx –tables</li><li>sqlmap -r “admin.txt” -D xxx -T xxx –columns</li><li>sqlmap -r “admin.txt” -D xxx –T xxx -C xxx –dump</li></ol><h2 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h2><ol><li>猪圈+银河骑士+圣殿+栅栏</li><li><a href="https://imgtu.com/i/qwL7Y8"><img src="https://s1.ax1x.com/2022/03/27/qwL7Y8.png" alt="qwL7Y8.png"></a></li></ol><h1 id="base64解密"><a href="#base64解密" class="headerlink" title="base64解密"></a>base64解密</h1><pre class="line-numbers language-none"><code class="language-none">来签个到吧！我把奖励放在这里了，手慢无。ZmxhZ3t3ZWxjb21ldG8xMDA4Nn0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li>因为后面没有明显的==或者=，一开始没想到是base64，就把hex，之类的编码都试了试，试到base64借出flag</li><li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731171328.png"></li></ol><h1 id="凯撒加密"><a href="#凯撒加密" class="headerlink" title="凯撒加密"></a>凯撒加密</h1><pre class="line-numbers language-none"><code class="language-none">相传有一位大帝叫Caesar，他发明了一种神秘的编码，你能解开这段密文吗？密文内容：mshn&#123;jhlzhy_pz_mbuufek&#125;。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ol><li>题目明显指出是凯撒加密，凯撒加密原理是偏移，1~26之间的字符偏移量</li><li>题目前面给的格式很像flag{},m和f之间的字节偏移量为7，即可得到flag<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731171636.png"></li></ol><h2 id="解编码和解古典密码学的网站"><a href="#解编码和解古典密码学的网站" class="headerlink" title="解编码和解古典密码学的网站"></a>解编码和解古典密码学的网站</h2><ol><li>cyberchef</li></ol><pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;cyberchef.org&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol start="2"><li>CTF在线工具</li></ol><pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;www.hiencode.com&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h1><ol><li>黑客通过webshell往web服务器中写入了一串机密信息，你能找出机密信息吗</li><li>webshell后门，我有一个很奇怪的设想，如果不想配置ssh免密登录之类的，可以直接往服务器里丢一个后门，然后蚁剑去连就可以登录了，但是有被杀的风险</li><li>题目给了一个pcap文件，导入到wireshark中<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172317.png"></li><li>蓝帽杯让我知道，分析流量先分析http</li><li>根据题目描述，”webshell”,同时发现了很多上传的shell.php文件，那么就分析分析shell.php<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172458.png"></li><li>发现每一个shell.php中都上传一串base64,一个一个解密看看，右键可以复制可打印的字符<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172618.png"></li><li>发现有%编码，先解一层URL编码<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172827.png"></li><li>再解一层base64，发现是木马，我们走对路了，继续一个一个地找<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731174212.png"></li><li>最后找着找着flag就出来了<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731174348.png"></li></ol><h1 id="buuctf神奇的二维码"><a href="#buuctf神奇的二维码" class="headerlink" title="buuctf神奇的二维码"></a>buuctf神奇的二维码</h1><ol><li>一个二维码，扫一下啥也没有</li><li>在放到010editor看头和尾和检查是否为exif隐写之后，binwalk分离出来了压缩包<br> <img src="https://s2.loli.net/2022/05/21/hle1bIpEKm9PzB7.png"></li><li>里面有一个encode.txt编码文件<br> <img src="https://s2.loli.net/2022/05/21/VFnBgsLtlZW52J4.png"></li><li>解码之后获得密码，打开了放flag的doc文件<br> <img src="https://s2.loli.net/2022/05/21/jz1mJAOsChTuYeL.png"></li><li>发现flag.doc文件中是一个特别长的base64编码，使用basecrack破解<br> <img src="https://s2.loli.net/2022/05/21/kmaJoR5WdUAHglS.png"></li><li>获得flag<br> <a href="www.strongwill.top/basecrack工具使用">basecrack工具使用</a></li></ol><h1 id="buu-test-your-nc"><a href="#buu-test-your-nc" class="headerlink" title="buu test_your_nc"></a>buu test_your_nc</h1><p><a href="www.strongwill.top/nc命令">nc命令</a><br><img src="https://s2.loli.net/2022/05/21/8Jj69Obg3DzKQBn.png"></p><ol><li>直接nc加靶机号，连上之后ls看目录</li><li>发现flag，直接cat看一下就报flag</li></ol><h1 id="pwnthebox-pwnthebox"><a href="#pwnthebox-pwnthebox" class="headerlink" title="pwnthebox pwnthebox"></a>pwnthebox pwnthebox</h1><ol><li>信息搜集题目<br> <img src="https://s2.loli.net/2022/05/23/vQ89c6gZWDVSndX.png"></li><li>在header中,抓个包<br> <img src="https://s2.loli.net/2022/05/21/qB9zAWvCNQTr6UV.png"></li><li>在header中找到了flag</li></ol><h1 id="pyshell"><a href="#pyshell" class="headerlink" title="pyshell"></a>pyshell</h1><ol><li>  python的shell终端</li><li>  拼接读取flag的字符串后用eval()进行执行，即可获得flag</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145149.png"></li></ol><h1 id="dumpit"><a href="#dumpit" class="headerlink" title="dumpit"></a>dumpit</h1><ol><li><p>对/flag下所有提供的参数进行测试，发现提供的第二个参数可以到日志</p><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145934.png"></p><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150053.png"></p></li><li><p>  过滤了post和get，不能直接将木马写入参数中执行</p></li><li><p>  这里采用echo重定向的方式，将待执行的命令写入到User-Agent中，并重定向到/app/log/a.php中</p></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150351.png"></p></li><li><p>  访问/log/a.php发现可以成功执行</p></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150427.png"></p></li><li><p>  最后在env环境变量中找到flag</p></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150515.png"></p></li></ol><h1 id="Head-Header"><a href="#Head-Header" class="headerlink" title="Head,Header?"></a>Head,Header?</h1><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927190910.png"></li><li>  需要CTF浏览器，想到更改UA，UA是服务器识别客户端的操作系统、浏览器等信息的</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191126.png"></li><li>  有回显，from ctf.com,加referer外链，告诉服务器该页面是从哪个页面链接过来的</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191405.png"></li><li>  又提示只能local用户查看，修改X-Forwarded-For为127.0.0.1回环地址</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191509.png"></li></ol><h1 id="图片合成问题"><a href="#图片合成问题" class="headerlink" title="图片合成问题"></a>图片合成问题</h1><h2 id="攻防世界what-is-this"><a href="#攻防世界what-is-this" class="headerlink" title="攻防世界what_is_this"></a>攻防世界what_is_this</h2><ol><li>给出两张相像的图片</li><li>使用stegsolve中的image combiner</li><li><a href="https://imgtu.com/i/qOwZaF"><img src="https://s1.ax1x.com/2022/04/05/qOwZaF.png" alt="qOwZaF.png"></a></li><li><a href="https://imgtu.com/i/qOwe54"><img src="https://s1.ax1x.com/2022/04/05/qOwe54.png" alt="qOwe54.png"></a></li><li>其实也可以使用comapre去比较</li><li>compare pic1.jpg pic2.jpg -compose src diff.png</li></ol>]]></content>
       
       
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
       
     </entry>
     
@@ -21,7 +33,7 @@
       <link href="/ssrf%E6%BC%8F%E6%B4%9E/"/>
       <url>/ssrf%E6%BC%8F%E6%B4%9E/</url>
       
-        <content type="html"><![CDATA[<h1 id="ssrf漏洞"><a href="#ssrf漏洞" class="headerlink" title="ssrf漏洞"></a>ssrf漏洞</h1><h2 id="自己总结的绕过方法"><a href="#自己总结的绕过方法" class="headerlink" title="自己总结的绕过方法"></a>自己总结的绕过方法</h2><ol><li>  进制绕过，127进行<strong>16进制编码</strong>等</li><li>  用特殊短地址进行绕过<strong>127.1</strong>或<strong>0.0.0.0</strong>或<strong>0.0</strong>或<strong>0</strong>可以代替127.0.0.1</li><li>  正则表达式检验开头结尾的，<strong>用@进行分隔</strong>username和hostname</li><li>  302跳转，在自己的服务器上写php Location代码</li></ol><h2 id="ssrf漏洞是什么"><a href="#ssrf漏洞是什么" class="headerlink" title="ssrf漏洞是什么"></a>ssrf漏洞是什么</h2><ol><li><p>  SSRF漏洞（Server-Side Request Forgery）是一种Web应用程序漏洞，它允许攻击者在受攻击的服务器上执行未经授权的网络请求。具体而言，攻击者可以构造一个特制的请求，在请求中指定一个外部的URL地址，然后将该请求发送给目标服务器。目标服务器接收到请求后，会认为这个请求来自于内部网络的可信源，并向指定的URL地址发起请求。由于攻击者可以任意指定这个URL地址，因此可以利用该漏洞实现多种攻击，如获取敏感信息、执行任意命令等。</p></li><li><p>  SSRF漏洞通常出现在Web应用程序中，例如一个Web应用程序提供了针对用户输入URL的功能，但没有对用户输入的URL做足够的安全检查，导致攻击者可以通过构造恶意URL利用该漏洞。此外，攻击者也可以通过其他途径（如文件上传功能）来利用该漏洞。</p></li><li><p>  为了防止SSRF漏洞的出现，开发人员需要对Web应用程序中的所有外部请求进行仔细的检查和过滤</p></li><li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420143621.png"></p><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol><li>  攻击者可以通过公网IP访问到某个web服务器</li><li>  攻击者无法通过公网IP访问到内网的其他设备或者办公区域</li><li>  这时候如果想要进行内网探测，web服务器同时存在ssrf漏洞，就能够以web服务器作为跳板，进而攻击其它服务器或者区域</li></ol><h3 id="利用条件"><a href="#利用条件" class="headerlink" title="利用条件"></a>利用条件</h3><p>  （1）web服务器存在SSRF漏洞；</p><p>  （2）web服务器有访问本地或远程服务器的权限；</p><h3 id="存在位置"><a href="#存在位置" class="headerlink" title="存在位置"></a>存在位置</h3><p>  一般是web服务器提供了从其他服务器获取数据的功能。</p><p>  （1）通过URL分享网页内容</p><p>  （2）在线翻译</p><p>  （3）通过url对图片的加载和下载</p><p>  （4）转码服务</p><h3 id="利用实验，开启方法"><a href="#利用实验，开启方法" class="headerlink" title="利用实验，开启方法"></a>利用实验，开启方法</h3><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420143924.png"></p></li></ol><h3 id="ctfshow351"><a href="#ctfshow351" class="headerlink" title="ctfshow351"></a>ctfshow351</h3><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420140824.png"></p><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420141556.png"></p><ol><li><p>  源码中接收了一个post传递的url参数，用hackbar去构造攻击payload</p></li><li><p>```php<br>  url=<a href="http://127.0.0.1/flag.php">http://127.0.0.1/flag.php</a></p>  <pre class="line-numbers language-none"><code class="language-none">3.   即可出现flag### ctfshow352### parse_url函数的作用&#96;parse_url()&#96; 是 PHP 语言中的一个函数，它用于解析 URL 地址并以关联数组的形式返回各个组成部分。在解析过程中，会将 URL 字符串拆分成协议名、主机名、端口号、路径、查询字符串和片段标识等多个组成部分，并分别保存到返回的关联数组中。这个函数不会对 URL 解码，所以可以被用来解析包含特殊字符的 URL。具体而言，&#96;parse_url()&#96; 函数的格式为：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>phpCopy Codearray parse_url ( string $url [, int $component = -1 ] )</p><pre class="line-numbers language-none"><code class="language-none">其中，&#96;$url&#96; 参数是要解析的 URL 地址字符串，&#96;$component&#96; 参数可选，表示要返回的 URL 组件，取值范围为 &#96;PHP_URL_SCHEME&#96;、&#96;PHP_URL_HOST&#96;、&#96;PHP_URL_PORT&#96;、&#96;PHP_URL_USER&#96;、&#96;PHP_URL_PASS&#96;、&#96;PHP_URL_PATH&#96;、&#96;PHP_URL_QUERY&#96; 或 &#96;PHP_URL_FRAGMENT&#96;。如果不指定 &#96;$component&#96; 参数，则函数将返回包含所有 URL 组件的关联数组。例子：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>phpCopy Code$url = “<a href="https://www.example.com/test.php?id=123#section4&quot;">https://www.example.com/test.php?id=123#section4&quot;</a>;<br>$parsed_url = parse_url($url);</p></li></ol><p>print_r($parsed_url);</p><pre class="line-numbers language-none"><code class="language-none">输出结果为:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>Copy CodeArray<br>(<br>    [scheme] =&gt; https<br>    [host] =&gt; <a href="http://www.example.com/">www.example.com</a><br>    [path] =&gt; /test.php<br>    [query] =&gt; id=123<br>    [fragment] =&gt; section4<br>)</p><pre class="line-numbers language-none"><code class="language-none">### schemescheme：协议### curlCurl（全称为 &quot;Client Url Library&quot;）是一个被广泛应用于互联网通信的工具和库，它支持各种传输协议，比如FTP、HTTP、SMTP等。在PHP中，curl以扩展库的形式提供，开发者可以借助curl扩展实现各种基于网络协议的操作，例如下载文件、发送HTTP请求、获取API数据等等。常见的curl函数有:-   &#96;curl_init()&#96; - 初始化一个 curl 会话-   &#96;curl_setopt()&#96; - 设置 curl 相关选项-   &#96;curl_exec()&#96; - 执行 curl 会话-   &#96;curl_close()&#96; - 关闭curl 会话&#96;curl_setopt()&#96; 函数可以设置不同的选项来定制 curl 的行为。例如：-   &#96;CURLOPT_URL&#96; 设置URL地址-   &#96;CURLOPT_RETURNTRANSFER&#96; 返回结果而不是输出到页面-   &#96;CURLOPT_POST&#96; 使用POST请求方式-   &#96;CURLOPT_POSTFIELDS&#96; POST请求提交的数据-   &#96;CURLOPT_HEADER&#96; 包含响应头信息-   &#96;CURLOPT_SSL_VERIFYPEER&#96; 是否验证证书等等以上只是 curl 的一些基本使用方法，通过查阅Curl文档[[1](https:&#x2F;&#x2F;curl.se&#x2F;docs&#x2F;manpage.html)]，你还可以了解到使用curl库还能够支持更多的功能比如: 代理、cookie设置、安全认证、文件上传等。在 PHP 中，我们可以通过 curl 扩展的一系列函数来实现 curl 功能，并且这些函数具备很高的灵活性和可扩展性，可以根据不同的需求和场景完成各种网络请求操作。#### 题目1.   将127.0.1替换为127.0.0，127.1等都可以2.   之前写过一个golang后端的项目，用的0.0.0.0，既包含了localhost,也包含了127.0.0.1，这里可以绕过字符过滤3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20230420142950.png)### web3531.   可以将127进行16进制编码，编码为0x7f2.   也可以转换为其它进制3.   127.0.0.1可以写为127.1也可以绕过4.   &#96;&#96;&#96;     url&#x3D;http:&#x2F;&#x2F;0x7f.0.0.1&#x2F;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="5"><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420144929.png"></li></ol><h3 id="web335"><a href="#web335" class="headerlink" title="web335"></a>web335</h3><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230422153422.png"></li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230422153448.png"></li><li>  用127.1和0.0相同，都可以代替回环地址127.0.0.1</li></ol><h3 id="web356"><a href="#web356" class="headerlink" title="web356"></a>web356</h3><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230422153824.png"></li><li>  用0也可以代替127.0.0.1或0.0</li></ol><h3 id="web357"><a href="#web357" class="headerlink" title="web357"></a>web357</h3><ol><li><p>  这段代码使用PHP内置函数<code>filter_var()</code>对<code>$ip</code>变量进行IP地址过滤和验证，其中<code>FILTER_VALIDATE_IP</code>用于验证是否为合法的IP地址，<code>FILTER_FLAG_NO_PRIV_RANGE</code>表示拒绝私有IP地址，<code>FILTER_FLAG_NO_RES_RANGE</code>表示拒绝保留IP地址。具体来说，这段代码会返回<code>$ip</code>变量的过滤后结果，如果$ip不是合法的公网IP地址，则返回false。</p></li><li><p>  这个题利用302跳转</p></li><li><p>  在服务器上放以下代码</p></li><li><p>```php</p>  <?php  header("Location:http://127.0.0.1/flag.php")  <pre class="line-numbers language-none"><code class="language-none">5.   攻击payload6.   &#96;&#96;&#96;     url&#x3D;http:&#x2F;&#x2F;www.ctfer.xyz&#x2F;a.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>  使用此url参数进行传参，可以通过访问<a href="http://www.ctfer.xyz下的a.php来跳转访问到内网127.0.0.1下的flag.php文件/">www.ctfer.xyz下的a.php来跳转访问到内网127.0.0.1下的flag.php文件</a></p></li></ol><h3 id="web358"><a href="#web358" class="headerlink" title="web358"></a>web358</h3><ol><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230427154130.png"></p></li><li><p>```<br>  /^http://ctf..*show$/i</p>  <pre class="line-numbers language-none"><code class="language-none">3.   匹配的是以http:&#x2F;&#x2F;ctf.开头，以show结尾的4.   &#96;&#96;&#96;url     http:&#x2F;&#x2F;ctf.@127.0.0.1&#x2F;flag.php?show<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>  使用@作为分隔符，用于指示用户名和域名之间的分界。用于url的基本身份验证，指定用户名和密码来访问资源，例如：<a href="http://username:password@example.com/">http://username:password@example.com</a></p></li><li><p>  类似于ssh登录目标主机一样</p></li><li><p>```<br>  ssh [options] [username@]hostname command<br>  ssh -p 22 <a href="mailto:&#117;&#x73;&#x65;&#x72;&#110;&#97;&#109;&#101;&#64;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#56;&#x2e;&#x31;&#x2e;&#x31;&#48;&#x30;">&#117;&#x73;&#x65;&#x72;&#110;&#97;&#109;&#101;&#64;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#56;&#x2e;&#x31;&#x2e;&#x31;&#48;&#x30;</a> # 使用22端口连接到主机192.168.1.100<br>  ssh -i ~/.ssh/id_rsa <a href="mailto:&#117;&#115;&#x65;&#114;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;">&#117;&#115;&#x65;&#114;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;</a><br>  ssh <a href="mailto:&#x75;&#x73;&#101;&#x72;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x75;&#x73;&#101;&#x72;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a> ls -al /home/user # 登录并执行远程命令</p>  <pre class="line-numbers language-none"><code class="language-none">8.   使用@来分隔username和hostname### web3591.   工具下载地址https:&#x2F;&#x2F;github.com&#x2F;tarunkant&#x2F;Gopherus2.   &#96;&#96;&#96;     python gopherus.py --exploit mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230427161356.png"></p></li><li><p>  然后传到check.php中post:returl=xxx，不要忘记把下划线后面的内容url编码一次</p></li><li><p>  涉及到一些文件上传的知识，最后要用蚁剑去连接</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="ssrf漏洞"><a href="#ssrf漏洞" class="headerlink" title="ssrf漏洞"></a>ssrf漏洞</h1><h2 id="自己总结的绕过方法"><a href="#自己总结的绕过方法" class="headerlink" title="自己总结的绕过方法"></a>自己总结的绕过方法</h2><ol><li>  进制绕过，127进行<strong>16进制编码</strong>等</li><li>  用特殊短地址进行绕过<strong>127.1</strong>或<strong>0.0.0.0</strong>或<strong>0.0</strong>或<strong>0</strong>可以代替127.0.0.1</li><li>  正则表达式检验开头结尾的，<strong>用@进行分隔</strong>username和hostname</li><li>  302跳转，在自己的服务器上写php Location代码</li></ol><h2 id="ssrf漏洞是什么"><a href="#ssrf漏洞是什么" class="headerlink" title="ssrf漏洞是什么"></a>ssrf漏洞是什么</h2><ol><li><p>  SSRF漏洞（Server-Side Request Forgery）是一种Web应用程序漏洞，它允许攻击者在受攻击的服务器上执行未经授权的网络请求。具体而言，攻击者可以构造一个特制的请求，在请求中指定一个外部的URL地址，然后将该请求发送给目标服务器。目标服务器接收到请求后，会认为这个请求来自于内部网络的可信源，并向指定的URL地址发起请求。由于攻击者可以任意指定这个URL地址，因此可以利用该漏洞实现多种攻击，如获取敏感信息、执行任意命令等。</p></li><li><p>  SSRF漏洞通常出现在Web应用程序中，例如一个Web应用程序提供了针对用户输入URL的功能，但没有对用户输入的URL做足够的安全检查，导致攻击者可以通过构造恶意URL利用该漏洞。此外，攻击者也可以通过其他途径（如文件上传功能）来利用该漏洞。</p></li><li><p>  为了防止SSRF漏洞的出现，开发人员需要对Web应用程序中的所有外部请求进行仔细的检查和过滤</p></li><li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420143621.png"></p><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol><li>  攻击者可以通过公网IP访问到某个web服务器</li><li>  攻击者无法通过公网IP访问到内网的其他设备或者办公区域</li><li>  这时候如果想要进行内网探测，web服务器同时存在ssrf漏洞，就能够以web服务器作为跳板，进而攻击其它服务器或者区域</li></ol><h3 id="利用条件"><a href="#利用条件" class="headerlink" title="利用条件"></a>利用条件</h3><p>  （1）web服务器存在SSRF漏洞；</p><p>  （2）web服务器有访问本地或远程服务器的权限；</p><h3 id="存在位置"><a href="#存在位置" class="headerlink" title="存在位置"></a>存在位置</h3><p>  一般是web服务器提供了从其他服务器获取数据的功能。</p><p>  （1）通过URL分享网页内容</p><p>  （2）在线翻译</p><p>  （3）通过url对图片的加载和下载</p><p>  （4）转码服务</p><h3 id="利用实验，开启方法"><a href="#利用实验，开启方法" class="headerlink" title="利用实验，开启方法"></a>利用实验，开启方法</h3><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420143924.png"></p></li></ol><h3 id="ctfshow351"><a href="#ctfshow351" class="headerlink" title="ctfshow351"></a>ctfshow351</h3><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420140824.png"></p><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420141556.png"></p><ol><li><p>  源码中接收了一个post传递的url参数，用hackbar去构造攻击payload</p></li><li><p>```php<br>  url=<a href="http://127.0.0.1/flag.php">http://127.0.0.1/flag.php</a></p>  <pre class="line-numbers language-none"><code class="language-none">3.   即可出现flag### ctfshow352### parse_url函数的作用&#96;parse_url()&#96; 是 PHP 语言中的一个函数，它用于解析 URL 地址并以关联数组的形式返回各个组成部分。在解析过程中，会将 URL 字符串拆分成协议名、主机名、端口号、路径、查询字符串和片段标识等多个组成部分，并分别保存到返回的关联数组中。这个函数不会对 URL 解码，所以可以被用来解析包含特殊字符的 URL。具体而言，&#96;parse_url()&#96; 函数的格式为：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>phpCopy Codearray parse_url ( string $url [, int $component = -1 ] )</p><pre class="line-numbers language-none"><code class="language-none">其中，&#96;$url&#96; 参数是要解析的 URL 地址字符串，&#96;$component&#96; 参数可选，表示要返回的 URL 组件，取值范围为 &#96;PHP_URL_SCHEME&#96;、&#96;PHP_URL_HOST&#96;、&#96;PHP_URL_PORT&#96;、&#96;PHP_URL_USER&#96;、&#96;PHP_URL_PASS&#96;、&#96;PHP_URL_PATH&#96;、&#96;PHP_URL_QUERY&#96; 或 &#96;PHP_URL_FRAGMENT&#96;。如果不指定 &#96;$component&#96; 参数，则函数将返回包含所有 URL 组件的关联数组。例子：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>phpCopy Code$url = “<a href="https://www.example.com/test.php?id=123#section4&quot;">https://www.example.com/test.php?id=123#section4&quot;</a>;<br>$parsed_url = parse_url($url);</p></li></ol><p>print_r($parsed_url);</p><pre class="line-numbers language-none"><code class="language-none">输出结果为:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>Copy CodeArray<br>(<br>    [scheme] =&gt; https<br>    [host] =&gt; <a href="http://www.example.com/">www.example.com</a><br>    [path] =&gt; /test.php<br>    [query] =&gt; id=123<br>    [fragment] =&gt; section4<br>)</p><pre class="line-numbers language-none"><code class="language-none">### schemescheme：协议### curlCurl（全称为 &quot;Client Url Library&quot;）是一个被广泛应用于互联网通信的工具和库，它支持各种传输协议，比如FTP、HTTP、SMTP等。在PHP中，curl以扩展库的形式提供，开发者可以借助curl扩展实现各种基于网络协议的操作，例如下载文件、发送HTTP请求、获取API数据等等。常见的curl函数有:-   &#96;curl_init()&#96; - 初始化一个 curl 会话-   &#96;curl_setopt()&#96; - 设置 curl 相关选项-   &#96;curl_exec()&#96; - 执行 curl 会话-   &#96;curl_close()&#96; - 关闭curl 会话&#96;curl_setopt()&#96; 函数可以设置不同的选项来定制 curl 的行为。例如：-   &#96;CURLOPT_URL&#96; 设置URL地址-   &#96;CURLOPT_RETURNTRANSFER&#96; 返回结果而不是输出到页面-   &#96;CURLOPT_POST&#96; 使用POST请求方式-   &#96;CURLOPT_POSTFIELDS&#96; POST请求提交的数据-   &#96;CURLOPT_HEADER&#96; 包含响应头信息-   &#96;CURLOPT_SSL_VERIFYPEER&#96; 是否验证证书等等以上只是 curl 的一些基本使用方法，通过查阅Curl文档[[1](https:&#x2F;&#x2F;curl.se&#x2F;docs&#x2F;manpage.html)]，你还可以了解到使用curl库还能够支持更多的功能比如: 代理、cookie设置、安全认证、文件上传等。在 PHP 中，我们可以通过 curl 扩展的一系列函数来实现 curl 功能，并且这些函数具备很高的灵活性和可扩展性，可以根据不同的需求和场景完成各种网络请求操作。#### 题目1.   将127.0.1替换为127.0.0，127.1等都可以2.   之前写过一个golang后端的项目，用的0.0.0.0，既包含了localhost,也包含了127.0.0.1，这里可以绕过字符过滤3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20230420142950.png)### web3531.   可以将127进行16进制编码，编码为0x7f2.   也可以转换为其它进制3.   127.0.0.1可以写为127.1也可以绕过4.   &#96;&#96;&#96;     url&#x3D;http:&#x2F;&#x2F;0x7f.0.0.1&#x2F;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="5"><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230420144929.png"></li></ol><h3 id="web335"><a href="#web335" class="headerlink" title="web335"></a>web335</h3><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230422153422.png"></li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230422153448.png"></li><li>  用127.1和0.0相同，都可以代替回环地址127.0.0.1</li></ol><h3 id="web356"><a href="#web356" class="headerlink" title="web356"></a>web356</h3><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230422153824.png"></li><li>  用0也可以代替127.0.0.1或0.0</li></ol><h3 id="web357"><a href="#web357" class="headerlink" title="web357"></a>web357</h3><ol><li><p>  这段代码使用PHP内置函数<code>filter_var()</code>对<code>$ip</code>变量进行IP地址过滤和验证，其中<code>FILTER_VALIDATE_IP</code>用于验证是否为合法的IP地址，<code>FILTER_FLAG_NO_PRIV_RANGE</code>表示拒绝私有IP地址，<code>FILTER_FLAG_NO_RES_RANGE</code>表示拒绝保留IP地址。具体来说，这段代码会返回<code>$ip</code>变量的过滤后结果，如果$ip不是合法的公网IP地址，则返回false。</p></li><li><p>  这个题利用302跳转</p></li><li><p>  在服务器上放以下代码</p></li><li><p>```php</p>  <?php  header("Location:http://127.0.0.1/flag.php")  <pre class="line-numbers language-none"><code class="language-none">5.   攻击payload6.   &#96;&#96;&#96;     url&#x3D;http:&#x2F;&#x2F;www.ctfer.xyz&#x2F;a.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>  使用此url参数进行传参，可以通过访问<a href="http://www.ctfer.xyz下的a.php来跳转访问到内网127.0.0.1下的flag.php文件/">www.ctfer.xyz下的a.php来跳转访问到内网127.0.0.1下的flag.php文件</a></p></li></ol><h3 id="web358"><a href="#web358" class="headerlink" title="web358"></a>web358</h3><ol><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230427154130.png"></p></li><li><p>```<br>  /^http://ctf..*show$/i</p>  <pre class="line-numbers language-none"><code class="language-none">3.   匹配的是以http:&#x2F;&#x2F;ctf.开头，以show结尾的4.   &#96;&#96;&#96;url     http:&#x2F;&#x2F;ctf.@127.0.0.1&#x2F;flag.php?show<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>  使用@作为分隔符，用于指示用户名和域名之间的分界。用于url的基本身份验证，指定用户名和密码来访问资源，例如：<a href="http://username:password@example.com/">http://username:password@example.com</a></p></li><li><p>  类似于ssh登录目标主机一样</p></li><li><p>```<br>  ssh [options] [username@]hostname command<br>  ssh -p 22 <a href="mailto:&#117;&#x73;&#x65;&#x72;&#x6e;&#97;&#109;&#101;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#56;&#46;&#x31;&#46;&#49;&#48;&#48;">&#117;&#x73;&#x65;&#x72;&#x6e;&#97;&#109;&#101;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#56;&#46;&#x31;&#46;&#49;&#48;&#48;</a> # 使用22端口连接到主机192.168.1.100<br>  ssh -i ~/.ssh/id_rsa <a href="mailto:&#x75;&#115;&#101;&#x72;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x75;&#115;&#101;&#x72;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;</a><br>  ssh <a href="mailto:&#x75;&#x73;&#x65;&#x72;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#111;&#109;">&#x75;&#x73;&#x65;&#x72;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#111;&#109;</a> ls -al /home/user # 登录并执行远程命令</p>  <pre class="line-numbers language-none"><code class="language-none">8.   使用@来分隔username和hostname### web3591.   工具下载地址https:&#x2F;&#x2F;github.com&#x2F;tarunkant&#x2F;Gopherus2.   &#96;&#96;&#96;     python gopherus.py --exploit mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230427161356.png"></p></li><li><p>  然后传到check.php中post:returl=xxx，不要忘记把下划线后面的内容url编码一次</p></li><li><p>  涉及到一些文件上传的知识，最后要用蚁剑去连接</p></li></ol>]]></content>
       
       
       <categories>
@@ -417,31 +429,6 @@
     
     
     <entry>
-      <title>NewStarCTF</title>
-      <link href="/NewStarCTF/"/>
-      <url>/NewStarCTF/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Head-Header"><a href="#Head-Header" class="headerlink" title="Head,Header?"></a>Head,Header?</h1><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927190910.png"></li><li>  需要CTF浏览器，想到更改UA，UA是服务器识别客户端的操作系统、浏览器等信息的</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191126.png"></li><li>  有回显，from ctf.com,加referer外链，告诉服务器该页面是从哪个页面链接过来的</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191405.png"></li><li>  又提示只能local用户查看，修改X-Forwarded-For为127.0.0.1回环地址</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191509.png"></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>迎新赛题解</title>
       <link href="/%E8%BF%8E%E6%96%B0%E8%B5%9B%E9%A2%98%E8%A7%A3/"/>
       <url>/%E8%BF%8E%E6%96%B0%E8%B5%9B%E9%A2%98%E8%A7%A3/</url>
@@ -814,31 +801,6 @@
     
     
     <entry>
-      <title>2022选拔赛复盘</title>
-      <link href="/2022%E9%80%89%E6%8B%94%E8%B5%9B/"/>
-      <url>/2022%E9%80%89%E6%8B%94%E8%B5%9B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="base64解密"><a href="#base64解密" class="headerlink" title="base64解密"></a>base64解密</h1><pre class="line-numbers language-none"><code class="language-none">来签个到吧！我把奖励放在这里了，手慢无。ZmxhZ3t3ZWxjb21ldG8xMDA4Nn0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li>因为后面没有明显的==或者=，一开始没想到是base64，就把hex，之类的编码都试了试，试到base64借出flag</li><li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731171328.png"></li></ol><h1 id="凯撒加密"><a href="#凯撒加密" class="headerlink" title="凯撒加密"></a>凯撒加密</h1><pre class="line-numbers language-none"><code class="language-none">相传有一位大帝叫Caesar，他发明了一种神秘的编码，你能解开这段密文吗？密文内容：mshn&#123;jhlzhy_pz_mbuufek&#125;。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ol><li>题目明显指出是凯撒加密，凯撒加密原理是偏移，1~26之间的字符偏移量</li><li>题目前面给的格式很像flag{},m和f之间的字节偏移量为7，即可得到flag<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731171636.png"></li></ol><h2 id="解编码和解古典密码学的网站"><a href="#解编码和解古典密码学的网站" class="headerlink" title="解编码和解古典密码学的网站"></a>解编码和解古典密码学的网站</h2><ol><li>cyberchef<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;cyberchef.org&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>CTF在线工具<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;www.hiencode.com&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><h1 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h1><ol><li>黑客通过webshell往web服务器中写入了一串机密信息，你能找出机密信息吗</li><li>webshell后门，我有一个很奇怪的设想，如果不想配置ssh免密登录之类的，可以直接往服务器里丢一个后门，然后蚁剑去连就可以登录了，但是有被杀的风险</li><li>题目给了一个pcap文件，导入到wireshark中<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172317.png"></li><li>蓝帽杯让我知道，分析流量先分析http</li><li>根据题目描述，”webshell”,同时发现了很多上传的shell.php文件，那么就分析分析shell.php<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172458.png"></li><li>发现每一个shell.php中都上传一串base64,一个一个解密看看，右键可以复制可打印的字符<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172618.png"></li><li>发现有%编码，先解一层URL编码<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172827.png"></li><li>再解一层base64，发现是木马，我们走对路了，继续一个一个地找<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731174212.png"></li><li>最后找着找着flag就出来了<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731174348.png"></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>PHP中的=&gt;-&gt;和::的用法</title>
       <link href="/PHP%E7%AE%AD%E5%A4%B4/"/>
       <url>/PHP%E7%AE%AD%E5%A4%B4/</url>
@@ -1030,9 +992,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1107,9 +1069,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1134,9 +1096,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1155,9 +1117,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
             <tag> web </tag>
             
@@ -1184,9 +1146,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1211,9 +1173,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1338,35 +1300,6 @@
     
     
     <entry>
-      <title>国赛前训练题目</title>
-      <link href="/%E5%9B%BD%E8%B5%9B%E5%89%8D%E8%AE%AD%E7%BB%83%E9%A2%98%E7%9B%AE/"/>
-      <url>/%E5%9B%BD%E8%B5%9B%E5%89%8D%E8%AE%AD%E7%BB%83%E9%A2%98%E7%9B%AE/</url>
-      
-        <content type="html"><![CDATA[<h1 id="buuctf神奇的二维码"><a href="#buuctf神奇的二维码" class="headerlink" title="buuctf神奇的二维码"></a>buuctf神奇的二维码</h1><ol><li>一个二维码，扫一下啥也没有</li><li>在放到010editor看头和尾和检查是否为exif隐写之后，binwalk分离出来了压缩包<br><img src="https://s2.loli.net/2022/05/21/hle1bIpEKm9PzB7.png"></li><li>里面有一个encode.txt编码文件<br><img src="https://s2.loli.net/2022/05/21/VFnBgsLtlZW52J4.png"></li><li>解码之后获得密码，打开了放flag的doc文件<br><img src="https://s2.loli.net/2022/05/21/jz1mJAOsChTuYeL.png"></li><li>发现flag.doc文件中是一个特别长的base64编码，使用basecrack破解<br><img src="https://s2.loli.net/2022/05/21/kmaJoR5WdUAHglS.png"></li><li>获得flag<br><a href="www.strongwill.top/basecrack工具使用">basecrack工具使用</a></li></ol><h1 id="buu-test-your-nc"><a href="#buu-test-your-nc" class="headerlink" title="buu test_your_nc"></a>buu test_your_nc</h1><p><a href="www.strongwill.top/nc命令">nc命令</a><br><img src="https://s2.loli.net/2022/05/21/8Jj69Obg3DzKQBn.png"></p><ol><li>直接nc加靶机号，连上之后ls看目录</li><li>发现flag，直接cat看一下就报flag</li></ol><h1 id="pwnthebox-pwnthebox"><a href="#pwnthebox-pwnthebox" class="headerlink" title="pwnthebox pwnthebox"></a>pwnthebox pwnthebox</h1><ol><li>信息搜集题目<br><img src="https://s2.loli.net/2022/05/23/vQ89c6gZWDVSndX.png"></li><li>在header中,抓个包<br><img src="https://s2.loli.net/2022/05/21/qB9zAWvCNQTr6UV.png"></li><li>在header中找到了flag</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF </category>
-          
-          <category> ing </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-            <tag> ing </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>basecrack工具使用</title>
       <link href="/basecrack/"/>
       <url>/basecrack/</url>
@@ -1435,9 +1368,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1464,9 +1397,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1522,9 +1455,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
         </tags>
       
@@ -1740,9 +1673,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
             <tag> 网站备份漏洞 </tag>
             
@@ -1805,19 +1738,6 @@
             <tag> 数据库 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ctf图片合成问题</title>
-      <link href="/%E5%9B%BE%E7%89%87%E5%90%88%E6%88%90%E9%97%AE%E9%A2%98/"/>
-      <url>/%E5%9B%BE%E7%89%87%E5%90%88%E6%88%90%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<h1 id="图片合成问题"><a href="#图片合成问题" class="headerlink" title="图片合成问题"></a>图片合成问题</h1><h2 id="攻防世界what-is-this"><a href="#攻防世界what-is-this" class="headerlink" title="攻防世界what_is_this"></a>攻防世界what_is_this</h2><ol><li>给出两张相像的图片</li><li>使用stegsolve中的image combiner</li><li><a href="https://imgtu.com/i/qOwZaF"><img src="https://s1.ax1x.com/2022/04/05/qOwZaF.png" alt="qOwZaF.png"></a></li><li><a href="https://imgtu.com/i/qOwe54"><img src="https://s1.ax1x.com/2022/04/05/qOwe54.png" alt="qOwe54.png"></a></li><li>其实也可以使用comapre去比较</li><li>compare pic1.jpg pic2.jpg -compose src diff.png</li></ol>]]></content>
-      
-      
       
     </entry>
     
@@ -1950,8 +1870,8 @@
     
     <entry>
       <title>zip伪加密</title>
-      <link href="/%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/"/>
-      <url>/%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</url>
+      <link href="/zip%E4%BC%AA%E5%8A%A0%E5%AF%86%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/"/>
+      <url>/zip%E4%BC%AA%E5%8A%A0%E5%AF%86%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</url>
       
         <content type="html"><![CDATA[<h1 id="参考博客地址"><a href="#参考博客地址" class="headerlink" title="参考博客地址"></a>参考博客地址</h1><ol><li><a href="https://www.cnblogs.com/cute-puli/p/16042101.html">https://www.cnblogs.com/cute-puli/p/16042101.html</a></li></ol><h1 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h1><h2 id="010或者winhex"><a href="#010或者winhex" class="headerlink" title="010或者winhex"></a>010或者winhex</h2><ol><li>建议使用010editor</li><li>因为可以自动区分数据区，目录区和目录结束标志<h3 id="zip文件组成"><a href="#zip文件组成" class="headerlink" title="zip文件组成"></a>zip文件组成</h3></li><li>压缩源文件数据区</li><li>压缩源文件目录区</li><li>压缩源文件目录结束标志</li></ol><h1 id="奇数为加密，偶数为不加密"><a href="#奇数为加密，偶数为不加密" class="headerlink" title="奇数为加密，偶数为不加密"></a>奇数为加密，偶数为不加密</h1><h1 id="无加密："><a href="#无加密：" class="headerlink" title="无加密："></a>无加密：</h1><ol><li>压缩源文件数据区的全局加密应为00 00</li><li>压缩源文件目录区的全局方式位标记应为00 00</li></ol><h1 id="假加密"><a href="#假加密" class="headerlink" title="假加密"></a>假加密</h1><ol><li>压缩源文件数据区的全局加密应为00 00</li><li>压缩源文件目录区的全局加密方式应为 00 90</li></ol><h1 id="真加密"><a href="#真加密" class="headerlink" title="真加密"></a>真加密</h1><ol><li>压缩源文件数据区的全局加密应为00 00</li><li>压缩源文件目录去的全局方式应为00 90</li></ol><p>压缩源文件数据区：<br>50 4B 03 04：这是头文件标记（0x04034b50）<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>00 00：扩展记录长度</p><p>压缩源文件目录区：<br>50 4B 01 02：目录中文件文件头标记(0x02014b50)<br>3F 00：压缩使用的 pkware 版本<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密，这个更改这里进行伪加密，改为09 00打开就会提示有密码了）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>24 00：扩展字段长度<br>00 00：文件注释长度<br>00 00：磁盘开始号<br>00 00：内部文件属性<br>20 00 00 00：外部文件属性<br>00 00 00 00：局部头部偏移量</p><p>压缩源文件目录结束标志：<br>50 4B 05 06：目录结束标记<br>00 00：当前磁盘编号<br>00 00：目录区开始磁盘编号<br>01 00：本磁盘上纪录总数<br>01 00：目录区中纪录总数<br>59 00 00 00：目录区尺寸大小<br>3E 00 00 00：目录区对第一张磁盘的偏移量<br>00 00：ZIP 文件注释长度</p>]]></content>
       
@@ -2003,31 +1923,6 @@
             <tag> CTF </tag>
             
             <tag> 信息泄露 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>春季训练赛</title>
-      <link href="/2022%E6%98%A5%E5%AD%A3%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-      <url>/2022%E6%98%A5%E5%AD%A3%E8%AE%AD%E7%BB%83%E8%B5%9B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="2022春季训练赛"><a href="#2022春季训练赛" class="headerlink" title="2022春季训练赛"></a>2022春季训练赛</h1><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到："><a href="#签到：" class="headerlink" title="签到："></a>签到：</h3><ol><li>010editor打开发现PK开头，知道是一个zip压缩包</li><li>更改后缀为.zip，解压打开发现flag</li></ol><h3 id="签到：-1"><a href="#签到：-1" class="headerlink" title="签到："></a>签到：</h3><ol><li>BASE85{6:”O=1GX;K8jQKJ;G(“;DhKL9h)S6;BsD:IJ&gt;[;HHmd9h[rJ1c/0%&lt;(g@i6&lt;6QU&lt;\d]P7RpNU:eETA&lt;BWK.4ZtrV}</li><li>BASE85解一层出base35</li><li><a href="https://imgtu.com/i/qwIiNQ"><img src="https://s1.ax1x.com/2022/03/27/qwIiNQ.png" alt="qwIiNQ.png"></a></li><li>再解一层给出微信id</li><li><a href="https://imgtu.com/i/qwIE3n"><img src="https://s1.ax1x.com/2022/03/27/qwIE3n.png" alt="qwIE3n.png"></a></li><li>微信加好友有备注即可获得flag</li></ol><h3 id="黑化的维亚"><a href="#黑化的维亚" class="headerlink" title="黑化的维亚"></a>黑化的维亚</h3><ol><li>用stegsolve打开，查看不同色域下的图片</li><li><a href="https://imgtu.com/i/qwIgDf"><img src="https://s1.ax1x.com/2022/03/27/qwIgDf.png" alt="qwIgDf.png"></a></li><li>找到flag的上一级（我一开始还以为这就是flag，提交不对）</li><li>后面看到!123和fkvd这么不规则但是又像flag的</li><li>后面尝试偏移量为0，1，2，3的栅栏密码，即可解得flag</li></ol><h3 id="0和1的故事"><a href="#0和1的故事" class="headerlink" title="0和1的故事"></a>0和1的故事</h3><ol><li>解压后里面有一个txt文件，打开后看最后发现有==，知道是base64解码</li><li><a href="https://imgtu.com/i/qwb2tO"><img src="https://s1.ax1x.com/2022/03/27/qwb2tO.png" alt="qwb2tO.png"></a></li><li>解码网站<a href="https://the-x.cn/base64/">https://the-x.cn/base64/</a></li><li>解码后发现里面有一个png文件，图片中全是01字符</li><li><a href="https://imgtu.com/i/qwbonI"><img src="https://s1.ax1x.com/2022/03/27/qwbonI.png" alt="qwbonI.png"></a></li><li>两种选择，一种是利用手机去扫描出文本，第二种是在linux环境下cat出01字符串</li><li>得到01字符一开始还以为是一个二进制文件或者是培根密码，然后我五位一解，（解出来的都是什么东西。。。）（培根密码是0为a，1为b，依此得出不同字符）</li><li>长和宽相同的情况下猜测是二维码，但是上学期学的py都被时间冲刷干净了，我就在网上找脚本，但是找到的因为MAXN设定的不同，无法得到正确的二维码（轻易改动数据，也会出现数组越界的segementation fault的问题）</li><li>后面用excel表格去做，将1所在的单元格填充为黑色，0所在的单元格填充为白色（可能出现的绿色不会影响二维码扫描）</li><li><a href="https://imgtu.com/i/qwbbAf"><img src="https://s1.ax1x.com/2022/03/27/qwbbAf.png" alt="qwbbAf.png"></a></li><li>扫描后即可得到flag{Stories_of_0_and_1}</li></ol><h2 id="web题"><a href="#web题" class="headerlink" title="web题"></a>web题</h2><h3 id="Robot"><a href="#Robot" class="headerlink" title="Robot"></a>Robot</h3><ol><li>上来一看什么也没有，就猜测是哪几种题型（反正不可能上来就是sql注入文件上传之类的，没有地方注入东西）</li><li>用御剑字典爆破后缀或者用spider去爬，发现有一个txt为后缀的，打开网页得到4ll.html</li><li>我一开始还以为是411，结果404就搁置了好久，最后有hint发布，“411和4ll真的能分清吗”，在hackbar中打开，给后缀，excute后给出I have tell you all的字符,还是没有什么东西</li><li>ctrl + u查看源代码发现flag</li><li>这里由于没有保留截图，也没有环境，暂无截图</li></ol><h3 id="ezsql"><a href="#ezsql" class="headerlink" title="ezsql"></a>ezsql</h3><ol><li>我不知道给的那个hint是什么意思。。。</li><li>强大的工具一把梭，我sqlmap跑了好久都没有</li><li>这里浅谈一下我的思路吧</li><li>两个登录框，分别给出1，1，用burp抓包，发现是post包，post注入</li><li><a href="https://imgtu.com/i/qwLEIf"><img src="https://s1.ax1x.com/2022/03/27/qwLEIf.png" alt="qwLEIf.png"></a></li><li><a href="https://imgtu.com/i/qwLJiT"><img src="https://s1.ax1x.com/2022/03/27/qwLJiT.png" alt="qwLJiT.png"></a></li><li>sqlmap post注入的命令分别是：</li><li>sqlmap -r “admin.txt” –dbs (–level n)(默认为level 1)</li><li>sqlmap -r “admin.txt” -D xxx –tables</li><li>sqlmap -r “admin.txt” -D xxx -T xxx –columns</li><li>sqlmap -r “admin.txt” -D xxx –T xxx -C xxx –dump</li></ol><h2 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h2><ol><li>猪圈+银河骑士+圣殿+栅栏</li><li><a href="https://imgtu.com/i/qwL7Y8"><img src="https://s1.ax1x.com/2022/03/27/qwL7Y8.png" alt="qwL7Y8.png"></a></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
             
         </tags>
       
@@ -2172,9 +2067,9 @@
       
         <tags>
             
-            <tag> CTF </tag>
-            
             <tag> ing </tag>
+            
+            <tag> CTF </tag>
             
             <tag> sql注入 </tag>
             
@@ -2285,48 +2180,11 @@
     
     
     <entry>
-      <title>信息收集下</title>
-      <link href="/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/"/>
-      <url>/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="信息收集下"><a href="#信息收集下" class="headerlink" title="信息收集下"></a>信息收集下</h1><h2 id="操作方向"><a href="#操作方向" class="headerlink" title="操作方向"></a>操作方向</h2><ol><li>域名信息</li><li>whois信息</li><li>目录信息</li><li>谷歌hacker</li><li>整站分析</li><li>旁站c端</li><li>后台查找</li><li>cdn绕过</li><li>app</li><li>host.txt<h2 id="自动跑漏洞工具"><a href="#自动跑漏洞工具" class="headerlink" title="自动跑漏洞工具"></a>自动跑漏洞工具</h2><h3 id="Nmap端口扫描王"><a href="#Nmap端口扫描王" class="headerlink" title="Nmap端口扫描王"></a>Nmap端口扫描王</h3><h4 id="主机探测（看哪些主机IP在线）（up-down）"><a href="#主机探测（看哪些主机IP在线）（up-down）" class="headerlink" title="主机探测（看哪些主机IP在线）（up/down）"></a>主机探测（看哪些主机IP在线）（up/down）</h4>（以下步骤的前提是切换到nmap的目录下能够找到nmap.exe）</li><li>扫描单个主机 nmap.exe 192.168.1.2</li><li>扫描整个子网 nmap.exe 192.168.1.1/24</li><li>扫描多个目标 nmap.exe IP1 IP2</li><li>扫描一个范围内的目标 nmap.exe 192.168.1.1-100(扫描1到100的所有主机)<h4 id="查看扫描的所有主机的列表（加参数-sL）"><a href="#查看扫描的所有主机的列表（加参数-sL）" class="headerlink" title="查看扫描的所有主机的列表（加参数-sL）"></a>查看扫描的所有主机的列表（加参数-sL）</h4></li><li>nmap -sL 192.168.1.1/24<h4 id="扫描除过某一个IP外的所有子网主机"><a href="#扫描除过某一个IP外的所有子网主机" class="headerlink" title="扫描除过某一个IP外的所有子网主机"></a>扫描除过某一个IP外的所有子网主机</h4></li><li>nmapxxx-excludexx****</li><li>include和exclude<h4 id="扫描除过某一个文件中的IP外的子网主机命令"><a href="#扫描除过某一个文件中的IP外的子网主机命令" class="headerlink" title="扫描除过某一个文件中的IP外的子网主机命令"></a>扫描除过某一个文件中的IP外的子网主机命令</h4></li><li>nmapxxx-excludefilexxx.txt(会先读取xxx.file中的IP，然后排除)<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3></li><li>nmap -F -sT -v IP</li><li>-F:扫描100个最有可能开放的端口</li><li>-v 获取扫描的信息</li><li>-sT:采用的是TCP扫描，不写也可，默认为TCP扫描</li><li>-p指定扫描的端口<h3 id="zenmap是可视化界面"><a href="#zenmap是可视化界面" class="headerlink" title="zenmap是可视化界面"></a>zenmap是可视化界面</h3></li><li>可以直接输入域名进行扫描<h2 id="端口扫描状态"><a href="#端口扫描状态" class="headerlink" title="端口扫描状态"></a>端口扫描状态</h2></li><li>open 端口开启，数据有到达主机，有程序在端口上监控</li><li>closed 端口关闭，数据有到达主机，没有程序在端口上监控</li><li>filtered 数据没有到达主机，返回的结果为空，数据被防火墙或者是IDS过滤</li><li>unfiltered 数据有到达主机，但是不能识别端口的当前状态</li><li><img src="D:\CTF学习工具\QQ截图.png"><h2 id="服务版本扫描"><a href="#服务版本扫描" class="headerlink" title="服务版本扫描"></a>服务版本扫描</h2><h2 id="主机系统的指纹识别"><a href="#主机系统的指纹识别" class="headerlink" title="主机系统的指纹识别"></a>主机系统的指纹识别</h2><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h2><h2 id="创建扫描版本"><a href="#创建扫描版本" class="headerlink" title="创建扫描版本"></a>创建扫描版本</h2><h2 id="burpsuite手工测"><a href="#burpsuite手工测" class="headerlink" title="burpsuite手工测"></a>burpsuite手工测</h2><h2 id="TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP"><a href="#TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP" class="headerlink" title="TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)"></a>TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3></li><li>客户端向服务端发送请求</li><li>服务端向客户端发送响应包</li><li>客户端向服务端发送确认相应包</li><li>如果客户端已知不发送，服务端会等待（看服务端的设置状态，例如：等待n秒）<h3 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h3></li><li>当黑客手里握着的主机同时向服务端发送请求时，如果超过服务器能够承受的量，且黑客一直在第三次握手的时候不发送确认包，则会令服务端一直等待，严重的导致拒绝服务<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3></li><li>扫描速度快，准确性高，对操作者没有权限上的要求</li><li>但是容易被防火墙和IDS防入侵系统发现<h2 id="SYN扫描-sS（s表明扫描方式-S表明SYN扫描）"><a href="#SYN扫描-sS（s表明扫描方式-S表明SYN扫描）" class="headerlink" title="SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）"></a>SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）</h2></li><li>秘密的扫描方式</li><li>Client和Server之间没有形成三次握手，所以没有简历一个正常的TCP链接</li><li>不会被防火墙和日志所记录，一般不会在目标主机上留下任何痕迹，但是这种扫描需要root权限<h2 id="使用UDP-ping探测主机"><a href="#使用UDP-ping探测主机" class="headerlink" title="使用UDP ping探测主机"></a>使用UDP ping探测主机</h2>nmap -PU xxx<h2 id="服务器版本探测"><a href="#服务器版本探测" class="headerlink" title="服务器版本探测"></a>服务器版本探测</h2>nmap -sV xxx</li><li>服务器版本即服务器系统的版本<h2 id="精确地确认端口上运行的服务"><a href="#精确地确认端口上运行的服务" class="headerlink" title="精确地确认端口上运行的服务"></a>精确地确认端口上运行的服务</h2>nmap -sV –script unusual-port xxx<h2 id="探测目标主机的操作系统"><a href="#探测目标主机的操作系统" class="headerlink" title="探测目标主机的操作系统"></a>探测目标主机的操作系统</h2></li><li>nmap -O xxx</li><li>nmap -A xxx</li><li>-oN 导出扫描结果</li><li>-oX 导出扫描结果xml格式  </li><li>nmap -A xxx -oX c:\123.xml<h2 id="防火墙躲避绕过"><a href="#防火墙躲避绕过" class="headerlink" title="防火墙躲避绕过"></a>防火墙躲避绕过</h2></li><li>-f 分片绕过</li><li>-D 使用诱饵隐蔽扫描： nmap -D 1.1.1.1,222.222.222.222 xxx</li><li>–source-port 源端口欺骗<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1></li><li>syn扫描器</li><li>扫描外围主机网段</li><li>对应端口爆破工具</li><li>提供访问木马服务器下载的工具</li><li>一个远控<h1 id="AWVS"><a href="#AWVS" class="headerlink" title="AWVS"></a>AWVS</h1></li><li></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 信息收集 </category>
-          
-          <category> 定义 </category>
-          
-          <category> IP </category>
-          
-          <category> CTF </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-            <tag> 信息收集 </tag>
-            
-            <tag> 定义 </tag>
-            
-            <tag> IP </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>域名信息</title>
-      <link href="/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/"/>
-      <url>/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8A/</url>
+      <link href="/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+      <url>/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</url>
       
-        <content type="html"><![CDATA[<h1 id="IP概念"><a href="#IP概念" class="headerlink" title="IP概念"></a>IP概念</h1><ol><li>网络地址：可以用来识别设备所在的网络，网络地址位于IP地址的前端，企业申请IP地址时，获得的不是IP地址，而是唯一的能够识别的网络地址</li><li>主机地址：位于IP地址的后段，可以用来是被网络上的设备，同一网络上的设备都会有相同的网络地址，而各台设备之间通过主机地址来区别<h1 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h1></li><li>版本（4）：IPV6协议版本，其值为6，负责向处理机所运行的IP软件指名此IP数据是IPV6版本</li><li>优先级（4）</li><li>流标号（24）<h1 id="对应IP收集"><a href="#对应IP收集" class="headerlink" title="对应IP收集"></a>对应IP收集</h1></li><li>ping 域名：可以初步获取该地址的服务器相关信息</li><li>相关域名对应IP,相关工具：nslookup：nslookup endl 地址<h1 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h1><a href="http://www.baidu.com/">www.baidu.com</a></li><li>www.或bbs.为主机名，是主机头</li><li>baidu.com为主域名</li><li>bbs.baidu.com或edu.baidu.com为该主域名下的子域名</li><li>子域名的防御性没有主域名高，子域名可能跟主域名在一个服务器上，通过子域名也可以渗透到主域名</li><li>根据主站点来查找:site.baidu.com</li><li>使用layer子域名挖掘机：输入域名，端口，选择暴力枚举还是解析接口</li><li>可以发现多个域名用一个IP<h1 id="whois-注册人-信息查询"><a href="#whois-注册人-信息查询" class="headerlink" title="whois(注册人)信息查询"></a>whois(注册人)信息查询</h1></li><li>根据已知域名反查，分析出此域名的注册人，邮箱。电话</li><li>工具：爱站网，输入域名后点击whois查询<h1 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h1>目的：搜集信息</li><li>扫robots.txt，其中定义了哪些页面不允许爬行（定义的都是一些敏感的）</li><li>安装包（backup）:<a href="http://www.root.rar/zip;beifen.rar/zip;tar.gz">www.root.rar/zip;beifen.rar/zip;tar.gz</a></li><li>上传目录:ewebedit;ckfinder</li><li>mysql:phpmyadmin:pmd/pma/phadmin</li><li>phpinfo</li><li>编辑器</li><li>iis短文件<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2></li><li>字典爆破：御剑：输入域名之后直接开始扫目录</li><li>蜘蛛爬行：菜刀：开spider（蜘蛛爬取），输入域名之后开始爬取（菜刀是轻量级的，所有扫出来的结果将放到桌面）<h1 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h1><h2 id="记得查常用端口"><a href="#记得查常用端口" class="headerlink" title="记得查常用端口"></a>记得查常用端口</h2><h2 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h2><h2 id="portscan-收录在CTFtools中"><a href="#portscan-收录在CTFtools中" class="headerlink" title="portscan(收录在CTFtools中)"></a>portscan(收录在CTFtools中)</h2></li><li>输入起止IP</li><li>设置端口</li><li>点击start<h2 id="ntscan"><a href="#ntscan" class="headerlink" title="ntscan"></a>ntscan</h2><h2 id="telnet-是Windows自带的链接端口的工具"><a href="#telnet-是Windows自带的链接端口的工具" class="headerlink" title="telnet(是Windows自带的链接端口的工具)"></a>telnet(是Windows自带的链接端口的工具)</h2></li><li>格式：telnet 域名 端口（telnet <a href="http://qufutuan.com/">http://qufutuan.com</a> 3306）<h1 id="旁站c站"><a href="#旁站c站" class="headerlink" title="旁站c站"></a>旁站c站</h1><h1 id="整站分析"><a href="#整站分析" class="headerlink" title="整站分析"></a>整站分析</h1><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2></li><li>windows/linux<h2 id="脚本格式"><a href="#脚本格式" class="headerlink" title="脚本格式"></a>脚本格式</h2></li><li>asp aspx php jsp<h2 id="数据库类型"><a href="#数据库类型" class="headerlink" title="数据库类型"></a>数据库类型</h2></li><li>access</li><li>sqlserver</li><li>oracle</li><li>db2</li><li>postgresql</li><li>sqlite<h2 id="防护情况waf"><a href="#防护情况waf" class="headerlink" title="防护情况waf"></a>防护情况waf</h2></li><li>web application firewall<h2 id="cms类型"><a href="#cms类型" class="headerlink" title="cms类型"></a>cms类型</h2></li><li>dedecms</li><li>diguo</li><li>meterinfo</li><li>dz<h2 id="获取cms"><a href="#获取cms" class="headerlink" title="获取cms"></a>获取cms</h2></li><li>使用yunsee输入域名后查询：web指纹，语言，数据库，容器，服务器IP，操作系统<h2 id="操作-1"><a href="#操作-1" class="headerlink" title="操作"></a>操作</h2><h3 id="判断是什么脚本"><a href="#判断是什么脚本" class="headerlink" title="判断是什么脚本"></a>判断是什么脚本</h3></li><li>/index.php若正常则为php脚本</li><li>/index.asp若正常则为asp脚本</li><li>/index.asps若正常则为aspx脚本</li><li>/index.jsp若正常则为jsp脚本<h3 id="判断操作系统"><a href="#判断操作系统" class="headerlink" title="判断操作系统"></a>判断操作系统</h3></li><li>windows不区分大小写，Linux区分大小写</li><li>输入/index.phP(即修改一个字母)若正常则为windows，不正常则为linux（当php脚本存在时）</li><li>注意区分脚本类型<h3 id="测waf"><a href="#测waf" class="headerlink" title="测waf"></a>测waf</h3></li><li>输入and 1=1</li><li>waf会拦截and这一类的参数<h1 id="谷歌hacker"><a href="#谷歌hacker" class="headerlink" title="谷歌hacker"></a>谷歌hacker</h1></li><li>intext:查找网页中含有xx关键字的网站（intext: 管理员登录）</li><li>intitle:查找某个标题（intitle: 后台登录）</li><li>Filetype：查找某个文件类型的文件(数据挖掘 filetype: doc)</li><li>inurl:查找url中带有某字段的网站（inurl: php?id=）</li><li>Site:在某域名中查找信息<h1 id="url采集"><a href="#url采集" class="headerlink" title="url采集"></a>url采集</h1><h1 id="后台查找"><a href="#后台查找" class="headerlink" title="后台查找"></a>后台查找</h1><h2 id="弱口令默认后台"><a href="#弱口令默认后台" class="headerlink" title="弱口令默认后台"></a>弱口令默认后台</h2></li><li>admin,admin/login.asp,manage,login.asp<h2 id="查看网页的链接（超链接）"><a href="#查看网页的链接（超链接）" class="headerlink" title="查看网页的链接（超链接）"></a>查看网页的链接（超链接）</h2></li><li>一般来说，网页的主页有管理登录类似的东西，有些可能被管理员删掉</li><li>选择图片等获取链接，从中截取前半部分关于后台的链接，看看是否能访问<h2 id="查看网站使用的管理系统，从而确定后台"><a href="#查看网站使用的管理系统，从而确定后台" class="headerlink" title="查看网站使用的管理系统，从而确定后台"></a>查看网站使用的管理系统，从而确定后台</h2><h2 id="使用工具查找"><a href="#使用工具查找" class="headerlink" title="使用工具查找"></a>使用工具查找</h2></li><li>御剑</li><li>蜘蛛（菜刀）<h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2></li><li>robots.txt文件告诉蜘蛛程序在服务器上什么样的文件可以被查看<h2 id="googlehacker"><a href="#googlehacker" class="headerlink" title="googlehacker"></a>googlehacker</h2><h2 id="短文件利用"><a href="#短文件利用" class="headerlink" title="短文件利用"></a>短文件利用</h2></li><li>如果有administrator121321312.asp,那么可以直接输入/a<del>!.asp(开头char加</del>加！加文件类型)<h1 id="CDN绕过方法（信息收集上最后）"><a href="#CDN绕过方法（信息收集上最后）" class="headerlink" title="CDN绕过方法（信息收集上最后）"></a>CDN绕过方法（信息收集上最后）</h1><h2 id="什么是CDN"><a href="#什么是CDN" class="headerlink" title="什么是CDN"></a>什么是CDN</h2></li><li>内容分发网络（访问加速）</li><li></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="IP概念"><a href="#IP概念" class="headerlink" title="IP概念"></a>IP概念</h1><ol><li>网络地址：可以用来识别设备所在的网络，网络地址位于IP地址的前端，企业申请IP地址时，获得的不是IP地址，而是唯一的能够识别的网络地址</li><li>主机地址：位于IP地址的后段，可以用来是被网络上的设备，同一网络上的设备都会有相同的网络地址，而各台设备之间通过主机地址来区别<h1 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h1></li><li>版本（4）：IPV6协议版本，其值为6，负责向处理机所运行的IP软件指名此IP数据是IPV6版本</li><li>优先级（4）</li><li>流标号（24）<h1 id="对应IP收集"><a href="#对应IP收集" class="headerlink" title="对应IP收集"></a>对应IP收集</h1></li><li>ping 域名：可以初步获取该地址的服务器相关信息</li><li>相关域名对应IP,相关工具：nslookup：nslookup endl 地址<h1 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h1><a href="http://www.baidu.com/">www.baidu.com</a></li><li>www.或bbs.为主机名，是主机头</li><li>baidu.com为主域名</li><li>bbs.baidu.com或edu.baidu.com为该主域名下的子域名</li><li>子域名的防御性没有主域名高，子域名可能跟主域名在一个服务器上，通过子域名也可以渗透到主域名</li><li>根据主站点来查找:site.baidu.com</li><li>使用layer子域名挖掘机：输入域名，端口，选择暴力枚举还是解析接口</li><li>可以发现多个域名用一个IP<h1 id="whois-注册人-信息查询"><a href="#whois-注册人-信息查询" class="headerlink" title="whois(注册人)信息查询"></a>whois(注册人)信息查询</h1></li><li>根据已知域名反查，分析出此域名的注册人，邮箱。电话</li><li>工具：爱站网，输入域名后点击whois查询<h1 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h1>目的：搜集信息</li><li>扫robots.txt，其中定义了哪些页面不允许爬行（定义的都是一些敏感的）</li><li>安装包（backup）:<a href="http://www.root.rar/zip;beifen.rar/zip;tar.gz">www.root.rar/zip;beifen.rar/zip;tar.gz</a></li><li>上传目录:ewebedit;ckfinder</li><li>mysql:phpmyadmin:pmd/pma/phadmin</li><li>phpinfo</li><li>编辑器</li><li>iis短文件<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2></li><li>字典爆破：御剑：输入域名之后直接开始扫目录</li><li>蜘蛛爬行：菜刀：开spider（蜘蛛爬取），输入域名之后开始爬取（菜刀是轻量级的，所有扫出来的结果将放到桌面）<h1 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h1><h2 id="记得查常用端口"><a href="#记得查常用端口" class="headerlink" title="记得查常用端口"></a>记得查常用端口</h2><h2 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h2><h2 id="portscan-收录在CTFtools中"><a href="#portscan-收录在CTFtools中" class="headerlink" title="portscan(收录在CTFtools中)"></a>portscan(收录在CTFtools中)</h2></li><li>输入起止IP</li><li>设置端口</li><li>点击start<h2 id="ntscan"><a href="#ntscan" class="headerlink" title="ntscan"></a>ntscan</h2><h2 id="telnet-是Windows自带的链接端口的工具"><a href="#telnet-是Windows自带的链接端口的工具" class="headerlink" title="telnet(是Windows自带的链接端口的工具)"></a>telnet(是Windows自带的链接端口的工具)</h2></li><li>格式：telnet 域名 端口（telnet <a href="http://qufutuan.com/">http://qufutuan.com</a> 3306）<h1 id="旁站c站"><a href="#旁站c站" class="headerlink" title="旁站c站"></a>旁站c站</h1><h1 id="整站分析"><a href="#整站分析" class="headerlink" title="整站分析"></a>整站分析</h1><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2></li><li>windows/linux<h2 id="脚本格式"><a href="#脚本格式" class="headerlink" title="脚本格式"></a>脚本格式</h2></li><li>asp aspx php jsp<h2 id="数据库类型"><a href="#数据库类型" class="headerlink" title="数据库类型"></a>数据库类型</h2></li><li>access</li><li>sqlserver</li><li>oracle</li><li>db2</li><li>postgresql</li><li>sqlite<h2 id="防护情况waf"><a href="#防护情况waf" class="headerlink" title="防护情况waf"></a>防护情况waf</h2></li><li>web application firewall<h2 id="cms类型"><a href="#cms类型" class="headerlink" title="cms类型"></a>cms类型</h2></li><li>dedecms</li><li>diguo</li><li>meterinfo</li><li>dz<h2 id="获取cms"><a href="#获取cms" class="headerlink" title="获取cms"></a>获取cms</h2></li><li>使用yunsee输入域名后查询：web指纹，语言，数据库，容器，服务器IP，操作系统<h2 id="操作-1"><a href="#操作-1" class="headerlink" title="操作"></a>操作</h2><h3 id="判断是什么脚本"><a href="#判断是什么脚本" class="headerlink" title="判断是什么脚本"></a>判断是什么脚本</h3></li><li>/index.php若正常则为php脚本</li><li>/index.asp若正常则为asp脚本</li><li>/index.asps若正常则为aspx脚本</li><li>/index.jsp若正常则为jsp脚本<h3 id="判断操作系统"><a href="#判断操作系统" class="headerlink" title="判断操作系统"></a>判断操作系统</h3></li><li>windows不区分大小写，Linux区分大小写</li><li>输入/index.phP(即修改一个字母)若正常则为windows，不正常则为linux（当php脚本存在时）</li><li>注意区分脚本类型<h3 id="测waf"><a href="#测waf" class="headerlink" title="测waf"></a>测waf</h3></li><li>输入and 1=1</li><li>waf会拦截and这一类的参数<h1 id="谷歌hacker"><a href="#谷歌hacker" class="headerlink" title="谷歌hacker"></a>谷歌hacker</h1></li><li>intext:查找网页中含有xx关键字的网站（intext: 管理员登录）</li><li>intitle:查找某个标题（intitle: 后台登录）</li><li>Filetype：查找某个文件类型的文件(数据挖掘 filetype: doc)</li><li>inurl:查找url中带有某字段的网站（inurl: php?id=）</li><li>Site:在某域名中查找信息<h1 id="url采集"><a href="#url采集" class="headerlink" title="url采集"></a>url采集</h1><h1 id="后台查找"><a href="#后台查找" class="headerlink" title="后台查找"></a>后台查找</h1><h2 id="弱口令默认后台"><a href="#弱口令默认后台" class="headerlink" title="弱口令默认后台"></a>弱口令默认后台</h2></li><li>admin,admin/login.asp,manage,login.asp<h2 id="查看网页的链接（超链接）"><a href="#查看网页的链接（超链接）" class="headerlink" title="查看网页的链接（超链接）"></a>查看网页的链接（超链接）</h2></li><li>一般来说，网页的主页有管理登录类似的东西，有些可能被管理员删掉</li><li>选择图片等获取链接，从中截取前半部分关于后台的链接，看看是否能访问<h2 id="查看网站使用的管理系统，从而确定后台"><a href="#查看网站使用的管理系统，从而确定后台" class="headerlink" title="查看网站使用的管理系统，从而确定后台"></a>查看网站使用的管理系统，从而确定后台</h2><h2 id="使用工具查找"><a href="#使用工具查找" class="headerlink" title="使用工具查找"></a>使用工具查找</h2></li><li>御剑</li><li>蜘蛛（菜刀）<h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2></li><li>robots.txt文件告诉蜘蛛程序在服务器上什么样的文件可以被查看<h2 id="googlehacker"><a href="#googlehacker" class="headerlink" title="googlehacker"></a>googlehacker</h2><h2 id="短文件利用"><a href="#短文件利用" class="headerlink" title="短文件利用"></a>短文件利用</h2></li><li>如果有administrator121321312.asp,那么可以直接输入/a<del>!.asp(开头char加</del>加！加文件类型)<h1 id="CDN绕过方法（信息收集上最后）"><a href="#CDN绕过方法（信息收集上最后）" class="headerlink" title="CDN绕过方法（信息收集上最后）"></a>CDN绕过方法（信息收集上最后）</h1><h2 id="什么是CDN"><a href="#什么是CDN" class="headerlink" title="什么是CDN"></a>什么是CDN</h2></li><li>内容分发网络（访问加速）</li></ol><h1 id="信息收集下"><a href="#信息收集下" class="headerlink" title="信息收集下"></a>信息收集下</h1><h2 id="操作方向"><a href="#操作方向" class="headerlink" title="操作方向"></a>操作方向</h2><ol><li>域名信息</li><li>whois信息</li><li>目录信息</li><li>谷歌hacker</li><li>整站分析</li><li>旁站c端</li><li>后台查找</li><li>cdn绕过</li><li>app</li><li>host.txt</li></ol><h2 id="自动跑漏洞工具"><a href="#自动跑漏洞工具" class="headerlink" title="自动跑漏洞工具"></a>自动跑漏洞工具</h2><h3 id="Nmap端口扫描王"><a href="#Nmap端口扫描王" class="headerlink" title="Nmap端口扫描王"></a>Nmap端口扫描王</h3><h4 id="主机探测（看哪些主机IP在线）（up-down）"><a href="#主机探测（看哪些主机IP在线）（up-down）" class="headerlink" title="主机探测（看哪些主机IP在线）（up/down）"></a>主机探测（看哪些主机IP在线）（up/down）</h4><p>（以下步骤的前提是切换到nmap的目录下能够找到nmap.exe）</p><ol><li>扫描单个主机 nmap.exe 192.168.1.2</li><li>扫描整个子网 nmap.exe 192.168.1.1/24</li><li>扫描多个目标 nmap.exe IP1 IP2</li><li>扫描一个范围内的目标 nmap.exe 192.168.1.1-100(扫描1到100的所有主机)</li></ol><h4 id="查看扫描的所有主机的列表（加参数-sL）"><a href="#查看扫描的所有主机的列表（加参数-sL）" class="headerlink" title="查看扫描的所有主机的列表（加参数-sL）"></a>查看扫描的所有主机的列表（加参数-sL）</h4><ol><li>nmap -sL 192.168.1.1/24</li></ol><h4 id="扫描除过某一个IP外的所有子网主机"><a href="#扫描除过某一个IP外的所有子网主机" class="headerlink" title="扫描除过某一个IP外的所有子网主机"></a>扫描除过某一个IP外的所有子网主机</h4><ol><li>nmapxxx-excludexx****</li><li>include和exclude</li></ol><h4 id="扫描除过某一个文件中的IP外的子网主机命令"><a href="#扫描除过某一个文件中的IP外的子网主机命令" class="headerlink" title="扫描除过某一个文件中的IP外的子网主机命令"></a>扫描除过某一个文件中的IP外的子网主机命令</h4><ol><li>nmapxxx-excludefilexxx.txt(会先读取xxx.file中的IP，然后排除)</li></ol><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ol><li>nmap -F -sT -v IP</li><li>-F:扫描100个最有可能开放的端口</li><li>-v 获取扫描的信息</li><li>-sT:采用的是TCP扫描，不写也可，默认为TCP扫描</li><li>-p指定扫描的端口</li></ol><h3 id="zenmap是可视化界面"><a href="#zenmap是可视化界面" class="headerlink" title="zenmap是可视化界面"></a>zenmap是可视化界面</h3><ol><li>可以直接输入域名进行扫描</li></ol><h2 id="端口扫描状态"><a href="#端口扫描状态" class="headerlink" title="端口扫描状态"></a>端口扫描状态</h2><ol><li>open 端口开启，数据有到达主机，有程序在端口上监控</li><li>closed 端口关闭，数据有到达主机，没有程序在端口上监控</li><li>filtered 数据没有到达主机，返回的结果为空，数据被防火墙或者是IDS过滤</li><li>unfiltered 数据有到达主机，但是不能识别端口的当前状态</li><li><img src="D:\CTF学习工具\QQ截图.png"></li></ol><h2 id="服务版本扫描"><a href="#服务版本扫描" class="headerlink" title="服务版本扫描"></a>服务版本扫描</h2><h2 id="主机系统的指纹识别"><a href="#主机系统的指纹识别" class="headerlink" title="主机系统的指纹识别"></a>主机系统的指纹识别</h2><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h2><h2 id="创建扫描版本"><a href="#创建扫描版本" class="headerlink" title="创建扫描版本"></a>创建扫描版本</h2><h2 id="burpsuite手工测"><a href="#burpsuite手工测" class="headerlink" title="burpsuite手工测"></a>burpsuite手工测</h2><h2 id="TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP"><a href="#TCP扫描三次握手-sT-s表明扫描方式，T表明是TCP" class="headerlink" title="TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)"></a>TCP扫描三次握手 -sT(s表明扫描方式，T表明是TCP)</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol><li>客户端向服务端发送请求</li><li>服务端向客户端发送响应包</li><li>客户端向服务端发送确认相应包</li><li>如果客户端已知不发送，服务端会等待（看服务端的设置状态，例如：等待n秒）</li></ol><h3 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h3><ol><li>当黑客手里握着的主机同时向服务端发送请求时，如果超过服务器能够承受的量，且黑客一直在第三次握手的时候不发送确认包，则会令服务端一直等待，严重的导致拒绝服务</li></ol><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol><li>扫描速度快，准确性高，对操作者没有权限上的要求</li><li>但是容易被防火墙和IDS防入侵系统发现</li></ol><h2 id="SYN扫描-sS（s表明扫描方式-S表明SYN扫描）"><a href="#SYN扫描-sS（s表明扫描方式-S表明SYN扫描）" class="headerlink" title="SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）"></a>SYN扫描 -sS（s表明扫描方式,S表明SYN扫描）</h2><ol><li>秘密的扫描方式</li><li>Client和Server之间没有形成三次握手，所以没有简历一个正常的TCP链接</li><li>不会被防火墙和日志所记录，一般不会在目标主机上留下任何痕迹，但是这种扫描需要root权限</li></ol><h2 id="使用UDP-ping探测主机"><a href="#使用UDP-ping探测主机" class="headerlink" title="使用UDP ping探测主机"></a>使用UDP ping探测主机</h2><p>nmap -PU xxx</p><h2 id="服务器版本探测"><a href="#服务器版本探测" class="headerlink" title="服务器版本探测"></a>服务器版本探测</h2><p>nmap -sV xxx</p><ol><li>服务器版本即服务器系统的版本</li></ol><h2 id="精确地确认端口上运行的服务"><a href="#精确地确认端口上运行的服务" class="headerlink" title="精确地确认端口上运行的服务"></a>精确地确认端口上运行的服务</h2><p>nmap -sV –script unusual-port xxx</p><h2 id="探测目标主机的操作系统"><a href="#探测目标主机的操作系统" class="headerlink" title="探测目标主机的操作系统"></a>探测目标主机的操作系统</h2><ol><li>nmap -O xxx</li><li>nmap -A xxx</li><li>-oN 导出扫描结果</li><li>-oX 导出扫描结果xml格式  </li><li>nmap -A xxx -oX c:\123.xml</li></ol><h2 id="防火墙躲避绕过"><a href="#防火墙躲避绕过" class="headerlink" title="防火墙躲避绕过"></a>防火墙躲避绕过</h2><ol><li>-f 分片绕过</li><li>-D 使用诱饵隐蔽扫描： nmap -D 1.1.1.1,222.222.222.222 xxx</li><li>–source-port 源端口欺骗</li></ol><h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ol><li>syn扫描器</li><li>扫描外围主机网段</li><li>对应端口爆破工具</li><li>提供访问木马服务器下载的工具</li><li>一个远控</li></ol>]]></content>
       
       
       <categories>
@@ -2363,7 +2221,7 @@
       <link href="/git/"/>
       <url>/git/</url>
       
-        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li><p>工作区：仓库的目录</p></li><li><p>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</p></li><li><p>版本库：存放所有已经提交到本地仓库的代码版本</p></li><li><p>版本结构：树结构，树中每个节点代表一个代码版本</p><h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li><p>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</p></li><li><p>git config –global user.email <a href="mailto:&#x78;&#120;&#x78;&#x40;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#x6d;">&#x78;&#120;&#x78;&#x40;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</p></li><li><p>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</p></li><li><p>git add xxx:将xxx文件添加到暂存区</p></li><li><p>git add .:将所有待加入暂存区的文件加入暂存区</p></li><li><p>git rm –catched xx:将文件从仓库索引目录中删掉</p></li><li><p>git log :查看xx当前分支中的所有版本 </p></li><li><p>git reflog : 查看HEAD指针的移动历史</p></li><li><p>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</p></li><li><p>git reset –hard HEAD^^回滚两次，以此类推</p></li><li><p>git reset –hard HEAD~num:回滚num次</p></li><li><p>git reset –hard 版本号：回滚到某一特定版本</p></li><li><p>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</p></li><li><p>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#46;&#97;&#99;&#x77;&#105;&#110;&#103;&#46;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#46;&#97;&#99;&#x77;&#105;&#110;&#103;&#46;&#99;&#x6f;&#x6d;</a>:…将本地仓库关联到远程仓库</p></li><li><p>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</p></li><li><p>git push origin branch_name:将本地的某个分支推送到远程仓库</p></li><li><p>git clone <a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#46;&#97;&#x63;&#119;&#105;&#x6e;&#103;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#46;&#97;&#x63;&#119;&#105;&#x6e;&#103;&#46;&#x63;&#x6f;&#x6d;</a>:…将远程仓库xxx下载到当前目录下</p></li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol><h1 id="git的第二次学习"><a href="#git的第二次学习" class="headerlink" title="git的第二次学习"></a>git的第二次学习</h1><h2 id="git的作用"><a href="#git的作用" class="headerlink" title="git的作用"></a>git的作用</h2><ol><li>  <strong>存档</strong>，commit，提交一个新的版本，可以通过git回滚到之前的版本</li><li>  如果自己电脑和服务器的代码不同，则git可以用来<strong>同步不同机器上的代码</strong></li></ol><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><ol><li>  创建文件夹</li><li>  git init</li><li>  写一个readme.md</li><li>  git status</li><li>  git add . 将当前目录下的所有未收录的文件收录到仓库中</li><li>  git status 再次查看git的状态</li><li>  git commit -m “创建项目”</li><li>  查看github或者gitlab,看看键入的相关信息</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829165623.png"></li><li>  去掉–global，否则所有项目都是一个配置 </li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829185301.png"></li></ol><h2 id="后期使用"><a href="#后期使用" class="headerlink" title="后期使用"></a>后期使用</h2><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><ol><li>  在目录下写完东西</li><li>  git status</li><li>  git add .</li><li>  git commit -m “这一个版本的名字”</li><li>  git push</li><li>  最后的push不能忘记，因为如果没有push，则不会传到仓库中</li></ol><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ol><li>  删除和添加的操作相同</li><li>  git status查看现在git的状态</li><li>  git add .</li><li>  git commit -m “xxx”</li><li>  git push</li></ol><h3 id="将仓库中的代码同步到自己的本子上"><a href="#将仓库中的代码同步到自己的本子上" class="headerlink" title="将仓库中的代码同步到自己的本子上"></a>将仓库中的代码同步到自己的本子上</h3><pre class="line-numbers language-none"><code class="language-none">git pull<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="查看所有版本的代码"><a href="#查看所有版本的代码" class="headerlink" title="查看所有版本的代码"></a>查看所有版本的代码</h3><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829193640.png"></li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829193723.png"></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="将历史版本代码用树的形式来整合利用"><a href="#将历史版本代码用树的形式来整合利用" class="headerlink" title="将历史版本代码用树的形式来整合利用"></a>将历史版本代码用树的形式来整合利用</h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol><li><p>工作区：仓库的目录</p></li><li><p>暂存区：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，暂存区是独立于各个分支的</p></li><li><p>版本库：存放所有已经提交到本地仓库的代码版本</p></li><li><p>版本结构：树结构，树中每个节点代表一个代码版本</p><h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2></li><li><p>git config –global user.name xxx:设置全局用户名，信息将记录在~/.gitconfig文件中</p></li><li><p>git config –global user.email <a href="mailto:&#120;&#x78;&#x78;&#64;&#120;&#120;&#120;&#x2e;&#99;&#x6f;&#x6d;">&#120;&#x78;&#x78;&#64;&#120;&#120;&#120;&#x2e;&#99;&#x6f;&#x6d;</a>:设置全局邮箱地址，信息将记录在~/.gitconfig文件中</p></li><li><p>git init：将当前目录配置成git仓库，信息将记录在隐藏的.git文件夹中</p></li><li><p>git add xxx:将xxx文件添加到暂存区</p></li><li><p>git add .:将所有待加入暂存区的文件加入暂存区</p></li><li><p>git rm –catched xx:将文件从仓库索引目录中删掉</p></li><li><p>git log :查看xx当前分支中的所有版本 </p></li><li><p>git reflog : 查看HEAD指针的移动历史</p></li><li><p>git reset –hard HEAD^或git reset –hard HEAD~：将代码库回滚到上个版本</p></li><li><p>git reset –hard HEAD^^回滚两次，以此类推</p></li><li><p>git reset –hard HEAD~num:回滚num次</p></li><li><p>git reset –hard 版本号：回滚到某一特定版本</p></li><li><p>git checkout - XX 或 git restore XX :将XX文件尚未加入暂存区的修改全部撤销</p></li><li><p>git remote add origin <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#46;&#97;&#x63;&#x77;&#x69;&#x6e;&#103;&#46;&#99;&#x6f;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#46;&#97;&#x63;&#x77;&#x69;&#x6e;&#103;&#46;&#99;&#x6f;&#109;</a>:…将本地仓库关联到远程仓库</p></li><li><p>git push -u:将当前分支推送到远程仓库（第一次需要0u，以后不需要）</p></li><li><p>git push origin branch_name:将本地的某个分支推送到远程仓库</p></li><li><p>git clone <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x2e;&#x61;&#x63;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x2e;&#x61;&#x63;&#119;&#x69;&#x6e;&#x67;&#x2e;&#99;&#111;&#109;</a>:…将远程仓库xxx下载到当前目录下</p></li><li></li></ol><h1 id="节点只负责存储版本，注意区分暂存区和工作区"><a href="#节点只负责存储版本，注意区分暂存区和工作区" class="headerlink" title="节点只负责存储版本，注意区分暂存区和工作区"></a>节点只负责存储版本，注意区分暂存区和工作区</h1><ol><li>git restore xxx:将工作区的文件回滚到暂存区版本</li><li>git restore –staged xxx:将暂存区的版本回滚到库中版本</li></ol><h1 id="git的第二次学习"><a href="#git的第二次学习" class="headerlink" title="git的第二次学习"></a>git的第二次学习</h1><h2 id="git的作用"><a href="#git的作用" class="headerlink" title="git的作用"></a>git的作用</h2><ol><li>  <strong>存档</strong>，commit，提交一个新的版本，可以通过git回滚到之前的版本</li><li>  如果自己电脑和服务器的代码不同，则git可以用来<strong>同步不同机器上的代码</strong></li></ol><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><ol><li>  创建文件夹</li><li>  git init</li><li>  写一个readme.md</li><li>  git status</li><li>  git add . 将当前目录下的所有未收录的文件收录到仓库中</li><li>  git status 再次查看git的状态</li><li>  git commit -m “创建项目”</li><li>  查看github或者gitlab,看看键入的相关信息</li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829165623.png"></li><li>  去掉–global，否则所有项目都是一个配置 </li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829185301.png"></li></ol><h2 id="后期使用"><a href="#后期使用" class="headerlink" title="后期使用"></a>后期使用</h2><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><ol><li>  在目录下写完东西</li><li>  git status</li><li>  git add .</li><li>  git commit -m “这一个版本的名字”</li><li>  git push</li><li>  最后的push不能忘记，因为如果没有push，则不会传到仓库中</li></ol><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ol><li>  删除和添加的操作相同</li><li>  git status查看现在git的状态</li><li>  git add .</li><li>  git commit -m “xxx”</li><li>  git push</li></ol><h3 id="将仓库中的代码同步到自己的本子上"><a href="#将仓库中的代码同步到自己的本子上" class="headerlink" title="将仓库中的代码同步到自己的本子上"></a>将仓库中的代码同步到自己的本子上</h3><pre class="line-numbers language-none"><code class="language-none">git pull<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="查看所有版本的代码"><a href="#查看所有版本的代码" class="headerlink" title="查看所有版本的代码"></a>查看所有版本的代码</h3><ol><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829193640.png"></li><li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829193723.png"></li></ol>]]></content>
       
       
       <categories>
@@ -2634,9 +2492,9 @@
       
         <tags>
             
-            <tag> 定义 </tag>
-            
             <tag> 文件修复 </tag>
+            
+            <tag> 定义 </tag>
             
         </tags>
       
@@ -2649,7 +2507,7 @@
       <link href="/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
       <url>/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#120;&#x78;&#x78;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#120;&#120;&#x78;&#x78;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="博客搭建过程中常见问题"><a href="#博客搭建过程中常见问题" class="headerlink" title="博客搭建过程中常见问题"></a>博客搭建过程中常见问题</h1><h2 id="spawn-error"><a href="#spawn-error" class="headerlink" title="spawn error"></a>spawn error</h2><ol><li>需要改config文件下的repo<h2 id="改写ssh密钥"><a href="#改写ssh密钥" class="headerlink" title="改写ssh密钥"></a>改写ssh密钥</h2></li><li>删掉C盘用户中的.ssh文件</li><li>ssh-keygen -t rsa -C <a href="mailto:&#120;&#120;&#x78;&#120;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#120;&#120;&#x78;&#120;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a> 一定要加上邮箱！！！</li><li>再次打开.ssh文件（用啥都行，有一次直接IE都能打开）</li><li> <img src="https://s4.ax1x.com/2021/12/05/oDfnE9.png"><h2 id="主题无法上传但是本地可以"><a href="#主题无法上传但是本地可以" class="headerlink" title="主题无法上传但是本地可以"></a>主题无法上传但是本地可以</h2></li><li>一定一定一定要修改blog文件中的_config.yml文件中的URL，将其替换为自己博客的地址！！！！！！</li><li><img src="https://s4.ax1x.com/2021/12/05/oDhdZ4.png"></li><li>就是这个地方</li></ol>]]></content>
       
       
       <categories>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="更好的明天">
+    <meta name="keywords" content="zip伪加密, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>更好的明天</title>
+    <title>zip伪加密 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">zip伪加密</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +429,41 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CTF/">
+                                <span class="chip bg-color">CTF</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/">
+                                <span class="chip bg-color">文件修复</span>
+                            </a>
+                        
+                            <a href="/tags/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">
+                                <span class="chip bg-color">zip伪加密</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CTF/" class="post-category">
+                                CTF
+                            </a>
+                        
+                            <a href="/categories/CTF/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/" class="post-category">
+                                zip伪加密
+                            </a>
+                        
+                            <a href="/categories/CTF/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" class="post-category">
+                                文件修复
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -443,7 +472,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-05-28
+                    2022-03-27
                 </div>
                 
 
@@ -452,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    132
+                    613
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -482,31 +511,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="pyshell"><a href="#pyshell" class="headerlink" title="pyshell"></a>pyshell</h1><ol>
-<li>  python的shell终端</li>
-<li>  拼接读取flag的字符串后用eval()进行执行，即可获得flag</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145149.png"></li>
+                <h1 id="参考博客地址"><a href="#参考博客地址" class="headerlink" title="参考博客地址"></a>参考博客地址</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cute-puli/p/16042101.html">https://www.cnblogs.com/cute-puli/p/16042101.html</a></li>
 </ol>
-<h1 id="dumpit"><a href="#dumpit" class="headerlink" title="dumpit"></a>dumpit</h1><ol>
-<li><p>对/flag下所有提供的参数进行测试，发现提供的第二个参数可以到日志</p>
-<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145934.png"></p>
-<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150053.png"></p>
-</li>
-<li><p>  过滤了post和get，不能直接将木马写入参数中执行</p>
-</li>
-<li><p>  这里采用echo重定向的方式，将待执行的命令写入到User-Agent中，并重定向到/app/log/a.php中</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150351.png"></p>
-</li>
-<li><p>  访问/log/a.php发现可以成功执行</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150427.png"></p>
-</li>
-<li><p>  最后在env环境变量中找到flag</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150515.png"></p>
-</li>
+<h1 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h1><h2 id="010或者winhex"><a href="#010或者winhex" class="headerlink" title="010或者winhex"></a>010或者winhex</h2><ol>
+<li>建议使用010editor</li>
+<li>因为可以自动区分数据区，目录区和目录结束标志<h3 id="zip文件组成"><a href="#zip文件组成" class="headerlink" title="zip文件组成"></a>zip文件组成</h3></li>
+<li>压缩源文件数据区</li>
+<li>压缩源文件目录区</li>
+<li>压缩源文件目录结束标志</li>
 </ol>
+<h1 id="奇数为加密，偶数为不加密"><a href="#奇数为加密，偶数为不加密" class="headerlink" title="奇数为加密，偶数为不加密"></a>奇数为加密，偶数为不加密</h1><h1 id="无加密："><a href="#无加密：" class="headerlink" title="无加密："></a>无加密：</h1><ol>
+<li>压缩源文件数据区的全局加密应为00 00</li>
+<li>压缩源文件目录区的全局方式位标记应为00 00</li>
+</ol>
+<h1 id="假加密"><a href="#假加密" class="headerlink" title="假加密"></a>假加密</h1><ol>
+<li>压缩源文件数据区的全局加密应为00 00</li>
+<li>压缩源文件目录区的全局加密方式应为 00 90</li>
+</ol>
+<h1 id="真加密"><a href="#真加密" class="headerlink" title="真加密"></a>真加密</h1><ol>
+<li>压缩源文件数据区的全局加密应为00 00</li>
+<li>压缩源文件目录去的全局方式应为00 90</li>
+</ol>
+<p>压缩源文件数据区：<br>50 4B 03 04：这是头文件标记（0x04034b50）<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>00 00：扩展记录长度</p>
+<p>压缩源文件目录区：<br>50 4B 01 02：目录中文件文件头标记(0x02014b50)<br>3F 00：压缩使用的 pkware 版本<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密，这个更改这里进行伪加密，改为09 00打开就会提示有密码了）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>24 00：扩展字段长度<br>00 00：文件注释长度<br>00 00：磁盘开始号<br>00 00：内部文件属性<br>20 00 00 00：外部文件属性<br>00 00 00 00：局部头部偏移量</p>
+<p>压缩源文件目录结束标志：<br>50 4B 05 06：目录结束标记<br>00 00：当前磁盘编号<br>00 00：目录区开始磁盘编号<br>01 00：本磁盘上纪录总数<br>01 00：目录区中纪录总数<br>59 00 00 00：目录区尺寸大小<br>3E 00 00 00：目录区对第一张磁盘的偏移量<br>00 00：ZIP 文件注释长度</p>
 
                 
             </div>
@@ -533,7 +562,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/28%E6%97%A5ciscn/">https://www.strongwill.top/28%E6%97%A5ciscn/</a>
+                    <a href="https://www.strongwill.top/zip%E4%BC%AA%E5%8A%A0%E5%AF%86%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/">https://www.strongwill.top/zip%E4%BC%AA%E5%8A%A0%E5%AF%86%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -570,7 +599,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/CTF/">
+                                    <span class="chip bg-color">CTF</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/">
+                                    <span class="chip bg-color">文件修复</span>
+                                </a>
+                            
+                                <a href="/tags/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">
+                                    <span class="chip bg-color">zip伪加密</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -738,18 +779,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/28%E6%97%A5ciscn/">
+                <a href="/foreign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="foreign key用法详解">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">foreign key用法详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -759,18 +799,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-29
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            syk
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -781,13 +832,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/ssrf%E6%BC%8F%E6%B4%9E/">
+                <a href="/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ssrf漏洞">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="信息泄露">
                         
-                        <span class="card-title">ssrf漏洞</span>
+                        <span class="card-title">信息泄露</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -798,13 +849,17 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF/" class="post-category">
+                            <a href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" class="post-category">
+                                    信息泄露
+                                </a>
+                            
+                            <a href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/CTF/" class="post-category">
                                     CTF
                                 </a>
                             
@@ -817,6 +872,10 @@
                     
                     <a href="/tags/CTF/">
                         <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">
+                        <span class="chip bg-color">信息泄露</span>
                     </a>
                     
                 </div>

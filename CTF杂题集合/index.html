@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="zip伪加密, 更好的明天">
+    <meta name="keywords" content="CTF杂题集合, 更好的明天">
     <meta name="description" content="打ACM和CTF，未来的人上人，嘿嘿">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>zip伪加密 | 更好的明天</title>
+    <title>CTF杂题集合 | 更好的明天</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">zip伪加密</h1>
+                    <h1 class="description center-align post-title">CTF杂题集合</h1>
                 </div>
             </div>
         </div>
@@ -435,14 +435,6 @@
                                 <span class="chip bg-color">CTF</span>
                             </a>
                         
-                            <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/">
-                                <span class="chip bg-color">文件修复</span>
-                            </a>
-                        
-                            <a href="/tags/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">
-                                <span class="chip bg-color">zip伪加密</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -455,14 +447,6 @@
                                 CTF
                             </a>
                         
-                            <a href="/categories/CTF/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/" class="post-category">
-                                zip伪加密
-                            </a>
-                        
-                            <a href="/categories/CTF/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" class="post-category">
-                                文件修复
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -472,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-27
+                    2023-06-24
                 </div>
                 
 
@@ -481,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    613
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -511,31 +495,156 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="参考博客地址"><a href="#参考博客地址" class="headerlink" title="参考博客地址"></a>参考博客地址</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cute-puli/p/16042101.html">https://www.cnblogs.com/cute-puli/p/16042101.html</a></li>
+                <h1 id="CTF杂题集合"><a href="#CTF杂题集合" class="headerlink" title="CTF杂题集合"></a>CTF杂题集合</h1><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到："><a href="#签到：" class="headerlink" title="签到："></a>签到：</h3><ol>
+<li>010editor打开发现PK开头，知道是一个zip压缩包</li>
+<li>更改后缀为.zip，解压打开发现flag</li>
 </ol>
-<h1 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h1><h2 id="010或者winhex"><a href="#010或者winhex" class="headerlink" title="010或者winhex"></a>010或者winhex</h2><ol>
-<li>建议使用010editor</li>
-<li>因为可以自动区分数据区，目录区和目录结束标志<h3 id="zip文件组成"><a href="#zip文件组成" class="headerlink" title="zip文件组成"></a>zip文件组成</h3></li>
-<li>压缩源文件数据区</li>
-<li>压缩源文件目录区</li>
-<li>压缩源文件目录结束标志</li>
+<h3 id="签到：-1"><a href="#签到：-1" class="headerlink" title="签到："></a>签到：</h3><ol>
+<li>BASE85{6:”O=1GX;K8jQKJ;G(“;DhKL9h)S6;BsD:IJ&gt;[;HHmd9h[rJ1c/0%&lt;(g@i6&lt;6QU&lt;\d]P7RpNU:eETA&lt;BWK.4ZtrV}</li>
+<li>BASE85解一层出base35</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIiNQ"><img src="https://s1.ax1x.com/2022/03/27/qwIiNQ.png" alt="qwIiNQ.png"></a></li>
+<li>再解一层给出微信id</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIE3n"><img src="https://s1.ax1x.com/2022/03/27/qwIE3n.png" alt="qwIE3n.png"></a></li>
+<li>微信加好友有备注即可获得flag</li>
 </ol>
-<h1 id="奇数为加密，偶数为不加密"><a href="#奇数为加密，偶数为不加密" class="headerlink" title="奇数为加密，偶数为不加密"></a>奇数为加密，偶数为不加密</h1><h1 id="无加密："><a href="#无加密：" class="headerlink" title="无加密："></a>无加密：</h1><ol>
-<li>压缩源文件数据区的全局加密应为00 00</li>
-<li>压缩源文件目录区的全局方式位标记应为00 00</li>
+<h3 id="黑化的维亚"><a href="#黑化的维亚" class="headerlink" title="黑化的维亚"></a>黑化的维亚</h3><ol>
+<li>用stegsolve打开，查看不同色域下的图片</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwIgDf"><img src="https://s1.ax1x.com/2022/03/27/qwIgDf.png" alt="qwIgDf.png"></a></li>
+<li>找到flag的上一级（我一开始还以为这就是flag，提交不对）</li>
+<li>后面看到!123和fkvd这么不规则但是又像flag的</li>
+<li>后面尝试偏移量为0，1，2，3的栅栏密码，即可解得flag</li>
 </ol>
-<h1 id="假加密"><a href="#假加密" class="headerlink" title="假加密"></a>假加密</h1><ol>
-<li>压缩源文件数据区的全局加密应为00 00</li>
-<li>压缩源文件目录区的全局加密方式应为 00 90</li>
+<h3 id="0和1的故事"><a href="#0和1的故事" class="headerlink" title="0和1的故事"></a>0和1的故事</h3><ol>
+<li>解压后里面有一个txt文件，打开后看最后发现有==，知道是base64解码</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwb2tO"><img src="https://s1.ax1x.com/2022/03/27/qwb2tO.png" alt="qwb2tO.png"></a></li>
+<li>解码网站<a target="_blank" rel="noopener" href="https://the-x.cn/base64/">https://the-x.cn/base64/</a></li>
+<li>解码后发现里面有一个png文件，图片中全是01字符</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwbonI"><img src="https://s1.ax1x.com/2022/03/27/qwbonI.png" alt="qwbonI.png"></a></li>
+<li>两种选择，一种是利用手机去扫描出文本，第二种是在linux环境下cat出01字符串</li>
+<li>得到01字符一开始还以为是一个二进制文件或者是培根密码，然后我五位一解，（解出来的都是什么东西。。。）（培根密码是0为a，1为b，依此得出不同字符）</li>
+<li>长和宽相同的情况下猜测是二维码，但是上学期学的py都被时间冲刷干净了，我就在网上找脚本，但是找到的因为MAXN设定的不同，无法得到正确的二维码（轻易改动数据，也会出现数组越界的segementation fault的问题）</li>
+<li>后面用excel表格去做，将1所在的单元格填充为黑色，0所在的单元格填充为白色（可能出现的绿色不会影响二维码扫描）</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwbbAf"><img src="https://s1.ax1x.com/2022/03/27/qwbbAf.png" alt="qwbbAf.png"></a></li>
+<li>扫描后即可得到flag{Stories_of_0_and_1}</li>
 </ol>
-<h1 id="真加密"><a href="#真加密" class="headerlink" title="真加密"></a>真加密</h1><ol>
-<li>压缩源文件数据区的全局加密应为00 00</li>
-<li>压缩源文件目录去的全局方式应为00 90</li>
+<h2 id="web题"><a href="#web题" class="headerlink" title="web题"></a>web题</h2><h3 id="Robot"><a href="#Robot" class="headerlink" title="Robot"></a>Robot</h3><ol>
+<li>上来一看什么也没有，就猜测是哪几种题型（反正不可能上来就是sql注入文件上传之类的，没有地方注入东西）</li>
+<li>用御剑字典爆破后缀或者用spider去爬，发现有一个txt为后缀的，打开网页得到4ll.html</li>
+<li>我一开始还以为是411，结果404就搁置了好久，最后有hint发布，“411和4ll真的能分清吗”，在hackbar中打开，给后缀，excute后给出I have tell you all的字符,还是没有什么东西</li>
+<li>ctrl + u查看源代码发现flag</li>
+<li>这里由于没有保留截图，也没有环境，暂无截图</li>
 </ol>
-<p>压缩源文件数据区：<br>50 4B 03 04：这是头文件标记（0x04034b50）<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>00 00：扩展记录长度</p>
-<p>压缩源文件目录区：<br>50 4B 01 02：目录中文件文件头标记(0x02014b50)<br>3F 00：压缩使用的 pkware 版本<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密，这个更改这里进行伪加密，改为09 00打开就会提示有密码了）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>24 00：扩展字段长度<br>00 00：文件注释长度<br>00 00：磁盘开始号<br>00 00：内部文件属性<br>20 00 00 00：外部文件属性<br>00 00 00 00：局部头部偏移量</p>
-<p>压缩源文件目录结束标志：<br>50 4B 05 06：目录结束标记<br>00 00：当前磁盘编号<br>00 00：目录区开始磁盘编号<br>01 00：本磁盘上纪录总数<br>01 00：目录区中纪录总数<br>59 00 00 00：目录区尺寸大小<br>3E 00 00 00：目录区对第一张磁盘的偏移量<br>00 00：ZIP 文件注释长度</p>
+<h3 id="ezsql"><a href="#ezsql" class="headerlink" title="ezsql"></a>ezsql</h3><ol>
+<li>我不知道给的那个hint是什么意思。。。</li>
+<li>强大的工具一把梭，我sqlmap跑了好久都没有</li>
+<li>这里浅谈一下我的思路吧</li>
+<li>两个登录框，分别给出1，1，用burp抓包，发现是post包，post注入</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwLEIf"><img src="https://s1.ax1x.com/2022/03/27/qwLEIf.png" alt="qwLEIf.png"></a></li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwLJiT"><img src="https://s1.ax1x.com/2022/03/27/qwLJiT.png" alt="qwLJiT.png"></a></li>
+<li>sqlmap post注入的命令分别是：</li>
+<li>sqlmap -r “admin.txt” –dbs (–level n)(默认为level 1)</li>
+<li>sqlmap -r “admin.txt” -D xxx –tables</li>
+<li>sqlmap -r “admin.txt” -D xxx -T xxx –columns</li>
+<li>sqlmap -r “admin.txt” -D xxx –T xxx -C xxx –dump</li>
+</ol>
+<h2 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h2><ol>
+<li>猪圈+银河骑士+圣殿+栅栏</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qwL7Y8"><img src="https://s1.ax1x.com/2022/03/27/qwL7Y8.png" alt="qwL7Y8.png"></a></li>
+</ol>
+<h1 id="base64解密"><a href="#base64解密" class="headerlink" title="base64解密"></a>base64解密</h1><pre class="line-numbers language-none"><code class="language-none">来签个到吧！我把奖励放在这里了，手慢无。ZmxhZ3t3ZWxjb21ldG8xMDA4Nn0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>因为后面没有明显的==或者=，一开始没想到是base64，就把hex，之类的编码都试了试，试到base64借出flag</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731171328.png"></li>
+</ol>
+<h1 id="凯撒加密"><a href="#凯撒加密" class="headerlink" title="凯撒加密"></a>凯撒加密</h1><pre class="line-numbers language-none"><code class="language-none">相传有一位大帝叫Caesar，他发明了一种神秘的编码，你能解开这段密文吗？
+密文内容：mshn&#123;jhlzhy_pz_mbuufek&#125;。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol>
+<li>题目明显指出是凯撒加密，凯撒加密原理是偏移，1~26之间的字符偏移量</li>
+<li>题目前面给的格式很像flag{},m和f之间的字节偏移量为7，即可得到flag<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731171636.png"></li>
+</ol>
+<h2 id="解编码和解古典密码学的网站"><a href="#解编码和解古典密码学的网站" class="headerlink" title="解编码和解古典密码学的网站"></a>解编码和解古典密码学的网站</h2><ol>
+<li>cyberchef</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;cyberchef.org&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>CTF在线工具</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;www.hiencode.com&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h1><ol>
+<li>黑客通过webshell往web服务器中写入了一串机密信息，你能找出机密信息吗</li>
+<li>webshell后门，我有一个很奇怪的设想，如果不想配置ssh免密登录之类的，可以直接往服务器里丢一个后门，然后蚁剑去连就可以登录了，但是有被杀的风险</li>
+<li>题目给了一个pcap文件，导入到wireshark中<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172317.png"></li>
+<li>蓝帽杯让我知道，分析流量先分析http</li>
+<li>根据题目描述，”webshell”,同时发现了很多上传的shell.php文件，那么就分析分析shell.php<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172458.png"></li>
+<li>发现每一个shell.php中都上传一串base64,一个一个解密看看，右键可以复制可打印的字符<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172618.png"></li>
+<li>发现有%编码，先解一层URL编码<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731172827.png"></li>
+<li>再解一层base64，发现是木马，我们走对路了，继续一个一个地找<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731174212.png"></li>
+<li>最后找着找着flag就出来了<br> <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220731174348.png"></li>
+</ol>
+<h1 id="buuctf神奇的二维码"><a href="#buuctf神奇的二维码" class="headerlink" title="buuctf神奇的二维码"></a>buuctf神奇的二维码</h1><ol>
+<li>一个二维码，扫一下啥也没有</li>
+<li>在放到010editor看头和尾和检查是否为exif隐写之后，binwalk分离出来了压缩包<br> <img src="https://s2.loli.net/2022/05/21/hle1bIpEKm9PzB7.png"></li>
+<li>里面有一个encode.txt编码文件<br> <img src="https://s2.loli.net/2022/05/21/VFnBgsLtlZW52J4.png"></li>
+<li>解码之后获得密码，打开了放flag的doc文件<br> <img src="https://s2.loli.net/2022/05/21/jz1mJAOsChTuYeL.png"></li>
+<li>发现flag.doc文件中是一个特别长的base64编码，使用basecrack破解<br> <img src="https://s2.loli.net/2022/05/21/kmaJoR5WdUAHglS.png"></li>
+<li>获得flag<br> <a href="www.strongwill.top/basecrack工具使用">basecrack工具使用</a></li>
+</ol>
+<h1 id="buu-test-your-nc"><a href="#buu-test-your-nc" class="headerlink" title="buu test_your_nc"></a>buu test_your_nc</h1><p><a href="www.strongwill.top/nc命令">nc命令</a><br><img src="https://s2.loli.net/2022/05/21/8Jj69Obg3DzKQBn.png"></p>
+<ol>
+<li>直接nc加靶机号，连上之后ls看目录</li>
+<li>发现flag，直接cat看一下就报flag</li>
+</ol>
+<h1 id="pwnthebox-pwnthebox"><a href="#pwnthebox-pwnthebox" class="headerlink" title="pwnthebox pwnthebox"></a>pwnthebox pwnthebox</h1><ol>
+<li>信息搜集题目<br> <img src="https://s2.loli.net/2022/05/23/vQ89c6gZWDVSndX.png"></li>
+<li>在header中,抓个包<br> <img src="https://s2.loli.net/2022/05/21/qB9zAWvCNQTr6UV.png"></li>
+<li>在header中找到了flag</li>
+</ol>
+<h1 id="pyshell"><a href="#pyshell" class="headerlink" title="pyshell"></a>pyshell</h1><ol>
+<li>  python的shell终端</li>
+<li>  拼接读取flag的字符串后用eval()进行执行，即可获得flag</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145149.png"></li>
+</ol>
+<h1 id="dumpit"><a href="#dumpit" class="headerlink" title="dumpit"></a>dumpit</h1><ol>
+<li><p>对/flag下所有提供的参数进行测试，发现提供的第二个参数可以到日志</p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528145934.png"></p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150053.png"></p>
+</li>
+<li><p>  过滤了post和get，不能直接将木马写入参数中执行</p>
+</li>
+<li><p>  这里采用echo重定向的方式，将待执行的命令写入到User-Agent中，并重定向到/app/log/a.php中</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150351.png"></p>
+</li>
+<li><p>  访问/log/a.php发现可以成功执行</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150427.png"></p>
+</li>
+<li><p>  最后在env环境变量中找到flag</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230528150515.png"></p>
+</li>
+</ol>
+<h1 id="Head-Header"><a href="#Head-Header" class="headerlink" title="Head,Header?"></a>Head,Header?</h1><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927190910.png"></li>
+<li>  需要CTF浏览器，想到更改UA，UA是服务器识别客户端的操作系统、浏览器等信息的</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191126.png"></li>
+<li>  有回显，from ctf.com,加referer外链，告诉服务器该页面是从哪个页面链接过来的</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191405.png"></li>
+<li>  又提示只能local用户查看，修改X-Forwarded-For为127.0.0.1回环地址</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220927191509.png"></li>
+</ol>
+<h1 id="图片合成问题"><a href="#图片合成问题" class="headerlink" title="图片合成问题"></a>图片合成问题</h1><h2 id="攻防世界what-is-this"><a href="#攻防世界what-is-this" class="headerlink" title="攻防世界what_is_this"></a>攻防世界what_is_this</h2><ol>
+<li>给出两张相像的图片</li>
+<li>使用stegsolve中的image combiner</li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qOwZaF"><img src="https://s1.ax1x.com/2022/04/05/qOwZaF.png" alt="qOwZaF.png"></a></li>
+<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/qOwe54"><img src="https://s1.ax1x.com/2022/04/05/qOwe54.png" alt="qOwe54.png"></a></li>
+<li>其实也可以使用comapre去比较</li>
+<li>compare pic1.jpg pic2.jpg -compose src diff.png</li>
+</ol>
 
                 
             </div>
@@ -562,7 +671,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.strongwill.top/%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/">https://www.strongwill.top/%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</a>
+                    <a href="https://www.strongwill.top/CTF%E6%9D%82%E9%A2%98%E9%9B%86%E5%90%88/">https://www.strongwill.top/CTF%E6%9D%82%E9%A2%98%E9%9B%86%E5%90%88/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -602,14 +711,6 @@
                             
                                 <a href="/tags/CTF/">
                                     <span class="chip bg-color">CTF</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/">
-                                    <span class="chip bg-color">文件修复</span>
-                                </a>
-                            
-                                <a href="/tags/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">
-                                    <span class="chip bg-color">zip伪加密</span>
                                 </a>
                             
                         </div>
@@ -779,17 +880,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/foreign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/">
+                <a href="/CTF%E6%9D%82%E9%A2%98%E9%9B%86%E5%90%88/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="foreign key用法详解">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CTF杂题集合">
                         
-                        <span class="card-title">foreign key用法详解</span>
+                        <span class="card-title">CTF杂题集合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -799,26 +901,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
                 </div>
@@ -832,13 +935,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">
+                <a href="/ssrf%E6%BC%8F%E6%B4%9E/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="信息泄露">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ssrf漏洞">
                         
-                        <span class="card-title">信息泄露</span>
+                        <span class="card-title">ssrf漏洞</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -849,17 +952,13 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" class="post-category">
-                                    信息泄露
-                                </a>
-                            
-                            <a href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/CTF/" class="post-category">
+                            <a href="/categories/CTF/" class="post-category">
                                     CTF
                                 </a>
                             
@@ -872,10 +971,6 @@
                     
                     <a href="/tags/CTF/">
                         <span class="chip bg-color">CTF</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">
-                        <span class="chip bg-color">信息泄露</span>
                     </a>
                     
                 </div>
