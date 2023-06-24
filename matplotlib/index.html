@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    20 分
                 </div>
                 
 
@@ -928,7 +928,43 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
       plt.legend()
       
       plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li></li>
+</ol>
+<h1 id="numpy数组"><a href="#numpy数组" class="headerlink" title="numpy数组"></a>numpy数组</h1><ol>
+<li>numpy用于处理数组，对象称为ndarray</li>
+<li>可以用array()函数创建一个numpy ndarray对象</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">arr &#x3D; np array([1,2,3,4,5])
+print(arr)
+print(type(arr))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="numpy和list的区别："><a href="#numpy和list的区别：" class="headerlink" title="numpy和list的区别："></a>numpy和list的区别：</h1><ol>
+<li>内存大小–numpy数据结构占用的内存空间更小</li>
+<li>性能–numpy底层是用c写的，比列表更快</li>
+<li>运算方法–内置优化了代数运算等方法</li>
+</ol>
+<h1 id="np-linspace函数"><a href="#np-linspace函数" class="headerlink" title="np.linspace函数"></a>np.linspace函数</h1><pre class="line-numbers language-none"><code class="language-none">from pylab import *
+x &#x3D; np.linspace(-np.pi,np.pi,256,endpoint &#x3D; True)
+c,s &#x3D; np.cos(x),np.sin(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>linspace函数：指定的间隔内返回均匀间隔的数字</li>
+<li>endpoint：bool类型，如果为true则包含stop,否则不包含stop(结尾点)</li>
+</ol>
+<h2 id="参数：-1"><a href="#参数：-1" class="headerlink" title="参数："></a>参数：</h2><ol>
+<li>start:序列的起始点</li>
+<li>end:序列的终止点，如果endpoint设置为true,则包含最后一个点（全闭区间）</li>
+<li>num:生成的样本数，默认是50，必须为非负</li>
+</ol>
+<h1 id="网上的大部分解释"><a href="#网上的大部分解释" class="headerlink" title="网上的大部分解释"></a>网上的大部分解释</h1><ol>
+<li>pyplot:方便快速绘图,matplotlib通过pyplot模块提供了与一套和MATLAB类似的绘图API，将众多绘图对象构成的复杂结构隐藏在这套API内部<br> 2， pylab:matplotlib还提供了一个名为pylab的模块，其中包含许多Numpy和pyplot模块中常用的函数</li>
+</ol>
+<h1 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h1><ol>
+<li>pylab = pyplot+大部分numpy</li>
+<li>也就是说pylab只是提供了一个方便的导入常用包的接口</li>
+</ol>
+<h1 id="和matlab的区别："><a href="#和matlab的区别：" class="headerlink" title="和matlab的区别："></a>和matlab的区别：</h1><ol>
+<li>在matlab中，画了一条线以后，如果想接着画另一条线，则需要hold on函数</li>
+<li>python中直接画即可</li>
 </ol>
 
                 
@@ -1169,13 +1205,13 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/matplotlib%E5%92%8Cpylab%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E5%90%84%E7%A7%8D%E5%AE%9A%E4%B9%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="matplotlib和pylab区别的精简总结">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="计算机专业中各种定义">
                         
-                        <span class="card-title">matplotlib和pylab区别的精简总结</span>
+                        <span class="card-title">计算机专业中各种定义</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1186,14 +1222,18 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
-                                    数据可视化
+                            <a href="/categories/%E5%AE%9A%E4%B9%89/" class="post-category">
+                                    定义
+                                </a>
+                            
+                            <a href="/categories/%E5%AE%9A%E4%B9%89/ing/" class="post-category">
+                                    ing
                                 </a>
                             
                             
@@ -1203,8 +1243,12 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="chip bg-color">数据可视化</span>
+                    <a href="/tags/ing/">
+                        <span class="chip bg-color">ing</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%9A%E4%B9%89/">
+                        <span class="chip bg-color">定义</span>
                     </a>
                     
                 </div>
@@ -1218,13 +1262,13 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/python%E4%B8%AD%E7%9A%84numpy%E6%95%B0%E7%BB%84/">
+                <a href="/%E5%85%B3%E4%BA%8Ecommandping%E5%92%8Cwaf/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="python中numpy数组">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="关于command类题型，ping和waf">
                         
-                        <span class="card-title">python中numpy数组</span>
+                        <span class="card-title">关于command类题型，ping和waf</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1235,18 +1279,18 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
-                            <a href="/categories/python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-category">
-                                    数据可视化
+                            <a href="/categories/CTF/ping/" class="post-category">
+                                    ping
                                 </a>
                             
                             
@@ -1256,12 +1300,12 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="chip bg-color">数据可视化</span>
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/ping/">
+                        <span class="chip bg-color">ping</span>
                     </a>
                     
                 </div>
@@ -1460,7 +1504,7 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.8k</span>&nbsp;字
+                class="white-color">144.6k</span>&nbsp;字
             
             
             

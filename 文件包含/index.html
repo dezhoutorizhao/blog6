@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -519,10 +519,17 @@
 <li>文件包含是也是一种执行方式，即include和require函数的执行都会执行内部的参数，将内部的参数当作php源码去执行</li>
 </ol>
 <h2 id="本地文件包含：LFI，local-file-inclusion"><a href="#本地文件包含：LFI，local-file-inclusion" class="headerlink" title="本地文件包含：LFI，local file inclusion"></a>本地文件包含：LFI，local file inclusion</h2><ol>
-<li>本地文件包含漏洞指的是能打开并且包含本地文件的漏洞，大部分情况下遇到的文件包含漏洞都是LFI</li>
-<li>首先创建两个文件，1.txt 和 11.php  如下：<br><img src="https://img-blog.csdnimg.cn/2018111011030967.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20181110110324655.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"></li>
-<li>创建完后并对  11.php 进行访问，并且传入参数：<br><img src="https://img-blog.csdnimg.cn/20181110110423351.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20181110110413561.PNG"></li>
-<li>看吧，成功了，这就是简单的本地文件包含，但如果将1.txt 内的内容换成一句换木马，再用菜刀连接一下，那是不是就可以获取shell了，这里小编就不演示了，留给你们慢慢琢磨。。。。。。</li>
+<li><p>本地文件包含漏洞指的是能打开并且包含本地文件的漏洞，大部分情况下遇到的文件包含漏洞都是LFI</p>
+</li>
+<li><p>首先创建两个文件，1.txt 和 11.php  如下：</p>
+</li>
+</ol>
+<p>  <img src="https://img-blog.csdnimg.cn/2018111011030967.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"><br>  <img src="https://img-blog.csdnimg.cn/20181110110324655.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"></p>
+<ol start="3">
+<li><p>创建完后并对  11.php 进行访问，并且传入参数：<br><img src="https://img-blog.csdnimg.cn/20181110110423351.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20181110110413561.PNG"></p>
+</li>
+<li><p>看吧，成功了，这就是简单的本地文件包含，但如果将1.txt 内的内容换成一句换木马，再用菜刀连接一下，那是不是就可以获取shell了，这里小编就不演示了，留给你们慢慢琢磨。。。。。。</p>
+</li>
 </ol>
 <h2 id="远程文件包含，RFI，remote-file-inclusion"><a href="#远程文件包含，RFI，remote-file-inclusion" class="headerlink" title="远程文件包含，RFI，remote file inclusion"></a>远程文件包含，RFI，remote file inclusion</h2><ol>
 <li>远程文件包含需要对php.ini进行一些配置</li>
@@ -581,60 +588,58 @@
 <li>  拼接get传参的file变量，file=/var/log/nginx/access.log</li>
 <li>  同时post传入攻击payload，和第一步配合</li>
 </ol>
-<h2 id="NewStarCTF-web2-includeOne"><a href="#NewStarCTF-web2-includeOne" class="headerlink" title="NewStarCTF web2 includeOne"></a>NewStarCTF web2 includeOne</h2><ol>
-<li>```php  <?php
-  highlight_file(__FILE__);
-  error_reporting(0);
-  include("seed.php");
-  //mt_srand(*********);
-  echo "Hint: ".mt_rand()."<br>";
-  if(isset($_POST['guess']) && md5($_POST['guess']) === md5(mt_rand())){
-      if(!preg_match("/base|\.\./i",$_GET['file']) && preg_match("/NewStar/i",$_GET['file']) && isset($_GET['file'])){
-          //flag in `flag.php`
-          include($_GET['file']);
-      }else{
-          echo "Baby Hacker?";
-      }
-  }else{
-      echo "No Hacker!";
-  } Hint: 1219893521
-  No Hacker!
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   这个题的考点就是mt_rand()函数
+<h2 id="NewStarCTF-web2-includeOne"><a href="#NewStarCTF-web2-includeOne" class="headerlink" title="NewStarCTF web2 includeOne"></a>NewStarCTF web2 includeOne</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"seed.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//mt_srand(*********);</span>
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"Hint: "</span><span class="token operator">.</span><span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'guess'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'guess'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/base|\.\./i"</span><span class="token punctuation">,</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/NewStar/i"</span><span class="token punctuation">,</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//flag in `flag.php`</span>
+        <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Baby Hacker?"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"No Hacker!"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> Hint<span class="token punctuation">:</span> <span class="token number">1219893521</span>
+No Hacker<span class="token operator">!</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-3.   这题是伪随机数的种子爆破，跟枯燥的抽奖那题类似，就是mt_rand()生成随机整数的时，会先进行种子的播种，当种子一样，接下来的数值根据次数也是可预测的，题目过滤了base，并且要有NewStar，可以使用rot进行文件包含。
+<ol>
+<li><p>  这个题的考点就是mt_rand()函数</p>
+</li>
+<li><p>  这题是伪随机数的种子爆破，跟枯燥的抽奖那题类似，就是mt_rand()生成随机整数的时，会先进行种子的播种，当种子一样，接下来的数值根据次数也是可预测的，题目过滤了base，并且要有NewStar，可以使用rot进行文件包含。</p>
+</li>
+<li><p>  mt_rand()函数每使用一次，就会对当前的seed进行播种，然后伪随机数加密,<strong>但是一定要看好是给出的结果是第几次加密得到的</strong></p>
+</li>
+</ol>
+<h4 id="mt-rand-函数实例"><a href="#mt-rand-函数实例" class="headerlink" title="mt_rand()函数实例"></a>mt_rand()函数实例</h4><ol>
+<li><p>  <img src="https://img-blog.csdnimg.cn/7ea36b40cf8c442c9117260a391230c5.png" alt="img"></p>
+</li>
+<li><p>  <img src="https://img-blog.csdnimg.cn/18f1fe0c9c32495e93179e99cf11e93c.png" alt="img"></p>
+</li>
+<li><p>  爆出了种子为1145146，接下来使用相同的种子进行两次mt_rand()即可得到相同的数值，得到1202031004</p>
+</li>
+<li><p>  <img src="https://img-blog.csdnimg.cn/7049f562ab34453e8173b0f06d819bf0.png" alt="img"></p>
+</li>
+<li><p>  <img src="https://img-blog.csdnimg.cn/7049f562ab34453e8173b0f06d819bf0.png" alt="img"></p>
+</li>
+<li><p>最后进行rot13解密即可</p>
+  <pre class="line-numbers language-php" data-language="php"><code class="language-php">s <span class="token operator">=</span> <span class="token string double-quoted-string">"synt&#123;sor00r4p-63rq-47q0-o8rr-610s58s76n4n&#125;"</span>
 
-4.   mt_rand()函数每使用一次，就会对当前的seed进行播种，然后伪随机数加密,**但是一定要看好是给出的结果是第几次加密得到的**
-
-#### mt_rand()函数实例
-
-1.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;7ea36b40cf8c442c9117260a391230c5.png)
-
-2.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;18f1fe0c9c32495e93179e99cf11e93c.png)
-
-3.   爆出了种子为1145146，接下来使用相同的种子进行两次mt_rand()即可得到相同的数值，得到1202031004
-
-4.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;7049f562ab34453e8173b0f06d819bf0.png)
-
-5.   ![img](https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;7049f562ab34453e8173b0f06d819bf0.png)
-
-6.   最后进行rot13解密即可
-
-7.   &#96;&#96;&#96;php
-     s &#x3D; &quot;synt&#123;sor00r4p-63rq-47q0-o8rr-610s58s76n4n&#125;&quot;
-     
-     i &#x3D; 13
-     result &#x3D; &quot;&quot;
-     for c in s:
-         oc &#x3D; ord(c)
-         if 65 &lt;&#x3D; oc &lt;&#x3D; 90:
-             result +&#x3D; chr(((oc + i) - 65) % 26 + 65)
-         elif 97 &lt;&#x3D; oc &lt;&#x3D; 122:
-             result +&#x3D; chr(((oc + i) - 97) % 26 + 97)
-         else:
-             result +&#x3D; c
-     print(result)
-     &#x2F;&#x2F;这时我贴的脚本，我建议使用cyberchef和CTF在线工具等<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+i <span class="token operator">=</span> <span class="token number">13</span>
+result <span class="token operator">=</span> <span class="token string double-quoted-string">""</span>
+<span class="token keyword">for</span> c in s<span class="token punctuation">:</span>
+    oc <span class="token operator">=</span> <span class="token function">ord</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token number">65</span> <span class="token operator">&lt;=</span> oc <span class="token operator">&lt;=</span> <span class="token number">90</span><span class="token punctuation">:</span>
+        result <span class="token operator">+=</span> <span class="token function">chr</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>oc <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">65</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">26</span> <span class="token operator">+</span> <span class="token number">65</span><span class="token punctuation">)</span>
+    elif <span class="token number">97</span> <span class="token operator">&lt;=</span> oc <span class="token operator">&lt;=</span> <span class="token number">122</span><span class="token punctuation">:</span>
+        result <span class="token operator">+=</span> <span class="token function">chr</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>oc <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">97</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">26</span> <span class="token operator">+</span> <span class="token number">97</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        result <span class="token operator">+=</span> c
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token comment">//这时我贴的脚本，我建议使用cyberchef和CTF在线工具等</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="rot13"><a href="#rot13" class="headerlink" title="rot13"></a>rot13</h4><ol>
 <li>  rot13是一种字符处理方式，字符右移13位</li>
@@ -1168,7 +1173,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.8k</span>&nbsp;字
+                class="white-color">144.6k</span>&nbsp;字
             
             
             

@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.9k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    30 分
+                    31 分
                 </div>
                 
 
@@ -499,7 +499,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="什么是文件上传漏洞"><a href="#什么是文件上传漏洞" class="headerlink" title="什么是文件上传漏洞"></a>什么是文件上传漏洞</h2><ol>
+                <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="经典绕过"><a href="#经典绕过" class="headerlink" title="经典绕过"></a>经典绕过</h2><ol>
+<li>  更改js代码绕过前端过滤</li>
+<li>  文件后缀，大小写、如果是apache，可以多写一个不能解析的后缀，php.xxxx</li>
+<li>  如果后端是通过content-type来进行校验的，可以将content-type修改为可以上传的文件的类型值，后端代码对应为$_FILE(“file”)</li>
+<li>  绕过php字符内容：使用短标签= <?= ?></li>
+<li>  绕过空格：使用转义字符’\t’ 或者 进行URL编码</li>
+<li>  绕过[]:在php中大括号和中括号等价，可以使用{}来绕过对中括号的过滤</li>
+<li>  绕过[]和{}：使用array_pop()函数，括号内部写传参的形式，array_pop($_POST);，以字符串的形式返回执行语句，可以配合eval()函数进行使用</li>
+<li>  绕过对分号的过滤：最后一句不用带分号，中间的分号可以用?&gt;来进行guo’l</li>
+</ol>
+<h2 id="什么是文件上传漏洞"><a href="#什么是文件上传漏洞" class="headerlink" title="什么是文件上传漏洞"></a>什么是文件上传漏洞</h2><ol>
 <li>存在文件上传的地方，就<strong>有可能有</strong>文件上传的漏洞</li>
 <li>上传一个<strong>webshell</strong>(后门)</li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713180202.png"></li>
@@ -520,10 +530,10 @@
 <li>解析漏洞是看搭建的平台的，例如apache和nginx的</li>
 <li>nginx是可以将图片格式作为php格式执行</li>
 </ol>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h4 id="Contant-type"><a href="#Contant-type" class="headerlink" title="Contant-type"></a>Contant-type</h4><ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h4 id="Content-type"><a href="#Content-type" class="headerlink" title="Content-type"></a>Content-type</h4><ol>
 <li>内容类型，一般指的是网页中存在的Content-Type，用于定义网络文件的类型和网页的编码，决定接收方以什么形式，什么编码解读这个文件</li>
 <li>ContentType属性指定响应的 HTTP内容类型。如果未指定 ContentType，默认为TEXT/HTML</li>
-<li>application/octet-stream 字节流，浏览器处理字节流的默认方式就是下载，<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716120216.png"><pre class="line-numbers language-none"><code class="language-none">最重要的1. application&#x2F;octet-stream 字节流，浏览器处理字节流的默认方式就是下载
+<li>application/octet-stream 字节流，浏览器处理字节流的默认方式就是下载<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716120216.png"><pre class="line-numbers language-none"><code class="language-none">最重要的1. application&#x2F;octet-stream 字节流，浏览器处理字节流的默认方式就是下载
        2. image&#x2F;png 图片类型，将会以图片类型解析
 &quot;.*&quot;&#x3D;&quot;application&#x2F;octet-stream&quot;
 &quot;.001&quot;&#x3D;&quot;application&#x2F;x-001&quot;
@@ -882,6 +892,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><ol>
 <li>eval()函数把字符串按照PHP代码来计算</li>
 <li>该字符串必须是合法的PHP代码，以分号结尾</li>
+<li>eval()内部写的是php代码，而system()函数内部写的是命令</li>
 <li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716124148.png"></li>
 </ol>
 <h3 id="tac-cat"><a href="#tac-cat" class="headerlink" title="tac/cat"></a>tac/cat</h3><ol>
@@ -911,6 +922,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <li>在apache的解析顺序中，是从右到左开始解析文件后缀的，如果最右侧的拓展名不能识别，就继续向左判断，直到遇到可以解析的文件后缀为止</li>
 <li>例如：1.php.xxxx，xxxx不能解析，所以向左解析后缀php</li>
 <li>或者可以大写一个字母，绕过弱过滤，例如php写为phP,大写一个字母</li>
+<li>简单来说，文件上传检测的是最右侧的文件后缀名，但是apache从右到左解析，遇到右侧不能解析的文件名会跳过，知道能够解析的位置</li>
 </ol>
 <h3 id="文件类型绕过攻击-后端不能单一校验"><a href="#文件类型绕过攻击-后端不能单一校验" class="headerlink" title="文件类型绕过攻击,后端不能单一校验"></a>文件类型绕过攻击,后端不能单一校验</h3><ol>
 <li>在客户端上传文件时，通过burp抓包，当上传一个php格式的文件时，和上传一个jpg格式的<strong>Content-type不一致</strong></li>
@@ -964,7 +976,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
 <li>改包，改上传文件名称为’.user.ini’,文件内容采用’auto_append_file=1.txt’;</li>
 <li>直接上传一个1.txt文件，内容为简单的一句话木马发现报错<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717111650.png"></li>
 <li>直接上传一个内容为php的，前端为png的文件内容，发现还是报错，二分法判断前和后哪里的问题，发现是后面不允许使用php字样</li>
-<li>使用短标签不适用’php’字样,发现可以上传<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112101.png"><pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;@eval($_POST(&#39;shell&#39;))&gt;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>使用短标签不适用’php’字样,发现可以上传<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112101.png"><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?=</span>@<span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'shell'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>连蚁剑，找flag即可<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112120.png"></li>
 <li>连蚁剑的时候，路径写到和.user.ini和1.txt同级的位置，即到.user.ini的上一级目录，/upload的位置</li>
 </ol>
@@ -1532,7 +1544,7 @@ Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.8k</span>&nbsp;字
+                class="white-color">144.6k</span>&nbsp;字
             
             
             

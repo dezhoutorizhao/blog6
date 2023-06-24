@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    515
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -495,7 +495,42 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数据库内容"><a href="#数据库内容" class="headerlink" title="数据库内容"></a>数据库内容</h1><h2 id="数据库是什么"><a href="#数据库是什么" class="headerlink" title="数据库是什么"></a>数据库是什么</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+                <h1 id="数据库内容"><a href="#数据库内容" class="headerlink" title="数据库内容"></a>数据库内容</h1><h1 id="数据元素："><a href="#数据元素：" class="headerlink" title="数据元素："></a>数据元素：</h1><ol>
+<li>数据的基本单位，在计算机程序中通常作为一个整体进行考虑和处理<br> 2， 也简称为元素，node结点</li>
+</ol>
+<h1 id="数据项"><a href="#数据项" class="headerlink" title="数据项"></a>数据项</h1><p>1， 构成数据元素的不可分割的最小单位</p>
+<h1 id="数据对象"><a href="#数据对象" class="headerlink" title="数据对象"></a>数据对象</h1><ol>
+<li>性质相同的数据元素的集合</li>
+</ol>
+<h1 id="关系："><a href="#关系：" class="headerlink" title="关系："></a>关系：</h1><ol>
+<li>数据&gt;数据元素 &gt; 数据项</li>
+<li>整个数据&gt;node&gt; value</li>
+</ol>
+<h1 id="数据结构："><a href="#数据结构：" class="headerlink" title="数据结构："></a>数据结构：</h1><ol>
+<li>数据元素互相之间的关系称为结构<br> 2，互相之间存在的一种或多种特定关系的数据元素集合 </li>
+</ol>
+<h1 id="数据结构的三方面内容"><a href="#数据结构的三方面内容" class="headerlink" title="数据结构的三方面内容"></a>数据结构的三方面内容</h1><ol>
+<li>逻辑结构</li>
+<li>数据元素和其关系在内存中的表示（映像），物理结构或数据的存储结构</li>
+<li>数据的运算和实现，对数据元素可以施加的操作和这些操作</li>
+</ol>
+<h1 id="逻辑结构的种类："><a href="#逻辑结构的种类：" class="headerlink" title="逻辑结构的种类："></a>逻辑结构的种类：</h1><h2 id="直接分法："><a href="#直接分法：" class="headerlink" title="直接分法："></a>直接分法：</h2><ol>
+<li>线性结构：有且只有一个开始和一个终端节点，并且所有节点都最多只有一个直接前驱和一个直接后继</li>
+<li>非线性结构：一个节点可能有多个直接前驱和直接后驱：树和图（多对多）</li>
+</ol>
+<h2 id="四类基本逻辑结构："><a href="#四类基本逻辑结构：" class="headerlink" title="四类基本逻辑结构："></a>四类基本逻辑结构：</h2><ol>
+<li>集合：除了同属于一个集合外无其它关系</li>
+<li>线性：结构中数据元素之间存在一对一的关系</li>
+<li>树：一对多的关系</li>
+<li>图：多对多的网状关系</li>
+</ol>
+<h1 id="四种基本的存储结构："><a href="#四种基本的存储结构：" class="headerlink" title="四种基本的存储结构："></a>四种基本的存储结构：</h1><ol>
+<li>顺序存储结构：用一组连续的存储单元依次存储数据元素，数据结构之间的逻辑关系由元素的存储位置来实现</li>
+<li>链接存储结构：<br> 用一组任意的存储单元存储数据元素，数据元素之间的逻辑关系用指针来实现</li>
+<li>索引存储结构：在存储节点信息的同时还建立附加的索引表</li>
+<li>散列存储结构：根据结点的刮泥机案子直接计算出该节点的存储地址</li>
+</ol>
+<h2 id="数据库是什么"><a href="#数据库是什么" class="headerlink" title="数据库是什么"></a>数据库是什么</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
 <li>将大量数据保存起来，通过计算机加工而成的可以进行高效访问的数据集合（database）</li>
 <li>随时调用<h3 id="网状数据库"><a href="#网状数据库" class="headerlink" title="网状数据库"></a>网状数据库</h3></li>
 <li>将数据从应用程序中独立出来进行集中管理（IDS）</li>
@@ -519,6 +554,24 @@
 <h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="链接数据库"><a href="#链接数据库" class="headerlink" title="链接数据库"></a>链接数据库</h2><ol>
 <li>在命令窗口链接（需要设置环境变量）<br>mysql -u root -p<br>mysql -h IP -u 用户名 -p</li>
 <li>workbench链接</li>
+</ol>
+<h1 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h1><ol>
+<li>都可以修改表的定义</li>
+</ol>
+<h1 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h1><ol>
+<li>change后面需要写两次列名，但是可以修改列的名称</li>
+<li>modify只需要写一次列明，但是不能修改列的名称</li>
+</ol>
+<h1 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h1><ol>
+<li>ALTER TABLE table.name MODIFY column.name COLUMN_DEFINATION</li>
+<li>alter table test1 modify ename varchar(20);</li>
+<li>上面的是将test1表中的ename字段定义，将varchar(10)改为varchar(20)</li>
+</ol>
+<h2 id="字段改名："><a href="#字段改名：" class="headerlink" title="字段改名："></a>字段改名：</h2><ol>
+<li>ALTER TABLE tablename CHANGE[COLUMN] old_column_name column_defination</li>
+<li>将ename改为enmaeq,同时修改字段类型int(3)为int(4)</li>
+<li>alter table test1 change ename ename1 int(4);</li>
+<li>两次列的名字分别为改前和改后的</li>
 </ol>
 
                 
@@ -1042,7 +1095,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.8k</span>&nbsp;字
+                class="white-color">144.6k</span>&nbsp;字
             
             
             

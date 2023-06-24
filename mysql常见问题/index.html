@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    67
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -506,6 +506,56 @@
 <li><p>  删除后就可以从phpstudy中打开mysql服务了</p>
 </li>
 </ol>
+<p>什么是adwp？<br>AWDP是一种综合考核参赛团队攻击、防御技术能力、即时策略的攻防兼备比赛模式。每个参赛队互为攻击方和防守方，充分体现比赛的实战性、实时性和对抗性，对参赛队的渗透能力和防护能力进行综合全面的考量。</p>
+<p>比赛中，每支队伍拥有相同配置的虚拟靶机，参赛队员需对平台中的GameBox发起攻击，并向平台提交正确的flag（证明自己具备对该题的攻击能力）；在此期间，由平台以轮次制的方式向参赛队伍的靶机发起攻击，检查其他选手的漏洞是否修补成功，若修补成功则认为参赛队伍具备该漏洞的防御能力。</p>
+<p>计分规则如下：比赛过程中每支参赛队拥有相同的起始分数（10000分），截止比赛结束时的分数，作为各队伍比赛得分，由高至低在成绩榜排列。</p>
+<p>参赛队伍可通过以下两种方式获取积分：</p>
+<p>1）攻克：提交GameBox中存放的flag；</p>
+<p>2）防御：成功防御平台对各个靶机的攻击，且服务无异常。</p>
+<p>同时也会通过以下两种方式失分：</p>
+<p>1）服务异常：队伍无法维护某GameBox的正常服务，平台检查不通过；</p>
+<p>2）违规：因违反比赛纪律及发现违规等行为被裁判判罚扣分。</p>
+<p>六种状态<br>–已攻击，说明这个题已经打下来了，交了flag，就是攻击成功。攻击的过程其实就是普通的ctf。有的题目会先给你一切源码让你来打，这就是白盒了，但是白盒还是很多题防御成功但打不出flag哈哈。有的题你只有黑盒打出flag来了，攻击成功才会给你源码，让你来防御。</p>
+<p>–已防御，说明你拿到源码之后，把这个题的漏洞通过修改源码，已经补完了，裁判的poc打不动这个题了，就算是防御成功。</p>
+<p>–防御异常，说明防御的过程中，你把网站应该提供的服务给搞没了，可能是防御过度，也可能是你把关键的功能删掉了。如果防御异常了，一定要第一时间重置环境，要不然等到一个轮次结束之后会扣分，扣分就特别伤了。</p>
+<p>防御<br>赛前准备<br>1.赛前要做好充分准备，把一些漏洞的waf全部准备好，例如：</p>
+<p>function wafrce($str){<br>    return !preg_match(“/openlog|syslog|readlink|symlink|popepassthru|stream_socket_server|scandir|assert|pcntl_exec|fwrite|curl|system|eval|assert|flag|passthru|exec|chroot|chgrp|chown|shell_exec|proc_open|proc_get_status|popen|ini_alter|ini_restore/i”, $str);<br>}</p>
+<p>function wafsqli($str){<br>    return !preg_match(“/select|and|*|\x09|\x0a|\x0b|\x0c|\x0d|\xa0|\x00|\x26|\x7c|or|into|from|where|join|sleexml|extractvalue|+|regex|copy|read|file|create|grand|dir|insert|link|server|drop|=|&gt;|&lt;|;|&quot;|&#39;|^||/i”, $str);<br>}</p>
+<p>function wafxss($str){<br>    return !preg_match(“/&#39;|http|&quot;|`|cookie|&lt;|&gt;|script/i”, $str);<br>}<br>这些waf有点简陋，是因为要保证题目的环境不能出问题，题目要提供正常的服务。</p>
+<p>这很重要很重要，直接决定能不能很快拿下题目的防御。</p>
+<p>2.XFTP</p>
+<p>文件上传工具要准备好</p>
+<p>下载：</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1eabfwy7b8TlM-0fquWAYxw">https://pan.baidu.com/s/1eabfwy7b8TlM-0fquWAYxw</a><br>提取码：g32d</p>
+<p>3.phpstudy等web环境</p>
+<p>配置好本地web环境，越方便越好，就是拿到源码之后要很迅速能在自己本地跑起来，不要到了比赛的时候手忙脚乱的，一下子域名出问题一下子数据库出问题。比赛时，时间就是分！！</p>
+<p>4.代码审计工具</p>
+<p>Seay源代码审计系统之类的。</p>
+<p>可以做到辅助作用，不是很重要。</p>
+<p>第一时间上waf<br>对于awdp来说，防御的重要性远远大于攻击，因为是轮次制，每一轮防御成功或者攻击成功都会加对应的分，成功的人越多，每轮加的分就越少，而且分是累计制，<strong>题目分少了，自己之前得到的分不会扣。</strong>所以时间特别重要。有些人题目刚出没5分钟就防御成功了，一个题的分吃了一整天，从第一轮加500到最后一轮加50，累积起来大几千分。</p>
+<p>所以我们的策略是，一上来一个题目，先分析是大概什么知识点，是命令执行？sql注入？文件上传？然后第一时间在源代码上加waf。</p>
+<p>waf的形式不局限于上面展示的例子，过滤关键字，也可以是直接对输入的东西进行长度限制，比如说限制输入执行命令的长度为小于2。就可以达到修补漏洞又不破坏题目环境的目的。不过也要看具体题目，有的题目可能长度低于2就破坏了web服务导致防御失败了。</p>
+<p>注意文件上传的路径<br>这个问题非常重要！！！</p>
+<p>防御的时候我们是要把要修补的文件上传到服务器里，替换原来服务器中的文件，所以我们要知道文件具体的路径，但是一般来说题目不会直接给，不同开发语言不同框架的目录也不尽相同。</p>
+<p>这个时候就要用到一个小tips：</p>
+<p>题给示例：</p>
+<p>mv -f explorer.php  /www/html/<br>1<br>我们要替换的文件很有可能不是在根目录下的/www/html，所以这个示例很鸡肋</p>
+<p>那就从根目录里面查找：</p>
+<p>mv -f explorer.php $(dirname <code>find / -name &#39;explorer.php&#39; 2&gt;/dev/null</code>)/explorer.php<br>1<br>用find命令从根目录查找名为explorer.php的文件，然后返回他的路径名（dirname）</p>
+<p>2&gt;/dev/null的作用是避免返回一些错误的信息，比如说查找过程中会返回权限不足等错误。</p>
+<p>patch包<br>patch包的内容组成<br>首先是存在漏洞的页面，比如index.php或app.py<br>再次的部署的sh文件，如果是php，就需要替换原题目存在漏洞的php页面，如果是pyhton或者java就得替换文件再重启服务<br>例子：<br>php update.sh</p>
+<p>#!/bin/bash</p>
+<p>cp /index.php /var/www/html/index.php<br>Python</p>
+<p>#!/bin/sh</p>
+<p>cp /app.py /app/app.py<br>ps -ef | grep python | grep -v grep | awk ‘{print $2}’ | xargs kill -9<br>cd /app &amp;&amp; nohup python app.py  &gt;&gt; /opt/app.log 2&gt;&amp;1 &amp;</p>
+<p>Go</p>
+<p>#!/bin/bash</p>
+<p>kill -9 $(pidof app)<br>cp ezgo_patch /app<br>chmod +x /app<br>/app 2&gt;&amp;1 &gt;/dev/null &amp;<br>1<br>2<br>3<br>4<br>5<br>6<br>Nodejs</p>
+<p>#!/bin/sh</p>
+<p>cp server.js /app/server.js<br>ps -ef | grep node | grep -v grep | awk ‘{print $2}’ | xargs kill -9<br>cd /app &amp;&amp; nohup node server.js  &gt;&gt; /opt/aa.log 2&gt;&amp;1 &amp;<br>1<br>2<br>3<br>4<br>5<br>格式要求：一般会要求tar.gz的形式<br>打包命令：tar zcvf update.tar.gz send.php update.sh</p>
+<p>攻击<br>攻击就没什么好讲的，就是打ctf，有的题是白盒，有的题你得先打出flag才有源码。</p>
+<p>暂时想到的就是这些，打完了这么久了才记录，因为一直考试。</p>
+<p>在这致敬一下工作室大佬们带我打awdp！</p>
 
                 
             </div>
@@ -1016,7 +1066,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.8k</span>&nbsp;字
+                class="white-color">144.6k</span>&nbsp;字
             
             
             
