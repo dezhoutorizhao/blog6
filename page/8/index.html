@@ -1,690 +1,249 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>h3110w0r1d's Blog - we can be what we are willing to be</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:type" content="website">
+<meta property="og:title" content="h3110w0r1d&#39;s Blog">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/page/8/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:author" content="h3110w0r1d">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/page/8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'h3110w0r1d\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-15 13:56:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-        <meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-
-    <!--Author-->
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <meta name="author" content="h3110w0r1d">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-
-    <!--Open Graph Title-->
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        <meta property="og:title" content="h3110w0r1d&#39;s Blog"/>
-    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">h3110w0r1d's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/nmap%E4%BD%BF%E7%94%A8/" title="nmap">nmap</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-18T14:55:46.257Z" title="发表于 2022-05-18 22:55:46">2022-05-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/awd/">awd</a></span></div><div class="content">nmap的使用参考
+https://zhuanlan.zhihu.com/p/343709343
 
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全" />
-    
+图形化界面
+zenmap
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="h3110w0r1d&#39;s Blog"/>
+分布式框架
+Dnamp
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
+作用
+主机探测
+端口扫描
+版本检测
+系统检测
+支持探测脚本的编写
 
-    <!--Page Cover-->
-    
+Nmap在实际中应用场合如下：
+通过对设备或者防火墙的探测来审计它的安全性
+探测目标主机所开放的端口
+通过识别新的服务器审计网络的安全性
+探测网络上的主机
 
-    
-        <meta name="twitter:card" content="summary" />
-    
-    
-    
+原理
+端口扫描工具，即借助工具，试图了解所扫描IP提供的计算机网络服务类型（网络服务均与端口号相关），从而发现攻击弱点，常见服务对应端口号
+首先判断nmap输入的命令行中是否包含域名，如果包含则需要用DNS服务器进行域名解析，然后发送ICMP Echo Request来探测主机的存活性
+根据返回的数据包来得到机器信息
 
-    <!-- Title -->
-    
-    <title>page - h3110w0r1d&#39;s Blog</title>
+Nmap进行完整全面的扫描nmap –T4 –A –v
+参数
+其中-A选项用于使用进攻性（Aggressive）方式扫描；
+-T4指定扫描过程使用的时序（Timing），总有6个级别（0-5），级别越高，扫描速度越快，但也容易被防火墙或IDS检测并屏蔽掉，在网络通讯状况良好的情况推荐使用T4；
+- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" title="ctfshow信息搜集">ctfshow信息搜集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-18T09:23:40.377Z" title="发表于 2022-05-18 17:23:40">2022-05-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/ing/">ing</a></span></div><div class="content">信息搜集web1
+开发注释未能及时删除
+打开ctrl + u查看源代码即可获得flag
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+web2
+有的浏览器直接打开查看源代码就能看到flag
+这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。
+当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看
 
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+web3
+用御剑和dirsearch扫了一遍，被拦了
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+没思路的时候burp抓个包看看，有意外收获，flag在响应的数据包里面
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
+web4
+题目提示：总有人把后台地址写入robots,知道是robots.txt协议，写后缀robots.txt，发现过滤了所有用户的/flagishere.txtrobots协议
+直觉告诉我们，被过滤的是flag，打开后真的发现了flag
 
+web5
+phps源码泄露问题
+直接访问index.phps,获得flag
+访问后自动下载一个index.phps文件，打开后发现flag
 
-    <!-- Google Analytics -->
-    
+web6web7
+考察git代码泄露，直接访问url/.git/index.php
+git源码泄露一般在根目录下/.git/文件 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/" title="源码泄露问题">源码泄露问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-17T13:37:21.802Z" title="发表于 2022-05-17 21:37:21">2022-05-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">git源码泄露问题githack是什么
+GitHack是一个.git泄露利用测试脚本，通过泄露的文件，还原重建工程源代码。
 
+Git 源码泄露开发人员会使用 git 进行版本控制，对站点自动部署。但如果配置不当，可能会将 .git 文件夹直接部署到线上环境，这就引起了 git 泄露漏洞，我们可以利用这个漏洞直接获得网页源码。
+确定是否存在泄漏想要确定是否存在这个漏洞，可以通过以下方式。首先是看看有没有提示醒目地指出 Git，如果有就考虑存在。如果没有也可以使用 dirsearch 工具扫描后台，如果存在则会扫描出 .git 目录如图所示。
+常见问题
+githack只能在python2环境下运行，否则会出现
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+例题攻防世界lottery
+打开网页，让我们买彩票赚钱，随便买一下
 
+赚够足够的钱，才能够买flag
 
-<body>
+用dirsearch扫一下后台,发现有git
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+或者用御剑扫以下后台，发现robot协议文件，发现禁用git，很可疑，判断是git源码泄露
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/about.html">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/contact.html">
-                    Contact
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
+用githack扫描url，把文件都下载下来
+python githack.py URL
+拼接githack.py的路由时，要到/.git ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/robots%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/" title="robots协议">robots协议</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-17T13:28:20.546Z" title="发表于 2022-05-17 21:28:20">2022-05-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/web/">web</a></span></div><div class="content">robots协议存放位置
+robots.txt是存放在站点根目录下的一个纯文本文件。
 
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
+定义：
+Robots协议（也称为爬虫协议、机器人协议等）的全称是“网络爬虫排除标准”（Robots Exclusion Protocol），网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。
 
-<div class="container">
+作用的描述：
+Robots协议也称为爬虫协议、爬虫规则、机器人协议，是网站国际互联网界通行的道德规范,其目的是保护网站数据和敏感信息、确保用户个人信息和隐私不被侵犯。“规则”中将搜索引擎抓取网站内容的范围做了约定,包括网站是否希望被搜索引擎抓取,哪些内容不允许被抓取,而网络爬虫可以据此自动抓取或者不抓取该网页内容。
+如果将网站视为酒店里的一个房间,robots.txt就是主人在房间门口悬挂的“请勿打扰”或“欢迎打扫”的提示牌。这个文件告诉来访的搜索引擎哪些房间可以进入和参观,哪些不对搜索引擎开放。
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
+书写规范
+robots.txt（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/dirsearch/" title="dirsearch使用方法">dirsearch使用方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-17T13:13:10.317Z" title="发表于 2022-05-17 21:13:10">2022-05-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/ing/">ing</a></span></div><div class="content">dirsearch使用方法用途
+dirsearch 是一款使用 python3 编写的，用于暴力破解目录的工具，其 README 有写到下面一点
 
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">h3110w0r1d's Blog</h1>
-        
-    </div>
-</header>
+Heuristically detects invalid web pages（启发式地检测无效 web 页面）
 
-        <section class="main">
-            
-                
-<div class="post">
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/nmap%E4%BD%BF%E7%94%A8/">
-                nmap
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-18</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/nmap%E4%BD%BF%E7%94%A8/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/渗透/">渗透</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="nmap的使用"><a href="#nmap的使用" class="headerlink" title="nmap的使用"></a>nmap的使用</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/343709343">https://zhuanlan.zhihu.com/p/343709343</a></li>
-</ol>
-<h2 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h2><ol>
-<li>zenmap</li>
-</ol>
-<h2 id="分布式框架"><a href="#分布式框架" class="headerlink" title="分布式框架"></a>分布式框架</h2><ol>
-<li>Dnamp</li>
-</ol>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
-<li>主机探测</li>
-<li>端口扫描</li>
-<li>版本检测</li>
-<li>系统检测</li>
-<li>支持探测脚本的编写</li>
-</ol>
-<h2 id="Nmap在实际中应用场合如下："><a href="#Nmap在实际中应用场合如下：" class="headerlink" title="Nmap在实际中应用场合如下："></a>Nmap在实际中应用场合如下：</h2><ol>
-<li>通过对设备或者防火墙的探测来审计它的安全性</li>
-<li>探测目标主机所开放的端口</li>
-<li>通过识别新的服务器审计网络的安全性</li>
-<li>探测网络上的主机</li>
-</ol>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
-<li>端口扫描工具，即借助工具，试图了解所扫描IP提供的计算机网络服务类型（网络服务均与端口号相关），从而发现攻击弱点，常见服务对应端口号</li>
-<li>首先判断nmap输入的命令行中是否包含域名，如果包含则需要用DNS服务器进行域名解析，然后发送ICMP Echo Request来探测主机的存活性</li>
-<li>根据返回的数据包来得到机器信息</li>
-</ol>
-<h2 id="Nmap进行完整全面的扫描"><a href="#Nmap进行完整全面的扫描" class="headerlink" title="Nmap进行完整全面的扫描"></a>Nmap进行完整全面的扫描</h2><pre class="line-numbers language-none"><code class="language-none">nmap –T4 –A –v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ol>
-<li>其中-A选项用于使用进攻性（Aggressive）方式扫描；</li>
-<li>-T4指定扫描过程使用的时序（Timing），总有6个级别（0-5），级别越高，扫描速度越快，但也容易被防火墙或IDS检测并屏蔽掉，在网络通讯状况良好的情况推荐使用T4；</li>
-<li>-v表示显示冗余（verbosity）信息，在扫描过程中显示扫描的细节，从而让用户了解当前的扫描状态。</li>
-</ol>
-<h4 id="最重要的是-T"><a href="#最重要的是-T" class="headerlink" title="最重要的是-T"></a>最重要的是-T</h4><ol>
-<li>扫描速度过快，容易被系统拦截，导致访问一堆200，结果打开全是503，所以应避免扫描过快<br><img src="https://s2.loli.net/2022/05/18/jpYi1NqhPz392Qx.png"></li>
-</ol>
-<h2 id="主机扫描"><a href="#主机扫描" class="headerlink" title="主机扫描"></a>主机扫描</h2><p><img src="https://s2.loli.net/2022/05/18/bgHAlBP93FzDmIW.png"></p>
-<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><h3 id="扫描方式选项"><a href="#扫描方式选项" class="headerlink" title="扫描方式选项"></a>扫描方式选项</h3><p><img src="https://s2.loli.net/2022/05/18/Jek6ZarFWlzmBVU.png"></p>
-<h3 id="端口参数和扫描顺序"><a href="#端口参数和扫描顺序" class="headerlink" title="端口参数和扫描顺序"></a>端口参数和扫描顺序</h3><p><img src="https://s2.loli.net/2022/05/18/4V8jf6sMhDFPK5T.png"></p>
-<h3 id="版本侦测的用法"><a href="#版本侦测的用法" class="headerlink" title="版本侦测的用法"></a>版本侦测的用法</h3><p><img src="https://s2.loli.net/2022/05/18/eMa8ZJ2mXHYfCtE.png"></p>
-<h2 id="端口状态"><a href="#端口状态" class="headerlink" title="端口状态"></a>端口状态</h2><ol>
-<li>  Open 端口处于开放状态：进行TCP链接时，目标主机返回SYN+ACK的报文，就认为端口开放且使用了TCP服务</li>
-<li>  Closed 端口处于关闭状态：返回RST类型的报文（关闭的端口也是可以访问的，只是没有上层的服务在监听此端口，而且只是我们在扫描的这个时刻为关闭，当我们在另一个时间段进行扫描时，这些关闭的端口可能会处于open状态）</li>
-<li>  Filterd 端口处于过滤，无法收到返回的probe状态：报文无法到达指定端口，nmap不能决定端口的开放状态，主要是由于网络或者主机安装了一些防火墙导致，收到icmp报文主机不可达报文，或者目标主机无应答</li>
-<li>  UnFilterd 端口收到返回的Probe，但是无法确认</li>
-<li>  Opend/UnFilterd 表示端口处于开放或者被过滤状态</li>
-<li>  Closed/UnFilterd 表示端口处于关闭或者未过滤状态</li>
-</ol>
-<h2 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h2><h3 id="用nmap扫描特定IP地址"><a href="#用nmap扫描特定IP地址" class="headerlink" title="用nmap扫描特定IP地址"></a>用nmap扫描特定IP地址</h3><p><img src="https://pic1.zhimg.com/80/v2-f9463447819bc6eddc02d61f57f26d30_720w.jpg"></p>
-<h3 id="用-vv对结果进行详细输出"><a href="#用-vv对结果进行详细输出" class="headerlink" title="用-vv对结果进行详细输出"></a>用-vv对结果进行详细输出</h3><p><img src="https://pic2.zhimg.com/80/v2-b7f94720fc07861cda0f03a0eaaac8bd_720w.jpg"></p>
-<h3 id="自行设置端口范围进行扫描"><a href="#自行设置端口范围进行扫描" class="headerlink" title="自行设置端口范围进行扫描"></a>自行设置端口范围进行扫描</h3><p><img src="https://pic1.zhimg.com/80/v2-70a54588925eb0a44e9d5ead03f55fbc_720w.jpg"></p>
-<h3 id="指定端口号进行扫描"><a href="#指定端口号进行扫描" class="headerlink" title="指定端口号进行扫描"></a>指定端口号进行扫描</h3><p><img src="https://pic2.zhimg.com/80/v2-416f2b4c051b5f2bd62cbe48d3101f41_720w.jpg"></p>
-<h3 id="对端口进行ping扫描"><a href="#对端口进行ping扫描" class="headerlink" title="对端口进行ping扫描"></a>对端口进行ping扫描</h3><p><img src="https://pic3.zhimg.com/80/v2-ef3ef08d4f7b120d170f9b0a95130b7a_720w.jpg"></p>
-<h3 id="路由跟踪"><a href="#路由跟踪" class="headerlink" title="路由跟踪"></a>路由跟踪</h3><p><img src="https://pic1.zhimg.com/80/v2-24910deb4da23cdf158ee3dd15b98170_720w.jpg"></p>
-<h3 id="扫描一个段的主机在线情况"><a href="#扫描一个段的主机在线情况" class="headerlink" title="扫描一个段的主机在线情况"></a>扫描一个段的主机在线情况</h3><p><img src="https://pic2.zhimg.com/80/v2-3849b8e75d023539fd93923ea7aa2bd9_720w.jpg"></p>
-<h3 id="操作系统探测"><a href="#操作系统探测" class="headerlink" title="操作系统探测"></a>操作系统探测</h3><p><img src="https://pic4.zhimg.com/80/v2-4e9d4f7f27b827fbc4d976fd96511d93_720w.png"></p>
-<h3 id="万能开关扫描"><a href="#万能开关扫描" class="headerlink" title="万能开关扫描"></a>万能开关扫描</h3><p><img src="https://pic3.zhimg.com/80/v2-fc195a646aa1353f8b71342ec6a67b26_720w.jpg"></p>
-<h3 id="SYN-FIN-ACK等其它扫描方式"><a href="#SYN-FIN-ACK等其它扫描方式" class="headerlink" title="SYN,FIN,ACK等其它扫描方式"></a>SYN,FIN,ACK等其它扫描方式</h3><p><img src="https://s2.loli.net/2022/05/18/NpMt7T9Qv2dhK6P.png"></p>
-<h3 id="使用具体dns服务器进行扫描"><a href="#使用具体dns服务器进行扫描" class="headerlink" title="使用具体dns服务器进行扫描"></a>使用具体dns服务器进行扫描</h3><pre class="line-numbers language-none"><code class="language-none">nmap --dns-servers 8.8.8.8 scanme.nmap.org<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707112619.png"></p>
-<h3 id="扫描远程机器开放的端口"><a href="#扫描远程机器开放的端口" class="headerlink" title="扫描远程机器开放的端口"></a>扫描远程机器开放的端口</h3><ol>
-<li><p>  对于已经知道主机存活或者防火墙开启的机器，可以使用 -Pn 参数来停止探测之前的ICMP请求，来达到不处罚防火墙的安全机制</p>
-</li>
-<li><p>```<br>  nmap -Pn scanme.nmap.org</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-### 列举远程机器开放的端口
-
-1.   对于所有默认的端口范围，并不能满足日常工作的需要，可以使用-p m-n来指定探测端口范围为m-n之间的所有端口
-
-2.   &#96;&#96;&#96;
-     nmap -p 1-10000 scanme.nmap.org<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707113321.png"></p>
-</li>
-</ol>
-<h2 id="Nmap识别目标机器上的服务指纹"><a href="#Nmap识别目标机器上的服务指纹" class="headerlink" title="Nmap识别目标机器上的服务指纹"></a>Nmap识别目标机器上的服务指纹</h2><h3 id="什么是服务指纹"><a href="#什么是服务指纹" class="headerlink" title="什么是服务指纹"></a>什么是服务指纹</h3><ol>
-<li>  为了确保有一个成功的渗透测试和网络设备监控，必须需要知道目标系统中服务的指纹信息。服务指纹信息包括服务端口、服务名和版本等</li>
-<li>  通过分析目标往Nmap发送的数据包中某些协议标记、选项和数据，我们可以推断发送这些数据包的操作系统等</li>
-</ol>
-<h3 id="识别服务指纹"><a href="#识别服务指纹" class="headerlink" title="识别服务指纹"></a>识别服务指纹</h3><ol>
-<li>  使用命令 nmap -sV IP 地址来识别目标机器的服务信息</li>
-<li>  <strong>按回车可以看发送进度</strong></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707115424.png"></li>
-</ol>
-<h3 id="Nmap的侵略性探测"><a href="#Nmap的侵略性探测" class="headerlink" title="Nmap的侵略性探测"></a>Nmap的侵略性探测</h3><ol>
-<li><p>```<br>  nmap -A -v -T4 IP地址</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   探测目标主机的操作系统、服务等信息
-
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20230707115955.png)
-
-4.   &#96;&#96;&#96;
-     nmap -sC -sV -O IP地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  探测目标主机的操作系统、服务等信息，其中-sC参数表示使用Nmap脚本进行探测，sV表示探测目标主机上的服务信息，O表示探测目标机器的操作系统信息</p>
-</li>
-<li><p>```<br>  nmap -sC -sV -O </p>
-  <pre class="line-numbers language-none"><code class="language-none">
-7.   &#96;&#96;&#96;
-     nmap --script&#x3D;default 和上面相等<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707132959.png"></p>
-</li>
-</ol>
-<h2 id="探测局域网中存活主机"><a href="#探测局域网中存活主机" class="headerlink" title="探测局域网中存活主机"></a>探测局域网中存活主机</h2><h3 id="一个局域网中有很多台设备，如何获取哪些设备正在开机状态"><a href="#一个局域网中有很多台设备，如何获取哪些设备正在开机状态" class="headerlink" title="一个局域网中有很多台设备，如何获取哪些设备正在开机状态"></a>一个局域网中有很多台设备，如何获取哪些设备正在开机状态</h3><h4 id="使用ping来进行探测，但是网络很大的情况下，手工探测很费力"><a href="#使用ping来进行探测，但是网络很大的情况下，手工探测很费力" class="headerlink" title="使用ping来进行探测，但是网络很大的情况下，手工探测很费力"></a>使用ping来进行探测，但是网络很大的情况下，手工探测很费力</h4><ol>
-<li><p>```<br>  ping IP地址</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-#### 使用不同工具来进行批量探测
-
-1.   CIDR五类别域间路由、网络前缀来快速表示一个网络
-2.   172.16.1.1&#x2F;24 表示前24位不能动，只有最后8位可动，可以表示172.168.1.1-172.168.1.255之间的所有主机IP地址
-
-#### 使用nmap对该网络中的所有主机进行ping扫描，以探测主机存活性。扫描过程中使用了TCP SYN扫描、ICMP echo Request来探测主机存活
-
-1.   &#96;&#96;&#96;
-     nmap -sP CIDR地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>```<br>  nmap -sn CIDR地址</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   上面两种用法结果类似
-
-
-
-## nmap主机发现的结果输出
-
-1.   &#96;&#96;&#96;bash
-     nmap -sn CIDR地址 -oX test.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  对该网络中的所有主机进行ping扫描，以探测主机存活性</p>
-</li>
-<li><p>  同时将结果输出到test.xml文件中，以便后续使用</p>
-</li>
-</ol>
-<h2 id="实际场景下的Nmap端口探测技巧"><a href="#实际场景下的Nmap端口探测技巧" class="headerlink" title="实际场景下的Nmap端口探测技巧"></a>实际场景下的Nmap端口探测技巧</h2><ol>
-<li>  渗透测试时，一般是对某个或某个范围内的服务进行探测，而不是全扫，否则费力不讨好，全端口探测会对服务器造成较大压力</li>
-</ol>
-<h3 id="对某个端口或某个范围内的端口探测"><a href="#对某个端口或某个范围内的端口探测" class="headerlink" title="对某个端口或某个范围内的端口探测"></a>对某个端口或某个范围内的端口探测</h3><ol>
-<li><p>```bash<br>  nmap -p80 scanme.nmap.org<br>  nmap -p80,135 scanme.nmap.org<br>  nmap -p1-100 scanme.nmap.org<br>  nmap -p- scanme.nmap.org</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   使用逗号去分隔不同的端口
-
-3.   使用短横线 - 去链接端口范围
-
-4.   -p- 端口参数后面不加具体数字，表示对所有端口进行探测
-
-### 指定协议探测端口
-
-1.   &#96;&#96;&#96;
-     nmap -p T:25,U:53 scanme.nmap.org<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  T:25 指定TCP25号端口</p>
-</li>
-<li><p>  U:53 指定UDP53号端口</p>
-</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">
-                ctfshow信息搜集
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-18</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/ctfshow%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><h2 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h2><ol>
-<li>开发注释未能及时删除</li>
-<li>打开ctrl + u查看源代码即可获得flag</li>
-</ol>
-<h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><ol>
-<li>有的浏览器直接打开查看源代码就能看到flag</li>
-<li>这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。</li>
-<li>当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看<br><img src="https://s2.loli.net/2022/05/18/k4UizITfxOc7S1u.png"></li>
-</ol>
-<h2 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h2><ol>
-<li><p>用御剑和dirsearch扫了一遍，被拦了</p>
-</li>
-<li><p>没思路的时候burp抓个包看看，有意外收获，flag在响应的数据包里面<br><img src="https://s2.loli.net/2022/05/18/ez4SxcJiY1U7VXj.png"></p>
-</li>
-</ol>
-<h2 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h2><ol>
-<li>题目提示：总有人把后台地址写入robots,知道是robots.txt协议，写后缀robots.txt，发现过滤了所有用户的/flagishere.txt<br><a target="_blank" rel="noopener" href="http://www.strongwill.top/robot%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/">robots协议</a><br><img src="https://s2.loli.net/2022/05/18/JWf5Dtjl24aimyw.png"></li>
-<li>直觉告诉我们，被过滤的是flag，打开后真的发现了flag<br><img src="https://s2.loli.net/2022/05/18/YXu6hvxZTpa9knM.png"></li>
-</ol>
-<h2 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h2><ol>
-<li>phps源码泄露问题</li>
-<li>直接访问index.phps,获得flag<br><img src="https://s2.loli.net/2022/05/18/4CSF3kr52x9yin6.png"></li>
-<li>访问后自动下载一个index.phps文件，打开后发现flag<br><img src="https://s2.loli.net/2022/05/18/w3CcsoZLUgGtzvm.png"></li>
-</ol>
-<h2 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h2><h2 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h2><ol>
-<li>考察git代码泄露，直接访问url/.git/index.php</li>
-<li>git源码泄露一般在根目录下/.git/文件夹下找<br><img src="https://s2.loli.net/2022/05/18/TIRAXNm3fVMi1l7.png"></li>
-</ol>
-<h2 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h2><ol>
-<li>考察信息svn泄露，直接访问url/.svn/<br><img src="https://s2.loli.net/2022/05/18/YWCx8S9noqcURHu.png"></li>
-</ol>
-<h2 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h2><ol>
-<li>考察vim临时文件泄露<h3 id="vim临时文件泄露"><a href="#vim临时文件泄露" class="headerlink" title="vim临时文件泄露"></a>vim临时文件泄露</h3></li>
-<li>vim编辑器在编辑时会生成一个隐藏的临时文件</li>
-<li>当vim非正常关闭时，这个文件就会被保存下来</li>
-<li>一般会保存在url/编辑的文件.swp下</li>
-</ol>
-<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><ol>
-<li>cookie泄露</li>
-<li>打开burp抓包，获得cookie是flag<br><img src="https://s2.loli.net/2022/05/21/qB9zAWvCNQTr6UV.png"></li>
-</ol>
-<h2 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h2><h3 id="关于如何进一个网站的后台，是不是直接加-admin"><a href="#关于如何进一个网站的后台，是不是直接加-admin" class="headerlink" title="关于如何进一个网站的后台，是不是直接加/admin"></a>关于如何进一个网站的后台，是不是直接加/admin</h3><ol>
-<li>每个网站的后台进入方式是不一样的，在域名后面加/Admin只是个别网站开发者开发时把网站的后台登录页面名称设为Admin而已，并不是所有网站加/Admin都可以进入，具体地址完全取决于开发者开发时的设置。</li>
-<li>比如一个网站在开发时，开发者命名了一个Admin的文件夹，里面有个页面命名为admin.html，那么网站后台访问方式就是：域名/Admin/admin.html，那如果文件夹名是Web，网站后台访问方式就是：域名/Web/admin.html，一般都需要账户密码才能进入。</li>
-<li>进后台其实就是找一个admin.html的用户登录页面</li>
-</ol>
-<h2 id="web13"><a href="#web13" class="headerlink" title="web13"></a>web13</h2><ol>
-<li>技术文档里面不要出现敏感信息，部署到生产环境后及时修改默认密码</li>
-<li>根据题目提示 技术文档 在页面下面发现 document 下载发现里面存在后台地址和用户名密码登录成功获 得flag</li>
-<li><img src="https://s2.loli.net/2022/05/24/59ErSO8v4HMezNP.png"></li>
-<li><img src="https://s2.loli.net/2022/05/24/f5qui3E9nwJgV4S.png"></li>
-</ol>
-<h2 id="web14"><a href="#web14" class="headerlink" title="web14"></a>web14</h2><ol>
-<li>有时候源码里面就能不经意间泄露重要(editor)的信息,默认配置害死人</li>
-<li>根据提示 泄露重要(editor)的信息 直接在url后面添加/editor 然后查看flag路径并且访问</li>
-<li>因为index.php是flag.txt的上层，所以要在index的后面拼接nothinghere/fl000g.txt</li>
-<li><img src="https://s2.loli.net/2022/05/24/D43yPnkXagcO1Tv.png"></li>
-<li><img src="https://s2.loli.net/2022/05/24/Zwst9CYkJQ2ITug.png"></li>
-<li><img src="https://s2.loli.net/2022/05/24/MvK6SwFcugr2LVh.png"></li>
-</ol>
-<h2 id="web15"><a href="#web15" class="headerlink" title="web15"></a>web15</h2><ol>
-<li>公开的信息比如邮箱，可能造成信息泄露，产生严重后果</li>
-<li>访问/admin页面 发现有一个忘记密码操作，需要输入地址 在主页面下面看到QQ邮箱，通过QQ号查询邮箱，是西安的 修改密码成功，用户名 admin 登录成功获得flag<br><img src="https://s2.loli.net/2022/05/24/9FOYdBeKgm42G5q.png"></li>
-<li><img src="https://s2.loli.net/2022/05/24/rlpJxPkLsod3Zyh.png"></li>
-<li><img src="https://s2.loli.net/2022/05/24/Llc1ow74aRQEHMe.png"></li>
-<li><img src="https://s2.loli.net/2022/05/24/akdnC17jB8gOtDZ.png"></li>
-</ol>
-<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><ol>
-<li>备份的sql文件会泄露敏感信息</li>
-<li>backup.sql</li>
-<li><img src="https://s2.loli.net/2022/05/25/25pnmiGIM8y1stl.png"></li>
-</ol>
-<h2 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h2><ol>
-<li>不要着急，休息，休息一会儿，玩101分给你flag</li>
-<li>网页游戏一定要查看js文件，js文件控制行为，行为一般就是获得多少分能够通关</li>
-<li>查看js文件，查看flag的条件，去通过uncode解码。 访问110.php</li>
-<li><img src="https://s2.loli.net/2022/05/25/FYb7OIqgQSwrGZU.png"></li>
-<li><img src="https://s2.loli.net/2022/05/25/ZK5uDdkOyaALP8j.png"></li>
-<li><img src="https://s2.loli.net/2022/05/25/kPmgXouc2RjGYMi.png"></li>
-<li>解码，判断谐音，url后面加/110.php</li>
-</ol>
-<h2 id="web19"><a href="#web19" class="headerlink" title="web19"></a>web19</h2><ol>
-<li>密钥什么的，就不要放在前端了</li>
-<li>打开源代码查看到注释中有u和p的提示<br><img src="https://s2.loli.net/2022/05/25/n4N58uXUjdxJBZL.png"></li>
-<li>$_POST传参username和pazzword</li>
-<li><img src="https://s2.loli.net/2022/05/25/vgBhPyA7Hx8Nr3e.png"></li>
-<li>传参后获得flag</li>
-</ol>
-<h2 id="web20"><a href="#web20" class="headerlink" title="web20"></a>web20</h2><ol>
-<li>mdb文件是早期asp+access构架的数据库文件，文件泄露相当于数据库被脱裤了。</li>
-<li>mdb文件是早期asp+access构架的数据库文件 直接查看url路径添加/db/db.mdb 下载文件通过txt打开或者通过EasyAccess.exe打开搜索flag flag{ctfshow_old_database}</li>
-<li>没有什么是文本编辑器看不了的<br><a target="_blank" rel="noopener" href="https://imgtu.com/i/XFNTO0"><img src="https://s1.ax1x.com/2022/05/25/XFNTO0.png" alt="XFNTO0.png"></a></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/">
-                源码泄露问题
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-17</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="git源码泄露问题"><a href="#git源码泄露问题" class="headerlink" title="git源码泄露问题"></a>git源码泄露问题</h1><h2 id="githack是什么"><a href="#githack是什么" class="headerlink" title="githack是什么"></a>githack是什么</h2><ol>
-<li>GitHack是一个.git泄露利用测试脚本，通过泄露的文件，还原重建工程源代码。</li>
-</ol>
-<h2 id="Git-源码泄露"><a href="#Git-源码泄露" class="headerlink" title="Git 源码泄露"></a>Git 源码泄露</h2><p>开发人员会使用 git 进行版本控制，对站点自动部署。但如果配置不当，可能会将 .git 文件夹直接部署到线上环境，这就引起了 git 泄露漏洞，我们可以利用这个漏洞直接获得网页源码。</p>
-<h2 id="确定是否存在泄漏"><a href="#确定是否存在泄漏" class="headerlink" title="确定是否存在泄漏"></a>确定是否存在泄漏</h2><p>想要确定是否存在这个漏洞，可以通过以下方式。首先是看看有没有提示醒目地指出 Git，如果有就考虑存在。如果没有也可以使用 dirsearch 工具扫描后台，如果存在则会扫描出 .git 目录如图所示。</p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
-<li>githack只能在python2环境下运行，否则会出现<br><img src="https://s2.loli.net/2022/05/17/ufNapbJdWSlRhHE.png"></li>
-</ol>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="攻防世界lottery"><a href="#攻防世界lottery" class="headerlink" title="攻防世界lottery"></a>攻防世界lottery</h3><ol>
-<li><p>打开网页，让我们买彩票赚钱，随便买一下<br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902101030311-594723942.png"><br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902102734433-334503714.png"></p>
-</li>
-<li><p>赚够足够的钱，才能够买flag<br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902103927411-413792927.png"></p>
-</li>
-<li><p>用dirsearch扫一下后台,发现有git<br><img src="https://s2.loli.net/2022/05/17/uKqnltzHT9wRcUJ.png"></p>
-</li>
-<li><p>或者用御剑扫以下后台，发现robot协议文件，发现禁用git，很可疑，判断是git源码泄露</p>
-</li>
-<li><p>用githack扫描url，把文件都下载下来</p>
-<pre class="line-numbers language-none"><code class="language-none">python githack.py URL<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>拼接githack.py的路由时，要到/.git，因为.git隐藏文件中是所有源码，不能只拼接到根目录，因为不在根目录下</p>
-</li>
-<li><p>打开其中的 “api.php” 文件审计代码，注意到这里有个 buy() 函数，这个是我们在网页买彩票会调用的函数。其中我们看到 numbers 这个变量是我们能操作的，函数会以数组的形式提取每位数字。</p>
-</li>
-</ol>
-<p><img src="https://s2.loli.net/2022/05/17/G8wMKyUBuP3Abgp.png"></p>
-<ol start="7">
-<li>接收data变量是通过file_get_contents(‘php://input’)，并进行json_decode,我的理解是和golang中接收后用unmarshal进行解析一样</li>
-<li>file_get_contents(‘php://input’)和$_POST在接收变量值的方面没有什么不同，都可以通过burp进行传入值，但是在接收格式的方面不同</li>
-<li>file_get_contents(‘php://input’)不能接收curl post过来的<strong>数组</strong>，用file_get_contents是为了接收json字符串，$_POST为了接收一维数组或&amp;拼接的标准格式的键值对字符串</li>
-<li>当请求data变量中的action参数为buy时，才会执行buy函数并传入data变量</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230703162905.png"></li>
-<li>才能对numbers值进行匹配</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230703163003.png"></li>
-<li>由于随机变量是数字，因此我们可以使用 true 来满足比较，但是我们显然不能在输入框输入 7 个 “true”。因此我们考虑修改数据包，通过抓包发现数据的传输是通过传一个映射来上传的。<br><img src="https://img2020.cnblogs.com/blog/1774310/202009/1774310-20200902103450123-831589597.jpg"></li>
-<li>因此抓包之后修改 numbers 变量为一个数组，其中的 7 个变量都是 true。放包之后就能够快速赚钱了，赚够钱后购买得到 flag</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;action&quot;:&quot;buy&quot;,&quot;numbers&quot;:[true,true,true,true,true,true,true]&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="攻防世界mfw"><a href="#攻防世界mfw" class="headerlink" title="攻防世界mfw"></a>攻防世界mfw</h3><ol>
-<li>打开后在每个标签中查看<br><img src="https://s2.loli.net/2022/05/18/hG7ucDX1SlxnLR8.png"></li>
-<li>查看源代码发现有个跳转到flag的超链接被注释掉了，但是不允许修改，我直接改跳转到contact的超链接为flag<br><img src="https://s2.loli.net/2022/05/18/rFoVfdMxc4JqHDz.png"></li>
-<li>但是在flag标签内什么也没有发现<br><img src="https://s2.loli.net/2022/05/18/yCV58D71mQvMdYt.png"></li>
-<li>在上一张图片中有两个词，git和php，猜测是git源码泄露，用dirsearch跑一跑,真的发现了很多.git文件</li>
-</ol>
-<p><img src="https://s2.loli.net/2022/05/18/GVN56mYsDi31W4S.png"></p>
-<ol start="5">
-<li><p>用githack去跑，看看能不能下下来一些.git下的源码，发现在.index的开头找到了php源码<br><img src="https://s2.loli.net/2022/05/18/9mv3rVzMhtELTjU.png"></p>
-</li>
-<li><p>其中assert()函数会将括号中的字符当成代码来执行，并返回true或false，strpos()函数会返回字符串第一次出现的位置，如果没有找到则返回False</p>
-</li>
-<li><p>于是重心就放在file变量中，发现file变量是用我们输入的page变量拼接而成的，而且没有任何的过滤，我们可以在这段输入的字符中插入system函数来执行系统命令<br><img src="https://s2.loli.net/2022/05/18/kfJjFVSPbWrpsHc.png"></p>
-</li>
-<li><p>注意到调用file时用的单引号和括号来限制file的范围<br>于是可以构造url为</p>
-<pre class="line-numbers language-none"><code class="language-none">page&#x3D;a &#39;) or system(&quot;cat templates&#x2F;flag.php&quot;);&#x2F;&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://s2.loli.net/2022/05/18/jG4twcHOWvbkFCq.png"></p>
-</li>
-</ol>
-<h2 id="ctfshow-web7"><a href="#ctfshow-web7" class="headerlink" title="ctfshow.web7"></a>ctfshow.web7</h2><ol>
-<li>考察git代码泄露，直接访问url/.git/index.php</li>
-<li>git源码泄露一般在根目录下/.git/文件夹下找<br><img src="https://s2.loli.net/2022/05/18/TIRAXNm3fVMi1l7.png"></li>
-</ol>
-<h1 id="直接获取-CMS识别平台-云悉指纹识别平台"><a href="#直接获取-CMS识别平台-云悉指纹识别平台" class="headerlink" title="直接获取-CMS识别平台-云悉指纹识别平台"></a>直接获取-CMS识别平台-云悉指纹识别平台</h1><h2 id="自行查看"><a href="#自行查看" class="headerlink" title="自行查看"></a>自行查看</h2><ol>
-<li>  看网页页脚、图片、版权信息位置有没有透露信息</li>
-<li>  获得搭建的程序名，并下载获取到源码</li>
-</ol>
-<h2 id="云悉指纹识别平台"><a href="#云悉指纹识别平台" class="headerlink" title="云悉指纹识别平台"></a>云悉指纹识别平台</h2><ol>
-<li>  不是百分百可以获取到，自研等都无法获取，因为不是用的开源CMS</li>
-<li>  键入域名</li>
-<li>  但是目前还没有注册能力，库鲁西 </li>
-</ol>
-<h1 id="备份文件泄露"><a href="#备份文件泄露" class="headerlink" title="备份文件泄露"></a>备份文件泄露</h1><ol>
-<li>  在网站/www/html目录下备份文件会有备份文件泄露风险</li>
-<li>  不只是在/www/html目录下，这是PHP_study搭建的，也可以是其它的搭建网站的目录下打成zip/gz压缩包备份的</li>
-<li>  任意下载，只要没有限制目录跨级就可以</li>
-<li>  有一些可能会限制跳到上级 ../ 的限制</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/robots%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/">
-                robots协议
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-17</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/robots%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="robots协议"><a href="#robots协议" class="headerlink" title="robots协议"></a>robots协议</h1><h2 id="存放位置"><a href="#存放位置" class="headerlink" title="存放位置"></a>存放位置</h2><ol>
-<li>robots.txt是存放在站点根目录下的一个纯文本文件。</li>
-</ol>
-<h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><ol>
-<li>Robots协议（也称为爬虫协议、机器人协议等）的全称是“网络爬虫排除标准”（Robots Exclusion Protocol），网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。</li>
-</ol>
-<h2 id="作用的描述："><a href="#作用的描述：" class="headerlink" title="作用的描述："></a>作用的描述：</h2><ol>
-<li>Robots协议也称为爬虫协议、爬虫规则、机器人协议，是网站国际互联网界通行的道德规范,其目的是保护网站数据和敏感信息、确保用户个人信息和隐私不被侵犯。“规则”中将搜索引擎抓取网站内容的范围做了约定,包括网站是否希望被搜索引擎抓取,哪些内容不允许被抓取,而网络爬虫可以据此自动抓取或者不抓取该网页内容。</li>
-<li>如果将网站视为酒店里的一个房间,robots.txt就是主人在房间门口悬挂的“请勿打扰”或“欢迎打扫”的提示牌。这个文件告诉来访的搜索引擎哪些房间可以进入和参观,哪些不对搜索引擎开放。</li>
-</ol>
-<h2 id="书写规范"><a href="#书写规范" class="headerlink" title="书写规范"></a>书写规范</h2><ol>
-<li><p>robots.txt（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。因为一些系统中的URL是大小写敏感的，所以robots.txt的文件名应统一为小写。robots.txt应放置于网站的根目录下。如果想单独定义搜索引擎的漫游器访问子目录时的行为，那么可以将自定的设置合并到根目录下的robots.txt，或者使用robots元数据（Metadata，又稱元資料）。</p>
-</li>
-<li><p>robots.txt协议并不是一个规范，而只是约定俗成的，所以并不能保证网站的隐私。注意robots.txt是用字符串比较来确定是否获取URL，所以目录末尾有与没有斜杠“/”表示的是不同的URL。robots.txt允许使用类似”Disallow: *.gif”这样的通配符[1][2]。</p>
-</li>
-<li><p>其他的影响搜索引擎的行为的方法包括使用robots元数据：</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;meta name&#x3D;&#39;robot&#39; content&#x3D;&quot;noindex,nofollow&quot; &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h1 id="robot协议详解"><a href="#robot协议详解" class="headerlink" title="robot协议详解"></a>robot协议详解</h1><ol>
-<li>Robots协议是Web站点和搜索引擎爬虫交互的一种方式，Robots.txt是存放在站点根目录下的一个纯文本文件。该文件可以指定搜索引擎爬虫只抓取指定的内容，或者是禁止搜索引擎爬虫抓取网站的部分或全部内容。当一个搜索引擎爬虫访问一个站点时，它会首先检查该站点根目录下是否存在robots.txt，如果存在，搜索引擎爬虫就会按照该文件中的内容来确定访问的范围；如果该文件不存在，那么搜索引擎爬虫就沿着链接抓取。</li>
-</ol>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><pre class="line-numbers language-none"><code class="language-none">允许所有的机器人：
-
-User-agent: *
-Disallow:
-另一写法
-
-User-agent: *
-Allow:&#x2F;
-仅允许特定的机器人：（name_spider用真实名字代替）
-
-User-agent: name_spider
-Allow:
-拦截所有的机器人：
-
-User-agent: *
-Disallow: &#x2F;
-禁止所有机器人访问特定目录：
-
-User-agent: *
-Disallow: &#x2F;cgi-bin&#x2F;
-Disallow: &#x2F;images&#x2F;
-Disallow: &#x2F;tmp&#x2F;
-Disallow: &#x2F;private&#x2F;
-仅禁止坏爬虫访问特定目录（BadBot用真实的名字代替）：
-
-User-agent: BadBot
-Disallow: &#x2F;private&#x2F;
-禁止所有机器人访问特定文件类型[2]：
-
-User-agent: *
-Disallow: &#x2F;*.php$
-Disallow: &#x2F;*.js$
-Disallow: &#x2F;*.inc$
-Disallow: &#x2F;*.css$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/dirsearch/">
-                dirsearch使用方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-17</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/dirsearch/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="dirsearch使用方法"><a href="#dirsearch使用方法" class="headerlink" title="dirsearch使用方法"></a>dirsearch使用方法</h1><h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ol>
-<li><p>dirsearch 是一款使用 python3 编写的，用于暴力破解目录的工具，其 README 有写到下面一点</p>
-</li>
-<li><p>Heuristically detects invalid web pages（启发式地检测无效 web 页面）</p>
-</li>
-</ol>
-<h2 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h2><pre class="line-numbers language-none"><code class="language-none">最基本：
+命令：最基本：
 python dirsearch.py -u URL
 
 后面选项:
@@ -699,329 +258,43 @@ python dirsearch.py -u URL
     -e EXTENSIONS, --extensions&#x3D;EXTENSIONS
                         以逗号分隔的扩展列表（示例：php、asp）
                         
-    -E, --extensions-list
-                        使用公共扩展的预定义列表
+    -E, --extension ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/CSS/" title="CSS">CSS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-15T08:58:17.296Z" title="发表于 2022-05-15 16:58:17">2022-05-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CSS/ing/">ing</a></span></div><div class="content">网页分为
+结构:HTML
+表现:CSS
+行为:JS
 
-  Dictionary Settings:
-    -w WORDLIST, --wordlist&#x3D;WORDLIST
-                        自定义单词表（用逗号分隔）
-    -l, --lowercase
-    -f, --force-extensions
-                        强制扩展每个单词表条目（如DirBuster）
+CSS 层叠样式表
+层叠：网页是一个立体的结构，只是看起来像是一个平面，其实有一定的层次结构
+我们看到的只是最上面的一层
+通过CSS可以为网页的每一个层设置样式
+总之：CSS可以用来设置网页中元素的样式
 
-  常规设置:
-    -s DELAY, --delay&#x3D;DELAY
-                        请求之间的延迟（浮点数）
-                        
-    -r, --recursive     递归暴力
-    
-    -R RECURSIVE_LEVEL_MAX, --recursive-level-max&#x3D;RECURSIVE_LEVEL_MAX
-                        最大递归级别（子目录）（默认值：1[仅限根目录+1目录]）
-                        
-    --suppress-empty, --suppress-empty
-    --scan-subdir&#x3D;SCANSUBDIRS, --scan-subdirs&#x3D;SCANSUBDIRS
-                        扫描给定-u |--url的子目录（分开逗号）
-                        
-    --exclude-subdir&#x3D;EXCLUDESUBDIRS, --exclude-subdirs&#x3D;EXCLUDESUBDIRS
-                        在递归过程中排除下列子目录扫描（用逗号分隔）
-                        
-    -t THREADSCOUNT, --threads&#x3D;THREADSCOUNT
-                        线程数
-                        
-    -x EXCLUDESTATUSCODES, --exclude-status&#x3D;EXCLUDESTATUSCODES
-                        排除状态代码，用逗号分隔（例如：301，500个）
-                        
-    --exclude-texts&#x3D;EXCLUDETEXTS
-                        用逗号分隔的文本排除响应(示例: &quot;Not found&quot;, &quot;Error&quot;)
-                        
-    --exclude-regexps&#x3D;EXCLUDEREGEXPS
-                        按regexp排除响应，用逗号分隔(示例： &quot;Not foun[a-z]&#123;1&#125;&quot;, &quot;^Error$&quot;)
-                        
-    -c COOKIE, --cookie&#x3D;COOKIE
-    
-    --ua&#x3D;USERAGENT, --user-agent&#x3D;USERAGENT 
-   						用户代理
-   						
-    -F, --follow-redirects 
-    					--遵循重定向
-    					
-    -H HEADERS, --header&#x3D;HEADERS 页眉，--页眉&#x3D;页眉
-                        要添加的标题 (example: --header &quot;Referer:
-                        example.com&quot; --header &quot;User-Agent: IE&quot;
-                        
-    --random-agents, --random-user-agents 
-    					随机代理，--随机用户代理
+使用CSS来修改元素的样式第一种方式：内联样式（不推荐使用）
+在标签内部通过style属性来设置元素的样式
+只能在开始标签中设置,style的值即为css
+名字和值之间使用冒号连接
+每一个名值对以分号结尾&lt;p style&#x3D;&quot;color:red; font-size:20px&quot;&gt;&lt;&#x2F;p&gt;
+不推荐使用内联样式
+使用内联样式，只能对一个标签生效
+如果希望影响到多个元素，必须在每一个元素中都复制一遍
+后期维护的时候，如果前期复制一百遍，后期就要改一百遍，维护起来非常不方便
 
-  连接设置:
-    --timeout&#x3D;TIMEOUT   连接超时
-    
-    --ip&#x3D;IP             将名称解析为IP地址
-    
-    --proxy&#x3D;HTTPPROXY, --http-proxy&#x3D;HTTPPROXY
-                        Http代理 (example: localhost:8080
-                        
-    --http-method&#x3D;HTTPMETHOD
-                        要使用的方法，默认值：GET，也可能是：HEAD；POST
-                        
-    --max-retries&#x3D;MAXRETRIES
-    					最大重试次数
-    					
-    -b, --request-by-hostname
-                        默认情况下，dirsearch将通过IP请求速度。
-						这将强制按主机名请求
+CSS选择器p&#123;color:green;&#125;
 
- 报告:
-    --simple-report&#x3D;SIMPLEOUTPUTFILE 简单输出文件
-                        只找到路径
-                        
-    --plain-text-report&#x3D;PLAINTEXTOUTPUTFILE 纯文本输出文件
-                        找到带有状态代码的路径
-                        
-    --json-report&#x3D;JSONOUTPUTFILE JSON输出文件
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://s2.loli.net/2022/05/17/uKqnltzHT9wRcUJ.png"></p>
+标签名+{属性}
 
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/CSS/">
-                CSS
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-15</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/CSS/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CSS/">CSS</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="网页分为"><a href="#网页分为" class="headerlink" title="网页分为"></a>网页分为</h1><ol>
-<li>结构:HTML</li>
-<li>表现:CSS</li>
-<li>行为:JS</li>
-</ol>
-<h1 id="CSS-层叠样式表"><a href="#CSS-层叠样式表" class="headerlink" title="CSS 层叠样式表"></a>CSS 层叠样式表</h1><ol>
-<li>层叠：网页是一个立体的结构，只是看起来像是一个平面，其实有一定的层次结构</li>
-<li>我们看到的只是最上面的一层</li>
-<li>通过CSS可以为网页的每一个层设置样式</li>
-<li>总之：CSS可以用来设置网页中元素的样式</li>
-</ol>
-<h1 id="使用CSS来修改元素的样式"><a href="#使用CSS来修改元素的样式" class="headerlink" title="使用CSS来修改元素的样式"></a>使用CSS来修改元素的样式</h1><h2 id="第一种方式：内联样式（不推荐使用）"><a href="#第一种方式：内联样式（不推荐使用）" class="headerlink" title="第一种方式：内联样式（不推荐使用）"></a>第一种方式：内联样式（不推荐使用）</h2><ol>
-<li>在标签内部通过style属性来设置元素的样式</li>
-<li>只能在开始标签中设置,style的值即为css</li>
-<li>名字和值之间使用冒号连接</li>
-<li>每一个名值对以分号结尾<pre class="line-numbers language-none"><code class="language-none">&lt;p style&#x3D;&quot;color:red; font-size:20px&quot;&gt;&lt;&#x2F;p&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="不推荐使用内联样式"><a href="#不推荐使用内联样式" class="headerlink" title="不推荐使用内联样式"></a>不推荐使用内联样式</h3></li>
-<li>使用内联样式，只能对一个标签生效</li>
-<li>如果希望影响到多个元素，必须在每一个元素中都复制一遍</li>
-<li>后期维护的时候，如果前期复制一百遍，后期就要改一百遍，维护起来非常不方便</li>
-</ol>
-<h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><pre class="line-numbers language-none"><code class="language-none">p&#123;color:green;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol>
-<li>标签名+{属性}</li>
-</ol>
-<h3 id="开发时一定一定不要使用内联样式"><a href="#开发时一定一定不要使用内联样式" class="headerlink" title="开发时一定一定不要使用内联样式"></a>开发时一定一定不要使用内联样式</h3><h2 id="第二种方式：内部样式表"><a href="#第二种方式：内部样式表" class="headerlink" title="第二种方式：内部样式表"></a>第二种方式：内部样式表</h2><ol>
-<li>将样式编写到head中的style标签中</li>
-<li>然后通过CSS的选择器来选中元素，并为其设置各种样式</li>
-<li>可以同时为多个标签设置样式，并且修改时只需要修改一处即可全部应用</li>
-<li>内部样式表更方便对样式进行重复使用</li>
-<li>内部样式表只能对一个页面起作用，里面的样式不能跨页面进行复用</li>
-</ol>
-<h2 id="第三种方式：外部样式表（最佳使用方式）"><a href="#第三种方式：外部样式表（最佳使用方式）" class="headerlink" title="第三种方式：外部样式表（最佳使用方式）"></a>第三种方式：外部样式表（最佳使用方式）</h2><h3 id="可以将CSS样式编写到一个外部的CSS文件中"><a href="#可以将CSS样式编写到一个外部的CSS文件中" class="headerlink" title="可以将CSS样式编写到一个外部的CSS文件中"></a>可以将CSS样式编写到一个外部的CSS文件中</h3><h3 id="然后通过link标签引入外部的CSS文件"><a href="#然后通过link标签引入外部的CSS文件" class="headerlink" title="然后通过link标签引入外部的CSS文件"></a>然后通过link标签引入外部的CSS文件</h3><pre class="line-numbers language-none"><code class="language-none">p&#123;
-    color: tomato;
-    font-size: 100px;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="lt-link-gt"><a href="#lt-link-gt" class="headerlink" title="&lt; link&gt;"></a>&lt; link&gt;</h3><ol>
-<li>通过link标签来引入外部的CSS文件</li>
-<li>外部样式表需要通过link标签进行引入，意味着只要想使用这些样式的网页可以对其进行引用</li>
-</ol>
-<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><ol>
-<li>使样式可以在不同页面进行复用，提高复用率</li>
-<li>将样式编写到外部的CSS文件中，可以使用浏览器的缓存机制，从而加快网页的加载速度，提高用户的体验</li>
-</ol>
-<h1 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h1><h2 id="和HTML不同"><a href="#和HTML不同" class="headerlink" title="和HTML不同"></a>和HTML不同</h2><ol>
-<li>CSS语法和HTML的语法互相隔离</li>
-</ol>
-<h2 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h2><ol>
-<li>和c++中的多行注释相同<pre class="line-numbers language-none"><code class="language-none">&#x2F;*
-abc
-*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><pre class="line-numbers language-none"><code class="language-none">p&#123;
-    color: red;
-    font-size: 20px;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ol>
-<li>通过选择器可以选中页面中的指定元素</li>
-<li>选择器选中的是html中的标签</li>
-</ol>
-<h3 id="声明块"><a href="#声明块" class="headerlink" title="声明块"></a>声明块</h3><ol>
-<li>通过声明块来指定要为元素设置的样式</li>
-<li>声明块由一个个的声明组成</li>
-<li>声明是由一个个的名值对组成</li>
-</ol>
-<h4 id="名值对"><a href="#名值对" class="headerlink" title="名值对"></a>名值对</h4><ol>
-<li>一个样式名对应一个样式值，名和值之间以’:’连接，以’;’结尾</li>
-<li>样式名值对之间的分号不能省略，最后一个名值对后面的分号可以省略（我联想到了sql语句select选中列的语法相同）</li>
-</ol>
-<h1 id="选择器-1"><a href="#选择器-1" class="headerlink" title="选择器"></a>选择器</h1><h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
-<li>根据标签来选中指定的元素<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2></li>
-<li>标签名{}<pre class="line-numbers language-none"><code class="language-none">p&#123;&#125; h1&#123;&#125; div&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://s2.loli.net/2022/05/15/qQw72DNRAcvPsYL.png"></li>
-</ol>
-<h2 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h2><h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>根据元素的id属性值选中一个元素</li>
-</ol>
-<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">#id属性值&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://s2.loli.net/2022/05/15/wxAhokB8HdZtTiN.png"></p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
-<li>id值只有一个，不能重复使用</li>
-</ol>
-<p><img src="https://s2.loli.net/2022/05/15/qQWEGuYVzd4nm7s.png"></p>
-<h2 id="class选择器（类）"><a href="#class选择器（类）" class="headerlink" title="class选择器（类）"></a>class选择器（类）</h2><ol>
-<li>class是一个标签的属性，和id类似，不同的是，class可以重复使用</li>
-<li>可以通过class属性来为元素分组</li>
-<li>可以同时为一个元素指定多个class属性</li>
-<li>标签中的多个class属性通过空格隔开&amp;/nbsp;<br><img src="https://s2.loli.net/2022/05/16/NHKhdM9qXUuWJwF.png"></li>
-</ol>
-<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">.class(属性值)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://s2.loli.net/2022/05/16/gjH1zo382Q7uGFy.png"></p>
-<h2 id="通配选择器"><a href="#通配选择器" class="headerlink" title="通配选择器"></a>通配选择器</h2><h3 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>选中页面中的所有元素<h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">*&#123;属性值&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://s2.loli.net/2022/05/15/5j74LVzBTZpN9He.png"></li>
-</ol>
-<h1 id="复合选择器"><a href="#复合选择器" class="headerlink" title="复合选择器"></a>复合选择器</h1><h2 id="交叉选择器"><a href="#交叉选择器" class="headerlink" title="交叉选择器"></a>交叉选择器</h2><ol>
-<li>选中同时满足多个条件的元素</li>
-<li>多个选择器的复合<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3></li>
-<li>选择器1.选择器2.选择器n{}<pre class="line-numbers language-none"><code class="language-none">div.red&#123;
-    font-size: 30px;
-    color: red;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><ol>
-<li>交叉选择器中如果有元素选择器，必须使用元素选择器开头</li>
-<li>一般不会出现id选择器和其它选择器的复用，因为id选择器已经可以唯一确定一个标签，一般只是元素选择器和类选择器之间的交叉</li>
-</ol>
-<h2 id="选择器分组-并集选择器"><a href="#选择器分组-并集选择器" class="headerlink" title="选择器分组/并集选择器"></a>选择器分组/并集选择器</h2><h3 id="作用-3"><a href="#作用-3" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>同时选择多个选择器对应的元素</li>
-</ol>
-<h3 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">选择器1,选择器2,选择器n&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol>
-<li>逗号在此处相当于是并集符号<br><img src="https://s2.loli.net/2022/05/16/tF5kXKfyqu1zaoM.png"></li>
-</ol>
-<h2 id="交叉选择器和并集选择器可以复合使用"><a href="#交叉选择器和并集选择器可以复合使用" class="headerlink" title="交叉选择器和并集选择器可以复合使用"></a>交叉选择器和并集选择器可以复合使用</h2><h2 id="网页中不同元素之间的关系"><a href="#网页中不同元素之间的关系" class="headerlink" title="网页中不同元素之间的关系"></a>网页中不同元素之间的关系</h2><h3 id="父子关系"><a href="#父子关系" class="headerlink" title="父子关系"></a>父子关系</h3><ol>
-<li>直接包含子元素的是父元素（注意是直接）</li>
-<li>直接被父元素包含的是子元素<h3 id="祖先后代元素"><a href="#祖先后代元素" class="headerlink" title="祖先后代元素"></a>祖先后代元素</h3></li>
-<li>直接或间接包含后代元素叫祖先元素</li>
-<li>一个元素的父元素也是祖先元素</li>
-<li>直接或间接被祖先元素包含的元素叫做后代元素</li>
-</ol>
-<h3 id="兄弟元素"><a href="#兄弟元素" class="headerlink" title="兄弟元素"></a>兄弟元素</h3><ol>
-<li>拥有相同父元素的叫兄弟元素</li>
-</ol>
-<h2 id="关系选择器"><a href="#关系选择器" class="headerlink" title="关系选择器"></a>关系选择器</h2><h3 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h3><h4 id="作用：-1"><a href="#作用：-1" class="headerlink" title="作用："></a>作用：</h4><ol>
-<li>选中指定父元素的指定子元素<h4 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h4><pre class="line-numbers language-none"><code class="language-none">父元素 &gt; 子元素
-div &gt; span &#123;
-    color: red;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="后代元素选择器"><a href="#后代元素选择器" class="headerlink" title="后代元素选择器"></a>后代元素选择器</h3><h4 id="作用：-2"><a href="#作用：-2" class="headerlink" title="作用："></a>作用：</h4><ol>
-<li>选中指定元素的指定后代元素</li>
-<li>范围比子选择器更大，相当于递归处理（-r）</li>
-</ol>
-<h4 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h4><pre class="line-numbers language-none"><code class="language-none">祖先 后代&#123;
-
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="兄弟元素选择器"><a href="#兄弟元素选择器" class="headerlink" title="兄弟元素选择器"></a>兄弟元素选择器</h2><h3 id="作用-4"><a href="#作用-4" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>选择下一个兄弟</li>
-<li>注意必须是紧邻的下一个兄弟元素</li>
-<li>隔开的兄弟元素不会被选中</li>
-<li>前面的兄弟元素不会被选中，只会选中前面的兄弟元素</li>
-</ol>
-<h3 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">前一个 + 下一个
- p + span&#123;
-
- &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">选择下边所有的兄弟
-兄 ~ 弟&#123;
-
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><h3 id="title可以指定标签的标题"><a href="#title可以指定标签的标题" class="headerlink" title="title可以指定标签的标题"></a>title可以指定标签的标题</h3><ol>
-<li>写的是什么，鼠标光标移到某个位置，可以显示提示文字</li>
-</ol>
-<h3 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-none"><code class="language-none">元素选择器[属性]&#123;
-    属性
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://s2.loli.net/2022/05/16/f4yUhwZo2QePTOi.png"><br><img src="https://s2.loli.net/2022/05/16/ZeJnYEp79XFv1qD.png"><br><img src="https://s2.loli.net/2022/05/16/DrRizNOxHB8jMqW.png"></p>
-<h3 id="作用-5"><a href="#作用-5" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>选择含有指定属性的元素</li>
-</ol>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><pre class="line-numbers language-none"><code class="language-none">[属性名] 选择含有指定属性的元素
-[属性名&#x3D;属性值] 选择含有指定元素属性和属性值的元素
-[属性名^&#x3D;属性值] 选择属性值以指定值开头的元素
-[属性名$&#x3D;属性值] 选择属性值以指定值结尾的元素
-[属性名*&#x3D;属性值] 选择属性值中含有某值的元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/bfs/">
-                dfs
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-05</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/bfs/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/acm算法/">acm算法</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="bfs"><a href="#bfs" class="headerlink" title="bfs"></a>bfs</h1><h2 id="函数写法"><a href="#函数写法" class="headerlink" title="函数写法"></a>函数写法</h2><ol>
-<li>定义对头和队尾hh,tt</li>
-<li>定义x和y的位置,用一个二元组去存q[N*N]</li>
-<li>将d数组全部初始化为-1</li>
-<li>开头的d[0][0]初始化为0</li>
-<li>写偏移量</li>
-<li>判断队头和队尾</li>
-<li>auto一个t，存q还没有走的值</li>
-<li>预处理各个方向的偏移量</li>
-<li>判断如果合法就存进去<pre class="line-numbers language-none"><code class="language-none">#include&lt;bits&#x2F;stdc++.h&gt;
+开发时一定一定不要使用内联样式第二种方式：内部样式表
+将样式编写到head中的style标签中
+然后通过CSS的选择器 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/bfs/" title="dfs">dfs</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-05T04:04:29.592Z" title="发表于 2022-05-05 12:04:29">2022-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/acm%E7%AE%97%E6%B3%95/">acm算法</a></span></div><div class="content">bfs函数写法
+定义对头和队尾hh,tt
+定义x和y的位置,用一个二元组去存q[N*N]
+将d数组全部初始化为-1
+开头的d[0][0]初始化为0
+写偏移量
+判断队头和队尾
+auto一个t，存q还没有走的值
+预处理各个方向的偏移量
+判断如果合法就存进去#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
 typedef pair&lt;int,int&gt; PII;
 
@@ -1035,72 +308,9 @@ int bfs()&#123;
     int tt &#x3D; 0;&#x2F;&#x2F;队尾
     q[0] &#x3D; &#123;0,0&#125;;&#x2F;&#x2F;xy的坐标
     memset(d,-1,sizeof d);
-    d[0][0] &#x3D; 0;&#x2F;&#x2F;距离原点的距离为0
-    int dx[4] &#x3D; &#123;-1,0,1,0&#125;;
-    int dy[4] &#x3D; &#123;0,1,0,-1&#125;;
-    
-    while(hh &lt;&#x3D; tt)&#123;
-        auto t &#x3D; q[hh++];
-        for(int i &#x3D; 0;i &lt; 4;i++)
-        &#123;   &#x2F;&#x2F;这个地方只是预处理，没有存进去
-            int x &#x3D; t.first + dx[i];
-            int y &#x3D; t.second + dy[i];
-            &#x2F;&#x2F;判断合法就可以存进去
-            if(x &gt;&#x3D; 0 &amp;&amp; x &lt; n &amp;&amp; y &gt;&#x3D; 0 &amp;&amp; y &lt; m &amp;&amp; g[x][y] &#x3D;&#x3D; 0 &amp;&amp; d[x][y] &#x3D;&#x3D; -1)&#123;
-                d[x][y] &#x3D; d[t.first][t.second] + 1;
-                q[++tt] &#x3D; &#123;x,y&#125;;
-            &#125;
-        &#125;
-    &#125;
-    return d[n-1][m-1];
-&#125;
-
-
-int main(void)&#123;
-    cin &gt;&gt; n &gt;&gt; m;
-    for(int i &#x3D; 0;i &lt; n;i++)&#123;
-        for(int j &#x3D; 0;j &lt; m;j++)&#123;
-            cin &gt;&gt; g[i][j];
-        &#125;
-    &#125;
-    cout &lt;&lt; bfs() &lt;&lt; endl;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/stl/">
-                stl
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-05-05</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/stl/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/acm算法/">acm算法</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><ol>
-<li>变长数组，支持随机访问，但是不支持任意位置O(1)插入，只能在头或末尾插入</li>
-<li>为了保证效率，元素增删一般在末尾进行<pre class="line-numbers language-none"><code class="language-none">声明
+    d[0][0] &#x3D; 0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/stl/" title="stl">stl</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-05T04:04:17.308Z" title="发表于 2022-05-05 12:04:17">2022-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/acm%E7%AE%97%E6%B3%95/">acm算法</a></span></div><div class="content">vector
+变长数组，支持随机访问，但是不支持任意位置O(1)插入，只能在头或末尾插入
+为了保证效率，元素增删一般在末尾进行声明
 #include&lt;vector&gt;
 vector&lt;int&gt; a;&#x2F;&#x2F;int类型的数组
 vector&lt;int&gt; b[233];&#x2F;&#x2F;第一维度长233（列数）固定，第二维度可以改变（列数）
@@ -1108,478 +318,33 @@ struct tec&#123;
     int x,y;
 &#125;
 vector&lt;rec&gt; c;
-&#x2F;&#x2F;vector后面&lt;&gt;中添加类型,定义为结构体<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2></li>
-<li>a.size()返回数组的大小</li>
-<li>a.empty()返回数组是否为空，true or false</li>
-<li>clear()//把当前数组清空</li>
-</ol>
-<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><ol>
-<li>类型于stl容器中的指针，可以用<em>操作符解除引用（用</em>即可返回具体的值）<pre class="line-numbers language-none"><code class="language-none">vector&lt;int&gt;::iterator it;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>随机访问迭代器，可以把vector的迭代器与一个整数相加减，行为和指针的移动类似</li>
-<li>两个迭代器相减，结果与指针相减类似，得到两个迭代器之间的距离</li>
-<li>*a.begin()和a[0]效果一样</li>
-<li>初始化<pre class="line-numbers language-none"><code class="language-none">vector&lt;int&gt; a(&#123;1,2,3&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h1 id="begin-end"><a href="#begin-end" class="headerlink" title="begin/end"></a>begin/end</h1></li>
-<li>begin函数返回指向vector中的第一个元素的迭代器</li>
-<li>*a.begin() == a[0]</li>
-<li>所有的容器都可以视作一个前闭后开的结构</li>
-<li>end函数返回vector的尾部，即vector数组的末尾的下一个位置</li>
-<li>*a.end() == a[n] 都是越界访问，其中n = a.size()</li>
-</ol>
-<h1 id="front-back"><a href="#front-back" class="headerlink" title="front/back"></a>front/back</h1><ol>
-<li>front返回vector的第一个元素，a.front() == a[0] == *a.begin()</li>
-<li>back返回vector的最后一个元素，a.back() == a[a.size()-1] == *a.end()</li>
-</ol>
-<h1 id="push-back-pop-back"><a href="#push-back-pop-back" class="headerlink" title="push_back() / pop_back()"></a>push_back() / pop_back()</h1><ol>
-<li>a.push_back(x)将x插入到vector的尾部</li>
-<li>b.pop_back(),删除vector a的最后一个元素</li>
-</ol>
-<h1 id="queue-循环队列"><a href="#queue-循环队列" class="headerlink" title="queue 循环队列"></a>queue 循环队列</h1><h2 id="先进先出"><a href="#先进先出" class="headerlink" title="先进先出"></a>先进先出</h2><h1 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority queue 优先队列"></a>priority queue 优先队列</h1><h2 id="会优先往外弹最大值"><a href="#会优先往外弹最大值" class="headerlink" title="会优先往外弹最大值"></a>会优先往外弹最大值</h2><pre class="line-numbers language-none"><code class="language-none">声明
-queue&lt;int&gt; q;
-priority_queue&lt;int&gt; a;&#x2F;&#x2F;大根堆
-priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; b;&#x2F;&#x2F;小根堆
-priority_queue&lt;pair&lt;int,int&gt;&gt; a;&#x2F;&#x2F;定义的是二元组<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="重载大于号"><a href="#重载大于号" class="headerlink" title="重载大于号"></a>重载大于号</h2><pre class="line-numbers language-none"><code class="language-none">struct Rec
-&#123;
-    int a,b;
-    bool operator &gt; (const Rec&amp; t) const&#123;
-        return a &gt; t.a;
-    &#125;
-&#125;
-priority_queue(Rec) d;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="循环队列queue"><a href="#循环队列queue" class="headerlink" title="循环队列queue"></a>循环队列queue</h3><ol>
-<li>如果越界了会从头开始循环</li>
-<li>push  //从队尾插入</li>
-<li>pop   //从队头弹出   </li>
-<li>front //返回队头元素</li>
-<li>back  //返回队尾元素</li>
-</ol>
-<h3 id="优先队列priority-queue"><a href="#优先队列priority-queue" class="headerlink" title="优先队列priority_queue"></a>优先队列priority_queue</h3><ol>
-<li>push  //把元素插入堆</li>
-<li>pop   //删除堆顶元素(优先队列中队头即为最大值)</li>
-<li>top   //查询堆顶元素</li>
-</ol>
-<h3 id="注意：除了队列，栈，其余都有clear函数"><a href="#注意：除了队列，栈，其余都有clear函数" class="headerlink" title="注意：除了队列，栈，其余都有clear函数"></a>注意：除了队列，栈，其余都有clear函数</h3><ol>
-<li>清空队列直接初始化</li>
-<li>q = queue<int>();</li>
-</ol>
-<h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><ol>
-<li>头文件stack,和队列相反，先进后出<pre class="line-numbers language-none"><code class="language-none">stack&lt;int&gt; stk;
-stk.push(1);
-stk.top();
-stk.pop();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><ol>
-<li>头文件<deque></li>
-<li>支持在两端高效插入或删除元素的连续线性存储空间</li>
-<li>相当于是一个拓展版的vector</li>
-<li>二者在队尾插入元素时间复杂度都是O(1)</li>
-<li>在队头插入，vector是O(n),deque是O(n)<pre class="line-numbers language-none"><code class="language-none">deque&lt;int&gt; a;&#x2F;&#x2F;定义
-a.begin()
-a.end()
-a.front()
-a.back()
-a.push_back()&#x2F;&#x2F;在队尾插入一个元素
-a.push_front()&#x2F;&#x2F;在对头插入一个元素
-a[0]&#x2F;&#x2F;支持取下标随机访问一个元素
-a.pop_front()&#x2F;&#x2F;在对头弹出一个元素
-a.pop_back()&#x2F;&#x2F;在队尾弹出一个一元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h1 id="为了避免边界处理问题，都从0开始遍历，存到n-1"><a href="#为了避免边界处理问题，都从0开始遍历，存到n-1" class="headerlink" title="为了避免边界处理问题，都从0开始遍历，存到n-1"></a>为了避免边界处理问题，都从0开始遍历，存到n-1</h1><h1 id="循环队列，优先队列，栈，双端队列都没有迭代器"><a href="#循环队列，优先队列，栈，双端队列都没有迭代器" class="headerlink" title="循环队列，优先队列，栈，双端队列都没有迭代器"></a>循环队列，优先队列，栈，双端队列都没有迭代器</h1><h1 id="循环队列，优先队列和栈没有clear-函数，其他都有"><a href="#循环队列，优先队列和栈没有clear-函数，其他都有" class="headerlink" title="循环队列，优先队列和栈没有clear()函数，其他都有"></a>循环队列，优先队列和栈没有clear()函数，其他都有</h1><h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ol>
-<li>包括set和multiset两个容器，分别是有序集合和有序多重集合</li>
-<li>有序集合(set)的元素不能重复，但是有序多重集合(multiset)可以包含若干个相等的元素<pre class="line-numbers language-none"><code class="language-none">set&lt;int&gt; s;
-struct Rec&#123;
-    ...
-&#125;;
-set&lt;Rec&gt; s;&#x2F;&#x2F;rec中必须重载小于号
-multiset&lt;double&gt; s;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h2><h2 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h2><h2 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h2><h2 id="迭代器-1"><a href="#迭代器-1" class="headerlink" title="迭代器"></a>迭代器</h2><h1 id="set-1"><a href="#set-1" class="headerlink" title="set"></a>set</h1><pre class="line-numbers language-none"><code class="language-none">set&lt;int&gt; a;
-multiset&lt;double&gt; b;
-struct Rec&#123;
-    int a,b;
-&#125;
-set&lt;Rec&gt; c;&#x2F;&#x2F;注意这个地方需要重载小于号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>支持size,empty,clear</li>
-<li>迭代器，双向访问迭代器,支持*接触引用，仅支持++和–两个与算数有关的操作</li>
-<li>不支持随机访问操作，类似于<pre class="line-numbers language-none"><code class="language-none">set&lt;int&gt;::iterator itt &#x3D; a.begin()
-cout &lt;&lt; *(itt+3) &lt;&lt; endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-会报错，因为仅支持上一个或下一个的操作，一次跳转多个的算是随机访问</li>
-<li>插入一个元素,因为是集合，具有无序性，所以insert的时候是无序的<pre class="line-numbers language-none"><code class="language-none">a.insert(x)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查找<pre class="line-numbers language-none"><code class="language-none">s.find(x)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-在集合中查找等于x的元素，并返回该元素的迭代器，如果不存在则返回s.end()<h2 id="lower-bound-upper-bound"><a href="#lower-bound-upper-bound" class="headerlink" title="lower_bound/upper_bound"></a>lower_bound/upper_bound</h2></li>
-<li>s.lower_bound(x),查找大于等于x的元素的最小的一个，并且返回该元素的迭代器</li>
-<li>s.upper_bound(x),查找大于x的元素中最小的一个，并且返回该元素的迭代器<h2 id="erase"><a href="#erase" class="headerlink" title="erase"></a>erase</h2></li>
-<li>如果it是一个迭代器，s.erase(it)从it中删除迭代器it指向的元素</li>
-<li>如果x是一个元素，s.erase(x)从s中删除所有等于x的元素<h2 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h2></li>
-<li>返回s中等于x的元素个数，因为是集合，所以只有0和1会返回，但如果是multiset(x),则会返回x在multiset中存在的个数，因为multiset允许重复</li>
-</ol>
-<h1 id="map"><a href="#map" class="headerlink" title="map"></a>map</h1><ol>
-<li>一个键值对的key-value的映射</li>
-<li>map的key和value可以是任意类型，其中key<pre class="line-numbers language-none"><code class="language-none">a[1] &#x3D; 2;&#x2F;&#x2F;在a[1]的位置插入2
-a[1000000] &#x3D; 3;&#x2F;&#x2F;在key所在的位置插入3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>和数组的区别：前后两个结构体是可以自由定义的<pre class="line-numbers language-none"><code class="language-none">a[&quot;abc&quot;] &#x3D; 2;
-cout &lt;&lt; a[&quot;abc&quot;] &lt;&lt; endl;
-结果是2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>size,empty,clear,begin,end都和set类似</li>
-<li>insert’erase,参数必须是pair&lt;key_type,value_type&gt;,即插入的时候必须令键的类型和值的类型相匹配</li>
-</ol>
-<h1 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h1><ol>
-<li>二元组<pre class="line-numbers language-none"><code class="language-none">pair&lt;int,string&gt; a;
-a &#x3D; &#123;3,&quot;yxc&quot;&#125;;
-cout &lt;&lt; a.first &lt;&lt; &#39; &#39; &lt;&lt; a.second &lt;&lt; endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>pair支持比较运算，先比较first,再比较second</li>
-</ol>
-<h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><h2 id="与-amp"><a href="#与-amp" class="headerlink" title="与 &amp;"></a>与 &amp;</h2><ol>
-<li>0&amp;0 == 0</li>
-<li>0&amp;1 == 0</li>
-<li>1&amp;1 == 1</li>
-</ol>
-<h2 id="或"><a href="#或" class="headerlink" title="或 |"></a>或 |</h2><ol>
-<li>0|0 == 0</li>
-<li>1 | 0 == 1</li>
-<li>0 | 1 == 1</li>
-<li>1 | 1 == 1</li>
-</ol>
-<h2 id="非"><a href="#非" class="headerlink" title="非 ~"></a>非 ~</h2><ol>
-<li>~0 == 1</li>
-<li>~1 == 0</li>
-</ol>
-<h2 id="异或-XOR"><a href="#异或-XOR" class="headerlink" title="异或 ^ XOR"></a>异或 ^ XOR</h2><ol>
-<li>不进位加法</li>
-<li>0 ^ 0 == 0</li>
-<li>1 ^ 1 =0</li>
-<li>1 ^ 0 == 1</li>
-<li>0 ^ 1 == 1</li>
-<li>按照每一位进行按位异或</li>
-</ol>
-<h2 id="右移-gt-gt"><a href="#右移-gt-gt" class="headerlink" title="右移 &gt;&gt;"></a>右移 &gt;&gt;</h2><ol>
-<li>求x的第k位数字:x &gt;&gt; k &amp; 1</li>
-<li>右移k位相当于除以2的k次方</li>
-</ol>
-<h2 id="左移-lt-lt"><a href="#左移-lt-lt" class="headerlink" title="左移 &lt;&lt;"></a>左移 &lt;&lt;</h2><ol>
-<li>左移k位相当于乘以2的k次方</li>
-</ol>
-<h2 id="求一个数的二进制表示方法："><a href="#求一个数的二进制表示方法：" class="headerlink" title="求一个数的二进制表示方法："></a>求一个数的二进制表示方法：</h2><pre class="line-numbers language-none"><code class="language-none">int a &#x3D; 13;
-for(int i &#x3D; n;i &gt;&#x3D; 0;i --)&#123;
-    cout &lt;&lt; (a &gt;&gt; i &amp; 1)
-&#125;
-这里的5是最大求到2的多少次方的位数，0是2的0次方，从n到2的0次方依次提出来<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#x2F;&#x2F;vector后面&lt;&gt;中添加类型,定义为结构体
+函数
+a.size()返回数组的大小
+a.empty()返回数组是否为空，true or false
+clear()//把当前数组清空
 
-<h1 id="返回x的最后一位1"><a href="#返回x的最后一位1" class="headerlink" title="返回x的最后一位1:"></a>返回x的最后一位1:</h1><ol>
-<li>lowbit(x) = x &amp; -x</li>
-</ol>
-<h2 id="常用库函数"><a href="#常用库函数" class="headerlink" title="常用库函数"></a>常用库函数</h2><h3 id="在算法库中"><a href="#在算法库中" class="headerlink" title="在算法库中"></a>在<algorithm>算法库中</h3><h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h4><ol>
-<li>反转数组<pre class="line-numbers language-none"><code class="language-none">vector&lt;int&gt; a;
-reverse(a.begin(),a.end());
-&#x2F;&#x2F;反转数组
-reverse(a,a+a.size()+1);&#x2F;&#x2F;a的首部位置和a的最后一个元素的下一个位置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><img src="https://s2.loli.net/2022/05/06/LbQafHFu6lERZyT.png"></li>
-</ol>
-<h4 id="unique"><a href="#unique" class="headerlink" title="unique"></a>unique</h4><ol>
-<li>数组判重，然后将元素放到数组开头的位置,但是重复的元素只是放到后面，不是删除</li>
-<li>返回值：不同元素的下一个位置的指针</li>
-<li>注意：只是去掉相邻的相同元素，必要时需要sort排序<pre class="line-numbers language-none"><code class="language-none">int m &#x3D; unique(a.begin(),a.end()) - a.begin()
-&#x2F;&#x2F;返回的差值是数组中不同元素的个数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><img src="https://s2.loli.net/2022/05/06/glWePkoQ8NDbuhn.png"></li>
-<li><img src="https://s2.loli.net/2022/05/06/8goGlZO6KeLnYEh.png"></li>
-</ol>
-<h4 id="random-shuffle"><a href="#random-shuffle" class="headerlink" title="random_shuffle()"></a>random_shuffle()</h4><ol>
-<li>参数和reverse()函数一样<pre class="line-numbers language-none"><code class="language-none">random_shuffle(a.begin(),a.end());<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>打乱数组</li>
-<li>random_shuffle(a.begin(),a.end());</li>
-<li>随机种子不一样，打乱顺序不一样</li>
-<li>一般引用<ctime>库中的time(0)函数，生成种子；</li>
-<li><img src="https://s2.loli.net/2022/05/06/AfJWYFN9o854l6w.png"></li>
-</ol>
-<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><ol>
-<li>sort(a.begin(),a.end())从小到大</li>
-<li>如果希望从大到小排序，则需要加上一个参数greater<int>()<pre class="line-numbers language-none"><code class="language-none">sort(a.begin(),a.end(),greater&lt;int&gt;())
-3. 按照自己的想法进行排序，自己写一个cmp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">bool cmp(int a,int b)&#123;&#x2F;&#x2F;a是否应该排在b的前面
-    return a &gt; b;&#x2F;&#x2F;从大到小
-    return a &lt; b;&#x2F;&#x2F;从小到大
-    &#x2F;&#x2F;如果a应该排在b的前面，返回true,否则返回false
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>如果需要重载大于或小于号的写法<pre class="line-numbers language-none"><code class="language-none">bool opeartor&lt; (const Rec &amp;t) const
-&#123;
-    return x &lt; t.x;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
+迭代器
+类型于stl容器中的指针，可以用操作符解除引用（用即可返回具体的值）vector&lt;int&gt;::iterator it;
+随机访问迭代器，可以把vector的迭代器与一个整数相加减，行为和指针的移动类似
+两个迭代器相减，结果与指针相减类似，得到两个迭代器之 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%AE%89%E8%A3%85vmwaretools/" title="安装vmware tools">安装vmware tools</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-26T00:36:29.478Z" title="发表于 2022-04-26 08:36:29">2022-04-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">安装vmware tools
+vmware窗口中点击虚拟机，选择安装vmware tools
+查找VMware tools的tar.gz安装包
+常规情况下应该在/media/用户名/VMware\ Tools/VMware Toolsxxxx.tar.gz
+将该压缩包复制到/root下，cp /media/strongwill/VMware\ Tools/VMware Toolsxxx.tar.gz /root
+cd /root
+解压压缩包tar -cvzf VMwareToolsxxx.tar.gz
+出现蓝色解压后的disturb文件，cd进去
+执行里面的vmware-install.pl:./vmware-install.pl
+一路默认安装即可
 
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E5%AE%89%E8%A3%85vmwaretools/">
-                安装vmware tools
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-04-26</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E5%AE%89%E8%A3%85vmwaretools/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/linux/">linux</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="安装vmware-tools"><a href="#安装vmware-tools" class="headerlink" title="安装vmware tools"></a>安装vmware tools</h1><ol>
-<li>vmware窗口中点击虚拟机，选择安装vmware tools</li>
-<li>查找VMware tools的tar.gz安装包</li>
-<li>常规情况下应该在/media/用户名/VMware\ Tools/VMware Toolsxxxx.tar.gz</li>
-<li>将该压缩包复制到/root下，cp /media/strongwill/VMware\ Tools/VMware Toolsxxx.tar.gz /root</li>
-<li>cd /root</li>
-<li>解压压缩包tar -cvzf VMwareToolsxxx.tar.gz</li>
-<li>出现蓝色解压后的disturb文件，cd进去</li>
-<li>执行里面的vmware-install.pl:./vmware-install.pl</li>
-<li>一路默认安装即可</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="" href="/page/7/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/page/9/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/7/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/#content-inner">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/9/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    拒绝划水，拒绝摸鱼
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2023%E5%A4%8D%E7%9B%98/">2023复盘</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">侧信道攻击</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">蓝帽杯半决赛wp_电子取证部分</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">蓝帽杯半决赛wp_web部分</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/">CSS</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/ing/">ing</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Hadoop/">Hadoop</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/ing/">ing</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:a18888200398@163.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
-
-
-<!-- Disqus Comments -->
-
-<script type="text/javascript">
-    var disqus_shortname = 'klugjotest';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-</body>
-
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/"><span class="card-category-list-name">CTF</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ping/"><span class="card-category-list-name">ping</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">sql注入</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">手动注入</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">手动注入</a> <a href="/tags/ing/" style="font-size: 1.43em; color: #99a6b9">ing</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 1.3em; color: #99a1ac">sql注入</a> <a href="/tags/Javaweb/" style="font-size: 1.1em; color: #999">Javaweb</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/%E5%AF%86%E9%92%A5/" style="font-size: 1.1em; color: #999">密钥</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" style="font-size: 1.1em; color: #999">信息泄露</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">远程登录服务器</a> <a href="/tags/%E5%88%86%E7%9B%98/" style="font-size: 1.1em; color: #999">分盘</a> <a href="/tags/Hive/" style="font-size: 1.1em; color: #999">Hive</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 1.1em; color: #999">进制</a> <a href="/tags/tmux/" style="font-size: 1.1em; color: #999">tmux</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/" style="font-size: 1.1em; color: #999">脚本小子</a> <a href="/tags/phpstudy/" style="font-size: 1.1em; color: #999">phpstudy</a> <a href="/tags/Hadoop/" style="font-size: 1.1em; color: #999">Hadoop</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/go/" style="font-size: 1.3em; color: #99a1ac">go</a> <a href="/tags/PHP/" style="font-size: 1.3em; color: #99a1ac">PHP</a> <a href="/tags/ping/" style="font-size: 1.1em; color: #999">ping</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/HTML/" style="font-size: 1.17em; color: #999c9f">HTML</a> <a href="/tags/awd/" style="font-size: 1.1em; color: #999">awd</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">网站备份漏洞</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.37em; color: #99a4b2">数据库</a> <a href="/tags/hadoop/" style="font-size: 1.23em; color: #999ea6">hadoop</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">机器学习</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/Java/" style="font-size: 1.17em; color: #999c9f">Java</a> <a href="/tags/linux/" style="font-size: 1.37em; color: #99a4b2">linux</a> <a href="/tags/acm%E7%AE%97%E6%B3%95/" style="font-size: 1.23em; color: #999ea6">acm算法</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">磁盘管理</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" style="font-size: 1.23em; color: #999ea6">文件修复</a> <a href="/tags/goweb/" style="font-size: 1.1em; color: #999">goweb</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">106</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-15T05:56:43.525Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>訪客地圖</span></div><div class="item-content"></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

