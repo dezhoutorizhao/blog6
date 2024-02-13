@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>实战攻防信息搜集 | h3110w0r1d's Blog</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="实战攻防信息搜集web1 开发注释未能及时删除 打开ctrl + u查看源代码即可获得flag  web2 有的浏览器直接打开查看源代码就能看到flag 这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。 当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看  web3 用御剑和dirsearch扫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实战攻防信息搜集">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/%E5%AE%9E%E6%88%98%E6%94%BB%E9%98%B2%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="实战攻防信息搜集web1 开发注释未能及时删除 打开ctrl + u查看源代码即可获得flag  web2 有的浏览器直接打开查看源代码就能看到flag 这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。 当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看  web3 用御剑和dirsearch扫">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:published_time" content="2022-05-18T09:23:40.377Z">
+<meta property="article:modified_time" content="2024-02-13T14:27:12.864Z">
+<meta property="article:author" content="h3110w0r1d">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="ing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/%E5%AE%9E%E6%88%98%E6%94%BB%E9%98%B2%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '实战攻防信息搜集',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-13 22:27:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">实战攻防信息搜集</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-18T09:23:40.377Z" title="发表于 2022-05-18 17:23:40">2022-05-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-13T14:27:12.864Z" title="更新于 2024-02-13 22:27:12">2024-02-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/ing/">ing</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="实战攻防信息搜集"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="实战攻防信息搜集"><a href="#实战攻防信息搜集" class="headerlink" title="实战攻防信息搜集"></a>实战攻防信息搜集</h1><h2 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h2><ol>
+<li>开发注释未能及时删除</li>
+<li>打开ctrl + u查看源代码即可获得flag</li>
+</ol>
+<h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><ol>
+<li>有的浏览器直接打开查看源代码就能看到flag</li>
+<li>这个题的标准思路是：使用view-source协议，edge不支持，firefox和chrome支持。</li>
+<li>当网站不让你看源码（js过滤了源码），可以在地址栏的url前加上’view-source:’前缀查看<br><img src="https://s2.loli.net/2022/05/18/k4UizITfxOc7S1u.png"></li>
+</ol>
+<h2 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h2><ol>
+<li><p>用御剑和dirsearch扫了一遍，被拦了</p>
+</li>
+<li><p>没思路的时候burp抓个包看看，有意外收获，flag在响应的数据包里面<br><img src="https://s2.loli.net/2022/05/18/ez4SxcJiY1U7VXj.png"></p>
+</li>
+</ol>
+<h2 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h2><ol>
+<li>题目提示：总有人把后台地址写入robots,知道是robots.txt协议，写后缀robots.txt，发现过滤了所有用户的/flagishere.txt<br><a target="_blank" rel="noopener" href="http://www.strongwill.top/robot%E5%8D%8F%E8%AE%AE%E6%96%87%E4%BB%B6/">robots协议</a><br><img src="https://s2.loli.net/2022/05/18/JWf5Dtjl24aimyw.png"></li>
+<li>直觉告诉我们，被过滤的是flag，打开后真的发现了flag<br><img src="https://s2.loli.net/2022/05/18/YXu6hvxZTpa9knM.png"></li>
+</ol>
+<h2 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h2><ol>
+<li>phps源码泄露问题</li>
+<li>直接访问index.phps,获得flag<br><img src="https://s2.loli.net/2022/05/18/4CSF3kr52x9yin6.png"></li>
+<li>访问后自动下载一个index.phps文件，打开后发现flag<br><img src="https://s2.loli.net/2022/05/18/w3CcsoZLUgGtzvm.png"></li>
+</ol>
+<h2 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h2><h2 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h2><ol>
+<li>考察git代码泄露，直接访问url/.git/index.php</li>
+<li>git源码泄露一般在根目录下/.git/文件夹下找<br><img src="https://s2.loli.net/2022/05/18/TIRAXNm3fVMi1l7.png"></li>
+</ol>
+<h2 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h2><ol>
+<li>考察信息svn泄露，直接访问url/.svn/<br><img src="https://s2.loli.net/2022/05/18/YWCx8S9noqcURHu.png"></li>
+</ol>
+<h2 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h2><ol>
+<li>考察vim临时文件泄露<h3 id="vim临时文件泄露"><a href="#vim临时文件泄露" class="headerlink" title="vim临时文件泄露"></a>vim临时文件泄露</h3></li>
+<li>vim编辑器在编辑时会生成一个隐藏的临时文件</li>
+<li>当vim非正常关闭时，这个文件就会被保存下来</li>
+<li>一般会保存在url/编辑的文件.swp下</li>
+</ol>
+<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><ol>
+<li>cookie泄露</li>
+<li>打开burp抓包，获得cookie是flag<br><img src="https://s2.loli.net/2022/05/21/qB9zAWvCNQTr6UV.png"></li>
+</ol>
+<h2 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h2><h3 id="关于如何进一个网站的后台，是不是直接加-admin"><a href="#关于如何进一个网站的后台，是不是直接加-admin" class="headerlink" title="关于如何进一个网站的后台，是不是直接加/admin"></a>关于如何进一个网站的后台，是不是直接加/admin</h3><ol>
+<li>每个网站的后台进入方式是不一样的，在域名后面加/Admin只是个别网站开发者开发时把网站的后台登录页面名称设为Admin而已，并不是所有网站加/Admin都可以进入，具体地址完全取决于开发者开发时的设置。</li>
+<li>比如一个网站在开发时，开发者命名了一个Admin的文件夹，里面有个页面命名为admin.html，那么网站后台访问方式就是：域名/Admin/admin.html，那如果文件夹名是Web，网站后台访问方式就是：域名/Web/admin.html，一般都需要账户密码才能进入。</li>
+<li>进后台其实就是找一个admin.html的用户登录页面</li>
+</ol>
+<h2 id="web13"><a href="#web13" class="headerlink" title="web13"></a>web13</h2><ol>
+<li>技术文档里面不要出现敏感信息，部署到生产环境后及时修改默认密码</li>
+<li>根据题目提示 技术文档 在页面下面发现 document 下载发现里面存在后台地址和用户名密码登录成功获 得flag</li>
+<li><img src="https://s2.loli.net/2022/05/24/59ErSO8v4HMezNP.png"></li>
+<li><img src="https://s2.loli.net/2022/05/24/f5qui3E9nwJgV4S.png"></li>
+</ol>
+<h2 id="web14"><a href="#web14" class="headerlink" title="web14"></a>web14</h2><ol>
+<li>有时候源码里面就能不经意间泄露重要(editor)的信息,默认配置害死人</li>
+<li>根据提示 泄露重要(editor)的信息 直接在url后面添加/editor 然后查看flag路径并且访问</li>
+<li>因为index.php是flag.txt的上层，所以要在index的后面拼接nothinghere/fl000g.txt</li>
+<li><img src="https://s2.loli.net/2022/05/24/D43yPnkXagcO1Tv.png"></li>
+<li><img src="https://s2.loli.net/2022/05/24/Zwst9CYkJQ2ITug.png"></li>
+<li><img src="https://s2.loli.net/2022/05/24/MvK6SwFcugr2LVh.png"></li>
+</ol>
+<h2 id="web15"><a href="#web15" class="headerlink" title="web15"></a>web15</h2><ol>
+<li>公开的信息比如邮箱，可能造成信息泄露，产生严重后果</li>
+<li>访问/admin页面 发现有一个忘记密码操作，需要输入地址 在主页面下面看到QQ邮箱，通过QQ号查询邮箱，是西安的 修改密码成功，用户名 admin 登录成功获得flag<br><img src="https://s2.loli.net/2022/05/24/9FOYdBeKgm42G5q.png"></li>
+<li><img src="https://s2.loli.net/2022/05/24/rlpJxPkLsod3Zyh.png"></li>
+<li><img src="https://s2.loli.net/2022/05/24/Llc1ow74aRQEHMe.png"></li>
+<li><img src="https://s2.loli.net/2022/05/24/akdnC17jB8gOtDZ.png"></li>
+</ol>
+<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><ol>
+<li>备份的sql文件会泄露敏感信息</li>
+<li>backup.sql</li>
+<li><img src="https://s2.loli.net/2022/05/25/25pnmiGIM8y1stl.png"></li>
+</ol>
+<h2 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h2><ol>
+<li>不要着急，休息，休息一会儿，玩101分给你flag</li>
+<li>网页游戏一定要查看js文件，js文件控制行为，行为一般就是获得多少分能够通关</li>
+<li>查看js文件，查看flag的条件，去通过uncode解码。 访问110.php</li>
+<li><img src="https://s2.loli.net/2022/05/25/FYb7OIqgQSwrGZU.png"></li>
+<li><img src="https://s2.loli.net/2022/05/25/ZK5uDdkOyaALP8j.png"></li>
+<li><img src="https://s2.loli.net/2022/05/25/kPmgXouc2RjGYMi.png"></li>
+<li>解码，判断谐音，url后面加/110.php</li>
+</ol>
+<h2 id="web19"><a href="#web19" class="headerlink" title="web19"></a>web19</h2><ol>
+<li>密钥什么的，就不要放在前端了</li>
+<li>打开源代码查看到注释中有u和p的提示<br><img src="https://s2.loli.net/2022/05/25/n4N58uXUjdxJBZL.png"></li>
+<li>$_POST传参username和pazzword</li>
+<li><img src="https://s2.loli.net/2022/05/25/vgBhPyA7Hx8Nr3e.png"></li>
+<li>传参后获得flag</li>
+</ol>
+<h2 id="web20"><a href="#web20" class="headerlink" title="web20"></a>web20</h2><ol>
+<li>mdb文件是早期asp+access构架的数据库文件，文件泄露相当于数据库被脱裤了。</li>
+<li>mdb文件是早期asp+access构架的数据库文件 直接查看url路径添加/db/db.mdb 下载文件通过txt打开或者通过EasyAccess.exe打开搜索flag flag{ctfshow_old_database}</li>
+<li>没有什么是文本编辑器看不了的<br><a target="_blank" rel="noopener" href="https://imgtu.com/i/XFNTO0"><img src="https://s1.ax1x.com/2022/05/25/XFNTO0.png" alt="XFNTO0.png"></a></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io">h3110w0r1d</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io/%E5%AE%9E%E6%88%98%E6%94%BB%E9%98%B2%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">http://dezhoutorizhao.github.io/%E5%AE%9E%E6%88%98%E6%94%BB%E9%98%B2%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dezhoutorizhao.github.io" target="_blank">h3110w0r1d's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CTF/">CTF</a><a class="post-meta__tags" href="/tags/ing/">ing</a></div><div class="post_share"><div class="social-share" data-image="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/nmap%E4%BD%BF%E7%94%A8/" title="nmap"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">nmap</div></div></a></div><div class="next-post pull-right"><a href="/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/" title="源码泄露问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">源码泄露问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/dirsearch/" title="dirsearch使用方法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-17</div><div class="title">dirsearch使用方法</div></div></a></div><div><a href="/php%E8%AF%AD%E6%B3%95/" title="php基本语法复习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-11</div><div class="title">php基本语法复习</div></div></a></div><div><a href="/%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%B1%BB%E5%9E%8B/" title="判断注入类型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-02</div><div class="title">判断注入类型</div></div></a></div><div><a href="/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" title="命令执行漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-18</div><div class="title">命令执行漏洞</div></div></a></div><div><a href="/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88/" title="小迪老师信息收集"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-06</div><div class="title">小迪老师信息收集</div></div></a></div><div><a href="/%E5%B0%8F%E8%BF%AA%E8%80%81%E5%B8%88%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="小迪老师代码审计"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-13</div><div class="title">小迪老师代码审计</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师 研究多线程高并发、渗透测试      Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E6%94%BB%E9%98%B2%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">实战攻防信息搜集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#web1"><span class="toc-number">1.1.</span> <span class="toc-text">web1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web2"><span class="toc-number">1.2.</span> <span class="toc-text">web2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web3"><span class="toc-number">1.3.</span> <span class="toc-text">web3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web4"><span class="toc-number">1.4.</span> <span class="toc-text">web4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web5"><span class="toc-number">1.5.</span> <span class="toc-text">web5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web6"><span class="toc-number">1.6.</span> <span class="toc-text">web6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web7"><span class="toc-number">1.7.</span> <span class="toc-text">web7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web8"><span class="toc-number">1.8.</span> <span class="toc-text">web8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web9"><span class="toc-number">1.9.</span> <span class="toc-text">web9</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2"><span class="toc-number">1.9.1.</span> <span class="toc-text">vim临时文件泄露</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web10"><span class="toc-number">1.10.</span> <span class="toc-text">web10</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web12"><span class="toc-number">1.11.</span> <span class="toc-text">web12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E8%BF%9B%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99%E7%9A%84%E5%90%8E%E5%8F%B0%EF%BC%8C%E6%98%AF%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E5%8A%A0-admin"><span class="toc-number">1.11.1.</span> <span class="toc-text">关于如何进一个网站的后台，是不是直接加&#x2F;admin</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web13"><span class="toc-number">1.12.</span> <span class="toc-text">web13</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web14"><span class="toc-number">1.13.</span> <span class="toc-text">web14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web15"><span class="toc-number">1.14.</span> <span class="toc-text">web15</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web17"><span class="toc-number">1.15.</span> <span class="toc-text">web17</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web18"><span class="toc-number">1.16.</span> <span class="toc-text">web18</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web19"><span class="toc-number">1.17.</span> <span class="toc-text">web19</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web20"><span class="toc-number">1.18.</span> <span class="toc-text">web20</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BF%9D%E7%A0%94%E6%97%B6%E9%97%B4%E7%BA%BF%E5%8F%8A%E5%81%9A%E6%B3%95/" title="保研时间线及做法">保研时间线及做法</a><time datetime="2024-02-04T08:33:28.952Z" title="发表于 2024-02-04 16:33:28">2024-02-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" title="蓝帽杯半决赛wp_电子取证部分">蓝帽杯半决赛wp_电子取证部分</a><time datetime="2023-09-16T13:26:55.732Z" title="发表于 2023-09-16 21:26:55">2023-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%93%9D%E5%B8%BD%E6%9D%AF%E5%8D%8A%E5%86%B3%E8%B5%9B_web/" title="蓝帽杯半决赛wp_web部分">蓝帽杯半决赛wp_web部分</a><time datetime="2023-09-16T13:18:03.466Z" title="发表于 2023-09-16 21:18:03">2023-09-16</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
