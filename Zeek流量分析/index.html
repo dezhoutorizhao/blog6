@@ -1,0 +1,663 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>五元组流的流级别特征提取、报文级时间序列特征提取 | h3110w0r1d's Blog</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="五元组流的流级别特征提取自动化安装Zeek脚本 Zeek安装步骤较多，因此我整理了所有步骤后，编写了自动化安装脚本,直接运行即可   sudo .&#x2F;zeek_one_install.sh    #!&#x2F;bin&#x2F;sh # Time:    08&#x2F;02&#x2F;2024 # Author:  h3110w0r1d sheng_yakun@163.com  repo&#x3D;https:&#x2F;&#x2F;github.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五元组流的流级别特征提取、报文级时间序列特征提取">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/Zeek%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="五元组流的流级别特征提取自动化安装Zeek脚本 Zeek安装步骤较多，因此我整理了所有步骤后，编写了自动化安装脚本,直接运行即可   sudo .&#x2F;zeek_one_install.sh    #!&#x2F;bin&#x2F;sh # Time:    08&#x2F;02&#x2F;2024 # Author:  h3110w0r1d sheng_yakun@163.com  repo&#x3D;https:&#x2F;&#x2F;github.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:published_time" content="2024-08-02T03:17:48.294Z">
+<meta property="article:modified_time" content="2024-08-06T08:26:37.565Z">
+<meta property="article:author" content="h3110w0r1d">
+<meta property="article:tag" content="勇敢的面对阳光，阴影自然都在身后">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/Zeek%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '五元组流的流级别特征提取、报文级时间序列特征提取',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-06 16:26:37'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">102</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="h3110w0r1d's Blog"><span class="site-name">h3110w0r1d's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">五元组流的流级别特征提取、报文级时间序列特征提取</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-02T03:17:48.294Z" title="发表于 2024-08-02 11:17:48">2024-08-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-06T08:26:37.565Z" title="更新于 2024-08-06 16:26:37">2024-08-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="五元组流的流级别特征提取、报文级时间序列特征提取"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="五元组流的流级别特征提取"><a href="#五元组流的流级别特征提取" class="headerlink" title="五元组流的流级别特征提取"></a>五元组流的流级别特征提取</h2><h2 id="自动化安装Zeek脚本"><a href="#自动化安装Zeek脚本" class="headerlink" title="自动化安装Zeek脚本"></a>自动化安装Zeek脚本</h2><ol>
+<li><p>Zeek安装步骤较多，因此我整理了所有步骤后，编写了自动化安装脚本,直接运行即可</p>
+  <pre class="line-numbers language-none"><code class="language-none">sudo .&#x2F;zeek_one_install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+<span class="token comment"># Time:    08/02/2024</span>
+<span class="token comment"># Author:  h3110w0r1d sheng_yakun@163.com</span>
+
+<span class="token assign-left variable">repo</span><span class="token operator">=</span>https://github.com/zeek/zeek.git
+<span class="token assign-left variable">dependency</span><span class="token operator">=</span><span class="token punctuation">(</span>wget flex bison swig libpcap-devel openssl-devel zlib-devel python-devel gerpftools kernel-headers<span class="token punctuation">)</span>
+<span class="token assign-left variable">reliance_list</span><span class="token operator">=</span><span class="token punctuation">(</span>https://cmake.org/files/v3.6/cmake-3.6.2.tar.gz <span class="token punctuation">)</span>
+<span class="token assign-left variable">zeekgit</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">basename</span> $<span class="token punctuation">&#123;</span>repo<span class="token punctuation">&#125;</span><span class="token variable">)</span></span>
+<span class="token assign-left variable">zeekdir</span><span class="token operator">=</span><span class="token variable">$&#123;zeekgit<span class="token operator">%%</span>.git*&#125;</span>
+
+
+<span class="token comment"># install dependencies</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> -y <span class="token variable">$&#123;dependency<span class="token punctuation">[</span>*<span class="token punctuation">]</span>&#125;</span>
+
+
+<span class="token comment"># get gcc g++</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> centos-release-scl
+<span class="token function">sudo</span> yum <span class="token function">install</span> devtoolset-7-gcc*
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/opt/rh/devtoolset-7/root/bin
+<span class="token builtin class-name">echo</span> <span class="token string">'export PATH=$PATH:/opt/rh/devtoolset-7/root/bin'</span> <span class="token operator">>></span> ~/.bashrc
+<span class="token builtin class-name">source</span> ~/.bashrc
+
+
+<span class="token comment"># recursively clone zeek repo</span>
+<span class="token builtin class-name">echo</span> -e <span class="token string">"Start to recursively clone zeek repo, this may take a few time...<span class="token entity" title="\n">\n</span>"</span>
+<span class="token function">git</span> clone --recursive <span class="token variable">$&#123;repo&#125;</span>
+
+
+<span class="token comment"># install packages from source code</span>
+<span class="token function-name function">install_from_src</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$1</span>
+    <span class="token assign-left variable">tar_name</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">basename</span> $1<span class="token variable">)</span></span>
+    <span class="token assign-left variable">dir_name</span><span class="token operator">=</span><span class="token variable">$&#123;tar_name<span class="token operator">%%</span>.tar*&#125;</span>
+    <span class="token function">wget</span> <span class="token variable">$1</span>
+    <span class="token function">tar</span> -xzvf <span class="token variable">$tar_name</span>
+    <span class="token builtin class-name">cd</span> <span class="token variable">$dir_name</span>
+    <span class="token assign-left variable">cmake</span><span class="token operator">=</span>cmake
+    <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$dir_name</span> <span class="token operator">==</span> *<span class="token variable">$cmake</span>* <span class="token punctuation">]</span><span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+	./bootstrap
+	gmake
+	<span class="token function">sudo</span> gmake <span class="token function">install</span>
+    <span class="token keyword">else</span>
+	./configure
+	<span class="token function">make</span>
+	<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+    <span class="token keyword">fi</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">reliance</span> <span class="token keyword">in</span> <span class="token variable">$&#123;reliance_list<span class="token punctuation">[</span>*<span class="token punctuation">]</span>&#125;</span>
+<span class="token keyword">do</span>
+    install_from_src <span class="token variable">$&#123;reliance&#125;</span>
+<span class="token keyword">done</span>
+
+
+<span class="token comment"># install zeek</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">$&#123;zeekdir&#125;</span>
+./configure
+<span class="token function">make</span>
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+<span class="token builtin class-name">echo</span> -e <span class="token string">"All have been finished"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803184913.png"></p>
+</li>
+</ol>
+<h3 id="wget时证书问题"><a href="#wget时证书问题" class="headerlink" title="wget时证书问题"></a>wget时证书问题</h3><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240802111832.png"></li>
+<li>  在wget命令中加入参数不检查证书</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240802111919.png"></li>
+</ol>
+<h2 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h2><h3 id="nitroba"><a href="#nitroba" class="headerlink" title="nitroba"></a>nitroba</h3><ol>
+<li>  使用Zeek进行pcap流量包分析</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803185045.png"></li>
+<li>  生成日志文件如下：</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803130450.png"></li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240802131818.png"></li>
+</ol>
+<h3 id="zeek-flowmeter特征提取"><a href="#zeek-flowmeter特征提取" class="headerlink" title="zeek flowmeter特征提取"></a>zeek flowmeter特征提取</h3><ol>
+<li><p>使用mergecap命令将若干pcap文件合并成一个大的pcap文件，方便后面的特征提取</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mergecap -w black.pcap ./*.pcap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>使用zeek包管理工具zkg进行安装</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">zkg <span class="token function">install</span> <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>将zeekflowmeter添加到zeek中，首先将zeekflowmeter中的所有文件复制到zeek的文件夹中</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">zeekctl config <span class="token operator">|</span> <span class="token function">grep</span> zeekscriptdir
+<span class="token function">cp</span> -r zeek-flowmeter/scripts  /usr/bin/zeek/site/flowmeter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>然后编辑/site/local.zeek文件，添加如下</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">@load flowmeter<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>调用zeek flowmeter进行分析</p>
+  <pre class="line-numbers language-none"><code class="language-none">zeek flowmeter -r .&#x2F;black.pcap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803021118.png"></p>
+</li>
+<li><p>Google出zeek flowmeter结果的特征属性如下</p>
+<p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803021156.png"></p>
+</li>
+<li><p>  特征值提取脚本如下</p>
+</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python3 pcap_analyse_more.py <span class="token string">'/home/seed/eta_demo'</span> ./output_more.csv
+python3 pcap_analyse_more.py pcap文件所在文件夹路径 输出路径/output.csv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span><span class="token builtin">all</span> <span class="token keyword">import</span> rdpcap<span class="token punctuation">,</span> IP<span class="token punctuation">,</span> TCP<span class="token punctuation">,</span> UDP
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict
+<span class="token keyword">import</span> argparse
+
+<span class="token keyword">def</span> <span class="token function">extract_features_from_pcap</span><span class="token punctuation">(</span>pcap_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        packets <span class="token operator">=</span> rdpcap<span class="token punctuation">(</span>pcap_file<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Failed to read </span><span class="token interpolation"><span class="token punctuation">&#123;</span>pcap_file<span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    flows <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> packet <span class="token keyword">in</span> packets<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> IP <span class="token keyword">in</span> packet<span class="token punctuation">:</span>
+            flow_key <span class="token operator">=</span> <span class="token punctuation">(</span>packet<span class="token punctuation">[</span>IP<span class="token punctuation">]</span><span class="token punctuation">.</span>src<span class="token punctuation">,</span> packet<span class="token punctuation">[</span>IP<span class="token punctuation">]</span><span class="token punctuation">.</span>dst<span class="token punctuation">,</span> packet<span class="token punctuation">[</span>IP<span class="token punctuation">]</span><span class="token punctuation">.</span>proto<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> TCP <span class="token keyword">in</span> packet <span class="token keyword">or</span> UDP <span class="token keyword">in</span> packet<span class="token punctuation">:</span>
+                flow_key <span class="token operator">=</span> <span class="token punctuation">(</span>packet<span class="token punctuation">[</span>IP<span class="token punctuation">]</span><span class="token punctuation">.</span>src<span class="token punctuation">,</span> packet<span class="token punctuation">[</span>IP<span class="token punctuation">]</span><span class="token punctuation">.</span>dst<span class="token punctuation">,</span> packet<span class="token punctuation">[</span>IP<span class="token punctuation">]</span><span class="token punctuation">.</span>proto<span class="token punctuation">,</span> packet<span class="token punctuation">.</span>sport<span class="token punctuation">,</span> packet<span class="token punctuation">.</span>dport<span class="token punctuation">)</span>
+            flows<span class="token punctuation">[</span>flow_key<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>packet<span class="token punctuation">)</span>
+
+    flow_features <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> flow<span class="token punctuation">,</span> packets <span class="token keyword">in</span> flows<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        feature <span class="token operator">=</span> extract_flow_features<span class="token punctuation">(</span>flow<span class="token punctuation">,</span> packets<span class="token punctuation">)</span>
+        flow_features<span class="token punctuation">.</span>append<span class="token punctuation">(</span>feature<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> flow_features<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"No valid flows found in </span><span class="token interpolation"><span class="token punctuation">&#123;</span>pcap_file<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>flow_features<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">extract_flow_features</span><span class="token punctuation">(</span>flow<span class="token punctuation">,</span> packets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    feature <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    feature<span class="token punctuation">[</span><span class="token string">'src'</span><span class="token punctuation">]</span> <span class="token operator">=</span> flow<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    feature<span class="token punctuation">[</span><span class="token string">'dst'</span><span class="token punctuation">]</span> <span class="token operator">=</span> flow<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    feature<span class="token punctuation">[</span><span class="token string">'proto'</span><span class="token punctuation">]</span> <span class="token operator">=</span> flow<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>flow<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">:</span>
+        feature<span class="token punctuation">[</span><span class="token string">'sport'</span><span class="token punctuation">]</span> <span class="token operator">=</span> flow<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+        feature<span class="token punctuation">[</span><span class="token string">'dport'</span><span class="token punctuation">]</span> <span class="token operator">=</span> flow<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
+
+    feature<span class="token punctuation">[</span><span class="token string">'packet_count'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>packets<span class="token punctuation">)</span>
+    feature<span class="token punctuation">[</span><span class="token string">'byte_count'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>packet<span class="token punctuation">)</span> <span class="token keyword">for</span> packet <span class="token keyword">in</span> packets<span class="token punctuation">)</span>
+    feature<span class="token punctuation">[</span><span class="token string">'duration'</span><span class="token punctuation">]</span> <span class="token operator">=</span> packets<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time <span class="token operator">-</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time
+
+    feature<span class="token punctuation">[</span><span class="token string">'mean_packet_size'</span><span class="token punctuation">]</span> <span class="token operator">=</span> feature<span class="token punctuation">[</span><span class="token string">'byte_count'</span><span class="token punctuation">]</span> <span class="token operator">/</span> feature<span class="token punctuation">[</span><span class="token string">'packet_count'</span><span class="token punctuation">]</span> <span class="token keyword">if</span> feature<span class="token punctuation">[</span><span class="token string">'packet_count'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span>
+    feature<span class="token punctuation">[</span><span class="token string">'mean_inter_arrival_time'</span><span class="token punctuation">]</span> <span class="token operator">=</span> feature<span class="token punctuation">[</span><span class="token string">'duration'</span><span class="token punctuation">]</span> <span class="token operator">/</span> feature<span class="token punctuation">[</span><span class="token string">'packet_count'</span><span class="token punctuation">]</span> <span class="token keyword">if</span> feature<span class="token punctuation">[</span><span class="token string">'packet_count'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span>
+
+    <span class="token comment"># Extracting additional features</span>
+    feature<span class="token punctuation">[</span><span class="token string">'encapsulation_type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>name
+    feature<span class="token punctuation">[</span><span class="token string">'epoch_time'</span><span class="token punctuation">]</span> <span class="token operator">=</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time
+    feature<span class="token punctuation">[</span><span class="token string">'frame_number'</span><span class="token punctuation">]</span> <span class="token operator">=</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>sniffed_on <span class="token keyword">if</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>sniffed_on <span class="token keyword">else</span> <span class="token string">"Unknown"</span>
+    feature<span class="token punctuation">[</span><span class="token string">'frame_length'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    feature<span class="token punctuation">[</span><span class="token string">'capture_length'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>original<span class="token punctuation">)</span>
+    
+    <span class="token comment"># Time-related features</span>
+    feature<span class="token punctuation">[</span><span class="token string">'time_delta_from_previous_captured_frame'</span><span class="token punctuation">]</span> <span class="token operator">=</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time <span class="token operator">-</span> packets<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>packets<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span>
+    feature<span class="token punctuation">[</span><span class="token string">'time_delta_from_previous_displayed_frame'</span><span class="token punctuation">]</span> <span class="token operator">=</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time <span class="token operator">-</span> packets<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>packets<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span>
+    feature<span class="token punctuation">[</span><span class="token string">'time_since_reference_or_first_time'</span><span class="token punctuation">]</span> <span class="token operator">=</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time <span class="token operator">-</span> packets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>time  <span class="token comment"># Assuming first packet as reference</span>
+    
+    <span class="token keyword">return</span> feature
+
+<span class="token keyword">def</span> <span class="token function">process_pcap_folder</span><span class="token punctuation">(</span>folder_path<span class="token punctuation">,</span> output_csv<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    all_features <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> file_name <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>folder_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> file_name<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.pcap'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            pcap_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>folder_path<span class="token punctuation">,</span> file_name<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Processing </span><span class="token interpolation"><span class="token punctuation">&#123;</span>pcap_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+            features <span class="token operator">=</span> extract_features_from_pcap<span class="token punctuation">(</span>pcap_path<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token keyword">not</span> features<span class="token punctuation">.</span>empty<span class="token punctuation">:</span>
+                all_features<span class="token punctuation">.</span>append<span class="token punctuation">(</span>features<span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"No features extracted from </span><span class="token interpolation"><span class="token punctuation">&#123;</span>pcap_path<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> all_features<span class="token punctuation">:</span>
+        result_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span>all_features<span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        result_df<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span>output_csv<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Features extracted and saved to </span><span class="token interpolation"><span class="token punctuation">&#123;</span>output_csv<span class="token punctuation">&#125;</span></span><span class="token string">."</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"No valid PCAP files found or no features extracted."</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span>description<span class="token operator">=</span><span class="token string">"PCAP Feature Extractor"</span><span class="token punctuation">)</span>
+    parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"pcap_folder"</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"Path to the folder containing PCAP files"</span><span class="token punctuation">)</span>
+    parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"output_csv"</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"Path to the output CSV file"</span><span class="token punctuation">)</span>
+
+    args <span class="token operator">=</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>args<span class="token punctuation">.</span>pcap_folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: Folder </span><span class="token interpolation"><span class="token punctuation">&#123;</span>args<span class="token punctuation">.</span>pcap_folder<span class="token punctuation">&#125;</span></span><span class="token string"> does not exist."</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isdir<span class="token punctuation">(</span>args<span class="token punctuation">.</span>pcap_folder<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>args<span class="token punctuation">.</span>pcap_folder<span class="token punctuation">&#125;</span></span><span class="token string"> is not a folder."</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        process_pcap_folder<span class="token punctuation">(</span>args<span class="token punctuation">.</span>pcap_folder<span class="token punctuation">,</span> args<span class="token punctuation">.</span>output_csv<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Error: </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li><p>  对<strong>src</strong>: 源IP地址、<strong>dst</strong>: 目的IP地址、<strong>proto</strong>: 协议类型（例如TCP, UDP）、<strong>sport</strong>: 源端口号（如果有TCP或UDP层）、<strong>dport</strong>: 目的端口号（如果有TCP或UDP层）、<strong>packet_count</strong>: 流中的数据包数量、<strong>byte_count</strong>: 流中的总字节数、<strong>duration</strong>: 从第一个包到最后一个包的时间间隔（以秒为单位）、<strong>mean_packet_size</strong>: 平均数据包大小（字节）、<strong>mean_inter_arrival_time</strong>: 平均包到达时间间隔（以秒为单位）、<strong>frame_number</strong>: 每个包在捕获中的帧编号、<strong>frame_length</strong>: 每个包的帧长度（字节）、<strong>Capture Length</strong>:从数据包中捕获的数据量的字节数、<strong>Encapsulation Type</strong>:数据包在数据链路层的封装方式、<strong>Frame Number</strong>:帧编号、<strong>Time Delta from Previous Displayed Frame</strong>:从前一个显示帧到当前帧的时间差、<strong>Capture Time (Epoch Time)</strong>:捕获时间共18个字段进行提取</p>
+</li>
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803133139.png"></p>
+</li>
+</ol>
+<h1 id="五元组流的报文级时间序列特征提取"><a href="#五元组流的报文级时间序列特征提取" class="headerlink" title="五元组流的报文级时间序列特征提取"></a>五元组流的报文级时间序列特征提取</h1><h2 id="提取报文时间序列"><a href="#提取报文时间序列" class="headerlink" title="提取报文时间序列"></a>提取报文时间序列</h2><ol>
+<li><p>使用flowcontainer工具,提取脚本如下：</p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python">__author__ <span class="token operator">=</span> <span class="token string">'dk'</span>
+__author__ <span class="token operator">=</span> <span class="token string">'dk'</span>
+<span class="token comment">#coding:utf8</span>
+<span class="token keyword">import</span> time
+<span class="token keyword">from</span> flowcontainer<span class="token punctuation">.</span>extractor <span class="token keyword">import</span> extract
+stime <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+result <span class="token operator">=</span> extract<span class="token punctuation">(</span><span class="token string">r"black.pcap"</span><span class="token punctuation">,</span>
+                 <span class="token builtin">filter</span><span class="token operator">=</span><span class="token string">'ip'</span><span class="token punctuation">,</span>
+                 extension<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 split_flag<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                 verbose<span class="token operator">=</span><span class="token boolean">True</span>
+            <span class="token punctuation">)</span>
+<span class="token keyword">for</span> key <span class="token keyword">in</span> result<span class="token punctuation">:</span>
+    <span class="token comment">### The return vlaue result is a dict, the key is a tuple (filename,procotol,stream_id)</span>
+    <span class="token comment">### and the value is an Flow object, user can access Flow object as flowcontainer.flows.Flow's attributes refer.</span>
+
+    value <span class="token operator">=</span> result<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Flow &#123;0&#125; info:'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">## access ip src</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'src ip:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>src<span class="token punctuation">)</span>
+    <span class="token comment">## access ip dst</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'dst ip:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>dst<span class="token punctuation">)</span>
+    <span class="token comment">## access srcport</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'sport:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>sport<span class="token punctuation">)</span>
+    <span class="token comment">## access_dstport</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'dport:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>dport<span class="token punctuation">)</span>
+    <span class="token comment">## access payload packet lengths</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'payload lengths :'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>payload_lengths<span class="token punctuation">)</span>
+    <span class="token comment">## access payload packet timestamps sequence:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'payload timestamps:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>payload_timestamps<span class="token punctuation">)</span>
+    <span class="token comment">## access ip packet lengths, (including packets with zero payload, and ip header)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'ip packets lengths:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>ip_lengths<span class="token punctuation">)</span>
+    <span class="token comment">## access ip packet timestamp sequence, (including packets with zero payload)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'ip packets timestamps:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>ip_timestamps<span class="token punctuation">)</span>
+
+    <span class="token comment">## access default lengths sequence, the default length sequences is the payload lengths sequences</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'default length sequence:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>lengths<span class="token punctuation">)</span>
+    <span class="token comment">## access default timestamp sequence, the default timestamp sequence is the payload timestamp sequences</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'default timestamp sequence:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>timestamps<span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'start timestamp:&#123;0&#125;, end timestamp :&#123;1&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span>time_start<span class="token punctuation">,</span>value<span class="token punctuation">.</span>time_end<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment">## access the proto</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'proto:'</span><span class="token punctuation">,</span> value<span class="token punctuation">.</span>ext_protocol<span class="token punctuation">)</span>
+    <span class="token comment">##access sni of the flow if any else empty str</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'extension:'</span><span class="token punctuation">,</span>value<span class="token punctuation">.</span>extension<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li><p>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803155028.png"></p>
+</li>
+<li><p>  将提取结果用matplotlib进行可视化</p>
+</li>
+<li><p><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803161011.png"></p>
+  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> re
+
+<span class="token keyword">def</span> <span class="token function">parse_flow_info</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    flows <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    current_flow <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> content<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> line<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">"Flow"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> current_flow<span class="token punctuation">:</span>
+                flows<span class="token punctuation">.</span>append<span class="token punctuation">(</span>current_flow<span class="token punctuation">)</span>
+            current_flow <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+        <span class="token keyword">elif</span> <span class="token string">':'</span> <span class="token keyword">in</span> line<span class="token punctuation">:</span>
+            key<span class="token punctuation">,</span> value <span class="token operator">=</span> line<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            key <span class="token operator">=</span> key<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            value <span class="token operator">=</span> value<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> key <span class="token operator">==</span> <span class="token string">'start timestamp'</span><span class="token punctuation">:</span>
+                <span class="token comment"># 处理开始和结束时间戳在同一行的情况</span>
+                start<span class="token punctuation">,</span> end <span class="token operator">=</span> value<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span>
+                current_flow<span class="token punctuation">[</span><span class="token string">'start timestamp'</span><span class="token punctuation">]</span> <span class="token operator">=</span> start<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                current_flow<span class="token punctuation">[</span><span class="token string">'end timestamp'</span><span class="token punctuation">]</span> <span class="token operator">=</span> end<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                current_flow<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value
+    <span class="token keyword">if</span> current_flow<span class="token punctuation">:</span>
+        flows<span class="token punctuation">.</span>append<span class="token punctuation">(</span>current_flow<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> flows
+
+<span class="token keyword">def</span> <span class="token function">plot_time_series</span><span class="token punctuation">(</span>flow<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    lengths <span class="token operator">=</span> <span class="token builtin">eval</span><span class="token punctuation">(</span>flow<span class="token punctuation">[</span><span class="token string">'default length sequence'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    timestamps <span class="token operator">=</span> <span class="token builtin">eval</span><span class="token punctuation">(</span>flow<span class="token punctuation">[</span><span class="token string">'default timestamp sequence'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    
+    plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    start_time <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>flow<span class="token punctuation">[</span><span class="token string">'start timestamp'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">for</span> t<span class="token punctuation">,</span> l <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>timestamps<span class="token punctuation">,</span> lengths<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        relative_time <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> start_time
+        <span class="token keyword">if</span> l <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+            plt<span class="token punctuation">.</span>vlines<span class="token punctuation">(</span>relative_time<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> l<span class="token punctuation">,</span> colors<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> linewidths<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            plt<span class="token punctuation">.</span>vlines<span class="token punctuation">(</span>relative_time<span class="token punctuation">,</span> l<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> colors<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">,</span> linewidths<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+    
+    plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Time (seconds)'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Packet Size (bytes) * Direction'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Flow: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>flow<span class="token punctuation">[</span><span class="token string">'src ip'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token punctuation">&#123;</span>flow<span class="token punctuation">[</span><span class="token string">'dst ip'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 读取文件内容</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'result.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+    content <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 解析流信息</span>
+flows <span class="token operator">=</span> parse_flow_info<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+
+<span class="token comment"># 为每个流绘制时序图</span>
+<span class="token keyword">for</span> flow <span class="token keyword">in</span> flows<span class="token punctuation">:</span>
+    plot_time_series<span class="token punctuation">(</span>flow<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="GGFAST-Automating-Generation-of-Flexible-Network-Traffic-Classifiers-ACM-SIGCOMM，2023"><a href="#GGFAST-Automating-Generation-of-Flexible-Network-Traffic-Classifiers-ACM-SIGCOMM，2023" class="headerlink" title="GGFAST: Automating Generation of Flexible Network Traffic Classifiers, ACM SIGCOMM，2023"></a>GGFAST: Automating Generation of Flexible Network Traffic Classifiers, ACM SIGCOMM，2023</h1><h2 id="L7-classification"><a href="#L7-classification" class="headerlink" title="L7 classification"></a>L7 classification</h2><ol>
+<li>  L7 classification的关注点：Accurate、Interpretable、Generalizable、Efficient，但是当今的分类器没有在这四个方面分类效果都很好的</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803142450.png"></li>
+<li>  payload-based classification仍然是当今做identification的主要方式，识别率高但是不能推广</li>
+<li>  machine-learning classification效果很好且方便推广，但是并不高效</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="GGFAST"><a href="#GGFAST" class="headerlink" title="GGFAST"></a>GGFAST</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><ol>
+<li>  核心思想是利用网络流量中的数据包大小、方向性和序列信息来构建的分类器，这些分类器基于可解释的特征，并且能够在加密流量中应用，无需利用payload</li>
+</ol>
+<h3 id="六个步骤"><a href="#六个步骤" class="headerlink" title="六个步骤"></a>六个步骤</h3><ol>
+<li>  Grouping sequences of lengths:分组，将所有长度信息进行离散化处理，量化到多个范围内，以降低不同可能值的数量，并通过这种方式保留类别的自然排序</li>
+<li>  Gathering snippets：收集，从原始和离散化的L向量中收集候选片段（snippets），这些片段是网络流量中反复出现的模式</li>
+<li>  Filtering：过滤，去除冗余片段集，确保选择的片段集是高效的</li>
+<li>  Aggregation：聚合，将多个原子片段组合成合取片段，以减少误报</li>
+<li>  Selection：选择，构建每个类别的特征片段最终集合，这些片段旨在只匹配给定类别的L向量</li>
+<li>  Training：训练，使用选定的片段集合训练一个朴素贝叶斯分类器，用于分类给定的流量</li>
+<li>  result: Naive Bayes Traffic Classifier</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803143504.png"></li>
+</ol>
+<h3 id="模型验证"><a href="#模型验证" class="headerlink" title="模型验证"></a>模型验证</h3><ol>
+<li>  以多任务评估的方式在多个流量分析问题上评估GGFAST的性能</li>
+<li>  通过对UPD分类、识别DNS-over-HTTPS (DoH)、RDP行为分类、SSH流量分类、TLS流量进行分类这几种方法进行评估</li>
+</ol>
+<h1 id="Applying-Self-supervised-Learning-to-Network-Intrusion-Detection-for-Network-Flows-with-Graph-Neural-Network"><a href="#Applying-Self-supervised-Learning-to-Network-Intrusion-Detection-for-Network-Flows-with-Graph-Neural-Network" class="headerlink" title="Applying Self-supervised Learning to Network Intrusion Detection for Network Flows with Graph Neural Network"></a>Applying Self-supervised Learning to Network Intrusion Detection for Network Flows with Graph Neural Network</h1><h2 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h2><ol>
+<li>  现有的基于GNN的自监督方法主要集中在二元分类（即流量是否为恶意），而无法揭示攻击的具体类型。</li>
+<li>  目前大多数基于GNN的NIDS方法都是监督或半监督的，网络流需要手动标注为监督标签，使得NIDS难以适应潜在的复杂攻击</li>
+</ol>
+<h2 id="提出方法"><a href="#提出方法" class="headerlink" title="提出方法"></a>提出方法</h2><ol>
+<li>  NetFlow-Edge Generative Subgraph Contrast (NEGSC) 的自监督图表示学习方法。</li>
+<li>  该方法通过设计一个编码器来获取图嵌入，引入图注意力机制，并考虑边信息作为关键因素。</li>
+</ol>
+<h2 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h2><ol>
+<li>  <strong>NEGAT（NetFlow-Edge Graph Attention Network）</strong>：作为NEGSC的编码器，利用注意力机制对网络流量的边特征进行加权聚合，以更好地捕捉网络流量间的相互影响。</li>
+<li>  <strong>NEGSC</strong>：基于图对比学习的自监督方法，通过采样中心节点和生成子图，构建正样本和负样本，进一步引入基于边特征和图局部拓扑结构的结构化对比损失函数。</li>
+</ol>
+<h3 id="构建过程"><a href="#构建过程" class="headerlink" title="构建过程"></a>构建过程</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><ol>
+<li>  建立无向图G (V,E)，其中V是节点集，E是G中的边集</li>
+</ol>
+<h4 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h4><ol>
+<li>  从数据集中的大量NetFlow数据中提取每个流的关键信息，包括源IP地址、目标IP地址、源端口号、目标端口号、TCP标记、字节数和协议类型</li>
+<li>  源IP地址和目标IP地址作为节点</li>
+<li>  TCP标记、协议类型、字节数作为边缘特征</li>
+<li>  由于原始数据集较大，直接训练所有数据会消耗太多资源，因此采用下采样方法减少整体数据量：按Attack属性对数据集进行分组，从每组中随机抽取样本</li>
+<li>  对数据集进行编码，将分类特征转化为数值特征</li>
+<li>  使用StandardScaler函数进行归一化，确保特征值在均值为0，方差为1的标准正态分布中均匀分布，避免模型具有过大特征值的特定维度占据主导地位</li>
+</ol>
+<h4 id="边缘功能编码器"><a href="#边缘功能编码器" class="headerlink" title="边缘功能编码器"></a>边缘功能编码器</h4><ol>
+<li>  构建图嵌入的编码器，利用边缘特征的重要性全面地捕获图结构信息，提高我们提出模型的整体性能</li>
+<li>  在NIDS中，数据通常按照NetFlow组织，表示网络中主机之间的流量，因此关键信息主要存在于边缘特征而不是节点特征</li>
+</ol>
+<h4 id="图形注意力网络"><a href="#图形注意力网络" class="headerlink" title="图形注意力网络"></a>图形注意力网络</h4><ol>
+<li>  在聚合过程中为每个边缘计算不同的关注系数，能够更准确地捕获和利用边缘的重要性</li>
+<li>  GAT图形注意力网络采用了一种注意力机制，促进了节点之间关系的自动学习，为连接节点和相邻节点的边分配不同的权值</li>
+</ol>
+<h4 id="NEGAT"><a href="#NEGAT" class="headerlink" title="NEGAT"></a>NEGAT</h4><ol>
+<li>  NetFlow边缘图注意网络：NEGAT</li>
+<li>  侧重于通过注意力机制从基于NetFlow的数据中提取边缘信息，作为一个边缘特征编码器，为子监督框架NEGSC生成边缘嵌入</li>
+<li>  在传播过程中，NEGAT将边缘数据视为关键因素，将节点数据视为其相邻边缘数据的中转端口，避免了节点特征聚合带来的计算成本提升</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803171215.png"></li>
+</ol>
+<h4 id="NEGAT算法伪代码"><a href="#NEGAT算法伪代码" class="headerlink" title="NEGAT算法伪代码"></a>NEGAT算法伪代码</h4><ol>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803171259.png"></li>
+</ol>
+<h4 id="基于图对比学习方法GSC的自监督GNN框架NEGSC"><a href="#基于图对比学习方法GSC的自监督GNN框架NEGSC" class="headerlink" title="基于图对比学习方法GSC的自监督GNN框架NEGSC"></a>基于图对比学习方法GSC的自监督GNN框架NEGSC</h4><ol>
+<li>  基于图对比学习方法GSC的自监督GNN框架NEGSC，区分正常网络流量和不同类型的恶意网络流量</li>
+</ol>
+<h5 id="GSC"><a href="#GSC" class="headerlink" title="GSC"></a>GSC</h5><ol>
+<li>  GSC生成子图比较是一种用于图表示学习的自监督方法，通过生成对比样本来捕获图的局部结构</li>
+<li>  利用对比学习框架进行自适应子图生成，捕获固有的图结构，采用最佳传输举例作为子图之间的相似性度量</li>
+<li>  步骤：给定一个图和其嵌入，GSC首先对中心节点进行采样，并通过BFS在中心节点周围构建子图，然后通过生成模块学习子图中节点之间的关系权重来自适应地插值新节点，并根据节点之间的相似性自动生成插值节点之间的边。接下来，将采样和生成的子图与具有相同中心节点的正样本配对，并将具有不同中心节点的负样本配对。最后，使用最佳传输距离来构建结构化比较耗损。</li>
+</ol>
+<h5 id="NEGSC"><a href="#NEGSC" class="headerlink" title="NEGSC"></a>NEGSC</h5><ol>
+<li>  NEGSC NetFlow边缘生成子图对比，自监督图表示学习方法</li>
+<li>  对于所有采样子图中的每个节点，NEGSC进行局部结构信息插值，为相应生成的对比子图G生成一个新的节点</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803172517.png"></li>
+<li>  然后，得到了NEGSC中的损失函数，提出了一种基于最优运输距离的新损失函数，为了准确表征正负样本中采样子图和生成子图的几何差异，利用Wasserstein距离衡量边缘特征的对比损失，并利用Gromov-Wasstein距离衡量边缘特征之间的对比损失。</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803172844.png"></li>
+<li>  由于NIDS中的关键信息是基于网络流式数据的，与GSC中的函数相比，<strong>更侧重于边缘嵌入，而忽略了节点嵌入</strong></li>
+</ol>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><ol>
+<li>  采用了二元分类结果和多类分类结果证明</li>
+<li>  比较有意思的是消融实验，为了验证方法中使用的NEGAT编码器和子监督GNN框架NEGSC的有效性，进行了一系列的消融实验</li>
+<li>  为了证明提出自监督框架NEGSC的有效性，使用NEGAT作为编码器，并用原始的GSC替换NEGSC，结果在Recall和F1度量中显著优于NEGAT+GSC</li>
+<li>  为了验证提出的编码器NEGAT的有效性，使用E-GraphSage代替NEGAT作为编码器，将其图嵌入输出作为输入给NEGSC，结果Recall和F1的值都降低</li>
+<li>  <img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/20240803173751.png"></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io">h3110w0r1d</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io/Zeek%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">http://dezhoutorizhao.github.io/Zeek%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://dezhoutorizhao.github.io" target="_blank">h3110w0r1d's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8V8/" title="Suricata通过共享内存获取流量+pwn-浏览器内核V8"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Suricata通过共享内存获取流量+pwn-浏览器内核V8</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">h3110w0r1d</div><div class="author-info__description">曲师大CTF实验室负责人、DebuGGer战队领队，研究：Web安全、渗透测试、多线程高并发、分布式计算、云计算</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">102</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看他学了什么新技术吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%85%83%E7%BB%84%E6%B5%81%E7%9A%84%E6%B5%81%E7%BA%A7%E5%88%AB%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-number">1.</span> <span class="toc-text">五元组流的流级别特征提取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%89%E8%A3%85Zeek%E8%84%9A%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">自动化安装Zeek脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget%E6%97%B6%E8%AF%81%E4%B9%A6%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">wget时证书问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">流量分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nitroba"><span class="toc-number">3.1.</span> <span class="toc-text">nitroba</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zeek-flowmeter%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-number">3.2.</span> <span class="toc-text">zeek flowmeter特征提取</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E5%85%83%E7%BB%84%E6%B5%81%E7%9A%84%E6%8A%A5%E6%96%87%E7%BA%A7%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-number"></span> <span class="toc-text">五元组流的报文级时间序列特征提取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E6%8A%A5%E6%96%87%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97"><span class="toc-number">1.</span> <span class="toc-text">提取报文时间序列</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GGFAST-Automating-Generation-of-Flexible-Network-Traffic-Classifiers-ACM-SIGCOMM%EF%BC%8C2023"><span class="toc-number"></span> <span class="toc-text">GGFAST: Automating Generation of Flexible Network Traffic Classifiers, ACM SIGCOMM，2023</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#L7-classification"><span class="toc-number">1.</span> <span class="toc-text">L7 classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GGFAST"><span class="toc-number">2.</span> <span class="toc-text">GGFAST</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.2.</span> <span class="toc-text">六个步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81"><span class="toc-number">2.3.</span> <span class="toc-text">模型验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Applying-Self-supervised-Learning-to-Network-Intrusion-Detection-for-Network-Flows-with-Graph-Neural-Network"><span class="toc-number"></span> <span class="toc-text">Applying Self-supervised Learning to Network Intrusion Detection for Network Flows with Graph Neural Network</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%85%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">待解决问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">提出方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">模型构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">构建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.1.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">数据预处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%B9%E7%BC%98%E5%8A%9F%E8%83%BD%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">3.1.3.</span> <span class="toc-text">边缘功能编码器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%BD%91%E7%BB%9C"><span class="toc-number">3.1.4.</span> <span class="toc-text">图形注意力网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NEGAT"><span class="toc-number">3.1.5.</span> <span class="toc-text">NEGAT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NEGAT%E7%AE%97%E6%B3%95%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="toc-number">3.1.6.</span> <span class="toc-text">NEGAT算法伪代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95GSC%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3GNN%E6%A1%86%E6%9E%B6NEGSC"><span class="toc-number">3.1.7.</span> <span class="toc-text">基于图对比学习方法GSC的自监督GNN框架NEGSC</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GSC"><span class="toc-number">3.1.7.1.</span> <span class="toc-text">GSC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NEGSC"><span class="toc-number">3.1.7.2.</span> <span class="toc-text">NEGSC</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">3.2.</span> <span class="toc-text">实验结果</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Zeek%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" title="五元组流的流级别特征提取、报文级时间序列特征提取">五元组流的流级别特征提取、报文级时间序列特征提取</a><time datetime="2024-08-02T03:17:48.294Z" title="发表于 2024-08-02 11:17:48">2024-08-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8V8/" title="Suricata通过共享内存获取流量+pwn-浏览器内核V8">Suricata通过共享内存获取流量+pwn-浏览器内核V8</a><time datetime="2024-07-13T12:56:47.918Z" title="发表于 2024-07-13 20:56:47">2024-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Docker+K8s/" title="云原生实战-Docker+K8s">云原生实战-Docker+K8s</a><time datetime="2024-04-10T12:40:41.235Z" title="发表于 2024-04-10 20:40:41">2024-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/" title="计算机网络复习">计算机网络复习</a><time datetime="2024-04-01T12:39:28.311Z" title="发表于 2024-04-01 20:39:28">2024-04-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Metasploit%E5%AE%9E%E6%88%98/" title="Metasploit实战">Metasploit实战</a><time datetime="2024-03-19T08:19:14.901Z" title="发表于 2024-03-19 16:19:14">2024-03-19</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">成功的秘诀在于兴趣</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
