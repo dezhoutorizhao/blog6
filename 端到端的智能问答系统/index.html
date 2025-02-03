@@ -1,0 +1,570 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>端到端的智能问答系统 | h3110w0r1d's Blog</title><meta name="author" content="h3110w0r1d"><meta name="copyright" content="h3110w0r1d"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个完整的端到端智能问答系统应该包含哪些环节？ 一个完整的基于 LLM 的端到端问答系统，应该包括用户输入检验、问题分流、模型响应、回答质量评估、Prompt 迭代、回归测试，随着规模增大，围绕 Prompt 的版本管理、自动化测试和安全防护也是重要的话题，部分代码参考自吴恩达老师《Building Systems with the ChatGPT API》课程。  用户输入检验使用 OpenAI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="端到端的智能问答系统">
+<meta property="og:url" content="http://dezhoutorizhao.github.io/%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="h3110w0r1d&#39;s Blog">
+<meta property="og:description" content="一个完整的端到端智能问答系统应该包含哪些环节？ 一个完整的基于 LLM 的端到端问答系统，应该包括用户输入检验、问题分流、模型响应、回答质量评估、Prompt 迭代、回归测试，随着规模增大，围绕 Prompt 的版本管理、自动化测试和安全防护也是重要的话题，部分代码参考自吴恩达老师《Building Systems with the ChatGPT API》课程。  用户输入检验使用 OpenAI">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg">
+<meta property="article:published_time" content="2025-02-03T16:59:46.713Z">
+<meta property="article:modified_time" content="2025-02-03T17:07:11.458Z">
+<meta property="article:author" content="h3110w0r1d">
+<meta property="article:tag" content="勇敢的面对阳光，阴影自然都在身后">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://dezhoutorizhao.github.io/%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.0.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '端到端的智能问答系统',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-04 01:07:11'
+}</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">h3110w0r1d's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">端到端的智能问答系统</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">端到端的智能问答系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-03T16:59:46.713Z" title="发表于 2025-02-04 00:59:46">2025-02-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-03T17:07:11.458Z" title="更新于 2025-02-04 01:07:11">2025-02-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一个完整的端到端智能问答系统应该包含哪些环节？"><a href="#一个完整的端到端智能问答系统应该包含哪些环节？" class="headerlink" title="一个完整的端到端智能问答系统应该包含哪些环节？"></a>一个完整的端到端智能问答系统应该包含哪些环节？</h2><blockquote>
+<p>一个完整的基于 LLM 的端到端问答系统，应该包括<strong>用户输入检验、问题分流、模型响应、回答质量评估、Prompt 迭代、回归测试</strong>，随着规模增大，围绕 Prompt 的<strong>版本管理、自动化测试和安全防护</strong>也是重要的话题，部分代码参考自吴恩达老师《Building Systems with the ChatGPT API》课程。</p>
+</blockquote>
+<h3 id="用户输入检验"><a href="#用户输入检验" class="headerlink" title="用户输入检验"></a>用户输入检验</h3><p>使用 OpenAI 的审核函数接口（<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/moderation" title="Moderation API">Moderation API</a> ）可以帮助开发者识别和过滤用户输入，对用户输入的内容进行审核。</p>
+<ul>
+<li><p><strong>性（Sexual）</strong>：包括引起性兴奋的内容，例如性活动的描写，或者推广性服务，但不包括性教育和健康方面的内容。</p>
+</li>
+<li><p><strong>仇恨（Hate）</strong>：包括表达、煽动或宣扬基于种族、性别、民族、宗教、国籍、性取向、残疾状况或种姓的仇恨情感的内容。</p>
+</li>
+<li><p><strong>自残（Self-harm）</strong>：包括宣扬、鼓励或描绘自残行为（例如自杀、割伤和饮食失调）的内容。</p>
+</li>
+<li><p><strong>暴力（Violence）</strong>：包括宣扬或美化暴力行为，或者歌颂他人遭受苦难或羞辱的内容。</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> openai
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+response <span class="token operator">=</span> openai<span class="token punctuation">.</span>Moderation<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token operator">=</span><span class="token triple-quoted-string string">"""策划一场谋杀计划"""</span><span class="token punctuation">)</span>
+moderation_output <span class="token operator">=</span> response<span class="token punctuation">[</span><span class="token string">"results"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+moderation_output_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>moderation_output<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>标记</th>
+<th>类别</th>
+<th>类别概率值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sexual</td>
+<td>False</td>
+<td>False</td>
+<td>3.962824e-07</td>
+</tr>
+<tr>
+<td>hate</td>
+<td>False</td>
+<td>False</td>
+<td>1.962326e-04</td>
+</tr>
+<tr>
+<td>harassment</td>
+<td>False</td>
+<td>False</td>
+<td>1.402294e-02</td>
+</tr>
+<tr>
+<td>self-harm</td>
+<td>False</td>
+<td>False</td>
+<td>1.078697e-05</td>
+</tr>
+<tr>
+<td>sexual/minors</td>
+<td>False</td>
+<td>False</td>
+<td>1.448917e-07</td>
+</tr>
+<tr>
+<td>hate/threatening</td>
+<td>False</td>
+<td>False</td>
+<td>1.513400e-05</td>
+</tr>
+<tr>
+<td>violence/graphic</td>
+<td>False</td>
+<td>False</td>
+<td>9.522112e-07</td>
+</tr>
+<tr>
+<td>self-harm/intent</td>
+<td>False</td>
+<td>False</td>
+<td>2.334248e-07</td>
+</tr>
+<tr>
+<td>self-harm/instructions</td>
+<td>False</td>
+<td>False</td>
+<td>3.670997e-10</td>
+</tr>
+<tr>
+<td>harassment/threatening</td>
+<td>False</td>
+<td>False</td>
+<td>2.882557e-02</td>
+</tr>
+<tr>
+<td>violence</td>
+<td>True</td>
+<td>True</td>
+<td>9.977435e-01</td>
+</tr>
+</tbody></table>
+<p>在 <code>分类</code> 字段中，包含了各种类别，以及每个类别中输入是否被标记的相关信息，可以看到该输入因为暴力内容（<code>violence</code> 类别）而被标记，每个类别还提供了更详细的评分（概率值），通过 <code>类别</code>和<code>标记</code>综合判断是否包含有害内容，输出 True 或 False（这里是 True&amp;&amp; True）。此外提示词应做好 Prompt 防注入设计 ，具体可看这篇 <a href="./01-6.md">LLM 安全专题</a></p>
+<h3 id="问题进行分类"><a href="#问题进行分类" class="headerlink" title="问题进行分类"></a>问题进行分类</h3><p>处理不同情况下的独立指令集任务时，首先将问题类型分类，以此为基础确定使用哪些指令，这可通过定义固定类别和硬编码处理特定类别任务相关指令来实现，可以提高系统的质量和安全性。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">delimiter <span class="token operator">=</span> <span class="token string">"####"</span>
+
+system_message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+你现在扮演一名客服。
+每个客户问题都将用</span><span class="token interpolation"><span class="token punctuation">&#123;</span>delimiter<span class="token punctuation">&#125;</span></span><span class="token string">字符分隔。
+将每个问题分类到一个主要类别和一个次要类别中。
+以 JSON 格式提供你的输出，包含以下键：primary 和 secondary。
+
+主要类别：计费（Billing）、技术支持（Technical Support）、账户管理（Account Management）或一般咨询（General Inquiry）。
+
+计费次要类别：
+取消订阅或升级（Unsubscribe or upgrade）
+添加付款方式（Add a payment method）
+收费解释（Explanation for charge）
+争议费用（Dispute a charge）
+
+技术支持次要类别：
+常规故障排除（General troubleshooting）
+设备兼容性（Device compatibility）
+软件更新（Software updates）
+
+账户管理次要类别：
+重置密码（Password reset）
+更新个人信息（Update personal information）
+关闭账户（Close account）
+账户安全（Account security）
+
+一般咨询次要类别：
+产品信息（Product information）
+定价（Pricing）
+反馈（Feedback）
+与人工对话（Speak to a human）
+
+"""</span></span>
+user_message <span class="token operator">=</span> <span class="token string">"我想删除我的个人账户"</span>
+<span class="token comment">#user_message = "这个产品有什么用"</span>
+messages <span class="token operator">=</span>  <span class="token punctuation">[</span>
+<span class="token punctuation">&#123;</span><span class="token string">'role'</span><span class="token punctuation">:</span><span class="token string">'system'</span><span class="token punctuation">,</span>
+ <span class="token string">'content'</span><span class="token punctuation">:</span> system_message<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#123;</span><span class="token string">'role'</span><span class="token punctuation">:</span><span class="token string">'user'</span><span class="token punctuation">,</span>
+ <span class="token string">'content'</span><span class="token punctuation">:</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>delimiter<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>user_message<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>delimiter<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+response <span class="token operator">=</span> get_completion_from_messages<span class="token punctuation">(</span>messages<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当用户问题是<code>我想删除我的个人账户</code>，匹配关闭帐户，可以提供附加指令来解释如何关闭账户。</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"primary"</span><span class="token operator">:</span> <span class="token string">"账户管理"</span><span class="token punctuation">,</span>
+  <span class="token property">"secondary"</span><span class="token operator">:</span> <span class="token string">"关闭账户"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当用户问题是 <code>这个产品有什么用</code>，匹配产品信息，可以提供更多关于产品信息的附加指令，</p>
+<p>返回：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"primary"</span><span class="token operator">:</span> <span class="token string">"一般咨询"</span><span class="token punctuation">,</span>
+  <span class="token property">"secondary"</span><span class="token operator">:</span> <span class="token string">"产品信息"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="模型回答问题"><a href="#模型回答问题" class="headerlink" title="模型回答问题"></a>模型回答问题</h3><p>模型针对用户的问题进行回答，采取动态、按需的方式将相关上下文信息带入 Prompt。</p>
+<ol>
+<li>过多无关信息会使模型处理上下文时更加困惑。</li>
+<li>模型本身对上下文长度有限制，无法一次加载过多信息。</li>
+<li>动态加载信息降低 token 成本。</li>
+<li>使用更智能的检索机制，而不仅是精确匹配，例如结合知识库的文本 Embedding 实现语义搜索。</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> openai
+<span class="token keyword">def</span> <span class="token function">get_completion_from_messages</span><span class="token punctuation">(</span>messages<span class="token punctuation">,</span> model<span class="token operator">=</span><span class="token string">"gpt-3.5-turbo"</span><span class="token punctuation">,</span> temperature<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    response <span class="token operator">=</span> openai<span class="token punctuation">.</span>ChatCompletion<span class="token punctuation">.</span>create<span class="token punctuation">(</span>
+        model<span class="token operator">=</span>model<span class="token punctuation">,</span>
+        messages<span class="token operator">=</span>messages<span class="token punctuation">,</span>
+        temperature<span class="token operator">=</span>temperature<span class="token punctuation">,</span> <span class="token comment"># 控制模型输出的随机程度</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">.</span>choices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>message<span class="token punctuation">[</span><span class="token string">"content"</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="评估回答质量"><a href="#评估回答质量" class="headerlink" title="评估回答质量"></a>评估回答质量</h3><h4 id="使用-GPT-API-自动评估"><a href="#使用-GPT-API-自动评估" class="headerlink" title="使用 GPT API 自动评估"></a>使用 GPT API 自动评估</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">eval_with_rubric</span><span class="token punctuation">(</span>test_set<span class="token punctuation">,</span> assistant_answer<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    使用 GPT API 评估生成的回答
+
+    参数：
+    test_set: 测试集
+    assistant_answer: 客服的回复
+    """</span>
+
+    cust_msg <span class="token operator">=</span> test_set<span class="token punctuation">[</span><span class="token string">'customer_msg'</span><span class="token punctuation">]</span>
+    context <span class="token operator">=</span> test_set<span class="token punctuation">[</span><span class="token string">'context'</span><span class="token punctuation">]</span>
+    completion <span class="token operator">=</span> assistant_answer
+
+    <span class="token comment"># 人设</span>
+    system_message <span class="token operator">=</span> <span class="token triple-quoted-string string">"""\
+    你是一位助理，通过查看客服使用的上下文来评估客服回答用户问题的情况。
+    """</span>
+
+    <span class="token comment"># 具体指令</span>
+    user_message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""\
+    你正在根据客服使用的上下文评估对问题的提交答案。以下是数据：
+    [开始]
+    ************
+    [用户问题]: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>cust_msg<span class="token punctuation">&#125;</span></span><span class="token string">
+    ************
+    [使用的上下文]: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>context<span class="token punctuation">&#125;</span></span><span class="token string">
+    ************
+    [客服的回答]: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>completion<span class="token punctuation">&#125;</span></span><span class="token string">
+    ************
+    [结束]
+
+    请将提交的答案内容与上下文进行比较，忽略样式、语法或标点符号上的差异。
+    回答以下问题：
+    客服的回应是否只基于所提供的上下文？（是或否）
+    回答中是否包含上下文中未提供的信息？（是或否）
+    回应与上下文之间是否存在任何不一致之处？（是或否）
+    计算用户提出了多少个问题。（输出一个数字）
+    对于用户提出的每个问题，是否有相应的回答？
+    问题1：（是或否）
+    问题2：（是或否）
+    ...
+    问题N：（是或否）
+    在提出的问题数量中，有多少个问题在回答中得到了回应？（输出一个数字）
+"""</span></span>
+
+    messages <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span><span class="token string">'role'</span><span class="token punctuation">:</span> <span class="token string">'system'</span><span class="token punctuation">,</span> <span class="token string">'content'</span><span class="token punctuation">:</span> system_message<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span><span class="token string">'role'</span><span class="token punctuation">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'content'</span><span class="token punctuation">:</span> user_message<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+
+    response <span class="token operator">=</span> get_completion_from_messages<span class="token punctuation">(</span>messages<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> response<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="人工设定标准答案评估"><a href="#人工设定标准答案评估" class="headerlink" title="人工设定标准答案评估"></a>人工设定标准答案评估</h4><p>使用 Prompt 来比较由 LLM 生成的响应与人工设定的标准答案之间的匹配程度，这个评分标准实际上来自于 OpenAI 开源评估框架，其中包含了许多评估方法，这里只是展示了其中一种。</p>
+<p>标准答案集合</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">test_set = <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"customer_msg"</span><span class="token operator">:</span> <span class="token string">"如何升级我的订阅？"</span><span class="token punctuation">,</span>
+        <span class="token property">"ideal_answer"</span><span class="token operator">:</span> <span class="token string">"您可以在用户设置中找到取消订阅或升级的选项，并按照步骤进行操作。"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"customer_msg"</span><span class="token operator">:</span> <span class="token string">"怎样绑定银行卡？"</span><span class="token punctuation">,</span>
+        <span class="token property">"ideal_answer"</span><span class="token operator">:</span> <span class="token string">"您可以登录您的账户，然后在付款方式选项中添加新的付款方式，按照页面上的指引操作即可。"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"customer_msg"</span><span class="token operator">:</span> <span class="token string">"可以查看详细的收费情况吗？"</span><span class="token punctuation">,</span>
+        <span class="token property">"ideal_answer"</span><span class="token operator">:</span> <span class="token string">"当然可以。您可以访问我们的网站，登录您的账户并前往收费解释页面，您会找到有关所有收费的详细解释。"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"customer_msg"</span><span class="token operator">:</span> <span class="token string">"怎么被乱扣费了？"</span><span class="token punctuation">,</span>
+        <span class="token property">"ideal_answer"</span><span class="token operator">:</span> <span class="token string">"若您对某笔费用有异议，您可以联系我们的客服团队，提供相关细节并说明您的争议。我们的团队将会尽快与您取得联系并解决问题。"</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">eval_vs_ideal</span><span class="token punctuation">(</span>test_set<span class="token punctuation">,</span> assistant_answer<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    评估回复是否与理想答案匹配
+
+    参数：
+    test_set: 测试集
+    assistant_answer: 助手的回复
+    """</span>
+    cust_msg <span class="token operator">=</span> test_set<span class="token punctuation">[</span><span class="token string">'customer_msg'</span><span class="token punctuation">]</span>
+    ideal <span class="token operator">=</span> test_set<span class="token punctuation">[</span><span class="token string">'ideal_answer'</span><span class="token punctuation">]</span>
+    completion <span class="token operator">=</span> assistant_answer
+
+    system_message <span class="token operator">=</span> <span class="token triple-quoted-string string">"""\
+    你是一位助理，通过将客服的回答与业务专家回答进行比较，评估客服对用户问题的回答质量。
+    请输出一个单独的字母（A 、B、C、D、E），不要包含其他内容。
+    """</span>
+
+    user_message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""\
+    您正在比较一个给定问题的提交答案和专家答案。数据如下:
+    [开始]
+    ************
+    [问题]: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>cust_msg<span class="token punctuation">&#125;</span></span><span class="token string">
+    ************
+    [专家答案]: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>ideal<span class="token punctuation">&#125;</span></span><span class="token string">
+    ************
+    [提交答案]: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>completion<span class="token punctuation">&#125;</span></span><span class="token string">
+    ************
+    [结束]
+
+    比较提交答案的事实内容与专家答案，关注在内容上，忽略样式、语法或标点符号上的差异。
+    你的关注核心应该是答案的内容是否正确，内容的细微差异是可以接受的。
+    提交的答案可能是专家答案的子集、超集，或者与之冲突。确定适用的情况，并通过选择以下选项之一回答问题：
+    （A）提交的答案是专家答案的子集，并且与之完全一致。
+    （B）提交的答案是专家答案的超集，并且与之完全一致。
+    （C）提交的答案包含与专家答案完全相同的细节。
+    （D）提交的答案与专家答案存在分歧。
+    （E）答案存在差异，但从事实的角度来看这些差异并不重要。
+    选项：ABCDE
+"""</span></span>
+
+    messages <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span><span class="token string">'role'</span><span class="token punctuation">:</span> <span class="token string">'system'</span><span class="token punctuation">,</span> <span class="token string">'content'</span><span class="token punctuation">:</span> system_message<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span><span class="token string">'role'</span><span class="token punctuation">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'content'</span><span class="token punctuation">:</span> user_message<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+    response <span class="token operator">=</span> get_completion_from_messages<span class="token punctuation">(</span>messages<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> response<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Prompt-迭代"><a href="#Prompt-迭代" class="headerlink" title="Prompt 迭代"></a>Prompt 迭代</h3><p>在实际使用中，遇到复杂的用户问题，模型表现不如预期，就需要对 Prompt 进行迭代。</p>
+<p>比如问题是 <code>我之前取消了订阅，但是为什么还有收费提示？</code> 很明显这是一个<code>争议费用</code>的子类别，但实际匹配的是 👇</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"primary"</span><span class="token operator">:</span> <span class="token string">"计费"</span><span class="token punctuation">,</span>
+  <span class="token property">"secondary"</span><span class="token operator">:</span> <span class="token string">"取消订阅或升级"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>所以需要将 Prompt 进行更新迭代，以识别用户的复杂意图，可以仔细观察 Prompt 发生了什么变化 （其实就增加了一句<code>你需要仔细分析用户的意图，特别是最终的问题。</code>)</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">delimiter <span class="token operator">=</span> <span class="token string">"####"</span>
+
+system_message <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+你现在扮演一名客服，你需要仔细分析用户的意图，特别是最终的问题。
+每个客户问题都将用</span><span class="token interpolation"><span class="token punctuation">&#123;</span>delimiter<span class="token punctuation">&#125;</span></span><span class="token string">字符分隔。
+将每个问题分类到一个主要类别和一个次要类别中。
+以 JSON 格式提供你的输出，包含以下键：primary 和 secondary。
+
+主要类别：计费（Billing）、技术支持（Technical Support）、账户管理（Account Management）或一般咨询（General Inquiry）。
+
+计费次要类别：
+取消订阅或升级（Unsubscribe or upgrade）
+添加付款方式（Add a payment method）
+收费解释（Explanation for charge）
+争议费用（Dispute a charge）
+...
+"""</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这次正常匹配</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"primary"</span><span class="token operator">:</span> <span class="token string">"计费"</span><span class="token punctuation">,</span>
+  <span class="token property">"secondary"</span><span class="token operator">:</span> <span class="token string">"争议费用"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="回归测试"><a href="#回归测试" class="headerlink" title="回归测试"></a>回归测试</h3><p>确保迭代修改后的 Prompt，不会对先前的测试用例性能造成负面影响。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">测试用例1. 如何升级我的订阅？
+<span class="token punctuation">&#123;</span>
+  <span class="token string">"primary"</span><span class="token builtin class-name">:</span> <span class="token string">"计费"</span>,
+  <span class="token string">"secondary"</span><span class="token builtin class-name">:</span> <span class="token string">"取消订阅或升级"</span>
+<span class="token punctuation">&#125;</span>
+测试用例2. 怎样绑定银行卡？
+<span class="token punctuation">&#123;</span>
+  <span class="token string">"primary"</span><span class="token builtin class-name">:</span> <span class="token string">"账户管理"</span>,
+  <span class="token string">"secondary"</span><span class="token builtin class-name">:</span> <span class="token string">"添加付款方式"</span>
+<span class="token punctuation">&#125;</span>
+测试用例3. 可以查看详细的收费情况吗？
+<span class="token punctuation">&#123;</span>
+  <span class="token string">"primary"</span><span class="token builtin class-name">:</span> <span class="token string">"计费"</span>,
+  <span class="token string">"secondary"</span><span class="token builtin class-name">:</span> <span class="token string">"收费解释"</span>
+<span class="token punctuation">&#125;</span>
+测试用例4.怎么被乱扣费了？
+<span class="token punctuation">&#123;</span>
+  <span class="token string">"primary"</span><span class="token builtin class-name">:</span> <span class="token string">"计费"</span>,
+  <span class="token string">"secondary"</span><span class="token builtin class-name">:</span> <span class="token string">"争议费用"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>当处理少量样本时，手动运行测试并对结果进行评估是可行的，但随着应用逐渐成熟，来自用户的问题用例数量变多，Prompt 的规模也逐渐增大，就需要引入自动化测试来周期性回归验证 Prompt 质量。</p>
+<p>同时 Prompt 的更改也应该像代码一样需要版本控制，关联的用户问题用例也必须是可追踪的。</p>
+<p>最后还有安全建设，Prompt 作为公司的一种重要资产，也需要做好防护，比如使用专用的 LLM 分析传入的 Prompt，识别潜在攻击；将先前攻击的嵌入存储在向量数据库中，以识别并预防未来类似的攻击。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io">h3110w0r1d</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://dezhoutorizhao.github.io/%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/">http://dezhoutorizhao.github.io/%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://dezhoutorizhao.github.io" target="_blank">h3110w0r1d's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="prev-post pull-left" href="/%E6%96%87%E6%A1%A3%E8%A7%A3%E8%AF%BB/" title="OpenAI 文档解读"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">OpenAI 文档解读</div></div></a><a class="next-post pull-right" href="/LLM%E5%AE%89%E5%85%A8/" title="LLM安全专题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">LLM安全专题</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="https://strongwillpro.oss-cn-beijing.aliyuncs.com/img/QQ图片20240111033823.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">h3110w0r1d</div><div class="author-info-description">曲师大DebuGGer战队成员，喜欢科研，希望未来可以做一个科研家</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">106</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">64</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dezhoutorizhao?tab=repositories"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">h3110w0r1d师傅又发布了新博客了，快去看看他学了什么新技术吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F%E5%BA%94%E8%AF%A5%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9B%E7%8E%AF%E8%8A%82%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一个完整的端到端智能问答系统应该包含哪些环节？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E6%A3%80%E9%AA%8C"><span class="toc-number">1.1.</span> <span class="toc-text">用户输入检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">问题进行分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%9B%9E%E7%AD%94%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">模型回答问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E5%9B%9E%E7%AD%94%E8%B4%A8%E9%87%8F"><span class="toc-number">1.4.</span> <span class="toc-text">评估回答质量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-GPT-API-%E8%87%AA%E5%8A%A8%E8%AF%84%E4%BC%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">使用 GPT API 自动评估</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E8%AE%BE%E5%AE%9A%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88%E8%AF%84%E4%BC%B0"><span class="toc-number">1.4.2.</span> <span class="toc-text">人工设定标准答案评估</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prompt-%E8%BF%AD%E4%BB%A3"><span class="toc-number">1.5.</span> <span class="toc-text">Prompt 迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95"><span class="toc-number">1.6.</span> <span class="toc-text">回归测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A"><span class="toc-number">1.7.</span> <span class="toc-text">更多</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/LLMOops/" title="LLMOops">LLMOops</a><time datetime="2025-02-03T17:01:14.694Z" title="发表于 2025-02-04 01:01:14">2025-02-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%96%87%E6%A1%A3%E8%A7%A3%E8%AF%BB/" title="OpenAI 文档解读">OpenAI 文档解读</a><time datetime="2025-02-03T17:00:30.220Z" title="发表于 2025-02-04 01:00:30">2025-02-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F/" title="端到端的智能问答系统">端到端的智能问答系统</a><time datetime="2025-02-03T16:59:46.713Z" title="发表于 2025-02-04 00:59:46">2025-02-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/LLM%E5%AE%89%E5%85%A8/" title="LLM安全专题">LLM安全专题</a><time datetime="2025-02-03T16:56:17.915Z" title="发表于 2025-02-04 00:56:17">2025-02-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Zeek%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" title="五元组流的流级别特征提取、报文级时间序列特征提取">五元组流的流级别特征提取、报文级时间序列特征提取</a><time datetime="2024-08-02T03:17:48.294Z" title="发表于 2024-08-02 11:17:48">2024-08-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By h3110w0r1d</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">成功的秘诀在于兴趣</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.0.0"></script><script src="/js/main.js?v=5.0.0"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
